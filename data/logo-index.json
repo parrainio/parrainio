@@ -1,0 +1,442 @@
+{
+  "10-pourcent-1": {
+    "logo": "/logos/10-pourcent-1.png",
+    "logoVerified": false
+  },
+  "airbnb": {
+    "logo": "/logos/airbnb.png",
+    "logoVerified": false
+  },
+  "airbnb-1": {
+    "logo": "/logos/airbnb-1.png",
+    "logoVerified": false
+  },
+  "alltricks": {
+    "logo": "/logos/alltricks.png",
+    "logoVerified": false
+  },
+  "aroma-zone": {
+    "logo": "/logos/aroma-zone.png",
+    "logoVerified": false
+  },
+  "attapoll": {
+    "logo": "/logos/attapoll.png",
+    "logoVerified": false
+  },
+  "bebe-boutik": {
+    "logo": "/logos/bebe-boutik.png",
+    "logoVerified": false
+  },
+  "becquet": {
+    "logo": "/logos/becquet.png",
+    "logoVerified": false
+  },
+  "beebs": {
+    "logo": "/logos/beebs.png",
+    "logoVerified": false
+  },
+  "bemyeye": {
+    "logo": "/logos/bemyeye.png",
+    "logoVerified": false
+  },
+  "betclic": {
+    "logo": "/logos/betclic.png",
+    "logoVerified": false
+  },
+  "betsson": {
+    "logo": "/logos/betsson.png",
+    "logoVerified": false
+  },
+  "bienpreter": {
+    "logo": "/logos/bienpreter.png",
+    "logoVerified": false
+  },
+  "biogents": {
+    "logo": "/logos/biogents.jpg",
+    "logoVerified": false
+  },
+  "bitpanda": {
+    "logo": "/logos/bitpanda.png",
+    "logoVerified": false
+  },
+  "bitstack": {
+    "logo": "/logos/bitstack.png",
+    "logoVerified": false
+  },
+  "boursobank": {
+    "logo": "/logos/boursobank.png",
+    "logoVerified": false
+  },
+  "bricks": {
+    "logo": "/logos/bricks.png",
+    "logoVerified": false
+  },
+  "bybit": {
+    "logo": "/logos/bybit.png",
+    "logoVerified": false
+  },
+  "c-monetiquette": {
+    "logo": "/logos/c-monetiquette.png",
+    "logoVerified": false
+  },
+  "capital-koala": {
+    "logo": "/logos/capital-koala.png",
+    "logoVerified": false
+  },
+  "coinbase": {
+    "logo": "/logos/coinbase.png",
+    "logoVerified": false
+  },
+  "coinhouse": {
+    "logo": "/logos/coinhouse.png",
+    "logoVerified": false
+  },
+  "cointiply": {
+    "logo": "/logos/cointiply.png",
+    "logoVerified": false
+  },
+  "credit-agricole-centre-loire": {
+    "logo": "/logos/credit-agricole-centre-loire.png",
+    "logoVerified": false
+  },
+  "crypto-com": {
+    "logo": "/logos/crypto-com.png",
+    "logoVerified": false
+  },
+  "direct-assurance": {
+    "logo": "/logos/direct-assurance.png",
+    "logoVerified": false
+  },
+  "ebuyclub": {
+    "logo": "/logos/ebuyclub.png",
+    "logoVerified": false
+  },
+  "engie": {
+    "logo": "/logos/engie.png",
+    "logoVerified": false
+  },
+  "epargnoo-5": {
+    "logo": "/logos/epargnoo-5.png",
+    "logoVerified": false
+  },
+  "etoro": {
+    "logo": "/logos/etoro.png",
+    "logoVerified": false
+  },
+  "fdj-francaise-des-jeux": {
+    "logo": "/logos/fdj-francaise-des-jeux.png",
+    "logoVerified": false
+  },
+  "featurepoints": {
+    "logo": "/logos/featurepoints.png",
+    "logoVerified": false
+  },
+  "fidme": {
+    "logo": "/logos/fidme.png",
+    "logoVerified": false
+  },
+  "fiverr": {
+    "logo": "/logos/fiverr.png",
+    "logoVerified": false
+  },
+  "fizzer": {
+    "logo": "/logos/fizzer.png",
+    "logoVerified": false
+  },
+  "fortuneo": {
+    "logo": "/logos/fortuneo.png",
+    "logoVerified": false
+  },
+  "freecash": {
+    "logo": "/logos/freecash.png",
+    "logoVerified": false
+  },
+  "gmf": {
+    "logo": "/logos/gmf.png",
+    "logoVerified": false
+  },
+  "greenweez-6": {
+    "logo": "/logos/greenweez-6.png",
+    "logoVerified": false
+  },
+  "hello-bank": {
+    "logo": "/logos/hello-bank.png",
+    "logoVerified": false
+  },
+  "hello-fresh": {
+    "logo": "/logos/hello-fresh.png",
+    "logoVerified": false
+  },
+  "hello-watt": {
+    "logo": "/logos/hello-watt.png",
+    "logoVerified": false
+  },
+  "honeygain": {
+    "logo": "/logos/honeygain.png",
+    "logoVerified": false
+  },
+  "hostinger": {
+    "logo": "/logos/hostinger.png",
+    "logoVerified": false
+  },
+  "i-run-fr": {
+    "logo": "/logos/i-run-fr.png",
+    "logoVerified": false
+  },
+  "igraal": {
+    "logo": "/logos/igraal.png",
+    "logoVerified": false
+  },
+  "instant-gaming": {
+    "logo": "/logos/instant-gaming.png",
+    "logoVerified": false
+  },
+  "joybuy": {
+    "logo": "/logos/joybuy.png",
+    "logoVerified": false
+  },
+  "karos": {
+    "logo": "/logos/karos.png",
+    "logoVerified": false
+  },
+  "klarna": {
+    "logo": "/logos/klarna.png",
+    "logoVerified": false
+  },
+  "kraken": {
+    "logo": "/logos/kraken.png",
+    "logoVerified": false
+  },
+  "la-belle-vie": {
+    "logo": "/logos/la-belle-vie.jpg",
+    "logoVerified": false
+  },
+  "la-bourse-aux-livres": {
+    "logo": "/logos/la-bourse-aux-livres.png",
+    "logoVerified": false
+  },
+  "la-premiere-brique-1": {
+    "logo": "/logos/la-premiere-brique-1.png",
+    "logoVerified": false
+  },
+  "lalalab": {
+    "logo": "/logos/lalalab.png",
+    "logoVerified": false
+  },
+  "linxea": {
+    "logo": "/logos/linxea.png",
+    "logoVerified": false
+  },
+  "lolivier": {
+    "logo": "/logos/lolivier.png",
+    "logoVerified": false
+  },
+  "ludocortex": {
+    "logo": "/logos/ludocortex.png",
+    "logoVerified": false
+  },
+  "meilleurtaux-com": {
+    "logo": "/logos/meilleurtaux-com.png",
+    "logoVerified": false
+  },
+  "monabanq": {
+    "logo": "/logos/monabanq.png",
+    "logoVerified": false
+  },
+  "myvitamins": {
+    "logo": "/logos/myvitamins.png",
+    "logoVerified": false
+  },
+  "n26": {
+    "logo": "/logos/n26.png",
+    "logoVerified": false
+  },
+  "naomi-1": {
+    "logo": "/logos/naomi-1.png",
+    "logoVerified": false
+  },
+  "nutripure": {
+    "logo": "/logos/nutripure.png",
+    "logoVerified": false
+  },
+  "okx": {
+    "logo": "/logos/okx.png",
+    "logoVerified": false
+  },
+  "parions-sport": {
+    "logo": "/logos/parions-sport.png",
+    "logoVerified": false
+  },
+  "paypal": {
+    "logo": "/logos/paypal.png",
+    "logoVerified": false
+  },
+  "phenix": {
+    "logo": "/logos/phenix.png",
+    "logoVerified": false
+  },
+  "placesdescartes": {
+    "logo": "/logos/placesdescartes.png",
+    "logoVerified": false
+  },
+  "pmu": {
+    "logo": "/logos/pmu.png",
+    "logoVerified": false
+  },
+  "poulpeo": {
+    "logo": "/logos/poulpeo.png",
+    "logoVerified": false
+  },
+  "pourdebon": {
+    "logo": "/logos/pourdebon.png",
+    "logoVerified": false
+  },
+  "primeo-energie": {
+    "logo": "/logos/primeo-energie.png",
+    "logoVerified": false
+  },
+  "private-sport-shop": {
+    "logo": "/logos/private-sport-shop.png",
+    "logoVerified": false
+  },
+  "raizers": {
+    "logo": "/logos/raizers.png",
+    "logoVerified": false
+  },
+  "reevolt": {
+    "logo": "/logos/reevolt.png",
+    "logoVerified": false
+  },
+  "revolut": {
+    "logo": "/logos/revolut.png",
+    "logoVerified": false
+  },
+  "revolut-business": {
+    "logo": "/logos/revolut-business.png",
+    "logoVerified": false
+  },
+  "ritmic": {
+    "logo": "/logos/ritmic.png",
+    "logoVerified": false
+  },
+  "rover-1": {
+    "logo": "/logos/rover-1.png",
+    "logoVerified": false
+  },
+  "scrambly": {
+    "logo": "/logos/scrambly.png",
+    "logoVerified": false
+  },
+  "sfr": {
+    "logo": "/logos/sfr.png",
+    "logoVerified": false
+  },
+  "shein": {
+    "logo": "/logos/shein.png",
+    "logoVerified": false
+  },
+  "shoes-fr": {
+    "logo": "/logos/shoes-fr.png",
+    "logoVerified": false
+  },
+  "shopmium": {
+    "logo": "/logos/shopmium.png",
+    "logoVerified": false
+  },
+  "showroomprive": {
+    "logo": "/logos/showroomprive.png",
+    "logoVerified": false
+  },
+  "simplis": {
+    "logo": "/logos/simplis.png",
+    "logoVerified": false
+  },
+  "speedo": {
+    "logo": "/logos/speedo.png",
+    "logoVerified": false
+  },
+  "splint-invest": {
+    "logo": "/logos/splint-invest.svg",
+    "logoVerified": true
+  },
+  "sumeria": {
+    "logo": "/logos/sumeria.png",
+    "logoVerified": false
+  },
+  "sumup": {
+    "logo": "/logos/sumup.png",
+    "logoVerified": false
+  },
+  "swagbucks": {
+    "logo": "/logos/swagbucks.png",
+    "logoVerified": false
+  },
+  "swissborg": {
+    "logo": "/logos/swissborg.png",
+    "logoVerified": false
+  },
+  "systeme-io": {
+    "logo": "/logos/systeme-io.png",
+    "logoVerified": false
+  },
+  "the-protein-works": {
+    "logo": "/logos/the-protein-works.png",
+    "logoVerified": false
+  },
+  "thefork": {
+    "logo": "/logos/thefork.png",
+    "logoVerified": false
+  },
+  "too-good-to-go": {
+    "logo": "/logos/too-good-to-go.png",
+    "logoVerified": false
+  },
+  "topcashback": {
+    "logo": "/logos/topcashback.png",
+    "logoVerified": false
+  },
+  "totalenergies": {
+    "logo": "/logos/totalenergies.jpg",
+    "logoVerified": false
+  },
+  "trade-republic": {
+    "logo": "/logos/trade-republic.png",
+    "logoVerified": false
+  },
+  "unibet": {
+    "logo": "/logos/unibet.png",
+    "logoVerified": false
+  },
+  "wanteeed": {
+    "logo": "/logos/wanteeed.png",
+    "logoVerified": false
+  },
+  "whatnot": {
+    "logo": "/logos/whatnot.png",
+    "logoVerified": false
+  },
+  "widilo": {
+    "logo": "/logos/widilo.png",
+    "logoVerified": false
+  },
+  "winamax": {
+    "logo": "/logos/winamax.png",
+    "logoVerified": false
+  },
+  "wise": {
+    "logo": "/logos/wise.png",
+    "logoVerified": false
+  },
+  "zeconfiserie": {
+    "logo": "/logos/zeconfiserie.jpg",
+    "logoVerified": false
+  },
+  "zumub": {
+    "logo": "/logos/zumub.png",
+    "logoVerified": false
+  },
+  "assurancevie-com": {
+    "logo": "/logos/assurancevie-com.png",
+    "logoVerified": false
+  }
+}

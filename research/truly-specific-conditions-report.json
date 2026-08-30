@@ -1,0 +1,897 @@
+{
+  "generatedAt": "2026-08-30T11:03:26.126Z",
+  "catalogueCount": 120,
+  "specificConditions": 38,
+  "specificSteps": 12,
+  "complete": 0,
+  "incomplete": [
+    {
+      "slug": "boursobank",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "igraal",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "totalenergies",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "sfr",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "fortuneo",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "poulpeo",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "paypal",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "revolut",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "ebuyclub",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "airbnb",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "shopmium",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "showroomprive",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "hello-bank",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "trade-republic",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "rakuten-priceminister",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "direct-assurance",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "winamax",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "weward",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "n26",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "coinbase",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "betclic",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "lolivier",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "crypto-com",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "primeo-energie",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "unibet",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "widilo",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "thefork",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "linxea",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "bricks",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "swissborg",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "airbnb-1",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "choose",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "myprotein",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "hello-fresh",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "pmu",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "coupon-network",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "engie",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "la-premiere-brique-1",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "macadam-4",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "wise",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "aroma-zone",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "wanteeed",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "naomi-1",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "bienpreter",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "phenix",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "attapoll",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "greenweez-6",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "fizzer",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "swagbucks",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "honeygain",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "monabanq",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "parions-sport",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "topcashback",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "etoro",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "private-sport-shop",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "bitstack",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "instant-gaming",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "shein",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "gmf",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "karos",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "kraken",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "capital-koala",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "freecash",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "beebs",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "hello-watt",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "bemyeye",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "i-run-fr",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "bitpanda",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "bebe-boutik",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "bybit",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "fdj-francaise-des-jeux",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "lalalab",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "sumeria",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "meilleurtaux-com",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "assurancevie-com",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "edf",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "hostinger",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "whatnot",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "too-good-to-go",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "placesdescartes",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "sumup",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "fidme",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "la-belle-vie",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "cointiply",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "fiverr",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "okx",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "revolut-business",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "raizers",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "nutripure",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "pourdebon",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "10-pourcent-1",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "becquet",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "c-monetiquette",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "betsson",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "systeme-io",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "liberte-watts",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "klarna",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "reevolt",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "scrambly",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "splint-invest",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "rover-1",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "alltricks",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "featurepoints",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "joybuy",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "the-protein-works",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "shoes-fr",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "epargnoo-5",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "caisse-depargne-loire-centre",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "la-bourse-aux-livres",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "cartouche-du-toner",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "myvitamins",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "zumub",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "speedo",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "coinhouse",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "ludocortex",
+      "missing": [
+        "conditions",
+        "steps"
+      ]
+    },
+    {
+      "slug": "biogents",
+      "missing": [
+        "steps"
+      ]
+    },
+    {
+      "slug": "credit-agricole-centre-loire",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "ritmic",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "zeconfiserie",
+      "missing": [
+        "conditions"
+      ]
+    },
+    {
+      "slug": "simplis",
+      "missing": [
+        "conditions"
+      ]
+    }
+  ],
+  "sample": [
+    {
+      "slug": "boursobank",
+      "partner": "BoursoBank",
+      "bonus": "Jusqu'à 160€",
+      "conditions": [
+        "Le premier versement doit être effectué dans le délai prévu par la campagne active.",
+        "Le montant de la prime dépend du montant du premier versement et des options souscrites.",
+        "La mobilité bancaire et les paiements mensuels éventuels obéissent aux conditions propres à la campagne affichée."
+      ],
+      "steps": [],
+      "source": "https://parrainage.co/offers/127423"
+    },
+    {
+      "slug": "igraal",
+      "partner": "igraal",
+      "bonus": null,
+      "conditions": [],
+      "steps": [],
+      "source": "https://parrainage.co/offers/121582"
+    },
+    {
+      "slug": "totalenergies",
+      "partner": "totalenergies",
+      "bonus": null,
+      "conditions": [],
+      "steps": [],
+      "source": "https://parrainage.co/offers/125133"
+    },
+    {
+      "slug": "sfr",
+      "partner": "sfr",
+      "bonus": null,
+      "conditions": [],
+      "steps": [],
+      "source": "https://parrainage.co/offers/124436"
+    },
+    {
+      "slug": "fortuneo",
+      "partner": "fortuneo",
+      "bonus": "150 €",
+      "conditions": [
+        "Pour l’offre bancaire concernée, effectuer un premier versement de 300 €.",
+        "Le versement de 300 € doit être effectué dans les 6 jours suivant l’ouverture selon les conditions de l’offre."
+      ],
+      "steps": [],
+      "source": "https://parrainage.co/offers/121569"
+    },
+    {
+      "slug": "poulpeo",
+      "partner": "poulpeo",
+      "bonus": null,
+      "conditions": [],
+      "steps": [],
+      "source": "https://parrainage.co/offers/121584"
+    },
+    {
+      "slug": "paypal",
+      "partner": "paypal",
+      "bonus": null,
+      "conditions": [],
+      "steps": [],
+      "source": "https://parrainage.co/offers/121580"
+    },
+    {
+      "slug": "revolut",
+      "partner": "Revolut",
+      "bonus": "Aucun",
+      "conditions": [
+        "Faire 3 paiements de 5€  avec la  carte  (virtuelle ou  physique)",
+        "Commander la carte physique"
+      ],
+      "steps": [],
+      "source": "https://parrainage.co/offers/125012"
+    },
+    {
+      "slug": "ebuyclub",
+      "partner": "ebuyclub",
+      "bonus": null,
+      "conditions": [
+        "Le filleul doit effectuer un premier achat générant du cashback.",
+        "Le premier cashback en ligne doit atteindre au moins 10 € HT, ou 40 € pour un cashback bon d’achat ou magasin.",
+        "Le programme prévoit ensuite le bonus de parrainage et 10 % des gains cashback du filleul."
+      ],
+      "steps": [],
+      "source": "https://parrainage.co/offers/121588"
+    },
+    {
+      "slug": "airbnb",
+      "partner": "Airbnb",
+      "bonus": "25€",
+      "conditions": [
+        "Le filleul doit effectuer sa première réservation éligible via le lien de parrainage."
+      ],
+      "steps": [],
+      "source": null
+    }
+  ]
+}

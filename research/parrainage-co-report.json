@@ -1,0 +1,3760 @@
+{
+  "generatedAt": "2026-08-28T04:13:49.202Z",
+  "source": {
+    "profileUrl": "https://parrainage.co/user/mathieu45510",
+    "expectedUser": "mathieu45510",
+    "profileStatus": 200,
+    "declaredActiveCount": 107,
+    "discoveredOfferCount": 107
+  },
+  "extraction": {
+    "method": "public profile links then sequential public offer pages",
+    "userAgent": "Parrainio-read-only-research/1.0",
+    "privateRoutesAccessed": false,
+    "structuredDataFound": false,
+    "apiUsed": false
+  },
+  "offers": [
+    {
+      "sourceId": "124436",
+      "sourceUrl": "https://parrainage.co/offers/124436",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124436",
+      "companyName": "RED by SFR",
+      "siteUrl": "https://parrainage.co/site/red-by-sfr",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "RED by SFR",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "15"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "REDCE6C79C"
+        ]
+      },
+      "contentHash": "a478881d75a44436beb03b764984b293cb2601b434ef09dd5fe146721d6791fc",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "sfr",
+        "name": "RED by SFR",
+        "normalizedName": "redsfr"
+      }
+    },
+    {
+      "sourceId": "121795",
+      "sourceUrl": "https://parrainage.co/offers/121795",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121795",
+      "companyName": "PMU PLAY",
+      "siteUrl": "https://parrainage.co/site/pmu",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "PMU PLAY",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "105",
+          "100",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.pmu.fr/turf/static/offre-parrainage/?codeParrainage=578692128"
+        ],
+        "codeCandidates": [
+          "578692128"
+        ]
+      },
+      "contentHash": "8bcb444584b2bca18b54dfa7b81a4b26e7007b1179d455983d736618b7be4ac6",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "pmu",
+        "name": "PMU",
+        "normalizedName": "pmu"
+      }
+    },
+    {
+      "sourceId": "125292",
+      "sourceUrl": "https://parrainage.co/offers/125292",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125292",
+      "companyName": "Hello Bank",
+      "siteUrl": "https://parrainage.co/site/hellobank",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Hello Bank",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "80",
+          "100",
+          "340",
+          "10",
+          "70",
+          "60",
+          "200"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": []
+      },
+      "contentHash": "ea4d2ff6a88069867d4a55ed6938fdc73a004325867175f4ff2bdb5b199bc880",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "hello-bank",
+        "name": "Hello Bank",
+        "normalizedName": "hellobank"
+      }
+    },
+    {
+      "sourceId": "124774",
+      "sourceUrl": "https://parrainage.co/offers/124774",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124774",
+      "companyName": "Engie",
+      "siteUrl": "https://parrainage.co/site/engie",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Engie",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "25",
+          "20",
+          "5",
+          "145",
+          "120",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "RAD735473"
+        ]
+      },
+      "contentHash": "3112538e304d47a542f7aee49561e55079fa28e37a40a640044299c290a411b2",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "engie",
+        "name": "Engie",
+        "normalizedName": "engie"
+      }
+    },
+    {
+      "sourceId": "121589",
+      "sourceUrl": "https://parrainage.co/offers/121589",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121589",
+      "companyName": "MyProtein",
+      "siteUrl": "https://parrainage.co/site/myprotein",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "MyProtein",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "15",
+          "40"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://fr.myprotein.com/referrals.list?applyCode=MATHIEU-R90D",
+          "https://fr.myprotein.com/c/myreferrals/"
+        ],
+        "codeCandidates": [
+          "MATHIEU-R90D"
+        ]
+      },
+      "contentHash": "386a5ef8c741bca56f62480b6f62fa921c7e0762a2b23a5fb7e48e29b605d744",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "myprotein",
+        "name": "Myprotein",
+        "normalizedName": "myprotein"
+      }
+    },
+    {
+      "sourceId": "123289",
+      "sourceUrl": "https://parrainage.co/offers/123289",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123289",
+      "companyName": "Direct assurance",
+      "siteUrl": "https://parrainage.co/site/directassurance",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Direct assurance",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "50",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "promo"
+        ]
+      },
+      "contentHash": "f5cfaf8e6553963db74cf9e0fbf2b511ea9382985d47a25b94c8a9c61ecce2a6",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "direct-assurance",
+        "name": "Direct Assurance",
+        "normalizedName": "directassurance"
+      }
+    },
+    {
+      "sourceId": "123197",
+      "sourceUrl": "https://parrainage.co/offers/123197",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123197",
+      "companyName": "Aroma Zone",
+      "siteUrl": "https://parrainage.co/site/aroma-zone",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Aroma Zone",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "25"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://r.aroma-zone.com/mathieum-499"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "c72923fa0014fe7ec9e78574b7458d1908d347aaf5101e04e1447da9b47f2f21",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "aroma-zone",
+        "name": "Aroma-Zone",
+        "normalizedName": "aromazone"
+      }
+    },
+    {
+      "sourceId": "122382",
+      "sourceUrl": "https://parrainage.co/offers/122382",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122382",
+      "companyName": "BeMyEye",
+      "siteUrl": "https://parrainage.co/site/bemyeye",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "BeMyEye",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "1"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://invitation.bemyeye.com/invitation/rz85530?lc=fr_FR"
+        ],
+        "codeCandidates": [
+          "rz85530"
+        ]
+      },
+      "contentHash": "33758a2f2d655052fe4c418bc37d6248c12527c6f46cd69aac2568c10f451620",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bemyeye",
+        "name": "BeMyEye",
+        "normalizedName": "bemyeye"
+      }
+    },
+    {
+      "sourceId": "122903",
+      "sourceUrl": "https://parrainage.co/offers/122903",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122903",
+      "companyName": "Betclic",
+      "siteUrl": "https://parrainage.co/site/betclic",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Betclic",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "30",
+          "140",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://go.onelink.me/2887093520/6c3132b8?af_sub5=CARTUNDM"
+        ],
+        "codeCandidates": [
+          "Betclic",
+          "CARTUNDM"
+        ]
+      },
+      "contentHash": "4ba7ec2ed2b83f664a9ff407fc1301798c022c341883911709f1105f59a36d89",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "betclic",
+        "name": "Betclic",
+        "normalizedName": "betclic"
+      }
+    },
+    {
+      "sourceId": "127423",
+      "sourceUrl": "https://parrainage.co/offers/127423",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127423",
+      "companyName": "BoursoBank",
+      "siteUrl": "https://parrainage.co/site/boursorama",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "BoursoBank",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "160",
+          "80",
+          "196",
+          "36",
+          "120",
+          "0",
+          "10",
+          "1",
+          "49",
+          "20",
+          "50",
+          "299",
+          "40",
+          "300"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://bour.so/p/7rQmVJLmaxE"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "971418379145eb81185e9fd8f5d4328c85a847a38069845c88d127e4c30c05c0",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "boursobank",
+        "name": "BoursoBank",
+        "normalizedName": "boursobank"
+      }
+    },
+    {
+      "sourceId": "126373",
+      "sourceUrl": "https://parrainage.co/offers/126373",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/126373",
+      "companyName": "Coinbase",
+      "siteUrl": "https://parrainage.co/site/coinbase",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Coinbase",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "20",
+          "25",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "20",
+          "5"
+        ],
+        "referralUrls": [
+          "https://coinbase.com/join/R8HUK4G?src=referral-link"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "7134e936ccff9663a7f06f95953b8840952878d33e760d38525b8b44c23375dd",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "coinbase",
+        "name": "Coinbase",
+        "normalizedName": "coinbase"
+      }
+    },
+    {
+      "sourceId": "123194",
+      "sourceUrl": "https://parrainage.co/offers/123194",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123194",
+      "companyName": "Coupon Network",
+      "siteUrl": "https://parrainage.co/site/coupon-network",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Coupon Network",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "1"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Inscription",
+          "F5YT68"
+        ]
+      },
+      "contentHash": "a88c308e9c11e673c62a3849d41587cbfce7a0bba0ed64e6de0a4cf25aeaf8e5",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "coupon-network",
+        "name": "Coupon Network",
+        "normalizedName": "couponnetwork"
+      }
+    },
+    {
+      "sourceId": "121588",
+      "sourceUrl": "https://parrainage.co/offers/121588",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121588",
+      "companyName": "Ebuyclub",
+      "siteUrl": "https://parrainage.co/site/ebuyclub",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Ebuyclub",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "3",
+          "4.8",
+          "1.8",
+          "30"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.ebuyclub.com/inscription?parrain=mathieumorin2"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "3a048973a8d28de5b89694cd580d2da25a038f81dde7102b530e9c603c990746",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "ebuyclub",
+        "name": "eBuyClub",
+        "normalizedName": "ebuyclub"
+      }
+    },
+    {
+      "sourceId": "121569",
+      "sourceUrl": "https://parrainage.co/offers/121569",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121569",
+      "companyName": "Fortuneo",
+      "siteUrl": "https://parrainage.co/site/fortuneo",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Fortuneo",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "70",
+          "150",
+          "80",
+          "120",
+          "288",
+          "305",
+          "100",
+          "33",
+          "191",
+          "21",
+          "300"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Fortuneo",
+          "14241677"
+        ]
+      },
+      "contentHash": "68277ea9ec91d6497e6e80ecfd589a99f4730779d9def4316047916a5e21eb14",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "fortuneo",
+        "name": "Fortuneo",
+        "normalizedName": "fortuneo"
+      }
+    },
+    {
+      "sourceId": "123199",
+      "sourceUrl": "https://parrainage.co/offers/123199",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123199",
+      "companyName": "Greenweez",
+      "siteUrl": "https://parrainage.co/site/greenweez",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Greenweez",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "02A919B8"
+        ]
+      },
+      "contentHash": "0ce2cf6ef9520a367b5184f4e6a1ffd82e4ee526def5c9fe9f3a431c610bc664",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "greenweez-6",
+        "name": "Greenweez",
+        "normalizedName": "greenweez"
+      }
+    },
+    {
+      "sourceId": "121582",
+      "sourceUrl": "https://parrainage.co/offers/121582",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121582",
+      "companyName": "iGraal",
+      "siteUrl": "https://parrainage.co/site/igraal",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "iGraal",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "30",
+          "20",
+          "10"
+        ],
+        "reversalPercentCandidates": [
+          10
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://fr.igraal.com/parrainage?parrain=jojo45510&utm_medium=raf&utm_source=refer_friend"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "a5b9f81d26ff2072b779924a2a99eb851f5a370812d3fafd96a29fa92dd181d3",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "igraal",
+        "name": "iGraal",
+        "normalizedName": "igraal"
+      }
+    },
+    {
+      "sourceId": "121638",
+      "sourceUrl": "https://parrainage.co/offers/121638",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121638",
+      "companyName": "Irun",
+      "siteUrl": "https://parrainage.co/site/irun",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Irun",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.i-run.fr/client/parrainage.html"
+        ],
+        "codeCandidates": [
+          "i-Run"
+        ]
+      },
+      "contentHash": "d2fe9181953b1a121a9b48ca379eebf2585dfa0b33acc9b7ebd361e6b27e5a48",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "i-run-fr",
+        "name": "i-Run",
+        "normalizedName": "irun"
+      }
+    },
+    {
+      "sourceId": "122262",
+      "sourceUrl": "https://parrainage.co/offers/122262",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122262",
+      "companyName": "TheFork (ex LaFourchette)",
+      "siteUrl": "https://parrainage.co/site/lafourchette",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "TheFork (ex LaFourchette)",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://tfk.io/9h24t2ce"
+        ],
+        "codeCandidates": [
+          "1FAA4AD8"
+        ]
+      },
+      "contentHash": "e49fda024135152ae55a9745017b541875aa71c9e423af004fd8cd860727248a",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "thefork",
+        "name": "TheFork",
+        "normalizedName": "thefork"
+      }
+    },
+    {
+      "sourceId": "124826",
+      "sourceUrl": "https://parrainage.co/offers/124826",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124826",
+      "companyName": "Monabanq",
+      "siteUrl": "https://parrainage.co/site/monabanq",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Monabanq",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "280",
+          "310",
+          "30",
+          "50"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://www.monabanq.com/fr/parrainage/index.html?IDPEREFPRINCIPALE=280189512&CODEPROMO=PARCTC&CAMTYPE=PARRAINAGE&SUPPORT=EMAIL&codeParrain=17H9W"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "ba423c9d32594f897bc00d214638619b88d642a3a9e4e053c483f79876a99404",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "monabanq",
+        "name": "Monabanq",
+        "normalizedName": "monabanq"
+      }
+    },
+    {
+      "sourceId": "127092",
+      "sourceUrl": "https://parrainage.co/offers/127092",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127092",
+      "companyName": "N26",
+      "siteUrl": "https://parrainage.co/site/n26",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "N26",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "120",
+          "75",
+          "0",
+          "30",
+          "15"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [
+          "0",
+          "5"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "mathieum67329c"
+        ]
+      },
+      "contentHash": "55066b5ca43d47b732a22780a384d57eaafeeb194418b4f627e8cc31e5d24e04",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "n26",
+        "name": "N26",
+        "normalizedName": "n26"
+      }
+    },
+    {
+      "sourceId": "121584",
+      "sourceUrl": "https://parrainage.co/offers/121584",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121584",
+      "companyName": "Poulpeo",
+      "siteUrl": "https://parrainage.co/site/poulpeo",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Poulpeo",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "100"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.poulpeo.com/p/qas4ab"
+        ],
+        "codeCandidates": [
+          "auto"
+        ]
+      },
+      "contentHash": "a00886f7c0c4ef90168884c69ddc4c79db6b925ed7a05c7f2bac8c30a0880a97",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "poulpeo",
+        "name": "Poulpeo",
+        "normalizedName": "poulpeo"
+      }
+    },
+    {
+      "sourceId": "121585",
+      "sourceUrl": "https://parrainage.co/offers/121585",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121585",
+      "companyName": "Private Sport Shop",
+      "siteUrl": "https://parrainage.co/site/private-sport-shop",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Private Sport Shop",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "20",
+          "80"
+        ],
+        "reversalPercentCandidates": [
+          20
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.privatesportshop.fr/join/4X0866D259V8"
+        ],
+        "codeCandidates": [
+          "4X0866D259V8"
+        ]
+      },
+      "contentHash": "89f84dd4466cfaa589621d3c5d6f3d794ddd9fdd74fc38ff3ed0f221eba6775e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "private-sport-shop",
+        "name": "Private Sport Shop",
+        "normalizedName": "privatesportshop"
+      }
+    },
+    {
+      "sourceId": "125012",
+      "sourceUrl": "https://parrainage.co/offers/125012",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125012",
+      "companyName": "Revolut",
+      "siteUrl": "https://parrainage.co/site/revolut",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Revolut",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "48",
+          "5"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://revolut.com/referral/?referral-code=mathie_1r_ks2p!AUG1-26-AR-H2&geo-redirect"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "63880b6a96bb71f2c2345d714f5ec91d9bf5f656ea9ef06844821943d44b12ad",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "revolut",
+        "name": "Revolut",
+        "normalizedName": "revolut"
+      }
+    },
+    {
+      "sourceId": "121637",
+      "sourceUrl": "https://parrainage.co/offers/121637",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121637",
+      "companyName": "Shopmium",
+      "siteUrl": "https://parrainage.co/site/shopmium",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Shopmium",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "2"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "UK2UP4",
+          "promo"
+        ]
+      },
+      "contentHash": "9bf4b1a8a39faa851ee316059f11fbc3d95d9edb6ef34217d472ded2a920e242",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "shopmium",
+        "name": "Shopmium",
+        "normalizedName": "shopmium"
+      }
+    },
+    {
+      "sourceId": "125964",
+      "sourceUrl": "https://parrainage.co/offers/125964",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125964",
+      "companyName": "Showroomprive",
+      "siteUrl": "https://parrainage.co/site/showroomprive",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Showroomprive",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "12",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Showroomprive",
+          "MATAAP9C"
+        ]
+      },
+      "contentHash": "69566bbd61775c45bfc624a49c8b0e259100c13625a8f1087259a372371d4224",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "showroomprive",
+        "name": "Showroomprivé",
+        "normalizedName": "showroomprive"
+      }
+    },
+    {
+      "sourceId": "123243",
+      "sourceUrl": "https://parrainage.co/offers/123243",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123243",
+      "companyName": "The Protein Works",
+      "siteUrl": "https://parrainage.co/site/the-protein-works",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "The Protein Works",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://i.soreto.com/theproteinworks_fr/s/4y-rsNNnQe"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "1e0b8ae7b6ab007d91fe497e7755a529ce4d9be15c5cff7f50422dcef905b06e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "the-protein-works",
+        "name": "The Protein Works",
+        "normalizedName": "proteinworks"
+      }
+    },
+    {
+      "sourceId": "125133",
+      "sourceUrl": "https://parrainage.co/offers/125133",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125133",
+      "companyName": "TotalEnergies",
+      "siteUrl": "https://parrainage.co/site/total-energies",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "TotalEnergies",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "20",
+          "60",
+          "50",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "TotalEnergies",
+          "104954582"
+        ]
+      },
+      "contentHash": "376456965a4ec0d7b2d64386474d2f2ed1e138a9b22e2fe69ce20fedb2c7a784",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "totalenergies",
+        "name": "TotalEnergies",
+        "normalizedName": "totalenergies"
+      }
+    },
+    {
+      "sourceId": "122257",
+      "sourceUrl": "https://parrainage.co/offers/122257",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122257",
+      "companyName": "Wise (ex Transferwise)",
+      "siteUrl": "https://parrainage.co/site/transferwise",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Wise (ex Transferwise)",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "500",
+          "10",
+          "70"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://wise.com/invite/dic/mathieum865"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "7258bbc8ea0e95df774176e8e134b8a9396b38c95844605fad9a389dee46dc37",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "wise",
+        "name": "Wise",
+        "normalizedName": "wise"
+      }
+    },
+    {
+      "sourceId": "125213",
+      "sourceUrl": "https://parrainage.co/offers/125213",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125213",
+      "companyName": "Unibet",
+      "siteUrl": "https://parrainage.co/site/unibet",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Unibet",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "30",
+          "100",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.unibet.fr/inscription/?campaign=280526&parrain=6EB8BDE7346E88CB"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "0ca63850dff040ed91a37bdea88952fecf72ba5fecb962e8ee655d9abe01470b",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "unibet",
+        "name": "Unibet",
+        "normalizedName": "unibet"
+      }
+    },
+    {
+      "sourceId": "123210",
+      "sourceUrl": "https://parrainage.co/offers/123210",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123210",
+      "companyName": "WeWard",
+      "siteUrl": "https://parrainage.co/site/weward",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "WeWard",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "1"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Inscription",
+          "JustePerche8874"
+        ]
+      },
+      "contentHash": "545e1959f0c9649b80ce1f5078f21e9e9fc58a09dec505ad25ff1554903c7ebb",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "weward",
+        "name": "WeWard",
+        "normalizedName": "weward"
+      }
+    },
+    {
+      "sourceId": "121796",
+      "sourceUrl": "https://parrainage.co/offers/121796",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121796",
+      "companyName": "Winamax",
+      "siteUrl": "https://parrainage.co/site/winamax",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Winamax",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "20",
+          "10",
+          "170",
+          "50",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.winamax.fr/parrain?code=NOBYTA"
+        ],
+        "codeCandidates": [
+          "Winamax",
+          "NOBYTA"
+        ]
+      },
+      "contentHash": "7892e336eaff596f80e92e369c7f3652d10becea5e6940367e99753f8c3ca06b",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "winamax",
+        "name": "Winamax",
+        "normalizedName": "winamax"
+      }
+    },
+    {
+      "sourceId": "127310",
+      "sourceUrl": "https://parrainage.co/offers/127310",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127310",
+      "companyName": "Linxea",
+      "siteUrl": "https://parrainage.co/site/linxea",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Linxea",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "75",
+          "112,50",
+          "37,50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://linxea.mention-me.com/m/ol/jm6zytdx-2332006972"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "87b9704f1bbcf955fdc85fb0c54e67d6af2eb2bf4086c11dda9b727f14863fd2",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "linxea",
+        "name": "Linxea",
+        "normalizedName": "linxea"
+      }
+    },
+    {
+      "sourceId": "121574",
+      "sourceUrl": "https://parrainage.co/offers/121574",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121574",
+      "companyName": "eToro",
+      "siteUrl": "https://parrainage.co/site/etoro",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "eToro",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "500",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://etoro.tw/43CRlHI"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "a26f10f5e52f65e5eab617bb73a2c4dfeb505da5b1e4030d3b164b127110ca43",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "etoro",
+        "name": "etoro",
+        "normalizedName": "etoro"
+      }
+    },
+    {
+      "sourceId": "125089",
+      "sourceUrl": "https://parrainage.co/offers/125089",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125089",
+      "companyName": "Shein",
+      "siteUrl": "https://parrainage.co/site/shein",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Shein",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "49",
+          "24",
+          "30",
+          "100",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "35MW4M5"
+        ]
+      },
+      "contentHash": "3a8704a9590cefe7617e5f106d132eaec61f258a0740b7439d2607c382bed853",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "shein",
+        "name": "Shein",
+        "normalizedName": "shein"
+      }
+    },
+    {
+      "sourceId": "123240",
+      "sourceUrl": "https://parrainage.co/offers/123240",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123240",
+      "companyName": "FeaturePoints",
+      "siteUrl": "https://parrainage.co/site/featurepoints",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "FeaturePoints",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "1",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://featurepoints.com/@67MZP5"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "283472bb0d58d0c827f1c961aa4720628b4316a75cf2545439aeefb819dcbbfc",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "featurepoints",
+        "name": "FeaturePoints",
+        "normalizedName": "featurepoints"
+      }
+    },
+    {
+      "sourceId": "123204",
+      "sourceUrl": "https://parrainage.co/offers/123204",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123204",
+      "companyName": "HoneyGain",
+      "siteUrl": "https://parrainage.co/site/honeygain",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "HoneyGain",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "1"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://join.honeygain.com/BIDOUB6085"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "111e95b86635bc45357bae7560e02299c470e076adc90d59ed81a038873feaa7",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "honeygain",
+        "name": "HoneyGain",
+        "normalizedName": "honeygain"
+      }
+    },
+    {
+      "sourceId": "127089",
+      "sourceUrl": "https://parrainage.co/offers/127089",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127089",
+      "companyName": "SWISSBORG",
+      "siteUrl": "https://parrainage.co/site/swissborg",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "SWISSBORG",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "50",
+          "80",
+          "1",
+          "100"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://swissborg.com/fr/r/mathieKRBOTGJN"
+        ],
+        "codeCandidates": [
+          "SWISSBORG",
+          "mathieKRBOTGJN"
+        ]
+      },
+      "contentHash": "8c6c39a3397f20e2cd6fa4d526ed3d3e4b29ff297ac768ec3d2dec2b9b227f34",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "swissborg",
+        "name": "SwissBorg",
+        "normalizedName": "swissborg"
+      }
+    },
+    {
+      "sourceId": "125830",
+      "sourceUrl": "https://parrainage.co/offers/125830",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125830",
+      "companyName": "Okx (ex OKEx)",
+      "siteUrl": "https://parrainage.co/site/okex",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Okx (ex OKEx)",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "80",
+          "280",
+          "30",
+          "250",
+          "5",
+          "200",
+          "1000",
+          "4000"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "5",
+          "0"
+        ],
+        "referralUrls": [
+          "https://my.okx.com/fr-fr/join/56233266"
+        ],
+        "codeCandidates": [
+          "56233266"
+        ]
+      },
+      "contentHash": "2f16f44a850dc5f3afbc9c549f7dcff3130854e504acef2963ef5be9f1391f94",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "okx",
+        "name": "OKX",
+        "normalizedName": "okx"
+      }
+    },
+    {
+      "sourceId": "121572",
+      "sourceUrl": "https://parrainage.co/offers/121572",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121572",
+      "companyName": "GMF",
+      "siteUrl": "https://parrainage.co/site/gmf",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "GMF",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "25"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "postal"
+        ]
+      },
+      "contentHash": "507a2f724349a092ff5c96fbe30fcd0b89f6a1908a370304d9ce274a1c2398e1",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "gmf",
+        "name": "GMF",
+        "normalizedName": "gmf"
+      }
+    },
+    {
+      "sourceId": "127107",
+      "sourceUrl": "https://parrainage.co/offers/127107",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127107",
+      "companyName": "Bitpanda",
+      "siteUrl": "https://parrainage.co/site/bitpanda",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Bitpanda",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "100",
+          "160",
+          "5",
+          "500",
+          "10",
+          "1000",
+          "15",
+          "2000",
+          "30",
+          "5000",
+          "40",
+          "10000"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.bitpanda.com/?ref=255935660578001233"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "186d6d040064f0baa05f8e3c7f0c945d60543d887689a01b239fccf9d1c613b2",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bitpanda",
+        "name": "Bitpanda",
+        "normalizedName": "bitpanda"
+      }
+    },
+    {
+      "sourceId": "128147",
+      "sourceUrl": "https://parrainage.co/offers/128147",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/128147",
+      "companyName": "Raizers",
+      "siteUrl": "https://parrainage.co/site/raizers",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Raizers",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "100",
+          "120",
+          "50",
+          "1000",
+          "10",
+          "60"
+        ],
+        "reversalPercentCandidates": [
+          20,
+          50
+        ],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Raizers",
+          "acornillier-26948"
+        ]
+      },
+      "contentHash": "28ee748cf7f6af627e992d28f4b3e4bb1d798010d3cd9c73b55cb09682dd8b39",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "raizers",
+        "name": "Raizers",
+        "normalizedName": "raizers"
+      }
+    },
+    {
+      "sourceId": "123193",
+      "sourceUrl": "https://parrainage.co/offers/123193",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123193",
+      "companyName": "Choose",
+      "siteUrl": "https://parrainage.co/site/choose",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Choose",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "MATHIEUM014",
+          "MathieuM014"
+        ]
+      },
+      "contentHash": "7efe0049c312ee1f488d97ae3e0314436a4ac0c330dd79f9b060391740053507",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "choose",
+        "name": "Choose",
+        "normalizedName": "choose"
+      }
+    },
+    {
+      "sourceId": "123239",
+      "sourceUrl": "https://parrainage.co/offers/123239",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123239",
+      "companyName": "Systeme.io",
+      "siteUrl": "https://parrainage.co/site/system-io",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Systeme.io",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [
+          85
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://systeme.io/fr?sa=sa0104883220e27bbb09a241916fd5b1421832c5f0"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "91a0778648785182aadaca5c1abf4bdaebc3859d83d5eea0d65f1573d170acf9",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "systeme-io",
+        "name": "Systeme.io",
+        "normalizedName": "systemeio"
+      }
+    },
+    {
+      "sourceId": "125817",
+      "sourceUrl": "https://parrainage.co/offers/125817",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125817",
+      "companyName": "L'Olivier Assurance",
+      "siteUrl": "https://parrainage.co/site/lolivier",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "L'Olivier Assurance",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "50",
+          "20",
+          "60",
+          "10",
+          "4",
+          "24"
+        ],
+        "reversalPercentCandidates": [
+          20
+        ],
+        "reversalAmountCandidates": [
+          "0",
+          "4"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "LOA-ZLTT88"
+        ]
+      },
+      "contentHash": "6ee4f23ef9f847008e2435edb2991d492d5023110374cdd5204e43b581868b6e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "lolivier",
+        "name": "L'Olivier Assurance",
+        "normalizedName": "lolivierassurance"
+      }
+    },
+    {
+      "sourceId": "127232",
+      "sourceUrl": "https://parrainage.co/offers/127232",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127232",
+      "companyName": "Trade Republic",
+      "siteUrl": "https://parrainage.co/site/trade-republic",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Trade Republic",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "200",
+          "15",
+          "10",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "5"
+        ],
+        "referralUrls": [
+          "https://refnocode.trade.re/p72z37d0"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "921bec266ae2828b8e0c753d28316a88cffd6945270ac29c403b2f71f87fe974",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "trade-republic",
+        "name": "Trade Republic",
+        "normalizedName": "traderepublic"
+      }
+    },
+    {
+      "sourceId": "122264",
+      "sourceUrl": "https://parrainage.co/offers/122264",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122264",
+      "companyName": "KAROS",
+      "siteUrl": "https://parrainage.co/site/karos-france",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "KAROS",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://go.karos.fr/btgcdw?ks=wa"
+        ],
+        "codeCandidates": [
+          "btgcdw"
+        ]
+      },
+      "contentHash": "2d5fdb7c2d38cfd64ab4f1d3daabb55241e116fb5da57ea2217cbac942c389c4",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "karos",
+        "name": "KAROS",
+        "normalizedName": "karos"
+      }
+    },
+    {
+      "sourceId": "121580",
+      "sourceUrl": "https://parrainage.co/offers/121580",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121580",
+      "companyName": "Paypal",
+      "siteUrl": "https://parrainage.co/site/paypal",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Paypal",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "5"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://py.pl/1bFxxU"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "85c7179808f1cc99f9ce47a229e268194e5b9d59bb5bf2dba805225b326a23a7",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "paypal",
+        "name": "PayPal",
+        "normalizedName": "paypal"
+      }
+    },
+    {
+      "sourceId": "124786",
+      "sourceUrl": "https://parrainage.co/offers/124786",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124786",
+      "companyName": "Bienprêter",
+      "siteUrl": "https://parrainage.co/site/bien-preter",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Bienprêter",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "30",
+          "25",
+          "200",
+          "10",
+          "15"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "5"
+        ],
+        "referralUrls": [
+          "https://www.bienpreter.com/parrain/U69DA2CFB2C9D2"
+        ],
+        "codeCandidates": [
+          "U69DA2CFB2C9D2"
+        ]
+      },
+      "contentHash": "a41686ac7687a199153ba8b674389113ae9f54ab9060140854927ba81ffad7a4",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bienpreter",
+        "name": "Bienprêter",
+        "normalizedName": "bienpreter"
+      }
+    },
+    {
+      "sourceId": "121591",
+      "sourceUrl": "https://parrainage.co/offers/121591",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121591",
+      "companyName": "Fizzer",
+      "siteUrl": "https://parrainage.co/site/fizzer",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Fizzer",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "MATHI204529"
+        ]
+      },
+      "contentHash": "fee4457c4e6099ed1d1af9da7097f6a466591d9808d8eed08283f73468de207a",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "fizzer",
+        "name": "Fizzer",
+        "normalizedName": "fizzer"
+      }
+    },
+    {
+      "sourceId": "128148",
+      "sourceUrl": "https://parrainage.co/offers/128148",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/128148",
+      "companyName": "Joko",
+      "siteUrl": "https://parrainage.co/site/joko",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Joko",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "10"
+        ],
+        "reversalPercentCandidates": [
+          50
+        ],
+        "reversalAmountCandidates": [
+          "0",
+          "5"
+        ],
+        "referralUrls": [
+          "https://hellojoko.app.link/tyX38HoTyP]",
+          "https://hellojoko.app.link/tyX38HoTyP"
+        ],
+        "codeCandidates": [
+          "Joko",
+          "vllyfp"
+        ]
+      },
+      "contentHash": "e208dc8267d8e49ce4c8190de8bbfcdc4aac6d9323dccc5b3bedfeb61d038d14",
+      "existingMatch": {
+        "status": "unmatched",
+        "candidates": []
+      }
+    },
+    {
+      "sourceId": "122261",
+      "sourceUrl": "https://parrainage.co/offers/122261",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122261",
+      "companyName": "Widilo",
+      "siteUrl": "https://parrainage.co/site/widilo",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Widilo",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "3",
+          "2",
+          "10",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.widilo.fr/i/L1WA0K"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "63f1ea6ddf48f5e1640e25e96781890ee853c6b7938bf0098a42d11bc7eb4392",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "widilo",
+        "name": "Widilo",
+        "normalizedName": "widilo"
+      }
+    },
+    {
+      "sourceId": "122383",
+      "sourceUrl": "https://parrainage.co/offers/122383",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122383",
+      "companyName": "Capital Koala",
+      "siteUrl": "https://parrainage.co/site/capital-koala",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Capital Koala",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.capitalkoala.com/inscription/?mi=NDkzNTMw"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "373ba7084f1a3610672a066f45614945c9f9d5ff4d4d3878b00257cf7178e316",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "capital-koala",
+        "name": "Capital Koala",
+        "normalizedName": "capitalkoala"
+      }
+    },
+    {
+      "sourceId": "122260",
+      "sourceUrl": "https://parrainage.co/offers/122260",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122260",
+      "companyName": "Swagbucks",
+      "siteUrl": "https://parrainage.co/site/swagbucks",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Swagbucks",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "2"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.swagbucks.com/p/register?rb=231819830&rp=1"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "b8d71e47bb12be10fb1318b7df2808ae732d4e3637e48d074609fa1ea3be6e27",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "swagbucks",
+        "name": "Swagbucks",
+        "normalizedName": "swagbucks"
+      }
+    },
+    {
+      "sourceId": "122437",
+      "sourceUrl": "https://parrainage.co/offers/122437",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122437",
+      "companyName": "Bricks",
+      "siteUrl": "https://parrainage.co/site/bricks",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Bricks",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "330",
+          "12",
+          "4",
+          "1000",
+          "30",
+          "10",
+          "40",
+          "3000",
+          "60",
+          "100"
+        ],
+        "reversalPercentCandidates": [
+          1
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://app.bricks.co/sign-up/MATMOR80"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "22bffcbf472f4b7b777cc58b1d3c0e830778c2b0c5c2371998410c30408ee8b2",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bricks",
+        "name": "Bricks",
+        "normalizedName": "bricks"
+      }
+    },
+    {
+      "sourceId": "127230",
+      "sourceUrl": "https://parrainage.co/offers/127230",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127230",
+      "companyName": "Crypto.com",
+      "siteUrl": "https://parrainage.co/site/crypto.com",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Crypto.com",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://crypto.com/app/pwh4bxfcya"
+        ],
+        "codeCandidates": [
+          "Crypto",
+          "pwh4bxfcya"
+        ]
+      },
+      "contentHash": "f086247ce06adf5d25add157b5aff38d6ada5f630fc4e0e5dd514b8ff704eb54",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "crypto-com",
+        "name": "Crypto.com",
+        "normalizedName": "cryptocom"
+      }
+    },
+    {
+      "sourceId": "124793",
+      "sourceUrl": "https://parrainage.co/offers/124793",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124793",
+      "companyName": "Myvitamins",
+      "siteUrl": "https://parrainage.co/site/myvitamins",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Myvitamins",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "30"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.myvitamins.fr/referrals.list?applyCode=MATHIEU-R3B"
+        ],
+        "codeCandidates": [
+          "MATHIEU-R3B"
+        ]
+      },
+      "contentHash": "149ce685f2392d6cbff171598b9dede8d480460f7c89d2f505d6be6507dc4715",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "myvitamins",
+        "name": "Myvitamins",
+        "normalizedName": "myvitamins"
+      }
+    },
+    {
+      "sourceId": "121667",
+      "sourceUrl": "https://parrainage.co/offers/121667",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121667",
+      "companyName": "Naomi",
+      "siteUrl": "https://parrainage.co/site/naomi",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Naomi",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "3",
+          "2",
+          "20",
+          "30"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "http://onelink.to/c82h4h"
+        ],
+        "codeCandidates": [
+          "Naomi",
+          "B3PW1X"
+        ]
+      },
+      "contentHash": "b98099fa5bc601f8de3ecff1aa1ee2bec743b38023f539cb5c8021b9904a7ee6",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "naomi-1",
+        "name": "Naomi",
+        "normalizedName": "naomi"
+      }
+    },
+    {
+      "sourceId": "125088",
+      "sourceUrl": "https://parrainage.co/offers/125088",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125088",
+      "companyName": "Bybit",
+      "siteUrl": "https://parrainage.co/site/bybit",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Bybit",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "85",
+          "20",
+          "30",
+          "100",
+          "25",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.bybit.eu/invite?ref=2A3P1OP"
+        ],
+        "codeCandidates": [
+          "2A3P1OP"
+        ]
+      },
+      "contentHash": "3661e68a3e7681d70609759e3839e6f63a47365f1efed3c3c0b28d6aa4626c15",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bybit",
+        "name": "Bybit",
+        "normalizedName": "bybit"
+      }
+    },
+    {
+      "sourceId": "123200",
+      "sourceUrl": "https://parrainage.co/offers/123200",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123200",
+      "companyName": "Attapoll",
+      "siteUrl": "https://parrainage.co/site/attapoll",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Attapoll",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "0,40",
+          "3"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "LNCGY",
+          "Inscription"
+        ]
+      },
+      "contentHash": "f1b4a347fa7914f51e9b4b45db91799f635761c774213c47568b1d7bfcaa1596",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "attapoll",
+        "name": "AttaPoll",
+        "normalizedName": "attapoll"
+      }
+    },
+    {
+      "sourceId": "124789",
+      "sourceUrl": "https://parrainage.co/offers/124789",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124789",
+      "companyName": "Cointiply",
+      "siteUrl": "https://parrainage.co/site/cointiply",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Cointiply",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://cointiply.mobi/v2AKA0"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "5e5c10b9378214336c28a9d2d90dd7154a1b163d8d0c61c55e82b0ad4ce79c67",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "cointiply",
+        "name": "Cointiply",
+        "normalizedName": "cointiply"
+      }
+    },
+    {
+      "sourceId": "123211",
+      "sourceUrl": "https://parrainage.co/offers/123211",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123211",
+      "companyName": "Instant Gaming",
+      "siteUrl": "https://parrainage.co/site/instant-gaming",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Instant Gaming",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [
+          3
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.instant-gaming.com/?igr=gamer-b0c6983"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "5629b791efe439414023e4eec85d98491d66c02dc248e71b2d15801e2e0bcc42",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "instant-gaming",
+        "name": "Instant Gaming",
+        "normalizedName": "instantgaming"
+      }
+    },
+    {
+      "sourceId": "121583",
+      "sourceUrl": "https://parrainage.co/offers/121583",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121583",
+      "companyName": "Parions Sport",
+      "siteUrl": "https://parrainage.co/site/parions-sport",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Parions Sport",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "30",
+          "18",
+          "48",
+          "20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.enligne.parionssport.fdj.fr/inscription/?campaign=100326&parrain=B0A5CC03D1539CDF"
+        ],
+        "codeCandidates": [
+          "https"
+        ]
+      },
+      "contentHash": "5ee152b8cb717051f71584f66b1c0414362803c4c604ead6fefc57fc69f7ae22",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "parions-sport",
+        "name": "Parions Sport",
+        "normalizedName": "parionssport"
+      }
+    },
+    {
+      "sourceId": "123198",
+      "sourceUrl": "https://parrainage.co/offers/123198",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123198",
+      "companyName": "Wanteeed",
+      "siteUrl": "https://parrainage.co/site/wanteeed",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Wanteeed",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "3"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://wanteeed.com/join/35a08af8e6d04f3c8e0d757ff71cf7d8"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "d26e152aa18ed8f5b3f01b68ac747b1b8339dd7c846c29e3f4c18aadb8ac4590",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "wanteeed",
+        "name": "Wanteeed",
+        "normalizedName": "wanteeed"
+      }
+    },
+    {
+      "sourceId": "123195",
+      "sourceUrl": "https://parrainage.co/offers/123195",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123195",
+      "companyName": "La Première Brique",
+      "siteUrl": "https://parrainage.co/site/la-premiere-brique",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "La Première Brique",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [
+          1
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "BHVAEO"
+        ]
+      },
+      "contentHash": "0234937b20dc1b932b2b208d3cb8211142903f6d1de73dc16932bb238a68b99b",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "la-premiere-brique-1",
+        "name": "La Première Brique",
+        "normalizedName": "premierebrique"
+      }
+    },
+    {
+      "sourceId": "127056",
+      "sourceUrl": "https://parrainage.co/offers/127056",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127056",
+      "companyName": "Kraken",
+      "siteUrl": "https://parrainage.co/site/kraken",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Kraken",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "50",
+          "400",
+          "250",
+          "200"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://invite.kraken.com/JDNW/0v5m8s5a"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "0a9e45f666587f0e63a6c5f05de5b6b10bd9fc7bbd5b7e63c7d8736e5e3d93bb",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "kraken",
+        "name": "Kraken",
+        "normalizedName": "kraken"
+      }
+    },
+    {
+      "sourceId": "121590",
+      "sourceUrl": "https://parrainage.co/offers/121590",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121590",
+      "companyName": "Lalalab",
+      "siteUrl": "https://parrainage.co/site/lalalab",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Lalalab",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "PGXJD6VQ"
+        ]
+      },
+      "contentHash": "292eef65b67986fc328418066dad24f716dd3885f60aabceb5cdf510f5f9f476",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "lalalab",
+        "name": "Lalalab",
+        "normalizedName": "lalalab"
+      }
+    },
+    {
+      "sourceId": "124792",
+      "sourceUrl": "https://parrainage.co/offers/124792",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124792",
+      "companyName": "Cartouche Toner",
+      "siteUrl": "https://parrainage.co/site/cartouche-toner",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Cartouche Toner",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.cartouche-du-toner.com/?s=272616805"
+        ],
+        "codeCandidates": [
+          "272616805"
+        ]
+      },
+      "contentHash": "c368a00890628180251cfd638f19ab75b95fbd247baba02280ce09299862d9dc",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "cartouche-du-toner",
+        "name": "Cartouche du toner",
+        "normalizedName": "cartouchetoner"
+      }
+    },
+    {
+      "sourceId": "123245",
+      "sourceUrl": "https://parrainage.co/offers/123245",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123245",
+      "companyName": "Fid me",
+      "siteUrl": "https://parrainage.co/site/fid-me",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Fid me",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "AKFW2M"
+        ]
+      },
+      "contentHash": "46bcdd08d875985f270541e49844f13c49bd32cf3dfd348ece81076ff0d75681",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "fidme",
+        "name": "FidMe",
+        "normalizedName": "fidme"
+      }
+    },
+    {
+      "sourceId": "124787",
+      "sourceUrl": "https://parrainage.co/offers/124787",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124787",
+      "companyName": "Place des cartes",
+      "siteUrl": "https://parrainage.co/site/place-des-cartes",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Place des cartes",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.placedescartes.fr/inscription?codeSponsor=BLQJK8DE"
+        ],
+        "codeCandidates": [
+          "BLQJK8DE"
+        ]
+      },
+      "contentHash": "21db5951fd8f96aa8c202e8811e93a8051762c46fe5910316b1207cf4be51f1a",
+      "existingMatch": {
+        "status": "unmatched",
+        "candidates": []
+      }
+    },
+    {
+      "sourceId": "124795",
+      "sourceUrl": "https://parrainage.co/offers/124795",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124795",
+      "companyName": "Speedo",
+      "siteUrl": "https://parrainage.co/site/speedo",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Speedo",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "15"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://fr.speedo.com/referrals.list?applyCode=MATHIEU-R6I"
+        ],
+        "codeCandidates": [
+          "MATHIEU-R6I"
+        ]
+      },
+      "contentHash": "a6364830078379c76186ca8291a330de09646639c59190795779637cf0c1e403",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "speedo",
+        "name": "Speedo",
+        "normalizedName": "speedo"
+      }
+    },
+    {
+      "sourceId": "123238",
+      "sourceUrl": "https://parrainage.co/offers/123238",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123238",
+      "companyName": "Nutripure",
+      "siteUrl": "https://parrainage.co/site/nutripure",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Nutripure",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.nutripure.fr/fr/?s=1283007804"
+        ],
+        "codeCandidates": [
+          "1283007804"
+        ]
+      },
+      "contentHash": "92620142e831616a5bf63367f1af35fd960062c44283df2677437546be60cd90",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "nutripure",
+        "name": "Nutripure",
+        "normalizedName": "nutripure"
+      }
+    },
+    {
+      "sourceId": "122255",
+      "sourceUrl": "https://parrainage.co/offers/122255",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122255",
+      "companyName": "Fiverr",
+      "siteUrl": "https://parrainage.co/site/fiverr",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Fiverr",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "100",
+          "20",
+          "200",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.fiverr.com/pe/VYlP895"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "4b177f232e3b360e01c6bd4a6075ad99234403c643cc6c6942b7ffdb3d07dd1f",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "fiverr",
+        "name": "Fiverr",
+        "normalizedName": "fiverr"
+      }
+    },
+    {
+      "sourceId": "123247",
+      "sourceUrl": "https://parrainage.co/offers/123247",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123247",
+      "companyName": "La belle vie",
+      "siteUrl": "https://parrainage.co/site/la-belle-vie",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "La belle vie",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.labellevie.com/r/ODY5Njg5"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "40c4ee91abf15355ac325b9e48decfac4fc7d743bdda2ced07b32a1da1acf587",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "la-belle-vie",
+        "name": "La Belle Vie",
+        "normalizedName": "bellevie"
+      }
+    },
+    {
+      "sourceId": "126238",
+      "sourceUrl": "https://parrainage.co/offers/126238",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/126238",
+      "companyName": "Klarna",
+      "siteUrl": "https://parrainage.co/site/klarna",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Klarna",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "35",
+          "15",
+          "5",
+          "0"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "5"
+        ],
+        "referralUrls": [
+          "https://l.klarna.com/22XC/invite_L10PmX3Q05S0tfmM"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "d2ef6381fecd7b0a36861d49b2e9462df1653afb7cbd29c5c4f3c3b0fcf244c6",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "klarna",
+        "name": "Klarna",
+        "normalizedName": "klarna"
+      }
+    },
+    {
+      "sourceId": "121578",
+      "sourceUrl": "https://parrainage.co/offers/121578",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121578",
+      "companyName": "SumUp",
+      "siteUrl": "https://parrainage.co/site/sumup",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "SumUp",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "19",
+          "34",
+          "100"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://join.sumup.com/cKYwEgAv?share_id=tbqks4Pckywegav"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "90106ae79d25b406d540a3cf90a901a5607baf3763e80f40ed647735981b23d8",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "sumup",
+        "name": "SumUp",
+        "normalizedName": "sumup"
+      }
+    },
+    {
+      "sourceId": "124788",
+      "sourceUrl": "https://parrainage.co/offers/124788",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124788",
+      "companyName": "Meilleurtaux Placement",
+      "siteUrl": "https://parrainage.co/site/meilleurtaux-placement",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Meilleurtaux Placement",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "70",
+          "90",
+          "50",
+          "40",
+          "20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Meilleurtaux",
+          "FRKVRF9"
+        ]
+      },
+      "contentHash": "e7a48139687dda4486e7aede1cc04aed888353d1dc80315d476c060711ce7b98",
+      "existingMatch": {
+        "status": "unmatched",
+        "candidates": []
+      }
+    },
+    {
+      "sourceId": "124790",
+      "sourceUrl": "https://parrainage.co/offers/124790",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124790",
+      "companyName": "C mon étiquette",
+      "siteUrl": "https://parrainage.co/site/c-mon-tiquette",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "C mon étiquette",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "3"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.c-monetiquette.fr/invitation_static_fr.html?referralcode=Ymlkb3VjaGUwNDVAZ21haWwuY29tfDE"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "09ccf47aec7e69f55452ed1e2db3251fbfc6717ff920212d11f08c40b2ab7fd7",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "c-monetiquette",
+        "name": "C-MonEtiquette",
+        "normalizedName": "cmonetiquette"
+      }
+    },
+    {
+      "sourceId": "122386",
+      "sourceUrl": "https://parrainage.co/offers/122386",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122386",
+      "companyName": "Macadam App",
+      "siteUrl": "https://parrainage.co/site/macadam",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Macadam App",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "0,5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "dans"
+        ]
+      },
+      "contentHash": "3d33ed98107e79c15a034898c88ab40024ed0e66243185005218bd5d3a8c5910",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "macadam-4",
+        "name": "Macadam",
+        "normalizedName": "macadam"
+      }
+    },
+    {
+      "sourceId": "122256",
+      "sourceUrl": "https://parrainage.co/offers/122256",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122256",
+      "companyName": "Hostinger",
+      "siteUrl": "https://parrainage.co/site/hostinger",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Hostinger",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "1,99",
+          "2,49"
+        ],
+        "reversalPercentCandidates": [
+          20
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.hostinger.com/fr?REFERRALCODE=FIRBIDOUCFHJ"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "6a082256d5712fe850b8daca17ce27adb2bf5961aa7ffaee04f6d3177bfd1905",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "hostinger",
+        "name": "Hostinger",
+        "normalizedName": "hostinger"
+      }
+    },
+    {
+      "sourceId": "123237",
+      "sourceUrl": "https://parrainage.co/offers/123237",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123237",
+      "companyName": "Pourdebon",
+      "siteUrl": "https://parrainage.co/site/pourdebon",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Pourdebon",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "60",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.pourdebon.com/invite?p=tSdFVaMd"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "43f8fc8bc0b8cbb3ac2d55e9551ac2e31569afd0008bc4c94bc7dec5926d661e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "pourdebon",
+        "name": "Pourdebon",
+        "normalizedName": "pourdebon"
+      }
+    },
+    {
+      "sourceId": "127249",
+      "sourceUrl": "https://parrainage.co/offers/127249",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127249",
+      "companyName": "Assurancevie.com",
+      "siteUrl": "https://parrainage.co/site/assurancevie-com",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Assurancevie.com",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "100",
+          "110",
+          "50",
+          "60"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Assurancevie",
+          "MAMO098179"
+        ]
+      },
+      "contentHash": "5db8d7dbfd98eb9210c57b8dbdf104baf7555ae22a5a7b66473ae5f11afb4060",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "assurancevie-com",
+        "name": "assurancevie.com",
+        "normalizedName": "assuranceviecom"
+      }
+    },
+    {
+      "sourceId": "123192",
+      "sourceUrl": "https://parrainage.co/offers/123192",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123192",
+      "companyName": "topcashback",
+      "siteUrl": "https://parrainage.co/site/topcashback",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "topcashback",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "15",
+          "20",
+          "10",
+          "30"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://www.topcashback.fr/ref/member41551793542"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "266dd187c7947ff32d5c1feb96a209af964ca7e9795520e8c47c5986d5b5df7b",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "topcashback",
+        "name": "TopCashback",
+        "normalizedName": "topcashback"
+      }
+    },
+    {
+      "sourceId": "127269",
+      "sourceUrl": "https://parrainage.co/offers/127269",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127269",
+      "companyName": "Bitstack",
+      "siteUrl": "https://parrainage.co/site/bitstack",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Bitstack",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "7",
+          "5",
+          "2",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "2"
+        ],
+        "referralUrls": [
+          "https://bitstack-app.com/referral/3HJ3sBdeCp9gh2eSbPA74J8V1TU"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "b1a2d952faa60b524ff88f645e6644cda5c2f1cb779eb7ad28f93cba9d987810",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "bitstack",
+        "name": "Bitstack",
+        "normalizedName": "bitstack"
+      }
+    },
+    {
+      "sourceId": "121639",
+      "sourceUrl": "https://parrainage.co/offers/121639",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121639",
+      "companyName": "Zumub",
+      "siteUrl": "https://parrainage.co/site/zumub",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Zumub",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [
+          10
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "http://zumu.be/2b28f3e3"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "9de7516a4a1f6436faa4741fc5c9cce24e8f1622a78a7ecb1279be499c7fcfe1",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "zumub",
+        "name": "Zumub",
+        "normalizedName": "zumub"
+      }
+    },
+    {
+      "sourceId": "122259",
+      "sourceUrl": "https://parrainage.co/offers/122259",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122259",
+      "companyName": "Becquet",
+      "siteUrl": "https://parrainage.co/site/becquet",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Becquet",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "20",
+          "60",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "726083989653",
+          "promo"
+        ]
+      },
+      "contentHash": "a9618b05da6514cd251fe6182112eb75723a60f66552af8c08c856cc073b7c2c",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "becquet",
+        "name": "Becquet",
+        "normalizedName": "becquet"
+      }
+    },
+    {
+      "sourceId": "121581",
+      "sourceUrl": "https://parrainage.co/offers/121581",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121581",
+      "companyName": "epargnoo",
+      "siteUrl": "https://parrainage.co/site/epargnoo",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "epargnoo",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "100",
+          "2000",
+          "85",
+          "185"
+        ],
+        "reversalPercentCandidates": [
+          85
+        ],
+        "reversalAmountCandidates": [
+          "5"
+        ],
+        "referralUrls": [
+          "https://epargnoo.com/inscription?code=MAMO7017&utm_source=spons",
+          "https://epargnoo.com/inscription?code=MAMO7017&utm_source=sponsorship"
+        ],
+        "codeCandidates": [
+          "MAMO7017"
+        ]
+      },
+      "contentHash": "1a7d937f7d479bf2b31dce75929d67838f3a0698aa3724bdfc14c54715132bf2",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "epargnoo-5",
+        "name": "Epargnoo",
+        "normalizedName": "epargnoo"
+      }
+    },
+    {
+      "sourceId": "121640",
+      "sourceUrl": "https://parrainage.co/offers/121640",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121640",
+      "companyName": "Freecash",
+      "siteUrl": "https://parrainage.co/site/freecash",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Freecash",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://freecash.com/r/2HF3I4"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "8216402886583af83ea3832df547950f98796b1dc0a12284dca636913fa6b3dd",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "freecash",
+        "name": "Freecash",
+        "normalizedName": "freecash"
+      }
+    },
+    {
+      "sourceId": "121666",
+      "sourceUrl": "https://parrainage.co/offers/121666",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121666",
+      "companyName": "Betsson",
+      "siteUrl": "https://parrainage.co/site/betsson",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Betsson",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "100",
+          "5"
+        ],
+        "reversalPercentCandidates": [
+          100
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://betsson.fr/fr/%23register?language=fr&referralCode=ToDkM0"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "acda70828132d6f137cefda33f002b4bc4d1c469f0808c70111d468f85e4d97e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "betsson",
+        "name": "Betsson",
+        "normalizedName": "betsson"
+      }
+    },
+    {
+      "sourceId": "123244",
+      "sourceUrl": "https://parrainage.co/offers/123244",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123244",
+      "companyName": "hello watt",
+      "siteUrl": "https://parrainage.co/site/hello-watt",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "hello watt",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "200",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "HW-91-IAIL"
+        ]
+      },
+      "contentHash": "1b13bc09ac2d6ecd176969a6fc8dbf14e68ea74a4faf4a9751f3a01f1a069565",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "hello-watt",
+        "name": "Hello Watt",
+        "normalizedName": "hellowatt"
+      }
+    },
+    {
+      "sourceId": "123241",
+      "sourceUrl": "https://parrainage.co/offers/123241",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123241",
+      "companyName": "Rover",
+      "siteUrl": "https://parrainage.co/site/rover",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Rover",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.rover.com/ambas-refer-a-friend/QrKrOWGA"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "ab74877fc0a555fa028f256df853178ebec3cc924828df0a8e02597dcab3dc88",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "rover-1",
+        "name": "Rover",
+        "normalizedName": "rover"
+      }
+    },
+    {
+      "sourceId": "125999",
+      "sourceUrl": "https://parrainage.co/offers/125999",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/125999",
+      "companyName": "FDJ",
+      "siteUrl": "https://parrainage.co/site/fdj",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "FDJ",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.fdj.fr/inscription/fdj?parrain=32FD2-A5E51-3A9D9&campaign=codeparrain"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "7b4ef9d17814a7a362d90ee669902b13d45cd7c97e8798c7529563bde3fc5fc0",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "fdj-francaise-des-jeux",
+        "name": "FDJ",
+        "normalizedName": "fdj"
+      }
+    },
+    {
+      "sourceId": "123248",
+      "sourceUrl": "https://parrainage.co/offers/123248",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123248",
+      "companyName": "Whatnot",
+      "siteUrl": "https://parrainage.co/site/whatnot",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Whatnot",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "200"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://whatnot.com/invite/mathieumor25752"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "0a2d22d5ca61fa7ae2f0e9693530d8ddc6c4c35733b72deed93c968a7c3c85ac",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "whatnot",
+        "name": "Whatnot",
+        "normalizedName": "whatnot"
+      }
+    },
+    {
+      "sourceId": "128059",
+      "sourceUrl": "https://parrainage.co/offers/128059",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/128059",
+      "companyName": "Primeo Energie",
+      "siteUrl": "https://parrainage.co/site/primeo-energie",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Primeo Energie",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "15",
+          "20",
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0",
+          "5"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Primeo",
+          "CLT57863606"
+        ]
+      },
+      "contentHash": "662ebfb755fec242252d0279284207ed3ad15831314ca52be2b6bea4c9557526",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "primeo-energie",
+        "name": "Primeo Energie",
+        "normalizedName": "primeoenergie"
+      }
+    },
+    {
+      "sourceId": "127278",
+      "sourceUrl": "https://parrainage.co/offers/127278",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127278",
+      "companyName": "Splint invest",
+      "siteUrl": "https://parrainage.co/site/splint-invest",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Splint invest",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "60",
+          "50",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Splint",
+          "073847528"
+        ]
+      },
+      "contentHash": "ebd06dd416f6a39de02462606576dce4f5f5eb89bade6cf179c02ed6df54f268",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "splint-invest",
+        "name": "Splint Invest",
+        "normalizedName": "splintinvest"
+      }
+    },
+    {
+      "sourceId": "127271",
+      "sourceUrl": "https://parrainage.co/offers/127271",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127271",
+      "companyName": "Sumeria",
+      "siteUrl": "https://parrainage.co/site/sumeria",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Sumeria",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "27,50",
+          "25",
+          "30",
+          "12,50",
+          "15",
+          "5"
+        ],
+        "reversalPercentCandidates": [
+          50
+        ],
+        "reversalAmountCandidates": [
+          "0",
+          "5"
+        ],
+        "referralUrls": [],
+        "codeCandidates": [
+          "Sumeria",
+          "WYU2AN9J56"
+        ]
+      },
+      "contentHash": "17f2e2bf879a620ce376e73b78be12261aa1a9e712cbacc1c8426c814666ad0a",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "sumeria",
+        "name": "Sumeria",
+        "normalizedName": "sumeria"
+      }
+    },
+    {
+      "sourceId": "122258",
+      "sourceUrl": "https://parrainage.co/offers/122258",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122258",
+      "companyName": "Too good to go",
+      "siteUrl": "https://parrainage.co/site/too-good-to-go",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Too good to go",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "2,5",
+          "6",
+          "15",
+          "5",
+          "18",
+          "4",
+          "80"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://tgtg.onelink.me/OGjG/4qb7x6s2"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "50aa698d10ad94b92efdbdcebab0c514e11098162cdadfc2647b48180f91a7f1",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "too-good-to-go",
+        "name": "Too Good To Go",
+        "normalizedName": "toogoodtogo"
+      }
+    },
+    {
+      "sourceId": "123242",
+      "sourceUrl": "https://parrainage.co/offers/123242",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/123242",
+      "companyName": "Libertewatts",
+      "siteUrl": "https://parrainage.co/site/libertewatts",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Libertewatts",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "0,20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": [
+          "750152"
+        ]
+      },
+      "contentHash": "8e42435e4d2fa87d84e6be07cc8deaaece5bd477a5c08c950b86f75741eb635e",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "liberte-watts",
+        "name": "Liberté Watts",
+        "normalizedName": "libertewatts"
+      }
+    },
+    {
+      "sourceId": "124583",
+      "sourceUrl": "https://parrainage.co/offers/124583",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/124583",
+      "companyName": "Shoes.fr",
+      "siteUrl": "https://parrainage.co/site/shoes",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Shoes.fr",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "50"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [],
+        "codeCandidates": []
+      },
+      "contentHash": "eb78df14885d2a036a353a02a30db44711c3ab26f72ab984b8cac9a07fa37da1",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "shoes-fr",
+        "name": "Shoes.fr",
+        "normalizedName": "shoesfr"
+      }
+    },
+    {
+      "sourceId": "121570",
+      "sourceUrl": "https://parrainage.co/offers/121570",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121570",
+      "companyName": "Ludocortex",
+      "siteUrl": "https://parrainage.co/site/ludocortex",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Ludocortex",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "65",
+          "100",
+          "5",
+          "15"
+        ],
+        "reversalPercentCandidates": [
+          5
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://www.ludocortex.fr/?s=264098807"
+        ],
+        "codeCandidates": [
+          "264098807"
+        ]
+      },
+      "contentHash": "3b926341238860a19ca27e8921e001e7acb4b1bf2d89d14d6501101c3b5e5ff3",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "ludocortex",
+        "name": "Ludocortex",
+        "normalizedName": "ludocortex"
+      }
+    },
+    {
+      "sourceId": "127577",
+      "sourceUrl": "https://parrainage.co/offers/127577",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127577",
+      "companyName": "Robinhood",
+      "siteUrl": "https://parrainage.co/site/robinhood",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Robinhood",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "50",
+          "60",
+          "40",
+          "20"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://join.robinhood.com/eu_crypto/mathiem-029782/"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "aed4936b48f9261ddd268cf0075d16583a698cce60582aa4c257d6a10beb3f80",
+      "existingMatch": {
+        "status": "unmatched",
+        "candidates": []
+      }
+    },
+    {
+      "sourceId": "121903",
+      "sourceUrl": "https://parrainage.co/offers/121903",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/121903",
+      "companyName": "Joybuy",
+      "siteUrl": "https://parrainage.co/site/joybuy",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Joybuy",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "3",
+          "6",
+          "10"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://m.joybuy.fr/"
+        ],
+        "codeCandidates": [
+          "3YZ7MU"
+        ]
+      },
+      "contentHash": "92e4af565827c86f0264d28dae450cf17de3463dedc8468510ad6985fe4f7a68",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "joybuy",
+        "name": "Joybuy",
+        "normalizedName": "joybuy"
+      }
+    },
+    {
+      "sourceId": "126301",
+      "sourceUrl": "https://parrainage.co/offers/126301",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/126301",
+      "companyName": "XTB",
+      "siteUrl": "https://parrainage.co/site/xtb",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "XTB",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://app.xtb.com/Q4np/raf?af_no_preview=1&pid=raf&deep_link_value=https%3A%2F%2Fxstation5.xtb.com%2F%23%2Fdeeplink%2FrafReceive%3Fc%3Draf%26code%3DLdY71azNkzvYpl48pQw6A7haWo9bZ4LK"
+        ],
+        "codeCandidates": []
+      },
+      "contentHash": "434b19106f19aa5d8bd8fb5e682a7d8b3f166af29de8d2764c28769799bc1abc",
+      "existingMatch": {
+        "status": "unmatched",
+        "candidates": []
+      }
+    },
+    {
+      "sourceId": "127541",
+      "sourceUrl": "https://parrainage.co/offers/127541",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/127541",
+      "companyName": "Coinhouse",
+      "siteUrl": "https://parrainage.co/site/coinhouse",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Coinhouse",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "25",
+          "800",
+          "10",
+          "50",
+          "100",
+          "500",
+          "300"
+        ],
+        "reversalPercentCandidates": [
+          60
+        ],
+        "reversalAmountCandidates": [
+          "0"
+        ],
+        "referralUrls": [
+          "https://coinhouse.onelink.me/bCWk/tpvzeow2?deep_link_sub5=UU55D4"
+        ],
+        "codeCandidates": [
+          "Coinhouse",
+          "UU55D4"
+        ]
+      },
+      "contentHash": "d4f9eb2684c5f86f710456296f62bf7e20fd174acb488287c61f4f7fc3e62703",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "coinhouse",
+        "name": "Coinhouse",
+        "normalizedName": "coinhouse"
+      }
+    },
+    {
+      "sourceId": "122384",
+      "sourceUrl": "https://parrainage.co/offers/122384",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122384",
+      "companyName": "Scrambly",
+      "siteUrl": "https://parrainage.co/site/scrambly",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Scrambly",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "5"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://go.scrambly.io/BMMq2L"
+        ],
+        "codeCandidates": [
+          "FEYW8CA"
+        ]
+      },
+      "contentHash": "a92ff2e9a97b093a19e28053148f768bba065cd443ae06665d57ab471f1cbaa4",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "scrambly",
+        "name": "Scrambly",
+        "normalizedName": "scrambly"
+      }
+    },
+    {
+      "sourceId": "128060",
+      "sourceUrl": "https://parrainage.co/offers/128060",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/128060",
+      "companyName": "10POURCENT",
+      "siteUrl": "https://parrainage.co/site/10pourcent",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "10POURCENT",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "0,50"
+        ],
+        "reversalPercentCandidates": [
+          10
+        ],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://10pourcent.go.link/sponsorship?deep_link=dixpourcent%3A%2F%2Fsponsorship%3FsponsorshipCode%3D2OGGXEHL"
+        ],
+        "codeCandidates": [
+          "10POURCENT",
+          "2OGGXEHL"
+        ]
+      },
+      "contentHash": "41556b7e435dc66dddf2f8c307c9ebbd1e1f55cee62bf9c24ed856a469af370d",
+      "existingMatch": {
+        "status": "exact-name",
+        "slug": "10-pourcent-1",
+        "name": "10 pourcent",
+        "normalizedName": "10pourcent"
+      }
+    },
+    {
+      "sourceId": "122905",
+      "sourceUrl": "https://parrainage.co/offers/122905",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122905",
+      "companyName": "Betclic Turf",
+      "siteUrl": "https://parrainage.co/site/betclic-turf",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Betclic Turf",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "140",
+          "30",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://go.onelink.me/2887093520/6c3132b8?af_sub5=CARTUNDM"
+        ],
+        "codeCandidates": [
+          "Betclic",
+          "CARTUNDM"
+        ]
+      },
+      "contentHash": "601ced9597a6c753225040e01b83395a553b545fb95fe3efbbbd3c7ddd279ff3",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "betclic",
+        "name": "Betclic",
+        "normalizedName": "betclic"
+      }
+    },
+    {
+      "sourceId": "122904",
+      "sourceUrl": "https://parrainage.co/offers/122904",
+      "status": 200,
+      "canonicalUrl": "https://parrainage.co/offers/122904",
+      "companyName": "Betclic Poker",
+      "siteUrl": "https://parrainage.co/site/betclic-poker",
+      "publishedAt": "26-08-2026",
+      "ownerVerified": true,
+      "title": "Betclic Poker",
+      "description": null,
+      "candidates": {
+        "rewardCandidates": [
+          "10",
+          "140",
+          "30",
+          "100"
+        ],
+        "reversalPercentCandidates": [],
+        "reversalAmountCandidates": [],
+        "referralUrls": [
+          "https://go.onelink.me/2887093520/6c3132b8?af_sub5=CARTUNDM"
+        ],
+        "codeCandidates": [
+          "Betclic",
+          "CARTUNDM"
+        ]
+      },
+      "contentHash": "f53c1788f63b9eb6f2c5f8d9650242a25a730c26937b4bb58e13c6a0d22b6b5f",
+      "existingMatch": {
+        "status": "candidate-name",
+        "slug": "betclic",
+        "name": "Betclic",
+        "normalizedName": "betclic"
+      }
+    }
+  ],
+  "comparison": {
+    "existingCatalogueCount": 120,
+    "exactMatches": 95,
+    "candidateMatches": 7,
+    "unmatched": 5,
+    "duplicateSourceIds": [],
+    "duplicateExistingMatches": [
+      {
+        "slug": "betclic",
+        "sourceOffers": [
+          {
+            "sourceId": "122903",
+            "companyName": "Betclic"
+          },
+          {
+            "sourceId": "122905",
+            "companyName": "Betclic Turf"
+          },
+          {
+            "sourceId": "122904",
+            "companyName": "Betclic Poker"
+          }
+        ]
+      }
+    ],
+    "missingFromParrainio": [
+      {
+        "sourceId": "128148",
+        "companyName": "Joko",
+        "sourceUrl": "https://parrainage.co/offers/128148"
+      },
+      {
+        "sourceId": "124787",
+        "companyName": "Place des cartes",
+        "sourceUrl": "https://parrainage.co/offers/124787"
+      },
+      {
+        "sourceId": "124788",
+        "companyName": "Meilleurtaux Placement",
+        "sourceUrl": "https://parrainage.co/offers/124788"
+      },
+      {
+        "sourceId": "127577",
+        "companyName": "Robinhood",
+        "sourceUrl": "https://parrainage.co/offers/127577"
+      },
+      {
+        "sourceId": "126301",
+        "companyName": "XTB",
+        "sourceUrl": "https://parrainage.co/offers/126301"
+      }
+    ],
+    "existingOffersNotInSource": [
+      {
+        "slug": "airbnb",
+        "name": "Airbnb"
+      },
+      {
+        "slug": "rakuten-priceminister",
+        "name": "Rakuten"
+      },
+      {
+        "slug": "airbnb-1",
+        "name": "Airbnb Hôtes"
+      },
+      {
+        "slug": "hello-fresh",
+        "name": "HelloFresh"
+      },
+      {
+        "slug": "phenix",
+        "name": "Phenix"
+      },
+      {
+        "slug": "beebs",
+        "name": "Beebs"
+      },
+      {
+        "slug": "bebe-boutik",
+        "name": "Bébé Boutik"
+      },
+      {
+        "slug": "meilleurtaux-com",
+        "name": "Meilleurtaux.com"
+      },
+      {
+        "slug": "edf",
+        "name": "EDF"
+      },
+      {
+        "slug": "placesdescartes",
+        "name": "PlacesDesCartes"
+      },
+      {
+        "slug": "revolut-business",
+        "name": "Revolut Business"
+      },
+      {
+        "slug": "reevolt",
+        "name": "Reevolt"
+      },
+      {
+        "slug": "alltricks",
+        "name": "Alltricks"
+      },
+      {
+        "slug": "caisse-depargne-loire-centre",
+        "name": "Caisse d'Épargne Loire-Centre"
+      },
+      {
+        "slug": "la-bourse-aux-livres",
+        "name": "La Bourse aux Livres"
+      },
+      {
+        "slug": "biogents",
+        "name": "Biogents"
+      },
+      {
+        "slug": "credit-agricole-centre-loire",
+        "name": "Crédit Agricole Centre Loire"
+      },
+      {
+        "slug": "ritmic",
+        "name": "Ritmic"
+      },
+      {
+        "slug": "zeconfiserie",
+        "name": "ZeConfiserie"
+      },
+      {
+        "slug": "simplis",
+        "name": "Simplis"
+      }
+    ],
+    "potentiallyOutdated": []
+  }
+}

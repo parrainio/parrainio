@@ -1,0 +1,418 @@
+{
+  "generatedAt": "2026-08-30T08:41:49.886Z",
+  "catalogueCount": 120,
+  "enrichedConditions": 99,
+  "enrichedSteps": 107,
+  "unresolved": [
+    {
+      "slug": "igraal",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "totalenergies",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "sfr",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "poulpeo",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "paypal",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "airbnb",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "shopmium",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "showroomprive",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "direct-assurance",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "winamax",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "weward",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "n26",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "coinbase",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "lolivier",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "crypto-com",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "primeo-energie",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "unibet",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "widilo",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "thefork",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "swissborg",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "airbnb-1",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "choose",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "myprotein",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "pmu",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "coupon-network",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "la-premiere-brique-1",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "macadam-4",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "wise",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "aroma-zone",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "wanteeed",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "naomi-1",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "greenweez-6",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "fizzer",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "swagbucks",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "honeygain",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "monabanq",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "parions-sport",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "topcashback",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "etoro",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "private-sport-shop",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "instant-gaming",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "shein",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "gmf",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "karos",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "capital-koala",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "freecash",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "hello-watt",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "i-run-fr",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "bitpanda",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "fdj-francaise-des-jeux",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "lalalab",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "sumeria",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "hostinger",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "whatnot",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "too-good-to-go",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "sumup",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "fidme",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "la-belle-vie",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "cointiply",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "fiverr",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "okx",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "raizers",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "nutripure",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "pourdebon",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "10-pourcent-1",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "systeme-io",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "liberte-watts",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "klarna",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "scrambly",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "rover-1",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "alltricks",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "featurepoints",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "joybuy",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "the-protein-works",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "shoes-fr",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "epargnoo-5",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "cartouche-du-toner",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "myvitamins",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "zumub",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "speedo",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "coinhouse",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    },
+    {
+      "slug": "ludocortex",
+      "field": "officialWebsiteUrl",
+      "reason": "Domaine officiel non confirmé dans les sources disponibles"
+    }
+  ]
+}

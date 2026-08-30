@@ -1,0 +1,15 @@
+.button {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid #d9e5dc;
+  border-radius: 999px;
+  color: #075846;
+  background: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: .68rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.button:hover { border-color: #ef873e; color: #c9672a; }

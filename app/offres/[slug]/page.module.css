@@ -1,0 +1,64 @@
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --muted:#71807d; min-height:100vh; background:#fffdfa; color:#173d35; font-family:"DM Sans",Arial,sans-serif; }
+.container { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+.header { border-bottom:1px solid rgba(7,88,70,.1); background:rgba(255,253,250,.96); }
+.headerInner { min-height:80px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:inline-flex; align-items:center; gap:10px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.22rem; font-weight:800; letter-spacing:-.055em; text-decoration:none; }
+.logoMark { width:32px; height:32px; display:grid; place-items:center; border-radius:10px; background:var(--green); box-shadow:0 8px 17px rgba(7,88,70,.17); color:#fff; font-family:Georgia,serif; }
+.backLink { display:inline-flex; align-items:center; gap:8px; color:#637870; font-size:.8rem; font-weight:800; text-decoration:none; }
+.backLink:hover { color:var(--green); }
+.offerSection { padding:24px 0 48px; background:var(--cream); }
+.compactLayout { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:28px; align-items:start; }
+.mainContent { display:flex; flex-direction:column; gap:20px; }
+.offerHeader { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; padding:24px; border:1px solid #dfe9e1; border-radius:24px; background:#fff; box-shadow:0 13px 27px rgba(28,61,48,.04); }
+.brandRow { display:flex; align-items:center; gap:14px; }
+.brandInfo { display:flex; flex-direction:column; gap:6px; }
+.overline,.stepsLabel,.rewardLabel { color:#82938b; font-size:.62rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+.brandInfo h1 { margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; font-weight:800; letter-spacing:-.065em; line-height:1.1; }
+.officialLink { display:inline-flex; align-items:center; gap:6px; color:#637870; font-size:.75rem; font-weight:700; text-decoration:none; }
+.officialLink:hover { color:var(--green); }
+.officialLink svg { stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; }
+.categoryPill { padding:7px 11px; border-radius:999px; color:#39765e; background:#edf6ef; font-size:.65rem; font-weight:800; white-space:nowrap; }
+.description { margin:0; padding:0 4px; color:var(--muted); font-size:.94rem; line-height:1.65; }
+.compactSteps,.conditionsBlock,.relatedBlock { padding:18px; border:1px solid #dfe9e1; border-radius:20px; background:#fff; box-shadow:0 10px 24px rgba(28,61,48,.035); }
+.stepsLabel { display:block; margin-bottom:10px; color:var(--green); }
+.stepsRow { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.compactStep { display:flex; align-items:flex-start; gap:10px; padding:10px; border:1px solid #e7eee8; border-radius:15px; background:#f8faf7; }
+.stepNumber { display:grid; width:28px; height:28px; place-items:center; flex:none; margin:0; border-radius:50%; color:var(--orange); background:#fff1e2; font-family:"Manrope",Arial,sans-serif; font-size:.72rem; font-weight:800; }
+.stepContent strong,.stepContent small { display:block; }
+.stepContent strong { color:var(--green); font-size:.79rem; }
+.stepContent small { margin-top:4px; color:#899890; font-size:.69rem; line-height:1.45; }
+.conditionsBlock h2,.relatedBlock h2 { margin:0 0 14px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.1rem; letter-spacing:-.035em; }
+.conditionsBlock ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin:0; padding:0; list-style:none; }
+.conditionsBlock li { display:flex; align-items:flex-start; gap:8px; color:#71827a; font-size:.8rem; line-height:1.5; }
+.conditionsBlock svg { flex:none; margin-top:2px; stroke:#3b866b; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
+.relatedList { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.relatedItem { display:flex; align-items:center; gap:9px; min-width:0; padding:11px; border:1px solid #e7eee8; border-radius:13px; background:#f8faf7; text-decoration:none; transition:.2s ease; }
+.relatedItem:hover { border-color:#b5cfbe; background:#fff; transform:translateY(-2px); }
+.relatedInfo { min-width:0; flex:1; }
+.relatedInfo strong,.relatedInfo small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.relatedInfo strong { color:var(--green); font-size:.75rem; }
+.relatedInfo small { margin-top:3px; color:#899890; font-size:.66rem; }
+.relatedArrow { color:var(--orange); font-weight:800; }
+.actionSidebar { position:sticky; top:22px; }
+.actionCard { padding:22px; border:1px solid #d6e5da; border-radius:22px; background:#fff; box-shadow:0 18px 38px rgba(28,61,48,.09); }
+.rewardsSection { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.rewardBlock { padding:17px 14px; border-radius:15px; background:#edf6ef; }
+.rewardBlock:last-child { background:#fff0df; }
+.rewardLabel { display:block; min-height:28px; color:#71867b; font-size:.58rem; line-height:1.35; }
+.rewardAmount { display:block; margin-top:7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.65rem; font-weight:800; letter-spacing:-.065em; }
+.rewardBlock:last-child .rewardAmount { color:#d5722b; }
+.referralSection { display:flex; flex-direction:column; gap:11px; margin-top:20px; padding-top:20px; border-top:1px solid #e8eee9; }
+.codeRow { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 13px; border:1px solid #dce8df; border-radius:13px; background:#f8faf7; }
+.codeRow span { color:#789087; font-size:.58rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.codeRow strong { display:block; margin-top:4px; color:var(--green); font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:1rem; letter-spacing:.04em; }
+.primaryButton { display:flex; min-height:49px; align-items:center; justify-content:center; gap:8px; border-radius:12px; color:#fff; background:var(--orange); box-shadow:0 8px 18px rgba(239,135,62,.18); font-size:.8rem; font-weight:800; text-decoration:none; transition:.2s ease; }
+.primaryButton:hover { background:#d9722f; transform:translateY(-2px); }
+.primaryButton svg { stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
+.sidebarFeatured { margin-top:20px; padding-top:18px; border-top:1px solid #e8eee9; }
+.sidebarFeaturedLabel { display:block; margin-bottom:11px; color:var(--orange); font-size:.7rem; font-weight:800; }
+.sidebarFeaturedList { display:flex; flex-wrap:wrap; gap:6px; }
+.sidebarFeaturedItem { display:flex; align-items:center; gap:7px; padding:7px 9px; border-radius:9px; color:#637870; background:#f8faf7; font-size:.7rem; font-weight:700; text-decoration:none; }
+.sidebarFeaturedItem:hover { color:var(--green); background:#edf6ef; }
+.miniLogo { width:23px; height:23px; display:grid; place-items:center; border-radius:6px; color:#fff; font-size:.65rem; font-weight:800; }
+@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:18px; flex-direction:column}.brandInfo h1{font-size:1.6rem}.stepsRow,.conditionsBlock ul,.relatedList,.rewardsSection{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:12px}.stepNumber{flex:none;margin:0}.actionCard{padding:18px}.headerInner{min-height:68px} }

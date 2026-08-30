@@ -1,0 +1,14 @@
+.form { display: grid; gap: 10px; padding: 15px; border: 1px solid #dce8df; border-radius: 15px; background: #f8faf7; }
+.intro { display: grid; gap: 4px; margin-bottom: 2px; }
+.intro strong { color: #075846; font-family: "Manrope", Arial, sans-serif; font-size: .82rem; }
+.intro span, .form label, .form small { color: #7b8d85; font-size: .67rem; line-height: 1.4; }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.form label { display: grid; gap: 5px; font-weight: 800; }
+.form input { min-width: 0; min-height: 36px; padding: 7px 9px; border: 1px solid #d8e3da; border-radius: 9px; outline: 0; background: #fff; color: #173d35; font: inherit; font-weight: 500; }
+.form input:focus { border-color: #ef873e; box-shadow: 0 0 0 3px rgba(239, 135, 62, .13); }
+.form button { min-height: 42px; margin-top: 3px; border: 0; border-radius: 999px; color: #fff; background: #ef873e; cursor: pointer; font: inherit; font-size: .72rem; font-weight: 800; }
+.form button:hover { background: #d9722f; }
+.form button span { margin-left: 5px; }
+.form small { text-align: center; }
+.confirmation { margin: 0; padding: 15px; border: 1px solid #dce8df; border-radius: 15px; color: #39765e; background: #f1f8f2; font-size: .72rem; line-height: 1.5; }
+@media (max-width: 420px) { .fields { grid-template-columns: 1fr; } }

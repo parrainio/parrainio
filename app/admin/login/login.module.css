@@ -1,0 +1,91 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(239, 135, 62, 0.16), transparent 32%),
+    linear-gradient(180deg, #f7f4ee, #eef4f0);
+}
+
+.card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 14px;
+  padding: 32px 28px;
+  border: 1px solid rgba(20, 65, 55, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(23, 61, 53, 0.08);
+}
+
+.kicker {
+  margin: 0;
+  color: #ef873e;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.card h1 {
+  margin: 0;
+  color: #075846;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: -0.05em;
+}
+
+.lead,
+.setup,
+.error {
+  margin: 0;
+  color: #71807d;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.error {
+  color: #b42318;
+}
+
+.card label {
+  display: grid;
+  gap: 8px;
+  color: #173d35;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.card input {
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid #d7e3db;
+  border-radius: 12px;
+  font: inherit;
+}
+
+.card input:focus {
+  outline: 0;
+  border-color: #ef873e;
+  box-shadow: 0 0 0 3px rgba(239, 135, 62, 0.16);
+}
+
+.card button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #075846;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.card button:hover {
+  background: #043f34;
+}
+
+.setup code {
+  color: #075846;
+}

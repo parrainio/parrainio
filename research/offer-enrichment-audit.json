@@ -1,0 +1,992 @@
+{
+  "generatedAt": "2026-08-30T08:40:19.461Z",
+  "catalogueCount": 120,
+  "complete": 0,
+  "bonusVerified": 42,
+  "conditionsVerified": 24,
+  "stepsCompleted": 13,
+  "officialLink": 38,
+  "personalLink": 103,
+  "incomplete": [
+    {
+      "slug": "boursobank",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "igraal",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "totalenergies",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "sfr",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "fortuneo",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "poulpeo",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "paypal",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "revolut",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "ebuyclub",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "airbnb",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "shopmium",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "showroomprive",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "hello-bank",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "trade-republic",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "rakuten-priceminister",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "direct-assurance",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "winamax",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "weward",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "n26",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "coinbase",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "betclic",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "lolivier",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "crypto-com",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "primeo-energie",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "unibet",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "widilo",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "thefork",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "linxea",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "bricks",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "swissborg",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "airbnb-1",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "choose",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "myprotein",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "hello-fresh",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "pmu",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "coupon-network",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "engie",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "la-premiere-brique-1",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "macadam-4",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "wise",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "aroma-zone",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "wanteeed",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "naomi-1",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "bienpreter",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "phenix",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "attapoll",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "greenweez-6",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "fizzer",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "swagbucks",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "honeygain",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "monabanq",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "parions-sport",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "topcashback",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "etoro",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "private-sport-shop",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "bitstack",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "instant-gaming",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "shein",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "gmf",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "karos",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "kraken",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "capital-koala",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "freecash",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "beebs",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "hello-watt",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "bemyeye",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "i-run-fr",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "bitpanda",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "bebe-boutik",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "bybit",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "fdj-francaise-des-jeux",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "lalalab",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "sumeria",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "meilleurtaux-com",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "assurancevie-com",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "edf",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "hostinger",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "whatnot",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "too-good-to-go",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "placesdescartes",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "sumup",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "fidme",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "la-belle-vie",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "cointiply",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "fiverr",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "okx",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "revolut-business",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "raizers",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "nutripure",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "pourdebon",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "10-pourcent-1",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "becquet",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "c-monetiquette",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "betsson",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "systeme-io",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "liberte-watts",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "klarna",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "reevolt",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "scrambly",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "splint-invest",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "rover-1",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "alltricks",
+      "missing": [
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "featurepoints",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "joybuy",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "the-protein-works",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "shoes-fr",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "epargnoo-5",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "caisse-depargne-loire-centre",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "la-bourse-aux-livres",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "cartouche-du-toner",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "myvitamins",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "zumub",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "speedo",
+      "missing": [
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "coinhouse",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "ludocortex",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "steps: absentes ou génériques",
+        "officialWebsiteUrl: absent"
+      ]
+    },
+    {
+      "slug": "biogents",
+      "missing": [
+        "steps: absentes ou génériques"
+      ]
+    },
+    {
+      "slug": "credit-agricole-centre-loire",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "ritmic",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "zeconfiserie",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    },
+    {
+      "slug": "simplis",
+      "missing": [
+        "bonus: montant partenaire non communiqué",
+        "conditions: absentes ou génériques",
+        "referral: lien/code personnel non trouvé"
+      ]
+    }
+  ]
+}
