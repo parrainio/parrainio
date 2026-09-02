@@ -132,7 +132,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
               </p>
 
               <h1>
-                Offres de parrainage : <em>primes et bons plans.</em>
+                Toutes les offres de parrainage, <em>en un coup d’œil.</em>
               </h1>
 
               <p>

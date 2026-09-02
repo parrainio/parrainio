@@ -49,6 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage | Parrainio`,
     description: profile?.metaDescription ?? `Profitez de l'offre de parrainage ${offer.name} et recevez ${reward}. Découvrez les conditions et bénéficiez d'un éventuel reversement Parrainio dans la catégorie ${categoryName}.`,
+    alternates: { canonical: `/offres/${slug}` },
     openGraph: {
       title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage`,
       description: profile?.metaDescription ?? `Offre de parrainage ${offer.name} : ${reward}. Conditions et reversement Parrainio.`,
@@ -116,7 +117,7 @@ export default async function OfferPage({
                   />
                   <div className={styles.brandInfo}>
                     <span className={styles.overline}>Offre partenaire</span>
-                    <h1>{seoProfile?.h1 ?? offer.name}</h1>
+                    <h1>{seoProfile?.h1 ?? `${offer.name} : parrainage, conditions et récompense`}</h1>
                     {offer.officialWebsiteUrl && (
                       <a
                         href={referralUrl ?? offer.officialWebsiteUrl}

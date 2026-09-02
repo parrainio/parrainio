@@ -1,9 +1,11 @@
 import "./globals.css";
+import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/siteUrl";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Parrainio — Le nouveau réflexe pour vos parrainages",
+  alternates: { canonical: "/" },
+  title: "Parrainio — Les offres de parrainage, en clair",
   description:
     "Découvrez les meilleures offres de parrainage et récupérez jusqu'à 25 % de votre avantage.",
 };

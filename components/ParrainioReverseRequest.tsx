@@ -7,8 +7,8 @@ function CheckIcon() {
 
 export default function ParrainioReverseRequest({ offerSlug }: { offerSlug: string }) {
   return (
-    <section className={styles.section} aria-labelledby={`reverse-request-${offerSlug}`}>
-      <h2 id={`reverse-request-${offerSlug}`}><CheckIcon />Parrainage terminé ?</h2>
+    <section className={styles.section} aria-label={`Demande de reverse pour l'offre ${offerSlug}`}>
+      <div className={styles.heading}><CheckIcon />Parrainage terminé ?</div>
       <p>Vous avez finalisé votre inscription chez le partenaire ? Envoyez-nous votre demande de reverse.</p>
       <Link href={`/demander-ma-reverse/${offerSlug}`} className={styles.button}>Demander ma reverse →</Link>
       <small>Une fois votre parrainage validé, nous vérifions votre demande avant le versement de votre reverse.</small>

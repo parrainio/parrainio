@@ -32,6 +32,6 @@ export default function CategoryMenu({ categories }: { categories: string[] }) {
 
   return <div className={styles.categoriesMenu} onMouseEnter={openMenu} onMouseLeave={scheduleClose}>
     <button type="button" className={`${styles.categoryTrigger} ${open ? styles.categoryTriggerOpen : ""}`} aria-expanded={open} onClick={() => { cancelClose(); setOpen((value) => !value); }}>Catégories <span aria-hidden="true">⌄</span></button>
-    {open && <div className={styles.categoryDropdown}>{categories.map((category) => <Link key={category} href={`/offres?category=${encodeURIComponent(category)}#offres`}>{category}</Link>)}</div>}
+    <div className={styles.categoryDropdown} hidden={!open}>{categories.map((category) => <Link key={category} href={`/offres?category=${encodeURIComponent(category)}#offres`}>{category}</Link>)}</div>
   </div>;
 }

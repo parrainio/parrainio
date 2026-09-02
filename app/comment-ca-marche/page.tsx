@@ -1,7 +1,15 @@
 import Link from "next/link";
 import type { SVGProps } from "react";
+import type { Metadata } from "next";
 import PublicHeader from "@/components/PublicHeader";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Comment ça marche : les étapes d'un parrainage | Parrainio",
+  description:
+    "Les 3 étapes d'un parrainage réussi : choisir une offre, utiliser le lien ou code du parrain, valider les conditions puis demander votre reverse Parrainio.",
+  alternates: { canonical: "https://www.parrainio.fr/comment-ca-marche" },
+};
 
 type IconName =
   | "search"

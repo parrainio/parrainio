@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Offres de parrainage : primes et bons plans | Parrainio",
   description:
     "Découvrez les meilleures offres de parrainage, comparez les primes, les conditions et le reversement Parrainio avant de vous lancer.",
-  alternates: { canonical: "/offres" },
+  alternates: { canonical: "https://www.parrainio.fr/offres" },
 };
 
 export default function OffresPage() {
