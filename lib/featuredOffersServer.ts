@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
 
 const dataDir = join(process.cwd(), "data");
 const featuredConfigPath = join(dataDir, "featured-config.json");
@@ -12,15 +13,9 @@ export function getFeaturedOfferSlugsServer(): string[] {
         return config.featuredOfferSlugs;
       }
     } catch {
-      // Fall back to default
+      // Fall back to the canonical selection.
     }
   }
-  
-  // Default configuration
-  return [
-    "boursobank",
-    "linxea", 
-    "splint-invest",
-    "revolut"
-  ];
+
+  return [...SELECTION_DU_MOMENT];
 }

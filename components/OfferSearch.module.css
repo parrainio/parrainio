@@ -1,0 +1,4 @@
+.search { display:flex; align-items:center; gap:9px; width:min(100%,360px); padding:10px 13px; border:1px solid #dfe9e1; border-radius:13px; background:#fff; color:#71827a; box-shadow:0 8px 18px rgba(28,61,48,.04); }
+.search svg { width:17px; height:17px; flex:none; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.9; }
+.search input { width:100%; min-width:0; border:0; outline:0; background:transparent; color:#173d35; font:inherit; font-size:.8rem; }
+.search input::placeholder { color:#899890; }

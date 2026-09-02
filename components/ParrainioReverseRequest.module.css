@@ -1,0 +1,7 @@
+.section { margin-top: 16px; padding-top: 16px; border-top: 1px solid #e8eee9; }
+.section h2 { display:flex; align-items:center; gap:7px; margin: 0; color: #075846; font-family: "Manrope", Arial, sans-serif; font-size: .9rem; }
+.icon { width:15px; height:15px; flex:none; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.section p { margin: 7px 0 12px; color: #71807d; font-size: .72rem; line-height: 1.5; }
+.button { display:flex; min-height:42px; align-items:center; justify-content:center; border-radius:11px; color:#fff; background:#075846; font-size:.75rem; font-weight:800; text-decoration:none; transition:background .2s ease, transform .2s ease; }
+.button:hover { background:#043f34; transform:translateY(-1px); }
+.section small { display:block; margin-top:9px; color:#899890; font-size:.64rem; line-height:1.45; }

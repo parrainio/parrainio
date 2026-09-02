@@ -2,11 +2,12 @@ import Link from "next/link";
 import type { SVGProps } from "react";
 import { useMemo } from "react";
 import { getManagedOffers } from "@/data/managedOffers";
-import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
 import OfferLogo from "@/components/OfferLogo";
 import FAQ from "@/components/FAQ";
+import OfferSearchResults from "@/components/OfferSearchResults";
+import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
 import styles from "./page.module.css";
 
 type IconName = "arrow" | "check" | "search" | "link" | "gift" | "spark";
@@ -32,10 +33,10 @@ export default function Home() {
     [managedOffers]
   );
   const boursobank = managedOffers.find((offer) => offer.slug === "boursobank") ?? managedOffers[0];
-  const featuredOfferSlugs = getFeaturedOfferSlugsServer();
+  const featuredOfferSlugs = SELECTION_DU_MOMENT;
   const featuredOffers = featuredOfferSlugs
     .map((slug) => managedOffers.find((offer) => offer.slug === slug))
-    .filter((offer): offer is (typeof managedOffers)[number] => Boolean(offer && offer.slug !== "boursobank"));
+    .filter((offer): offer is (typeof managedOffers)[number] => Boolean(offer));
 
   return (
     <main id="top" className={styles.page}>
@@ -115,11 +116,9 @@ export default function Home() {
       <section className={styles.howSection}><div className={styles.container}><div className={styles.howHeader}><span className={styles.kicker}>Le parcours Parrainio</span><h2>Parrainer, <em>c&apos;est simple.</em></h2></div><div className={styles.howSteps}><div><b>01</b><span>Choisissez une offre</span><small>Comparez les conditions.</small></div><i>→</i><div><b>02</b><span>Utilisez votre lien</span><small>Suivez le parcours partenaire.</small></div><i>→</i><div><b>03</b><span>Recevez votre avantage</span><small>Après confirmation du parrainage.</small></div></div></div></section>
 
       <section className={styles.compactOffersSection}><div className={styles.container}>
+        <OfferSearchResults offers={managedOffers} />
         <div className={styles.compactOffersHeading}><div><h2>Plus d&apos;offres <em>disponibles.</em></h2></div><Link href="/offres" className={styles.outlineButton}>Voir toutes les offres <Icon name="arrow" size={17} /></Link></div>
-        <div className={styles.compactOffersGrid}>{managedOffers.slice(0, 6).map((offer) => <Link href={`/offres/${offer.slug}`} className={styles.featuredCard} key={offer.slug}>
-          <div className={styles.featuredCardTop}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={38} className={styles.featuredLogo} /><div className={styles.featuredInfo}><small>{offer.categoryGroup}</small><h3>{offer.name}</h3></div></div>
-          <OfferRewards offer={offer} compact /><span className={styles.featuredCta}>Voir l&apos;offre <Icon name="arrow" size={16} /></span>
-        </Link>)}</div>
+
       </div></section>
 
       <FAQ />

@@ -8,6 +8,8 @@ import { type Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
 import OfferLogo from "@/components/OfferLogo";
+import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
+import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
 import styles from "./page.module.css";
 
 type OffersCatalogProps = {
@@ -74,6 +76,7 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
 export default function OffersCatalog({ offers }: OffersCatalogProps) {
   const searchParams = useSearchParams();
   const requestedCategory = searchParams.get("category");
+  const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState(
     requestedCategory && offers.some((offer) => offer.categoryGroup === requestedCategory)
       ? requestedCategory
@@ -89,23 +92,15 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
   }, [offers]);
 
   const filteredOffers = useMemo(() => {
-    if (activeCategory === "Toutes") {
-      return offers;
-    }
+    const query = normalizeOfferSearch(search);
+    return offers.filter((offer) => {
+      const matchesCategory = activeCategory === "Toutes" || offer.categoryGroup === activeCategory;
+      const searchable = normalizeOfferSearch(`${offer.name} ${offer.slug}`);
+      return matchesCategory && (!query || searchable.includes(query));
+    });
+  }, [activeCategory, offers, search]);
 
-    return offers.filter((offer) => offer.categoryGroup === activeCategory);
-  }, [activeCategory, offers]);
-
-  const featuredSlugs = [
-    "boursobank",
-    "linxea",
-    "spliiit",
-    "revolut",
-    "fortuneo",
-    "assurancevie-com",
-    "kraken",
-    "n26",
-  ];
+  const featuredSlugs = SELECTION_DU_MOMENT;
   const featuredOffers = featuredSlugs
     .map((slug) => offers.find((offer) => offer.slug === slug))
     .filter((offer): offer is Offer => Boolean(offer));
@@ -291,6 +286,8 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
             </p>
           </div>
 
+          <OfferSearch value={search} onChange={setSearch} />
+
           {/* CATÉGORIES */}
           <div className={styles.categoryBar}>
             <div
@@ -375,7 +372,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
           ) : (
             <div className={styles.emptyState}>
               <strong>
-                Aucune offre dans cette catégorie
+                {search ? "Aucune offre trouvée." : "Aucune offre dans cette catégorie"}
               </strong>
 
               <span>

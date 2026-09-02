@@ -506,12 +506,10 @@ export function getReverseAmount(offer: Offer) {
 }
 
 // Featured offers configuration - client side default
-export const defaultFeaturedOfferSlugs: string[] = [
-  "boursobank",
-  "linxea", 
-  "splint-invest",
-  "revolut"
-];
+export { SELECTION_DU_MOMENT } from "./featuredOffersConfig";
+import { SELECTION_DU_MOMENT } from "./featuredOffersConfig";
+
+export const defaultFeaturedOfferSlugs: string[] = [...SELECTION_DU_MOMENT];
 
 export function getFeaturedOffers(slugs: string[] = defaultFeaturedOfferSlugs): Offer[] {
   return slugs

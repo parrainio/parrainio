@@ -110,7 +110,7 @@
   .featuredHeader h2 { margin-bottom: 12px; }
   .featuredHeader h2 { font-size: 1.55rem; }
   .compactHeroCopy h1 { font-size: 1.8rem; }
-  .heroIllustration { min-height: 390px; padding-bottom: 150px; box-sizing: border-box; }.marketingCard { width: min(100%, 340px); padding: 14px; top: 42%; }.marketingAmount { font-size: 3.3rem; }.marketingCoin { right: 10px; }  .heroAdvantage { right: 0; bottom: 8px; width: 210px; height: 132px; padding: 14px; }
+  .heroIllustration { min-height: 390px; padding-bottom: 108px; box-sizing: border-box; }.marketingCard { width: min(100%, 340px); padding: 14px; top: 42%; }.marketingAmount { font-size: 3.3rem; }.marketingCoin { right: 10px; }  .heroAdvantage { right: 8px; bottom: 4px; width: 168px; height: 84px; padding: 9px 10px; }
   .featuredGrid { grid-template-columns: 1fr; }
   .compactOffersGrid { grid-template-columns: 1fr; }
   .compactOffersHeading { flex-direction: column; align-items: flex-start; }
