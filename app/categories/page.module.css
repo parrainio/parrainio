@@ -29,7 +29,7 @@
 ========================= */
 
 .hero {
-  padding: 10px 0 12px;
+  padding: 8px 0 10px;
   background:
     radial-gradient(
       circle at 78% 37%,
@@ -45,7 +45,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  padding-top: 18px;
+  padding-top: 12px;
   font-size: 0.68rem;
   font-weight: 700;
 }
@@ -70,7 +70,7 @@
 
 .heroCopy {
   max-width: 760px;
-  padding: 26px 0 22px;
+  padding: 12px 0 8px;
 }
 
 .eyebrow,
@@ -102,12 +102,12 @@
 }
 
 .heroCopy h1 {
-  margin: 14px 0 18px;
+  margin: 10px 0 12px;
   color: var(--green-dark);
   font-family: "Manrope", Arial, sans-serif;
-  font-size: clamp(2.9rem, 5.2vw, 4.4rem);
-  letter-spacing: -0.055em;
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  letter-spacing: -0.05em;
+  line-height: 1.06;
 }
 
 .heroCopy h1 em {
@@ -119,8 +119,8 @@
 .heroCopy > p:not(.eyebrow) {
   max-width: 640px;
   color: #5f7269;
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .heroNote {
@@ -128,7 +128,7 @@
   align-items: flex-start;
   gap: 7px;
   max-width: 460px;
-  margin-top: 16px;
+  margin-top: 10px;
   color: #75867e;
   font-size: 0.66rem;
   line-height: 1.45;
@@ -145,7 +145,7 @@
 ========================= */
 
 .offersSection {
-  padding: 52px 0;
+  padding: 30px 0 52px;
   background: #fffdfa;
 }
 
@@ -154,14 +154,14 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 30px;
-  margin-bottom: 43px;
+  margin-bottom: 30px;
 }
 
 .sectionHead h2 {
   max-width: 620px;
   margin: 0;
-  font-size: clamp(2.5rem, 4.3vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+  line-height: 1.06;
 }
 
 .sectionHead h2 em {
@@ -595,7 +595,7 @@
 
 @media (max-width: 930px) {
   .heroCopy h1 {
-    font-size: clamp(2.6rem, 7vw, 3.6rem);
+    font-size: clamp(2rem, 4.6vw, 2.7rem);
   }
 
   .guideGrid {
@@ -631,23 +631,23 @@
   }
 
   .breadcrumb {
-    padding-top: 14px;
+    padding-top: 10px;
   }
 
   .heroCopy {
-    padding: 18px 0 16px;
+    padding: 10px 0 6px;
   }
 
   .heroCopy h1 {
-    font-size: clamp(2.85rem, 14vw, 4.1rem);
+    font-size: clamp(2.1rem, 9vw, 2.9rem);
   }
 
   .offersSection {
-    padding: 42px 0;
+    padding: 26px 0 42px;
   }
 
   .sectionHead h2 {
-    font-size: 2.55rem;
+    font-size: 2.2rem;
   }
 
   .guideSection {
