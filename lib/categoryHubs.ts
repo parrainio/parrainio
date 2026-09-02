@@ -110,3 +110,14 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
 export function getCategoryHub(slug: string): CategoryHubContent | undefined {
   return CATEGORY_HUBS.find((hub) => hub.slug === slug);
 }
+
+/**
+ * Hub dédié existant pour un groupe de catégorie.
+ * Renvoie undefined si le groupe n'a pas encore de page dédiée :
+ * aucune page ne doit alors lier vers un hub inexistant.
+ */
+export function getCategoryHubForGroup(
+  group: OfferCategory
+): CategoryHubContent | undefined {
+  return CATEGORY_HUBS.find((hub) => hub.group === group);
+}

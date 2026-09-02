@@ -80,6 +80,12 @@
 .conditionsBlock ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin:0; padding:0; list-style:none; }
 .conditionsBlock li { display:flex; align-items:flex-start; gap:8px; color:#71827a; font-size:.8rem; line-height:1.5; }
 .conditionNumber { display:grid; width:28px; height:28px; place-items:center; flex:none; margin-top:-1px; border-radius:50%; color:var(--orange); background:#fff1e2; font-family:"Manrope",Arial,sans-serif; font-size:.72rem; font-weight:800; }
+.relatedHead { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; }
+.relatedHead h2 { margin:0; }
+.relatedBlock h2 { margin:0; }
+.hubLink { display:inline-flex; align-items:center; gap:5px; color:var(--green); font-size:.72rem; font-weight:800; text-decoration:none; }
+.hubLink:hover { color:var(--orange); }
+.hubLink svg { flex:none; }
 .relatedList { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .relatedItem { display:flex; align-items:center; gap:9px; min-width:0; padding:11px; border:1px solid #e7eee8; border-radius:13px; background:#f8faf7; text-decoration:none; transition:.2s ease; }
 .relatedItem:hover { border-color:#b5cfbe; background:#fff; transform:translateY(-2px); }

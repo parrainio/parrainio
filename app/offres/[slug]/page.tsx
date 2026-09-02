@@ -19,6 +19,7 @@ import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { getRelatedOffers } from "@/lib/relatedOffers";
+import { getCategoryHubForGroup } from "@/lib/categoryHubs";
 import { hasMeaningfulConditions } from "@/lib/offerCompleteness";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import CopyTextButton from "@/components/CopyTextButton";
@@ -92,6 +93,7 @@ export default async function OfferPage({
     ? offer.conditions.filter((condition) => condition.trim())
     : [];
   const relatedOffers = getRelatedOffers(offer, getManagedOffers(), 3);
+  const categoryHub = getCategoryHubForGroup(offer.categoryGroup);
   const featuredOfferSlugs = getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
   const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
@@ -224,7 +226,18 @@ export default async function OfferPage({
               {/* Related offers */}
               {relatedOffers.length > 0 && (
                 <div className={styles.relatedBlock}>
-                  <h2>Dans la même catégorie</h2>
+                  <div className={styles.relatedHead}>
+                    <h2>Dans la même catégorie</h2>
+                    {categoryHub && (
+                      <Link
+                        href={`/categories/${categoryHub.slug}`}
+                        className={styles.hubLink}
+                      >
+                        Voir les offres {offer.categoryGroup}
+                        <ArrowIcon />
+                      </Link>
+                    )}
+                  </div>
                   <div className={styles.relatedList}>
                     {relatedOffers.map((relatedOffer) => (
                       <Link
