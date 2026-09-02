@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getManagedOffers } from "@/data/managedOffers";
 import OffersCatalog from "./OffersCatalog";
+import CategoryOffers from "./CategoryOffers";
 
 export const dynamic = "force-dynamic";
 

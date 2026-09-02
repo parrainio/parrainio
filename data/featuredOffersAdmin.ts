@@ -8,13 +8,10 @@ export type FeaturedOffersConfig = {
   featuredOfferSlugs: string[];
 };
 
+import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
+
 const defaultFeaturedOffersConfig: FeaturedOffersConfig = {
-  featuredOfferSlugs: [
-    "boursobank",
-    "linxea",
-    "splint-invest",
-    "revolut"
-  ]
+  featuredOfferSlugs: [...SELECTION_DU_MOMENT]
 };
 
 function readFeaturedConfig(): FeaturedOffersConfig {

@@ -140,8 +140,8 @@ export async function getOffersExportJson() {
 export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfig) {
   await requireAdmin();
   
-  if (!config.featuredOfferSlugs || config.featuredOfferSlugs.length !== 4) {
-    throw new Error("Vous devez sélectionner exactement 4 offres.");
+  if (!config.featuredOfferSlugs || config.featuredOfferSlugs.length !== 5) {
+    throw new Error("Vous devez sélectionner exactement 5 offres.");
   }
 
   const allOffers = getManagedOffers();
@@ -149,7 +149,7 @@ export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfi
     allOffers.some(offer => offer.slug === slug)
   );
 
-  if (validSlugs.length !== 4) {
+  if (validSlugs.length !== 5) {
     throw new Error("Certaines offres sélectionnées n'existent pas.");
   }
 

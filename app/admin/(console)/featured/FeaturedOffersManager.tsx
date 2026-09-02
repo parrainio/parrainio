@@ -18,8 +18,8 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
   const availableOffers = allOffers.filter(offer => !selectedSlugs.includes(offer.slug));
 
   function addOffer(slug: string) {
-    if (selectedSlugs.length >= 4) {
-      setMessage("Vous ne pouvez sélectionner que 4 offres maximum.");
+    if (selectedSlugs.length >= 5) {
+      setMessage("Vous ne pouvez sélectionner que 5 offres maximum.");
       return;
     }
     setSelectedSlugs([...selectedSlugs, slug]);
@@ -31,8 +31,8 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
   }
 
   async function handleSave() {
-    if (selectedSlugs.length !== 4) {
-      setMessage("Vous devez sélectionner exactement 4 offres.");
+    if (selectedSlugs.length !== 5) {
+      setMessage("Vous devez sélectionner exactement 5 offres.");
       return;
     }
 
@@ -54,7 +54,7 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
   return (
     <div className="featured-manager">
       <div className="featured-section">
-        <h2>Offres sélectionnées ({selectedSlugs.length}/4)</h2>
+        <h2>Offres sélectionnées ({selectedSlugs.length}/5)</h2>
         <div className="selected-offers">
           {selectedOffers.map((offer) => (
             <div key={offer.slug} className="selected-offer-card">
@@ -74,7 +74,7 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
               </button>
             </div>
           ))}
-          {selectedSlugs.length < 4 && (
+          {selectedSlugs.length < 5 && (
             <div className="empty-slot">
               <span>+</span>
               <small>Offre à ajouter</small>
@@ -101,7 +101,7 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
                 type="button"
                 onClick={() => addOffer(offer.slug)}
                 className="add-button"
-                disabled={selectedSlugs.length >= 4}
+                disabled={selectedSlugs.length >= 5}
               >
                 Ajouter
               </button>
@@ -115,7 +115,7 @@ export default function FeaturedOffersManager({ allOffers, featuredConfig }: Fea
         <button 
           type="button"
           onClick={handleSave}
-          disabled={saving || selectedSlugs.length !== 4}
+          disabled={saving || selectedSlugs.length !== 5}
           className="save-button"
         >
           {saving ? "Sauvegarde..." : "Sauvegarder la configuration"}
