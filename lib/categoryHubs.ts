@@ -5,6 +5,11 @@ export type CategoryHubInfoCard = {
   text: string;
 };
 
+export type CategoryHubCrossLink = {
+  slug: string;
+  label: string;
+};
+
 export type CategoryHubContent = {
   slug: string;
   group: OfferCategory;
@@ -12,9 +17,16 @@ export type CategoryHubContent = {
   metaDescription: string;
   h1Lead: string;
   h1Accent: string;
+  /** Paragraphes d'ouverture : le 1er s'affiche dans le hero, les suivants dans le guide. */
   intro: string[];
+  /** Paragraphes éditoriaux du guide. Supporte les liens inline : [ancre](/chemin). */
+  editorial: string[];
+  /** Paragraphe de conclusion menant naturellement vers les offres. */
+  conclusion: string;
   guideTitle: string;
   infoCards: CategoryHubInfoCard[];
+  /** Liens croisés curatés vers 3–4 autres hubs sémantiquement proches. */
+  hubLinks: CategoryHubCrossLink[];
 };
 
 export const CATEGORY_HUBS: CategoryHubContent[] = [
@@ -29,22 +41,36 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie regroupe les offres de parrainage du secteur bancaire et financier : banques en ligne et néobanques, assurances, épargne et assurance-vie, ainsi que des services financiers du quotidien. S'inscrire via un lien ou un code de parrainage permet d'ouvrir un droit à la prime du partenaire, sans frais supplémentaires et au même tarif qu'une inscription classique.",
       "Les mécanismes varient d'un partenaire à l'autre. Certaines offres fonctionnent avec un code à saisir, d'autres avec un lien d'invitation à utiliser avant l'inscription. La prime est généralement conditionnée à l'ouverture d'un compte, parfois à un premier dépôt, à l'activation d'une carte ou à une première opération : chaque fiche détaille les conditions exactes, le délai et le montant.",
-      "Avant de vous lancer, vérifiez que vous êtes bien éligible (nouveau client, âge, pays de résidence), notez la date limite et les opérations demandées, puis conservez vos justificatifs. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de la prime du partenaire.",
+      "Avant de vous lancer, vérifiez que vous êtes bien éligible (nouveau client, âge, pays de résidence), notez la date limite et les opérations demandées, puis conservez vos justificatifs.",
     ],
+    editorial: [
+      "La plupart des offres de la catégorie tournent autour de l'ouverture d'un compte : banque en ligne, néobanque, compte joint ou solution pour indépendants. Les primes de bienvenue sont le plus souvent conditionnées à une activation de carte, à quelques paiements effectués dans les premiers mois ou à un versement initial sur le compte. Les cartes et les moyens de paiement associés suivent ensuite les mêmes règles que lors d'une souscription classique.",
+      "Changer d'établissement est plus simple qu'on ne l'imagine : la mobilité bancaire transfère automatiquement virements permanents et prélèvements sur demande. L'épargne suit une logique voisine — assurance-vie, plans d'épargne et courtiers en ligne ouvent un droit à prime selon les versements réalisés. Autour de ces offres gravitent des services financiers du quotidien : paiements à l'étranger, transferts internationaux ou outils de gestion pour les indépendants.",
+      "La carte est souvent le cœur de l'offre : paiement sans contact, paiements à l'étranger sans frais sur certaines cartes, application de gestion en temps réel. Les primes de bienvenue récompensent généralement l'adoption de cette carte — quelques paiements dans les premiers mois suffisent parfois, ce qui rend l'offre accessible sans bouleverser vos habitudes de paiement.",
+      "Pour comparer efficacement, regardez au-delà de la prime annoncée : frais de tenue de compte, conditions de revenus exigées, délai de versement et stabilité de l'établissement. [Les offres d'investissement et de crypto](/categories/investissement-crypto), souvent complémentaires d'un compte bancaire solide, font l'objet d'une catégorie dédiée sur Parrainio.",
+    ],
+    conclusion:
+      "Parcourez les fiches de la catégorie à votre rythme : chacune résume la prime du partenaire, les conditions d'ouverture et les étapes à suivre, pour repérer l'offre qui correspond vraiment à votre projet.",
     guideTitle: "Banque, assurance, épargne : bien choisir son offre.",
     infoCards: [
       {
-        title: "Avant de vous inscrire",
-        text: "Éligibilité nouveau client, dépôt minimum, délai : chaque fiche résume les conditions à respecter pour débloquer la prime.",
+        title: "Conditions d'ouverture",
+        text: "Premier dépôt, activation de carte ou paiements dans les mois qui suivent : les critères changent d'une banque à l'autre.",
       },
       {
-        title: "Code ou lien d'invitation ?",
-        text: "Selon le partenaire, le parrainage passe par un code à saisir lors de l'inscription ou par un lien à utiliser avant de créer votre compte.",
+        title: "Mobilité bancaire",
+        text: "Le changement d'établissement est accompagné : virements et prélèvements peuvent être transférés automatiquement sur demande.",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Une fois le parrainage validé par le partenaire, Parrainio reverse une partie de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "investissement-crypto", label: "Découvrir les offres Investissement & Crypto" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
     ],
   },
   {
@@ -58,22 +84,35 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Ici se trouvent les offres de parrainage du commerce en ligne : mode, sport et nutrition, maison, jeux, produits pour bébés, ainsi que les courses et l'alimentation. Le principe reste le même que partout ailleurs sur Parrainio : passer par le lien ou le code de parrainage au moment de l'inscription pour débloquer l'avantage du partenaire.",
       "Les avantages prennent des formes très différentes selon les enseignes : réduction sur la première commande, bon d'achat, code promo, invitation à partager ou remboursement sur des achats courants. Certaines offres demandent un minimum de commande, d'autres fonctionnent dès le premier panier. Chaque fiche indique le mécanisme exact, le montant et les conditions.",
-      "Avant de valider un achat, vérifiez le montant minimum, les produits ou marques exclus, la durée de validité de l'avantage et sa compatibilité avec les promotions en cours. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission perçue.",
+      "Avant de valider un achat, vérifiez le montant minimum, les produits ou marques exclus, la durée de validité de l'avantage et sa compatibilité avec les promotions en cours.",
     ],
+    editorial: [
+      "Les enseignes de la catégorie couvrent l'essentiel des achats en ligne : boutiques spécialisées et marketplaces se côtoient, avec des univers très éloignés d'une fiche à l'autre. Les mécanismes de parrainage s'adaptent d'ailleurs à chacun de ces modèles — un code à saisir au paiement chez l'un, une invitation à suivre avant la création du compte chez l'autre.",
+      "La réduction de bienvenue s'applique dans la majorité des cas sur la première commande, parfois dès le premier panier sans minimum d'achat. Certains sites réservent l'avantage à une catégorie de produits ou l'excluent des ventes flash : une lecture rapide des conditions évite les mauvaises surprises au moment de payer.",
+      "Marketplaces généralistes et boutiques spécialisées ne se valent pas non plus côté parrainage : les grandes enseignes renouvellent souvent leurs offres de bienvenue au fil des saisons — rentrée, fêtes, soldes — tandis que les boutiques de niche misent sur un avantage stable et simple à comprendre. Un même produit peut ainsi donner lieu à plusieurs scénarios avantageux selon le moment et l'enseigne choisis.",
+      "Autre réflexe utile : comparer l'offre de parrainage avec les autres leviers de réduction. Les plateformes de [cashback remboursent une partie des achats](/categories/cashback) effectués chez leurs marchands partenaires, et se combinent parfois avec les bons plans des enseignes elles-mêmes.",
+    ],
+    conclusion:
+      "Prenez quelques minutes avant votre prochaine commande : bonus, conditions et étapes sont résumés fiche par fiche pour choisir l'offre la plus avantageuse au moment d'acheter.",
     guideTitle: "Bon plans shopping : bien comparer avant d'acheter.",
     infoCards: [
       {
-        title: "Des avantages variés",
-        text: "Réduction de bienvenue, code, bon d'achat ou invitation : chaque enseigne a son propre mécanisme de parrainage.",
+        title: "Réductions de bienvenue",
+        text: "Code promo, bon d'achat ou remise automatique : chaque enseigne a son propre mécanisme de parrainage.",
       },
       {
-        title: "À vérifier avant d'acheter",
-        text: "Minimum de commande, exclusions, délai de validité et cumul avec les promotions déjà en cours.",
+        title: "Commandes éligibles",
+        text: "Minimum de commande, exclusions de marques et cumul avec les soldes : à vérifier avant de finaliser l'achat.",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Parrainage validé par le partenaire, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
     ],
   },
   {
@@ -87,8 +126,16 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie rassemble les plateformes d'investissement et d'épargne, les courtiers et les plateformes de cryptomonnaies. Utiliser un lien ou un code de parrainage ne change rien au fonctionnement du service : il ouvre simplement l'accès à la récompense de bienvenue proposée par le partenaire, lorsque les conditions sont remplies.",
       "Les conditions varient fortement d'une plateforme à l'autre : dépôt initial, premier achat, montant minimum ou volume d'activité peuvent être demandés. Sur les offres crypto, la récompense est parfois versée en actifs : sa valeur évolue alors avec les cours. Chaque fiche détaille le mécanisme, le montant et les étapes avant de vous engager.",
-      "Prenez le temps de comparer les frais, l'éligibilité et les conditions de déblocage de la prime, et consultez la documentation officielle du partenaire. Parrainio présente ces offres à titre informatif et ne fournit aucun conseil en investissement. Après validation du parrainage, Parrainio peut vous reverser jusqu'à 25 % de sa commission.",
+      "Prenez le temps de comparer les frais, l'éligibilité et les conditions de déblocage de la prime, et consultez la documentation officielle du partenaire. Parrainio présente ces offres à titre informatif et ne fournit aucun conseil en investissement.",
     ],
+    editorial: [
+      "Courtiers en ligne, applications d'investissement programmé, plateformes d'épargne et places de marché d'actifs numériques : la catégorie couvre des services très différents, du versement régulier sur un plan d'épargne à l'achat ponctuel de cryptomonnaies. Les bonus de bienvenue y suivent presque toujours le même schéma : créer un compte, passer la vérification d'identité, puis réaliser l'opération attendue.",
+      "Cette opération peut être un premier versement, un premier achat ou un volume minimal d'activité sur une période donnée. Le montant de la récompense dépend ensuite de la plateforme, parfois du niveau du dépôt — et il reste dans tous les cas distinct de la performance du placement lui-même : la prime est un bonus de bienvenue, pas un rendement.",
+      "Sur les actifs numériques, la volatilité est la règle : une récompense versée en crypto suit les cours, à la hausse comme à la baisse. Avant de vous inscrire, lisez les frais, les supports disponibles, les conditions de retrait et la réglementation applicable à votre situation.",
+      "Le choix d'une plateforme se joue rarement sur le bonus seul. L'univers proposé (actions, ETF, immobilier, crypto), la clarté des frais, la qualité de l'application et les modalités de dépôt-retrait pèsent durablement plus que la prime d'arrivée. Traitez le bonus comme un complément : il récompense une inscription que vous auriez de toute façon jugée sur les fondamentaux.",
+    ],
+    conclusion:
+      "Comparez les plateformes de la catégorie sans précipitation : chaque fiche détaille les conditions d'inscription, la récompense annoncée et les vérifications à anticiper avant le premier versement.",
     guideTitle: "Investissement : bien comparer avant de s'inscrire.",
     infoCards: [
       {
@@ -101,8 +148,13 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Le parrainage validé, Parrainio reverse une part de la commission reçue, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
     ],
   },
   {
@@ -116,22 +168,37 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie regroupe les applications qui récompensent des activités du quotidien : marches, missions locales, sondages, lectures de reçus ou micro-tâches. S'inscrire via le lien ou le code de parrainage ouvre l'accès à l'avantage de bienvenue du partenaire, sans changer le fonctionnement de l'application.",
       "Les gains prennent des formes variées selon les plateformes : points convertibles en cadeaux, argent versé sur un compte, seuil de retrait à atteindre ou prime après une première mission validée. Certaines applications créditent l'avantage dès l'inscription, d'autres après une activité minimum. Chaque fiche détaille le mécanisme et les conditions.",
-      "Avant de vous inscrire, vérifiez l'éligibilité nouveau membre, le seuil minimum de retrait et la forme des récompenses. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de vos gains sur l'application.",
+      "Avant de vous inscrire, vérifiez l'éligibilité nouveau membre, le seuil minimum de retrait et la forme des récompenses.",
     ],
+    editorial: [
+      "Applications de marche rémunérée, missions géolocalisées, sondages d'opinion, lecture de reçus de courses ou mini-jeux : ces plateformes monétisent des activités du quotidien. Le parrainage y est particulièrement répandu, car chaque nouveau membre actif fait progresser la communauté — d'où des avantages de bienvenue souvent généreux.",
+      "Le fonctionnement est partout comparable : installer l'application, créer un compte, puis cumuler des points ou des euros selon les tâches réalisées. L'avantage lié au parrainage arrive soit immédiatement, soit après une première mission ou un premier sondage validé : c'est ce déclencheur qu'il faut identifier avant de commencer.",
+      "Le point de vigilance principal est le seuil de retrait. Certaines applications versent dès quelques euros, d'autres imposent un palier plus élevé ou des contreparties précises (cartes cadeaux, paliers de points). Les récompenses restent modestes par nature : rapportez toujours le gain au temps réellement consacré, et privilégiez les activités que vous pouvez intégrer à vos habitudes.",
+      "Côté organisation, inutile d'installer dix applications d'un coup : commencez par une ou deux adaptées à vos trajets et à vos achats, validez l'avantage de bienvenue, puis élargissez si le format vous convient. Les missions et sondages évoluent régulièrement, et les notifications restent le meilleur moyen de repérer les tâches les mieux rémunérées au moment où elles apparaissent.",
+      "Beaucoup de membres cumulent ces applications avec du [cashback sur leurs achats](/categories/cashback) : les deux mécanismes se complètent bien, à condition de suivre les conditions propres à chacun.",
+    ],
+    conclusion:
+      "Explorez les applications de la catégorie : chaque fiche explique les missions, la forme des récompenses et les conditions de déblocage, pour choisir celles qui collent à votre quotidien.",
     guideTitle: "Applications rémunérées : bien démarrer avec les offres.",
     infoCards: [
       {
         title: "Des gains variables",
-        text: "Points, euros ou cadeaux : la forme des récompenses et le seuil de retrait changent selon chaque application.",
+        text: "Points, euros ou cartes cadeaux : la forme des récompenses et les paliers de retrait changent selon l'application.",
       },
       {
-        title: "Missions et conditions",
-        text: "Certaines offres exigent une première mission validée ou une activité minimum avant de débloquer l'avantage.",
+        title: "Missions et déclencheurs",
+        text: "L'avantage de bienvenue est parfois conditionné à une première mission ou à un premier sondage validé.",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Après validation du parrainage, Parrainio vous reverse une partie de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+      { slug: "jeux-paris", label: "Voir les offres Jeux & Paris" },
     ],
   },
   {
@@ -145,8 +212,16 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie rassemble les opérateurs de paris sportifs et de jeux en ligne qui proposent un programme de parrainage. Utiliser le lien ou le code d'un parrain permet de débloquer le bonus de bienvenue du partenaire, généralement sous forme de freebet, selon les conditions propres à chaque opérateur.",
       "Les conditions portent souvent sur l'inscription complète, la vérification d'identité, un premier dépôt ou un premier pari dans des limites définies. Un freebet n'est pas toujours retirable en argent : seule la part éventuellement gagnée peut l'être. Chaque fiche résume le mécanisme, le montant et les étapes exactes.",
-      "Les jeux d'argent et de hasard sont strictement réservés aux personnes majeures et comportent des risques : endettement, isolement, dépendance. Pour être aidé, appelez le 09 74 75 13 13 (appel non surtaxé). Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue.",
+      "Les jeux d'argent et de hasard sont strictement réservés aux personnes majeures et comportent des risques : endettement, isolement, dépendance. Pour être aidé, appelez le 09 74 75 13 13 (appel non surtaxé).",
     ],
+    editorial: [
+      "Paris sportifs, courses hippiques, poker et jeux de grille : les opérateurs présents dans cette catégorie sont agréés en France et soumis à un encadrement strict. Le parrainage y prend presque toujours la même forme — un bonus de bienvenue pour le nouveau joueur, le parrain étant récompensé en parallèle par l'opérateur.",
+      "Les conditions de déblocage méritent une lecture attentive : inscription complète avec vérification d'identité, premier dépôt, premier pari respectant des limites de cote ou de montant, délai d'utilisation du bonus. Le freebet, forme la plus courante, n'est pas retirable en cash : seule la part gagnée peut l'être, et les conditions de mise diffèrent d'un opérateur à l'autre.",
+      "Les formats de jeux varient aussi bien plus qu'on ne le croit : paris sportifs sur le football et le tennis, courses hippiques, grilles et tirages, poker. Les promotions suivent le calendrier sportif — grandes compétitions, tournois majeurs — et certaines offres de bienvenue se renforcent temporairement à ces occasions. Le bonus affiché au moment de votre inscription est donc celui qu'il faut relire, même si vous avez comparé la même offre quelques semaines plus tôt.",
+      "Comparer les offres reste utile, mais avec prudence : un bonus élevé ne signifie pas des conditions favorables. Regardez les restrictions — cotes minimales, sports ou types de paris concernés, délais — avant de vous inscrire. Fixez-vous des limites de temps et de budget, et ne jouez jamais une somme dont vous avez besoin.",
+    ],
+    conclusion:
+      "Parcourez les fiches de la catégorie pour comparer les bonus de bienvenue et leurs conditions en toute clarté, et n'oubliez pas : jouer doit rester un divertissement.",
     guideTitle: "Paris et jeux en ligne : les conditions avant de commencer.",
     infoCards: [
       {
@@ -155,16 +230,21 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Freebets et conditions",
-        text: "Le bonus prend souvent la forme d'un freebet non retirable en cash : lisez les conditions de mise avant de jouer.",
+        text: "Le bonus prend souvent la forme d'un freebet non retirable : lisez les conditions de mise avant de jouer.",
       },
       {
         title: "Jouer avec modération",
-        text: "Les jeux comportent des risques : fixez-vous des limites et n'engagez jamais une somme dont vous avez besoin.",
+        text: "Les jeux comportent des risques : fixez-vous des limites. Besoin d'aide ? 09 74 75 13 13 (appel non surtaxé).",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Le parrainage validé par l'opérateur, Parrainio vous reverse une fraction de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
     ],
   },
   {
@@ -178,22 +258,37 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie regroupe les plateformes de cashback, qui remboursent un pourcentage des achats effectués chez leurs commerçants partenaires. Passer par le lien ou le code de parrainage ouvre l'accès au bonus de bienvenue du partenaire, sans modifier le fonctionnement habituel du service.",
       "Le bonus de bienvenue est souvent conditionné à une première commande validée ou à un montant minimum de cashback cumulé. Le remboursement peut mettre du temps à être confirmé par le marchand avant d'être disponible au retrait. Chaque fiche précise les seuils, les délais et les exclusions éventuelles.",
-      "Avant de choisir, comparez le bonus de bienvenue, le réseau de marchands et les conditions de retrait de chaque plateforme. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de votre cashback.",
+      "Avant de choisir, comparez le bonus de bienvenue, le réseau de marchands et les conditions de retrait de chaque plateforme.",
     ],
+    editorial: [
+      "Le principe du cashback tient en une phrase : passer par la plateforme avant d'acheter chez un marchand partenaire, puis recevoir une fraction du montant dépensé. Cette récompense s'exprime en pourcentage, très variable selon les marchands, les univers de produits et les périodes promotionnelles.",
+      "Trois étapes conditionnent le crédit de votre remboursement : activer l'offre ou cliquer depuis la plateforme, payer normalement, puis attendre la confirmation du marchand. C'est ce délai de validation — parfois plusieurs semaines après l'expédition de la commande — qui distingue le cashback d'une réduction immédiate en caisse.",
+      "Les exclusions font partie du jeu : retours et annulations, certains rayons produits ou l'usage de codes non autorisés peuvent annuler le remboursement. Le cumul avec d'autres mécanismes — réduction de bienvenue d'une enseigne, parrainage d'une boutique — dépend des règles de chaque marchand et de chaque plateforme : vérifiez avant d'empiler.",
+      "Les taux de remboursement se lisent toujours au cas par cas : un pourcentage élevé sur un rayon étroit vaut parfois moins qu'un taux modeste sur vos achats récurrents. Avant de créer un compte, identifiez la plateforme dont le réseau de marchands recouvre vos dépenses habituelles — c'est le volume d'achats éligibles, plus que le taux maximal, qui détermine le gain réel sur une année.",
+      "Pour aller plus loin dans les économies, explorez les [offres shopping et courses](/categories/shopping-courses) : les enseignes partenaires y proposent leurs propres avantages de bienvenue, complémentaires du cashback.",
+    ],
+    conclusion:
+      "Comparez les plateformes de la catégorie : bonus d'arrivée, réseau de marchands et modalités de retrait sont résumés fiche par fiche pour choisir celle qui correspond à vos habitudes d'achat.",
     guideTitle: "Cashback : bien choisir sa plateforme de départ.",
     infoCards: [
       {
-        title: "Bonus de bienvenue",
+        title: "Bonus d'arrivée",
         text: "Souvent crédité après une première commande validée ou un montant minimum de cashback cumulé.",
       },
       {
         title: "Délais de validation",
-        text: "Le cashback est confirmé par le marchand avant d'être disponible : comptez quelques semaines selon les achats.",
+        text: "Le remboursement est confirmé par le marchand avant d'être disponible : comptez quelques semaines selon les achats.",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Parrainage validé, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+      { slug: "energie", label: "Voir les offres Énergie" },
     ],
   },
   {
@@ -207,22 +302,35 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     intro: [
       "Cette catégorie rassemble les fournisseurs d'électricité et de gaz ainsi que des services liés à l'énergie, comme les solutions de recharge pour véhicules électriques. Souscrire via le lien ou le code de parrainage donne droit à la prime du partenaire, sans changer les tarifs ni les conditions du contrat.",
       "La prime est généralement versée après la souscription effective du contrat, parfois sur des offres précises : offre duo électricité-gaz, contrat vert ou installation d'un équipement. Entre la souscription et l'activation, plusieurs semaines peuvent s'écouler. Chaque fiche détaille les offres concernées et les délais.",
-      "Avant de changer de fournisseur, vérifiez les conditions de résiliation de votre contrat actuel et le périmètre exact de la prime. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de la prime du partenaire.",
+      "Avant de changer de fournisseur, vérifiez les conditions de résiliation de votre contrat actuel et le périmètre exact de la prime.",
     ],
+    editorial: [
+      "Électricité, gaz et services de recharge pour véhicules électriques : la catégorie réunit des acteurs dont le point commun est d'accompagner la consommation énergétique du foyer. Changer de fournisseur d'électricité ou de gaz est gratuit et sans coupure — le nouveau contrat prend simplement le relais à la date convenue, sans intervention sur votre installation.",
+      "Les primes de bienvenue sont attachées à une souscription effective, parfois limitée à certaines offres : contrat groupé électricité-gaz, offre d'énergie verte, mise en service d'une borne de recharge. Le calendrier compte aussi : entre la signature et la mise en service, puis jusqu'au versement de la prime, plusieurs semaines peuvent s'écouler selon le partenaire.",
+      "Le marché distingue plusieurs familles d'offres : contrats à prix indexé, à prix fixe sur une ou plusieurs années, offres d'énergie verte avec garantie d'origine, ou formules groupées électricité et gaz. À ces contrats s'ajoutent des services spécialisés, comme les solutions de recharge destinées aux véhicules électriques, qui suivent leur propre logique d'installation et de prime.",
+      "Avant de souscrire, identifiez la nature exacte de l'offre : prix indexé ou fixe, durée d'engagement éventuelle, services inclus. La prime de bienvenue ne doit jamais être le seul critère de choix — le niveau du prix au kWh et l'adéquation à votre consommation pèsent bien davantage sur la facture annuelle.",
+    ],
+    conclusion:
+      "Parcourez les offres de la catégorie : fournisseurs, primes et conditions de souscription sont détaillés fiche par fiche pour changer de contrat en connaissance de cause.",
     guideTitle: "Énergie : les points à vérifier avant de souscrire.",
     infoCards: [
       {
         title: "Prime à la souscription",
-        text: "La prime est versée après l'activation effective du contrat, parfois uniquement sur certaines offres.",
+        text: "La prime arrive après l'activation effective du contrat, parfois uniquement sur certaines offres du fournisseur.",
       },
       {
-        title: "Avant de changer",
-        text: "Vérifiez les conditions de résiliation de votre contrat actuel et l'offre concernée par la prime.",
+        title: "Changement sans coupure",
+        text: "Résilier n'est plus à votre charge : le nouveau fournisseur reprend le contrat à la date convenue, sans interruption.",
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+        text: "Le parrainage validé, Parrainio vous reverse une part de sa commission, jusqu'à 25 %.",
       },
+    ],
+    hubLinks: [
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
     ],
   },
 ];

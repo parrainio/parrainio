@@ -5,7 +5,7 @@ import type { Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
 import OfferLogo from "@/components/OfferLogo";
 import OfferRewards from "@/components/OfferRewards";
-import { CATEGORY_HUBS, type CategoryHubContent } from "@/lib/categoryHubs";
+import type { CategoryHubContent } from "@/lib/categoryHubs";
 import { SITE_URL } from "@/lib/siteUrl";
 import styles from "../page.module.css";
 
@@ -28,6 +28,28 @@ function InfoIcon() {
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.9" />
       <path d="M12 11v5m0-8h.01" strokeLinecap="round" stroke="currentColor" strokeWidth="1.9" />
     </svg>
+  );
+}
+
+/**
+ * Rendu d'un paragraphe éditorial avec liens inline au format [ancre](/chemin).
+ * Aucun autre formatage n'est supporté : les hubs restent des textes sobres.
+ */
+function EditorialParagraph({ text }: { text: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <p>
+      {parts.map((part, index) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (!match) return <span key={index}>{part}</span>;
+        const [, anchor, href] = match;
+        return (
+          <Link key={index} href={href}>
+            {anchor}
+          </Link>
+        );
+      })}
+    </p>
   );
 }
 
@@ -158,6 +180,19 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
               </article>
             ))}
           </div>
+
+          <div className={styles.catalogLinks}>
+            <Link href="/offres" className={styles.ctaButton}>
+              Voir toutes les offres de parrainage
+              <ArrowIcon />
+            </Link>
+            <Link
+              href={`/offres?category=${encodeURIComponent(hub.group)}#offres`}
+              className={styles.catalogFilterLink}
+            >
+              Ou filtrer directement les offres {hub.group} sur le catalogue
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -173,6 +208,10 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
               {hub.intro.slice(1).map((paragraph) => (
                 <p key={paragraph.slice(0, 40)}>{paragraph}</p>
               ))}
+              {hub.editorial.map((paragraph) => (
+                <EditorialParagraph key={paragraph.slice(0, 40)} text={paragraph} />
+              ))}
+              <EditorialParagraph text={hub.conclusion} />
             </div>
 
             <div className={styles.infoCard}>
@@ -188,18 +227,18 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
         </div>
       </section>
 
-      {/* AUTRES CATÉGORIES */}
+      {/* AUTRES CATÉGORIES — liens croisés curatés */}
       <section className={styles.hubNavSection}>
         <div className={styles.container}>
+          <p className={styles.hubNavHeading}>Explorer aussi nos autres catégories</p>
           <div className={styles.hubNav} aria-label="Autres catégories">
-            <p className={styles.hubNavLabel}>Autres catégories :</p>
-            {CATEGORY_HUBS.filter((other) => other.slug !== hub.slug).map((other) => (
+            {hub.hubLinks.map((link) => (
               <Link
-                key={other.slug}
-                href={`/categories/${other.slug}`}
+                key={link.slug}
+                href={`/categories/${link.slug}`}
                 className={styles.hubNavLink}
               >
-                {other.group}
+                {link.label}
               </Link>
             ))}
             <Link href="/offres" className={styles.hubNavLink}>
