@@ -135,7 +135,7 @@
 ========================= */
 
 .hero {
-  padding: 16px 0 18px;
+  padding: 10px 0 12px;
   background:
     radial-gradient(
       circle at 78% 37%,
@@ -148,9 +148,9 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
   align-items: center;
-  gap: clamp(22px, 3vw, 42px);
+  gap: clamp(18px, 2.5vw, 34px);
 }
 
 .heroCopy {
@@ -197,7 +197,7 @@
 }
 
 .hero h1 {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 0.94;
 }
@@ -225,8 +225,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 10px;
+  margin-top: 13px;
 }
 
 .primaryButton {
@@ -266,7 +266,7 @@
 
 .heroVisual {
   position: relative;
-  min-height: 210px;
+  min-height: 190px;
   display: grid;
   place-items: center;
 }
@@ -295,7 +295,7 @@
 .visualCard {
   position: relative;
   z-index: 2;
-  width: min(100%, 235px);
+  width: min(100%, 275px);
   padding: 14px;
   border: 1px solid rgba(7, 88, 70, 0.1);
   border-radius: 27px;
@@ -370,7 +370,7 @@
 }
 
 .visualAmount {
-  margin-bottom: 11px;
+  margin-bottom: 8px;
   color: var(--green);
   font-family: "Manrope", Arial, sans-serif;
   font-size: 3.5rem;
@@ -1110,7 +1110,7 @@
   }
 
   .hero {
-    padding: 16px 0 20px;
+    padding: 12px 0 16px;
   }
 
   .featuredSection { padding-top: 24px; }
@@ -1140,7 +1140,7 @@
   }
 
   .heroVisual {
-    min-height: 285px;
+    min-height: 260px;
   }
 
   .visualCard {

@@ -135,10 +135,10 @@ export default async function OfferPage({
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>CLIQUEZ</strong>Utilisez le lien de parrainage.</span></li>
+                    <li><b>01</b><span><strong>CLIQUEZ</strong>Utilisez notre lien ou code de parrainage.</span></li>
                     <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong>Renseignez le code si nécessaire.</span></li>
                     <li><b>03</b><span><strong>VALIDEZ</strong>Réalisez les conditions de l'offre.</span></li>
-                    <li><b>04</b><span><strong>DEMANDEZ VOTRE REVERSE</strong>Une fois votre parrainage terminé, demandez votre reverse sur Parrainio.</span></li>
+                    <li><b>04</b><span><strong>DEMANDEZ VOTRE REVERSE</strong></span></li>
                   </ol>
                 </div>}
               </div>
@@ -170,17 +170,6 @@ export default async function OfferPage({
                     {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} /> : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} />
-                  {seoProfile && (
-                    <section className={styles.offerSnapshot} aria-label={`L'offre en un coup d'œil : ${offer.name}`}>
-                      <h2>L'offre en un coup d'œil</h2>
-                      <div className={styles.snapshotGrid}>
-                        <div><span>AVANTAGE FILLEUL</span><strong>{offer.partnerReward}</strong><small>selon l'offre active</small></div>
-                        <div><span>AVANTAGE PARRAIN</span><strong>{seoProfile.earnings?.split("Parrainio:")[0]?.split("Parrain :")[1]?.trim() ?? "Selon la campagne"}</strong><small>selon le produit</small></div>
-                        <div><span>CONDITION PRINCIPALE</span><strong>{seoProfile.conditions?.[0] ?? "Voir les conditions"}</strong></div>
-                        <div><span>CAMPAGNE</span><strong>{seoProfile.summary?.find((item) => item.toLowerCase().includes("campagne")) ?? "Selon l'offre active"}</strong></div>
-                      </div>
-                    </section>
-                  )}
                 </div>
               </div>
 

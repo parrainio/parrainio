@@ -1,0 +1,11 @@
+.section { padding: 10px 0 16px; background: #fff; border-bottom: 1px solid #e5ebe5; }
+.container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: start; gap: 14px; }
+.container h2 { margin: 4px 0 0; color: #075846; font-family: "Manrope", Arial, sans-serif; font-size: .78rem; line-height: 1.1; letter-spacing: .08em; font-weight: 800; }
+.grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.card { display: flex; flex-direction: column; min-height: 220px; padding: 10px; border: 1px solid #e2e8e2; border-radius: 16px; background: #fff; text-decoration: none; }
+.brand { display: flex; align-items: center; gap: 7px; }
+.brand small { display: block; color: #899891; font-size: .52rem; font-weight: 800; text-transform: uppercase; }
+.brand h3 { margin: 3px 0 0; color: #075846; font-family: "Manrope", Arial, sans-serif; font-size: .9rem; }
+.cta { display: flex; justify-content: center; align-items: center; margin-top: auto; padding: 10px; border-radius: 10px; background: #075846; color: #fff; font-size: .7rem; font-weight: 800; text-decoration: none; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .container { display: block; width: min(100% - 34px, 1160px); } .container h2 { margin-bottom: 12px; font-size: 1.18rem; } .grid { grid-template-columns: 1fr; } }

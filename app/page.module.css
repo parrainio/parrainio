@@ -55,7 +55,7 @@
 .featuredCard:hover .featuredCta { background: var(--green-dark); }
 
 /* Compact Offers Section */
-.howSection { padding: 42px 0; background:#fffdfa; }.howHeader h2 { margin:5px 0 18px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; letter-spacing:-.06em; }.howHeader h2 em { color:var(--orange); font-style:normal; }.howSteps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:14px; }.howSteps > div { padding:16px; border:1px solid #dfe9e1; border-radius:16px; background:#fff; }.howSteps b,.howSteps span,.howSteps small { display:block; }.howSteps b { color:var(--orange); font-size:.7rem; }.howSteps span { margin-top:9px; color:var(--green); font-weight:800; font-size:.82rem; }.howSteps small { margin-top:4px; color:var(--muted); font-size:.65rem; }.howSteps i { color:#b0c1b8; font-size:1.4rem; }
+.howSection { padding: 22px 0; background:#fffdfa; }.howHeader h2 { margin:5px 0 12px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; letter-spacing:-.06em; }.howHeader h2 em { color:var(--orange); font-style:normal; }.howSteps { display:flex; align-items:center; gap:12px; padding:12px 15px; border:1px solid #dfe9e1; border-radius:16px; background:#fff; overflow:hidden; }.howSteps > div { display:flex; align-items:center; gap:8px; min-width:0; flex:1; }.howSteps b { color:var(--orange); font-size:.7rem; flex:none; }.howSteps span { color:var(--green); font-weight:800; font-size:.76rem; line-height:1.2; }.howSteps i { color:#b0c1b8; font-size:1rem; font-style:normal; flex:none; }
 
 .compactOffersSearch { margin-bottom: 24px; }
 .compactOffersSection { padding: 40px 0 50px; background: #f5f8f3; }
@@ -97,7 +97,7 @@
 @media (max-width: 900px) {
   .compactHeroInner { grid-template-columns: 1fr; gap: 24px; }
   .heroIllustration { min-height: 300px; max-width: 500px; margin:auto; width:100%; }
-  .howSteps { grid-template-columns: 1fr; gap:10px; }.howSteps i { display:none; }
+  .howSteps { flex-wrap:wrap; gap:10px; }.howSteps > div { flex:1 1 calc(50% - 10px); }
   .featuredGrid { grid-template-columns: repeat(2, 1fr); }
   .compactOffersGrid { grid-template-columns: repeat(2, 1fr); }
   .footerGrid { grid-template-columns: 1fr; gap: 24px; }
@@ -113,6 +113,9 @@
   .compactHeroCopy h1 { font-size: 1.8rem; }
   .heroIllustration { min-height: 390px; padding-bottom: 108px; box-sizing: border-box; }.marketingCard { width: min(100%, 340px); padding: 14px; top: 42%; }.marketingAmount { font-size: 3.3rem; }.marketingCoin { right: 10px; }  .heroAdvantage { right: 8px; bottom: 4px; width: 168px; height: 84px; padding: 9px 10px; }
   .featuredGrid { grid-template-columns: 1fr; }
+  .howSteps { flex-direction: column; align-items: stretch; }
+  .howSteps > div { flex-basis: auto; }
+  .howSteps i { display: none; }
   .compactOffersGrid { grid-template-columns: 1fr; }
   .compactOffersHeading { flex-direction: column; align-items: flex-start; }
   .categoryBannerInner { display: block; padding: 8px 0 9px; }

@@ -7,9 +7,9 @@ import { useSearchParams } from "next/navigation";
 import { type Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
+import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
-import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
 import styles from "./page.module.css";
 
 type OffersCatalogProps = {
@@ -99,11 +99,6 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       return matchesCategory && (!query || searchable.includes(query));
     });
   }, [activeCategory, offers, search]);
-
-  const featuredSlugs = SELECTION_DU_MOMENT;
-  const featuredOffers = featuredSlugs
-    .map((slug) => offers.find((offer) => offer.slug === slug))
-    .filter((offer): offer is Offer => Boolean(offer));
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -241,25 +236,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       </section>
 
       {/* OFFRES */}
-      <section className={styles.featuredSection}>
-        <div className={styles.container}>
-          <div className={styles.featuredCompactRow}>
-            <h2><span>SÉLECTION DU</span> <em>MOMENT</em></h2>
-            <div className={styles.featuredGrid}>
-            {featuredOffers.map((offer) => (
-              <article className={styles.featuredCard} key={offer.slug}>
-                <div className={styles.featuredBrand}>
-                  <OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={38} />
-                  <div><small>{offer.categoryGroup}</small><h3>{offer.name}</h3></div>
-                </div>
-                <OfferRewards offer={offer} compact />
-                <Link href={`/offres/${offer.slug}`} className={styles.featuredCta}>Voir l&apos;offre <Icon name="arrow" size={16} /></Link>
-              </article>
-            ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <MomentSelection offers={offers} />
 
       <section
         id="offres"

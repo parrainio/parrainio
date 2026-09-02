@@ -13,7 +13,7 @@
 .offerHeaderWithActions { gap:24px; }
 .offerIdentity { display:flex; flex-direction:column; align-items:flex-start; gap:12px; flex:1; min-width:0; }
 .headerActionSummary { width:290px; flex:none; padding-left:18px; border-left:1px solid #e7eee8; }
-.headerSteps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px 12px; margin:5px 0 7px; padding:0; list-style:none; }
+.headerSteps { display:grid; grid-template-columns:1fr; gap:5px; margin:5px 0 7px; padding:0; list-style:none; }
 .headerSteps li { display:flex; align-items:center; gap:8px; color:#71827a; font-size:.68rem; line-height:1.3; }
 .headerSteps b { display:grid; width:23px; height:23px; place-items:center; flex:none; border-radius:50%; color:var(--orange); background:#fff1e2; font-size:.62rem; }
 .headerSteps strong { display:block; color:var(--green); font-size:.63rem; letter-spacing:.04em; }
@@ -28,9 +28,6 @@
 .categoryPill { padding:7px 11px; border-radius:999px; color:#39765e; background:#edf6ef; font-size:.65rem; font-weight:800; white-space:nowrap; }
 .description { margin:0; padding:0 4px; color:var(--muted); font-size:.92rem; line-height:1.55; max-width:68ch; }
 .seoContent { display:flex; flex-direction:column; gap:16px; }
-.offerSnapshot { margin-top:18px; padding:16px; border:1px solid #e4ece5; border-radius:18px; background:#fbfdf9; }
-.desktopActionContent .offerSnapshot { margin-top:18px; box-shadow:none; }
-.offerSnapshot h2 { margin:0 0 12px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.95rem; letter-spacing:-.035em; }
 .snapshotGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .snapshotGrid > div { min-width:0; padding:10px; border-radius:11px; background:#fff; }
 .snapshotGrid span { display:block; color:#82938b; font-size:.59rem; font-weight:800; letter-spacing:.1em; line-height:1.35; text-transform:uppercase; }
@@ -122,5 +119,5 @@
 .sidebarFeaturedItem { display:flex; align-items:center; gap:7px; padding:7px 9px; border-radius:9px; color:#637870; background:#f8faf7; font-size:.7rem; font-weight:700; text-decoration:none; }
 .sidebarFeaturedItem:hover { color:var(--green); background:#edf6ef; }
 .miniLogo { width:23px; height:23px; display:grid; place-items:center; border-radius:6px; color:#fff; font-size:.65rem; font-weight:800; }
-@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .offerHeaderWithActions{display:block}.headerActionSummary{width:auto; margin-top:16px; padding:16px 0 0; border-top:1px solid #e7eee8; border-left:0}.headerSteps{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:16px; flex-direction:column}.brandInfo h1{font-size:1.6rem}.stepsRow,.conditionsBlock ul,.relatedList,.rewardsSection,.offerSnapshot{grid-template-columns:1fr}.snapshotGrid{grid-template-columns:1fr}.headerSteps{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }
+@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .offerHeaderWithActions{display:block}.headerActionSummary{width:auto; margin-top:16px; padding:16px 0 0; border-top:1px solid #e7eee8; border-left:0}.headerSteps{grid-template-columns:1fr} }
+@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:16px; flex-direction:column}.brandInfo h1{font-size:1.6rem}.stepsRow,.conditionsBlock ul,.relatedList,.rewardsSection.headerSteps{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }
