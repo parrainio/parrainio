@@ -105,6 +105,126 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
     ],
   },
+  {
+    slug: "recompenses-applications",
+    group: "Récompenses & Applications",
+    title: "Parrainage Récompenses & Applications : offres et bonus | Parrainio",
+    metaDescription:
+      "Offres de parrainage d'applications récompenses : missions, sondages et programmes de gains, conditions détaillées et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "récompenses & applications.",
+    intro: [
+      "Cette catégorie regroupe les applications qui récompensent des activités du quotidien : marches, missions locales, sondages, lectures de reçus ou micro-tâches. S'inscrire via le lien ou le code de parrainage ouvre l'accès à l'avantage de bienvenue du partenaire, sans changer le fonctionnement de l'application.",
+      "Les gains prennent des formes variées selon les plateformes : points convertibles en cadeaux, argent versé sur un compte, seuil de retrait à atteindre ou prime après une première mission validée. Certaines applications créditent l'avantage dès l'inscription, d'autres après une activité minimum. Chaque fiche détaille le mécanisme et les conditions.",
+      "Avant de vous inscrire, vérifiez l'éligibilité nouveau membre, le seuil minimum de retrait et la forme des récompenses. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de vos gains sur l'application.",
+    ],
+    guideTitle: "Applications rémunérées : bien démarrer avec les offres.",
+    infoCards: [
+      {
+        title: "Des gains variables",
+        text: "Points, euros ou cadeaux : la forme des récompenses et le seuil de retrait changent selon chaque application.",
+      },
+      {
+        title: "Missions et conditions",
+        text: "Certaines offres exigent une première mission validée ou une activité minimum avant de débloquer l'avantage.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+      },
+    ],
+  },
+  {
+    slug: "jeux-paris",
+    group: "Jeux & Paris",
+    title: "Parrainage Jeux & Paris : offres et bonus | Parrainio",
+    metaDescription:
+      "Offres de parrainage paris sportifs et jeux en ligne : freebets, conditions d'éligibilité chez les opérateurs agréés et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "jeux & paris.",
+    intro: [
+      "Cette catégorie rassemble les opérateurs de paris sportifs et de jeux en ligne qui proposent un programme de parrainage. Utiliser le lien ou le code d'un parrain permet de débloquer le bonus de bienvenue du partenaire, généralement sous forme de freebet, selon les conditions propres à chaque opérateur.",
+      "Les conditions portent souvent sur l'inscription complète, la vérification d'identité, un premier dépôt ou un premier pari dans des limites définies. Un freebet n'est pas toujours retirable en argent : seule la part éventuellement gagnée peut l'être. Chaque fiche résume le mécanisme, le montant et les étapes exactes.",
+      "Les jeux d'argent et de hasard sont strictement réservés aux personnes majeures et comportent des risques : endettement, isolement, dépendance. Pour être aidé, appelez le 09 74 75 13 13 (appel non surtaxé). Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue.",
+    ],
+    guideTitle: "Paris et jeux en ligne : les conditions avant de commencer.",
+    infoCards: [
+      {
+        title: "Joueurs majeurs uniquement",
+        text: "Les jeux d'argent sont interdits aux mineurs : identité, âge et résidence sont vérifiés par les opérateurs agréés.",
+      },
+      {
+        title: "Freebets et conditions",
+        text: "Le bonus prend souvent la forme d'un freebet non retirable en cash : lisez les conditions de mise avant de jouer.",
+      },
+      {
+        title: "Jouer avec modération",
+        text: "Les jeux comportent des risques : fixez-vous des limites et n'engagez jamais une somme dont vous avez besoin.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+      },
+    ],
+  },
+  {
+    slug: "cashback",
+    group: "Cashback",
+    title: "Parrainage Cashback : offres et bons plans | Parrainio",
+    metaDescription:
+      "Offres de parrainage des plateformes de cashback : bonus de bienvenue, conditions de validation et reversement Parrainio sur vos achats.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "cashback.",
+    intro: [
+      "Cette catégorie regroupe les plateformes de cashback, qui remboursent un pourcentage des achats effectués chez leurs commerçants partenaires. Passer par le lien ou le code de parrainage ouvre l'accès au bonus de bienvenue du partenaire, sans modifier le fonctionnement habituel du service.",
+      "Le bonus de bienvenue est souvent conditionné à une première commande validée ou à un montant minimum de cashback cumulé. Le remboursement peut mettre du temps à être confirmé par le marchand avant d'être disponible au retrait. Chaque fiche précise les seuils, les délais et les exclusions éventuelles.",
+      "Avant de choisir, comparez le bonus de bienvenue, le réseau de marchands et les conditions de retrait de chaque plateforme. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de votre cashback.",
+    ],
+    guideTitle: "Cashback : bien choisir sa plateforme de départ.",
+    infoCards: [
+      {
+        title: "Bonus de bienvenue",
+        text: "Souvent crédité après une première commande validée ou un montant minimum de cashback cumulé.",
+      },
+      {
+        title: "Délais de validation",
+        text: "Le cashback est confirmé par le marchand avant d'être disponible : comptez quelques semaines selon les achats.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+      },
+    ],
+  },
+  {
+    slug: "energie",
+    group: "Énergie",
+    title: "Parrainage Énergie : offres et bonus | Parrainio",
+    metaDescription:
+      "Offres de parrainage fournisseurs d'énergie et services électriques : primes, conditions de souscription et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "énergie.",
+    intro: [
+      "Cette catégorie rassemble les fournisseurs d'électricité et de gaz ainsi que des services liés à l'énergie, comme les solutions de recharge pour véhicules électriques. Souscrire via le lien ou le code de parrainage donne droit à la prime du partenaire, sans changer les tarifs ni les conditions du contrat.",
+      "La prime est généralement versée après la souscription effective du contrat, parfois sur des offres précises : offre duo électricité-gaz, contrat vert ou installation d'un équipement. Entre la souscription et l'activation, plusieurs semaines peuvent s'écouler. Chaque fiche détaille les offres concernées et les délais.",
+      "Avant de changer de fournisseur, vérifiez les conditions de résiliation de votre contrat actuel et le périmètre exact de la prime. Une fois le parrainage validé par le partenaire, Parrainio peut vous reverser jusqu'à 25 % de la commission reçue, en complément de la prime du partenaire.",
+    ],
+    guideTitle: "Énergie : les points à vérifier avant de souscrire.",
+    infoCards: [
+      {
+        title: "Prime à la souscription",
+        text: "La prime est versée après l'activation effective du contrat, parfois uniquement sur certaines offres.",
+      },
+      {
+        title: "Avant de changer",
+        text: "Vérifiez les conditions de résiliation de votre contrat actuel et l'offre concernée par la prime.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Après validation du parrainage par le partenaire, Parrainio reverse jusqu'à 25 % de la commission reçue.",
+      },
+    ],
+  },
 ];
 
 export function getCategoryHub(slug: string): CategoryHubContent | undefined {
