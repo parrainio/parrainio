@@ -179,7 +179,7 @@ export default function CommentCaMarchePage() {
               <p className={styles.kicker}>Le principe Parrainio</p>
               <h2>Jusqu&apos;à <strong>25 %</strong> de notre commission peut vous être reversée.</h2>
               <p>Lorsque Parrainio est rémunéré par un partenaire, une partie de cette commission peut compléter votre prime, selon les conditions de l’offre.</p>
-              <Link href="/notre-difference" className={styles.textLink}>Comprendre notre différence <span>→</span></Link>
+              <Link href="/nos-avantages" className={styles.textLink}>Comprendre notre différence <span>→</span></Link>
             </div>
             <div className={styles.commissionGraphic} aria-label="Exemple de répartition d'une commission">
               <span className={styles.graphicCoinOne} aria-hidden="true">€</span>
@@ -257,7 +257,7 @@ export default function CommentCaMarchePage() {
           <div className={styles.footerGrid}>
             <div><Link href="/" className={styles.footerLogo}><span className={styles.logoMark}>P</span>Parrainio</Link><p>Le nouveau réflexe pour découvrir et profiter des offres de parrainage.</p></div>
             <div><h3>Navigation</h3><Link href="/">Accueil</Link><Link href="/offres">Offres</Link><Link href="/comment-ca-marche">Comment ça marche</Link></div>
-            <div><h3>Parrainio</h3><Link href="/notre-difference">Notre différence</Link><Link href="/mentions-legales">Mentions légales</Link><Link href="/contact">Contact</Link></div>
+            <div><h3>Parrainio</h3><Link href="/nos-avantages">Nos avantages</Link><a href="mailto:contact@parrainio.fr">Contact</a></div>
           </div>
           <div className={styles.footerBottom}>© 2026 Parrainio. Tous droits réservés.</div>
         </div>
