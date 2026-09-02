@@ -10,6 +10,7 @@ import OfferRewards from "@/components/OfferRewards";
 import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
+import { SITE_URL } from "@/lib/siteUrl";
 import styles from "./page.module.css";
 
 type OffersCatalogProps = {
@@ -108,7 +109,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       "@type": "ListItem",
       position: index + 1,
       name: offer.name,
-      url: `https://parrainio.fr/offres/${offer.slug}`,
+      url: `${SITE_URL}/offres/${offer.slug}`,
     })),
   };
 
