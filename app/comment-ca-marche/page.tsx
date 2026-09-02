@@ -245,7 +245,7 @@ export default function CommentCaMarchePage() {
             <div>
               <p className={styles.kicker}>Prêt à commencer ?</p>
               <h2>Votre prochaine récompense <em>est peut-être déjà là.</em></h2>
-              <p>Découvrez les offres et trouvez celle qui vous convient.</p>
+              <p>Découvrez les offres et trouvez celle qui vous convient : <Link href="/offres">toutes les offres</Link>, <Link href="/offres?category=Banque%20%26%20Finance#offres">Banque &amp; Finance</Link> ou <Link href="/offres?category=%C3%89nergie#offres">Énergie</Link>.</p>
             </div>
             <Link href="/offres" className={styles.ctaButton}>Explorer les offres <span>→</span></Link>
           </div>

@@ -19,6 +19,6 @@ export default function CategoryOffers({ offers, category }: CategoryOffersProps
 
   return <>
     <OfferSearch value={search} onChange={setSearch} />
-    {filteredOffers.length > 0 ? <div className={styles.offersGrid}>{filteredOffers.map((offer) => <article className={styles.offerCard} key={offer.slug}><div className={styles.offerTop}><div className={styles.brand}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={44} /><div><small>{offer.categoryGroup}</small><h3>{offer.name}</h3></div></div></div><p className={styles.description}>{offer.description}</p><OfferRewards offer={offer} /><Link href={`/offres/${offer.slug}`} className={styles.offerLink}>Voir l&apos;offre</Link></article>)}</div> : <div className={styles.emptyState}><strong>Aucune offre trouvée.</strong></div>}
+    {filteredOffers.length > 0 ? <div className={styles.offersGrid}>{filteredOffers.map((offer) => <article className={styles.offerCard} key={offer.slug}><div className={styles.offerTop}><div className={styles.brand}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={44} /><div><small>{offer.categoryGroup}</small><h3>{offer.name}</h3></div></div></div><p className={styles.description}>{offer.description}</p><OfferRewards offer={offer} /><Link href={`/offres/${offer.slug}`} className={styles.offerLink}>Voir l&apos;offre {offer.name}</Link></article>)}</div> : <div className={styles.emptyState}><strong>Aucune offre trouvée.</strong></div>}
   </>;
 }

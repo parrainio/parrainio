@@ -33,7 +33,7 @@ export default function OfferSearchResults({ offers, limit = 6, category }: Offe
         {visibleOffers.map((offer) => (
           <Link href={`/offres/${offer.slug}`} className={styles.featuredCard} key={offer.slug}>
             <div className={styles.featuredCardTop}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={38} className={styles.featuredLogo} /><div className={styles.featuredInfo}><small>{offer.categoryGroup}</small><h3>{offer.name}</h3></div></div>
-            <OfferRewards offer={offer} compact /><span className={styles.featuredCta}>Voir l&apos;offre →</span>
+            <OfferRewards offer={offer} compact /><span className={styles.featuredCta}>Voir l&apos;offre {offer.name} →</span>
           </Link>
         ))}
       </div>

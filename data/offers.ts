@@ -36,9 +36,12 @@ export type OfferCategory =
   | "Cashback"
   | "Énergie"
   | "Téléphone & Internet"
-  | "Voyage"
+  | "Voyage & Mobilité"
   | "Shopping & Courses"
   | "Investissement & Crypto"
+  | "Récompenses & Applications"
+  | "Jeux & Paris"
+  | "Services numériques"
   | "Autres bons plans"
   | "Sans dépôt ou avec 1 €"
   | "Instantané";
@@ -52,12 +55,35 @@ const categoryGroups: Record<string, OfferCategory> = {
   Cashback: "Cashback",
   Énergie: "Énergie",
   "Téléphonie & Internet": "Téléphone & Internet",
-  Voyage: "Voyage",
+  Voyage: "Voyage & Mobilité",
+  Mobilité: "Voyage & Mobilité",
+  Services: "Services numériques",
+  sondage: "Récompenses & Applications",
   Shopping: "Shopping & Courses",
   Courses: "Shopping & Courses",
   "Courses & anti-gaspi": "Shopping & Courses",
   Investissement: "Investissement & Crypto",
   Crypto: "Investissement & Crypto",
+  // Requalification « Autres bons plans » (architecture validée) :
+  // e-commerce vers Shopping & Courses, finance/assurance vers Banque & Finance,
+  // nouvelles familles Récompenses & Applications, Jeux & Paris, Services numériques.
+  Sport: "Shopping & Courses",
+  "Sport & nutrition": "Shopping & Courses",
+  "Sport & shopping": "Shopping & Courses",
+  Gaming: "Shopping & Courses",
+  Maison: "Shopping & Courses",
+  "Bébé": "Shopping & Courses",
+  "Mode & shopping": "Shopping & Courses",
+  "Jeux & loisirs": "Shopping & Courses",
+  Alimentation: "Shopping & Courses",
+  "Maison & shopping": "Shopping & Courses",
+  Assurance: "Banque & Finance",
+  "Assurance auto": "Banque & Finance",
+  "Pro & assurance": "Banque & Finance",
+  "Épargne & assurance-vie": "Banque & Finance",
+  Récompenses: "Récompenses & Applications",
+  "Jeux & paris": "Jeux & Paris",
+  "Web & numérique": "Services numériques",
 };
 
 const recoveredReferralCodes: Record<string, string> = {
@@ -313,7 +339,7 @@ function generateDescription(name: string, category: string): string {
     "Cartouche du toner": "Cartouche du toner est un site de vente de consommables d'impression.",
     "Becquet": "Becquet est un site de vente de produits pour la maison.",
     "Biogents": "Biogents est une marque de produits anti-moustiques.",
-    "Ritmic": "Ritmic est un service de livraison et de logistique.",
+    "Ritmic": "Ritmic est une marque de vélos électriques et de mobilité urbaine.",
     "ZeConfiserie": "ZeConfiserie est un site de vente de confiseries en ligne.",
     "Simplis": "Simplis est un service d'assurance et de protection juridique.",
     "Caisse d'Épargne Loire-Centre": "La Caisse d'Épargne est une banque coopérative française proposant une gamme complète de services bancaires.",
@@ -349,7 +375,9 @@ function generateDescription(name: string, category: string): string {
     "RED by SFR": "RED by SFR est la marque low-cost de l'opérateur SFR proposant des forfaits mobiles à prix réduits.",
     "PMU": "PMU (Pari Mutuel Urbain) est l'opérateur français de paris hippiques.",
     "choose": "Choose est une plateforme de shopping et de cashback.",
-    "Karos": "Karos est un service de covoiturage urbain.",
+    "Karos": "Karos est une application de covoiturage pour les trajets quotidiens.",
+    "Unibet": "Unibet est un site de paris sportifs en ligne avec freebet de bienvenue et programme de parrainage.",
+    "Zumub": "Zumub est un site de vente de compléments alimentaires et de nutrition sportive.",
     "Ludocortex": "Ludocortex est un site de vente de jeux et jouets éducatifs.",
     "Cointiply": "Cointiply est une plateforme de récompenses en crypto-monnaies.",
     "etoro": "eToro est une plateforme de trading social et d'investissement en ligne.",
@@ -482,7 +510,7 @@ export const offers: Offer[] = [
   createOffer("ludocortex", "Ludocortex", "Jeux & loisirs", "Voir l'offre", "L"),
   createOffer("biogents", "Biogents", "Maison", "Voir l'offre", "B"),
   createOffer("credit-agricole-centre-loire", "Crédit Agricole Centre Loire", "Banque", "Voir l'offre", "C"),
-  createOffer("ritmic", "Ritmic", "Services", "Voir l'offre", "R"),
+  createOffer("ritmic", "Ritmic", "Mobilité", "Voir l'offre", "R"),
   createOffer("zeconfiserie", "ZeConfiserie", "Alimentation", "Voir l'offre", "Z"),
   createOffer("simplis", "Simplis", "Pro & assurance", "Voir l'offre", "S"),
 ];

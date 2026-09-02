@@ -338,7 +338,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                     href={`/offres/${offer.slug}`}
                     className={styles.offerLink}
                   >
-                    Voir l&apos;offre
+                    Voir l&apos;offre {offer.name}
                     <Icon
                       name="arrow"
                       size={17}
