@@ -11,6 +11,7 @@ import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
 import { SITE_URL } from "@/lib/siteUrl";
+import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import styles from "./page.module.css";
 
 type OffersCatalogProps = {
@@ -91,6 +92,14 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
 
     return ["Toutes", ...uniqueCategories];
   }, [offers]);
+
+  const hubSlugByCategory = useMemo(
+    () =>
+      Object.fromEntries(
+        CATEGORY_HUBS.map((hub) => [hub.group, hub.slug] as const)
+      ),
+    []
+  );
 
   const filteredOffers = useMemo(() => {
     const query = normalizeOfferSearch(search);
@@ -276,6 +285,24 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
               {categories.map((category) => {
                 const isActive =
                   activeCategory === category;
+                const hubSlug =
+                  category !== "Toutes"
+                    ? hubSlugByCategory[category]
+                    : undefined;
+
+                if (hubSlug) {
+                  return (
+                    <Link
+                      key={category}
+                      href={`/categories/${hubSlug}#offres`}
+                      role="tab"
+                      aria-selected={isActive}
+                      className={styles.categoryLink}
+                    >
+                      {category}
+                    </Link>
+                  );
+                }
 
                 return (
                   <button

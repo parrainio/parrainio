@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { offers } from "@/data/offers";
+import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import CategoryMenu from "./CategoryMenu";
 import styles from "./PublicHeader.module.css";
 
@@ -7,6 +8,9 @@ type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advanta
 
 export default function PublicHeader({ active }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));
+  const hubSlugByCategory = Object.fromEntries(
+    CATEGORY_HUBS.map((hub) => [hub.group, hub.slug] as const)
+  );
   const links = [
     ["home", "Accueil", "/"],
     ["offers", "Offres", "/offres"],
@@ -22,7 +26,7 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
           <Link href="/" className={styles.logo} aria-label="Parrainio, accueil"><span className={styles.logoMark}>P</span><span>Parrainio</span></Link>
           <nav className={styles.nav} aria-label="Navigation principale">
             {links.slice(0, 1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
-            <CategoryMenu categories={categories} />
+            <CategoryMenu categories={categories} hubSlugByCategory={hubSlugByCategory} />
             {links.slice(1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
           </nav>
           <Link href="/offres" className={styles.cta}>Voir les offres <span>→</span></Link>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getManagedOffers } from "@/data/managedOffers";
+import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import {
   offerSeoProfiles,
   type OfferSeoProfile,
@@ -40,6 +41,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/offres`, changeFrequency: "daily", priority: 0.9 },
+    ...CATEGORY_HUBS.map((hub) => ({
+      url: `${SITE_URL}/categories/${hub.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
     { url: `${SITE_URL}/comment-ca-marche`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/nos-avantages`, changeFrequency: "monthly", priority: 0.6 },
   ];
