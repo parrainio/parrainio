@@ -124,6 +124,24 @@ export default async function OfferPage({
                 <span className={styles.categoryPill}>{offer.categoryGroup}</span>
               </div>
 
+              <div className={styles.mobileActionSlot}>
+                <div className={styles.actionCard}>
+                  <div className={styles.rewardsSection}>
+                    <OfferRewards offer={offer} />
+                  </div>
+                  <div className={styles.referralSection}>
+                    {offer.referralCode ? (
+                      <div className={styles.codeRow}>
+                        <div><span>Code de parrainage</span><strong>{offer.referralCode}</strong></div>
+                        <CopyCodeButton code={offer.referralCode} />
+                      </div>
+                    ) : null}
+                    {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">🚀 Je commence le parrainage <ArrowIcon /></a> : null}
+                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} /> : null}
+                  </div>
+                </div>
+              </div>
+
               <p className={styles.description}>{offer.description}</p>
 
               {/* Compact "Comment en profiter" */}
@@ -202,6 +220,7 @@ export default async function OfferPage({
             {/* Right: Referral/action card */}
             <div className={styles.actionSidebar}>
               <div className={styles.actionCard}>
+                <div className={styles.desktopActionContent}>
                 <div className={styles.rewardsSection}>
                   <OfferRewards offer={offer} />
                 </div>
@@ -231,6 +250,8 @@ export default async function OfferPage({
                   {!offer.referralCode && !referralUrl ? (
                     <ReferralRequestForm offerName={offer.name} />
                   ) : null}
+                </div>
+
                 </div>
 
                 {/* Featured offers in sidebar */}
