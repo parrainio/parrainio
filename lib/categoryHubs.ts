@@ -333,6 +333,159 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
     ],
   },
+  {
+    slug: "voyage-mobilite",
+    group: "Voyage & Mobilité",
+    title: "Parrainage Voyage & Mobilité : offres et bons plans | Parrainio",
+    metaDescription:
+      "Offres de parrainage voyage et mobilité : hébergements, hôtes, covoiturage et vélos électriques — conditions, déclencheurs et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "voyage & mobilité.",
+    intro: [
+      "Cette catégorie réunit les offres de parrainage liées aux déplacements : réservation d'hébergements côté voyageurs comme côté hôtes, covoiturage quotidien et mobilité urbaine. Utiliser le lien ou le code de parrainage ne change rien au prix payé : il ouvre simplement l'accès à l'avantage de bienvenue du partenaire, lorsque les conditions sont remplies.",
+      "Les mécanismes varient selon les services : certains créditent l'avantage après une première réservation terminée, d'autres après un premier trajet ou une première commande. Délais, éligibilité et forme de la récompense changent d'un partenaire à l'autre : chaque fiche détaille le fonctionnement exact.",
+    ],
+    editorial: [
+      "Côté voyages, deux profils sont concernés : le voyageur qui réserve un hébergement et l'hôte qui en propose un. Les deux disposent de leur propre programme, avec des conditions distinctes — première réservation pour l'un, premières locations qualifiantes pour l'autre. Vérifiez bien le programme auquel votre inscription donne droit, car un compte ne cumule pas les deux avantages.",
+      "La mobilité du quotidien suit une logique différente : covoiturage et vélos électriques sont des services récurrents plutôt que des réservations ponctuelles. L'avantage de bienvenue y est souvent déclenché par un premier trajet ou une première commande, ce qui rend ces offres accessibles sans engagement important.",
+      "Avant de valider votre inscription, notez la durée de validité de l'avantage, les montants minimums éventuels et les exclusions. Pour compléter votre budget déplacements, certaines plateformes de [cashback remboursent aussi une partie des achats du quotidien](/categories/cashback) : les deux mécanismes peuvent se cumuler sous conditions.",
+    ],
+    conclusion:
+      "Parcourez les fiches de la catégorie : conditions, délais et formes d'avantage sont résumés pour chaque partenaire, afin de préparer votre prochaine réservation ou votre premier trajet en toute clarté.",
+    guideTitle: "Voyage et mobilité : bien préparer ses réservations.",
+    infoCards: [
+      {
+        title: "Côté voyageur ou côté hôte",
+        text: "Les programmes sont distincts : vérifiez celui auquel votre inscription donne droit avant de commencer.",
+      },
+      {
+        title: "Première réservation ou premier trajet",
+        text: "L'avantage est généralement déclenché par une première utilisation validée du service.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Une fois le parrainage validé, Parrainio partage avec vous une partie de sa commission, jusqu'à 25 %.",
+      },
+    ],
+    hubLinks: [
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
+    ],
+  },
+  {
+    slug: "services-numeriques",
+    group: "Services numériques",
+    title: "Parrainage Services numériques : offres et avantages | Parrainio",
+    metaDescription:
+      "Offres de parrainage hébergement web, freelance et outils en ligne : avantages de bienvenue, conditions d'éligibilité et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "services numériques.",
+    intro: [
+      "Ici se trouvent les services en ligne pour projets web et professionnels : hébergement de sites, plateformes de services freelance et outils pour entrepreneurs. S'inscrire via le lien ou le code de parrainage ouvre l'accès à l'avantage du partenaire, sans changer le tarif ni le fonctionnement du service.",
+      "La forme de l'avantage dépend du service : réduction sur une première souscription d'hébergement, bonus après une première mission ou un premier achat, avantage lié à l'activation d'un abonnement. Chaque fiche précise le mécanisme, le montant et les conditions d'éligibilité.",
+    ],
+    editorial: [
+      "L'hébergement web fonctionne par abonnement : l'avantage de bienvenue s'applique généralement sur la première période facturée. C'est le bon moment pour comparer, car l'inscription initiale concentre souvent les conditions les plus favorables — à condition de vérifier les tarifs de renouvellement et la durée d'engagement éventuelle.",
+      "Les plateformes de services freelance récompensent la première commande passée ou la première mission publiée : le déclencheur est l'activité réelle, pas seulement l'inscription. Les outils pour entrepreneurs suivent une logique voisine, avec des avantages parfois réservés à un plan ou à une durée d'abonnement précise.",
+      "Avant de vous engager, lisez les conditions : éligibilité nouveau client, délai de validation, produits ou plans concernés. Pour les dépenses professionnelles récurrentes, les offres de [banque et finance dédiées aux indépendants](/categories/banque-finance) peuvent compléter utilement ces services en ligne.",
+    ],
+    conclusion:
+      "Comparez les fiches de la catégorie : chaque service y est résumé avec son mécanisme de parrainage et ses conditions, pour choisir celui qui correspond à votre projet.",
+    guideTitle: "Services numériques : choisir et activer le bon service.",
+    infoCards: [
+      {
+        title: "Déclencheurs variables",
+        text: "Première souscription, première mission ou premier achat : l'avantage n'arrive qu'après le déclencheur prévu.",
+      },
+      {
+        title: "Renouvellement des abonnements",
+        text: "Vérifiez le tarif après la première période et la durée d'engagement avant de souscrire.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Parrainage accepté par le partenaire, Parrainio vous restitue une fraction de sa commission, jusqu'à 25 %.",
+      },
+    ],
+    hubLinks: [
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+    ],
+  },
+  {
+    slug: "telephone-internet",
+    group: "Téléphone & Internet",
+    title: "Parrainage Téléphone & Internet : offres et avantages | Parrainio",
+    metaDescription:
+      "Offre de parrainage forfait mobile et internet : conditions d'éligibilité, activation de la ligne et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "téléphone & internet.",
+    intro: [
+      "Une catégorie resserrée, dédiée aux offres mobiles et internet : souscrire via le lien ou le code de parrainage donne droit à l'avantage du partenaire, sans modifier le prix ni les conditions de l'offre.",
+      "Le principe est simple : activez votre offre avec le parrainage, puis attendez la validation prévue par l'opérateur. Le délai, la forme de l'avantage et les conditions d'éligibilité — notamment la création d'une nouvelle ligne — sont détaillés sur la fiche.",
+    ],
+    editorial: [
+      "Avant de souscrire, vérifiez trois points : l'éligibilité nouvelle ligne (une offre existante ne compte généralement pas), la durée de validité du parrainage et le délai de versement de l'avantage après activation. Le prix et les caractéristiques du forfait restent identiques à une souscription classique : le parrainage est un bonus, jamais un changement de conditions.",
+    ],
+    conclusion:
+      "Consultez la fiche de l'offre pour connaître le mécanisme exact et les conditions du moment, puis souscrivez en connaissance de cause.",
+    guideTitle: "Forfaits mobiles : les conditions avant de souscrire.",
+    infoCards: [
+      {
+        title: "Nouvelle ligne requise",
+        text: "L'avantage concerne généralement la création d'une nouvelle ligne, pas une offre déjà existante.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Parrainage confirmé, Parrainio reverse sur votre compte une part de sa commission, jusqu'à 25 %.",
+      },
+    ],
+    hubLinks: [
+      { slug: "banque-finance", label: "Découvrir les offres Banque & Finance" },
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+    ],
+  },
+  {
+    slug: "autres-bons-plans",
+    group: "Autres bons plans",
+    title: "Parrainage Autres bons plans : offres et bons plans | Parrainio",
+    metaDescription:
+      "Une sélection d'offres de parrainage hors des grandes catégories : réservations du quotidien et services de proximité, conditions et reversement Parrainio.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "autres bons plans.",
+    intro: [
+      "Cette page rassemble une petite sélection d'offres qui ne rentrent dans aucune grande famille du site : réserver une table dans un restaurant et faire garder son animal. Le principe Parrainio reste identique : utilisez le lien ou le code de parrainage lors de l'inscription pour ouvrir l'avantage du partenaire.",
+      "Chaque service a son propre déclencheur : première réservation confirmée pour l'un, première garde validée pour l'autre. Les conditions — éligibilité, délais, forme de l'avantage — sont précisées sur chaque fiche.",
+    ],
+    editorial: [
+      "Ces offres sont volontairement peu nombreuses : plutôt que de forcer des classements artificiels, Parrainio les réunit ici tant que leur univers respectif ne justifie pas une catégorie dédiée. Si l'une de ces familles s'étoffe, elle pourra à terme disposer de sa propre page.",
+      "Avant de vous inscrire, vérifiez les conditions propres à chaque service : zones couvertes, critères d'éligibilité, minimum d'utilisation, durée de validité de l'avantage. La qualité du service doit rester le critère principal — l'avantage de parrainage ne change rien au tarif pratiqué.",
+    ],
+    conclusion:
+      "Deux fiches, deux univers : lisez les conditions de chacune pour savoir si l'offre correspond à vos projets du moment.",
+    guideTitle: "Autres bons plans : deux offres à découvrir.",
+    infoCards: [
+      {
+        title: "Des offres choisies",
+        text: "Cette catégorie accueille les services qui n'ont pas encore leur place ailleurs, sans classement forcé.",
+      },
+      {
+        title: "Conditions spécifiques",
+        text: "Zones desservies, éligibilité et déclencheurs varient : chaque fiche détaille le fonctionnement.",
+      },
+      {
+        title: "Reversement Parrainio",
+        text: "Dès que le partenaire valide le parrainage, Parrainio vous redistribue une partie de sa commission, jusqu'à 25 %.",
+      },
+    ],
+    hubLinks: [
+      { slug: "shopping-courses", label: "Comparer les offres Shopping & Courses" },
+      { slug: "cashback", label: "Voir les offres de cashback" },
+      { slug: "recompenses-applications", label: "Explorer les offres Récompenses & Applications" },
+    ],
+  },
 ];
 
 export function getCategoryHub(slug: string): CategoryHubContent | undefined {
