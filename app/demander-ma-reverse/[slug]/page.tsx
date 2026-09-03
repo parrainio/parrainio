@@ -1,11 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getManagedOffer } from "@/data/managedOffers";
+import { SITE_URL } from "@/lib/siteUrl";
 import PublicHeader from "@/components/PublicHeader";
 import ReverseRequestForm from "./ReverseRequestForm";
 import styles from "./page.module.css";
 
-export default async function ReverseRequestPage({ params }: { params: Promise<{ slug: string }> }) {
+type ReverseRequestPageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: ReverseRequestPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const offer = getManagedOffer(slug);
+
+  // Page fonctionnelle de demande de reverse : jamais une page SEO.
+  // noindex + canonical vers la page offre correspondante (pas vers l'accueil).
+  return {
+    title: "Demander ma reverse | Parrainio",
+    description:
+      "Formulaire de demande de reversement Parrainio après un parrainage finalisé chez le partenaire.",
+    robots: { index: false, follow: true },
+    alternates: {
+      canonical: offer ? `${SITE_URL}/offres/${offer.slug}` : `${SITE_URL}/offres`,
+    },
+  };
+}
+
+export default async function ReverseRequestPage({ params }: ReverseRequestPageProps) {
   const { slug } = await params;
   const offer = getManagedOffer(slug);
 
