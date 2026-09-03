@@ -1,8 +1,10 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
+import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
 import OfferLogo from "@/components/OfferLogo";
 import OfferRewards from "@/components/OfferRewards";
 import type { CategoryHubContent } from "@/lib/categoryHubs";
@@ -54,6 +56,12 @@ function EditorialParagraph({ text }: { text: string }) {
 }
 
 export default function CategoryHub({ hub, offers }: CategoryHubProps) {
+  const [search, setSearch] = useState("");
+  const filteredOffers = useMemo(() => {
+    const query = normalizeOfferSearch(search);
+    return offers.filter((offer) => !query || normalizeOfferSearch(`${offer.name} ${offer.slug}`).includes(query));
+  }, [offers, search]);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -139,12 +147,19 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
             </div>
 
             <p>
-              {offers.length} {offers.length > 1 ? "offres" : "offre"}
+              {filteredOffers.length} {filteredOffers.length > 1 ? "offres" : "offre"}
             </p>
           </div>
 
-          <div className={styles.offersGrid}>
-            {offers.map((offer) => (
+          <OfferSearch
+            value={search}
+            onChange={setSearch}
+            className={styles.hubSearch}
+          />
+
+          {filteredOffers.length > 0 ? (
+            <div className={styles.offersGrid}>
+              {filteredOffers.map((offer) => (
               <article className={styles.offerCard} key={offer.slug}>
                 <div className={styles.offerTop}>
                   <div className={styles.brand}>
@@ -179,7 +194,15 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
                 </Link>
               </article>
             ))}
-          </div>
+            </div>
+          ) : (
+            <div className={styles.searchEmpty}>
+              <strong>Aucune offre trouvée.</strong>
+              <span>
+                Essayez un autre nom d&apos;offre dans les offres {hub.group.toLowerCase()}.
+              </span>
+            </div>
+          )}
 
           <div className={styles.catalogLinks}>
             <Link href="/offres" className={styles.ctaButton}>
