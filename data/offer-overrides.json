@@ -230,7 +230,7 @@
   "becquet": {
     "name": "Becquet",
     "category": "Maison",
-    "description": "Becquet est un site de vente de produits pour la maison.",
+    "description": "Becquet : maison et décoration, 20 € d'avantage pour le filleul et 20 € de bon pour le parrain sur la première commande.",
     "partnerReward": "20€ DE RÉDUCTION + SAC OFFERT",
     "parrainioReward": "Aucune pour cette offre",
     "referralCode": "726083989653",
@@ -391,7 +391,7 @@
   "biogents": {
     "name": "Biogents",
     "category": "Maison",
-    "description": "Biogents est une marque de produits anti-moustiques.",
+    "description": "Biogents : pièges anti-moustiques, 20 % de réduction pour le nouveau client et 10 € en points pour le parrain.",
     "partnerReward": "20% de réduction sur votre commande",
     "parrainioReward": "0 €",
     "referralCode": null,
