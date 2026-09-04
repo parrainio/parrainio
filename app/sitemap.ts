@@ -48,6 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${SITE_URL}/comment-ca-marche`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/nos-avantages`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/classement-primes-parrainage`, changeFrequency: "weekly", priority: 0.7 },
   ];
 
   const offers = getManagedOffers();

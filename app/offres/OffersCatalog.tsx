@@ -558,6 +558,10 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                 Accueil
               </Link>
 
+              <Link href="/classement-primes-parrainage">
+                Classement des primes
+              </Link>
+
               <Link href="/comment-ca-marche">
                 Comment ça marche
               </Link>
