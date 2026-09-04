@@ -54,7 +54,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage`,
       description: profile?.metaDescription ?? `Offre de parrainage ${offer.name} : ${reward}. Conditions et reversement Parrainio.`,
+      url: `/offres/${slug}`,
       type: "website",
+      siteName: "Parrainio",
+      locale: "fr_FR",
     },
   };
 }

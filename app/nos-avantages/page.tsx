@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Ce que Parrainio ajoute aux offres de parrainage : jusqu'à 25 % de notre commission reversée, des fiches transparentes et un suivi clair de votre avantage.",
   alternates: { canonical: "https://www.parrainio.fr/nos-avantages" },
+  openGraph: { url: "/nos-avantages", type: "website", siteName: "Parrainio", locale: "fr_FR" },
 };
 
 type IconName = "arrow" | "check" | "eye" | "coin" | "shield" | "spark";

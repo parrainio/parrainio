@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     "Découvrez les meilleures offres de parrainage, comparez les primes, les conditions et le reversement Parrainio avant de vous lancer.",
   alternates: { canonical: "https://www.parrainio.fr/offres" },
+  openGraph: { url: "/offres", type: "website", siteName: "Parrainio", locale: "fr_FR" },
 };
 
 export default function OffresPage() {

@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   description:
     "Les primes de parrainage actuellement documentées sur Parrainio : montants filleul, avantage parrain, conditions et reversement Parrainio, offre par offre.",
   alternates: { canonical: "https://www.parrainio.fr/classement-primes-parrainage" },
+  openGraph: {
+    url: "/classement-primes-parrainage",
+    type: "website",
+    siteName: "Parrainio",
+    locale: "fr_FR",
+  },
 };
 
 // Date de mise à jour contrôlée manuellement (constante identifiable) :

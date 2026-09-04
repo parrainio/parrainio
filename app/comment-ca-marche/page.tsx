@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Les 3 étapes d'un parrainage réussi : choisir une offre, utiliser le lien ou code du parrain, valider les conditions puis demander votre reverse Parrainio.",
   alternates: { canonical: "https://www.parrainio.fr/comment-ca-marche" },
+  openGraph: { url: "/comment-ca-marche", type: "website", siteName: "Parrainio", locale: "fr_FR" },
 };
 
 type IconName =

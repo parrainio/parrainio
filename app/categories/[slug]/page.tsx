@@ -30,7 +30,10 @@ export async function generateMetadata({ params }: HubParams): Promise<Metadata>
     openGraph: {
       title: hub.title,
       description: hub.metaDescription,
+      url: `/categories/${hub.slug}`,
       type: "website",
+      siteName: "Parrainio",
+      locale: "fr_FR",
     },
   };
 }
