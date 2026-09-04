@@ -523,7 +523,7 @@
   "bricks": {
     "name": "Bricks",
     "category": "Investissement",
-    "description": "Bricks est une plateforme d'investissement dans l'immobilier divisé - crowdfunding.",
+    "description": "Bricks : investissement immobilier participatif, avec 1 % de bonus pour le parrain et le filleul pendant les trois premiers mois.",
     "partnerReward": "1% de bonus sur vos investissements pendant 3 mois",
     "parrainioReward": "0,25 % du montant investi",
     "referralCode": null,
