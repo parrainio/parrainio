@@ -2266,7 +2266,7 @@
   "edf": {
     "lastVerifiedAt": "2026-08-30",
     "officialWebsiteUrl": "https://particulier.edf.fr/",
-    "description": "EDF propose des contrats d'électricité et des services énergétiques pour les particuliers.",
+    "description": "EDF : Mission Parrainage jusqu'au 31 décembre 2026, 40 € sur la facture du filleul et 20 € sur celle du parrain.",
     "steps": [
       "Appeler le 3404 et communiquer les coordonnées du parrain.",
       "Souscrire l’offre de marché éligible.",
@@ -2321,7 +2321,7 @@
   "reevolt": {
     "lastVerifiedAt": "2026-08-30",
     "officialWebsiteUrl": "https://reevolt.fr/",
-    "description": "Reevolt propose des services énergétiques et des offres de fourniture pour les particuliers.",
+    "description": "Reevolt : 2 € chacun dès la connexion du compteur Linky aux données Enedis, récompenses créditées dans la cagnotte.",
     "steps": [
       "Utiliser le lien ou code Reevolt.",
       "Finaliser la demande.",
