@@ -1,6 +1,6 @@
 {
   "fortuneo": {
-    "partnerReward": "150 €",
+    "partnerReward": "Jusqu'à 160 €",
     "parrainioReward": "FOSFO : 17,50 € ; GOLD : 27 €",
     "referralCode": "14241677",
     "conditions": [
@@ -48,8 +48,8 @@
   "airbnb": {
     "name": "Airbnb",
     "category": "Voyage",
-    "description": "🏠 Envie de voyager ? Profitez d’Airbnb pour réserver votre prochain séjour et bénéficiez de l’avantage proposé grâce à mon parrainage. 🌍✈️",
-    "partnerReward": "25€",
+    "description": "Airbnb : location de logements et expériences entre particuliers, invitation soumise à la campagne active et à l’éligibilité du pays.",
+    "partnerReward": "Voir l'offre",
     "parrainioReward": "0 €",
     "referralCode": null,
     "referralLink": "https://www.airbnb.fr/rp/mathieum247?p=stay",
@@ -72,7 +72,7 @@
     "name": "Airbnb Hôtes",
     "category": "Voyage",
     "description": "Devenez hôte Airbnb et gagnez de l’argent en louant votre logement. 🏠💰\n",
-    "partnerReward": "Entre 52€ et 777€",
+    "partnerReward": "Prime variable selon la campagne",
     "parrainioReward": "25% de notre récompense",
     "referralCode": null,
     "referralLink": "https://www.airbnb.fr/rp/mathieum247?p=stay&s=67&unique_share_id=6c4cfe3c-d1f1-4382-98b6-1de7624dd86b",
@@ -750,7 +750,7 @@
       "Réaliser l’achat minimum dans le délai de la campagne."
     ],
     "parrainioReward": "5 €",
-    "partnerReward": "20 € en Bitcoin pour 20 € de dépôt"
+    "partnerReward": "Récompense en Bitcoin selon la campagne (jusqu'à 200 $)"
   },
   "coupon-network": {
     "referralCode": "F5YT68",
@@ -1161,7 +1161,7 @@
       "Finaliser la commande.",
       "Le bonus du parrain est crédité après validation de la commande."
     ],
-    "partnerReward": "60 % de réduction sur votre commande"
+    "partnerReward": "20 % de réduction dès 49 € sur la première commande"
   },
   "featurepoints": {
     "referralLink": "https://featurepoints.com/@67MZP5",
@@ -1644,7 +1644,7 @@
       "Réaliser le dépôt ou volume de trading affiché dans l’application."
     ],
     "parrainioReward": "7,50 €",
-    "partnerReward": "30 €"
+    "partnerReward": "Jusqu'à 20 € en BTC selon la campagne"
   },
   "lalalab": {
     "referralCode": "PGXJD6VQ",
@@ -1864,13 +1864,13 @@
     "conditions": [
       "Créer un nouveau compte TopCashback via le lien de parrainage pendant la campagne en cours.",
       "Valider le compte.",
-      "Gagner au moins 10 € de cashback dans les 90 jours via des marchands ou offres éligibles.",
-      "La campagne du 28 au 30 août 2026 annonce 10 € de bonus d’inscription et 50 € de bonus parrain."
+      "Gagner au moins 10 € de cashback dans les 180 jours suivant l’inscription via des marchands ou offres éligibles.",
+      "La promotion en cours annonce 10 € de bonus d’inscription pour le filleul et 15 € de bonus pour le parrain."
     ],
     "steps": [
       "Utiliser le lien TopCashback.",
       "Valider le compte.",
-      "Générer au moins 10 € de cashback dans les 90 jours."
+      "Générer au moins 10 € de cashback dans les 180 jours."
     ],
     "parrainioReward": "2,50 € normal ; jusqu’à 7,50 € boosté",
     "partnerReward": "10 € à l'inscription"
@@ -2207,7 +2207,7 @@
     ],
     "researchSource": "four-markdown-files",
     "parrainioReward": "0 €",
-    "partnerReward": "Jusqu'à 60 € sur votre première box"
+    "partnerReward": "Réduction sur les premières box selon l'offre active"
   },
   "phenix": {
     "lastVerifiedAt": "2026-08-30",
