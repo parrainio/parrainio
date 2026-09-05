@@ -50,7 +50,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Pour comparer efficacement, regardez au-delà de la prime annoncée : frais de tenue de compte, conditions de revenus exigées, délai de versement et stabilité de l'établissement. [Les offres d'investissement et de crypto](/categories/investissement-crypto), souvent complémentaires d'un compte bancaire solide, font l'objet d'une catégorie dédiée sur Parrainio.",
     ],
     conclusion:
-      "Parcourez les fiches de la catégorie à votre rythme : chacune résume la prime du partenaire, les conditions d'ouverture et les étapes à suivre, pour repérer l'offre qui correspond vraiment à votre projet.",
+      "Parcourez les fiches de la catégorie à votre rythme : chacune résume la prime du partenaire, les conditions d'ouverture et les étapes à suivre, pour repérer l'offre qui correspond vraiment à votre projet. Pour comparer les banques en ligne entre elles, consultez notre [comparatif des offres de parrainage bancaire](/comparatif/parrainage-bancaire).",
     guideTitle: "Banque, assurance, épargne : bien choisir son offre.",
     infoCards: [
       {
