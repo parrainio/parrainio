@@ -30,12 +30,12 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
-        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 2, name: "Guides & astuces", item: `${SITE_URL}/blog` },
       ],
     },
     {
       "@type": "Blog",
-      name: "Le blog Parrainio",
+      name: "Guides & astuces",
       description: metadata.description,
       url: `${SITE_URL}/blog`,
     },
@@ -59,13 +59,13 @@ export default function BlogIndexPage() {
           <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
             <Link href="/">Accueil</Link>
             <span aria-hidden="true">→</span>
-            <strong>Blog</strong>
+            <strong>Guides & astuces</strong>
           </nav>
           <span className={styles.kicker}>
             <span />
-            Le blog Parrainio
+            Guides & astuces
           </span>
-          <h1>Le blog Parrainio</h1>
+          <h1>Guides & astuces pour profiter des offres de parrainage</h1>
           <p className={styles.lead}>
             Guides pratiques, comparatifs et astuces pour tirer le meilleur du
             parrainage et faire des économies au quotidien : primes de
@@ -80,7 +80,7 @@ export default function BlogIndexPage() {
         <div className={styles.container}>
           <div className={styles.sectionHead}>
             <h2>
-              Les articles <em>du blog</em>
+              Les guides <em>récents</em>
             </h2>
             <p>
               De nouveaux contenus sont publiés régulièrement : conseils,
@@ -115,9 +115,10 @@ export default function BlogIndexPage() {
             <div className={styles.emptyState}>
               <strong>Les premiers articles arrivent bientôt.</strong>
               <p>
-                Le blog Parrainio prend forme : guides sur le fonctionnement du
-                parrainage, décryptage des primes et du cashback, et astuces
-                pour économiser au quotidien y seront publiés prochainement.
+                La rubrique Guides & astuces prend forme : explications sur le
+                fonctionnement du parrainage, décryptage des primes et du
+                cashback, et astuces pour économiser au quotidien y seront
+                publiés prochainement.
               </p>
               <Link href="/offres" className={styles.emptyCta}>
                 En attendant, découvrez les offres →

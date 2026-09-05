@@ -14,6 +14,7 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
   const links = [
     ["home", "Accueil", "/"],
     ["offers", "Offres", "/offres"],
+    ["blog", "Guides & astuces", "/blog"],
     ["how", "Comment ça marche", "/comment-ca-marche"],
     ["faq", "FAQ", "/#faq"],
     ["advantages", "Nos avantages", "/nos-avantages"],

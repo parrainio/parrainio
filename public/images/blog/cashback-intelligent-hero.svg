@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-labelledby="title desc">
+  <title id="title">Un parcours d'achat intelligent avec du cashback</title>
+  <desc id="desc">Un ordinateur avec un panier d'achat, des étapes de comparaison et de cashback, et une pièce qui revient vers une tirelire avant une coche finale.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4ef"/>
+      <stop offset="1" stop-color="#f8f7f1"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8f4"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="1120" height="595" rx="30" fill="url(#bg)" stroke="#d7e6db" stroke-width="3"/>
+  <circle cx="150" cy="560" r="90" fill="#e2efe4"/>
+  <circle cx="1060" cy="130" r="110" fill="#e2efe4"/>
+
+  <!-- Ordinateur portable avec panier -->
+  <g>
+    <rect x="105" y="150" width="250" height="170" rx="18" fill="#075846"/>
+    <rect x="119" y="164" width="222" height="142" rx="12" fill="url(#panel)"/>
+    <rect x="105" y="320" width="250" height="18" rx="9" fill="#043f34"/>
+    <rect x="70" y="338" width="320" height="12" rx="6" fill="#043f34"/>
+    <!-- panier sur l'écran -->
+    <path d="M170 210 l18 44 l78 0 l18 -44 Z" fill="#eef4ef" stroke="#075846" stroke-width="4" stroke-linejoin="round"/>
+    <line x1="188" y1="214" x2="196" y2="196" stroke="#075846" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="200" cy="266" r="6" fill="#ef873e"/>
+    <circle cx="248" cy="266" r="6" fill="#ef873e"/>
+    <path d="M262 176 l-18 44 l78 0 l18 -44 Z" fill="none" stroke="#d9e6dd" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Étapes : panier → loupe → cagnotte → coche -->
+  <g>
+    <!-- trait de liaison -->
+    <path d="M420 285 H940" fill="none" stroke="#bfd8c8" stroke-width="5" stroke-dasharray="14 10"/>
+    <g fill="#ffffff" stroke="#075846" stroke-width="4">
+      <circle cx="470" cy="285" r="38"/>
+      <circle cx="590" cy="285" r="38"/>
+      <circle cx="710" cy="285" r="38"/>
+      <circle cx="830" cy="285" r="38"/>
+    </g>
+    <!-- loupe -->
+    <circle cx="590" cy="275" r="20" fill="none" stroke="#ef873e" stroke-width="6"/>
+    <line x1="605" y1="290" x2="618" y2="303" stroke="#ef873e" stroke-width="7" stroke-linecap="round"/>
+    <!-- pièce -->
+    <circle cx="710" cy="285" r="20" fill="#ef873e"/>
+    <circle cx="710" cy="285" r="12" fill="#ffead4"/>
+    <!-- coche -->
+    <path d="M810 285 l15 15 l30 -34" fill="none" stroke="#075846" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- panier (1re étape) -->
+    <path d="M452 295 l8 20 l30 0 l8 -20 Z" fill="#075846"/>
+  </g>
+
+  <!-- Pièce qui revient vers la tirelire -->
+  <g>
+    <path d="M740 340 C 760 400, 830 420, 880 430" fill="none" stroke="#ef873e" stroke-width="8" stroke-dasharray="4 14" stroke-linecap="round"/>
+    <circle cx="905" cy="432" r="12" fill="#ef873e"/>
+    <circle cx="905" cy="432" r="7" fill="#ffead4"/>
+  </g>
+
+  <!-- Tirelire -->
+  <g>
+    <ellipse cx="1035" cy="470" rx="95" ry="78" fill="#075846"/>
+    <path d="M960 415 a28 28 0 0 1 40 -30" fill="none" stroke="#075846" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="1090" cy="445" r="7" fill="#ef873e"/>
+    <rect x="1015" y="430" width="30" height="10" rx="5" fill="#043f34"/>
+    <circle cx="1000" cy="505" r="7" fill="#3f6f5c"/>
+  </g>
+
+  <!-- Coche finale -->
+  <g>
+    <circle cx="1035" cy="545" r="40" fill="#e2efe4"/>
+    <path d="M1016 545 l13 14 l27 -30" fill="none" stroke="#075846" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

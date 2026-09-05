@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">Vérifier les options et services inclus</title>
+  <desc id="desc">Un smartphone affichant des modules d'options (assurance, streaming, stockage), l'un étant supprimé, surveillé par une loupe.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4ef"/>
+      <stop offset="1" stop-color="#f8f7f1"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8f4"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="30" width="1120" height="500" rx="30" fill="url(#bg)" stroke="#d7e6db" stroke-width="3"/>
+  <circle cx="180" cy="90" r="70" fill="#e2efe4"/>
+  <circle cx="1080" cy="480" r="80" fill="#e2efe4"/>
+
+  <!-- Smartphone avec modules d'options -->
+  <g>
+    <rect x="150" y="110" width="170" height="350" rx="30" fill="#075846"/>
+    <rect x="164" y="124" width="142" height="322" rx="22" fill="url(#panel)"/>
+    <rect x="204" y="138" width="62" height="7" rx="3.5" fill="#075846"/>
+
+    <!-- Module assurance (bouclier) -->
+    <rect x="184" y="170" width="102" height="52" rx="14" fill="#eef4ef" stroke="#075846" stroke-width="3"/>
+    <path d="M235 184 l0 24 M224 192 l22 12 l22 -12" fill="none" stroke="#075846" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="292" cy="196" r="6" fill="#7fd4a9"/>
+
+    <!-- Module streaming (lecture) -->
+    <rect x="184" y="234" width="102" height="52" rx="14" fill="#eef4ef" stroke="#075846" stroke-width="3"/>
+    <path d="M224 250 l28 10 -28 10 Z" fill="#ef873e"/>
+    <circle cx="292" cy="260" r="6" fill="#ef873e"/>
+
+    <!-- Module stockage (nuage) -->
+    <rect x="184" y="298" width="102" height="52" rx="14" fill="#eef4ef" stroke="#075846" stroke-width="3"/>
+    <path d="M224 332 a14 14 0 0 1 4 -27 l8 0 a18 18 0 0 1 34 4 a12 12 0 0 1 0 23 Z" fill="#4f7d9c"/>
+    <circle cx="292" cy="324" r="6" fill="#9db3a6"/>
+
+    <!-- Module supprimé (pointillé + croix) -->
+    <rect x="184" y="362" width="102" height="52" rx="14" fill="none" stroke="#ef873e" stroke-width="3" stroke-dasharray="8 7"/>
+    <line x1="226" y1="382" x2="246" y2="402" stroke="#ef873e" stroke-width="5" stroke-linecap="round"/>
+    <line x1="246" y1="382" x2="226" y2="402" stroke="#ef873e" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="292" cy="388" r="6" fill="none" stroke="#ef873e" stroke-width="3"/>
+
+    <!-- Interrupteur -->
+    <rect x="208" y="428" width="56" height="26" rx="13" fill="#c3d8ca"/>
+    <circle cx="226" cy="441" r="9" fill="#ffffff"/>
+  </g>
+
+  <!-- Loupe sur les modules -->
+  <g>
+    <circle cx="620" cy="270" r="84" fill="none" stroke="#075846" stroke-width="11"/>
+    <line x1="684" y1="334" x2="740" y2="390" stroke="#075846" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="620" cy="270" r="44" fill="#e2efe4"/>
+    <circle cx="620" cy="270" r="44" fill="none" stroke="#eef4ef" stroke-width="5"/>
+  </g>
+
+  <!-- Modules examinés à droite -->
+  <g>
+    <rect x="820" y="150" width="230" height="150" rx="20" fill="#ffffff" stroke="#d7e6db" stroke-width="4"/>
+    <line x1="848" y1="186" x2="1022" y2="186" stroke="#075846" stroke-width="10" stroke-linecap="round"/>
+    <rect x="848" y="212" width="150" height="18" rx="9" fill="#eef4ef"/>
+    <rect x="848" y="242" width="120" height="18" rx="9" fill="#eef4ef"/>
+    <rect x="920" y="270" width="70" height="18" rx="9" fill="#eef4ef"/>
+  </g>
+  <g>
+    <rect x="820" y="320" width="230" height="120" rx="20" fill="#eef4ef" stroke="#075846" stroke-width="4"/>
+    <line x1="848" y1="356" x2="1022" y2="356" stroke="#075846" stroke-width="10" stroke-linecap="round"/>
+    <rect x="848" y="382" width="150" height="18" rx="9" fill="#ffffff"/>
+    <rect x="848" y="412" width="90" height="16" rx="8" fill="#d9e6dd"/>
+  </g>
+
+  <!-- Points de connexion -->
+  <g fill="#3f6f5c">
+    <circle cx="470" cy="270" r="8"/>
+    <circle cx="505" cy="270" r="8"/>
+    <circle cx="540" cy="270" r="8"/>
+  </g>
+  <circle cx="792" cy="270" r="8" fill="#ef873e"/>
+</svg>

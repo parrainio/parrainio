@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">Le cashback n'est pas une raison d'acheter</title>
+  <desc id="desc">À gauche, un achat prévu validé avec une pièce de cashback qui revient ; à droite, un achat impulsif signalé par un triangle d'alerte et une pièce barrée.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef4ef"/>
+      <stop offset="1" stop-color="#f8f7f1"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8f4"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="30" width="1120" height="500" rx="30" fill="url(#bg)" stroke="#d7e6db" stroke-width="3"/>
+
+  <!-- Séparateur central -->
+  <line x1="600" y1="70" x2="600" y2="490" stroke="#d7e6db" stroke-width="4" stroke-dasharray="12 10"/>
+  <circle cx="600" cy="280" r="30" fill="#ffffff" stroke="#d7e6db" stroke-width="4"/>
+  <path d="M588 280 l8 10 l18 -22" fill="none" stroke="#3f6f5c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Groupe gauche : achat prévu -->
+  <g>
+    <rect x="80" y="110" width="230" height="170" rx="20" fill="#ffffff" stroke="#d7e6db" stroke-width="4"/>
+    <line x1="108" y1="148" x2="282" y2="148" stroke="#075846" stroke-width="11" stroke-linecap="round"/>
+    <rect x="108" y="176" width="150" height="16" rx="8" fill="#eef4ef"/>
+    <rect x="108" y="204" width="120" height="16" rx="8" fill="#eef4ef"/>
+    <circle cx="282" cy="240" r="10" fill="#075846"/>
+    <path d="M276 240 l4 5 l8 -10" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- panier validé -->
+    <path d="M128 268 l14 34 l64 0 l14 -34 Z" fill="#eef4ef" stroke="#075846" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="152" cy="312" r="6" fill="#ef873e"/>
+    <circle cx="186" cy="312" r="6" fill="#ef873e"/>
+    <!-- pièce qui revient -->
+    <path d="M330 300 C 380 340, 430 330, 480 300" fill="none" stroke="#ef873e" stroke-width="7" stroke-dasharray="4 13" stroke-linecap="round"/>
+    <circle cx="505" cy="288" r="15" fill="#ef873e"/>
+    <circle cx="505" cy="288" r="9" fill="#ffead4"/>
+    <!-- tirelire -->
+    <ellipse cx="485" cy="370" rx="62" ry="52" fill="#075846"/>
+    <path d="M438 328 a18 18 0 0 1 26 -20" fill="none" stroke="#075846" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="528" cy="352" r="5" fill="#ef873e"/>
+  </g>
+
+  <!-- Groupe droit : achat impulsif -->
+  <g>
+    <rect x="890" y="110" width="230" height="170" rx="20" fill="#ffffff" stroke="#ef873e" stroke-width="4"/>
+    <line x1="918" y1="148" x2="1092" y2="148" stroke="#ef873e" stroke-width="11" stroke-linecap="round"/>
+    <rect x="918" y="176" width="150" height="16" rx="8" fill="#ffead4"/>
+    <rect x="918" y="204" width="120" height="16" rx="8" fill="#ffead4"/>
+    <circle cx="1092" cy="240" r="10" fill="#ef873e"/>
+    <line x1="1088" y1="236" x2="1096" y2="244" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <line x1="1096" y1="236" x2="1088" y2="244" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <!-- panier surchargé -->
+    <path d="M918 268 l14 34 l64 0 l14 -34 Z" fill="#ffead4" stroke="#ef873e" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="942" cy="312" r="6" fill="#ef873e"/>
+    <circle cx="976" cy="312" r="6" fill="#ef873e"/>
+    <path d="M944 250 l30 -14 M990 250 l-26 -20" stroke="#ef873e" stroke-width="5" stroke-linecap="round"/>
+    <!-- éclair / impulsion -->
+    <path d="M970 96 l-16 40 l16 0 l-12 40 l34 -52 l-16 0 Z" fill="#ef873e"/>
+    <!-- pièce barrée -->
+    <circle cx="1010" cy="420" r="22" fill="#eef4ef" stroke="#ef873e" stroke-width="5"/>
+    <line x1="996" y1="406" x2="1024" y2="434" stroke="#ef873e" stroke-width="6" stroke-linecap="round"/>
+    <line x1="996" y1="434" x2="1024" y2="406" stroke="#ef873e" stroke-width="6" stroke-linecap="round"/>
+    <!-- triangle d'alerte -->
+    <circle cx="940" cy="430" r="26" fill="#ffead4" stroke="#ef873e" stroke-width="4"/>
+    <path d="M940 414 l0 12" stroke="#ef873e" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="940" cy="436" r="3.5" fill="#ef873e"/>
+  </g>
+</svg>

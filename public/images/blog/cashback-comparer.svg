@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">Comparer les offres au-delà du pourcentage affiché</title>
+  <desc id="desc">Deux cartes d'offres avec des jauges de cashback et des barres de conditions, une loupe au centre, une coche sur l'offre réellement intéressante et un signal d'attention sur l'autre.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f7f1"/>
+      <stop offset="1" stop-color="#eef4ef"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8f4"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="30" width="1120" height="500" rx="30" fill="url(#bg)" stroke="#d7e6db" stroke-width="3"/>
+  <circle cx="130" cy="90" r="60" fill="#e2efe4"/>
+  <circle cx="1070" cy="480" r="70" fill="#e2efe4"/>
+
+  <!-- Carte 1 (cashback affiché élevé mais conditions lourdes) -->
+  <g>
+    <rect x="140" y="110" width="280" height="330" rx="22" fill="#ffffff" stroke="#d7e6db" stroke-width="4"/>
+    <!-- en-tête -->
+    <line x1="168" y1="148" x2="392" y2="148" stroke="#075846" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="380" cy="148" r="7" fill="#ef873e"/>
+    <!-- jauge cashback affichée (forte) -->
+    <path d="M204 220 m0 -46 a46 46 0 1 1 -41 23" fill="none" stroke="#eef4ef" stroke-width="16" stroke-linecap="round"/>
+    <path d="M204 220 m0 -46 a46 46 0 1 1 -41 23" fill="none" stroke="#ef873e" stroke-width="16" stroke-linecap="round" stroke-dasharray="180 60" transform="rotate(0 204 220)"/>
+    <line x1="204" y1="220" x2="204" y2="182" stroke="#075846" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="204" cy="220" r="8" fill="#075846"/>
+    <!-- conditions : barres -->
+    <rect x="168" y="290" width="224" height="14" rx="7" fill="#eef4ef"/>
+    <rect x="168" y="318" width="224" height="14" rx="7" fill="#eef4ef"/>
+    <rect x="168" y="346" width="200" height="14" rx="7" fill="#eef4ef"/>
+    <rect x="168" y="374" width="170" height="14" rx="7" fill="#eef4ef"/>
+    <!-- avertissement -->
+    <circle cx="388" cy="398" r="18" fill="#ffead4" stroke="#ef873e" stroke-width="4"/>
+    <path d="M388 388 l0 8" stroke="#ef873e" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="388" cy="402" r="2.5" fill="#ef873e"/>
+  </g>
+
+  <!-- Carte 2 (offre réellement intéressante) -->
+  <g>
+    <rect x="760" y="90" width="300" height="360" rx="22" fill="#eef4ef" stroke="#075846" stroke-width="5"/>
+    <!-- en-tête -->
+    <line x1="788" y1="128" x2="1032" y2="128" stroke="#075846" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="1020" cy="128" r="7" fill="#7fd4a9"/>
+    <!-- jauge plus modeste mais conditions légères -->
+    <path d="M850 200 m0 -46 a46 46 0 1 1 -41 23" fill="none" stroke="#d9e6dd" stroke-width="16" stroke-linecap="round"/>
+    <path d="M850 200 m0 -46 a46 46 0 1 1 -41 23" fill="none" stroke="#075846" stroke-width="16" stroke-linecap="round" stroke-dasharray="110 130"/>
+    <line x1="850" y1="200" x2="850" y2="162" stroke="#075846" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="850" cy="200" r="8" fill="#075846"/>
+    <!-- conditions : barres courtes -->
+    <rect x="788" y="270" width="140" height="14" rx="7" fill="#ffffff"/>
+    <rect x="788" y="298" width="120" height="14" rx="7" fill="#ffffff"/>
+    <rect x="788" y="326" width="160" height="14" rx="7" fill="#ffffff"/>
+    <!-- coche -->
+    <circle cx="1000" cy="392" r="24" fill="#075846"/>
+    <path d="M986 392 l10 12 l20 -24" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Loupe au centre -->
+  <g>
+    <circle cx="590" cy="250" r="86" fill="none" stroke="#075846" stroke-width="12"/>
+    <line x1="656" y1="316" x2="712" y2="372" stroke="#075846" stroke-width="15" stroke-linecap="round"/>
+    <circle cx="590" cy="250" r="46" fill="#e2efe4"/>
+  </g>
+
+  <!-- Lignes d'équilibre -->
+  <g fill="none" stroke="#bfd8c8" stroke-width="4" stroke-dasharray="10 8">
+    <path d="M452 250 H 480"/>
+    <path d="M700 250 H 730"/>
+  </g>
+  <circle cx="446" cy="250" r="7" fill="#3f6f5c"/>
+  <circle cx="754" cy="250" r="7" fill="#3f6f5c"/>
+</svg>

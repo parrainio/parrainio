@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">Comparer son besoin, son offre actuelle et les alternatives</title>
+  <desc id="desc">Un smartphone avec jauge de données, une loupe au-dessus de deux cartes d'offres, et une coche de décision reliés par des chevrons.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f7f1"/>
+      <stop offset="1" stop-color="#eef4ef"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8f4"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="30" width="1120" height="500" rx="30" fill="url(#bg)" stroke="#d7e6db" stroke-width="3"/>
+  <circle cx="1050" cy="90" r="70" fill="#e2efe4"/>
+  <circle cx="140" cy="480" r="80" fill="#e2efe4"/>
+
+  <!-- Smartphone avec jauge de données -->
+  <g>
+    <rect x="130" y="120" width="160" height="330" rx="30" fill="#075846"/>
+    <rect x="144" y="134" width="132" height="302" rx="22" fill="url(#panel)"/>
+    <rect x="180" y="147" width="60" height="7" rx="3.5" fill="#075846"/>
+    <circle cx="207" cy="212" r="52" fill="#eef4ef" stroke="#075846" stroke-width="4"/>
+    <path d="M207 212 m0 -34 a34 34 0 1 1 -30 18" fill="none" stroke="#ef873e" stroke-width="8" stroke-linecap="round"/>
+    <line x1="207" y1="212" x2="207" y2="182" stroke="#075846" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="207" cy="212" r="7" fill="#075846"/>
+    <line x1="172" y1="330" x2="248" y2="330" stroke="#d9e6dd" stroke-width="10" stroke-linecap="round"/>
+    <line x1="172" y1="356" x2="248" y2="356" stroke="#d9e6dd" stroke-width="10" stroke-linecap="round"/>
+    <rect x="172" y="382" width="76" height="16" rx="8" fill="#eef4ef"/>
+    <rect x="248" y="382" width="0" height="0" fill="none"/>
+  </g>
+  <!-- Étiquettes jauge -->
+  <circle cx="163" cy="180" r="7" fill="#ef873e"/>
+  <circle cx="251" cy="180" r="7" fill="#c3d8ca"/>
+
+  <!-- Cartes d'offres comparées -->
+  <g>
+    <rect x="450" y="130" width="190" height="240" rx="18" fill="#ffffff" stroke="#d7e6db" stroke-width="4"/>
+    <line x1="474" y1="168" x2="616" y2="168" stroke="#075846" stroke-width="10" stroke-linecap="round"/>
+    <rect x="474" y="196" width="148" height="18" rx="9" fill="#eef4ef"/>
+    <rect x="474" y="226" width="148" height="18" rx="9" fill="#eef4ef"/>
+    <rect x="474" y="256" width="148" height="18" rx="9" fill="#eef4ef"/>
+    <rect x="474" y="298" width="90" height="22" rx="11" fill="#eef4ef"/>
+    <circle cx="590" cy="322" r="8" fill="#9db3a6"/>
+  </g>
+  <g>
+    <rect x="680" y="150" width="190" height="240" rx="18" fill="#eef4ef" stroke="#075846" stroke-width="4"/>
+    <line x1="704" y1="188" x2="846" y2="188" stroke="#075846" stroke-width="10" stroke-linecap="round"/>
+    <rect x="704" y="216" width="148" height="18" rx="9" fill="#d9e6dd"/>
+    <rect x="704" y="246" width="148" height="18" rx="9" fill="#ffffff"/>
+    <rect x="704" y="276" width="148" height="18" rx="9" fill="#ffffff"/>
+    <rect x="704" y="318" width="110" height="22" rx="11" fill="#075846"/>
+    <circle cx="830" cy="342" r="8" fill="#7fd4a9"/>
+  </g>
+
+  <!-- Loupe -->
+  <g>
+    <circle cx="770" cy="245" r="66" fill="none" stroke="#ef873e" stroke-width="11"/>
+    <line x1="818" y1="294" x2="862" y2="338" stroke="#ef873e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="770" cy="245" r="34" fill="#e2efe4"/>
+  </g>
+
+  <!-- Chevrons de progression -->
+  <g fill="none" stroke="#3f6f5c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M352 285 l-20 -22 M332 263 l-20 22"/>
+    <path d="M668 285 l-20 -22 M648 263 l-20 22"/>
+  </g>
+
+  <!-- Décision -->
+  <g>
+    <circle cx="1020" cy="300" r="62" fill="#075846"/>
+    <path d="M994 300 l18 20 l36 -42" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1020" cy="300" r="80" fill="none" stroke="#e2efe4" stroke-width="6"/>
+  </g>
+</svg>

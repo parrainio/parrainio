@@ -13,6 +13,14 @@ import {
   type BlogBlock,
 } from "@/data/blogArticles";
 import styles from "./page.module.css";
+import {
+  ArticleImage,
+  ChecklistBox,
+  Callout,
+  IconCards,
+  ProcessFlow,
+  SubscriptionFigure,
+} from "@/components/BlogVisuals";
 
 type BlogArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -29,7 +37,7 @@ export async function generateMetadata({
   const article = getBlogArticle(slug);
   if (!article) return {};
   return {
-    title: `${article.title} | Blog Parrainio`,
+    title: `${article.title} | ${article.titleSuffix ?? "Blog Parrainio"}`,
     description: article.excerpt,
     alternates: { canonical: `${SITE_URL}/blog/${article.slug}` },
     openGraph: {
@@ -37,7 +45,7 @@ export async function generateMetadata({
       type: "article",
       siteName: "Parrainio",
       locale: "fr_FR",
-      title: `${article.title} | Blog Parrainio`,
+      title: `${article.title} | ${article.titleSuffix ?? "Blog Parrainio"}`,
       description: article.excerpt,
       publishedTime: article.dateModified
         ? undefined
@@ -80,16 +88,39 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
   if (block.type === "h2") {
     return <h2>{block.text}</h2>;
   }
-  const ListTag = block.ordered ? "ol" : "ul";
-  return (
-    <ListTag>
-      {block.items.map((item) => (
-        <li key={item.slice(0, 60)}>
-          <Inline text={item} />
-        </li>
-      ))}
-    </ListTag>
-  );
+  if (block.type === "list") {
+    const ListTag = block.ordered ? "ol" : "ul";
+    return (
+      <ListTag>
+        {block.items.map((item) => (
+          <li key={item.slice(0, 60)}>
+            <Inline text={item} />
+          </li>
+        ))}
+      </ListTag>
+    );
+  }
+  /* Blocs visuels génériques du blog */
+  if (block.type === "figure") {
+    if (block.variant === "subscriptions") return <SubscriptionFigure />;
+    return null;
+  }
+  if (block.type === "image") {
+    return <ArticleImage src={block.src} alt={block.alt} caption={block.caption} />;
+  }
+  if (block.type === "process") {
+    return <ProcessFlow steps={block.steps} />;
+  }
+  if (block.type === "cards") {
+    return <IconCards items={block.items} />;
+  }
+  if (block.type === "callout") {
+    return <Callout title={block.title} text={block.text} items={block.items} />;
+  }
+  if (block.type === "checklist") {
+    return <ChecklistBox items={block.items} />;
+  }
+  return null;
 }
 
 function relatedArticles(article: BlogArticle) {
@@ -114,7 +145,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
-          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+          { "@type": "ListItem", position: 2, name: "Guides & astuces", item: `${SITE_URL}/blog` },
           {
             "@type": "ListItem",
             position: 3,
@@ -159,7 +190,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
             <Link href="/">Accueil</Link>
             <span aria-hidden="true">→</span>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog">Guides & astuces</Link>
             <span aria-hidden="true">→</span>
             <strong>{article.title}</strong>
           </nav>
@@ -229,7 +260,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 Voir toutes les offres
               </Link>
               <Link href="/blog" className={styles.secondaryButton}>
-                Retour au blog →
+                Retour aux guides →
               </Link>
             </div>
           </div>
