@@ -19,6 +19,7 @@ export default function SiteFooter() {
             <Link href="/offres">Les offres</Link>
             <Link href="/classement-primes-parrainage">Classement des primes</Link>
             <Link href="/comment-ca-marche">Comment ça marche</Link>
+            <Link href="/blog">Le blog</Link>
           </div>
 
           <div>

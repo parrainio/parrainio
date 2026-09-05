@@ -4,7 +4,7 @@ import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import CategoryMenu from "./CategoryMenu";
 import styles from "./PublicHeader.module.css";
 
-type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" };
+type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" };
 
 export default function PublicHeader({ active }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));

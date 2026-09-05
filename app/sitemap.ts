@@ -18,6 +18,7 @@ import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { SITE_URL } from "@/lib/siteUrl";
+import { blogArticles } from "@/data/blogArticles";
 
 function resolveOfferSeoProfile(slug: string): OfferSeoProfile | undefined {
   return (
@@ -53,10 +54,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/comparatif/parrainage-crypto`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/cashback`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/paris-sportifs`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/mentions-legales`, changeFrequency: "monthly", priority: 0.2 },
     { url: `${SITE_URL}/confidentialite`, changeFrequency: "monthly", priority: 0.2 },
     { url: `${SITE_URL}/cgu`, changeFrequency: "monthly", priority: 0.2 },
   ];
+
+  const blogEntries: MetadataRoute.Sitemap = blogArticles.map((article) => ({
+    url: `${SITE_URL}/blog/${article.slug}`,
+    lastModified: article.dateModified
+      ? new Date(`${article.dateModified}T00:00:00Z`)
+      : new Date(`${article.datePublished}T00:00:00Z`),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   const offers = getManagedOffers();
 
@@ -77,5 +88,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticEntries, ...offerEntries];
+  return [...staticEntries, ...blogEntries, ...offerEntries];
 }
