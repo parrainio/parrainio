@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { SVGProps } from "react";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { type Offer } from "@/data/offers";
+import { type Offer, getOfferReferralUrl } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
 import MomentSelection from "@/components/MomentSelection";
@@ -101,6 +101,19 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
     []
   );
 
+  /* Carte hero : offre mise en avant, alimentée par les données gérées
+     (même source que la fiche Fortuneo — aucun montant ni lien hardcodé). */
+  const featuredOffer = useMemo(
+    () => offers.find((offer) => offer.slug === "fortuneo") ?? null,
+    [offers]
+  );
+  const featuredCtaHref = featuredOffer
+    ? getOfferReferralUrl(featuredOffer) ?? featuredOffer.officialWebsiteUrl ?? null
+    : null;
+  const featuredAmount = featuredOffer?.partnerReward?.match(/^(.*?)\s*([\d\s.,]+)\s*€/) ?? null;
+  const featuredAmountPrefix = featuredAmount ? featuredAmount[1].trim() : "";
+  const featuredAmountValue = featuredAmount ? featuredAmount[2].trim() : "";
+
   const filteredOffers = useMemo(() => {
     const query = normalizeOfferSearch(search);
     return offers.filter((offer) => {
@@ -176,7 +189,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
 
             <div
               className={styles.heroVisual}
-              aria-label="Une offre Parrainio clairement détaillée"
+              aria-label={featuredOffer ? `Offre mise en avant : ${featuredOffer.name}` : "Une offre Parrainio clairement détaillée"}
             >
               <div
                 className={styles.blobOne}
@@ -191,43 +204,70 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
               <div className={styles.visualCard}>
                 <div className={styles.visualHead}>
                   <div>
-                    <span className={styles.visualMark}>P</span>
+                    {featuredOffer ? (
+                      <OfferLogo
+                        name={featuredOffer.name}
+                        logo={featuredOffer.logo}
+                        color={featuredOffer.color}
+                        logoLetter={featuredOffer.logoLetter}
+                        size={39}
+                      />
+                    ) : (
+                      <span className={styles.visualMark}>P</span>
+                    )}
 
                     <div>
-                      <strong>Parrainio</strong>
-                      <small>Vue d&apos;ensemble</small>
+                      <strong>{featuredOffer?.name ?? "Parrainio"}</strong>
+                      <small>{featuredOffer?.category ?? "Vue d’ensemble"}</small>
                     </div>
                   </div>
 
-                  <span>Simple à lire</span>
+                  <span>Offre vérifiée</span>
                 </div>
 
                 <div className={styles.visualLine} />
 
                 <p className={styles.visualLabel}>
-                  Une offre, en clair
+                  Avantage filleul
                 </p>
 
                 <p className={styles.visualAmount}>
-                  200 <small>€</small>
+                  {featuredAmount ? (
+                    <>
+                      {featuredAmountPrefix ? <small className={styles.visualAmountPrefix}>{featuredAmountPrefix}</small> : null}
+                      {featuredAmountValue} <small>€</small>
+                    </>
+                  ) : (
+                    featuredOffer?.partnerReward ?? "—"
+                  )}
                 </p>
 
-                <div className={styles.visualRows}>
-                  <div>
-                    <span>VOUS GAGNEZ</span>
-                    <strong>200 €</strong>
-                  </div>
+                <p className={styles.visualGain}>Vous gagnez</p>
 
-                  <div>
-                    <span>Reversement potentiel</span>
-                    <strong>+50 €</strong>
+                {featuredOffer?.parrainioReward ? (
+                  <div className={styles.visualReverse}>
+                    <strong>{featuredOffer.parrainioReward}</strong>
+                    <span>Parrainio reverse en plus</span>
                   </div>
-                </div>
+                ) : null}
 
-                <div className={styles.visualTotal}>
-                  <span>Avantage potentiel</span>
-                  <strong>250 €</strong>
-                </div>
+                {featuredCtaHref ? (
+                  <a
+                    className={styles.visualCta}
+                    href={featuredCtaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    En profiter →
+                  </a>
+                ) : featuredOffer ? (
+                  <Link
+                    className={styles.visualCta}
+                    href={`/offres/${featuredOffer.slug}`}
+                  >
+                    Voir l&apos;offre →
+                  </Link>
+                ) : null}
               </div>
 
               <span
@@ -236,10 +276,6 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
               >
                 €
               </span>
-              <div className={styles.visualBadge}>
-                <Icon name="gift" size={18} />
-                <span>Jusqu&apos;à <strong>25 %</strong><br />de notre commission</span>
-              </div>
             </div>
           </div>
         </div>

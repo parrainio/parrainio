@@ -383,77 +383,72 @@
   font-size: 1.85rem;
 }
 
-.visualRows {
-  display: grid;
-  gap: 6px;
-}
-
-.visualRows div {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 7px;
-  border-bottom: 1px solid #edf1ed;
-}
-
-.visualRows span {
+.visualAmountPrefix {
+  display: block;
+  margin-bottom: 3px;
   color: #7d8f86;
-  font-size: 0.72rem;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
-.visualRows strong {
-  color: var(--green);
-  font-size: 0.84rem;
-}
-
-.visualRows div:last-child strong {
-  color: #d6722d;
-}
-
-.visualTotal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 8px;
-  padding: 7px 9px;
-  border-radius: 14px;
-  background: #eff7f1;
-}
-
-.visualTotal span {
-  color: #5d756b;
-  font-size: 0.67rem;
+.visualGain {
+  margin: 2px 0 0;
+  color: #7d8f86;
+  font-size: 0.78rem;
   font-weight: 700;
 }
 
-.visualTotal strong {
-  color: var(--green);
-  font-size: 1.3rem;
+.visualReverse {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(239, 135, 62, 0.1);
 }
 
-.visualBadge {
-  position: absolute;
-  z-index: 3;
-  right: -30px;
-  bottom: 4px;
+.visualReverse strong {
+  color: #b05c1f;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.visualReverse span {
+  color: #a3763f;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.visualCta {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: #043f34;
-  box-shadow: 0 18px 33px rgba(22, 54, 44, 0.2);
-  color: #d6ecdf;
-  font-size: 0.7rem;
-  line-height: 1.35;
-}
-
-.visualBadge svg {
-  flex: none;
-  color: #f4aa62;
-}
-
-.visualBadge strong {
+  justify-content: center;
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px 16px;
+  border-radius: 999px;
   color: #fff;
+  background: var(--green);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  min-height: 44px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.visualCta:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
 }
 
 .coin {
@@ -1146,11 +1141,6 @@
 
   .visualCard {
     width: min(100%, 350px);
-  }
-
-  .visualBadge {
-    right: 0;
-    bottom: 0;
   }
 
   .coin {

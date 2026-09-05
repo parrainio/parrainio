@@ -4,7 +4,7 @@ import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import CategoryMenu from "./CategoryMenu";
 import styles from "./PublicHeader.module.css";
 
-type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" };
+type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" };
 
 export default function PublicHeader({ active }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));
@@ -14,6 +14,7 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
   const links = [
     ["home", "Accueil", "/"],
     ["offers", "Offres", "/offres"],
+    ["ranking", "Classement", "/classement-primes-parrainage"],
     ["blog", "Guides & astuces", "/blog"],
     ["how", "Comment ça marche", "/comment-ca-marche"],
     ["faq", "FAQ", "/#faq"],

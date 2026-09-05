@@ -1,7 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PublicHeader from "@/components/PublicHeader";
+import SiteFooter from "@/components/SiteFooter";
 import OfferLogo from "@/components/OfferLogo";
 import { OG_IMAGE } from "@/lib/ogImage";
+import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
 import RankingTable, { type RankingRow } from "./RankingTable";
@@ -40,10 +43,8 @@ function toEuroValue(reward: string): number | null {
 }
 
 function rowOf(offer: ManagedOffer): RankingRow {
-  const conditions = (offer.conditions ?? [])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join(" ");
+  const conditions = (offer.conditions ?? []).filter(Boolean);
+  const summary = conditions.slice(0, 2).join(" ");
   return {
     slug: offer.slug,
     name: offer.name,
@@ -51,6 +52,7 @@ function rowOf(offer: ManagedOffer): RankingRow {
     partnerReward: (offer.partnerReward ?? "").trim(),
     parrainioReward: offer.parrainioReward,
     conditions,
+    summary,
     color: offer.color,
     logo: offer.logo,
     logoLetter: offer.logoLetter,
@@ -96,29 +98,19 @@ export default function ClassementPrimesPage() {
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.headerInner}>
-            <Link href="/" className={styles.logo} aria-label="Parrainio, accueil">
-              <span className={styles.logoMark}>P</span>
-              <span>Parrainio</span>
-            </Link>
-            <nav className={styles.nav} aria-label="Navigation principale">
-              <Link href="/">Accueil</Link>
-              <Link href="/offres">Offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
-              <Link href="/nos-avantages">Nos avantages</Link>
-            </nav>
-            <Link href="/offres" className={styles.headerButton}>
-              Voir les offres →
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PublicHeader active="ranking" />
 
       <section className={styles.hero}>
         <div className={styles.container}>
-          <span className={styles.kicker}>Comparatif Parrainio</span>
+          <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
+            <Link href="/">Accueil</Link>
+            <span aria-hidden="true">→</span>
+            <strong>Classement des primes</strong>
+          </nav>
+          <span className={styles.kicker}>
+            <span />
+            Comparatif Parrainio
+          </span>
           <h1>
             Classement des primes <em>de parrainage</em>
           </h1>
@@ -128,14 +120,25 @@ export default function ClassementPrimesPage() {
             élevé au plus bas. Pour chaque offre : la prime, le reversement
             Parrainio lorsqu&apos;il existe et les conditions essentielles.
           </p>
-          <div className={styles.heroActions}>
-            <a href="#classement" className={styles.primaryButton}>
-              Voir le classement
-            </a>
-            <Link href="/offres" className={styles.secondaryButton}>
-              Toutes les offres →
-            </Link>
+        </div>
+      </section>
+
+      <section className={styles.section} id="classement">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <h2>
+              Les primes de parrainage <em>actuellement documentées</em>
+            </h2>
+            <p>
+              {euros.length} offres avec un avantage filleul exprimé en euros,
+              classées par montant décroissant. Filtrez par catégorie pour
+              comparer ce qui vous concerne.
+            </p>
+            <p className={styles.updated}>
+              Données vérifiées et mises à jour le {LAST_UPDATED}.
+            </p>
           </div>
+          <RankingTable rows={euros.map(({ offer }) => rowOf(offer))} />
         </div>
       </section>
 
@@ -163,25 +166,6 @@ export default function ClassementPrimesPage() {
               claire sur qui reçoit quoi.
             </li>
           </ul>
-          <p className={styles.updated}>
-            Données vérifiées et mises à jour le {LAST_UPDATED}.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.section} id="classement">
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Les primes de parrainage <em>actuellement documentées</em>
-            </h2>
-            <p>
-              {euros.length} offres avec un avantage filleul exprimé en euros,
-              classées par montant décroissant. Filtrez par catégorie pour
-              comparer ce qui vous concerne.
-            </p>
-          </div>
-          <RankingTable rows={euros.map(({ offer }) => rowOf(offer))} />
         </div>
       </section>
 
@@ -336,40 +320,7 @@ export default function ClassementPrimesPage() {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <div className={styles.footerGrid}>
-            <div>
-              <Link href="/" className={styles.footerLogo}>
-                <span className={styles.logoMark}>P</span>Parrainio
-              </Link>
-              <p>
-                Le nouveau réflexe pour découvrir et profiter des offres de
-                parrainage.
-              </p>
-            </div>
-            <div>
-              <h3>Découvrir</h3>
-              <Link href="/offres">Les offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
-            </div>
-            <div>
-              <h3>Parrainio</h3>
-              <Link href="/nos-avantages">Nos avantages</Link>
-              <a href="mailto:parrainage@parrainio.fr">Contact</a>
-            </div>
-            <div>
-              <h3>Informations légales</h3>
-              <Link href="/mentions-legales">Mentions légales</Link>
-              <Link href="/confidentialite">Politique de confidentialité</Link>
-              <Link href="/cgu">Conditions générales</Link>
-            </div>
-          </div>
-          <div className={styles.footerBottom}>
-            © 2026 Parrainio. Tous droits réservés.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

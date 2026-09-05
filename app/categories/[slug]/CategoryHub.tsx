@@ -134,28 +134,24 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
         </div>
       </section>
 
-      {/* OFFRES */}
+      {/* OFFRES — barre compacte : contexte, recherche et compteur sur une ligne (desktop) */}
       <section className={styles.offersSection}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <div>
-              <p className={styles.kicker}>Les offres {hub.group.toLowerCase()}</p>
-              <h2>
-                Trouvez la vôtre parmi les offres{" "}
-                <em>de la catégorie.</em>
-              </h2>
-            </div>
+          <div className={styles.offersBar}>
+            <p className={styles.offersHint}>
+              Trouvez votre offre parmi les offres de la catégorie.
+            </p>
 
-            <p>
+            <OfferSearch
+              value={search}
+              onChange={setSearch}
+              className={styles.hubSearch}
+            />
+
+            <p className={styles.offersCount}>
               {filteredOffers.length} {filteredOffers.length > 1 ? "offres" : "offre"}
             </p>
           </div>
-
-          <OfferSearch
-            value={search}
-            onChange={setSearch}
-            className={styles.hubSearch}
-          />
 
           {filteredOffers.length > 0 ? (
             <div className={styles.offersGrid}>

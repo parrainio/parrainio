@@ -150,27 +150,32 @@
   background: #fffdfa;
 }
 
-.sectionHead {
+/* Barre compacte : contexte à gauche, recherche au centre, compteur à droite */
+.offersBar {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 30px;
-  margin-bottom: 12px;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
 }
 
-.sectionHead h2 {
-  max-width: 620px;
+.offersHint {
+  flex: 1 1 auto;
+  min-width: 0;
   margin: 0;
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-  line-height: 1.06;
+  color: #5f7269;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.sectionHead h2 em {
-  display: block;
+.offersBar .hubSearch {
+  flex: 0 1 400px;
+  margin: 0;
 }
 
-.sectionHead > p {
-  margin: 0 0 5px;
+.offersCount {
+  flex: none;
+  margin: 0;
   padding: 7px 10px;
   border: 1px solid #dce6de;
   border-radius: 999px;
@@ -183,7 +188,7 @@
 
 /* Recherche d'offre — même composant que /offres, positionné pour la grille hub */
 .hubSearch {
-  margin: 2px 0 19px;
+  margin: 0 0 16px;
 }
 
 .hubSearch input::-webkit-search-cancel-button {
@@ -192,7 +197,6 @@
   width: 14px;
   cursor: pointer;
 }
-
 .searchEmpty {
   display: flex;
   flex-direction: column;
@@ -651,6 +655,21 @@
     gap: 18px;
   }
 
+  .offersBar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .offersBar .hubSearch {
+    flex: none;
+    width: 100%;
+  }
+
+  .offersCount {
+    align-self: flex-start;
+  }
+
   .footerGrid {
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 36px;
@@ -680,6 +699,10 @@
 
   .offersSection {
     padding: 10px 0 34px;
+  }
+
+  .offersBar {
+    margin-bottom: 12px;
   }
 
   .sectionHead h2 {

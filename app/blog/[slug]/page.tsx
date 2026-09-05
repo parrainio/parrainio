@@ -120,6 +120,24 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
   if (block.type === "checklist") {
     return <ChecklistBox items={block.items} />;
   }
+  if (block.type === "accordion") {
+    return (
+      <div className={styles.accordionGroup}>
+        {block.items.map((item) => (
+          <details key={item.heading} className={styles.articleAccordion}>
+            <summary>
+              <Inline text={item.heading} />
+            </summary>
+            <div className={styles.accordionBody}>
+              {item.blocks.map((inner, innerIndex) => (
+                <ArticleBlock key={innerIndex} block={inner} />
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    );
+  }
   return null;
 }
 

@@ -11,7 +11,10 @@ export type RankingRow = {
   category: string;
   partnerReward: string;
   parrainioReward: string | null;
-  conditions: string;
+  /** Conditions complètes — rendues dans le DOM même accordéon fermé (SEO). */
+  conditions: string[];
+  /** Résumé très court affiché dans la ligne fermée. */
+  summary: string;
   color: string;
   logo: string | null;
   logoLetter: string;
@@ -62,54 +65,79 @@ export default function RankingTable({ rows }: Props) {
         ))}
       </div>
 
-      <div className={styles.tableWrap} role="region" aria-label="Classement des primes">
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th scope="col" className={styles.rankCol}>#</th>
-              <th scope="col">Offre</th>
-              <th scope="col" className={styles.amountCol}>Prime filleul</th>
-              <th scope="col" className={styles.reverseCol}>Reverse Parrainio</th>
-              <th scope="col" className={styles.conditionsCol}>Conditions essentielles</th>
-              <th scope="col" className={styles.ctaCol}><span className={styles.srOnly}>Fiche détaillée</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            {visible.map((row, index) => (
-              <tr key={row.slug}>
-                <td className={styles.rankCol}>{index + 1}</td>
-                <td>
-                  <div className={styles.offerCell}>
-                    <OfferLogo
-                      name={row.name}
-                      logo={row.logo}
-                      color={row.color}
-                      logoLetter={row.logoLetter}
-                      size={34}
-                    />
-                    <span>
-                      <strong>{row.name}</strong>
-                      <small>{row.category}</small>
-                    </span>
-                  </div>
-                </td>
-                <td className={styles.amountCol}>
+      <div className={styles.rankList} role="region" aria-label="Classement des primes">
+        <div className={styles.rankHead} aria-hidden="true">
+          <span className={styles.hRank}>#</span>
+          <span className={styles.hOffer}>Offre</span>
+          <span className={styles.hPrime}>Prime filleul</span>
+          <span className={styles.hReverse}>Reverse Parrainio</span>
+          <span className={styles.hCond}>Conditions essentielles</span>
+          <span className={styles.hChev} />
+        </div>
+
+        {visible.map((row, index) => (
+          <div className={styles.rankRow} key={row.slug}>
+            <details className={styles.rankDetails}>
+              <summary className={styles.rankSummary}>
+                <span className={styles.rankNum}>{index + 1}</span>
+                <span className={styles.offerCell}>
+                  <OfferLogo
+                    name={row.name}
+                    logo={row.logo}
+                    color={row.color}
+                    logoLetter={row.logoLetter}
+                    size={34}
+                  />
+                  <span className={styles.offerName}>
+                    <strong>{row.name}</strong>
+                    <small>{row.category}</small>
+                  </span>
+                </span>
+                <span className={styles.primeCell}>
+                  <span className={styles.cellLabel}>Prime filleul</span>
                   <strong>{row.partnerReward}</strong>
-                </td>
-                <td className={styles.reverseCol}>{row.parrainioReward ?? "—"}</td>
-                <td className={styles.conditionsCol}>{row.conditions || "Voir la fiche"}</td>
-                <td className={styles.ctaCol}>
-                  <Link
-                    href={`/offres/${row.slug}`}
-                    className={styles.ctaLink}
-                  >
-                    {SHORT_LINK_LABELS[row.slug] ?? "Voir l'offre"}
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </span>
+                <span className={styles.reverseCell}>
+                  <span className={styles.cellLabel}>Reverse Parrainio</span>
+                  {row.parrainioReward ? (
+                    <span className={styles.reverseBadge}>{row.parrainioReward}</span>
+                  ) : (
+                    <span className={styles.reverseNone}>—</span>
+                  )}
+                </span>
+                <span className={styles.condShort}>
+                  <span className={styles.cellLabel}>Conditions</span>
+                  <span className={styles.condText}>{row.summary || "Voir la fiche"}</span>
+                </span>
+                <span className={styles.chev} aria-hidden="true">▾</span>
+              </summary>
+              <div className={styles.rankBody}>
+                <div className={styles.rankBodyCol}>
+                  <strong className={styles.rankBodyTitle}>Conditions principales</strong>
+                  <ul className={styles.rankConditions}>
+                    {row.conditions.map((condition) => (
+                      <li key={condition}>{condition}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.rankBodyCol}>
+                  <strong className={styles.rankBodyTitle}>Reversement Parrainio</strong>
+                  <p className={styles.rankReverseValue}>
+                    {row.parrainioReward ?? "Non communiqué"}
+                  </p>
+                  <p className={styles.rankReverseNote}>
+                    Le reversement Parrainio s&apos;ajoute à la prime filleul
+                    lorsqu&apos;il existe. Le détail figure sur la fiche de
+                    l&apos;offre.
+                  </p>
+                </div>
+              </div>
+            </details>
+            <Link href={`/offres/${row.slug}`} className={styles.rankCta}>
+              {SHORT_LINK_LABELS[row.slug] ?? "Voir l'offre"}
+            </Link>
+          </div>
+        ))}
       </div>
 
       {visible.length === 0 && (

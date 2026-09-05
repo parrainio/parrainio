@@ -23,6 +23,20 @@
 .articleBody a { color:var(--green); font-weight:700; text-decoration:none; }
 .articleBody a:hover { text-decoration:underline; text-underline-offset:4px; }
 
+/* Accordéon éditorial — <details>/<summary> natifs, même langage visuel
+   que les fiches d'offres : contenu toujours présent dans le DOM. */
+.accordionGroup { display:grid; gap:11px; margin:8px 0 10px; }
+.articleAccordion { border:1px solid #dfe9e1; border-radius:16px; background:#fff; box-shadow:0 8px 20px rgba(28,61,48,.025); }
+.articleAccordion summary { list-style:none; cursor:pointer; padding:16px 18px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.02rem; font-weight:800; letter-spacing:-.025em; line-height:1.35; }
+.articleAccordion summary::-webkit-details-marker { display:none; }
+.articleAccordion summary::after { content:"+"; float:right; margin-left:12px; color:var(--orange); font-size:1.15rem; font-weight:800; }
+.articleAccordion[open] > summary::after { content:"−"; }
+.articleAccordion[open] > summary { color:var(--green-dark); }
+.accordionBody { display:grid; gap:13px; padding:0 18px 18px; border-top:1px solid #edf2ee; padding-top:14px; }
+.accordionBody p,.accordionBody ul,.accordionBody ol { margin:0; color:#415b53; font-size:.96rem; line-height:1.75; }
+.accordionBody h2 { margin:4px 0 0; font-size:1.05rem; }
+.accordionBody ul,.accordionBody ol { display:grid; gap:7px; padding-left:20px; }
+
 .sectionAlt { padding:60px 0; background:#f5f8f5; }
 .sectionHead { margin-bottom:26px; }
 .sectionHead h2 { margin-bottom:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.7rem,3vw,2.4rem); font-weight:800; letter-spacing:-.05em; line-height:1.08; }
