@@ -135,7 +135,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Le choix d'une plateforme se joue rarement sur le bonus seul. L'univers proposé (actions, ETF, immobilier, crypto), la clarté des frais, la qualité de l'application et les modalités de dépôt-retrait pèsent durablement plus que la prime d'arrivée. Traitez le bonus comme un complément : il récompense une inscription que vous auriez de toute façon jugée sur les fondamentaux.",
     ],
     conclusion:
-      "Comparez les plateformes de la catégorie sans précipitation : chaque fiche détaille les conditions d'inscription, la récompense annoncée et les vérifications à anticiper avant le premier versement.",
+      "Comparez les plateformes de la catégorie sans précipitation : chaque fiche détaille les conditions d'inscription, la récompense annoncée et les vérifications à anticiper avant le premier versement. Pour comparer les plateformes crypto entre elles, consultez notre [comparatif des offres de parrainage crypto](/comparatif/parrainage-crypto).",
     guideTitle: "Investissement : bien comparer avant de s'inscrire.",
     infoCards: [
       {
