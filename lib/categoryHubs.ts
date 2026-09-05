@@ -268,7 +268,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Pour aller plus loin dans les économies, explorez les [offres shopping et courses](/categories/shopping-courses) : les enseignes partenaires y proposent leurs propres avantages de bienvenue, complémentaires du cashback.",
     ],
     conclusion:
-      "Comparez les plateformes de la catégorie : bonus d'arrivée, réseau de marchands et modalités de retrait sont résumés fiche par fiche pour choisir celle qui correspond à vos habitudes d'achat.",
+      "Comparez les plateformes de la catégorie : bonus d'arrivée, réseau de marchands et modalités de retrait sont résumés fiche par fiche pour choisir celle qui correspond à vos habitudes d'achat. Pour les comparer entre elles, consultez notre [comparatif des plateformes de cashback](/comparatif/cashback).",
     guideTitle: "Cashback : bien choisir sa plateforme de départ.",
     infoCards: [
       {
