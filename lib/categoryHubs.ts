@@ -311,7 +311,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Avant de souscrire, identifiez la nature exacte de l'offre : prix indexé ou fixe, durée d'engagement éventuelle, services inclus. La prime de bienvenue ne doit jamais être le seul critère de choix — le niveau du prix au kWh et l'adéquation à votre consommation pèsent bien davantage sur la facture annuelle.",
     ],
     conclusion:
-      "Parcourez les offres de la catégorie : fournisseurs, primes et conditions de souscription sont détaillés fiche par fiche pour changer de contrat en connaissance de cause.",
+      "Parcourez les offres de la catégorie : fournisseurs, primes et conditions de souscription sont détaillés fiche par fiche pour changer de contrat en connaissance de cause. Pour une lecture orientée parrainage — primes filleul, parcours et points de vigilance — la page [Parrainage énergie](/parrainage-energie) complète cette catégorie.",
     guideTitle: "Énergie : les points à vérifier avant de souscrire.",
     infoCards: [
       {

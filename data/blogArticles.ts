@@ -376,7 +376,7 @@ export const blogArticles: BlogArticle[] = [
         type: "h2",
         text: "Quelles offres de parrainage énergie sont disponibles sur Parrainio ?",
       },
-      "Le catalogue de Parrainio documente des offres liées à l'énergie dans le hub [Énergie](/categories/energie). Les acteurs référencés ne sont pas tous des fournisseurs classiques : certains sont des fournisseurs d'électricité ou de gaz, d'autres accompagnent la consommation autrement. Voici ceux actuellement présents :",
+      "Le catalogue de Parrainio documente des offres liées à l'énergie dans le hub [Énergie](/categories/energie). Les acteurs référencés ne sont pas tous des fournisseurs classiques : certains sont des fournisseurs d'électricité ou de gaz, d'autres accompagnent la consommation autrement. La page [Parrainage énergie](/parrainage-energie) réunit les fournisseurs documentés, la prime filleul annoncée par chacun et les points à vérifier avant de souscrire. Voici ceux actuellement présents :",
       {
         type: "list",
         ordered: false,
@@ -444,7 +444,7 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "Conclusion" },
       "Le parrainage énergie peut être un complément intéressant lorsque vous changez de fournisseur pour de bonnes raisons : une offre adaptée, un prix compétitif, des services utiles. Mais il ne doit jamais primer sur le contrat lui-même, et chaque programme a ses propres conditions, à vérifier avant de souscrire. Le changement de fournisseur, lui, est simple, gratuit et sans coupure pour les particuliers.",
-      "Pour découvrir les offres d'énergie actuellement documentées sur Parrainio et leurs conditions, consultez le [hub Énergie](/categories/energie) ou parcourez l'ensemble des [offres de parrainage](/offres).",
+      "Pour découvrir les offres d'énergie actuellement documentées sur Parrainio et leurs conditions, consultez la page [Parrainage énergie](/parrainage-energie), le [hub Énergie](/categories/energie) ou parcourez l'ensemble des [offres de parrainage](/offres).",
     ],
   },
   {
@@ -755,6 +755,7 @@ export const blogArticles: BlogArticle[] = [
       { type: "h2", text: "Les plateformes spécialisées de parrainage" },
       "Il existe des sites et plateformes dédiés au partage de liens de parrainage, où chacun publie ses liens en espérant attirer des filleuls. Leur intérêt est réel pour certains programmes : elles concentrent un public déjà familier du parrainage, et certaines offres y sont spécifiquement destinées.",
       "Mais leur usage doit rester conditionné aux règles du programme. De nombreux programmes précisent explicitement comment leur lien peut être diffusé, et certains excluent les inscriptions issues de publications publiques ou de plateformes de partage. Par ailleurs, ces espaces attirent parfois des promesses exagérées : aucun lien ne garantit un nombre de filleuls, et une récompense n'est due que lorsque les conditions sont validées.",
+      "Côté filleul, c'est sur la fiche de chaque offre que se trouve l'information fiable : le code ou le lien du partenaire y est affiché lorsqu'il est documenté, avec ses conditions et sa date de vérification. La page [codes de parrainage](/codes-parrainage) explique comment les utiliser correctement — et ce qui peut les invalider.",
 
       { type: "h2", text: "Comment rédiger un bon message de parrainage ?" },
       "Un bon message de parrainage est court, clair et sans pression. Il dit quel service est concerné, pourquoi il peut intéresser la personne, et laisse celle-ci libre de répondre. Voici un exemple générique — libre à vous de l'adapter, et ne le présentez jamais comme une règle universelle :",
@@ -851,7 +852,7 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "Réduire sa facture d'énergie sans changer ses habitudes" },
       "L'énergie est un poste où des gestes simples réduisent la consommation sans dégrader le confort : baisser le chauffage d'un degré, éteindre les appareils en veille, adapter la température de l'eau chaude, utiliser les cycles économiques des appareils. Ces gestes se cumulent, mais c'est d'abord le contrat qui fixe le prix de chaque kilowattheure consommé : d'où l'intérêt de comparer les offres avant de raisonner sur la seule consommation.",
-      "Pour comprendre sa facture et ses options, le site [Energie-Info](https://www.energie-info.fr/) du Médiateur national de l'énergie explique comment se composent les prix et comment repérer les pièges des offres trop complexes. Notre article consacré au [parrainage énergie](/categories/energie) détaille les offres de fournisseurs actuellement documentées sur Parrainio, avec leurs fiches complètes.",
+      "Pour comprendre sa facture et ses options, le site [Energie-Info](https://www.energie-info.fr/) du Médiateur national de l'énergie explique comment se composent les prix et comment repérer les pièges des offres trop complexes. La page [Parrainage énergie](/parrainage-energie) détaille les offres de fournisseurs actuellement documentées sur Parrainio, avec leurs fiches complètes.",
 
       { type: "h2", text: "Optimiser ses dépenses bancaires" },
       "Les frais bancaires varient fortement selon les établissements et les formules : tenue de compte, carte, découvert, opérations courantes. Une banque en ligne ou une offre adaptée à son usage peut réduire nettement ce poste, à condition de comparer les services inclus — et pas seulement le prix — avant de changer. Notre [comparatif des offres de parrainage bancaire](/comparatif/parrainage-bancaire) rassemble les banques actuellement documentées, et le hub [Banque & Finance](/categories/banque-finance) permet d'explorer l'ensemble des offres de cet univers.",
