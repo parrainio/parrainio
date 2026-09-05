@@ -5,6 +5,7 @@ import {
   getFeaturedOffers,
 } from "@/data/offers";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
+import { OG_IMAGE } from "@/lib/ogImage";
 import { offerSeoProfiles } from "@/data/offer-seo";
 import { lot02Profiles } from "@/data/offer-seo-batch2";
 import { lot05Profiles } from "@/data/offer-seo-batch3";
@@ -58,6 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "website",
       siteName: "Parrainio",
       locale: "fr_FR",
+      images: [OG_IMAGE],
     },
   };
 }

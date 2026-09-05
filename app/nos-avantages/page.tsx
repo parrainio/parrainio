@@ -2,13 +2,14 @@ import Link from "next/link";
 import type { SVGProps } from "react";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
+import { OG_IMAGE } from "@/lib/ogImage";
 
 export const metadata: Metadata = {
   title: "Nos avantages : jusqu'à 25 % de commission reversée | Parrainio",
   description:
     "Ce que Parrainio ajoute aux offres de parrainage : jusqu'à 25 % de notre commission reversée, des fiches transparentes et un suivi clair de votre avantage.",
   alternates: { canonical: "https://www.parrainio.fr/nos-avantages" },
-  openGraph: { url: "/nos-avantages", type: "website", siteName: "Parrainio", locale: "fr_FR" },
+  openGraph: { url: "/nos-avantages", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
 
 type IconName = "arrow" | "check" | "eye" | "coin" | "shield" | "spark";

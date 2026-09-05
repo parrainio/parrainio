@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { SVGProps } from "react";
 import type { Metadata } from "next";
 import PublicHeader from "@/components/PublicHeader";
+import { OG_IMAGE } from "@/lib/ogImage";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Les 3 étapes d'un parrainage réussi : choisir une offre, utiliser le lien ou code du parrain, valider les conditions puis demander votre reverse Parrainio.",
   alternates: { canonical: "https://www.parrainio.fr/comment-ca-marche" },
-  openGraph: { url: "/comment-ca-marche", type: "website", siteName: "Parrainio", locale: "fr_FR" },
+  openGraph: { url: "/comment-ca-marche", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
 
 type IconName =

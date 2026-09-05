@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import OfferLogo from "@/components/OfferLogo";
+import { OG_IMAGE } from "@/lib/ogImage";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
 import RankingTable, { type RankingRow } from "./RankingTable";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Parrainio",
     locale: "fr_FR",
+    images: [OG_IMAGE],
   },
 };
 

@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/siteUrl";
+import { OG_IMAGE } from "@/lib/ogImage";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Parrainio",
     locale: "fr_FR",
+    images: [OG_IMAGE],
   },
 };
 

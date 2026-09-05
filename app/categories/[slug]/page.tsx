@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CATEGORY_HUBS, getCategoryHub } from "@/lib/categoryHubs";
 import { getCategoryHubOffers } from "@/lib/categoryHubOffers";
 import { SITE_URL } from "@/lib/siteUrl";
+import { OG_IMAGE } from "@/lib/ogImage";
 import CategoryHub from "./CategoryHub";
 import styles from "../page.module.css";
 
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: HubParams): Promise<Metadata>
       type: "website",
       siteName: "Parrainio",
       locale: "fr_FR",
+      images: [OG_IMAGE],
     },
   };
 }
