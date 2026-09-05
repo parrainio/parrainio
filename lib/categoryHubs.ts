@@ -221,7 +221,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Comparer les offres reste utile, mais avec prudence : un bonus élevé ne signifie pas des conditions favorables. Regardez les restrictions — cotes minimales, sports ou types de paris concernés, délais — avant de vous inscrire. Fixez-vous des limites de temps et de budget, et ne jouez jamais une somme dont vous avez besoin.",
     ],
     conclusion:
-      "Parcourez les fiches de la catégorie pour comparer les bonus de bienvenue et leurs conditions en toute clarté, et n'oubliez pas : jouer doit rester un divertissement.",
+      "Parcourez les fiches de la catégorie pour comparer les bonus de bienvenue et leurs conditions en toute clarté, et n'oubliez pas : jouer doit rester un divertissement. Pour comparer les opérateurs de paris sportifs entre eux, consultez notre [comparatif des paris sportifs](/comparatif/paris-sportifs).",
     guideTitle: "Paris et jeux en ligne : les conditions avant de commencer.",
     infoCards: [
       {
