@@ -574,9 +574,25 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                 Nos avantages
               </Link>
 
-              <a href="mailto:contact@parrainio.fr">
+              <a href="mailto:parrainage@parrainio.fr">
                 Contact
               </a>
+            </div>
+
+            <div>
+              <h3>Informations légales</h3>
+
+              <Link href="/mentions-legales">
+                Mentions légales
+              </Link>
+
+              <Link href="/confidentialite">
+                Politique de confidentialité
+              </Link>
+
+              <Link href="/cgu">
+                Conditions générales
+              </Link>
             </div>
           </div>
 

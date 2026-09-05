@@ -259,7 +259,8 @@ export default function CommentCaMarchePage() {
           <div className={styles.footerGrid}>
             <div><Link href="/" className={styles.footerLogo}><span className={styles.logoMark}>P</span>Parrainio</Link><p>Le nouveau réflexe pour découvrir et profiter des offres de parrainage.</p></div>
             <div><h3>Navigation</h3><Link href="/">Accueil</Link><Link href="/offres">Offres</Link><Link href="/comment-ca-marche">Comment ça marche</Link></div>
-            <div><h3>Parrainio</h3><Link href="/nos-avantages">Nos avantages</Link><a href="mailto:contact@parrainio.fr">Contact</a></div>
+            <div><h3>Parrainio</h3><Link href="/nos-avantages">Nos avantages</Link><a href="mailto:parrainage@parrainio.fr">Contact</a></div>
+            <div><h3>Informations légales</h3><Link href="/mentions-legales">Mentions légales</Link><Link href="/confidentialite">Politique de confidentialité</Link><Link href="/cgu">Conditions générales</Link></div>
           </div>
           <div className={styles.footerBottom}>© 2026 Parrainio. Tous droits réservés.</div>
         </div>

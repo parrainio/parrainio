@@ -1000,7 +1000,7 @@
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 1.65fr 0.7fr 0.7fr;
+  grid-template-columns: 1.65fr 0.7fr 0.7fr 0.7fr;
   gap: 60px;
   padding-bottom: 55px;
 }
@@ -1088,6 +1088,7 @@
   }
 
   .footerGrid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 36px;
   }
 }

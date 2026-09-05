@@ -21,6 +21,9 @@
 .form button { min-height:48px; border:0; border-radius:12px; color:#fff; background:#ef873e; cursor:pointer; font:inherit; font-weight:800; }
 .form button:hover { background:#d9722f; }
 .notice { display:block; margin-top:16px; color:#899890; font-size:.7rem; line-height:1.5; }
+.privacyNote { margin:6px 0 0; color:#899890; font-size:.72rem; line-height:1.55; }
+.privacyNote a { color:#4d7b6b; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+.privacyNote a:hover { text-decoration:none; }
 .confirmation { padding:18px; border:1px solid #dce8df; border-radius:15px; background:#f1f8f2; }
 .confirmation .card h1 { margin-top:0; font-size:1.45rem; }
 .confirmation p { margin-bottom:0; }

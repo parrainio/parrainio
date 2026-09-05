@@ -27,6 +27,7 @@ import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
 import ReferralRequestForm from "@/components/ReferralRequestForm";
 import PublicHeader from "@/components/PublicHeader";
+import SiteFooter from "@/components/SiteFooter";
 import OfferRewards from "@/components/OfferRewards";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
 import styles from "./page.module.css";
@@ -343,6 +344,7 @@ export default async function OfferPage({
           </div>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

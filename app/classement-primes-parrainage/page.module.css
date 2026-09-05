@@ -90,7 +90,7 @@
 .ctaActions .primaryButton { padding:15px 19px; }
 
 .footer { padding:65px 0 27px; background:#043f34; color:#fff; }
-.footerGrid { display:grid; grid-template-columns:1.65fr .7fr .7fr; gap:60px; padding-bottom:55px; }
+.footerGrid { display:grid; grid-template-columns:1.65fr .7fr .7fr .7fr; gap:60px; padding-bottom:55px; }
 .footerLogo { margin-bottom:16px; color:#fff; }
 .footerLogo .logoMark { background:var(--orange); }
 .footerGrid p { max-width:310px; margin:0; color:#b6cfc1; font-size:.8rem; line-height:1.62; }

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import styles from "./page.module.css";
 
@@ -75,6 +76,12 @@ export default function ReverseRequestForm({ offerSlug, offerName }: { offerSlug
         {error ? <p className={styles.error} role="alert">{error}</p> : null}
         <button type="submit" disabled={sending}>{sending ? "Envoi en cours…" : "Envoyer ma demande →"}</button>
       </form>
+      <p className={styles.privacyNote}>
+        Les informations renseignées sont utilisées uniquement pour traiter votre demande de reversement.
+        Les données de paiement et les échanges contenant vos données personnelles sont supprimés après
+        traitement et paiement, sous réserve des obligations légales applicables.{" "}
+        <Link href="/confidentialite">Consultez notre Politique de confidentialité pour en savoir plus.</Link>
+      </p>
     </>
   );
 }

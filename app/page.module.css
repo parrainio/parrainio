@@ -86,7 +86,7 @@
 .outlineButton:hover { box-shadow: 0 11px 25px rgba(7,88,70,.08); transform: translateY(-2px); }
 
 .footer { padding: 48px 0 32px; background: #fff; border-top: 1px solid #e5ebe5; }
-.footerGrid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+.footerGrid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
 .footer h3 { margin: 0 0 16px; color: var(--green); font-family: "Manrope", Arial, sans-serif; font-size: .9rem; font-weight: 800; letter-spacing: -.02em; }
 .footer p { color: var(--muted); font-size: .8rem; line-height: 1.6; max-width: 280px; }
 .footer a { display: block; color: #637870; font-size: .8rem; text-decoration: none; margin-bottom: 10px; transition: color .2s ease; }
