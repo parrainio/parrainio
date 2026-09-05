@@ -3,6 +3,7 @@ import type { SVGProps } from "react";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 import { OG_IMAGE } from "@/lib/ogImage";
+import PublicHeader from "@/components/PublicHeader";
 
 export const metadata: Metadata = {
   title: "Nos avantages : jusqu'à 25 % de commission reversée | Parrainio",
@@ -33,11 +34,7 @@ const benefits = [
 export default function NosAvantagesPage() {
   return (
     <main className={styles.page}>
-      <header className={styles.header}><div className={styles.container}><div className={styles.headerInner}>
-        <Link href="/" className={styles.logo} aria-label="Parrainio, accueil"><span className={styles.logoMark}>P</span><span>Parrainio</span></Link>
-        <nav className={styles.nav} aria-label="Navigation principale"><Link href="/">Accueil</Link><Link href="/offres">Offres</Link><Link href="/comment-ca-marche">Comment ça marche</Link><Link href="/nos-avantages" className={styles.active}>Nos avantages</Link></nav>
-        <Link href="/offres" className={styles.headerButton}>Voir les offres <Icon name="arrow" size={16} /></Link>
-      </div></div></header>
+      <PublicHeader active="advantages" />
 
       <section className={styles.hero}><div className={styles.container}><div className={styles.heroGrid}>
         <div className={styles.heroCopy}><p className={styles.eyebrow}><span />L&apos;avantage Parrainio</p><h1>Plus transparent. <em>Plus avantageux.</em></h1><p>Parrainio fait une place claire à votre avantage : la prime du partenaire, et un reversement potentiel de notre commission.</p><div className={styles.heroActions}><Link href="/offres" className={styles.primaryButton}>Découvrir les offres <Icon name="arrow" size={18} /></Link><Link href="/comment-ca-marche" className={styles.secondaryButton}>Comment ça marche</Link></div></div>
