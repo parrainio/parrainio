@@ -75,7 +75,7 @@ function rowOf(offer: ManagedOffer): CryptoRow {
   const { unit, paidInCrypto } = unitOf(reward);
   const conditions = (offer.conditions ?? [])
     .filter(Boolean)
-    .slice(0, 2)
+    .slice(0, 3)
     .join(" ");
   return {
     slug: offer.slug,

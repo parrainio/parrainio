@@ -1635,6 +1635,7 @@
     "conditions": [
       "Créer un nouveau compte Kraken via le lien de parrainage.",
       "Effectuer la vérification d’identité.",
+      "Effectuer des achats/trades de cryptomonnaies pour un montant cumulé d’au moins 200 $ USD.",
       "Déposer et/ou réaliser le volume de trading exigé par la campagne affichée dans l’application.",
       "Les seuils et la récompense varient selon la campagne."
     ],
