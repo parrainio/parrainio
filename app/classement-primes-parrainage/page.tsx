@@ -312,7 +312,7 @@ export default function ClassementPrimesPage() {
               <Link href="/categories/shopping-courses" className={styles.outlineButton}>
                 Shopping & courses
               </Link>
-              <Link href="/comment-ca-marche" className={styles.secondaryButton}>
+              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                 Comment ça marche →
               </Link>
             </div>

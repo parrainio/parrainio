@@ -19,6 +19,11 @@ import {
   type OfferOverride,
 } from "@/data/managedOffers";
 import { saveFeaturedOffersConfig, type FeaturedOffersConfig } from "@/data/featuredOffersAdmin";
+import {
+  deleteReview,
+  setReviewStatus,
+  type ReviewStatus,
+} from "@/lib/reviews";
 
 async function requireAdmin() {
   if (!(await isAdminAuthenticated())) {
@@ -159,5 +164,25 @@ export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfi
   revalidatePath("/admin/offres");
   revalidatePath("/admin/featured");
   
+  return { ok: true };
+}
+
+export async function setReviewStatusAction(id: string, status: ReviewStatus) {
+  await requireAdmin();
+  if (!setReviewStatus(id, status)) {
+    throw new Error("Avis introuvable.");
+  }
+  revalidatePath("/admin/avis");
+  revalidatePath("/avis-clients");
+  return { ok: true };
+}
+
+export async function deleteReviewAction(id: string) {
+  await requireAdmin();
+  if (!deleteReview(id)) {
+    throw new Error("Avis introuvable.");
+  }
+  revalidatePath("/admin/avis");
+  revalidatePath("/avis-clients");
   return { ok: true };
 }

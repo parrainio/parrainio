@@ -295,12 +295,12 @@
 .visualCard {
   position: relative;
   z-index: 2;
-  width: min(100%, 275px);
-  padding: 14px;
+  width: min(100%, 252px);
+  padding: 11px 12px;
   border: 1px solid rgba(7, 88, 70, 0.1);
-  border-radius: 27px;
+  border-radius: 18px;
   background: #fff;
-  box-shadow: 0 29px 63px rgba(23, 65, 53, 0.14);
+  box-shadow: 0 16px 38px rgba(23, 65, 53, 0.12);
   transform: rotate(2deg);
 }
 
@@ -318,8 +318,8 @@
 }
 
 .visualMark {
-  width: 39px;
-  height: 39px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border-radius: 12px;
@@ -336,7 +336,7 @@
 
 .visualHead strong {
   color: var(--green);
-  font-size: 0.86rem;
+  font-size: 0.78rem;
 }
 
 .visualHead small {
@@ -356,36 +356,36 @@
 
 .visualLine {
   height: 1px;
-  margin: 11px 0;
+  margin: 8px 0;
   background: #e6ece7;
 }
 
 .visualLabel {
-  margin-bottom: 7px;
+  margin-bottom: 3px;
   color: #8b9993;
-  font-size: 0.66rem;
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .visualAmount {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   color: var(--green);
   font-family: "Manrope", Arial, sans-serif;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.09em;
-  line-height: 0.8;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 .visualAmount small {
-  font-size: 1.85rem;
+  font-size: 1rem;
 }
 
 .visualAmountPrefix {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   color: #7d8f86;
   font-family: "DM Sans", Arial, sans-serif;
   font-size: 0.78rem;
@@ -397,24 +397,56 @@
 .visualGain {
   margin: 2px 0 0;
   color: #7d8f86;
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 700;
+}
+
+/* Détail du reversement par produit (Fosfo / Gold) — montants recopiés
+   tels quels depuis la source de vérité, un produit par ligne. */
+.reverseProducts {
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reverseProducts li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reverseProducts strong {
+  color: #b05c1f;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.reverseProducts span {
+  color: #b05c1f;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .visualReverse {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 14px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 11px;
   background: rgba(239, 135, 62, 0.1);
 }
 
 .visualReverse strong {
   color: #b05c1f;
   font-family: "Manrope", Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.3;
@@ -422,7 +454,7 @@
 
 .visualReverse span {
   color: #a3763f;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -433,16 +465,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 12px;
-  padding: 13px 16px;
+  margin-top: 9px;
+  padding: 10px 14px;
   border-radius: 999px;
   color: #fff;
   background: var(--green);
   font-family: "DM Sans", Arial, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-decoration: none;
-  min-height: 44px;
+  min-height: 40px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -716,6 +748,9 @@
   border-radius: 50%;
   background: #45a77a;
 }
+
+/* Groupe pilule + favori en haut à droite de la carte. */
+.topActions { display: inline-flex; align-items: center; gap: 4px; }
 
 .description {
   margin: 22px 0;

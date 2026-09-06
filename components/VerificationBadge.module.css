@@ -1,0 +1,22 @@
+.verificationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 0 2px;
+  color: #899890;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.check {
+  flex-shrink: 0;
+  color: var(--green, #075846);
+  font-weight: 800;
+}
+
+@media (max-width: 620px) {
+  .verificationBadge {
+    font-size: 0.68rem;
+  }
+}

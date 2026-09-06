@@ -28,6 +28,9 @@ import OfferLogo from "@/components/OfferLogo";
 import ReferralRequestForm from "@/components/ReferralRequestForm";
 import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
+import VerificationBadge from "@/components/VerificationBadge";
+import OfferChangeAlert from "@/components/OfferChangeAlert";
+import FavoriteButton from "@/components/FavoriteButton";
 import OfferRewards from "@/components/OfferRewards";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
 import styles from "./page.module.css";
@@ -140,6 +143,8 @@ export default async function OfferPage({
                   </div>
                 </div>
                 <span className={styles.categoryPill}>{offer.categoryGroup}</span>
+                <VerificationBadge />
+                <FavoriteButton slug={offer.slug} variant="full" />
                 </div>}
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
@@ -179,6 +184,7 @@ export default async function OfferPage({
                     {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} /> : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} />
+                  <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
               </div>
 
@@ -317,6 +323,7 @@ export default async function OfferPage({
                   ) : null}
                 </div>
                 <ParrainioReverseRequest offerSlug={offer.slug} />
+                <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
 
                 {/* Featured offers in sidebar */}

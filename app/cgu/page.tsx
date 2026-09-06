@@ -71,7 +71,37 @@ export default function CguPage() {
         <li>ne pas solliciter, reproduire ou détourner le contenu du site à des fins commerciales sans accord.</li>
       </ul>
 
-      <h2>7. Responsabilité</h2>
+      <h2>7. Avis clients</h2>
+      <p>
+        Parrainio permet aux utilisateurs de publier des avis relatifs à leur expérience de
+        parrainage ou d'échange avec la communauté, via le formulaire dédié de la page
+        « Avis clients ». En soumettant un avis, l'utilisateur accepte sa publication sur le site
+        après modération, accompagné de son pseudo, de sa note et de sa date de publication.
+      </p>
+      <p>
+        Les avis ne sont pas publiés automatiquement : ils sont modérés avant publication.
+        Parrainio peut refuser ou retirer tout avis contraire aux règles de publication rappelées
+        sur la page « Avis clients » (notamment insultes, contenus diffamatoires, spam, publicité,
+        informations personnelles concernant un tiers, contenus frauduleux ou sans rapport avec
+        l'expérience Parrainio). Les avis expriment uniquement l'opinion de leurs auteurs.
+      </p>
+
+      <h2>8. Alertes e-mail</h2>
+      <p>
+        Sur chaque fiche offre, l'utilisateur peut demander, de manière facultative et après avoir coché
+        une case de consentement dédiée, à recevoir un e-mail l'informant d'une évolution significative
+        de l'offre concernée (montants, reverse Parrainio, conditions importantes, code ou lien de
+        parrainage). Ce consentement est propre aux alertes d'offre : il ne vaut ni acceptation des
+        présentes CGU, ni inscription à une newsletter, ni acceptation d'aucune communication
+        commerciale. Aucun e-mail n'est envoyé au titre d'autres finalités.
+      </p>
+      <p>
+        Chaque e-mail d'alerte contient un lien permettant de se désabonner immédiatement de l'alerte
+        concernée. Parrainio peut retirer une alerte ne respectant pas ces règles. Les modalités de
+        traitement des adresses e-mail collectées sont décrites dans la politique de confidentialité.
+      </p>
+
+      <h2>9. Responsabilité</h2>
       <p>
         Parrainio ne garantit pas la validation d'un parrainage par un partenaire, ni le montant d'un
         éventuel reversement. La responsabilité de Parrainio ne saurait être engagée pour les conséquences
@@ -79,19 +109,19 @@ export default function CguPage() {
         fournies par ces derniers.
       </p>
 
-      <h2>8. Propriété intellectuelle</h2>
+      <h2>10. Propriété intellectuelle</h2>
       <p>
         Les contenus édités par Parrainio sont protégés par le droit d'auteur. Les marques et logos des
         partenaires cités restent la propriété de leurs titulaires respectifs.
       </p>
 
-      <h2>9. Modification des CGU</h2>
+      <h2>11. Modification des CGU</h2>
       <p>
         Parrainio peut adapter les présentes CGU à tout moment. La version applicable est celle en vigueur
         sur le site à la date de votre utilisation.
       </p>
 
-      <h2>10. Droit applicable</h2>
+      <h2>12. Droit applicable</h2>
       <p>
         Les présentes CGU sont soumises au droit français.
       </p>

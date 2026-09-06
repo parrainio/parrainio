@@ -274,6 +274,9 @@
   letter-spacing: -0.04em;
 }
 
+/* Groupe pilule + favori (alignement identique à .available seul). */
+.cardActions { display: inline-flex; align-items: center; gap: 4px; }
+
 .available {
   display: inline-flex;
   align-items: center;

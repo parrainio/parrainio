@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { offers } from "@/data/offers";
 import { CATEGORY_HUBS } from "@/lib/categoryHubs";
-import CategoryMenu from "./CategoryMenu";
+import OffersMenu from "./OffersMenu";
 import styles from "./PublicHeader.module.css";
 
-type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" };
+type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" | "reviews" | "favorites" };
 
 export default function PublicHeader({ active }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));
@@ -13,12 +13,11 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
   );
   const links = [
     ["home", "Accueil", "/"],
-    ["offers", "Offres", "/offres"],
     ["ranking", "Classement", "/classement-primes-parrainage"],
-    ["blog", "Guides & astuces", "/blog"],
-    ["how", "Comment ça marche", "/comment-ca-marche"],
+    ["reviews", "Avis clients", "/avis-clients"],
+    ["blog", "Guide", "/blog"],
     ["faq", "FAQ", "/#faq"],
-    ["advantages", "Nos avantages", "/nos-avantages"],
+    ["how", "Pourquoi Parrainio ?", "/pourquoi-parrainio"],
   ] as const;
 
   return (
@@ -28,7 +27,7 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
           <Link href="/" className={styles.logo} aria-label="Parrainio, accueil"><span className={styles.logoMark}>P</span><span>Parrainio</span></Link>
           <nav className={styles.nav} aria-label="Navigation principale">
             {links.slice(0, 1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
-            <CategoryMenu categories={categories} hubSlugByCategory={hubSlugByCategory} />
+            <OffersMenu categories={categories} hubSlugByCategory={hubSlugByCategory} active={active === "offers"} />
             {links.slice(1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
           </nav>
           <Link href="/offres" className={styles.cta}>Voir les offres <span>→</span></Link>

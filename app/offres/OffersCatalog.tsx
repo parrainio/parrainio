@@ -9,7 +9,14 @@ import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
 import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
-import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
+import OfferFilterBar from "@/components/OfferFilterBar";
+import FavoriteButton from "@/components/FavoriteButton";
+import { formatProductNames, parseProductReverses } from "@/lib/productNames";
+import {
+  PRIME_THRESHOLDS,
+  CONDITION_OPTIONS,
+  filterOffers,
+} from "@/lib/offerFilters";
 import { SITE_URL } from "@/lib/siteUrl";
 import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import styles from "./page.module.css";
@@ -79,6 +86,8 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
   const searchParams = useSearchParams();
   const requestedCategory = searchParams.get("category");
   const [search, setSearch] = useState("");
+  const [activePrime, setActivePrime] = useState<string | null>(null);
+  const [activeCondition, setActiveCondition] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState(
     requestedCategory && offers.some((offer) => offer.categoryGroup === requestedCategory)
       ? requestedCategory
@@ -110,18 +119,53 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
   const featuredCtaHref = featuredOffer
     ? getOfferReferralUrl(featuredOffer) ?? featuredOffer.officialWebsiteUrl ?? null
     : null;
-  const featuredAmount = featuredOffer?.partnerReward?.match(/^(.*?)\s*([\d\s.,]+)\s*€/) ?? null;
-  const featuredAmountPrefix = featuredAmount ? featuredAmount[1].trim() : "";
-  const featuredAmountValue = featuredAmount ? featuredAmount[2].trim() : "";
+  /* Reversement Parrainio : affiché tel que fourni par la source de vérité.
+     Si la donnée distingue plusieurs produits (ex. « FOSFO : 17,50 € ; GOLD :
+     27 € »), chaque montant est présenté sous son produit — sans calcul,
+     fusion ni inversion. */
+  const featuredProductReverses = useMemo(
+    () => (featuredOffer?.parrainioReward ? parseProductReverses(featuredOffer.parrainioReward) : null),
+    [featuredOffer]
+  );
 
-  const filteredOffers = useMemo(() => {
-    const query = normalizeOfferSearch(search);
-    return offers.filter((offer) => {
-      const matchesCategory = activeCategory === "Toutes" || offer.categoryGroup === activeCategory;
-      const searchable = normalizeOfferSearch(`${offer.name} ${offer.slug}`);
-      return matchesCategory && (!query || searchable.includes(query));
-    });
-  }, [activeCategory, offers, search]);
+  /* Filtres actifs → valeurs typées consommées par le filtrage. */
+  const primeThreshold = useMemo(
+    () => (activePrime ? PRIME_THRESHOLDS.find((t) => t.label === activePrime)?.value ?? null : null),
+    [activePrime]
+  );
+
+  const conditionKey = useMemo(
+    () => (activeCondition ? CONDITION_OPTIONS.find((c) => c.label === activeCondition)?.key ?? null : null),
+    [activeCondition]
+  );
+
+  const filteredOffers = useMemo(
+    () => filterOffers(offers, { search, primeThreshold, condition: conditionKey }),
+    [conditionKey, offers, primeThreshold, search]
+  );
+
+  /* Compteurs affichés dans les menus : nombre d'offres éligibles au filtre,
+     les autres filtres actifs (recherche, condition) étant également pris
+     en compte pour refléter le résultat réel de la combinaison. */
+  const primeOptions = useMemo(
+    () =>
+      PRIME_THRESHOLDS.map(({ value, label }) => ({
+        value,
+        label,
+        count: filterOffers(offers, { search, primeThreshold: value, condition: conditionKey }).length,
+      })),
+    [conditionKey, offers, search]
+  );
+
+  const conditionOptions = useMemo(
+    () =>
+      CONDITION_OPTIONS.map(({ key, label }) => ({
+        key,
+        label,
+        count: filterOffers(offers, { search, primeThreshold, condition: key }).length,
+      })),
+    [offers, primeThreshold, search]
+  );
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -171,7 +215,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                 </a>
 
                 <Link
-                  href="/nos-avantages"
+                  href="/pourquoi-parrainio"
                   className={styles.secondaryButton}
                 >
                   Comprendre vos avantages
@@ -210,7 +254,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                         logo={featuredOffer.logo}
                         color={featuredOffer.color}
                         logoLetter={featuredOffer.logoLetter}
-                        size={39}
+                        size={32}
                       />
                     ) : (
                       <span className={styles.visualMark}>P</span>
@@ -232,22 +276,24 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                 </p>
 
                 <p className={styles.visualAmount}>
-                  {featuredAmount ? (
-                    <>
-                      {featuredAmountPrefix ? <small className={styles.visualAmountPrefix}>{featuredAmountPrefix}</small> : null}
-                      {featuredAmountValue} <small>€</small>
-                    </>
-                  ) : (
-                    featuredOffer?.partnerReward ?? "—"
-                  )}
+                  {featuredOffer?.partnerReward ?? "—"}
                 </p>
-
-                <p className={styles.visualGain}>Vous gagnez</p>
 
                 {featuredOffer?.parrainioReward ? (
                   <div className={styles.visualReverse}>
-                    <strong>{featuredOffer.parrainioReward}</strong>
                     <span>Parrainio reverse en plus</span>
+                    {featuredProductReverses ? (
+                      <ul className={styles.reverseProducts}>
+                        {featuredProductReverses.map((product) => (
+                          <li key={product.label}>
+                            <strong>{product.label}</strong>
+                            <span>{product.amount}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <strong>{formatProductNames(featuredOffer.parrainioReward)}</strong>
+                    )}
                   </div>
                 ) : null}
 
@@ -309,7 +355,16 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
             </p>
           </div>
 
-          <OfferSearch value={search} onChange={setSearch} />
+          <OfferFilterBar
+            search={search}
+            onSearchChange={setSearch}
+            primeLabel={activePrime}
+            onPrimeSelect={setActivePrime}
+            primeOptions={primeOptions}
+            conditionLabel={activeCondition}
+            onConditionSelect={setActiveCondition}
+            conditionOptions={conditionOptions}
+ />
 
           {/* CATÉGORIES */}
           <div className={styles.categoryBar}>
@@ -380,9 +435,12 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                       </div>
                     </div>
 
-                    <span className={styles.available}>
-                      <i />
-                      Disponible
+                    <span className={styles.topActions}>
+                      <span className={styles.available}>
+                        <i />
+                        Disponible
+                      </span>
+                      <FavoriteButton slug={offer.slug} />
                     </span>
                   </div>
 
@@ -413,20 +471,28 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
           ) : (
             <div className={styles.emptyState}>
               <strong>
-                {search ? "Aucune offre trouvée." : "Aucune offre dans cette catégorie"}
+                {search
+                  ? "Aucune offre trouvée."
+                  : activePrime || activeCondition
+                    ? "Aucune offre ne correspond à ces critères vérifiés."
+                    : "Aucune offre dans cette catégorie"}
               </strong>
 
               <span>
-                De nouvelles offres arriveront
-                prochainement.
+                {activeCondition && !search && !activePrime
+                  ? "Les conditions sont affichées uniquement lorsqu'elles sont vérifiées dans les données de l'offre — aucune offre éligible connue à ce jour."
+                  : "De nouvelles offres arriveront prochainement."}
               </span>
 
               <button
                 type="button"
                 className={styles.emptyLink}
-                onClick={() =>
-                  setActiveCategory("Toutes")
-                }
+                onClick={() => {
+                  setActiveCategory("Toutes");
+                  setActivePrime(null);
+                  setActiveCondition(null);
+                  setSearch("");
+                }}
               >
                 Voir toutes les offres
                 <Icon
@@ -556,7 +622,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
             </div>
 
             <Link
-              href="/nos-avantages"
+              href="/pourquoi-parrainio"
               className={styles.ctaButton}
             >
               Voir nos avantages
@@ -598,7 +664,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                 Classement des primes
               </Link>
 
-              <Link href="/comment-ca-marche">
+              <Link href="/pourquoi-parrainio">
                 Comment ça marche
               </Link>
             </div>
@@ -606,7 +672,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
             <div>
               <h3>Parrainio</h3>
 
-              <Link href="/nos-avantages">
+              <Link href="/pourquoi-parrainio">
                 Nos avantages
               </Link>
 

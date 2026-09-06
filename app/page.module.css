@@ -31,6 +31,10 @@
 .eyebrow, .kicker { color: #4d7b6b; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 16px; padding: 9px 13px; border: 1px solid rgba(7,88,70,.1); border-radius: 999px; background: rgba(255,255,255,.78); }
 .eyebrow > span { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(239,135,62,.12); }
+.heroBadges { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.heroBadges .eyebrow { margin-bottom: 0; }
+.updateBadge { display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px; border: 1px solid rgba(7,88,70,.1); border-radius: 999px; background: #ffffff; color: #4d7b6b; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.updateDot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(7,88,70,.1); }
 .compactHeroCopy h1 { margin: 0 0 12px; color: var(--green); font-family: "Manrope", Arial, sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.1; }
 .compactHeroCopy h1 em { color: var(--orange); font-style: normal; }
 .compactHeroCopy p { margin: 0 0 20px; color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 540px; }

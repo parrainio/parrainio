@@ -5,6 +5,7 @@ import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
+import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
   title:
@@ -90,7 +91,7 @@ function rowOf(offer: ManagedOffer): BankRow {
       ((offer.partnerReward ?? "").trim() || NOT_INDICATED),
     parrainioReward:
       override?.parrainioReward ??
-      (offer.parrainioReward?.trim() || NOT_INDICATED),
+      (formatProductNames(offer.parrainioReward?.trim()) || NOT_INDICATED),
     parrainioRewardNote: override?.parrainioRewardNote,
     conditions: conditions || "Détails sur la fiche de l'offre.",
     color: offer.color,
@@ -155,8 +156,8 @@ export default function ComparatifParrainageBancairePage() {
             <nav className={styles.nav} aria-label="Navigation principale">
               <Link href="/">Accueil</Link>
               <Link href="/offres">Offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
-              <Link href="/nos-avantages">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
+              <Link href="/pourquoi-parrainio">Nos avantages</Link>
             </nav>
             <Link href="/offres" className={styles.headerButton}>
               Voir les offres →
@@ -473,10 +474,10 @@ export default function ComparatifParrainageBancairePage() {
               >
                 Classement des primes
               </Link>
-              <Link href="/comment-ca-marche" className={styles.secondaryButton}>
+              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                 Comment ça marche →
               </Link>
-              <Link href="/nos-avantages" className={styles.secondaryButton}>
+              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                 Nos avantages →
               </Link>
             </div>
@@ -500,11 +501,11 @@ export default function ComparatifParrainageBancairePage() {
             <div>
               <h3>Découvrir</h3>
               <Link href="/offres">Les offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
+              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
             </div>
             <div>
               <h3>Parrainio</h3>
-              <Link href="/nos-avantages">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Nos avantages</Link>
               <a href="mailto:parrainage@parrainio.fr">Contact</a>
             </div>
             <div>

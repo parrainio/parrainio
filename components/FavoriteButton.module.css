@@ -1,0 +1,45 @@
+/* Bouton favori — compact, tappable, état actif évident. */
+
+.favorite {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  color: #7b8d85;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.favorite:focus-visible { outline: 2px solid #075846; outline-offset: 2px; border-radius: 8px; }
+
+.heart { font-size: 1.05rem; line-height: 1; }
+
+.icon {
+  padding: 7px;
+  border-radius: 999px;
+  min-width: 34px;
+  min-height: 34px;
+  justify-content: center;
+}
+.icon:hover { color: #075846; background: rgba(7, 88, 70, .06); }
+
+.full {
+  padding: 8px 14px;
+  border: 1px solid rgba(7, 88, 70, .18);
+  border-radius: 999px;
+  background: #fffdfa;
+  font-size: .72rem;
+  font-weight: 800;
+}
+.full:hover { border-color: #b9d0c2; background: #f2f7f2; }
+.label { white-space: nowrap; }
+
+/* État actif : cœur plein orange Parrainio, visible sans ambiguïté. */
+.active { color: #ef873e; }
+.active .heart { text-shadow: 0 1px 4px rgba(239, 135, 62, .35); }
+.full.active { border-color: rgba(239, 135, 62, .4); background: #fff6ee; }
+
+@media (max-width: 420px) {
+  .full { font-size: .68rem; padding: 7px 12px; }
+}

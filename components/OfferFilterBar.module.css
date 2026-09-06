@@ -1,0 +1,276 @@
+/* Barre de filtres — UNE rangée horizontale compacte, même densité que
+   l'ancienne zone de recherche /offres. */
+
+.filterBar {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 0 18px;
+  width: 100%;
+  min-width: 0;
+}
+
+.block {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ── Boutons-blocs (état initial compact) ─────────────────────────────── */
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid #dfe9e1;
+  border-radius: 13px;
+  background: #fff;
+  color: #71827a;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  box-shadow: 0 8px 18px rgba(28, 61, 48, 0.04);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.trigger:hover,
+.triggerOpen {
+  border-color: #0d7a5f;
+  color: #173d35;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #0d7a5f;
+  outline-offset: 2px;
+}
+
+.triggerActive {
+  border-color: #0d7a5f;
+  background: #f0f7f3;
+  color: #075846;
+}
+
+.triggerLabel {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blockIcon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+span.blockIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  stroke: none;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* ── Bloc 1 transformé en champ texte (sur place) ─────────────────────── */
+
+.inlineField {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid #0d7a5f;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(28, 61, 48, 0.04);
+}
+
+.searchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #173d35;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.searchInput::placeholder {
+  color: #899890;
+}
+
+.clearMini {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #eef3ef;
+  color: #5c6b64;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clearMini:hover {
+  background: #dfe9e1;
+  color: #173d35;
+}
+
+.clearMini:focus-visible {
+  outline: 2px solid #0d7a5f;
+  outline-offset: 2px;
+}
+
+/* ── Menus déroulants (prime / condition) ─────────────────────────────── */
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 40;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  min-width: 100%;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+  border: 1px solid #dfe9e1;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 16px 34px rgba(28, 61, 48, 0.16);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 9px 11px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #173d35;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.menuItem:hover {
+  background: #f0f7f3;
+}
+
+.menuItem:focus-visible {
+  outline: 2px solid #0d7a5f;
+  outline-offset: -2px;
+}
+
+.menuItemSelected {
+  background: #f0f7f3;
+  color: #075846;
+}
+
+.menuItem small {
+  color: #899890;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ── Réinitialiser ────────────────────────────────────────────────────── */
+
+.reset {
+  flex: none;
+  align-self: center;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: #71827a;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.reset:hover {
+  color: #075846;
+  text-decoration: underline;
+}
+
+.reset:focus-visible {
+  outline: 2px solid #0d7a5f;
+  outline-offset: 2px;
+}
+
+/* ── Responsive : la rangée reste UNE ligne, défilement horizontal fin
+      sous 620 px (aucun empilement, aucune hauteur ajoutée) ───────────── */
+
+@media (max-width: 620px) {
+  .filterBar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+    padding-bottom: 2px;
+    margin-right: calc(-1 * var(--page-gutter, 0px));
+    padding-right: var(--page-gutter, 0px);
+  }
+
+  .filterBar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .block {
+    flex: 0 0 auto;
+    width: max-content;
+    scroll-snap-align: start;
+  }
+
+  .trigger {
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .reset {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .menu {
+    max-width: calc(100vw - 32px);
+  }
+}

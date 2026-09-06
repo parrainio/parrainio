@@ -1,0 +1,67 @@
+{
+  "reviews": [
+    {
+      "id": "seed-1",
+      "pseudo": "astrelya",
+      "rating": 10,
+      "text": "Mathieu2 est très réactif, il a réalisé le vœu le jour même, sans que j'ai eu besoin de fournir une preuve. Il est très sympathique et professionnel, vous pouvez foncez les yeux fermés, merci encore. J'étais méritant, je me suis inscrit pour pouvoir échanger, et maintenant je cherche de nouveaux parrainages tellement je suis satisfait! Merci à Mathieu et à ce site",
+      "offerSlug": null,
+      "date": "2026-08-01",
+      "status": "approved"
+    },
+    {
+      "id": "seed-2",
+      "pseudo": "ledadu93",
+      "rating": 10,
+      "text": "Mathieu2 est un parrain sérieux, réactif et fiable. Il tient ses engagements et respecte sa parole. Je le recommande sans hésitation.",
+      "offerSlug": null,
+      "date": "2026-07-22",
+      "status": "approved"
+    },
+    {
+      "id": "seed-3",
+      "pseudo": "Jonathan13",
+      "rating": 10,
+      "text": "Parrain fiable, réactif et sympathique. Vous pouvez y aller ! Merci ;)",
+      "offerSlug": null,
+      "date": "2026-07-03",
+      "status": "approved"
+    },
+    {
+      "id": "seed-4",
+      "pseudo": "rimbaud",
+      "rating": 10,
+      "text": "Parrain très réactif. Ça a très bien fonctionné, merci beaucoup.",
+      "offerSlug": null,
+      "date": "2026-06-18",
+      "status": "approved"
+    },
+    {
+      "id": "seed-5",
+      "pseudo": "soph tp",
+      "rating": 10,
+      "text": "Super réactif et fiable!",
+      "offerSlug": null,
+      "date": "2026-06-03",
+      "status": "approved"
+    },
+    {
+      "id": "seed-6",
+      "pseudo": "djmoug",
+      "rating": 10,
+      "text": "Promesse tenue, prime convenue remboursée donc très fiable ! Merci",
+      "offerSlug": null,
+      "date": "2026-05-09",
+      "status": "approved"
+    },
+    {
+      "id": "seed-7",
+      "pseudo": "Invest63",
+      "rating": 10,
+      "text": "Parrain fiable qui tient ses engagements je recommande !",
+      "offerSlug": null,
+      "date": "2026-05-05",
+      "status": "approved"
+    }
+  ]
+}

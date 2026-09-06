@@ -1,0 +1,94 @@
+/* « Être alerté si cette offre évolue » — CTA discret + formulaire compact.
+   Réutilise les tokens visuels du site (vert #075846, orange #ef873e, crème). */
+
+.wrapper { margin-top: 10px; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid rgba(7, 88, 70, .18);
+  border-radius: 999px;
+  background: #fffdfa;
+  color: #075846;
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 800;
+  cursor: pointer;
+  max-width: 100%;
+  text-align: left;
+}
+.cta:hover { border-color: #b9d0c2; background: #f2f7f2; }
+
+.form {
+  display: grid;
+  gap: 9px;
+  padding: 14px;
+  border: 1px solid #dce8df;
+  border-radius: 15px;
+  background: #f8faf7;
+  max-width: 420px;
+}
+.intro { margin: 0; color: #075846; font-family: "Manrope", Arial, sans-serif; font-size: .8rem; font-weight: 800; }
+.offerLine { margin: -4px 0 0; color: #5a7167; font-size: .7rem; }
+.offerLine strong { color: #173d35; }
+
+.fieldLabel { color: #7b8d85; font-size: .67rem; font-weight: 800; }
+
+.input {
+  min-width: 0;
+  width: 100%;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid #d8e3da;
+  border-radius: 9px;
+  outline: 0;
+  background: #fff;
+  color: #173d35;
+  font: inherit;
+  font-weight: 500;
+}
+.input:focus { border-color: #ef873e; box-shadow: 0 0 0 3px rgba(239, 135, 62, .13); }
+
+/* Honeypot : hors écran, hors lecture d'écran, non tabulable. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.consent { display: flex; gap: 8px; align-items: flex-start; color: #5a7167; font-size: .68rem; line-height: 1.45; cursor: pointer; }
+.consent input { margin-top: 2px; flex: none; width: 15px; height: 15px; accent-color: #075846; cursor: pointer; }
+.consent input:focus-visible { outline: 2px solid #ef873e; outline-offset: 2px; }
+
+.error { margin: 0; color: #b3372a; font-size: .7rem; font-weight: 700; }
+
+.submit {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #ef873e;
+  cursor: pointer;
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 800;
+}
+.submit:hover { background: #d9722f; }
+.submit:disabled { opacity: .6; cursor: wait; }
+.submit:focus-visible, .cta:focus-visible { outline: 2px solid #075846; outline-offset: 2px; }
+
+.note { color: #7b8d85; font-size: .62rem; line-height: 1.45; }
+
+.success {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid #dce8df;
+  border-radius: 13px;
+  color: #39765e;
+  background: #f1f8f2;
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 420px) {
+  .form { padding: 12px; }
+  .cta { font-size: .68rem; padding: 7px 12px; }
+}

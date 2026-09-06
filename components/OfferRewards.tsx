@@ -1,5 +1,6 @@
 import type { Offer } from "@/data/offers";
 import { getReverseAmount } from "@/data/offers";
+import { formatProductNames } from "@/lib/productNames";
 import styles from "./OfferRewards.module.css";
 
 type OfferRewardsProps = {
@@ -17,7 +18,7 @@ export default function OfferRewards({ offer, compact = false }: OfferRewardsPro
       {offer.parrainioReward && !/^(?:0(?:[,.]0+)?\s*€?|aucun(?:e)?\s+(?:bonus\s+)?parrainio(?:\s+bonus)?|rien\s+pour\s+cette\s+fois\.?)$/i.test(offer.parrainioReward.trim()) && (
         <div className={styles.parrainio}>
           <span>PARRAINIO REVERSE EN PLUS</span>
-          <strong>{getReverseAmount(offer as Offer)}</strong>
+          <strong>{formatProductNames(getReverseAmount(offer as Offer))}</strong>
         </div>
       )}
     </div>

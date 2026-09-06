@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
+import FavoriteButton from "@/components/FavoriteButton";
 import OfferLogo from "@/components/OfferLogo";
 import OfferRewards from "@/components/OfferRewards";
 import type { CategoryHubContent } from "@/lib/categoryHubs";
@@ -172,11 +173,14 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
                     </div>
                   </div>
 
+                  <div className={styles.cardActions}>
                   <span className={styles.available}>
                     <i />
                     Disponible
                   </span>
+                  <FavoriteButton slug={offer.slug} />
                 </div>
+              </div>
 
                 <p className={styles.cardDescription}>{offer.description}</p>
 
@@ -284,11 +288,11 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
             </div>
 
             <div className={styles.ctaActions}>
-              <Link href="/comment-ca-marche" className={styles.ctaButton}>
+              <Link href="/pourquoi-parrainio" className={styles.ctaButton}>
                 Comment ça marche
                 <ArrowIcon />
               </Link>
-              <Link href="/nos-avantages" className={styles.ctaButton}>
+              <Link href="/pourquoi-parrainio" className={styles.ctaButton}>
                 Voir nos avantages
                 <ArrowIcon />
               </Link>
@@ -317,7 +321,7 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
               <h3>Découvrir</h3>
 
               <Link href="/">Accueil</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
+              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
               <Link href="/offres">Offres</Link>
               <Link href="/classement-primes-parrainage">Classement des primes</Link>
             </div>
@@ -325,7 +329,7 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
             <div>
               <h3>Parrainio</h3>
 
-              <Link href="/nos-avantages">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Nos avantages</Link>
               <a href="mailto:parrainage@parrainio.fr">Contact</a>
             </div>
 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import OfferLogo from "@/components/OfferLogo";
+import { formatProductNames } from "@/lib/productNames";
 import styles from "./page.module.css";
 
 export type RankingRow = {
@@ -100,7 +101,7 @@ export default function RankingTable({ rows }: Props) {
                 <span className={styles.reverseCell}>
                   <span className={styles.cellLabel}>Reverse Parrainio</span>
                   {row.parrainioReward ? (
-                    <span className={styles.reverseBadge}>{row.parrainioReward}</span>
+                    <span className={styles.reverseBadge}>{formatProductNames(row.parrainioReward)}</span>
                   ) : (
                     <span className={styles.reverseNone}>—</span>
                   )}
@@ -123,7 +124,7 @@ export default function RankingTable({ rows }: Props) {
                 <div className={styles.rankBodyCol}>
                   <strong className={styles.rankBodyTitle}>Reversement Parrainio</strong>
                   <p className={styles.rankReverseValue}>
-                    {row.parrainioReward ?? "Non communiqué"}
+                    {row.parrainioReward ? formatProductNames(row.parrainioReward) : "Non communiqué"}
                   </p>
                   <p className={styles.rankReverseNote}>
                     Le reversement Parrainio s&apos;ajoute à la prime filleul

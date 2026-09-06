@@ -25,6 +25,7 @@ export default async function AdminConsoleLayout({
         <nav>
           <Link href="/admin/offres">Offres</Link>
           <Link href="/admin/featured">Offres boostées</Link>
+          <Link href="/admin/avis">Avis clients</Link>
           <Link href="/offres" target="_blank">
             Site public
           </Link>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FavoritesCount from "./FavoritesCount";
 import styles from "./SiteFooter.module.css";
 
 export default function SiteFooter() {
@@ -18,13 +19,15 @@ export default function SiteFooter() {
             <h3>Découvrir</h3>
             <Link href="/offres">Les offres</Link>
             <Link href="/classement-primes-parrainage">Classement des primes</Link>
-            <Link href="/comment-ca-marche">Comment ça marche</Link>
+            <Link href="/avis-clients">Avis clients</Link>
+            <Link href="/pourquoi-parrainio">Comment ça marche</Link>
             <Link href="/blog">Le blog</Link>
           </div>
 
           <div>
             <h3>Parrainio</h3>
-            <Link href="/nos-avantages">Nos avantages</Link>
+            <Link href="/pourquoi-parrainio">Nos avantages</Link>
+            <FavoritesCount />
             <a href="mailto:parrainage@parrainio.fr">Contact</a>
           </div>
 

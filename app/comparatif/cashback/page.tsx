@@ -5,6 +5,7 @@ import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
+import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
   title:
@@ -61,7 +62,7 @@ function rowOf(offer: ManagedOffer): CashbackRow {
     name: offer.name,
     category: offer.category,
     partnerReward: (offer.partnerReward ?? "").trim() || NOT_INDICATED,
-    parrainioReward: offer.parrainioReward?.trim() || NOT_INDICATED,
+    parrainioReward: formatProductNames(offer.parrainioReward?.trim()) || NOT_INDICATED,
     conditions: conditions || "Détails sur la fiche de l'offre.",
     color: offer.color,
     logoLetter: offer.logoLetter,
@@ -125,8 +126,8 @@ export default function ComparatifCashbackPage() {
             <nav className={styles.nav} aria-label="Navigation principale">
               <Link href="/">Accueil</Link>
               <Link href="/offres">Offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
-              <Link href="/nos-avantages">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
+              <Link href="/pourquoi-parrainio">Nos avantages</Link>
             </nav>
             <Link href="/offres" className={styles.headerButton}>
               Voir les offres →
@@ -466,7 +467,7 @@ export default function ComparatifCashbackPage() {
               >
                 Classement des primes
               </Link>
-              <Link href="/comment-ca-marche" className={styles.secondaryButton}>
+              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                 Comment ça marche →
               </Link>
             </div>
@@ -490,11 +491,11 @@ export default function ComparatifCashbackPage() {
             <div>
               <h3>Découvrir</h3>
               <Link href="/offres">Les offres</Link>
-              <Link href="/comment-ca-marche">Comment ça marche</Link>
+              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
             </div>
             <div>
               <h3>Parrainio</h3>
-              <Link href="/nos-avantages">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Nos avantages</Link>
               <a href="mailto:parrainage@parrainio.fr">Contact</a>
             </div>
             <div>

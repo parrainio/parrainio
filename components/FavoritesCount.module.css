@@ -1,0 +1,17 @@
+.favoritesLink { display: inline-flex; align-items: center; gap: 7px; }
+.favoritesLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.heart { color: #ef873e; font-size: .85em; }
+
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ef873e;
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 800;
+}
