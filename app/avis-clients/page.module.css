@@ -1,6 +1,9 @@
 .page {
   min-height: 100vh;
   background: var(--cream);
+  /* Complément : masque le CTA header qui dépasse de 10px à 768px
+     (même correctif que /offres — problème global du header, hors périmètre). */
+  overflow-x: clip;
 }
 
 .container {
@@ -13,7 +16,18 @@
 .hero {
   background: var(--green-soft);
   border-bottom: 1px solid var(--border);
-  padding: 52px 0 44px;
+  padding: 40px 0 38px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.heroRating {
+  min-width: 0;
 }
 
 .kicker {
@@ -42,36 +56,83 @@
   max-width: 700px;
 }
 
-.heroRow {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
+.ratingBlock {
+  margin-top: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px 26px 16px;
+  box-shadow: 0 14px 34px rgba(20, 65, 55, 0.07);
 }
 
-.stats {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.statsAverage {
+.ratingValue {
+  margin: 0;
   font-family: "Manrope", "DM Sans", Arial, sans-serif;
-  font-size: 2.1rem;
+  font-size: 4.6rem;
   font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
   color: var(--green);
+}
+
+.ratingValue small {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+.ratingStars {
+  margin: 8px 0 0;
+  color: var(--orange);
+  font-size: 1.25rem;
+  letter-spacing: 5px;
   line-height: 1;
 }
 
-.statsAverage small {
-  font-size: 0.95rem;
+.ratingCaption {
+  margin: 9px 0 0;
+  font-size: 0.92rem;
   font-weight: 700;
-  color: var(--muted);
+  color: var(--text);
 }
 
-.statsLabel {
-  font-size: 0.88rem;
+.ratingCount {
+  margin: 4px 0 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.heroActionCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 14px 34px rgba(20, 65, 55, 0.07);
+}
+
+.heroActionCard h2 {
+  margin: 0 0 8px;
+  font-family: "Manrope", "DM Sans", Arial, sans-serif;
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
+.heroActionCard > p {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: var(--muted);
 }
 
@@ -79,121 +140,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 11px 22px;
+  padding: 16px 30px;
   border-radius: 999px;
   background: var(--orange);
   color: var(--white);
-  font-weight: 700;
-  font-size: 0.92rem;
-  box-shadow: 0 10px 26px rgba(239, 135, 62, 0.32);
+  font-weight: 800;
+  font-size: 1.02rem;
+  box-shadow: 0 12px 30px rgba(239, 135, 62, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  align-self: flex-start;
 }
 
 .ctaButton:hover,
 .ctaButton:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 14px 32px rgba(239, 135, 62, 0.4);
+  box-shadow: 0 16px 36px rgba(239, 135, 62, 0.45);
 }
-
-/* ── Reviews grid ─────────────────────────────────────────────────────────── */
 
 .reviewsSection {
-  padding: 46px 0 8px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 12px 30px rgba(20, 65, 55, 0.06);
-  min-width: 0;
-}
-
-.cardHead {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin-bottom: 10px;
-}
-
-.avatar {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--green-light);
-  color: var(--green);
-  font-weight: 800;
-  font-family: "Manrope", "DM Sans", Arial, sans-serif;
-}
-
-.cardIdentity {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.cardIdentity strong {
-  font-size: 0.95rem;
-  color: var(--text);
-  overflow-wrap: anywhere;
-}
-
-.stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.stars span:first-child {
-  color: var(--orange);
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-  line-height: 1;
-}
-
-.starsNote {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--green);
-}
-
-.date {
-  margin-left: auto;
-  flex-shrink: 0;
-  font-size: 0.74rem;
-  color: var(--muted);
-}
-
-.cardText {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--text);
-  overflow-wrap: anywhere;
-}
-
-.cardOffer {
-  margin: 12px 0 0;
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.cardOffer a {
-  color: var(--green);
-  font-weight: 600;
-  text-decoration: underline;
+  padding: 40px 0 8px;
 }
 
 .empty {
@@ -491,7 +456,24 @@
 
 @media (max-width: 700px) {
   .hero {
-    padding: 38px 0 34px;
+    padding: 32px 0 30px;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ratingBlock {
+    padding: 14px 20px 13px;
+  }
+
+  .ratingValue {
+    font-size: 3.6rem;
+  }
+
+  .ctaButton {
+    align-self: stretch;
   }
 
   .formRow {

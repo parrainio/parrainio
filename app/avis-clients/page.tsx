@@ -5,6 +5,7 @@ import { OG_IMAGE } from "@/lib/ogImage";
 import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ReviewForm from "./ReviewForm";
+import ReviewCarousel from "@/components/avis/ReviewCarousel";
 import { getApprovedReviews, getReviewsStats } from "@/lib/reviews";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 
@@ -25,15 +26,23 @@ const PROHIBITED_CONTENT = [
   "les contenus sans rapport avec l’expérience Parrainio.",
 ];
 
-function formatReviewDate(isoDate: string): string {
-  const [year, month, day] = isoDate.split("-");
-  return day && month && year ? `${day}/${month}/${year}` : isoDate;
-}
-
 export default function AvisClientsPage() {
   const reviews = getApprovedReviews();
   const stats = getReviewsStats();
   const offerOptions = getManagedOffers().map((offer) => ({ slug: offer.slug, name: offer.name }));
+
+  const carouselReviews = reviews.map((review) => {
+    const offer = review.offerSlug ? getManagedOffer(review.offerSlug) : undefined;
+    return {
+      id: review.id,
+      pseudo: review.pseudo,
+      rating: review.rating,
+      date: review.date,
+      text: review.text,
+      offerName: offer?.name ?? null,
+      offerSlug: offer?.slug ?? null,
+    };
+  });
 
   return (
     <main className={styles.page}>
@@ -41,28 +50,34 @@ export default function AvisClientsPage() {
 
       <section className={styles.hero}>
         <div className={styles.container}>
-          <p className={styles.kicker}>Avis clients</p>
-          <h1>Les avis de la communauté Parrainio</h1>
-          <p className={styles.lead}>
-            Des témoignages de personnes qui ont réalisé un parrainage via Parrainio ou échangé
-            avec un parrain de la communauté. Déjà de nombreux utilisateurs partagent leur
-            expérience avec Parrainio.
-          </p>
-          <div className={styles.heroRow}>
-            <div className={styles.stats}>
-              <span className={styles.statsAverage}>
-                {stats.average}
-                <small>/10</small>
-              </span>
-              <span className={styles.statsLabel}>
-                {stats.count > 0
-                  ? `Note moyenne · ${stats.count} avis publiés`
-                  : "Aucun avis publié pour le moment"}
-              </span>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroRating}>
+              <p className={styles.kicker}>Avis clients</p>
+              <h1>Les avis de la communauté Parrainio</h1>
+              <div className={styles.ratingBlock}>
+                <p className={styles.ratingValue}>
+                  {stats.average}
+                  <small>/10</small>
+                </p>
+                <p className={styles.ratingStars} aria-hidden="true">★★★★★</p>
+                <p className={styles.ratingCaption}>Note moyenne</p>
+                {stats.count > 0 && (
+                  <p className={styles.ratingCount}>
+                    {stats.count} avis publié{stats.count > 1 ? "s" : ""}
+                  </p>
+                )}
+              </div>
             </div>
-            <a href="#laisser-un-avis" className={styles.ctaButton}>
-              Laisser un avis
-            </a>
+            <div className={styles.heroActionCard}>
+              <h2>Partagez votre expérience</h2>
+              <p>
+                Votre retour aide les autres utilisateurs à identifier des parrains fiables.
+                Seul votre pseudo apparaît publiquement.
+              </p>
+              <a href="#laisser-un-avis" className={styles.ctaButton}>
+                Laisser un avis →
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -72,32 +87,7 @@ export default function AvisClientsPage() {
           {reviews.length === 0 ? (
             <p className={styles.empty}>Aucun avis publié pour le moment. Soyez le premier à partager votre expérience.</p>
           ) : (
-            <div className={styles.grid}>
-              {reviews.map((review) => {
-                const offer = review.offerSlug ? getManagedOffer(review.offerSlug) : undefined;
-                return (
-                  <article className={styles.card} key={review.id}>
-                    <div className={styles.cardHead}>
-                      <span className={styles.avatar} aria-hidden="true">{review.pseudo.slice(0, 1).toUpperCase()}</span>
-                      <div className={styles.cardIdentity}>
-                        <strong>{review.pseudo}</strong>
-                        <span className={styles.stars} aria-label={`Note : ${review.rating} sur 10`}>
-                          <span aria-hidden="true">★★★★★</span>
-                          <span className={styles.starsNote}>{review.rating}/10</span>
-                        </span>
-                      </div>
-                      <time className={styles.date} dateTime={review.date}>Avis publié le {formatReviewDate(review.date)}</time>
-                    </div>
-                    <p className={styles.cardText}>{review.text}</p>
-                    {offer ? (
-                      <p className={styles.cardOffer}>
-                        Offre concernée : <Link href={`/offres/${offer.slug}`}>{offer.name}</Link>
-                      </p>
-                    ) : null}
-                  </article>
-                );
-              })}
-            </div>
+            <ReviewCarousel reviews={carouselReviews} />
           )}
         </div>
       </section>
