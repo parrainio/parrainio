@@ -3,15 +3,15 @@
 .page h1,.page h2,.page h3,.page p { margin-top:0; }
 .page h1 em,.page h2 em { color:var(--orange); font-style:normal; }
 
-.hero { padding:54px 0 54px; background:radial-gradient(circle at 78% 22%,#e4f0e6 0,rgba(228,240,230,.5) 26%,transparent 50%),var(--cream); }
-.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:18px; font-size:.8rem; }
+.hero { padding:26px 0 30px; background:radial-gradient(circle at 78% 22%,#e4f0e6 0,rgba(228,240,230,.5) 26%,transparent 50%),var(--cream); }
+.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px; font-size:.8rem; }
 .breadcrumb a { color:var(--green); font-weight:700; text-decoration:none; }
 .breadcrumb a:hover { text-decoration:underline; text-underline-offset:3px; }
 .breadcrumb span { color:#9fb2a7; }
 .breadcrumb strong { color:var(--muted); font-weight:700; }
-.categoryPill { display:inline-block; margin-bottom:16px; padding:6px 12px; border-radius:999px; background:#eaf4ec; color:#27735a; font-size:.66rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-.hero h1 { margin-bottom:14px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(2rem,4.4vw,3.4rem); font-weight:800; letter-spacing:-.065em; line-height:1.08; }
-.articleDates { margin-bottom:16px; color:#8ca396; font-size:.8rem; }
+.categoryPill { display:inline-block; margin-bottom:10px; padding:6px 12px; border-radius:999px; background:#eaf4ec; color:#27735a; font-size:.66rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+.hero h1 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.95rem,7vw,2.15rem); font-weight:800; letter-spacing:-.05em; line-height:1.06; }
+.articleDates { margin-bottom:10px; color:#8ca396; font-size:.8rem; }
 .lead { max-width:720px; margin-bottom:0; color:var(--muted); font-size:1rem; line-height:1.7; }
 
 .section { padding:56px 0 64px; background:#fffdfa; }
@@ -72,13 +72,19 @@
 .secondaryButton { display:inline-flex; align-items:center; padding:15px 8px; color:var(--green); font-size:.84rem; font-weight:800; text-decoration:none; }
 .secondaryButton:hover { text-decoration:underline; text-underline-offset:4px; }
 
+@media (min-width:941px) {
+  /* Desktop : titre dominant mais compact — 3.2rem fixe : les longs titres
+     restent sur 2 lignes (au-delà, ils passent à 3 lignes et regonflent le hero). */
+  .hero h1 { font-size:3.2rem; line-height:1.05; }
+}
+
 @media (max-width:760px) {
   .relatedGrid { grid-template-columns:1fr; }
 }
 @media (max-width:620px) {
   .container { width:min(100% - 34px,860px); }
-  .hero { padding:40px 0 46px; }
-  .hero h1 { font-size:clamp(1.9rem,9vw,2.6rem); }
+  .hero { padding:20px 0 24px; }
+  .hero h1 { font-size:clamp(1.9rem,7.2vw,2.15rem); }
   .section { padding:44px 0 52px; }
   .ctaSection { padding-bottom:60px; }
   .ctaCard { align-items:flex-start; flex-direction:column; }
