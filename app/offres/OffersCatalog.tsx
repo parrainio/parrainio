@@ -11,6 +11,7 @@ import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferFilterBar from "@/components/OfferFilterBar";
 import FavoriteButton from "@/components/FavoriteButton";
+import CopyTextButton from "@/components/CopyTextButton";
 import { formatProductNames, parseProductReverses } from "@/lib/productNames";
 import {
   PRIME_THRESHOLDS,
@@ -297,6 +298,20 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                   </div>
                 ) : null}
 
+                {featuredOffer?.referralCode ? (
+                  <div className={styles.visualCode}>
+                    <span>Code de parrainage</span>
+                    <div className={styles.visualCodeRow}>
+                      <code>{featuredOffer.referralCode}</code>
+                      <CopyTextButton
+                        value={featuredOffer.referralCode}
+                        label="Copier"
+                        copiedLabel="Copié ✓"
+                      />
+                    </div>
+                  </div>
+                ) : null}
+
                 {featuredCtaHref ? (
                   <a
                     className={styles.visualCta}
@@ -304,7 +319,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    En profiter →
+                    Aller sur le site {featuredOffer?.name ?? ""} →
                   </a>
                 ) : featuredOffer ? (
                   <Link

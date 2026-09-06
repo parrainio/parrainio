@@ -465,7 +465,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 9px;
+  margin-top: 8px;
   padding: 10px 14px;
   border-radius: 999px;
   color: #fff;
@@ -476,6 +476,49 @@
   text-decoration: none;
   min-height: 40px;
   transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Code de parrainage dans la carte hero — compact, même densité que le
+   reste de la carte ; le bouton réutilise CopyTextButton (fiche). */
+.visualCode {
+  margin-top: 8px;
+  padding: 7px 10px 8px;
+  border-radius: 11px;
+  background: rgba(7, 88, 70, 0.06);
+}
+
+.visualCode > span {
+  display: block;
+  color: #8b9993;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.visualCodeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.visualCodeRow code {
+  overflow: hidden;
+  color: var(--green);
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.visualCodeRow button {
+  flex: 0 0 auto;
+  min-height: 30px;
+  padding: 5px 10px;
 }
 
 .visualCta:hover {
