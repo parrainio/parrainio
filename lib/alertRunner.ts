@@ -19,7 +19,14 @@ import { SITE_URL } from "./siteUrl";
  *   référence sans envoyer d'e-mail ;
  * - un changement = un e-mail consolidé par abonné (tous les champs
  *   modifiés dans un seul message), jamais un e-mail par champ ;
- * - seuls les abonnements `active` (double opt-in confirmé) sont notifiés ;
+ * - seuls les abonnements `active` (créés par une soumission explicite)
+ *   sont notifiés ;
+ * - idempotence par événement : la référence avance à la signature
+ *   « notifiée » ; rejouer le même état de données ne renvoie RIEN tant
+ *   qu'aucun envoi réel n'a réussi (SMTP en panne ⇒ baseline intacte ⇒
+ *   future alerte garantie), et un nouvel envoi ne part qu'après un NOUVEAU
+ *   changement réel. Un même événement ne peut donc jamais produire deux
+ *   e-mails identiques au même destinataire ;
  * - l'e-mail n'invente rien : seuls les champs réellement modifiés
  *   apparaissent, avec leurs anciennes et nouvelles valeurs.
  *
@@ -230,16 +237,41 @@ export async function runOfferAlertCheck(options: {
       continue;
     }
 
+    // Idempotence par événement : si cet état de données a déjà été notifié
+    // avec succès, rejouer le check ne renvoie RIEN. Un nouvel envoi ne part
+    // qu'après un nouveau changement réel de la signature.
+    if (previous.lastNotifiedSignature === signature) {
+      outcomes.push({ slug: offer.slug, status: "no-change", changedFields: [], notifiedCount: 0, failedCount: 0 });
+      continue;
+    }
+
     const subscribers = await listActiveSubscribers(offer.slug);
     if (!subscribers.ok) {
       outcomes.push({ slug: offer.slug, status: "storage-unavailable", changedFields: changes.map((change) => change.label), notifiedCount: 0, failedCount: 0 });
       continue;
     }
 
-    // Mise à jour de la référence AVANT l'envoi : un changement ne déclenche
-    // qu'un seul e-mail consolidé même en cas de relance du check.
+    if (subscribers.value.length === 0) {
+      // Personne à prévenir : l'événement est consommé (la référence avance).
+      await saveSignature(offer.slug, { signature, checkedAt: new Date().toISOString(), changedFields: changes.map((change) => change.label) });
+      outcomes.push({ slug: offer.slug, status: "changed-no-subscribers", changedFields: changes.map((change) => change.label), notifiedCount: 0, failedCount: 0 });
+      continue;
+    }
+
+    if (!config.smtpConfigured) {
+      // SMTP absent : AUCUNE écriture de référence — sinon le changement
+      // serait définitivement mangé sans jamais prévenir les abonnés.
+      outcomes.push({ slug: offer.slug, status: "notify-failed", changedFields: changes.map((change) => change.label), notifiedCount: 0, failedCount: subscribers.value.length });
+      continue;
+    }
+
+    // Verrou idempotent AVANT l'envoi : si l'exécution est relancée pendant
+    // l'envoi (ou juste après), l'état courant apparaît déjà « notifié » —
+    // impossible de renvoyer le même e-mail deux fois. Une reprise sur crash
+    // peut au pire faire perdre une notification ; jamais en dupliquer.
     const saved = await saveSignature(offer.slug, {
       signature,
+      lastNotifiedSignature: signature,
       checkedAt: new Date().toISOString(),
       changedFields: changes.map((change) => change.label),
     });
@@ -248,21 +280,22 @@ export async function runOfferAlertCheck(options: {
       continue;
     }
 
-    if (subscribers.value.length === 0) {
-      outcomes.push({ slug: offer.slug, status: "changed-no-subscribers", changedFields: changes.map((change) => change.label), notifiedCount: 0, failedCount: 0 });
-      continue;
-    }
-
-    if (!config.smtpConfigured) {
-      outcomes.push({ slug: offer.slug, status: "notify-failed", changedFields: changes.map((change) => change.label), notifiedCount: 0, failedCount: subscribers.value.length });
-      continue;
-    }
-
     const result = await sendAlertEmails({
       offer,
       changes,
       subscriberEmails: subscribers.value.map((item) => ({ email: item.email, emailHash: hashEmail(item.email) })),
     });
+    if (result.sent === 0) {
+      // Aucun e-mail n'est réellement parti : on restaure la référence
+      // précédente pour garantir qu'une relance notifie les abonnés.
+      // Jamais de baseline avancée sans envoi réel (honnêteté).
+      await saveSignature(offer.slug, {
+        signature: previous.signature,
+        lastNotifiedSignature: previous.lastNotifiedSignature,
+        checkedAt: new Date().toISOString(),
+        changedFields: [],
+      });
+    }
     outcomes.push({
       slug: offer.slug,
       status: result.failed === 0 ? "notified" : "notify-failed",

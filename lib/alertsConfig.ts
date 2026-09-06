@@ -10,9 +10,10 @@
  * défaut) :
  *   ALERTS_KV_REST_API_URL   — URL REST du store (ex. Vercel Upstash)
  *   ALERTS_KV_REST_API_TOKEN — token du store
- *   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASSWORD — envoi d'e-mails
- *     (même pattern que /api/reverse-request, déjà présent dans le projet)
- *   ALERTS_SIGNING_SECRET    — secret HMAC (tokens de confirmation/désabonnement)
+ *   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASSWORD — envoi des e-mails
+ *     d'alerte (au changement réel d'une offre ; même pattern que
+ *     /api/reverse-request, déjà présent dans le projet)
+ *   ALERTS_SIGNING_SECRET    — secret HMAC (tokens de désabonnement)
  *
  * Aucune credential n'est exposée au navigateur : ce module est serveur.
  */
@@ -23,7 +24,7 @@ export type AlertsConfig = {
   signingConfigured: boolean;
   /** Prêt = stockage persistant + secret de signature. L'envoi d'e-mails est vérifié séparément. */
   storageReady: boolean;
-  /** Tout est prêt pour une souscription avec envoi réel du mail de confirmation. */
+  /** Tout est prêt pour créer une alerte (hors envoi — les e-mails ne partent qu'à l'évolution réelle d'une offre). */
   fullyOperational: boolean;
 };
 

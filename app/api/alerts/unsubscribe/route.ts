@@ -4,7 +4,7 @@ import { performUnsubscribe } from "@/lib/alertSubscriptions";
 import { getManagedOffer } from "@/data/managedOffers";
 
 /**
- * Désabonnement (lien présent dans chaque e-mail d'alerte et de confirmation).
+ * Désabonnement (lien présent dans chaque e-mail d'alerte).
  * Token HMAC : identifie la souscription sans exposer l'adresse e-mail ni
  * d'identifiant interne. Réponse HTML minimale, noindex.
  */

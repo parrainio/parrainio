@@ -9,8 +9,12 @@ import { getAlertsConfig } from "./alertsConfig";
  * champs modifiés au dernier changement détecté.
  *
  * Stockage : KV managé (Vercel Upstash REST). Une clé par offre
- * `alertsig:<slug>` → { signature, checkedAt, changedFields }. N'est créé
- * qu'au premier `check` — le premier passage est toujours « référence ».
+ * `alertsig:<slug>` → { signature, lastNotifiedSignature?, checkedAt,
+ * changedFields }. N'est créé qu'au premier `check` — le premier passage
+ * est toujours « référence ». `lastNotifiedSignature` = dernière signature
+ * dont la notification a été prise en charge (verrou idempotent : rejouer
+ * le même état ne renvoie aucun e-mail ; absence = héritage des entrées
+ * créées avant ce mécanisme).
  *
  * IMPORTANT (chantier) : les lignes qui suivent décrivent le format ; la
  * persistance réelle n'existe que si les variables ALERTS_KV_REST_API_URL /
@@ -19,6 +23,8 @@ import { getAlertsConfig } from "./alertsConfig";
 
 export type OfferSignatureRecord = {
   signature: string;
+  /** Dernière signature dont la notification a été prise en charge. */
+  lastNotifiedSignature?: string;
   checkedAt: string;
   changedFields: string[];
 };

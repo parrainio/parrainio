@@ -14,9 +14,9 @@
  *   e-mail en double ;
  * - honnête : sans KV configuré (ou en cas d'erreur), rien ne se passe et
  *   l'erreur est journalisée — aucune simulation d'envoi ;
- * - sans SMTP configuré, les changements sont détectés et enregistrés
- *   (l'empreinte avance), mais aucun e-mail n'est envoyé : les abonnés
- *   manquent ce changement plutôt que de recevoir de faux succès.
+ * - sans SMTP configuré, les changements sont détectés mais la référence
+ *   n'avance PAS : dès le retour du SMTP, les abonnés reçoivent l'alerte
+ *   (aucun changement mangé en silence).
  */
 
 export async function register() {

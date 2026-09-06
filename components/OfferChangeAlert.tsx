@@ -10,9 +10,11 @@ import styles from "./OfferChangeAlert.module.css";
  *   (« Vous serez alerté des évolutions de l'offre … ») ;
  * - consentement DÉDIÉ aux alertes, case décochée par défaut (jamais
  *   pré-cochée, jamais fusionnée avec une newsletter) ;
+ * - parcours simple : validation du formulaire → alerte ACTIVE
+ *   immédiatement, sans e-mail de confirmation (plus de double opt-in) ;
  * - états gérés : initial, formulaire ouvert, e-mail invalide, consentement
- *   absent, chargement, succès avec confirmation, succès sans SMTP,
- *   déjà inscrit, erreur (dont service non activé) ;
+ *   absent, chargement, succès, déjà inscrit, erreur (dont service non
+ *   activé) ;
  * - aucune donnée personnelle superflue demandée ;
  * - le slug de l'offre courante est transmis au serveur, qui le revalide.
  */
@@ -21,8 +23,7 @@ type Status =
   | { kind: "closed" }
   | { kind: "open" }
   | { kind: "loading" }
-  | { kind: "confirmation-pending" }
-  | { kind: "pending-no-email" }
+  | { kind: "active" }
   | { kind: "already-subscribed" }
   | { kind: "error"; message: string };
 
@@ -65,12 +66,8 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
         setStatus({ kind: "already-subscribed" });
         return;
       }
-      if (response.ok && payload.status === "confirmation-pending") {
-        setStatus({ kind: "confirmation-pending" });
-        return;
-      }
-      if (response.ok && payload.status === "pending-no-email") {
-        setStatus({ kind: "pending-no-email" });
+      if (response.ok && payload.status === "active") {
+        setStatus({ kind: "active" });
         return;
       }
       setStatus({ kind: "error", message: payload.error ?? "Une erreur est survenue. Veuillez réessayer." });
@@ -89,12 +86,11 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
     );
   }
 
-  if (status.kind === "confirmation-pending" || status.kind === "pending-no-email" || status.kind === "already-subscribed") {
+  if (status.kind === "active" || status.kind === "already-subscribed") {
     return (
       <div className={styles.wrapper}>
         <p className={styles.success} role="status">
-          {status.kind === "confirmation-pending" && "✓ Vérifiez votre boîte mail pour confirmer votre alerte."}
-          {status.kind === "pending-no-email" && "✓ Votre demande d'alerte est enregistrée."}
+          {status.kind === "active" && "✓ Votre alerte est activée. Vous recevrez un email si cette offre évolue."}
           {status.kind === "already-subscribed" && "Cette adresse est déjà inscrite à l'alerte pour cette offre."}
         </p>
       </div>

@@ -10,8 +10,11 @@ import { alertSigningConfigured } from "./alertTokens";
  *
  * Clé KV : `alert:<hash-email>:<slug>` → subscription. Hash SHA-256 de
  * l'e-mail (l'adresse en clair n'est pas la clé ; elle est stockée une fois,
- * chiffrable plus tard sans migration de clé). Trois statuts : `pending`
- * (double opt-in en attente), `active`, `unsubscribed`.
+ * chiffrable plus tard sans migration de clé). Une clé par couple (e-mail,
+ * offre) : une soumission ne peut jamais créer de doublon. Statuts :
+ * `active` (alerte créée par une soumission explicite) et `unsubscribed`.
+ * `pending` n'est plus créé (l'ancien double opt-in a été retiré) mais
+ * reste lu pour migrer proprement d'éventuelles anciennes entrées.
  *
  * IMPORTANT (chantier) : la persistance n'existe que si les variables
  * ALERTS_KV_REST_API_URL / ALERTS_KV_REST_API_TOKEN sont configurées. Sans
@@ -19,7 +22,7 @@ import { alertSigningConfigured } from "./alertTokens";
  * simulation, aucun localStorage, aucun fichier JSON.
  */
 
-export type AlertSubscriptionStatus = "pending" | "active" | "unsubscribed";
+export type AlertSubscriptionStatus = "active" | "unsubscribed" | "pending";
 
 export type AlertSubscription = {
   email: string;
@@ -29,15 +32,14 @@ export type AlertSubscription = {
   status: AlertSubscriptionStatus;
   /** Date de création de la demande (ISO). */
   createdAt: string;
-  /** Date de confirmation du double opt-in (ISO), si confirmé. */
-  confirmedAt: string | null;
+  /** Date d'activation de l'alerte (ISO) — posée dès la soumission explicite. */
+  activatedAt: string | null;
   /** Date de désabonnement (ISO), si applicable. */
   unsubscribedAt: string | null;
 };
 
 export type SubscribeOutcome =
   | { kind: "created" }
-  | { kind: "pending-resent" }
   | { kind: "reactivated" }
   | { kind: "already-active" }
   | { kind: "unavailable"; reason: string };
@@ -124,10 +126,11 @@ export async function saveSubscription(subscription: AlertSubscription, emailHas
 
 /**
  * Résout une demande de souscription (appelée APRÈS validation serveur et
- * vérification du consentement). Ne crée jamais de doublon : une entrée
- * existante `active` reste `active` ; une entrée `pending` reste `pending`
- * (le mail de confirmation peut être renvoyé) ; une entrée
- * `unsubscribed` est réactivée en `pending` (nouveau double opt-in).
+ * vérification du consentement). Activation IMMÉDIATE : toute soumission
+ * explicite crée (ou réactive) l'alerte en `active`, sans e-mail de
+ * confirmation et sans renvoi. Ne crée jamais de doublon : une entrée
+ * existante `active` reste inchangée (aucune réécriture) ; une entrée
+ * `pending` (historique) ou `unsubscribed` passe à `active` sur la même clé.
  */
 export async function resolveSubscription(params: {
   email: string;
@@ -147,38 +150,19 @@ export async function resolveSubscription(params: {
   if (previous && previous.status === "active") {
     return { ok: true, value: { kind: "already-active" } };
   }
-  if (previous && previous.status === "pending") {
-    return { ok: true, value: { kind: "pending-resent" } };
-  }
 
   const next: AlertSubscription = {
     email: params.email,
     slug: params.slug,
     consent: true,
-    status: "pending",
+    status: "active",
     createdAt: previous?.createdAt ?? now,
-    confirmedAt: null,
-    unsubscribedAt: previous?.unsubscribedAt ?? null,
+    activatedAt: now,
+    unsubscribedAt: null,
   };
   const saved = await saveSubscription(next, params.emailHash);
   if (!saved.ok) return saved;
   return { ok: true, value: previous?.status === "unsubscribed" ? { kind: "reactivated" } : { kind: "created" } };
-}
-
-export async function confirmSubscription(emailHash: string, slug: string): Promise<StorageResult<AlertSubscription | null>> {
-  const existing = await getSubscription(emailHash, slug);
-  if (!existing.ok) return existing;
-  const previous = existing.value;
-  if (!previous || previous.status === "unsubscribed") {
-    return { ok: true, value: previous };
-  }
-  if (previous.status === "active" && previous.confirmedAt) {
-    return { ok: true, value: previous };
-  }
-  const next: AlertSubscription = { ...previous, status: "active", confirmedAt: new Date().toISOString() };
-  const saved = await saveSubscription(next, emailHash);
-  if (!saved.ok) return saved;
-  return { ok: true, value: next };
 }
 
 export async function performUnsubscribe(emailHash: string, slug: string): Promise<StorageResult<AlertSubscription | null>> {
@@ -199,7 +183,9 @@ export function alertStorageReady(): boolean {
 /**
  * Liste les abonnements actifs d'une offre (SCAN par préfixe, paging par
  * curseur — aucun index séparé à maintenir). Retourne les souscriptions
- * `active` uniquement : le double opt-in est respecté au moment de l'envoi.
+ * `active` uniquement : une alerte compte si elle a été créée par une
+ * soumission explicite (les entrées désinscrites et l'historique `pending`
+ * non resoumis ne reçoivent jamais d'e-mail).
  */
 export async function listActiveSubscribers(slug: string): Promise<StorageResult<AlertSubscription[]>> {
   const config = getAlertsConfig();
