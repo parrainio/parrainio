@@ -1,21 +1,23 @@
-.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; /* Complément : masque le CTA header qui dépasse de 10px à 768px (même correctif que /offres — problème global du header, hors périmètre). */ overflow-x:clip; }
 .container { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
 .page h1,.page h2,.page h3,.page p { margin-top:0; }
 .page h1 em,.page h2 em { color:var(--orange); font-style:normal; }
 
-.hero { padding:38px 0 30px; background:radial-gradient(circle at 80% 30%,#e4f0e6 0,rgba(228,240,230,.55) 24%,transparent 48%),radial-gradient(circle at 15% 100%,rgba(252,226,199,.4),transparent 26%),var(--cream); }
-.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:12px; font-size:.8rem; }
+/* Hero compact : les premiers guides apparaissent beaucoup plus tôt. */
+.hero { padding:24px 0 20px; background:radial-gradient(circle at 80% 30%,#e4f0e6 0,rgba(228,240,230,.55) 24%,transparent 48%),radial-gradient(circle at 15% 100%,rgba(252,226,199,.4),transparent 26%),var(--cream); }
+.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:9px; font-size:.8rem; }
 .breadcrumb a { color:var(--green); font-weight:700; text-decoration:none; }
 .breadcrumb a:hover { text-decoration:underline; text-underline-offset:3px; }
 .breadcrumb span { color:#9fb2a7; }
 .breadcrumb strong { color:var(--muted); font-weight:700; }
-.kicker { display:inline-flex; align-items:center; gap:10px; margin-bottom:12px; padding:8px 13px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); color:#4d7b6b; font-size:.64rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.kicker { display:inline-flex; align-items:center; gap:10px; margin-bottom:10px; padding:7px 12px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); color:#4d7b6b; font-size:.64rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
 .kicker span { width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 5px rgba(239,135,62,.13); }
-.hero h1 { margin-bottom:13px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(2.15rem,3.9vw,3.3rem); font-weight:800; letter-spacing:-.06em; line-height:1.02; }
-.lead { max-width:680px; margin-bottom:0; color:var(--muted); font-size:1.02rem; line-height:1.7; }
+.hero h1 { margin-bottom:10px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(2.05rem,3.6vw,3rem); font-weight:800; letter-spacing:-.06em; line-height:1.02; }
+.lead { max-width:680px; margin-bottom:0; color:var(--muted); font-size:.98rem; line-height:1.6; }
 
-.section { padding:46px 0 64px; background:#fffdfa; }
-.sectionHead { max-width:720px; margin-bottom:22px; }
+.section { padding:34px 0 56px; background:#fffdfa; }
+.sectionHeadRow { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; max-width:720px; margin-bottom:22px; }
+.sectionHead { max-width:720px; margin-bottom:0; }
 .sectionHead h2 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.55rem,2.9vw,2.2rem); font-weight:800; letter-spacing:-.05em; line-height:1.08; }
 .sectionHead p { margin-bottom:0; color:var(--muted); font-size:.93rem; line-height:1.65; }
 
@@ -28,6 +30,8 @@
 .articleCard p { margin:0; color:var(--muted); font-size:.84rem; line-height:1.6; }
 .cardMeta { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:12px; border-top:1px solid #eef4ef; color:#8ca396; font-size:.74rem; }
 .cardArrow { color:var(--green); font-weight:800; white-space:nowrap; }
+
+.noResult { display:none; margin:14px 0 0; color:var(--muted); font-size:.9rem; }
 
 .emptyState { max-width:720px; padding:30px 32px; border:1px solid #e0e9e2; border-radius:20px; background:#f7faf6; }
 .emptyState strong { display:block; margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.2rem; letter-spacing:-.03em; }
@@ -51,10 +55,11 @@
 }
 @media (max-width:620px) {
   .container { width:min(100% - 34px,1160px); }
-  .hero { padding:22px 0 24px; }
+  .hero { padding:16px 0 18px; }
   .hero h1 { font-size:clamp(1.9rem,8.8vw,2.4rem); }
   .hero .lead { font-size:.96rem; }
-  .section { padding:32px 0 48px; }
+  .section { padding:26px 0 44px; }
+  .sectionHeadRow { display:block; }
   .cardsGrid { grid-template-columns:1fr; }
   .ctaSection { padding-bottom:62px; }
   .ctaActions { max-width:none; }

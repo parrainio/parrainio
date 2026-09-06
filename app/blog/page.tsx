@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { blogArticles, formatBlogDate } from "@/data/blogArticles";
+import BlogSearch from "@/components/blog/BlogSearch";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -78,18 +79,21 @@ export default function BlogIndexPage() {
       {/* ARTICLES */}
       <section className={styles.section}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Les guides <em>récents</em>
-            </h2>
-            <p>
-              De nouveaux contenus sont publiés régulièrement : conseils,
-              explications et comparaisons pour économiser sans piège.
-            </p>
+          <div className={styles.sectionHeadRow}>
+            <div className={styles.sectionHead}>
+              <h2>
+                Les guides <em>récents</em>
+              </h2>
+              <p>
+                De nouveaux contenus sont publiés régulièrement : conseils,
+                explications et comparaisons pour économiser sans piège.
+              </p>
+            </div>
+            <BlogSearch total={articles.length} />
           </div>
 
           {articles.length > 0 ? (
-            <div className={styles.cardsGrid}>
+            <div className={styles.cardsGrid} id="guides-grid">
               {articles.map((article) => (
                 <article key={article.slug}>
                   <Link
@@ -125,6 +129,9 @@ export default function BlogIndexPage() {
               </Link>
             </div>
           )}
+          <p id="guides-empty" style={{ display: "none" }} className={styles.noResult}>
+            Aucun guide ne correspond à votre recherche.
+          </p>
         </div>
       </section>
 

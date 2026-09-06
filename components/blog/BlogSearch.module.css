@@ -1,0 +1,54 @@
+/* Recherche de guides — compacte, sur la même ligne que le titre (desktop). */
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.label {
+  display: none;
+}
+
+.input {
+  width: 100%;
+  max-width: 250px;
+  padding: 9px 13px;
+  border: 1.5px solid #dfe8e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #173d35;
+  font-family: inherit;
+  font-size: 0.8rem;
+  transition: border-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: #9fb2a7;
+}
+
+.input:focus-visible {
+  outline: 2px solid #075846;
+  outline-offset: 1px;
+}
+
+.count {
+  flex: none;
+  color: #8ca396;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .searchWrap {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .input {
+    max-width: none;
+    flex: 1;
+  }
+}

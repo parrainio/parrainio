@@ -1,4 +1,4 @@
-.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; /* Complément : masque le CTA header qui dépasse de 10px à 768px (même correctif que /offres — problème global du header, hors périmètre). */ overflow-x:clip; }
 .container { width:min(860px,calc(100% - 48px)); margin:0 auto; }
 .page h1,.page h2,.page h3,.page p { margin-top:0; }
 .page h1 em,.page h2 em { color:var(--orange); font-style:normal; }
@@ -15,7 +15,22 @@
 .lead { max-width:720px; margin-bottom:0; color:var(--muted); font-size:1rem; line-height:1.7; }
 
 .section { padding:56px 0 64px; background:#fffdfa; }
-.articleBody { display:grid; gap:16px; }
+
+/* ── Layout article + offres contextuelles ───────────────── */
+/* ≥941px : article dominant + sidebar 280px à droite (sticky).
+   ≤940px : colonne unique — le bandeau (mobileOffers) s'affiche
+   APRÈS l'intro (avant le contenu), la sidebar est masquée.      */
+.articleLayout { display:block; }
+.sidebarCol { display:none; }
+.mobileOffers { display:block; }
+@media (min-width:941px) {
+  /* Seule la section article s'élargit (hero, connexes et CTA restent à 860px). */
+  .articleLayout { width:min(1010px,calc(100% - 48px)); display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:30px; align-items:start; }
+  .sidebarCol { display:block; min-width:0; }
+  .mobileOffers { display:none; }
+}
+
+.articleBody { display:grid; gap:16px; min-width:0; }
 .articleBody p,.articleBody ul,.articleBody ol { margin:0; color:#415b53; font-size:1.02rem; line-height:1.85; }
 .articleBody h2 { margin:22px 0 2px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.4rem,2.8vw,1.85rem); font-weight:800; letter-spacing:-.04em; line-height:1.2; }
 .articleBody ul,.articleBody ol { display:grid; gap:8px; padding-left:22px; }

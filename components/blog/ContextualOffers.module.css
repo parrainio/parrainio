@@ -1,0 +1,182 @@
+/*
+ * Offres contextuelles du Guide — deux densités, un seul composant :
+ * - ≥941px : sidebar compacte (~280px), sticky, lecture en 2–3 s ;
+ * - ≤940px : micro-bandeau horizontal (hauteur totale ≈ 120–180px).
+ */
+
+.module {
+  min-width: 0;
+}
+
+.moduleTitle {
+  margin: 0 0 8px;
+  color: #27735a;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.offerList {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offerCard {
+  display: grid;
+  gap: 3px;
+  padding: 11px 12px;
+  border: 1px solid #e0e9e2;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.offerHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.offerName {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #173d35;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.offerReward {
+  color: #075846;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.offerReverse {
+  color: #b05c1f;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.offerCta {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #eaf4ec;
+  color: #27735a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.offerCta:hover {
+  background: #075846;
+  color: #fff;
+}
+
+.moduleLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: #27735a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.moduleLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Desktop : sidebar 280px, sticky ─────────────────────────── */
+@media (min-width: 941px) {
+  .module {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+
+  .offerList {
+    gap: 9px;
+  }
+
+  .offerCard {
+    padding: 10px 12px;
+  }
+}
+
+/* ── Mobile : micro-bandeau horizontal, très compact ─────────── */
+@media (max-width: 940px) {
+  .module {
+    margin: 16px 0 4px;
+    padding: 8px 10px 9px;
+    border: 1px solid #e0e9e2;
+    border-radius: 14px;
+    background: #f7faf6;
+  }
+
+  .moduleTitle {
+    margin-bottom: 5px;
+    font-size: 0.6rem;
+  }
+
+  .offerList {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .offerList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .offerCard {
+    flex: 0 0 min(300px, 85%);
+    scroll-snap-align: start;
+    gap: 2px;
+    padding: 7px 9px;
+  }
+
+  /* ~1.15 carte visible à 320px : 300 + 8 + 2×(12 padding module) ≈ 340px */
+  .offerHead {
+    gap: 7px;
+  }
+
+  .offerName {
+    font-size: 0.76rem;
+  }
+
+  .offerReward {
+    font-size: 0.8rem;
+  }
+
+  .offerReverse {
+    font-size: 0.66rem;
+  }
+
+  .offerCta {
+    margin-top: 2px;
+    padding: 4px 10px;
+    font-size: 0.66rem;
+  }
+
+  .moduleLink {
+    margin-top: 5px;
+    font-size: 0.68rem;
+  }
+}

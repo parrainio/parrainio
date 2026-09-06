@@ -12,6 +12,8 @@ import {
   type BlogArticle,
   type BlogBlock,
 } from "@/data/blogArticles";
+import { getBlogOfferContext } from "@/lib/blogOffers";
+import ContextualOffers from "@/components/blog/ContextualOffers";
 import styles from "./page.module.css";
 import {
   ArticleImage,
@@ -156,6 +158,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   if (!article) notFound();
 
   const related = relatedArticles(article);
+  const offerContext = getBlogOfferContext(article.slug);
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -224,14 +227,22 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         </div>
       </section>
 
-      {/* CONTENU */}
+      {/* CONTENU + offres contextuelles (desktop : sidebar ; mobile : bandeau après l'intro) */}
       <section className={styles.section}>
-        <div className={styles.container}>
-          <article className={styles.articleBody}>
-            {article.body.map((block, index) => (
-              <ArticleBlock key={index} block={block} />
-            ))}
-          </article>
+        <div className={`${styles.container} ${styles.articleLayout}`}>
+          <div className={styles.articleCol}>
+            <div className={styles.mobileOffers}>
+              {offerContext && <ContextualOffers context={offerContext} />}
+            </div>
+            <article className={styles.articleBody}>
+              {article.body.map((block, index) => (
+                <ArticleBlock key={index} block={block} />
+              ))}
+            </article>
+          </div>
+          <div className={styles.sidebarCol}>
+            {offerContext && <ContextualOffers context={offerContext} />}
+          </div>
         </div>
       </section>
 
