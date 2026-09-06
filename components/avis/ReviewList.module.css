@@ -1,0 +1,162 @@
+.list {
+  min-width: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Les cartes au-delà des 3 premières restent dans le HTML mais masquées
+   (l'attribut hidden doit l'emporter sur le display:flex de la carte). */
+.card[hidden] {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 14px;
+  box-shadow: 0 8px 20px rgba(20, 65, 55, 0.05);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.avatar {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green);
+  font-weight: 800;
+  font-size: 0.85rem;
+  font-family: "Manrope", "DM Sans", Arial, sans-serif;
+}
+
+.identity {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.identity strong {
+  font-size: 0.88rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars span:first-child {
+  color: var(--orange);
+  letter-spacing: 2px;
+  font-size: 0.74rem;
+  line-height: 1;
+}
+
+.starsNote {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  flex: 1;
+}
+
+.foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.offer {
+  font-size: 0.74rem;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.offer a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.date {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.toggleRow {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0 0;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--green);
+  font-weight: 700;
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+
+.toggle:hover,
+.toggle:focus-visible {
+  border-color: var(--orange);
+  color: #c9672a;
+  outline: none;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toggle {
+    width: 100%;
+  }
+}

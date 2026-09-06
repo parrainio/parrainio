@@ -5,7 +5,7 @@ import { OG_IMAGE } from "@/lib/ogImage";
 import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ReviewForm from "./ReviewForm";
-import ReviewCarousel from "@/components/avis/ReviewCarousel";
+import ReviewList, { type ListReview } from "@/components/avis/ReviewList";
 import { getApprovedReviews, getReviewsStats } from "@/lib/reviews";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 
@@ -31,7 +31,7 @@ export default function AvisClientsPage() {
   const stats = getReviewsStats();
   const offerOptions = getManagedOffers().map((offer) => ({ slug: offer.slug, name: offer.name }));
 
-  const carouselReviews = reviews.map((review) => {
+  const listReviews: ListReview[] = reviews.map((review) => {
     const offer = review.offerSlug ? getManagedOffer(review.offerSlug) : undefined;
     return {
       id: review.id,
@@ -87,7 +87,7 @@ export default function AvisClientsPage() {
           {reviews.length === 0 ? (
             <p className={styles.empty}>Aucun avis publié pour le moment. Soyez le premier à partager votre expérience.</p>
           ) : (
-            <ReviewCarousel reviews={carouselReviews} />
+            <ReviewList reviews={listReviews} />
           )}
         </div>
       </section>

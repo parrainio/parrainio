@@ -16,14 +16,14 @@
 .hero {
   background: var(--green-soft);
   border-bottom: 1px solid var(--border);
-  padding: 40px 0 38px;
+  padding: 22px 0 20px;
 }
 
 .heroGrid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 30px;
-  align-items: stretch;
+  gap: 22px;
+  align-items: start;
 }
 
 .heroRating {
@@ -31,7 +31,7 @@
 }
 
 .kicker {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -40,9 +40,9 @@
 }
 
 .hero h1 {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   font-family: "Manrope", "DM Sans", Arial, sans-serif;
-  font-size: clamp(1.65rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
   line-height: 1.15;
   color: var(--green);
   max-width: 760px;
@@ -57,56 +57,56 @@
 }
 
 .ratingBlock {
-  margin-top: 16px;
+  margin-top: 10px;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 18px 26px 16px;
-  box-shadow: 0 14px 34px rgba(20, 65, 55, 0.07);
+  border-radius: 16px;
+  padding: 10px 18px 9px;
+  box-shadow: 0 10px 24px rgba(20, 65, 55, 0.06);
 }
 
 .ratingValue {
   margin: 0;
   font-family: "Manrope", "DM Sans", Arial, sans-serif;
-  font-size: 4.6rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   color: var(--green);
 }
 
 .ratingValue small {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--muted);
-  margin-left: 4px;
+  margin-left: 3px;
 }
 
 .ratingStars {
-  margin: 8px 0 0;
+  margin: 5px 0 0;
   color: var(--orange);
-  font-size: 1.25rem;
-  letter-spacing: 5px;
+  font-size: 1rem;
+  letter-spacing: 3px;
   line-height: 1;
 }
 
 .ratingCaption {
-  margin: 9px 0 0;
-  font-size: 0.92rem;
+  margin: 6px 0 0;
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--text);
 }
 
 .ratingCount {
-  margin: 4px 0 0;
-  padding: 4px 12px;
+  margin: 6px 0 0;
+  padding: 3px 10px;
   border-radius: 999px;
   background: var(--green-light);
   color: var(--green);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
 }
 
@@ -117,22 +117,22 @@
   justify-content: center;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 26px;
-  box-shadow: 0 14px 34px rgba(20, 65, 55, 0.07);
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 24px rgba(20, 65, 55, 0.06);
 }
 
 .heroActionCard h2 {
-  margin: 0 0 8px;
+  margin: 0 0 5px;
   font-family: "Manrope", "DM Sans", Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.08rem;
   color: var(--green);
 }
 
 .heroActionCard > p {
-  margin: 0 0 18px;
-  font-size: 0.9rem;
-  line-height: 1.55;
+  margin: 0 0 12px;
+  font-size: 0.84rem;
+  line-height: 1.5;
   color: var(--muted);
 }
 
@@ -140,13 +140,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 30px;
+  padding: 10px 22px;
   border-radius: 999px;
   background: var(--orange);
   color: var(--white);
   font-weight: 800;
-  font-size: 1.02rem;
-  box-shadow: 0 12px 30px rgba(239, 135, 62, 0.35);
+  font-size: 0.92rem;
+  box-shadow: 0 8px 20px rgba(239, 135, 62, 0.3);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   align-self: flex-start;
 }
@@ -154,11 +154,11 @@
 .ctaButton:hover,
 .ctaButton:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 16px 36px rgba(239, 135, 62, 0.45);
+  box-shadow: 0 12px 26px rgba(239, 135, 62, 0.4);
 }
 
 .reviewsSection {
-  padding: 40px 0 8px;
+  padding: 26px 0 8px;
 }
 
 .empty {
@@ -456,20 +456,20 @@
 
 @media (max-width: 700px) {
   .hero {
-    padding: 32px 0 30px;
+    padding: 18px 0 16px;
   }
 
   .heroGrid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
 
   .ratingBlock {
-    padding: 14px 20px 13px;
+    padding: 9px 16px 8px;
   }
 
   .ratingValue {
-    font-size: 3.6rem;
+    font-size: 2.3rem;
   }
 
   .ctaButton {
