@@ -100,45 +100,35 @@ export default function ClassementPrimesPage() {
     <main className={styles.page}>
       <PublicHeader active="ranking" />
 
-      <section className={styles.hero}>
+      <div className={styles.slimTop}>
         <div className={styles.container}>
           <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
             <Link href="/">Accueil</Link>
             <span aria-hidden="true">→</span>
             <strong>Classement des primes</strong>
           </nav>
-          <span className={styles.kicker}>
-            <span />
-            Comparatif Parrainio
-          </span>
-          <h1>
-            Classement des primes <em>de parrainage</em>
-          </h1>
-          <p className={styles.lead}>
-            Toutes les offres actuellement documentées sur Parrainio dont
-            l&apos;avantage filleul est chiffré, classées du montant le plus
-            élevé au plus bas. Pour chaque offre : la prime, le reversement
-            Parrainio lorsqu&apos;il existe et les conditions essentielles.
-          </p>
         </div>
-      </section>
+      </div>
 
       <section className={styles.section} id="classement">
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Les primes de parrainage <em>actuellement documentées</em>
-            </h2>
-            <p>
-              {euros.length} offres avec un avantage filleul exprimé en euros,
-              classées par montant décroissant. Filtrez par catégorie pour
-              comparer ce qui vous concerne.
-            </p>
-            <p className={styles.updated}>
-              Données vérifiées et mises à jour le {LAST_UPDATED}.
-            </p>
-          </div>
-          <RankingTable rows={euros.map(({ offer }) => rowOf(offer))} />
+          <RankingTable
+            rows={euros.map(({ offer }) => rowOf(offer))}
+            panelHeading={
+              <>
+                Classement des primes <em>de parrainage</em>
+              </>
+            }
+            panelLead={
+              <>
+                Toutes les offres actuellement documentées sur Parrainio dont
+                l&apos;avantage filleul est chiffré, classées du montant le plus
+                élevé au plus bas. Pour chaque offre : la prime, le reversement
+                Parrainio lorsqu&apos;il existe et les conditions essentielles.
+              </>
+            }
+            updated={LAST_UPDATED}
+          />
         </div>
       </section>
 
