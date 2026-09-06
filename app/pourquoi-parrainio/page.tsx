@@ -108,11 +108,7 @@ export default function PourquoiParrainioPage() {
       {/* 1. Ce que vous voyez avant de vous inscrire */}
       <section id="avant-inscription" className={styles.infoSection}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Avant de cliquer</p>
-            <h2>Ce que vous voyez <em>avant de vous inscrire</em></h2>
-            <p>Chaque fiche d&apos;offre affiche les informations essentielles en amont : vous décidez avec les montants et les conditions sous les yeux.</p>
-          </div>
+          <h2 className={styles.infoTitle}>Tout ce que vous devez savoir avant de vous inscrire</h2>
           <div className={styles.infoGrid}>
             {infoBlocks.map((block) => (
               <article className={styles.infoCard} key={block.title}>
