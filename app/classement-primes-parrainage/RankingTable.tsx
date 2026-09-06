@@ -151,7 +151,7 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
             <span className={styles.hOffer}>Offre</span>
             <span className={styles.hPrime}>Prime filleul</span>
             <span className={styles.hReverse}>Reverse Parrainio</span>
-            <span className={styles.hCond}>Conditions essentielles</span>
+            <span className={styles.hCond}>Conditions</span>
             <span className={styles.hChev} />
           </div>
 

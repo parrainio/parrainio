@@ -54,6 +54,10 @@
 .rankHead { display:grid; grid-template-columns:30px minmax(0,1.8fr) 165px 175px 34px 24px 112px; gap:14px; align-items:center; padding:9px 14px; color:#5d7168; font-size:.62rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .hRank { text-align:center; }
 .hOffer, .hPrime, .hReverse, .hCond, .hChev { min-width:0; overflow-wrap:anywhere; }
+/* En-tête « Conditions » : la colonne reste à 34px (boutons ⋯ des lignes)
+   mais le mot de l'en-tête ne doit pas se casser lettre par lettre — il
+   déborde visiblement sur la colonne chevron vide, sans toucher la suivante. */
+.hCond { overflow-wrap:normal; white-space:nowrap; overflow:visible; }
 
 .rankRow { display:grid; grid-template-columns:30px minmax(0,1.8fr) 165px 175px 34px 24px 112px; gap:14px; align-items:center; border:1px solid #e0e9e2; border-radius:14px; background:#fff; transition:background .15s ease,border-color .15s ease; }
 .rankRow:hover { background:#fafcf9; }
