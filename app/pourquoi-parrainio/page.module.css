@@ -7,54 +7,55 @@
 .primaryButton:hover,.ctaButton:hover { background:var(--green-dark); transform:translateY(-2px); }
 
 /* ── Hero (densité compacte conservée) ─────────────────────────────────── */
-.hero { padding:28px 0 32px; background:radial-gradient(circle at 78% 37%,#e4f0e6 0,rgba(228,240,230,.58) 23%,transparent 47%),radial-gradient(circle at 18% 98%,rgba(252,226,199,.42),transparent 26%),var(--cream); }
-.heroGrid { display:grid; grid-template-columns:1fr .9fr; align-items:center; gap:clamp(24px,3vw,40px); }
+.hero { padding:12px 0 14px; background:radial-gradient(circle at 78% 37%,#e4f0e6 0,rgba(228,240,230,.58) 23%,transparent 47%),radial-gradient(circle at 18% 98%,rgba(252,226,199,.42),transparent 26%),var(--cream); }
+.heroGrid { display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:clamp(24px,3vw,40px); }
 .heroCopy { max-width:610px; }
-.eyebrow,.kicker { margin-bottom:10px; color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; line-height:1.3; text-transform:uppercase; }
-.eyebrow { display:inline-flex; align-items:center; gap:10px; padding:6px 12px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); }
+.eyebrow,.kicker { margin-bottom:4px; color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; line-height:1.3; text-transform:uppercase; }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; padding:4px 10px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); }
 .eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 5px rgba(239,135,62,.13); }
-.hero h1 { margin-bottom:10px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.07em; font-size:clamp(2.1rem,3.2vw,2.9rem); line-height:1.04; }
-.heroLead { max-width:560px; margin-bottom:0; color:var(--muted); font-size:.95rem; line-height:1.55; }
-.heroActions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:14px; }
-.primaryButton { padding:12px 18px; box-shadow:0 14px 27px rgba(7,88,70,.18); }
+.hero h1 { margin-bottom:5px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.07em; font-size:clamp(2.1rem,3.2vw,2.7rem); line-height:1.04; }
+.heroLead { max-width:640px; margin-bottom:0; color:var(--muted); font-size:.9rem; line-height:1.42; }
+.heroActions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:6px; }
+.primaryButton { padding:10px 16px; box-shadow:0 14px 27px rgba(7,88,70,.18); }
 
-.heroVisual { position:relative; min-height:220px; display:grid; place-items:center; }
-.heroRing { position:absolute; z-index:0; width:230px; height:230px; border:20px solid rgba(192,219,196,.55); border-radius:50%; }
-.benefitCard { position:relative; z-index:2; width:min(100%,280px); padding:16px; overflow:hidden; border-radius:20px; background:linear-gradient(145deg,#0b5d49,#043f34); box-shadow:0 30px 65px rgba(15,66,52,.22); color:#fff; transform:rotate(-2deg); }
+.heroVisual { position:relative; min-height:186px; display:grid; place-items:center; }
+.heroRing { position:absolute; z-index:0; width:170px; height:170px; border:20px solid rgba(192,219,196,.55); border-radius:50%; }
+.benefitCard { position:relative; z-index:2; width:min(100%,240px); padding:10px; overflow:hidden; border-radius:20px; background:linear-gradient(145deg,#0b5d49,#043f34); box-shadow:0 30px 65px rgba(15,66,52,.22); color:#fff; transform:rotate(-2deg); }
 .benefitCard::after { position:absolute; top:-60px; right:-50px; width:160px; height:160px; border:20px solid rgba(255,255,255,.06); border-radius:50%; content:""; }
 .benefitCardTop,.cardBottom { position:relative; z-index:1; display:flex; align-items:center; justify-content:space-between; }
 .benefitCardTop > span:first-child { color:#b5d7c5; font-size:.67rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
 .cardMark { width:32px; height:32px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.13); border-radius:12px; background:rgba(255,255,255,.1); color:#fff; font-family:Georgia,serif; font-weight:800; }
-.percent { position:relative; z-index:1; display:flex; align-items:flex-end; margin:18px 0 8px; color:#fff; font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.11em; line-height:.72; }
-.percent strong { font-size:3.6rem; }
-.percent span { margin-left:6px; margin-bottom:5px; color:#f4aa64; font-size:1.7rem; letter-spacing:-.07em; }
-.benefitCard > p { position:relative; z-index:1; max-width:210px; margin-bottom:12px; color:#c4ddcf; font-size:.78rem; line-height:1.55; }
-.cardBottom { padding-top:10px; border-top:1px solid rgba(255,255,255,.13); color:#aed1be; font-size:.65rem; }
+.percent { position:relative; z-index:1; display:flex; align-items:flex-end; margin:12px 0 6px; color:#fff; font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.11em; line-height:.72; }
+.percent strong { font-size:2.7rem; }
+.percent span { margin-left:5px; margin-bottom:5px; color:#f4aa64; font-size:1.35rem; letter-spacing:-.07em; }
+.benefitCard > p { position:relative; z-index:1; max-width:210px; margin-bottom:9px; color:#c4ddcf; font-size:.78rem; line-height:1.55; }
+.cardBottom { padding-top:8px; border-top:1px solid rgba(255,255,255,.13); color:#aed1be; font-size:.65rem; }
 .cardBottom span { display:inline-flex; align-items:center; gap:6px; }
 .cardBottom > svg { color:#f3a45e; }
 .coinOne,.coinTwo,.ctaCoin { position:absolute; z-index:1; display:grid; place-items:center; border:5px solid #ffe19a; border-radius:50%; background:radial-gradient(circle at 34% 29%,#fff1b6,#efb648 58%,#d4891e); box-shadow:inset 0 0 0 3px rgba(139,83,17,.1),0 8px 0 #d5912a,0 17px 24px rgba(151,100,28,.19); color:#9a6117; font-family:Georgia,serif; font-weight:800; }
-.coinOne { top:20px; right:4%; width:44px; height:44px; font-size:1.05rem; transform:rotate(12deg); }
-.coinTwo { bottom:18px; left:0; width:34px; height:34px; font-size:.85rem; transform:rotate(-15deg); }
+.coinOne { top:20px; right:4%; width:36px; height:36px; font-size:.95rem; transform:rotate(12deg); }
+.coinTwo { bottom:18px; left:0; width:28px; height:28px; font-size:.75rem; transform:rotate(-15deg); }
 
 /* ── Têtes de section ──────────────────────────────────────────────────── */
 .sectionHead { max-width:670px; margin-bottom:14px; }
-.sectionHead .kicker { margin-bottom:8px; }
+.sectionHead .kicker { margin-bottom:6px; }
 .sectionHead h2 { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.08; }
 .sectionHead h2 em { display:block; }
 .sectionHead > p:not(.kicker) { max-width:540px; margin-bottom:0; color:var(--muted); font-size:.9rem; line-height:1.55; }
 
 /* ── Section 1 : ce que vous voyez avant de vous inscrire ─────────────── */
-.infoSection { padding:44px 0; background:#fffdfa; }
-.infoGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-.infoCard { padding:16px 18px; border:1px solid #e0e9e2; border-radius:20px; background:#fff; }
+.infoSection { padding:20px 0 32px; background:#fffdfa; }
+.infoTitle { margin:0 0 14px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.05em; font-size:clamp(1.25rem,2.4vw,1.6rem); line-height:1.15; }
+.infoGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.infoCard { padding:13px 15px; border:1px solid #e0e9e2; border-radius:20px; background:#fff; }
 .infoCard:nth-child(3) { border-color:#f6dfc4; background:#fff8ef; }
-.infoIcon { width:40px; height:40px; display:grid; place-items:center; border-radius:14px; background:#eaf4ec; color:#27735a; }
+.infoIcon { width:36px; height:36px; display:grid; place-items:center; border-radius:14px; background:#eaf4ec; color:#27735a; }
 .infoCard:nth-child(3) .infoIcon { background:#ffe8ce; color:#db782e; }
-.infoCard h3 { margin:9px 0 5px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1rem; letter-spacing:-.04em; }
-.infoCard p { margin-bottom:0; color:var(--muted); font-size:.81rem; line-height:1.52; }
+.infoCard h3 { margin:9px 0 6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.05rem; letter-spacing:-.04em; }
+.infoCard p { margin-bottom:0; color:var(--muted); font-size:.85rem; line-height:1.55; }
 
 /* ── Section 2 : comment ça marche ────────────────────────────────────── */
-.stepsSection { padding:44px 0; background:#f5f8f5; }
+.stepsSection { padding:30px 0 36px; background:#f5f8f5; }
 .stepsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
 .stepCard { display:flex; flex-direction:column; padding:16px; border:1px solid #e0e9e2; border-radius:20px; background:#fff; box-shadow:0 12px 26px rgba(20,65,55,.05); }
 .stepTop { display:flex; align-items:flex-start; justify-content:space-between; }
@@ -64,7 +65,7 @@
 .stepCard p { margin-bottom:0; color:var(--muted); line-height:1.5; font-size:.84rem; }
 
 /* ── Section 3 : confiance ────────────────────────────────────────────── */
-.trustSection { padding:48px 0; background:#043f34; }
+.trustSection { padding:34px 0 38px; background:#043f34; }
 .trustSection .kicker { color:#a8cdb7; }
 .trustSection h2 { color:#fff; }
 .trustSection h2 em { color:#f5a861; }
@@ -76,7 +77,7 @@
 .trustList a:hover { text-decoration:underline; text-underline-offset:3px; }
 
 /* ── Section 4 : rémunération ─────────────────────────────────────────── */
-.remunerationSection { padding:44px 0 0; background:#fffdfa; }
+.remunerationSection { padding:30px 0 0; background:#fffdfa; }
 .remunerationCard { max-width:860px; padding:clamp(22px,3.5vw,36px); border-radius:24px; background:#edf5ed; }
 .remunerationCard h2 { margin-bottom:10px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.08; }
 .remunerationCard h2 em { display:block; color:var(--orange); font-style:normal; }
@@ -86,7 +87,7 @@
 .remunerationCard strong { color:#dc762d; font-weight:800; }
 
 /* ── CTA final ────────────────────────────────────────────────────────── */
-.ctaSection { padding:44px 0 48px; background:#fffdfa; }
+.ctaSection { padding:34px 0 38px; background:#fffdfa; }
 .ctaCard { position:relative; display:flex; align-items:center; justify-content:space-between; gap:22px; overflow:hidden; padding:clamp(22px,3.5vw,36px); border-radius:24px; background:#ffead4; }
 .ctaCard > div,.ctaButton { position:relative; z-index:1; }
 .ctaCard > div > p a { color:var(--green); font-weight:800; }
@@ -107,18 +108,18 @@
 }
 @media (max-width:620px) {
   .container { width:min(100% - 34px,1160px); }
-  .hero { padding:22px 0 26px; }
+  .hero { padding:12px 0 14px; }
   .hero h1 { font-size:clamp(2rem,9vw,2.6rem); }
   .heroActions { align-items:stretch; flex-direction:column; max-width:300px; }
   .primaryButton { width:100%; }
-  .heroVisual { min-height:230px; }
-  .benefitCard { width:min(100%,260px); }
-  .percent strong { font-size:3.2rem; }
+  .heroVisual { min-height:150px; }
+  .benefitCard { width:min(100%,244px); }
+  .percent strong { font-size:2.9rem; }
   .coinOne { top:2px; }
   .coinTwo { bottom:0; }
-  .infoSection,.stepsSection { padding:36px 0; }
-  .trustSection { padding:40px 0; }
-  .remunerationSection { padding:36px 0 0; }
+  .infoSection,.stepsSection { padding:26px 0 30px; }
+  .trustSection { padding:32px 0; }
+  .remunerationSection { padding:28px 0 0; }
   .remunerationCard { padding:26px 18px; border-radius:22px; }
   .ctaSection { padding-bottom:40px; }
   .ctaCard { align-items:flex-start; flex-direction:column; padding:26px 20px; border-radius:22px; }
