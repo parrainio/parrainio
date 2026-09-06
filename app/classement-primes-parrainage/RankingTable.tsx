@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import OfferLogo from "@/components/OfferLogo";
 import { formatProductNames } from "@/lib/productNames";
@@ -75,6 +75,25 @@ const SHORT_LINK_LABELS: Record<string, string> = {
 
 export default function RankingTable({ rows, panelHeading, panelLead, updated }: Props) {
   const [activeFamily, setActiveFamily] = useState<string>("Toutes");
+  /** Ligne dont le popover de conditions est épinglé (clic/clavier). */
+  const [openCond, setOpenCond] = useState<string | null>(null);
+
+  /* Fermeture : clic extérieur ou Échap (le bouton lui-même gère son toggle). */
+  useEffect(() => {
+    if (!openCond) return;
+    const onDocClick = (event: MouseEvent) => {
+      if (!(event.target as HTMLElement).closest("[data-cond-popover]")) setOpenCond(null);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenCond(null);
+    };
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openCond]);
 
   const families = useMemo(
     () =>
@@ -166,9 +185,44 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
                       <span className={styles.reverseNone}>—</span>
                     )}
                   </span>
-                  <span className={styles.condShort}>
-                    <span className={styles.cellLabel}>Conditions</span>
-                    <span className={styles.condText}>{row.summary || "Voir la fiche"}</span>
+                  <span
+                    className={styles.condCell}
+                    data-cond-popover=""
+                    data-open={openCond === row.slug || undefined}
+                  >
+                    {row.conditions.length > 0 && (
+                      <button
+                        type="button"
+                        className={styles.condDots}
+                        aria-label={`Conditions essentielles — ${row.name}`}
+                        aria-expanded={openCond === row.slug}
+                        aria-controls={`cond-${row.slug}`}
+                        onClick={(event) => {
+                          /* N'ouvre PAS l'accordéon <details> parent. */
+                          event.preventDefault();
+                          event.stopPropagation();
+                          setOpenCond(openCond === row.slug ? null : row.slug);
+                        }}
+                        onKeyDown={(event) => {
+                          if (event.key === "Escape") setOpenCond(null);
+                        }}
+                      >
+                        ⋯
+                      </button>
+                    )}
+                    <span
+                      id={`cond-${row.slug}`}
+                      className={styles.condPopover}
+                      role="group"
+                      aria-label={`Conditions essentielles — ${row.name}`}
+                    >
+                      <strong>Conditions essentielles</strong>
+                      <ul>
+                        {row.conditions.map((condition) => (
+                          <li key={condition}>{condition}</li>
+                        ))}
+                      </ul>
+                    </span>
                   </span>
                   <span className={styles.chev} aria-hidden="true">▾</span>
                 </summary>
