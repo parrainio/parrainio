@@ -258,7 +258,7 @@
     "category": "Shopping",
     "description": "Beebs est une plateforme de shopping en ligne de seconde main.",
     "partnerReward": "5€ OFFERTS",
-    "parrainioReward": "Aucune pour cette offre",
+    "parrainioReward": null,
     "referralCode": "MATHIUMKTY",
     "referralLink": null,
     "officialWebsiteUrl": "https://www.beebs.app/",
@@ -444,7 +444,7 @@
     "name": "Revolut",
     "category": "Banque",
     "description": "Revolut est une application financière qui propose des comptes bancaires, des virements internationaux et du trading d'actions et de crypto-monnaies.",
-    "partnerReward": "Aucun",
+    "partnerReward": "0 €",
     "parrainioReward": "40 €",
     "referralCode": null,
     "referralLink": "https://revolut.com/referral/?referral-code=audz_y3_3eao!SEP1-26-AR-H3&geo-redirect",
@@ -678,7 +678,8 @@
       "Effectuer au moins 5 paiements ou retraits par carte par mois pendant 3 mois.",
       "Conserver le compte et la carte pendant 1 an."
     ],
-    "parrainioReward": "35 €"
+    "parrainioReward": "5 €",
+    "partnerReward": "Jusqu'à 80 € + 200 € en bons d'achat"
   },
   "engie": {
     "referralCode": "RAD735473",
@@ -698,7 +699,7 @@
       "Renseigner le code lors de la souscription.",
       "Attendre environ 2 mois après l’activation du contrat."
     ],
-    "parrainioReward": "0 €"
+    "parrainioReward": "10 €"
   },
   "myprotein": {
     "referralLink": "https://fr.myprotein.com/referrals.list?applyCode=MATHIEU-R90D",
@@ -739,10 +740,10 @@
     "lastVerifiedAt": "2026-08-30",
     "researchSource": "https://parrainage.co/offers/126373",
     "conditions": [
-      "Créer un nouveau compte Coinbase via le lien ou code.",
-      "Effectuer la vérification d’identité.",
-      "Effectuer l’achat de cryptomonnaie minimum demandé par la campagne dans le délai prévu.",
-      "Le montant du bonus dépend de la campagne et du pays affichés à l’inscription."
+      "Créer un nouveau compte Coinbase via le lien ou code de parrainage.",
+      "Effectuer un dépôt sur le compte Coinbase.",
+      "Acheter ou trader pour 20 € de Bitcoin ou d’une autre cryptomonnaie éligible.",
+      "La récompense est versée après validation du dépôt et du trade éligible par Coinbase."
     ],
     "steps": [
       "Utiliser le lien ou code Coinbase.",
@@ -750,7 +751,7 @@
       "Réaliser l’achat minimum dans le délai de la campagne."
     ],
     "parrainioReward": "5 €",
-    "partnerReward": "Récompense en Bitcoin selon la campagne (jusqu'à 200 $)"
+    "partnerReward": "20 €"
   },
   "coupon-network": {
     "referralCode": "F5YT68",
@@ -888,11 +889,11 @@
     "lastVerifiedAt": "2026-08-30",
     "researchSource": "https://parrainage.co/offers/127092",
     "conditions": [
-      "Le filleul doit ouvrir un compte N26 en utilisant le lien ou code de parrainage.",
-      "Il doit être un nouveau client N26.",
-      "La récompense est déclenchée après un achat qualifiant réalisé avec la carte Mastercard N26.",
-      "Le montant exact de la prime dépend de l'offre affichée dans l'application N26 au moment du parrainage.",
-      "Pour l'offre actuellement documentée, l'achat qualifiant doit être d'au moins 25 €."
+      "Créer un compte N26 via le lien de parrainage (nouveau client, une seule offre par personne).",
+      "Effectuer un premier paiement dans les 30 jours suivant l'ouverture du compte.",
+      "Le reverse Parrainio dépend de l'abonnement choisi par le filleul : il peut être supérieur au montant de base.",
+      "Si le filleul choisit l'abonnement N26 Black, le reverse Parrainio est de 22,50 € — ce montant n'est pas systématique et s'applique uniquement à cet abonnement.",
+      "Le reverse est versé après validation du parrainage par N26."
     ],
     "steps": [
       "Ouvrir le compte N26 depuis le lien de parrainage.",
@@ -900,7 +901,8 @@
       "Utiliser la carte Mastercard N26 pour effectuer l'achat qualifiant.",
       "Attendre la validation de l'achat pour le déclenchement de la prime."
     ],
-    "parrainioReward": "12,50 €"
+    "parrainioReward": "0,25 €",
+    "partnerReward": "0 €"
   },
   "poulpeo": {
     "referralLink": "https://www.poulpeo.com/p/qas4ab",
@@ -1043,7 +1045,8 @@
       "Vérifier que le transfert respecte le seuil de la page d'invitation.",
       "Attendre la confirmation d'éligibilité.",
       "Réclamer la récompense dans l'année suivant l'éligibilité."
-    ]
+    ],
+    "parrainioReward": "10 €"
   },
   "unibet": {
     "referralLink": "https://www.unibet.fr/inscription/?campaign=280526&parrain=6EB8BDE7346E88CB",
@@ -1255,28 +1258,6 @@
     ],
     "parrainioReward": "5 €"
   },
-  "gmf": {
-    "referralCode": "postal",
-    "lastVerifiedAt": "2026-08-30",
-    "researchSource": "https://parrainage.co/offers/121572",
-    "partnerReward": "25 €",
-    "conditions": [
-      "L'offre est réservée aux clients GMF pouvant parrainer un proche.",
-      "Le filleul doit souscrire un contrat GMF éligible dans les 6 mois suivant son parrainage.",
-      "Les contrats éligibles sont Auto PASS, Moto PASS, Habitation DOMO PASS ou AMPHI PASS, Santé PASS et Prévoyance ATOUT PRÉV.",
-      "Pour la campagne jusqu'au 30 septembre 2026, le parrain et le filleul reçoivent chacun 2 paniers cadeaux d'une valeur unitaire de 25 €.",
-      "Les paniers peuvent être transformés en carte cadeau ou en cadeau du catalogue GMF.",
-      "Le filleul bénéficie des paniers une fois devenu sociétaire."
-    ],
-    "steps": [
-      "Le parrain récupère son code dans son espace client GMF.",
-      "Le filleul utilise l'invitation et choisit un contrat éligible.",
-      "Souscrire le contrat dans les 6 mois suivant le parrainage.",
-      "Devenir sociétaire GMF.",
-      "Recevoir les deux paniers cadeaux de 25 €."
-    ],
-    "parrainioReward": "5 €"
-  },
   "raizers": {
     "referralCode": "Raizers",
     "lastVerifiedAt": "2026-08-30",
@@ -1289,7 +1270,8 @@
       "Le deuxième investissement déclenche une seconde prime de 50 €.",
       "Le filleul peut donc recevoir jusqu'à 100 € : 50 € après le premier investissement d'au moins 1 000 € et 50 € après le deuxième.",
       "Le parrain et le filleul doivent être investisseurs.",
-      "L'opération sur laquelle le filleul investit doit être financée pour que la prime soit versée."
+      "L'opération sur laquelle le filleul investit doit être financée pour que la prime soit versée.",
+      "Parrainio reverse en plus 5 € au parrain pour chaque premier investissement d’au moins 1 000 € réalisé par un filleul, dans la limite de 2 fois (jusqu’à 10 € au total)."
     ],
     "steps": [
       "Créer son compte Raizers.",
@@ -1298,8 +1280,8 @@
       "Attendre le financement de l'opération.",
       "Effectuer un deuxième investissement pour débloquer la seconde tranche de 50 €."
     ],
-    "parrainioReward": "7,50 € par palier atteint",
-    "partnerReward": "Jusqu'à 400 € selon l'offre"
+    "parrainioReward": "5 € (jusqu'à 10 € si 2 projets)",
+    "partnerReward": "50 € (jusqu'à 100 € si 2 projets)"
   },
   "choose": {
     "referralCode": "MATHIEUM014",
@@ -1437,7 +1419,8 @@
       "Créer le compte.",
       "Saisir le code lors du premier achat de crédits.",
       "Effectuer le premier paiement."
-    ]
+    ],
+    "partnerReward": "2 crédits"
   },
   "widilo": {
     "referralLink": "https://www.widilo.fr/i/L1WA0K",
@@ -1487,7 +1470,7 @@
       "Compléter les activités rémunérées correspondant à la campagne."
     ],
     "parrainioReward": "1 €",
-    "partnerReward": "5 € après avoir atteint 300 SB dans les 30 premiers jours + 2 € de bonus avec l'installation de l'extension SwagButton ; paiement possible dès 5 €"
+    "partnerReward": "Jusqu'à 7 €"
   },
   "crypto-com": {
     "referralLink": "https://crypto.com/app/pwh4bxfcya",
@@ -1689,13 +1672,15 @@
     "conditions": [
       "Créer un nouveau compte FidMe avec le code AKFW2M.",
       "Activer les avantages ou le parrainage dans l’application et effectuer l’action qualifiante indiquée.",
-      "Le bonus dépend de la campagne affichée dans l’application."
+      "Le bonus dépend de la campagne affichée dans l’application.",
+      "En utilisant le programme de parrainage, les utilisateurs peuvent gagner jusqu’à 400 € en fonction des actions réalisées."
     ],
     "steps": [
       "Utiliser le code AKFW2M.",
       "Activer le parrainage dans l’application.",
       "Effectuer l’action qualifiante affichée."
-    ]
+    ],
+    "partnerReward": "40 fidz à l'inscription avec mon compte"
   },
   "speedo": {
     "referralLink": "https://fr.speedo.com/referrals.list?applyCode=MATHIEU-R6I",
@@ -2031,8 +2016,8 @@
       "Vérifier l’identité.",
       "Réaliser l’investissement minimum affiché."
     ],
-    "parrainioReward": "10 € lors de votre premier achat avec votre propre argent",
-    "partnerReward": "50 € juste en renseignant le code de parrainage"
+    "parrainioReward": "0 €",
+    "partnerReward": "50 € directement"
   },
   "sumeria": {
     "referralCode": "Sumeria",
@@ -2153,8 +2138,8 @@
       "Valider le compte.",
       "Effectuer une transaction d’au moins 100 € dans les 7 jours."
     ],
-    "partnerReward": "Jusqu’à 500 € en Bitcoin après avoir tradé 100 € de crypto",
-    "parrainioReward": "25 % de ma prime, jusqu’à 125 €"
+    "partnerReward": "Jusqu'à 500 €",
+    "parrainioReward": "Jusqu'à 125 €"
   },
   "scrambly": {
     "referralLink": "https://go.scrambly.io/BMMq2L",
@@ -2190,25 +2175,6 @@
     ],
     "researchSource": "four-markdown-files",
     "parrainioReward": "0 €"
-  },
-  "hello-fresh": {
-    "lastVerifiedAt": "2026-08-30",
-    "officialWebsiteUrl": "https://www.hellofresh.fr/",
-    "description": "HelloFresh livre des box de recettes et ingrédients à cuisiner chez soi.",
-    "steps": [
-      "Utiliser le lien HelloFresh.",
-      "Créer le compte.",
-      "Passer et payer la première box.",
-      "Respecter les conditions de maintien indiquées."
-    ],
-    "conditions": [
-      "Créer un nouveau compte HelloFresh via le lien de parrainage.",
-      "Passer une première commande ou box éligible.",
-      "Le montant des crédits ou réductions dépend de l’offre active."
-    ],
-    "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €",
-    "partnerReward": "Réduction sur les premières box selon l'offre active"
   },
   "phenix": {
     "lastVerifiedAt": "2026-08-30",
@@ -2317,7 +2283,8 @@
       "La récompense est indiquée dans l’invitation in-app."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "150 €"
+    "parrainioReward": "150 €",
+    "partnerReward": "0 €"
   },
   "reevolt": {
     "lastVerifiedAt": "2026-08-30",
