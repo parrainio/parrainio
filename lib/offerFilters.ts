@@ -133,7 +133,118 @@ function hasMinimumPurchase(offer: Offer): boolean {
   return false;
 }
 
+/* ── Classification explicite validée (classement « catégories de conditions ») ──
+   Source : classement validé offre par offre. Ce map est PRIORITAIRE sur la
+   dérivation par regex ci-dessus pour les clés de USER_CONDITION_KEYS :
+   - clé présente (true)  → l'offre est classée dans la catégorie ;
+   - clé absente          → l'offre n'y est PAS classée, même si le texte de ses
+     conditions la ferait dériver (ex. banques exclues de « Sans engagement ») ;
+   - objet vide           → l'offre ne doit apparaître dans aucune de ces catégories.
+   « minPurchase » (Achat minimum requis) ne fait pas partie de ce classement :
+   il reste dérivé des conditions pour toutes les offres.
+   AUCUNE donnée d'offre n'est modifiée. */
+
+const USER_CONDITION_KEYS = [
+  "noDeposit",
+  "deposit100Plus",
+  "noMonthlyPayment",
+  "noCommitment",
+  "firstOrder",
+] as const satisfies readonly ConditionKey[];
+
+const EXPLICIT_CONDITION_CLASSIFICATION: Partial<
+  Record<string, Partial<Record<(typeof USER_CONDITION_KEYS)[number], true>>>
+> = {
+  /* Banques / Finance — règle : une banque n'est JAMAIS « Sans engagement » sauf Revolut. */
+  boursobank: { noDeposit: true, noMonthlyPayment: true },
+  fortuneo: { deposit100Plus: true },
+  "hello-bank": { noDeposit: true },
+  revolut: { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  "trade-republic": { noMonthlyPayment: true, noCommitment: true },
+  n26: { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  "crypto-com": { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  swissborg: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  monabanq: { noDeposit: true },
+  etoro: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  kraken: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  bitpanda: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  bybit: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  coinhouse: { deposit100Plus: true, noMonthlyPayment: true, noCommitment: true },
+  "revolut-business": { noMonthlyPayment: true, noCommitment: true },
+  sumeria: { noMonthlyPayment: true, noCommitment: true },
+  "assurancevie-com": { deposit100Plus: true, noCommitment: true },
+  "caisse-depargne-loire-centre": { noDeposit: true, noMonthlyPayment: true },
+  "credit-agricole-centre-loire": { noDeposit: true, noMonthlyPayment: true },
+
+  /* Paris sportifs / jeux */
+  winamax: { noMonthlyPayment: true, noCommitment: true },
+  betclic: { noMonthlyPayment: true, noCommitment: true },
+  unibet: { noMonthlyPayment: true, noCommitment: true },
+  pmu: { noMonthlyPayment: true, noCommitment: true },
+  betsson: { noMonthlyPayment: true, noCommitment: true },
+
+  /* Shopping / services / autres */
+  igraal: { noDeposit: true, noMonthlyPayment: true, noCommitment: true, firstOrder: true },
+  paypal: { noCommitment: true, firstOrder: true },
+  wise: { noMonthlyPayment: true, noCommitment: true },
+  widilo: { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  fizzer: { firstOrder: true },
+  topcashback: { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  "instant-gaming": { firstOrder: true },
+  freecash: { noDeposit: true },
+  "capital-koala": { noDeposit: true },
+  "hello-watt": { noDeposit: true, noMonthlyPayment: true, noCommitment: true, firstOrder: true },
+  "bebe-boutik": { firstOrder: true },
+  "meilleurtaux-com": { firstOrder: true },
+  whatnot: { firstOrder: true },
+  "too-good-to-go": { firstOrder: true },
+  placesdescartes: { firstOrder: true },
+  sumup: { firstOrder: true },
+  pourdebon: { firstOrder: true },
+  nutripure: { firstOrder: true },
+  becquet: { firstOrder: true },
+  "systeme-io": { firstOrder: true },
+  "liberte-watts": { firstOrder: true },
+  klarna: { noMonthlyPayment: true, noCommitment: true },
+  scrambly: { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  "splint-invest": { noDeposit: true, noMonthlyPayment: true, noCommitment: true },
+  ludocortex: { firstOrder: true },
+
+  /* Ne pas classer dans ces catégories (décision explicite, hors dérivation). */
+  totalenergies: {},
+  sfr: {},
+  "macadam-4": {},
+  "coupon-network": {},
+  fidme: {},
+  "private-sport-shop": {},
+  reevolt: {},
+  edf: {},
+  engie: {},
+  bricks: {},
+};
+
+/** Résout une catégorie pour une offre : map explicite d'abord, dérivation sinon.
+ *  « minPurchase » reste toujours dérivé des conditions. */
+export function resolveConditionCategory(offer: Offer, key: ConditionKey): boolean {
+  if (key !== "minPurchase") {
+    const explicit = EXPLICIT_CONDITION_CLASSIFICATION[offer.slug];
+    if (explicit) return explicit[key] === true;
+  }
+  return DERIVED_PREDICATES[key](offer);
+}
+
 export const CONDITION_PREDICATES: Record<ConditionKey, (offer: Offer) => boolean> = {
+  noDeposit: (offer) => resolveConditionCategory(offer, "noDeposit"),
+  noMonthlyPayment: (offer) => resolveConditionCategory(offer, "noMonthlyPayment"),
+  noCommitment: (offer) => resolveConditionCategory(offer, "noCommitment"),
+  firstOrder: (offer) => resolveConditionCategory(offer, "firstOrder"),
+  deposit100Plus: (offer) => resolveConditionCategory(offer, "deposit100Plus"),
+  minPurchase: hasMinimumPurchase,
+};
+
+/* Prédicats dérivés des conditions textuelles (utilisés pour les offres hors
+   classification explicite et pour « minPurchase »). */
+const DERIVED_PREDICATES: Record<ConditionKey, (offer: Offer) => boolean> = {
   noDeposit: isNoDeposit,
   noMonthlyPayment: isNoMonthlyPayment,
   noCommitment: isNoCommitment,
