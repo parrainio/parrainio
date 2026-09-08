@@ -6,6 +6,7 @@ import OfferLogo from "@/components/OfferLogo";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
+import { getTotalBenefit, NON_PRIME_SLUGS } from "@/lib/offerFilters";
 import styles from "./page.module.css";
 import RankingTable, { type RankingRow } from "./RankingTable";
 
@@ -32,16 +33,6 @@ const VARIABLE_PATTERN =
   /(selon (la campagne|l'offre active|les paliers|le programme|le territoire|la campagne active)|variable|paliers|en bitcoin selon|btc selon)/i;
 const PERCENT_PATTERN = /%\s*(de réduction|de remise|sur votre)/i;
 
-// Avantages non assimilables à une prime (remise de frais, etc.).
-const NON_BONUS_SLUGS = new Set(["wise"]);
-
-function toEuroValue(reward: string): number | null {
-  const match = reward.match(/(\d[\d\s.,]*)\s*€/);
-  if (!match) return null;
-  const parsed = parseFloat(match[1].replace(/\s/g, "").replace(",", "."));
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
 function rowOf(offer: ManagedOffer): RankingRow {
   const conditions = (offer.conditions ?? []).filter(Boolean);
   const summary = conditions.slice(0, 2).join(" ");
@@ -60,39 +51,40 @@ function rowOf(offer: ManagedOffer): RankingRow {
 }
 
 export default function ClassementPrimesPage() {
-  const euros: { offer: ManagedOffer; euroValue: number }[] = [];
+  const euros: { offer: ManagedOffer; total: number }[] = [];
   const others: ManagedOffer[] = [];
   const variables: ManagedOffer[] = [];
 
   for (const offer of getManagedOffers()) {
     const reward = (offer.partnerReward ?? "").trim();
+    const reverse = (offer.parrainioReward ?? "").trim();
+    // Classement par AVANTAGE TOTAL : prime filleul + Parraino reverse.
+    // Une offre avec 0 € de prime mais un reverse chiffré reste classée
+    // (ex. Revolut 0 € + 40 € → 40 € d'avantage total).
     if (
-      !reward ||
-      EXCLUDED_PATTERN.test(reward) ||
-      /^0([,.]0+)?\s*€?$/.test(reward) ||
-      NON_BONUS_SLUGS.has(offer.slug)
+      (!reward || EXCLUDED_PATTERN.test(reward)) &&
+      (!reverse || EXCLUDED_PATTERN.test(reverse))
     ) {
       continue;
     }
-    if (VARIABLE_PATTERN.test(reward)) {
+    if (NON_PRIME_SLUGS.has(offer.slug)) {
+      continue;
+    }
+    if (VARIABLE_PATTERN.test(reward) || VARIABLE_PATTERN.test(reverse)) {
       variables.push(offer);
       continue;
     }
-    if (PERCENT_PATTERN.test(reward)) {
+    const total = getTotalBenefit(offer);
+    if (total === null) {
       others.push(offer);
       continue;
     }
-    const euroValue = toEuroValue(reward);
-    if (euroValue === null) {
-      others.push(offer);
-      continue;
-    }
-    euros.push({ offer, euroValue });
+    euros.push({ offer, total });
   }
 
   euros.sort(
     (a, b) =>
-      b.euroValue - a.euroValue ||
+      b.total - a.total ||
       a.offer.name.localeCompare(b.offer.name, "fr"),
   );
 
@@ -121,10 +113,9 @@ export default function ClassementPrimesPage() {
             }
             panelLead={
               <>
-                Toutes les offres actuellement documentées sur Parrainio dont
-                l&apos;avantage filleul est chiffré, classées du montant le plus
-                élevé au plus bas. Pour chaque offre : la prime, le reversement
-                Parrainio lorsqu&apos;il existe et les conditions essentielles.
+                Classement selon l&apos;avantage total potentiel : prime filleul
+                + Parraino reverse. Pour chaque offre, les deux montants restent
+                affichés séparément avec les conditions essentielles.
               </>
             }
             updated={LAST_UPDATED}
@@ -136,8 +127,8 @@ export default function ClassementPrimesPage() {
         <div className={styles.container}>
           <ul>
             <li>
-              Le classement repose uniquement sur les offres actuellement
-              documentées sur Parrainio, avec un avantage filleul chiffré.
+              Le classement repose sur l&apos;avantage total potentiel :
+              prime filleul + Parraino reverse, additionnés.
             </li>
             <li>
               Les montants peuvent évoluer selon les campagnes des partenaires :

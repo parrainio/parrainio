@@ -117,8 +117,9 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
         <h1 className={styles.panelTitle}>{panelHeading}</h1>
         <p className={styles.panelLead}>{panelLead}</p>
         <p className={styles.panelCount}>
-          <strong>{rows.length}</strong> offres avec un avantage filleul
-          exprimé en euros, classées par montant décroissant.
+          <strong>{rows.length}</strong> offres avec un avantage total exprimé
+          en euros, classées par avantage total décroissant (prime filleul +
+          reversement Parrainio).
         </p>
         <p className={styles.updated}>Données vérifiées et mises à jour le {updated}.</p>
         <label className={styles.selectLabel} htmlFor="classement-famille">

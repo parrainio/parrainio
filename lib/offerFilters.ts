@@ -142,13 +142,59 @@ export const CONDITION_PREDICATES: Record<ConditionKey, (offer: Offer) => boolea
   minPurchase: hasMinimumPurchase,
 };
 
-/* ── Prime : valeur numérique de l'avantage principal affiché ────────────────
-   Uniquement les montants en € (un pourcentage n'est pas un montant de prime). */
-export function primeValue(offer: Offer): number | null {
-  const m = offer.partnerReward?.match(/(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:€|euros)/);
-  if (!m) return null;
-  const value = Number.parseFloat(m[1].replace(/[\u00a0\u202f\s]/g, "").replace(",", "."));
-  return Number.isFinite(value) ? value : null;
+/* ── Avantage total (comparaison classement + filtres de montant) ────────────
+   AVANTAGE TOTAL = prime filleul + Parraino reverse.
+
+   Règle de lecture d'un champ de récompense : on retient la valeur € la plus
+   élevée RÉELLEMENT ÉCRITE dans le texte (« jusqu'à 160 € » → 160, « entre 1 €
+   et 50 € » → 50, « Fosfo : 17,50 € ; Gold : 27 € » → 27), sans jamais
+   additionner ni inventer de montant. Les seuils d'achat (« 10 € dès 40 €
+   d'achat ») ne sont pas des récompenses : ils sont ignorés au profit du
+   montant de la récompense elle-même. Un pourcentage sans € ne compte pas. */
+function rewardEuroMax(text: string | null | undefined): number | null {
+  if (!text) return null;
+  let max: number | null = null;
+  const re = /(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:€|euros)/gi;
+  for (const m of text.matchAll(re)) {
+    const start = m.index ?? 0;
+    const before = text.slice(Math.max(0, start - 12), start);
+    const after = text.slice(start + m[0].length, start + m[0].length + 16);
+    // Seuil d'achat / de dépôt, pas une récompense (« 10 € dès 40 € d'achat »).
+    if (/(?:dès|depuis)\s*$/i.test(before)) continue;
+    if (/(?:dép[ôo]t|versement|recharge)\s+d[e']\s*$/i.test(before)) continue;
+    if (/^\s*(?:d'achat|de commande|de dép[ôo]t|de recharge|minimum)/i.test(after)) continue;
+    const value = Number.parseFloat(m[1].replace(/[\u00a0\u202f\s]/g, "").replace(",", "."));
+    if (Number.isFinite(value) && (max === null || value > max)) max = value;
+  }
+  return max;
+}
+
+/** Valeur € de la prime filleul (max réellement représenté, seuils exclus). */
+export function primeValue(offer: Pick<Offer, "partnerReward">): number | null {
+  return rewardEuroMax(offer.partnerReward);
+}
+
+/** Valeur € du reversement Parrainio (null si absent ou non chiffré en €). */
+export function reverseValue(offer: Pick<Offer, "parrainioReward">): number | null {
+  return rewardEuroMax(offer.parrainioReward);
+}
+
+/** Avantages non assimilables à une prime (remise de frais, etc.) — exclus du
+ *  classement et des filtres de montant, cohérent avec la fiche qui affiche
+ *  l'avantage réel. */
+export const NON_PRIME_SLUGS: ReadonlySet<string> = new Set(["wise"]);
+
+/** Avantage total = prime filleul + Parraino reverse (valeurs maximales des
+ *  données, sans invention). null uniquement si AUCUN des deux n'est chiffré
+ *  en € ; une prime explicite à 0 € compte comme 0, pas comme null — une offre
+ *  « 0 € + 40 € de reverse » vaut donc bien 40 € d'avantage total. */
+export function getTotalBenefit(
+  offer: Pick<Offer, "partnerReward" | "parrainioReward">,
+): number | null {
+  const prime = primeValue(offer);
+  const reverse = reverseValue(offer);
+  if (prime === null && reverse === null) return null;
+  return (prime ?? 0) + (reverse ?? 0);
 }
 
 export type CatalogFilters = {
@@ -164,8 +210,9 @@ export function filterOffers(
   const query = normalizeOfferSearch(search);
   return offers.filter((offer) => {
     if (primeThreshold !== null) {
-      const value = primeValue(offer);
-      if (value === null || value <= primeThreshold) return false;
+      // Les filtres de montant portent sur l'AVANTAGE TOTAL (prime + reverse).
+      const total = NON_PRIME_SLUGS.has(offer.slug) ? null : getTotalBenefit(offer);
+      if (total === null || total <= primeThreshold) return false;
     }
     if (condition !== null && !CONDITION_PREDICATES[condition](offer)) return false;
     if (!query) return true;
