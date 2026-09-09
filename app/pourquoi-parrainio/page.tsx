@@ -31,8 +31,8 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
 
 const steps = [
   { number: "01", title: "Choisissez une offre", text: "Parcourez les offres et repérez celle qui vous correspond.", icon: "search" as const },
-  { number: "02", title: "Utilisez le lien ou le code de parrainage", text: "Inscrivez-vous via le lien de parrainage ou le code indiqué sur la fiche.", icon: "link" as const },
-  { number: "03", title: "Respectez les conditions et recevez votre avantage", text: "Une fois les conditions remplies, vous recevez votre prime — et le reversement Parrainio lorsque l’offre le prévoit.", icon: "gift" as const },
+  { number: "02", title: "Utilisez le lien ou le code de parrainage", text: "Inscrivez-vous via le lien ou le code indiqué sur la fiche.", icon: "link" as const },
+  { number: "03", title: "Respectez les conditions et recevez votre avantage", text: "Une fois les conditions remplies, recevez votre prime — et le reversement Parrainio lorsque l’offre le prévoit.", icon: "gift" as const },
 ];
 
 const infoBlocks = [
@@ -95,7 +95,8 @@ export default function PourquoiParrainioPage() {
               <div className={styles.benefitCard}>
                 <div className={styles.benefitCardTop}><span>Votre avantage Parrainio</span><span className={styles.cardMark}>P</span></div>
                 <div className={styles.percent}><strong>25</strong><span>%</span></div>
-                <p>Jusqu&apos;à 25 % de notre commission peut être reversée.</p>
+                <p className={styles.benefitMain}>Jusqu&apos;à 25 % de notre commission reversée</p>
+                <p className={styles.benefitSub}>Votre bonus + jusqu&apos;à 25 % de notre commission</p>
                 <div className={styles.cardBottom}><span><Icon name="check" size={16} /> Selon les conditions de l&apos;offre</span><Icon name="spark" size={18} /></div>
               </div>
               <span className={styles.coinOne} aria-hidden="true">€</span>
@@ -174,13 +175,15 @@ export default function PourquoiParrainioPage() {
               commission.
             </p>
             <p>
-              Selon l&apos;offre, une partie de cette commission est reversée à l&apos;utilisateur :
-              c&apos;est le «&nbsp;Parrainio reverse&nbsp;» affiché sur chaque fiche, en plus de la
-              prime filleul.
+              Selon l&apos;offre, nous vous reversons une partie de cette commission en complément
+              de votre avantage filleul.
             </p>
             <p>
-              Jusqu&apos;à <strong>25&nbsp;%</strong> de cette commission peut donc compléter votre
-              avantage, selon les conditions de l&apos;offre.
+              C&apos;est ce que nous appelons le «&nbsp;Parrainio reverse&nbsp;».
+            </p>
+            <p>
+              Jusqu&apos;à <strong>25&nbsp;%</strong> de notre commission peut ainsi vous être
+              reversée, selon les conditions de l&apos;offre.
             </p>
           </div>
         </div>

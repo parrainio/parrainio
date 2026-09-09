@@ -29,6 +29,8 @@
 .percent strong { font-size:2.7rem; }
 .percent span { margin-left:5px; margin-bottom:5px; color:#f4aa64; font-size:1.35rem; letter-spacing:-.07em; }
 .benefitCard > p { position:relative; z-index:1; max-width:210px; margin-bottom:9px; color:#c4ddcf; font-size:.78rem; line-height:1.55; }
+.benefitCard > p.benefitMain { margin-bottom:4px; color:#e7f3ea; font-size:.84rem; font-weight:700; line-height:1.4; }
+.benefitCard > p.benefitSub { margin-bottom:9px; color:#c4ddcf; font-size:.74rem; line-height:1.45; }
 .cardBottom { padding-top:8px; border-top:1px solid rgba(255,255,255,.13); color:#aed1be; font-size:.65rem; }
 .cardBottom span { display:inline-flex; align-items:center; gap:6px; }
 .cardBottom > svg { color:#f3a45e; }
@@ -64,30 +66,30 @@
 .stepCard h3 { margin:13px 0 6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.04rem; letter-spacing:-.04em; }
 .stepCard p { margin-bottom:0; color:var(--muted); line-height:1.5; font-size:.84rem; }
 
-/* ── Section 3 : confiance ────────────────────────────────────────────── */
-.trustSection { padding:34px 0 38px; background:#043f34; }
+/* ── Section 3 : confiance (compactée) ────────────────────────────────── */
+.trustSection { padding:26px 0 30px; background:#043f34; }
 .trustSection .kicker { color:#a8cdb7; }
 .trustSection h2 { color:#fff; }
 .trustSection h2 em { color:#f5a861; }
 .trustSection .sectionHead > p:not(.kicker) { color:#b9d0c5; }
-.trustList { max-width:780px; margin:0; padding:0; list-style:none; display:grid; gap:9px; }
-.trustList li { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; border:1px solid rgba(255,255,255,.1); border-radius:14px; background:rgba(255,255,255,.07); color:#d7e6dc; font-size:.84rem; line-height:1.5; }
+.trustList { max-width:780px; margin:0; padding:0; list-style:none; display:grid; gap:7px; }
+.trustList li { display:flex; align-items:flex-start; gap:12px; padding:10px 14px; border:1px solid rgba(255,255,255,.1); border-radius:14px; background:rgba(255,255,255,.07); color:#d7e6dc; font-size:.84rem; line-height:1.5; }
 .trustIcon { flex:none; width:26px; height:26px; display:grid; place-items:center; margin-top:1px; border-radius:50%; background:rgba(245,168,97,.16); color:#f5a861; }
 .trustList a { color:#f5a861; font-weight:800; text-decoration:none; }
 .trustList a:hover { text-decoration:underline; text-underline-offset:3px; }
 
 /* ── Section 4 : rémunération ─────────────────────────────────────────── */
-.remunerationSection { padding:30px 0 0; background:#fffdfa; }
+.remunerationSection { padding:26px 0 0; background:#fffdfa; }
 .remunerationCard { max-width:860px; padding:clamp(22px,3.5vw,36px); border-radius:24px; background:#edf5ed; }
 .remunerationCard h2 { margin-bottom:10px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.08; }
 .remunerationCard h2 em { display:block; color:var(--orange); font-style:normal; }
-.remunerationCard .kicker { margin-bottom:8px; }
-.remunerationCard p { max-width:640px; margin-bottom:8px; color:#41584f; font-size:.92rem; line-height:1.55; }
+.remunerationCard .kicker { margin-bottom:6px; }
+.remunerationCard p { max-width:640px; margin-bottom:6px; color:#41584f; font-size:.92rem; line-height:1.5; }
 .remunerationCard p:last-child { margin-bottom:0; }
 .remunerationCard strong { color:#dc762d; font-weight:800; }
 
-/* ── CTA final ────────────────────────────────────────────────────────── */
-.ctaSection { padding:34px 0 38px; background:#fffdfa; }
+/* ── CTA final (rapproché) ────────────────────────────────────────────── */
+.ctaSection { padding:26px 0 38px; background:#fffdfa; }
 .ctaCard { position:relative; display:flex; align-items:center; justify-content:space-between; gap:22px; overflow:hidden; padding:clamp(22px,3.5vw,36px); border-radius:24px; background:#ffead4; }
 .ctaCard > div,.ctaButton { position:relative; z-index:1; }
 .ctaCard > div > p a { color:var(--green); font-weight:800; }
@@ -118,8 +120,8 @@
   .coinOne { top:2px; }
   .coinTwo { bottom:0; }
   .infoSection,.stepsSection { padding:26px 0 30px; }
-  .trustSection { padding:32px 0; }
-  .remunerationSection { padding:28px 0 0; }
+  .trustSection { padding:26px 0; }
+  .remunerationSection { padding:24px 0 0; }
   .remunerationCard { padding:26px 18px; border-radius:22px; }
   .ctaSection { padding-bottom:40px; }
   .ctaCard { align-items:flex-start; flex-direction:column; padding:26px 20px; border-radius:22px; }
