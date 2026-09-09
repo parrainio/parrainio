@@ -1,0 +1,241 @@
+/* Accès « Mes favoris » — bouton flottant + panneau compact.
+   Réutilise les tokens du site : vert #075846, orange #ef873e, fond #fffdfa. */
+
+.dockButton {
+  position: fixed;
+  /* Sous le header (42px + marge) et au-dessus du contenu ; à droite. */
+  top: 58px;
+  right: 14px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(7, 88, 70, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 253, 250, 0.94);
+  color: #075846;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(28, 61, 48, 0.12);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.dockButton:hover {
+  box-shadow: 0 10px 22px rgba(28, 61, 48, 0.16);
+  transform: translateY(-1px);
+}
+
+.dockButton .heart {
+  font-size: 0.92em;
+  line-height: 1;
+  color: #ef873e;
+}
+
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ef873e;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+/* ── Panneau ─────────────────────────────────────────────────────────────── */
+
+.panel {
+  position: fixed;
+  top: 96px;
+  right: 14px;
+  z-index: 60;
+  width: min(330px, calc(100vw - 28px));
+  max-height: min(480px, calc(100dvh - 110px));
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dfe9e1;
+  border-radius: 16px;
+  background: #fffdfa;
+  box-shadow: 0 18px 40px rgba(28, 61, 48, 0.16);
+  overflow: hidden;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(7, 88, 70, 0.08);
+}
+
+.panelTitle { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.panelTitle strong { color: #075846; font-size: 0.9rem; }
+.panelSub { color: #637870; font-size: 0.72rem; white-space: nowrap; }
+
+.close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 8px;
+  background: #f2f7f2;
+  color: #637870;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.close:hover { color: #075846; background: #e6f1e8; }
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 12px;
+}
+.item:hover { background: #f2f7f2; }
+
+.itemLink {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  flex: 1;
+  padding: 7px 6px;
+  color: inherit;
+  text-decoration: none;
+}
+.itemLink:hover { text-decoration: none; }
+
+.itemInfo { display: flex; flex-direction: column; min-width: 0; }
+.itemInfo strong { font-size: 0.8rem; color: #1c3d30; }
+.itemReward {
+  font-size: 0.68rem;
+  color: #637870;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #9db3a9;
+  font: inherit;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+.remove:hover { color: #b4451f; background: #fbeee6; }
+
+.panelFoot {
+  padding: 10px 14px;
+  border-top: 1px solid rgba(7, 88, 70, 0.08);
+  background: #f8fbf8;
+}
+
+.seeAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: 11px;
+  background: #075846;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 17px rgba(7, 88, 70, 0.17);
+}
+.seeAll:hover { background: #043f34; }
+
+/* ── État vide ───────────────────────────────────────────────────────────── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.empty p { margin: 0; color: #1c3d30; font-size: 0.85rem; font-weight: 700; }
+.empty small { color: #637870; font-size: 0.72rem; }
+
+.cta {
+  align-self: center;
+  margin-top: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(7, 88, 70, 0.16);
+  color: #075846;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: #fff;
+}
+.cta:hover { background: #e6f1e8; }
+
+/* ── Mobile : drawer compact ancré en haut à droite ──────────────────────── */
+
+@media (max-width: 620px) {
+  .dockButton {
+    top: auto;
+    bottom: 14px;
+    height: 40px;
+    padding: 0 13px;
+    font-size: 0.82rem;
+  }
+
+  .panel {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    width: auto;
+    max-height: min(430px, calc(100dvh - 92px));
+  }
+}
+
+/* ── Page /favoris : rangée « Revenir aux offres » ────────────────────── */
+
+.browseAgain {
+  display: flex;
+  justify-content: center;
+  margin: 34px 0 10px;
+}
+
+/* ── Accessibilité : focus visible cohérent avec le site ─────────────────── */
+
+.dockButton:focus-visible,
+.close:focus-visible,
+.remove:focus-visible,
+.seeAll:focus-visible,
+.cta:focus-visible,
+.itemLink:focus-visible {
+  outline: 2px solid #ef873e;
+  outline-offset: 2px;
+}

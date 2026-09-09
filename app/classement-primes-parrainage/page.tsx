@@ -9,6 +9,7 @@ import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import { getTotalBenefit, NON_PRIME_SLUGS } from "@/lib/offerFilters";
 import styles from "./page.module.css";
 import RankingTable, { type RankingRow } from "./RankingTable";
+import FavoritesDock from "@/components/FavoritesDock";
 
 export const metadata: Metadata = {
   title: "Classement des primes de parrainage | Parrainio",
@@ -91,6 +92,7 @@ export default function ClassementPrimesPage() {
   return (
     <main className={styles.page}>
       <PublicHeader active="ranking" />
+      <FavoritesDock />
 
       <div className={styles.slimTop}>
         <div className={styles.container}>

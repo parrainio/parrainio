@@ -11,6 +11,7 @@ import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferFilterBar from "@/components/OfferFilterBar";
 import FavoriteButton from "@/components/FavoriteButton";
+import FavoritesDock from "@/components/FavoritesDock";
 import CopyTextButton from "@/components/CopyTextButton";
 import { formatProductNames, parseProductReverses } from "@/lib/productNames";
 import {
@@ -187,6 +188,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <PublicHeader active="offers" />
+      <FavoritesDock />
 
       {/* HERO */}
       <section className={styles.hero}>

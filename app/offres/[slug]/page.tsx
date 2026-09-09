@@ -27,6 +27,7 @@ import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
 import ReferralRequestForm from "@/components/ReferralRequestForm";
 import PublicHeader from "@/components/PublicHeader";
+import FavoritesDock from "@/components/FavoritesDock";
 import SiteFooter from "@/components/SiteFooter";
 import VerificationBadge from "@/components/VerificationBadge";
 import OfferChangeAlert from "@/components/OfferChangeAlert";
@@ -110,6 +111,7 @@ export default async function OfferPage({
   return (
     <main className={styles.page}>
       <PublicHeader />
+      <FavoritesDock />
 
       <section className={styles.offerSection}>
         <div className={styles.container}>

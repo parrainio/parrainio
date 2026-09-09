@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
+import FavoritesDock from "@/components/FavoritesDock";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
 import FavoriteButton from "@/components/FavoriteButton";
 import OfferLogo from "@/components/OfferLogo";
@@ -100,6 +101,7 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
     <main className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PublicHeader active="offers" />
+      <FavoritesDock />
 
       {/* HERO compact */}
       <section className={styles.hero}>
