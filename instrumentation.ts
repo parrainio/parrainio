@@ -52,10 +52,38 @@ export async function register() {
       if (!result.smtpReady && result.outcomes.some((o) => o.changedFields.length > 0)) {
         console.warn("[alerts] SMTP non configuré : les changements détectés n'ont pas pu être notifiés par e-mail.");
       }
+      return result;
     } catch (error) {
       console.error("[alerts] vérification automatique échouée :", error instanceof Error ? error.message : error);
+      return null;
     }
   })();
 
-  await globalScope.__parrainioAlertsCheck;
+  const checkResult = (await globalScope.__parrainioAlertsCheck) as
+    | { outcomes?: { slug: string; status: string; changedFields: string[] }[] }
+    | null
+    | undefined;
+
+  /* ── IndexNow : soumission des URLs nouvelles/modifiées ───────────────────
+     Consomme les mêmes outcomes (déjà idempotents : no-change → 0 soumission,
+     aucun rejeu de déploiement ne re-soumet quoi que ce soit).
+     - Production uniquement (VERCEL_ENV) : local/preview ne servent pas le
+       domaine canonique ;
+     - try/catch séparé : un échec IndexNow ne touche ni les alertes ni la
+       référence KV (la vérification est déjà terminée à ce stade). */
+  if (process.env.VERCEL_ENV === "production" && checkResult?.outcomes) {
+    try {
+      const { isIndexNowEnabled, urlsFromAlertOutcomes, submitIndexNow } = await import("@/lib/indexNow");
+      if (isIndexNowEnabled()) {
+        const urls = urlsFromAlertOutcomes(checkResult.outcomes);
+        if (urls.length > 0) {
+          await submitIndexNow(urls);
+        } else {
+          console.info("[indexnow] aucun changement d'offre : aucune URL soumise.");
+        }
+      }
+    } catch (error) {
+      console.warn("[indexnow] étape ignorée :", error instanceof Error ? error.message : error);
+    }
+  }
 }
