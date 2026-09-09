@@ -70,7 +70,6 @@ const norm = (value: string) => value.trim().toLowerCase();
 
 const SHORT_LINK_LABELS: Record<string, string> = {
   wise: "Faire un transfert avec Wise",
-  "hello-fresh": "Voir HelloFresh",
 };
 
 export default function RankingTable({ rows, panelHeading, panelLead, updated }: Props) {
