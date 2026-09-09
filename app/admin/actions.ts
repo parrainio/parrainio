@@ -74,6 +74,18 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
   const existing = getManagedOffer(slug);
   if (!existing) throw new Error("Offre introuvable.");
 
+  const conditions = Array.isArray(payload.conditions)
+    ? payload.conditions.map((item) => String(item ?? "").trim()).filter(Boolean)
+    : existing.conditions;
+  const steps = Array.isArray(payload.steps)
+    ? payload.steps
+        .map((step) => ({
+          title: String(step?.title ?? "").trim(),
+          description: String(step?.description ?? "").trim(),
+        }))
+        .filter((step) => step.title || step.description)
+    : existing.steps;
+
   const override: OfferOverride = {
     name: payload.name.trim() || existing.name,
     category: payload.category.trim() || existing.category,
@@ -83,10 +95,8 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
     referralCode: payload.referralCode.trim() ? payload.referralCode.trim() : existing.referralCode,
     referralLink: payload.referralLink.trim() ? payload.referralLink.trim() : existing.referralLink,
     officialWebsiteUrl: payload.officialWebsiteUrl.trim() ? payload.officialWebsiteUrl.trim() : null,
-    conditions: payload.conditions.map((item) => item.trim()).filter(Boolean),
-    steps: payload.steps
-      .map((step) => ({ title: step.title.trim(), description: step.description.trim() }))
-      .filter((step) => step.title || step.description),
+    conditions,
+    steps,
     publicationDate: payload.publicationDate.trim() || existing.publicationDate,
     sourceUrl: payload.sourceUrl.trim() || existing.sourceUrl,
     manualReview: payload.manualReview,

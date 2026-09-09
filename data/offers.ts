@@ -141,7 +141,7 @@ const recoveredReferralLinks: Record<string, string> = {
   myprotein: "https://fr.myprotein.com/referrals.list?applyCode=MATHIEU-R90D",
   bemyeye: "https://invitation.bemyeye.com/invitation/rz85530?lc=fr_FR",
   betclic: "https://go.onelink.me/2887093520/6c3132b8?af_sub5=CARTUNDM",
-  boursobank: "https://bour.so/p/7rQmVJLmaxE",
+  boursobank: "https://bour.so/p/iJWCCXRFCJD",
   coinbase: "https://coinbase.com/join/R8HUK4G?src=referral-link",
   ebuyclub: "https://www.ebuyclub.com/inscription?parrain=mathieumorin2",
   monabanq: "https://www.monabanq.com/fr/parrainage/index.html?IDPEREFPRINCIPALE=280189512&CODEPROMO=PARCTC&CAMTYPE=PARRAINAGE&SUPPORT=EMAIL&codeParrain=17H9W",
