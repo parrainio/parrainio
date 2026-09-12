@@ -24,8 +24,8 @@ export const metadata: Metadata = {
  * elles servent uniquement à décrire la page (aucune donnée
  * commerciale n'est inventée ni dupliquée ici).
  */
-export default function CodesParrainagePage() {
-  const offers = getManagedOffers();
+export default async function CodesParrainagePage() {
+  const offers = await getManagedOffers();
   const withCode = offers.filter(
     (offer) => offer.referralCode && offer.referralCode.trim()
   ).length;

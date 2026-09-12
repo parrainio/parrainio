@@ -70,8 +70,8 @@ function rowOf(offer: ManagedOffer): ParisSportifsRow {
   };
 }
 
-export default function ComparatifParisSportifsPage() {
-  const offers = getManagedOffers();
+export default async function ComparatifParisSportifsPage() {
+  const offers = await getManagedOffers();
   const rows: ParisSportifsRow[] = PARIS_SPORTIFS_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
     return offer ? rowOf(offer) : null;

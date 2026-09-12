@@ -51,12 +51,12 @@ function rowOf(offer: ManagedOffer): RankingRow {
   };
 }
 
-export default function ClassementPrimesPage() {
+export default async function ClassementPrimesPage() {
   const euros: { offer: ManagedOffer; total: number }[] = [];
   const others: ManagedOffer[] = [];
   const variables: ManagedOffer[] = [];
 
-  for (const offer of getManagedOffers()) {
+  for (const offer of await getManagedOffers()) {
     const reward = (offer.partnerReward ?? "").trim();
     const reverse = (offer.parrainioReward ?? "").trim();
     // Classement par AVANTAGE TOTAL : prime filleul + Parraino reverse.

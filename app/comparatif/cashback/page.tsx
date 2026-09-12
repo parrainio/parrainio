@@ -70,8 +70,8 @@ function rowOf(offer: ManagedOffer): CashbackRow {
   };
 }
 
-export default function ComparatifCashbackPage() {
-  const offers = getManagedOffers();
+export default async function ComparatifCashbackPage() {
+  const offers = await getManagedOffers();
   const rows: CashbackRow[] = CASHBACK_COMPARATOR_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
     return offer ? rowOf(offer) : null;

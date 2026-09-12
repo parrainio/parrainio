@@ -67,8 +67,8 @@ function rowOf(offer: ManagedOffer): EnergieRow {
   };
 }
 
-export default function ParrainageEnergiePage() {
-  const offers = getManagedOffers();
+export default async function ParrainageEnergiePage() {
+  const offers = await getManagedOffers();
   const rows: EnergieRow[] = ENERGIE_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
     return offer ? rowOf(offer) : null;

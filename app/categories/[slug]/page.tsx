@@ -48,7 +48,7 @@ export default async function CategoryHubPage({ params }: HubParams) {
     return <CategoryHubNotFound />;
   }
 
-  return <CategoryHub hub={hub} offers={getCategoryHubOffers(hub.group)} />;
+  return <CategoryHub hub={hub} offers={await getCategoryHubOffers(hub.group)} />;
 }
 
 function CategoryHubNotFound() {

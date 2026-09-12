@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     if (clean(body.website, 200)) return NextResponse.json({ error: "Invalid request" }, { status: 400 });
 
     const slug = clean(body.slug, 120);
-    const offer = getManagedOffer(slug);
+    const offer = await getManagedOffer(slug);
     const firstName = clean(body.firstName, 100);
     const lastName = clean(body.lastName, 100);
     const email = clean(body.email, 254);

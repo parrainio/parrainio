@@ -34,16 +34,25 @@ export async function POST(request: Request) {
     }
 
     let offerSlug: string | null = validated.value.offerSlug;
-    if (offerSlug && !getManagedOffer(offerSlug)) {
+    if (offerSlug && !(await getManagedOffer(offerSlug))) {
       offerSlug = null;
     }
 
-    const review = addPendingReview({
+    const { review, persisted } = await addPendingReview({
       pseudo: cleanReviewInput(validated.value.pseudo, 40),
       rating: validated.value.rating,
       text: validated.value.text,
       offerSlug,
     });
+
+    // KV indisponible : on refuse honnêtement plutôt que de perdre l'avis
+    // (en production, le repli fichier serait de toute façon éphémère).
+    if (!persisted) {
+      return NextResponse.json(
+        { error: "Impossible d’enregistrer votre avis pour le moment. Veuillez réessayer dans quelques instants." },
+        { status: 503 }
+      );
+    }
 
     revalidatePath("/avis-clients");
     return NextResponse.json({ ok: true, id: review.id });

@@ -77,11 +77,11 @@ const MAX_OFFERS = 4;
  * Retourne null quand l'article n'a pas de module (aucune offre forcée).
  * Seule l'entité demandée est extraite — jamais les 120 offres.
  */
-export function getBlogOfferContext(articleSlug: string): BlogOfferContext | null {
+export async function getBlogOfferContext(articleSlug: string): Promise<BlogOfferContext | null> {
   const mapping = ARTICLE_OFFERS[articleSlug];
   if (!mapping || mapping.offerSlugs.length === 0) return null;
 
-  const managed = getManagedOffers();
+  const managed = await getManagedOffers();
   const offers = mapping.offerSlugs
     .slice(0, MAX_OFFERS)
     .map((offerSlug) => managed.find((offer) => offer.slug === offerSlug))

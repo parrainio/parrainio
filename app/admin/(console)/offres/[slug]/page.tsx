@@ -10,7 +10,7 @@ export default async function AdminOfferPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const offer = getManagedOffer(slug);
+  const offer = await getManagedOffer(slug);
   if (!offer) notFound();
 
   return (

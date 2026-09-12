@@ -158,7 +158,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   if (!article) notFound();
 
   const related = relatedArticles(article);
-  const offerContext = getBlogOfferContext(article.slug);
+  const offerContext = await getBlogOfferContext(article.slug);
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [

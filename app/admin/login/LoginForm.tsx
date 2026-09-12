@@ -12,7 +12,7 @@ export default function LoginForm({ configured }: { configured: boolean }) {
       <p className={styles.kicker}>Parrainio</p>
       <h1>Administration</h1>
       <p className={styles.lead}>
-        Espace privé pour gérer les 120 offres. Il n’apparaît pas dans la navigation du site.
+        Espace privé pour gérer les 118 offres. Il n’apparaît pas dans la navigation du site.
       </p>
       {configured ? (
         <>
@@ -26,8 +26,9 @@ export default function LoginForm({ configured }: { configured: boolean }) {
       ) : (
         <p className={styles.setup}>
           Ajoutez <code>PARRAINIO_ADMIN_PASSWORD</code> et{" "}
-          <code>PARRAINIO_ADMIN_SESSION_SECRET</code> dans <code>.env.local</code>{" "}
-          pour activer cet espace.
+          <code>PARRAINIO_ADMIN_SESSION_SECRET</code> dans les variables
+          d&apos;environnement de l&apos;espace cible (local : <code>.env.local</code>,
+          production : Vercel) pour activer cet espace.
         </p>
       )}
     </form>

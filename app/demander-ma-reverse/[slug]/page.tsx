@@ -11,7 +11,7 @@ type ReverseRequestPageProps = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: ReverseRequestPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const offer = getManagedOffer(slug);
+  const offer = await getManagedOffer(slug);
 
   // Page fonctionnelle de demande de reverse : jamais une page SEO.
   // noindex + canonical vers la page offre correspondante (pas vers l'accueil).
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: ReverseRequestPageProps): Pro
 
 export default async function ReverseRequestPage({ params }: ReverseRequestPageProps) {
   const { slug } = await params;
-  const offer = getManagedOffer(slug);
+  const offer = await getManagedOffer(slug);
 
   if (!offer) notFound();
 

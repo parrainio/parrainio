@@ -183,7 +183,9 @@ export async function runOfferAlertCheck(options: {
   dryRun?: boolean;
 }): Promise<{ outcomes: OfferAlertOutcome[]; storageReady: boolean; smtpReady: boolean }> {
   const config = getAlertsConfig();
-  const targets = options.slug ? [getManagedOffer(options.slug)].filter(Boolean) : getManagedOffers();
+  const targets = options.slug
+    ? [await getManagedOffer(options.slug)].filter(Boolean)
+    : await getManagedOffers();
   const outcomes: OfferAlertOutcome[] = [];
 
   for (const offer of targets) {

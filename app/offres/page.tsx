@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   openGraph: { url: "/offres", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
 
-export default function OffresPage() {
-  const offers = getManagedOffers();
+export default async function OffresPage() {
+  const offers = await getManagedOffers();
 
   return (
     <Suspense>

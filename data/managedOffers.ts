@@ -6,6 +6,12 @@ import {
   type OfferCompleteness,
   type OfferStatusKey,
 } from "@/lib/offerCompleteness";
+import {
+  ADMIN_KV_KEYS,
+  ensureAdminKvSeeded,
+  getAdminOfferOverridesCached,
+  writeAdminKvJson,
+} from "@/lib/adminKv";
 
 export type OfferOverride = {
   name?: string;
@@ -70,7 +76,19 @@ function readJson<T>(path: string, fallback: T): T {
   }
 }
 
-function readOverrides(): OfferOverrides {
+/**
+ * Lecture des overrides — source KV (persistante, modifiable depuis l'admin
+ * en production) avec repli automatique sur le JSON Git si le KV est
+ * indisponible ou non initialisé. Aucune donnée n'est perdue : les fichiers
+ * Git restent en place en permanence (fallback / rollback).
+ *
+ * Passe par le data cache Next (tags) : les pages statiques peuvent lire le
+ * KV, et revalidateTag() à chaque écriture admin publie immédiatement.
+ */
+async function readOverrides(): Promise<OfferOverrides> {
+  await ensureAdminKvSeeded();
+  const stored = await getAdminOfferOverridesCached();
+  if (stored && typeof stored === "object") return stored as OfferOverrides;
   return readJson<OfferOverrides>(overridePath, {});
 }
 
@@ -152,8 +170,8 @@ export function mergeOfferRecord(
   };
 }
 
-export function getManagedOffers(): ManagedOffer[] {
-  const overrides = readOverrides();
+export async function getManagedOffers(): Promise<ManagedOffer[]> {
+  const overrides = await readOverrides();
   const logos = readLogoIndex();
   const research = readResearchMeta();
 
@@ -169,13 +187,13 @@ export function getManagedOffers(): ManagedOffer[] {
   );
 }
 
-export function getManagedOffer(slug: string) {
-  return getManagedOffers().find((offer) => offer.slug === slug);
+export async function getManagedOffer(slug: string) {
+  return (await getManagedOffers()).find((offer) => offer.slug === slug);
 }
 
-export function saveOfferOverride(slug: string, data: OfferOverride) {
-  if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
-  const overrides = readOverrides();
+export async function saveOfferOverride(slug: string, data: OfferOverride) {
+  await ensureAdminKvSeeded();
+  const overrides = await readOverrides();
   const seed = offers.find((offer) => offer.slug === slug);
   const current = overrides[slug] ?? {};
 
@@ -191,11 +209,18 @@ export function saveOfferOverride(slug: string, data: OfferOverride) {
   }
 
   overrides[slug] = next;
-  writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
-  return getManagedOffer(slug);
+  const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.offerOverrides, overrides);
+  if (!persisted) {
+    // KV indisponible : repli sur le fichier Git (comportement historique,
+    // fonctionne en local ; en production Vercel l'écriture est éphémère et
+    // l'action admin le signale).
+    writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
+    return { persisted: false, offer: getManagedOffer(slug) };
+  }
+  return { persisted: true, offer: getManagedOffer(slug) };
 }
 
-export function saveLogoIndex(index: OfferOverrides) {
+export async function saveLogoIndex(index: OfferOverrides) {
   if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
   writeFileSync(logoIndexPath, `${JSON.stringify(index, null, 2)}\n`, "utf8");
 }
@@ -220,7 +245,7 @@ export function toExportRecord(offer: ManagedOffer): OfferExportRecord {
   };
 }
 
-export function getDashboardStats(list: ManagedOffer[] = getManagedOffers()) {
+export function getDashboardStats(list: ManagedOffer[]) {
   const counts = {
     total: list.length,
     complete: 0,

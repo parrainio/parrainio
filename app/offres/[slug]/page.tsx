@@ -40,7 +40,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const offer = getManagedOffer(slug);
+  const offer = await getManagedOffer(slug);
 
   if (!offer) {
     return {
@@ -92,7 +92,7 @@ export default async function OfferPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const offer = getManagedOffer(slug);
+  const offer = await getManagedOffer(slug);
 
   if (!offer) {
     notFound();
@@ -102,9 +102,9 @@ export default async function OfferPage({
   const detailedConditions = hasMeaningfulConditions(offer.conditions)
     ? offer.conditions.filter((condition) => condition.trim())
     : [];
-  const relatedOffers = getRelatedOffers(offer, getManagedOffers(), 3);
+  const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
   const categoryHub = getCategoryHubForGroup(offer.categoryGroup);
-  const featuredOfferSlugs = getFeaturedOfferSlugsServer();
+  const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
   const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
 

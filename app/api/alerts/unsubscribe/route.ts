@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     return page({ title: "Lien invalide", body: "Ce lien de désabonnement est invalide ou incomplet." });
   }
 
-  const offer = getManagedOffer(payload.s);
+  const offer = await getManagedOffer(payload.s);
   if (!offer) {
     return page({ title: "Offre introuvable", body: "L'offre associée à cette alerte n'existe plus." });
   }

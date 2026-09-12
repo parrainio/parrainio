@@ -1,6 +1,12 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { REVIEW_PSEUDO_MAX_LENGTH, REVIEW_TEXT_MAX_LENGTH } from "@/lib/reviewLimits";
+import {
+  ADMIN_KV_KEYS,
+  ensureAdminKvSeeded,
+  getAdminReviewsCached,
+  writeAdminKvJson,
+} from "@/lib/adminKv";
 
 export { REVIEW_PSEUDO_MAX_LENGTH, REVIEW_TEXT_MAX_LENGTH };
 
@@ -98,7 +104,13 @@ function seedReviews(): Review[] {
   }));
 }
 
-// ── Persistence (same git-tracked JSON pattern as data/offer-overrides.json) ──
+// ── Persistence ───────────────────────────────────────────────────────────────
+//
+// Source de vérité : le KV (clé admin:reviews) — persistant sur Vercel et
+// modifiable depuis l'admin en production. Repli : data/reviews.json (Git) si
+// le KV est indisponible ; seeds intégrés seulement si le fichier est absent
+// ou corrompu. La soumission publique ET la modération passent par le même
+// stockage : plus aucune perte d'avis lors des redéploiements Vercel.
 
 function normalizeReviewFile(raw: unknown): Review[] {
   if (!raw || typeof raw !== "object" || !Array.isArray((raw as ReviewFile).reviews)) {
@@ -133,29 +145,41 @@ function normalizeReviewFile(raw: unknown): Review[] {
   return cleaned;
 }
 
-function readAllReviews(): Review[] {
-  // data/reviews.json (git-tracked) matérialise le contenu initial de
-  // production : les 7 avis validés y sont déjà présents. Dès que le fichier
-  // existe et est lisible, il est la source de vérité — y compris s'il devient
-  // vide (avis tous supprimés : aucun retour fantôme des seeds). Les seeds
-  // intégrés au code ne servent que de repli si le fichier est absent ou
-  // corrompu (ex. premier déploiement sans le fichier).
+async function readAllReviews(): Promise<Review[]> {
+  // 1. KV : dès qu'une liste y est stockée, elle est la source de vérité —
+  //    y compris si elle devient vide (avis tous supprimés : aucun retour
+  //    fantôme des seeds). Le seed idempotent (ensureAdminKvSeeded) copie le
+  //    JSON Git dans le KV à la première lecture, sans jamais l'écraser.
+  await ensureAdminKvSeeded();
+  const stored = (await getAdminReviewsCached()) as ReviewFile | null;
+  if (stored && Array.isArray((stored as ReviewFile).reviews)) {
+    // Drop the temporary migration flag if it ever gets persisted.
+    return normalizeReviewFile(stored).map(({ featured: _featured, ...review }) => review);
+  }
+
+  // 2. Fallback Git : data/reviews.json matérialise le contenu initial.
   if (existsSync(reviewsPath)) {
     try {
       const parsed: unknown = JSON.parse(readFileSync(reviewsPath, "utf8"));
-      const stored = normalizeReviewFile(parsed);
-      // Drop the temporary migration flag if it ever gets persisted.
-      return stored.map(({ featured: _featured, ...review }) => review);
+      return normalizeReviewFile(parsed);
     } catch {
       return seedReviews();
     }
   }
+
+  // 3. Dernier repli : seeds (premier déploiement sans le fichier).
   return seedReviews();
 }
 
-function writeAllReviews(reviews: Review[]) {
+/** Écrit la liste complète. Retourne false si le KV est indisponible (l'appelant décide). */
+async function writeAllReviews(reviews: Review[]): Promise<boolean> {
+  const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.reviews, { reviews });
+  if (persisted) return true;
+  // Repli fichier (local). En production Vercel cette écriture est éphémère :
+  // l'appelant (admin/API) est informé via le retour false.
   mkdirSync(dataDir, { recursive: true });
   writeFileSync(reviewsPath, `${JSON.stringify({ reviews }, null, 2)}\n`, "utf8");
+  return false;
 }
 
 // ── Public readers ────────────────────────────────────────────────────────────
@@ -170,8 +194,8 @@ export type PublicReview = {
 };
 
 /** Approved reviews only, newest first. */
-export function getApprovedReviews(): PublicReview[] {
-  return readAllReviews()
+export async function getApprovedReviews(): Promise<PublicReview[]> {
+  return (await readAllReviews())
     .filter((review) => review.status === "approved")
     .sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id))
     .map(({ id, pseudo, rating, text, offerSlug, date }) => ({
@@ -191,8 +215,8 @@ export type ReviewsStats = {
 };
 
 /** Dynamic stats from actual published (approved) reviews — no invented numbers. */
-export function getReviewsStats(): ReviewsStats {
-  const approved = readAllReviews().filter((review) => review.status === "approved");
+export async function getReviewsStats(): Promise<ReviewsStats> {
+  const approved = (await readAllReviews()).filter((review) => review.status === "approved");
   if (approved.length === 0) return { count: 0, average: "—" };
   const total = approved.reduce((sum, review) => sum + review.rating, 0);
   const average = total / approved.length;
@@ -204,8 +228,8 @@ export function getReviewsStats(): ReviewsStats {
 
 // ── Admin helpers ─────────────────────────────────────────────────────────────
 
-export function getAllReviewsForAdmin(): Review[] {
-  return readAllReviews().sort((a, b) => {
+export async function getAllReviewsForAdmin(): Promise<Review[]> {
+  return (await readAllReviews()).sort((a, b) => {
     if (a.status !== b.status) {
       const order: Record<ReviewStatus, number> = { pending: 0, approved: 1, rejected: 2 };
       return order[a.status] - order[b.status];
@@ -222,13 +246,13 @@ function nextReviewId(reviews: Review[]): string {
   return `rev-${max + 1}`;
 }
 
-export function addPendingReview(input: {
+export async function addPendingReview(input: {
   pseudo: string;
   rating: number;
   text: string;
   offerSlug: string | null;
-}): Review {
-  const reviews = readAllReviews();
+}): Promise<{ review: Review; persisted: boolean }> {
+  const reviews = await readAllReviews();
   const review: Review = {
     id: nextReviewId(reviews),
     pseudo: input.pseudo,
@@ -238,25 +262,32 @@ export function addPendingReview(input: {
     date: new Date().toISOString().slice(0, 10),
     status: "pending",
   };
-  writeAllReviews([...reviews, review]);
-  return review;
+  const persisted = await writeAllReviews([...reviews, review]);
+  return { review, persisted };
 }
 
-export function setReviewStatus(id: string, status: ReviewStatus): boolean {
-  const reviews = readAllReviews();
+/**
+ * Change le statut d'un avis. Retourne { ok, persisted } :
+ * ok = l'avis existe ; persisted = l'écriture a atteint le stockage persistant.
+ */
+export async function setReviewStatus(
+  id: string,
+  status: ReviewStatus,
+): Promise<{ ok: boolean; persisted: boolean }> {
+  const reviews = await readAllReviews();
   const index = reviews.findIndex((review) => review.id === id);
-  if (index === -1) return false;
+  if (index === -1) return { ok: false, persisted: false };
   reviews[index] = { ...reviews[index], status };
-  writeAllReviews(reviews);
-  return true;
+  const persisted = await writeAllReviews(reviews);
+  return { ok: true, persisted };
 }
 
-export function deleteReview(id: string): boolean {
-  const reviews = readAllReviews();
+export async function deleteReview(id: string): Promise<{ ok: boolean; persisted: boolean }> {
+  const reviews = await readAllReviews();
   const next = reviews.filter((review) => review.id !== id);
-  if (next.length === reviews.length) return false;
-  writeAllReviews(next);
-  return true;
+  if (next.length === reviews.length) return { ok: false, persisted: false };
+  const persisted = await writeAllReviews(next);
+  return { ok: true, persisted };
 }
 
 // ── Server-side validation for the public submission endpoint ────────────────

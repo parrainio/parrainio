@@ -38,7 +38,7 @@ function resolveOfferSeoProfile(slug: string): OfferSeoProfile | undefined {
   );
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/offres`, changeFrequency: "daily", priority: 0.9 },
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const offers = getManagedOffers();
+  const offers = await getManagedOffers();
 
   const offerEntries: MetadataRoute.Sitemap = offers.map((offer) => {
     const profile = resolveOfferSeoProfile(offer.slug);

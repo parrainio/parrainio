@@ -74,7 +74,7 @@ export async function POST(request: Request) {
   if (!emailPattern.test(email) || email.length > 254) {
     return NextResponse.json({ error: "Veuillez saisir une adresse e-mail valide." }, { status: 400 });
   }
-  if (!getManagedOffer(slug)) {
+  if (!(await getManagedOffer(slug))) {
     return NextResponse.json({ error: "Offre introuvable." }, { status: 400 });
   }
   if (!consent) {

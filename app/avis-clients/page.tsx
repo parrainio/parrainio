@@ -26,14 +26,15 @@ const PROHIBITED_CONTENT = [
   "les contenus sans rapport avec l’expérience Parrainio.",
 ];
 
-export default function AvisClientsPage() {
-  const reviews = getApprovedReviews();
-  const stats = getReviewsStats();
-  const offerOptions = getManagedOffers().map((offer) => ({ slug: offer.slug, name: offer.name }));
+export default async function AvisClientsPage() {
+  const reviews = await getApprovedReviews();
+  const stats = await getReviewsStats();
+  const offerOptions = (await getManagedOffers()).map((offer) => ({ slug: offer.slug, name: offer.name }));
 
-  const listReviews: ListReview[] = reviews.map((review) => {
-    const offer = review.offerSlug ? getManagedOffer(review.offerSlug) : undefined;
-    return {
+  const listReviews: ListReview[] = [];
+  for (const review of reviews) {
+    const offer = review.offerSlug ? await getManagedOffer(review.offerSlug) : undefined;
+    listReviews.push({
       id: review.id,
       pseudo: review.pseudo,
       rating: review.rating,
@@ -41,8 +42,8 @@ export default function AvisClientsPage() {
       text: review.text,
       offerName: offer?.name ?? null,
       offerSlug: offer?.slug ?? null,
-    };
-  });
+    });
+  }
 
   return (
     <main className={styles.page}>

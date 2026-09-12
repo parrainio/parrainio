@@ -3,8 +3,8 @@ import OffersDashboard from "./OffersDashboard";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminOffersPage() {
-  const offers = getManagedOffers();
+export default async function AdminOffersPage() {
+  const offers = await getManagedOffers();
   const stats = getDashboardStats(offers);
   const categories = Array.from(new Set(offers.map((offer) => offer.category))).sort((a, b) =>
     a.localeCompare(b, "fr"),

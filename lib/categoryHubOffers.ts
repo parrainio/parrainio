@@ -8,11 +8,11 @@ import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
  * Aucun classement commercial n'est inventé : la mise en avant
  * réutilise la configuration existante du site.
  */
-export function getCategoryHubOffers(group: OfferCategory) {
-  const offers = getManagedOffers().filter(
+export async function getCategoryHubOffers(group: OfferCategory) {
+  const offers = (await getManagedOffers()).filter(
     (offer) => offer.categoryGroup === group
   );
-  const featuredSlugs = new Set(getFeaturedOfferSlugsServer());
+  const featuredSlugs = new Set(await getFeaturedOfferSlugsServer());
 
   return [...offers].sort((a, b) => {
     const aFeatured = featuredSlugs.has(a.slug) ? 1 : 0;

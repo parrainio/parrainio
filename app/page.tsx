@@ -22,8 +22,8 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
   return <svg {...common}><path d="m12 3 .95 5.05L18 9l-5.05.95L12 15l-.95-5.05L6 9l5.05-.95L12 3Z" /><path d="m19 15 .5 2.5L22 18l-2.5.5L19 21l-.5-2.5L16 18l2.5-.5L19 15Z" /></svg>;
 }
 
-export default function Home() {
-  const managedOffers = getManagedOffers();
+export default async function Home() {
+  const managedOffers = await getManagedOffers();
   const categories = Array.from(new Set(managedOffers.map((offer) => offer.categoryGroup)));
   const boursobank = managedOffers.find((offer) => offer.slug === "boursobank") ?? managedOffers[0];
 

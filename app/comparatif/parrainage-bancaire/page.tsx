@@ -100,8 +100,8 @@ function rowOf(offer: ManagedOffer): BankRow {
   };
 }
 
-export default function ComparatifParrainageBancairePage() {
-  const offers = getManagedOffers();
+export default async function ComparatifParrainageBancairePage() {
+  const offers = await getManagedOffers();
   const rows: BankRow[] = BANK_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
     return offer ? rowOf(offer) : null;

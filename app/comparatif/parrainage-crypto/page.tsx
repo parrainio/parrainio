@@ -108,8 +108,8 @@ const UNIT_LABEL: Record<RewardUnit, string> = {
   "Non quantifié": "Non quantifié",
 };
 
-export default function ComparatifParrainageCryptoPage() {
-  const offers = getManagedOffers();
+export default async function ComparatifParrainageCryptoPage() {
+  const offers = await getManagedOffers();
   const rows: CryptoRow[] = CRYPTO_COMPARATOR_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
     return offer ? rowOf(offer) : null;

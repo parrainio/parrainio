@@ -9,8 +9,8 @@ export default async function FeaturedOffersPage() {
     redirect("/admin/login");
   }
 
-  const allOffers = getManagedOffers();
-  const featuredConfig = getFeaturedOffersAdmin();
+  const allOffers = await getManagedOffers();
+  const featuredConfig = await getFeaturedOffersAdmin();
 
   return (
     <main className="admin-page">
