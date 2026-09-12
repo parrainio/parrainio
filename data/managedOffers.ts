@@ -84,9 +84,12 @@ function readJson<T>(path: string, fallback: T): T {
  *
  * Passe par le data cache Next (tags) : les pages statiques peuvent lire le
  * KV, et revalidateTag() à chaque écriture admin publie immédiatement.
+ *
+ * Pas de seed ici : ce lecteur s'exécute pendant le rendu (y compris de
+ * pages statiques) et le seed émet des fetch no-store — interdits au rendu
+ * (React #441). Le seed est déclenché par les chemins d'écriture.
  */
 async function readOverrides(): Promise<OfferOverrides> {
-  await ensureAdminKvSeeded();
   const stored = await getAdminOfferOverridesCached();
   if (stored && typeof stored === "object") return stored as OfferOverrides;
   return readJson<OfferOverrides>(overridePath, {});
@@ -192,6 +195,8 @@ export async function getManagedOffer(slug: string) {
 }
 
 export async function saveOfferOverride(slug: string, data: OfferOverride) {
+  // Contexte dynamique (action admin) : le seed no-store est autorisé ici,
+  // et nécessaire avant la lecture-écriture de la map complète d'overrides.
   await ensureAdminKvSeeded();
   const overrides = await readOverrides();
   const seed = offers.find((offer) => offer.slug === slug);

@@ -3,7 +3,6 @@ import { join } from "node:path";
 import { REVIEW_PSEUDO_MAX_LENGTH, REVIEW_TEXT_MAX_LENGTH } from "@/lib/reviewLimits";
 import {
   ADMIN_KV_KEYS,
-  ensureAdminKvSeeded,
   getAdminReviewsCached,
   writeAdminKvJson,
 } from "@/lib/adminKv";
@@ -145,12 +144,12 @@ function normalizeReviewFile(raw: unknown): Review[] {
   return cleaned;
 }
 
-async function readAllReviews(): Promise<Review[]> {
-  // 1. KV : dès qu'une liste y est stockée, elle est la source de vérité —
-  //    y compris si elle devient vide (avis tous supprimés : aucun retour
-  //    fantôme des seeds). Le seed idempotent (ensureAdminKvSeeded) copie le
-  //    JSON Git dans le KV à la première lecture, sans jamais l'écraser.
-  await ensureAdminKvSeeded();
+async function readAllReviews(): Promise<Review[]> {// 1. KV : dès qu'une liste y est stockée, elle est la source de vérité —
+//    y compris si elle devient vide (avis tous supprimés : aucun retour
+//    fantôme des seeds). Le seed idempotent copie le JSON Git dans le KV —
+//    déclenché par les chemins d'ÉCRITURE uniquement : les lecteurs sont
+//    rendus dans des pages (parfois statiques) et le seed émet des fetch
+//    no-store, interdits pendant le rendu (React #441).
   const stored = (await getAdminReviewsCached()) as ReviewFile | null;
   if (stored && Array.isArray((stored as ReviewFile).reviews)) {
     // Drop the temporary migration flag if it ever gets persisted.

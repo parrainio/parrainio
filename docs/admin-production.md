@@ -41,11 +41,17 @@ les charge). Aucun secret n'est exposé au client (modules 100 % serveur).
 
 ## Migration des données (automatique, idempotente)
 
-Au premier accès après déploiement, chaque clé ABSENTE est initialisée depuis
-le JSON Git correspondant (seed single-flight par instance, `EXISTS` par clé).
-Une clé existante n'est **jamais** écrasée par le seed : les modifications
-admin faites entre-temps sont préservées. Le JSON Git reste en place et n'est
-plus modifié par l'admin.
+Au premier **accès en écriture** (sauvegarde admin) après déploiement, chaque
+clé ABSENTE est initialisée depuis le JSON Git correspondant (seed
+single-flight par instance, `EXISTS` par clé). Une clé existante n'est
+**jamais** écrasée par le seed : les modifications admin faites entre-temps
+sont préservées. Le JSON Git reste en place et n'est plus modifié par
+l'admin.
+
+> Le seed n'est volontairement **pas** déclenché par les lectures : il émet
+> des fetch `no-store`, interdits pendant le rendu des pages statiques
+> (surface client : Minified React error #441). Les lectures utilisent le
+> cache fetch tagué et retombent sur le JSON Git sans seed.
 
 ## Sauvegarde / rollback
 

@@ -22,9 +22,11 @@ const defaultFeaturedOffersConfig: FeaturedOffersConfig = {
 /**
  * Lecture de la config mise en avant — KV (persistant, éditable depuis
  * l'admin en production) avec repli JSON Git puis valeur par défaut.
+ *
+ * Pas de seed ici : lecteur de rendu (page d'accueil statique) — le seed
+ * émet des fetch no-store, interdits pendant le rendu (React #441).
  */
 export async function getFeaturedOffersAdmin(): Promise<FeaturedOffersConfig> {
-  await ensureAdminKvSeeded();
   const stored = await getAdminFeaturedConfigCached();
   const config = stored as FeaturedOffersConfig | null;
   if (config && Array.isArray(config.featuredOfferSlugs)) return config;
@@ -39,6 +41,7 @@ export async function getFeaturedOffersAdmin(): Promise<FeaturedOffersConfig> {
 }
 
 export async function saveFeaturedOffersConfig(config: FeaturedOffersConfig) {
+  // Contexte dynamique (action admin) : le seed no-store est autorisé ici.
   await ensureAdminKvSeeded();
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.featuredConfig, config);
   if (!persisted) {

@@ -82,6 +82,22 @@ type KvPipelineResult =
   | { ok: false; reason: string };
 
 /**
+ * Déballe le résultat d'une commande de pipeline : la réponse REST d'un
+ * tableau de commandes renvoie [{ result: valeur }, …] — l'élément brut est
+ * donc { result } et non la valeur elle-même. Sans déballage, une lecture
+ * GET recoit un objet, échoue au test « typeof === string » et retombe
+ * silencieusement sur le JSON Git (données jamais relues depuis le KV).
+ */
+function unwrapPipelineValue(result: KvPipelineResult): unknown {
+  if (!result.ok) return null;
+  const element = result.value[0];
+  if (element && typeof element === "object" && "result" in (element as Record<string, unknown>)) {
+    return (element as { result: unknown }).result;
+  }
+  return element;
+}
+
+/**
  * Pipeline REST : plusieurs commandes Redis en un seul aller-retour.
  * `tag` : attache la réponse au fetch cache Next (lecture revalidable) ;
  * sans tag, la requête est no-store (écritures, exists, rate limit).
@@ -117,9 +133,7 @@ async function kvRest(
 
 /** Lecture d'une clé JSON. Retourne null si absente / KV indisponible. */
 export async function readAdminKvJson<T>(key: string): Promise<T | null> {
-  const result = await kvRest([["GET", key]]);
-  if (!result.ok) return null;
-  const raw = result.value[0];
+  const raw = unwrapPipelineValue(await kvRest([["GET", key]]));
   if (typeof raw !== "string" || raw.length === 0) return null;
   try {
     return JSON.parse(raw) as T;
@@ -130,9 +144,7 @@ export async function readAdminKvJson<T>(key: string): Promise<T | null> {
 
 /** Lecture TAGUÉE (fetch cache Next) — sûr en rendu statique. */
 async function readAdminKvJsonTagged<T>(key: string, tag: string): Promise<T | null> {
-  const result = await kvRest([["GET", key]], { tag });
-  if (!result.ok) return null;
-  const raw = result.value[0];
+  const raw = unwrapPipelineValue(await kvRest([["GET", key]], { tag }));
   if (typeof raw !== "string" || raw.length === 0) return null;
   try {
     return JSON.parse(raw) as T;
@@ -163,6 +175,15 @@ export async function getAdminReviewsCached(): Promise<Record<string, unknown> |
  * Écriture d'une valeur JSON + invalidation du tag correspondant
  * (publication immédiate des pages qui consomment la donnée).
  * Retourne false si le KV est indisponible/erreur.
+ *
+ * revalidateTag avec le profil inline { expire: 0 } = expiration immédiate
+ * (la branche runtime « cacheLife.expire === 0 » marque la route
+ * revalidée, comme revalidatePath). Les profils intégrés (« max »,
+ * « minutes »…) sont du stale-while-revalidate : l'entrée marquée stale
+ * reste servie jusqu'à la fenêtre stale — la page publique ne refléterait
+ * la modification qu'après coup (constaté en QA). Valide en Server Action
+ * ET en Route Handler (l'endpoint public /api/reviews écrit aussi une clé
+ * taguée).
  */
 export async function writeAdminKvJson(key: string, value: unknown): Promise<boolean> {
   const result = await kvRest([["SET", key, JSON.stringify(value)]]);
@@ -170,7 +191,7 @@ export async function writeAdminKvJson(key: string, value: unknown): Promise<boo
   const tag = TAG_BY_KEY[key];
   if (tag) {
     try {
-      revalidateTag(tag, "max");
+      revalidateTag(tag, { expire: 0 });
     } catch {
       // Hors contexte action/route : ignoré — le TTL 60 s borne la fraîcheur.
     }
@@ -198,6 +219,13 @@ let seedPromise: Promise<boolean> | null = null;
  * ré-écrase jamais une clé existante, donc jamais les modifications admin).
  * Une seule exécution par instance (single-flight). Retourne true si le KV
  * est prêt (configuré + seed sans erreur bloquante), false sinon.
+ *
+ * IMPORTANT : à n'appeler QUE depuis des contextes dynamiques (actions,
+ * routes API) — typiquement les chemins d'ÉCRITURE. Le seed émet des fetch
+ * no-store, interdits pendant le rendu : un appel depuis un lecteur rendu
+ * dans une page statique lèverait « Page changed from static to dynamic »
+ * (surface client : Minified React error #441). Les lecteurs de rendu lisent
+ * le KV via le cache tagué et retombent sur le JSON Git sans seed.
  */
 export function ensureAdminKvSeeded(): Promise<boolean> {
   if (!isAdminKvConfigured()) return Promise.resolve(false);
@@ -217,7 +245,13 @@ async function seedOnce(): Promise<boolean> {
     ["EXISTS", REVIEWS_KEY],
   ]);
   if (!perKey.ok) return false;
-  const flags = perKey.value.map((value) => value === 1);
+  // Éléments de pipeline : { result: 0|1 } — déballer avant le test.
+  const flags = perKey.value.map(
+    (element) =>
+      element !== null &&
+      typeof element === "object" &&
+      (element as { result?: unknown }).result === 1,
+  );
 
   if (!flags[0]) {
     const data = readGitJson<unknown>("data/offer-overrides.json");
