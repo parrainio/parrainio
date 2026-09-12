@@ -174,10 +174,13 @@ async function readAllReviews(): Promise<Review[]> {// 1. KV : dès qu'une liste
 async function writeAllReviews(reviews: Review[]): Promise<boolean> {
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.reviews, { reviews });
   if (persisted) return true;
-  // Repli fichier (local). En production Vercel cette écriture est éphémère :
-  // l'appelant (admin/API) est informé via le retour false.
-  mkdirSync(dataDir, { recursive: true });
-  writeFileSync(reviewsPath, `${JSON.stringify({ reviews }, null, 2)}\n`, "utf8");
+  // Repli fichier (local uniquement). Sur Vercel le FS est en lecture seule :
+  // l'écriture lèverait EROFS (crash Server Action / API — surface client
+  // React #441). persisted=false informe l'appelant (admin/API).
+  if (!process.env.VERCEL_ENV) {
+    mkdirSync(dataDir, { recursive: true });
+    writeFileSync(reviewsPath, `${JSON.stringify({ reviews }, null, 2)}\n`, "utf8");
+  }
   return false;
 }
 

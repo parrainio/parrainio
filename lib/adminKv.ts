@@ -77,35 +77,30 @@ function kvEnv() {
   return { url: url.replace(/\/+$/, ""), token };
 }
 
-type KvPipelineResult =
-  | { ok: true; value: unknown[] }
+type KvResult =
+  | { ok: true; value: unknown }
   | { ok: false; reason: string };
 
 /**
- * Déballe le résultat d'une commande de pipeline : la réponse REST d'un
- * tableau de commandes renvoie [{ result: valeur }, …] — l'élément brut est
- * donc { result } et non la valeur elle-même. Sans déballage, une lecture
- * GET recoit un objet, échoue au test « typeof === string » et retombe
- * silencieusement sur le JSON Git (données jamais relues depuis le KV).
- */
-function unwrapPipelineValue(result: KvPipelineResult): unknown {
-  if (!result.ok) return null;
-  const element = result.value[0];
-  if (element && typeof element === "object" && "result" in (element as Record<string, unknown>)) {
-    return (element as { result: unknown }).result;
-  }
-  return element;
-}
-
-/**
- * Pipeline REST : plusieurs commandes Redis en un seul aller-retour.
+ * Commande REST UNIQUE — format identique au système d'alertes
+ * (lib/alertSubscriptions.ts), seul code prouvé contre le vrai Upstash en
+ * production : corps = tableau plat (["GET", clé]), réponse { result: scalaire }.
+ *
+ * Historique (bug EROFS / React #441 en production) : l'ancienne
+ * implémentation envoyait un PIPELINE (tableau de tableaux) même pour une
+ * commande unique. En production Vercel, l'écriture SET échouait
+ * silencieusement (persisted=false) et le repli fichier tentait d'écrire le
+ * JSON Git sur le FS lecture-seule → EROFS → #441. Les lectures utilisent
+ * le même format plat : un pipeline défaillant aurait rendu toute lecture KV
+ * muette (repli Git silencieux, modifications jamais servies).
+ *
  * `tag` : attache la réponse au fetch cache Next (lecture revalidable) ;
  * sans tag, la requête est no-store (écritures, exists, rate limit).
  */
-async function kvRest(
-  commands: (string | number)[][],
+async function kvRestScalar(
+  command: (string | number)[],
   options?: { tag?: string },
-): Promise<KvPipelineResult> {
+): Promise<KvResult> {
   const kv = kvEnv();
   if (!kv) return { ok: false, reason: "kv-not-configured" };
   const tag = options?.tag;
@@ -113,16 +108,16 @@ async function kvRest(
     const response = await fetch(kv.url, {
       method: "POST",
       headers: { Authorization: `Bearer ${kv.token}`, "Content-Type": "application/json" },
-      body: JSON.stringify(commands),
+      body: JSON.stringify(command),
       ...(tag
         ? { next: { tags: [tag], revalidate: CACHE_REVALIDATE_SECONDS } }
         : { cache: "no-store" }),
       signal: AbortSignal.timeout(10_000),
     });
     if (!response.ok) return { ok: false, reason: `kv-http-${response.status}` };
-    const payload = (await response.json()) as { result?: unknown[]; error?: string };
+    const payload = (await response.json()) as { result?: unknown; error?: string };
     if (payload.error) return { ok: false, reason: payload.error };
-    return { ok: true, value: payload.result ?? [] };
+    return { ok: true, value: payload.result };
   } catch (error) {
     return {
       ok: false,
@@ -131,26 +126,24 @@ async function kvRest(
   }
 }
 
-/** Lecture d'une clé JSON. Retourne null si absente / KV indisponible. */
-export async function readAdminKvJson<T>(key: string): Promise<T | null> {
-  const raw = unwrapPipelineValue(await kvRest([["GET", key]]));
-  if (typeof raw !== "string" || raw.length === 0) return null;
+/** Corps de réponse GET = string JSON → objet typé ; sinon null. */
+function parseKvJson<T>(result: KvResult): T | null {
+  if (!result.ok || typeof result.value !== "string" || result.value.length === 0) return null;
   try {
-    return JSON.parse(raw) as T;
+    return JSON.parse(result.value) as T;
   } catch {
     return null;
   }
 }
 
+/** Lecture d'une clé JSON. Retourne null si absente / KV indisponible. */
+export async function readAdminKvJson<T>(key: string): Promise<T | null> {
+  return parseKvJson<T>(await kvRestScalar(["GET", key]));
+}
+
 /** Lecture TAGUÉE (fetch cache Next) — sûr en rendu statique. */
 async function readAdminKvJsonTagged<T>(key: string, tag: string): Promise<T | null> {
-  const raw = unwrapPipelineValue(await kvRest([["GET", key]], { tag }));
-  if (typeof raw !== "string" || raw.length === 0) return null;
-  try {
-    return JSON.parse(raw) as T;
-  } catch {
-    return null;
-  }
+  return parseKvJson<T>(await kvRestScalar(["GET", key], { tag }));
 }
 
 export async function getAdminOfferOverridesCached(): Promise<Record<string, unknown> | null> {
@@ -186,8 +179,13 @@ export async function getAdminReviewsCached(): Promise<Record<string, unknown> |
  * taguée).
  */
 export async function writeAdminKvJson(key: string, value: unknown): Promise<boolean> {
-  const result = await kvRest([["SET", key, JSON.stringify(value)]]);
-  if (!result.ok) return false;
+  const result = await kvRestScalar(["SET", key, JSON.stringify(value)]);
+  if (!result.ok) {
+    // Raison journalisée (jamais de secret) : c'est elle qui permettra de
+    // lire la cause exacte d'un échec d'écriture dans les logs Vercel.
+    console.error(`[admin-kv] écriture KV impossible (${key}) :`, result.reason);
+    return false;
+  }
   const tag = TAG_BY_KEY[key];
   if (tag) {
     try {
@@ -236,39 +234,35 @@ export function ensureAdminKvSeeded(): Promise<boolean> {
 }
 
 async function seedOnce(): Promise<boolean> {
-  // EXISTS multi-clés ne dit pas lesquelles manquent : on teste chacune
-  // individuellement pour n'écrire QUE les clés absentes.
-  const commands: (string | number)[][] = [];
-  const perKey = await kvRest([
-    ["EXISTS", OFFER_OVERRIDES_KEY],
-    ["EXISTS", FEATURED_CONFIG_KEY],
-    ["EXISTS", REVIEWS_KEY],
+  // Chaque clé testée individuellement (commande plate, format alertes)
+  // pour n'écrire QUE les clés absentes — idempotent.
+  const [overridesExists, featuredExists, reviewsExists] = await Promise.all([
+    kvRestScalar(["EXISTS", OFFER_OVERRIDES_KEY]),
+    kvRestScalar(["EXISTS", FEATURED_CONFIG_KEY]),
+    kvRestScalar(["EXISTS", REVIEWS_KEY]),
   ]);
-  if (!perKey.ok) return false;
-  // Éléments de pipeline : { result: 0|1 } — déballer avant le test.
-  const flags = perKey.value.map(
-    (element) =>
-      element !== null &&
-      typeof element === "object" &&
-      (element as { result?: unknown }).result === 1,
-  );
+  if (!overridesExists.ok || !featuredExists.ok || !reviewsExists.ok) return false;
 
-  if (!flags[0]) {
+  if (overridesExists.value !== 1) {
     const data = readGitJson<unknown>("data/offer-overrides.json");
-    if (data) commands.push(["SET", OFFER_OVERRIDES_KEY, JSON.stringify(data)]);
+    if (data) {
+      const written = await kvRestScalar(["SET", OFFER_OVERRIDES_KEY, JSON.stringify(data)]);
+      if (!written.ok) return false;
+    }
   }
-  if (!flags[1]) {
+  if (featuredExists.value !== 1) {
     const data = readGitJson<unknown>("data/featured-config.json");
-    if (data) commands.push(["SET", FEATURED_CONFIG_KEY, JSON.stringify(data)]);
+    if (data) {
+      const written = await kvRestScalar(["SET", FEATURED_CONFIG_KEY, JSON.stringify(data)]);
+      if (!written.ok) return false;
+    }
   }
-  if (!flags[2]) {
+  if (reviewsExists.value !== 1) {
     const data = readGitJson<unknown>("data/reviews.json");
-    if (data) commands.push(["SET", REVIEWS_KEY, JSON.stringify(data)]);
-  }
-
-  if (commands.length > 0) {
-    const written = await kvRest(commands);
-    if (!written.ok) return false;
+    if (data) {
+      const written = await kvRestScalar(["SET", REVIEWS_KEY, JSON.stringify(data)]);
+      if (!written.ok) return false;
+    }
   }
   return true;
 }

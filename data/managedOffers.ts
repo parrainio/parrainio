@@ -217,9 +217,13 @@ export async function saveOfferOverride(slug: string, data: OfferOverride) {
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.offerOverrides, overrides);
   if (!persisted) {
     // KV indisponible : repli sur le fichier Git (comportement historique,
-    // fonctionne en local ; en production Vercel l'écriture est éphémère et
-    // l'action admin le signale).
-    writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
+    // fonctionne en local). Sur Vercel le FS est en lecture seule : tenter
+    // l'écriture lèverait EROFS (surface client : React #441) — on renvoie
+    // simplement persisted=false, que l'action admin transforme en erreur
+    // propre.
+    if (!process.env.VERCEL_ENV) {
+      writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
+    }
     return { persisted: false, offer: getManagedOffer(slug) };
   }
   return { persisted: true, offer: getManagedOffer(slug) };

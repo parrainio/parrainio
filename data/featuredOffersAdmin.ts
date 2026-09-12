@@ -45,8 +45,12 @@ export async function saveFeaturedOffersConfig(config: FeaturedOffersConfig) {
   await ensureAdminKvSeeded();
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.featuredConfig, config);
   if (!persisted) {
-    if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
-    writeFileSync(featuredConfigPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+    // Repli fichier en local uniquement — sur Vercel (FS lecture seule),
+    // l'écriture lèverait EROFS : persisted=false suffit à l'appelant.
+    if (!process.env.VERCEL_ENV) {
+      if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
+      writeFileSync(featuredConfigPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+    }
     return false;
   }
   return true;
