@@ -104,6 +104,13 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
     return ["Toutes", ...uniqueCategories];
   }, [offers]);
 
+  const categoryOffers = useMemo(
+    () => activeCategory === "Toutes"
+      ? offers
+      : offers.filter((offer) => offer.categoryGroup === activeCategory),
+    [activeCategory, offers]
+  );
+
   const hubSlugByCategory = useMemo(
     () =>
       Object.fromEntries(
@@ -142,8 +149,8 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
   );
 
   const filteredOffers = useMemo(
-    () => filterOffers(offers, { search, primeThreshold, condition: conditionKey }),
-    [conditionKey, offers, primeThreshold, search]
+    () => filterOffers(categoryOffers, { search, primeThreshold, condition: conditionKey }),
+    [categoryOffers, conditionKey, primeThreshold, search]
   );
 
   /* Compteurs affichés dans les menus : nombre d'offres éligibles au filtre,
@@ -154,9 +161,9 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       PRIME_THRESHOLDS.map(({ value, label }) => ({
         value,
         label,
-        count: filterOffers(offers, { search, primeThreshold: value, condition: conditionKey }).length,
+        count: filterOffers(categoryOffers, { search, primeThreshold: value, condition: conditionKey }).length,
       })),
-    [conditionKey, offers, search]
+    [categoryOffers, conditionKey, search]
   );
 
   const conditionOptions = useMemo(
@@ -164,9 +171,9 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       CONDITION_OPTIONS.map(({ key, label }) => ({
         key,
         label,
-        count: filterOffers(offers, { search, primeThreshold, condition: key }).length,
+        count: filterOffers(categoryOffers, { search, primeThreshold, condition: key }).length,
       })),
-    [offers, primeThreshold, search]
+    [categoryOffers, primeThreshold, search]
   );
 
   const itemListJsonLd = {
@@ -530,7 +537,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
               <p className={styles.kicker}>Le guide Parrainio</p>
               <h2>Bien choisir son offre de <em>parrainage.</em></h2>
               <p>Une offre de parrainage permet à un nouveau client de profiter d&apos;une prime lorsqu&apos;il s&apos;inscrit grâce à un client existant. Parrainio rassemble ces bons plans et présente clairement les montants, les conditions et les étapes à suivre.</p>
-              <p>Après validation du parrainage par le partenaire, Parrainio reverse jusqu&apos;à 25 % de la commission reçue. Comparez les offres selon la prime partenaire, le délai, les conditions et le reversement potentiel pour choisir celle qui correspond à votre situation.</p>
+              <p>Après validation du parrainage par le partenaire, Parrainio reverse jusqu&apos;à 25 % de la commission reçue. Comparez les offres selon la prime partenaire, le délai, les conditions et le reversement potentiel pour choisir celle qui correspond à votre situation. Pour aller plus loin, consultez notre guide <Link href="/codes-parrainage">où trouver et utiliser un code de parrainage</Link>.</p>
             </div>
             <div className={styles.faqCard}>
               <h2>Questions fréquentes</h2>

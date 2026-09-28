@@ -21,6 +21,7 @@ import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { getRelatedOffers } from "@/lib/relatedOffers";
 import { getCategoryHubForGroup } from "@/lib/categoryHubs";
+import { SITE_URL } from "@/lib/siteUrl";
 import { hasMeaningfulConditions } from "@/lib/offerCompleteness";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import CopyTextButton from "@/components/CopyTextButton";
@@ -104,22 +105,59 @@ export default async function OfferPage({
     : [];
   const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
   const categoryHub = getCategoryHubForGroup(offer.categoryGroup);
+  // Fil d'Ariane (même pattern que hubs/blog/comparatifs) :
+  // Accueil → Offres → [Catégorie de l'offre] → [Offre]. La catégorie vient des
+  // données de l'offre (categoryGroup) ; le hub fournit l'URL dédiée. Sans hub
+  // le maillon catégorie est omis plutôt qu'inventé — le JSON-LD reflète
+  // exactement le fil affiché.
+  const breadcrumbItems = [
+    { name: "Accueil", url: `${SITE_URL}/` },
+    { name: "Offres", url: `${SITE_URL}/offres` },
+    ...(categoryHub
+      ? [{ name: offer.categoryGroup, url: `${SITE_URL}/categories/${categoryHub.slug}` }]
+      : []),
+    { name: offer.name, url: `${SITE_URL}/offres/${offer.slug}` },
+  ];
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
   const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
 
   return (
     <main className={styles.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <PublicHeader />
       <FavoritesDock />
 
       <section className={styles.offerSection}>
         <div className={styles.container}>
+          <nav className={styles.breadcrumb} aria-label="Fil d'Ariane">
+            <Link href="/">Accueil</Link>
+            <span aria-hidden="true">→</span>
+            <Link href="/offres">Offres</Link>
+            <span aria-hidden="true">→</span>
+            {categoryHub && (
+              <>
+                <Link href={`/categories/${categoryHub.slug}`}>{offer.categoryGroup}</Link>
+                <span aria-hidden="true">→</span>
+              </>
+            )}
+            <strong>{offer.name}</strong>
+          </nav>
           <div className={styles.compactLayout}>
             {/* Left: Main offer information */}
             <div className={styles.mainContent}>
               <div className={`${styles.offerHeader} ${seoProfile ? styles.offerHeaderWithActions : ""}`}>
-                {seoProfile && <div className={styles.offerIdentity}>
+                <div className={styles.offerIdentity}>
                 <div className={styles.brandRow}>
                   <OfferLogo
                     color={offer.color}
@@ -130,7 +168,8 @@ export default async function OfferPage({
                   />
                   <div className={styles.brandInfo}>
                     <span className={styles.overline}>Offre partenaire</span>
-                    <h1>{seoProfile?.h1 ?? `${offer.name} : parrainage, conditions et récompense`}</h1>
+                    <h1>{seoProfile?.h1 || `${offer.name} : parrainage et conditions`}</h1>
+                    {seoProfile?.introduction && <p className={styles.seoDetailsIntro}>{seoProfile.introduction}</p>}
                     {offer.officialWebsiteUrl && (
                       <a
                         href={referralUrl ?? offer.officialWebsiteUrl}
@@ -147,7 +186,7 @@ export default async function OfferPage({
                 <span className={styles.categoryPill}>{offer.categoryGroup}</span>
                 <VerificationBadge />
                 <FavoriteButton slug={offer.slug} variant="full" />
-                </div>}
+                </div>
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
@@ -183,7 +222,7 @@ export default async function OfferPage({
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} /> : null}
+                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} /> : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} />
                   <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
@@ -199,7 +238,7 @@ export default async function OfferPage({
                     </section>
                   )}
                   <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-details`}>
-                    <h2 id={`${offer.slug}-details`}>EN DÉTAIL</h2>
+                    <h2 id={`${offer.slug}-details`}>Fonctionnement et conditions du parrainage {offer.name}</h2>
                     <p className={styles.seoDetailsSubtitle}>Tout savoir avant de s'inscrire</p>
                     <p className={styles.seoDetailsIntro}>Informations détaillées sur l'offre</p>
                     <div className={styles.seoGroup}>
@@ -228,8 +267,7 @@ export default async function OfferPage({
                       </details>
                     ))}
                     {seoProfile.practicalInformation && <details className={styles.seoAccordion}><summary>À savoir avant de s'inscrire</summary><ul className={styles.seoList}>{seoProfile.practicalInformation.map((item) => <li key={item}>{item}</li>)}</ul></details>}
-                    <details className={styles.seoAccordion}><summary>Qu'est-ce que {offer.name} ?</summary><p>{seoProfile.whyChoose?.paragraphs[0] ?? seoProfile.introduction}</p></details>
-                    {seoProfile.faq && seoProfile.faq.length > 0 && <details className={styles.seoAccordion}><summary>Questions fréquentes</summary><div className={styles.seoFaq}>{seoProfile.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></details>}
+                    {seoProfile.faq && seoProfile.faq.length > 0 && <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-faq`}><h2 id={`${offer.slug}-faq`}>Questions fréquentes sur le parrainage {offer.name}</h2><div className={styles.seoFaq}>{seoProfile.faq.map((item) => <details key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div></section>}
                     </div>
                   </section>
                   {seoProfile.internalLinks && seoProfile.internalLinks.length > 0 && <nav className={styles.seoLinks} aria-label="Offres similaires"><span>Vous pourriez aussi être intéressé par</span>{seoProfile.internalLinks.map((link) => <Link key={link.slug} href={`/offres/${link.slug}`}>{link.label}</Link>)}</nav>}
@@ -321,7 +359,7 @@ export default async function OfferPage({
                   ) : null}
 
                   {!offer.referralCode && !referralUrl ? (
-                    <ReferralRequestForm offerName={offer.name} />
+                    <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
                   ) : null}
                 </div>
                 <ParrainioReverseRequest offerSlug={offer.slug} />

@@ -27,6 +27,11 @@
 .officialLink svg { stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; }
 .categoryPill { padding:7px 11px; border-radius:999px; color:#39765e; background:#edf6ef; font-size:.65rem; font-weight:800; white-space:nowrap; }
 .description { margin:0; padding:0 4px; color:var(--muted); font-size:.92rem; line-height:1.55; max-width:68ch; }
+.breadcrumb { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:20px; font-size:.8rem; }
+.breadcrumb a { color:var(--green); font-weight:700; text-decoration:none; }
+.breadcrumb a:hover { text-decoration:underline; text-underline-offset:3px; }
+.breadcrumb span { color:#9fb2a7; }
+.breadcrumb strong { color:var(--muted); font-weight:700; }
 .seoContent { display:flex; flex-direction:column; gap:16px; }
 .snapshotGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .snapshotGrid > div { min-width:0; padding:10px; border-radius:11px; background:#fff; }
@@ -63,6 +68,7 @@
 .seoFaq { display:flex; flex-direction:column; gap:7px; padding:0 12px 12px; }
 .seoFaq details { border:1px solid #e7eee8; border-radius:11px; }
 .seoFaq summary { padding:11px 12px; font-size:.8rem; }
+.seoFaq summary h3 { margin:0; font-size:inherit; font-weight:inherit; line-height:inherit; display:inline; }
 .seoFaq p { margin:0; padding:0 12px 12px; color:var(--muted); font-size:.78rem; line-height:1.55; }
 .seoLinks { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:4px; color:#789087; font-size:.72rem; }
 .seoLinks span { font-weight:800; }

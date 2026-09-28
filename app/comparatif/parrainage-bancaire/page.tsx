@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
   title:
-    "Comparatif parrainage banque en ligne : primes, conditions et délais | Parrainio",
+    "Comparatif de parrainage bancaire : primes et conditions | Parrainio",
   description:
-    "Comparatif des offres de parrainage bancaire pour les particuliers : BoursoBank, Fortuneo, Hello bank! et Monabanq, ainsi que Revolut, N26, Sumeria et deux banques régionales. Primes filleul, reversement Parrainio et conditions essentielles, sans montant inventé.",
+    "Comparez les parrainages de banques en ligne, banques mobiles et caisses régionales : conditions d’éligibilité, étapes et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/parrainage-bancaire`,
   },
@@ -246,7 +246,7 @@ export default async function ComparatifParrainageBancairePage() {
                   <th scope="col">Banque</th>
                   <th scope="col">Prime filleul</th>
                   <th scope="col">Reversement Parrainio</th>
-                  <th scope="col">Conditions essentielles</th>
+                  <th scope="col">Résumé des principales conditions</th>
                   <th scope="col">
                     <span className={styles.srOnly}>Lien vers la fiche</span>
                   </th>
@@ -284,7 +284,7 @@ export default async function ComparatifParrainageBancairePage() {
                     <td className={styles.conditionsCol}>{row.conditions}</td>
                     <td className={styles.ctaCol}>
                       <Link href={`/offres/${row.slug}`} className={styles.ctaLink}>
-                        Voir la fiche
+                        Voir la fiche détaillée
                       </Link>
                     </td>
                   </tr>
@@ -325,7 +325,7 @@ export default async function ComparatifParrainageBancairePage() {
                     </dd>
                   </div>
                   <div>
-                    <dt>Conditions essentielles</dt>
+                    <dt>Résumé des principales conditions</dt>
                     <dd>{row.conditions}</dd>
                   </div>
                 </dl>
@@ -350,12 +350,12 @@ export default async function ComparatifParrainageBancairePage() {
       <section className={styles.sectionAlt}>
         <div className={styles.container}>
           <div className={styles.sectionHead}>
-            <h2>
-              Quelle banque <em>choisir ?</em>
-            </h2>
+            <h2>Comment comparer les offres de parrainage bancaire ?</h2>
             <p>
-              Quelques repères pour lire le comparatif, fondés uniquement sur
-              les données actuellement documentées.
+              Ce tableau compare les programmes de parrainage et leurs
+              conditions. Il ne classe pas la qualité des comptes : pour
+              choisir une banque, examinez aussi les frais, les cartes, les
+              services et l’adéquation à vos besoins.
             </p>
           </div>
           <div className={styles.explainer}>

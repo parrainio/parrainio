@@ -36,7 +36,6 @@ const PERCENT_PATTERN = /%\s*(de réduction|de remise|sur votre)/i;
 
 function rowOf(offer: ManagedOffer): RankingRow {
   const conditions = (offer.conditions ?? []).filter(Boolean);
-  const summary = conditions.slice(0, 2).join(" ");
   return {
     slug: offer.slug,
     name: offer.name,
@@ -44,7 +43,6 @@ function rowOf(offer: ManagedOffer): RankingRow {
     partnerReward: (offer.partnerReward ?? "").trim(),
     parrainioReward: offer.parrainioReward,
     conditions,
-    summary,
     color: offer.color,
     logo: offer.logo,
     logoLetter: offer.logoLetter,

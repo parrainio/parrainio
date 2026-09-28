@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
   title:
-    "Parrainage énergie : prime de parrainage électricité et gaz | Parrainio",
+    "Comparatif des parrainages énergie : primes et conditions | Parrainio",
   description:
-    "Parrainage énergie : primes filleul des fournisseurs d'électricité et de gaz documentés sur Parrainio, conditions de souscription et points à vérifier avant de changer de contrat.",
+    "Comparez les programmes de parrainage de fournisseurs d'électricité et de gaz : conditions essentielles et liens vers les fiches détaillées.",
   alternates: { canonical: `${SITE_URL}/parrainage-energie` },
   openGraph: {
     url: "/parrainage-energie",
@@ -147,7 +147,7 @@ export default async function ParrainageEnergiePage() {
             <span />
             Parrainage énergie
           </span>
-          <h1>Parrainage énergie : prime sur l&apos;électricité et le gaz</h1>
+          <h1>Comparer les programmes de parrainage des fournisseurs d&apos;énergie</h1>
           <p className={styles.lead}>
             Plusieurs fournisseurs d&apos;électricité et de gaz proposent un
             programme de parrainage : un client existant recommande son
@@ -219,7 +219,7 @@ export default async function ParrainageEnergiePage() {
                   <th scope="col">Fournisseur</th>
                   <th scope="col">Prime filleul</th>
                   <th scope="col">Reversement Parrainio</th>
-                  <th scope="col">Conditions essentielles</th>
+                  <th scope="col">Résumé des principales conditions</th>
                   <th scope="col">
                     <span className={styles.srOnly}>Lien vers la fiche</span>
                   </th>
@@ -254,7 +254,7 @@ export default async function ParrainageEnergiePage() {
                     <td className={styles.conditionsCol}>{row.conditions}</td>
                     <td className={styles.ctaCol}>
                       <Link href={`/offres/${row.slug}`} className={styles.ctaLink}>
-                        Voir la fiche
+                        Voir la fiche détaillée
                       </Link>
                     </td>
                   </tr>
@@ -290,7 +290,7 @@ export default async function ParrainageEnergiePage() {
                     <dd>{row.parrainioReward}</dd>
                   </div>
                   <div>
-                    <dt>Conditions essentielles</dt>
+                    <dt>Résumé des principales conditions</dt>
                     <dd>{row.conditions}</dd>
                   </div>
                 </dl>
@@ -433,7 +433,7 @@ export default async function ParrainageEnergiePage() {
             </div>
             <div className={styles.ctaActions}>
               <Link href="/categories/energie" className={styles.primaryButton}>
-                Voir les offres Énergie
+                Voir les offres de parrainage énergie
               </Link>
               <Link href="/blog/parrainage-energie" className={styles.outlineButton}>
                 Le guide parrainage énergie

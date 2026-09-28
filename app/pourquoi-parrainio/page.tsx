@@ -134,7 +134,7 @@ export default function PourquoiParrainioPage() {
               <article className={styles.stepCard} key={step.number}>
                 <div className={styles.stepTop}><span>{step.number}</span><div className={styles.stepIcon}><Icon name={step.icon} size={27} /></div></div>
                 <h3>{step.title}</h3>
-                <p>{step.text}</p>
+                <p>{step.text}{step.number === "02" ? <> Pour savoir comment <Link href="/codes-parrainage">utiliser un code au bon moment</Link>, consultez notre guide.</> : null}</p>
               </article>
             ))}
           </div>

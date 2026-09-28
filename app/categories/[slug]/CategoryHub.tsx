@@ -39,10 +39,10 @@ function InfoIcon() {
  * Rendu d'un paragraphe éditorial avec liens inline au format [ancre](/chemin).
  * Aucun autre formatage n'est supporté : les hubs restent des textes sobres.
  */
-function EditorialParagraph({ text }: { text: string }) {
+function RichText({ text }: { text: string }) {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
   return (
-    <p>
+    <>
       {parts.map((part, index) => {
         const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (!match) return <span key={index}>{part}</span>;
@@ -53,6 +53,14 @@ function EditorialParagraph({ text }: { text: string }) {
           </Link>
         );
       })}
+    </>
+  );
+}
+
+function EditorialParagraph({ text }: { text: string }) {
+  return (
+    <p>
+      <RichText text={text} />
     </p>
   );
 }
@@ -244,7 +252,9 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
               {hub.infoCards.map((card) => (
                 <div className={styles.infoCardItem} key={card.title}>
                   <strong>{card.title}</strong>
-                  <p>{card.text}</p>
+                  <p>
+                    <RichText text={card.text} />
+                  </p>
                 </div>
               ))}
             </div>

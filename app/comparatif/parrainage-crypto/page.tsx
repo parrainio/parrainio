@@ -272,7 +272,7 @@ export default async function ComparatifParrainageCryptoPage() {
                   <th scope="col">Récompense filleul</th>
                   <th scope="col">Unité</th>
                   <th scope="col">Reversement Parrainio</th>
-                  <th scope="col">Conditions essentielles</th>
+                  <th scope="col">Résumé des principales conditions</th>
                   <th scope="col">
                     <span className={styles.srOnly}>Lien vers la fiche</span>
                   </th>
@@ -328,7 +328,7 @@ export default async function ComparatifParrainageCryptoPage() {
                           <dd>{row.parrainioReward}</dd>
                         </div>
                         <div>
-                          <dt>Conditions essentielles</dt>
+                          <dt>Résumé des principales conditions</dt>
                           <dd>{row.conditions}</dd>
                         </div>
                       </dl>
@@ -599,7 +599,7 @@ function GroupRows({ group }: { group: { unit: RewardUnit; rows: CryptoRow[] } }
           <td className={styles.conditionsCol}>{row.conditions}</td>
           <td className={styles.ctaCol}>
             <Link href={`/offres/${row.slug}`} className={styles.ctaLink}>
-              Voir la fiche
+              Voir la fiche détaillée
             </Link>
           </td>
         </tr>

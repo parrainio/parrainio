@@ -2159,23 +2159,6 @@
     ],
     "parrainioReward": "2 € dès que vous avez effectué votre premier retrait"
   },
-  "rakuten-priceminister": {
-    "lastVerifiedAt": "2026-08-30",
-    "officialWebsiteUrl": "https://fr.shopping.rakuten.com/",
-    "description": "Rakuten est une marketplace où vous pouvez acheter et vendre des produits neufs ou d'occasion.",
-    "steps": [
-      "Utiliser le lien Rakuten.",
-      "Créer le compte.",
-      "Effectuer la première commande avec le minimum et les exclusions affichés."
-    ],
-    "conditions": [
-      "Créer un nouveau compte Rakuten via le lien de parrainage.",
-      "Effectuer une première commande éligible.",
-      "Respecter le minimum d’achat et les catégories ou produits exclus indiqués dans la campagne."
-    ],
-    "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €"
-  },
   "phenix": {
     "lastVerifiedAt": "2026-08-30",
     "officialWebsiteUrl": "https://www.wearephenix.com/",

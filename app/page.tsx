@@ -7,6 +7,7 @@ import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import FAQ from "@/components/FAQ";
 import OfferSearchResults from "@/components/OfferSearchResults";
+import { SITE_URL } from "@/lib/siteUrl";
 import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
 import styles from "./page.module.css";
 
@@ -26,9 +27,16 @@ export default async function Home() {
   const managedOffers = await getManagedOffers();
   const categories = Array.from(new Set(managedOffers.map((offer) => offer.categoryGroup)));
   const boursobank = managedOffers.find((offer) => offer.slug === "boursobank") ?? managedOffers[0];
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Parrainio",
+    url: `${SITE_URL}/`,
+  };
 
   return (
     <main id="top" className={styles.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }} />
       <div className={styles.homeHeader}><PublicHeader active="home" /></div>
       <section className={styles.compactHero}><div className={styles.container}><div className={styles.compactHeroInner}><div className={styles.compactHeroCopy}><div className={styles.heroBadges}><span className={styles.eyebrow}><span />Le parrainage simplifié</span><span className={styles.updateBadge}><span className={styles.updateDot} aria-hidden="true" />Site mis à jour en {getCurrentPeriodLabel()}</span></div><h1>Votre parrainage <em>vous rapporte plus.</em></h1><p>Parrainio réunit les meilleures offres et vous aide à comprendre votre gain potentiel.</p><div className={styles.heroActions}><Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link><Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link></div></div><div className={styles.heroIllustration} aria-label="Aperçu de l'offre Boursobank"><div className={styles.illustrationBlob} aria-hidden="true" /><div className={styles.laurierBranch} aria-hidden="true"><span /><span /><span /><span /><span /><span /></div><div className={styles.illustrationRing} aria-hidden="true" /><div className={styles.marketingCard}><div className={styles.marketingCardHeader}><div className={styles.marketingBrand}><OfferLogo name={boursobank.name} logo={boursobank.logo} color={boursobank.color} logoLetter={boursobank.logoLetter} size={36} className={styles.marketingLogo} /><span><strong>{boursobank.name}</strong><small>Vue d&apos;ensemble</small></span></div><span className={styles.readablePill}>Simple à lire</span></div><div className={styles.marketingDivider} /><small className={styles.marketingLabel}>Une vraie offre, en clair</small><strong className={styles.marketingAmount}>160 <small>€</small></strong><div className={styles.marketingRows}><div><span>VOUS GAGNEZ</span><strong>Jusqu&apos;à 160 €</strong></div><div><span>PARRAINIO REVERSE EN PLUS</span><strong>+15 €</strong></div></div><div className={styles.marketingTotal}><span>Avantage potentiel</span><strong>Jusqu&apos;à 175 €</strong></div><Link href={`/offres/${boursobank.slug}`} className={styles.marketingCta}>En profiter →</Link></div><div className={styles.marketingCoin} aria-hidden="true">€</div><div className={styles.heroAdvantage}><span className={styles.heroAdvantageIcon}><Icon name="gift" size={18} /></span><span className={styles.heroAdvantageLabel}>Votre avantage Parrainio</span><strong>Jusqu&apos;à 25 %</strong><small>de notre commission reversée</small></div></div></div></div></section>
       <MomentSelection offers={managedOffers} />

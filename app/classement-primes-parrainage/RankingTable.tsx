@@ -15,8 +15,6 @@ export type RankingRow = {
   parrainioReward: string | null;
   /** Conditions complètes — rendues dans le DOM même accordéon fermé (SEO). */
   conditions: string[];
-  /** Résumé très court affiché dans la ligne fermée. */
-  summary: string;
   color: string;
   logo: string | null;
   logoLetter: string;
@@ -210,19 +208,21 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
                         ⋯
                       </button>
                     )}
-                    <span
-                      id={`cond-${row.slug}`}
-                      className={styles.condPopover}
-                      role="group"
-                      aria-label={`Conditions essentielles — ${row.name}`}
-                    >
-                      <strong>Conditions essentielles</strong>
-                      <ul>
-                        {row.conditions.map((condition) => (
-                          <li key={condition}>{condition}</li>
-                        ))}
-                      </ul>
-                    </span>
+                    {row.conditions.length > 0 && (
+                      <span
+                        id={`cond-${row.slug}`}
+                        className={styles.condPopover}
+                        role="group"
+                        aria-label={`Conditions essentielles — ${row.name}`}
+                      >
+                        <strong>Conditions essentielles</strong>
+                        <ul>
+                          {row.conditions.map((condition) => (
+                            <li key={condition}>{condition}</li>
+                          ))}
+                        </ul>
+                      </span>
+                    )}
                   </span>
                   <span className={styles.chev} aria-hidden="true">▾</span>
                 </summary>

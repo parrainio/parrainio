@@ -109,7 +109,7 @@ export const blogArticles: BlogArticle[] = [
             blocks: [
               "Ces trois mécanismes sont souvent confondus, alors qu'ils ne reposent pas sur la même logique. Le cashback est un avantage lié à un achat effectué chez un marchand partenaire : sans achat éligible, pas de cashback. Le bonus de parrainage, lui, est lié à un programme de parrainage : il est accordé lorsque vous vous inscrivez via le lien ou le code d'un parrain, ou lorsque vous remplissez les actions prévues par ce programme. Il ne dépend pas d'un achat cashbacké en soi, même si certaines conditions peuvent y faire référence.",
               "Le reversement Parrainio est un troisième mécanisme, propre au modèle de Parrainio : lorsque le site est rémunéré par un partenaire, une partie de cette commission peut être reversée à l'utilisateur qui a utilisé l'offre, selon les conditions de celle-ci. Autrement dit, un même parcours peut cumuler un avantage du partenaire et, le cas échéant, un reversement Parrainio — mais ce sont deux choses distinctes, qui ne doivent pas être additionnées sans vérification.",
-              "Si vous découvrez le fonctionnement d'un parrainage, la page [Comment ça marche](/comment-ca-marche) détaille le parcours complet, et la page [Nos avantages](/nos-avantages) explique le modèle de reversement de Parrainio. Les primes de parrainage actuellement documentées, elles, sont listées sur le [classement des primes](/classement-primes-parrainage).",
+              "Si vous découvrez le fonctionnement d'un parrainage, la page [Comment ça marche](/pourquoi-parrainio) détaille le parcours complet, et la page [Nos avantages](/pourquoi-parrainio) explique le modèle de reversement de Parrainio. Les primes de parrainage actuellement documentées, elles, sont listées sur le [classement des primes](/classement-primes-parrainage).",
             ],
           },
           {
@@ -184,7 +184,7 @@ export const blogArticles: BlogArticle[] = [
                   "Vérifier les conditions de l'achat envisagé : marchand partenaire, catégories éligibles, exclusions.",
                   "Comprendre les modalités de validation et de retrait avant de cumuler du cashback.",
                   "Ne jamais considérer un montant « en attente » comme acquis tant qu'il n'est pas validé.",
-                  "Si vous utilisez un lien de parrainage pour vous inscrire, vérifier les conditions propres au programme sur la fiche de l'offre et sur [Comment ça marche](/comment-ca-marche).",
+                  "Si vous utilisez un lien de parrainage pour vous inscrire, vérifier les conditions propres au programme sur la fiche de l'offre et sur [Comment ça marche](/pourquoi-parrainio).",
                 ],
               },
             ],
@@ -373,7 +373,7 @@ export const blogArticles: BlogArticle[] = [
             heading: "Qu'est-ce que le parrainage énergie ?",
             blocks: [
             "Le principe est le même que pour d'autres secteurs : un client existant — le parrain — recommande son fournisseur à une personne de son entourage — le filleul. Si le filleul souscrit une offre éligible en utilisant le lien ou le code du parrain, le programme peut attribuer une prime au parrain, au filleul, ou aux deux, selon les règles du fournisseur.",
-            "Chaque programme définit ses propres conditions : type d'offre concerné, zone géographique, délai de souscription, durée de conservation du contrat, forme de la récompense (remise sur facture, note de crédit, virement, autre avantage). Il n'existe donc pas de mécanisme unique applicable à tous les fournisseurs, et une prime n'est jamais attribuée automatiquement : elle dépend de la validation du programme. Les campagnes évoluent aussi dans le temps : une offre active aujourd'hui peut être remplacée ou modifiée demain. Si le fonctionnement général d'un parrainage — lien, code, conditions, validation — est encore flou, la page [Comment ça marche](/comment-ca-marche) de Parrainio le présente simplement, étape par étape."
+            "Chaque programme définit ses propres conditions : type d'offre concerné, zone géographique, délai de souscription, durée de conservation du contrat, forme de la récompense (remise sur facture, note de crédit, virement, autre avantage). Il n'existe donc pas de mécanisme unique applicable à tous les fournisseurs, et une prime n'est jamais attribuée automatiquement : elle dépend de la validation du programme. Les campagnes évoluent aussi dans le temps : une offre active aujourd'hui peut être remplacée ou modifiée demain. Si le fonctionnement général d'un parrainage — lien, code, conditions, validation — est encore flou, la page [Comment ça marche](/pourquoi-parrainio) de Parrainio le présente simplement, étape par étape."
             ],
           },
           {
@@ -683,7 +683,7 @@ export const blogArticles: BlogArticle[] = [
       { type: "h2", text: "Comment comparer les offres de parrainage crypto ?" },
       "Comparer des programmes de parrainage crypto demande de regarder plusieurs éléments en même temps : l'unité et le type de la récompense (fixe, conditionnelle, variable), les conditions d'obtention, la période de campagne, et les modalités de versement. Une offre « jusqu'à » un montant élevé n'est pas forcément plus avantageuse qu'une offre plus modeste mais aux conditions simples.",
       "Par ailleurs, une véritable offre de parrainage doit être distinguée d'une simple promotion commerciale : le parrainage implique un lien ou un code rattaché à un parrain et obéit à des règles propres, tandis qu'une promotion de bienvenue peut être ouverte à tous sans parrain. Vérifiez quel mécanisme est réellement en jeu avant de vous inscrire.",
-      "Le [comparatif des offres de parrainage crypto](/comparatif/parrainage-crypto) de Parrainio réunit les programmes actuellement documentés — par exemple [Kraken](/offres/kraken), [Crypto.com](/offres/crypto-com), [Bybit](/offres/bybit), [Coinbase](/offres/coinbase) ou [OKX](/offres/okx) — et renvoie vers chaque fiche pour les conditions détaillées. Le hub [Investissement & Crypto](/categories/investissement-crypto) permet d'explorer l'ensemble de l'univers, et la page [Comment ça marche](/comment-ca-marche) rappelle le fonctionnement général d'un parrainage sur Parrainio.",
+      "Le [comparatif des offres de parrainage crypto](/comparatif/parrainage-crypto) de Parrainio réunit les programmes actuellement documentés — par exemple [Kraken](/offres/kraken), [Crypto.com](/offres/crypto-com), [Bybit](/offres/bybit), [Coinbase](/offres/coinbase) ou [OKX](/offres/okx) — et renvoie vers chaque fiche pour les conditions détaillées. Le hub [Investissement & Crypto](/categories/investissement-crypto) permet d'explorer l'ensemble de l'univers, et la page [Comment ça marche](/pourquoi-parrainio) rappelle le fonctionnement général d'un parrainage sur Parrainio.",
 
       { type: "h2", text: "Conclusion" },
       "Le parrainage crypto repose sur un mécanisme simple — inscrire un proche via un lien ou un code — mais il se complique dès que l'on regarde les récompenses : unités différentes, conditions variées, campagnes temporaires, et parfois versement dans un actif dont la valeur fluctue. La règle à retenir : lire les conditions avant de s'inscrire, ne jamais considérer un montant « jusqu'à » comme une somme garantie, et ne pas confondre un bonus de parrainage avec une garantie de gain.",
@@ -750,7 +750,7 @@ export const blogArticles: BlogArticle[] = [
           "Un programme de fidélité : freebet offert en récompense d'une activité régulière.",
         ],
       },
-            "Dans le cadre d'un parrainage, le réflexe à avoir est le même que pour tout programme : utiliser le lien ou le code du parrain au moment de l'inscription, et vérifier les conditions de l'offre sur la fiche actualisée avant d'ouvrir un compte. Pour comprendre comment un parrainage se déroule dans son ensemble, la page [Comment ça marche](/comment-ca-marche) de Parrainio présente le parcours général."
+            "Dans le cadre d'un parrainage, le réflexe à avoir est le même que pour tout programme : utiliser le lien ou le code du parrain au moment de l'inscription, et vérifier les conditions de l'offre sur la fiche actualisée avant d'ouvrir un compte. Pour comprendre comment un parrainage se déroule dans son ensemble, la page [Comment ça marche](/pourquoi-parrainio) de Parrainio présente le parcours général."
             ],
           },
           {
@@ -836,7 +836,7 @@ export const blogArticles: BlogArticle[] = [
           "L'opérateur lui-même : un site agréé par l'ANJ est la condition préalable à toute offre légale en France.",
         ],
       },
-      "Le [comparatif des offres de paris sportifs](/comparatif/paris-sportifs) de Parrainio réunit les opérateurs actuellement documentés — [Winamax](/offres/winamax), [Betclic](/offres/betclic), [Unibet](/offres/unibet), [Parions Sport](/offres/parions-sport) et [Betsson](/offres/betsson) — et renvoie vers chaque fiche pour les conditions détaillées. Le hub [Jeux & Paris](/categories/jeux-paris) permet d'explorer l'ensemble de l'univers, et la page [Comment ça marche](/comment-ca-marche) rappelle le fonctionnement général d'un parrainage sur Parrainio.",
+      "Le [comparatif des offres de paris sportifs](/comparatif/paris-sportifs) de Parrainio réunit les opérateurs actuellement documentés — [Winamax](/offres/winamax), [Betclic](/offres/betclic), [Unibet](/offres/unibet), [Parions Sport](/offres/parions-sport) et [Betsson](/offres/betsson) — et renvoie vers chaque fiche pour les conditions détaillées. Le hub [Jeux & Paris](/categories/jeux-paris) permet d'explorer l'ensemble de l'univers, et la page [Comment ça marche](/pourquoi-parrainio) rappelle le fonctionnement général d'un parrainage sur Parrainio.",
 
       { type: "h2", text: "Freebet : les points essentiels à retenir" },
       {
@@ -864,7 +864,7 @@ export const blogArticles: BlogArticle[] = [
     datePublished: "2026-09-05",
     category: "Guides",
     body: [
-      "Vous avez un lien ou un code de parrainage, et vous vous demandez comment l'utiliser sans déranger ni être perçu comme un spammeur ? La réponse tient en une idée : partager son parrainage, c'est avant tout recommander un service à des personnes pour qui il peut réellement être utile, en respectant les règles de chaque programme. Cet article complète la page [Comment ça marche](/comment-ca-marche), qui explique le parcours d'un parrainage : ici, l'accent est mis sur la façon de trouver des filleuls et de diffuser son lien correctement.",
+      "Vous avez un lien ou un code de parrainage, et vous vous demandez comment l'utiliser sans déranger ni être perçu comme un spammeur ? La réponse tient en une idée : partager son parrainage, c'est avant tout recommander un service à des personnes pour qui il peut réellement être utile, en respectant les règles de chaque programme. Cet article complète la page [Comment ça marche](/pourquoi-parrainio), qui explique le parcours d'un parrainage : ici, l'accent est mis sur la façon de trouver des filleuls et de diffuser son lien correctement.",
 
       {
         type: "accordion",
@@ -998,7 +998,7 @@ export const blogArticles: BlogArticle[] = [
           "En cas de doute sur un usage (publication publique, sollicitation de proches), renseignez-vous auprès des conditions du programme.",
         ],
       },
-      "Trouver des filleuls est avant tout une affaire de pertinence et de confiance : les bonnes personnes, le bon moment, et des conditions vérifiées. Pour revoir le fonctionnement d'un parrainage de bout en bout, la page [Comment ça marche](/comment-ca-marche) reste la référence, et le catalogue des [offres de parrainage](/offres) vous permet d'explorer les programmes actuellement documentés avant de choisir lesquels partager.",
+      "Trouver des filleuls est avant tout une affaire de pertinence et de confiance : les bonnes personnes, le bon moment, et des conditions vérifiées. Pour revoir le fonctionnement d'un parrainage de bout en bout, la page [Comment ça marche](/pourquoi-parrainio) reste la référence, et le catalogue des [offres de parrainage](/offres) vous permet d'explorer les programmes actuellement documentés avant de choisir lesquels partager.",
     ],
   },
   {
@@ -1068,7 +1068,7 @@ export const blogArticles: BlogArticle[] = [
           {
             heading: "Profiter des offres de parrainage sans acheter inutilement",
             blocks: [
-            "Les offres de parrainage peuvent apporter une prime de bienvenue ou un avantage à l'inscription, mais elles n'ont d'intérêt que si le service correspond à un vrai besoin. La règle est simple : si vous envisagiez déjà d'ouvrir un compte, de souscrire une offre d'énergie ou de vous inscrire sur une plateforme de cashback, utiliser un parrainage peut être un petit plus ; souscrire uniquement pour toucher une prime revient souvent à payer un service dont vous n'avez pas l'usage. Le fonctionnement général est expliqué sur la page [Comment ça marche](/comment-ca-marche), et les programmes actuellement documentés sont consultables sur [la liste des offres](/offres) et le [classement des primes](/classement-primes-parrainage).",
+            "Les offres de parrainage peuvent apporter une prime de bienvenue ou un avantage à l'inscription, mais elles n'ont d'intérêt que si le service correspond à un vrai besoin. La règle est simple : si vous envisagiez déjà d'ouvrir un compte, de souscrire une offre d'énergie ou de vous inscrire sur une plateforme de cashback, utiliser un parrainage peut être un petit plus ; souscrire uniquement pour toucher une prime revient souvent à payer un service dont vous n'avez pas l'usage. Le fonctionnement général est expliqué sur la page [Comment ça marche](/pourquoi-parrainio), et les programmes actuellement documentés sont consultables sur [la liste des offres](/offres) et le [classement des primes](/classement-primes-parrainage).",
             "Deux précautions valent pour tous les univers : les campagnes évoluent, donc les conditions doivent être vérifiées au moment de l'inscription, et une prime n'est jamais acquise tant que les conditions du programme ne sont pas remplies. Enfin, restez lucide sur les promesses de « revenus faciles » : certains univers présents sur Parrainio, comme les [paris sportifs](/comparatif/paris-sportifs) ou la [crypto](/comparatif/parrainage-crypto), n'ont rien à voir avec des économies du quotidien — ce sont des activités risquées, jamais un moyen d'arrondir son budget."
             ],
           },
@@ -1207,7 +1207,7 @@ export const blogArticles: BlogArticle[] = [
           {
             heading: "Cashback et offres de bienvenue : quand cela peut être intéressant",
             blocks: [
-            "Une offre de bienvenue, un bonus de parrainage ou un cashback ne doivent jamais être la raison d'une souscription : ils n'ont de sens que lorsque le service correspond à un besoin réel. Si vous avez décidé de garder une plateforme vidéo, un abonnement sportif ou un service en ligne, vérifier s'il existe une offre d'adhésion avantageuse peut être un petit plus — à condition d'en lire les conditions, car elles varient selon les campagnes. Le principe général est expliqué sur la page [Comment ça marche](/comment-ca-marche).",
+            "Une offre de bienvenue, un bonus de parrainage ou un cashback ne doivent jamais être la raison d'une souscription : ils n'ont de sens que lorsque le service correspond à un besoin réel. Si vous avez décidé de garder une plateforme vidéo, un abonnement sportif ou un service en ligne, vérifier s'il existe une offre d'adhésion avantageuse peut être un petit plus — à condition d'en lire les conditions, car elles varient selon les campagnes. Le principe général est expliqué sur la page [Comment ça marche](/pourquoi-parrainio).",
             "Côté achats du quotidien, le cashback permet de récupérer une partie d'un achat déjà prévu : le fonctionnement est détaillé dans notre [comparatif des plateformes de cashback](/comparatif/cashback) et notre [article dédié](/blog/le-cashback-comment-ca-marche). Le [classement des primes actuellement documentées](/classement-primes-parrainage) et le hub [Cashback](/categories/cashback) donnent une vision d'ensemble, et les bons plans du hub [Shopping & Courses](/categories/shopping-courses) complètent le tableau — toujours sur des achats ou souscriptions que vous comptiez réaliser."
             ],
           }
@@ -1340,7 +1340,7 @@ export const blogArticles: BlogArticle[] = [
             heading: "Ne pas choisir uniquement sur le prix",
             blocks: [
             "Une offre moins chère n'est une économie que si elle correspond à votre usage et à votre zone de vie : un réseau mal couvert chez vous, une data insuffisante ou un service client difficile annulent vite l'écart de prix. Choisir « le moins cher » sans vérifier la couverture et les services inclus est l'une des fausses économies les plus fréquentes en télécom.",
-            "À l'inverse, si vous changez d'opérateur ou achetez un mobile, les avantages ponctuels peuvent s'ajouter à un choix déjà fondé sur l'usage : une offre de parrainage de l'opérateur (dont le fonctionnement général est expliqué sur [Comment ça marche](/comment-ca-marche)) peut accompagner un changement décidé pour de bonnes raisons — jamais le déclencher. Et pour un achat déjà prévu, les [bons plans du hub Shopping & Courses](/categories/shopping-courses) et le [comparatif des plateformes de cashback](/comparatif/cashback) peuvent s'appliquer. Le principe reste le même partout : vérifier les conditions avant de s'inscrire, et ne pas changer pour une prime seule."
+            "À l'inverse, si vous changez d'opérateur ou achetez un mobile, les avantages ponctuels peuvent s'ajouter à un choix déjà fondé sur l'usage : une offre de parrainage de l'opérateur (dont le fonctionnement général est expliqué sur [Comment ça marche](/pourquoi-parrainio)) peut accompagner un changement décidé pour de bonnes raisons — jamais le déclencher. Et pour un achat déjà prévu, les [bons plans du hub Shopping & Courses](/categories/shopping-courses) et le [comparatif des plateformes de cashback](/comparatif/cashback) peuvent s'appliquer. Le principe reste le même partout : vérifier les conditions avant de s'inscrire, et ne pas changer pour une prime seule."
             ],
           }
         ],
@@ -1491,7 +1491,7 @@ export const blogArticles: BlogArticle[] = [
             heading: "Comment choisir une plateforme de cashback ?",
             blocks: [
             "Aucune plateforme n'est « la meilleure » en toutes circonstances : leur intérêt dépend des marchands disponibles, de la simplicité de validation, des modalités de retrait et des conditions de chaque offre. Les critères à comparer sont concrets : le catalogue de marchands, la clarté des conditions, les seuils et délais de retrait, et la fiabilité du service. Notre [comparatif des plateformes de cashback](/comparatif/cashback) rassemble les plateformes actuellement documentées — [iGraal](/offres/igraal), [Poulpeo](/offres/poulpeo), [eBuyClub](/offres/ebuyclub), [Widilo](/offres/widilo) et [TopCashback](/offres/topcashback) — avec leurs fiches complètes et le hub [Cashback](/categories/cashback).",
-            "Pour aller plus loin sur les avantages d'inscription : certaines plateformes proposent un bonus de parrainage ou de bienvenue — le fonctionnement est expliqué sur [Comment ça marche](/comment-ca-marche), et le [classement des primes actuellement documentées](/classement-primes-parrainage) donne une vision d'ensemble. Le principe reste le même : une offre de bienvenue n'a d'intérêt que si la plateforme correspond à votre usage réel."
+            "Pour aller plus loin sur les avantages d'inscription : certaines plateformes proposent un bonus de parrainage ou de bienvenue — le fonctionnement est expliqué sur [Comment ça marche](/pourquoi-parrainio), et le [classement des primes actuellement documentées](/classement-primes-parrainage) donne une vision d'ensemble. Le principe reste le même : une offre de bienvenue n'a d'intérêt que si la plateforme correspond à votre usage réel."
             ],
           }
         ],

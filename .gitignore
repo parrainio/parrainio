@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent/workspace artifacts (do not publish)
+.freebuff/
+in
+AUDIT_SEO_PROGRESS.md
+scripts/contact-perf-sink.mjs

@@ -222,7 +222,7 @@ export default async function ComparatifParisSportifsPage() {
                   <th scope="col">Opérateur</th>
                   <th scope="col">Bonus / avantage filleul</th>
                   <th scope="col">Reversement Parrainio</th>
-                  <th scope="col">Condition essentielle</th>
+                  <th scope="col">Résumé des principales conditions</th>
                   <th scope="col">
                     <span className={styles.srOnly}>Lien vers la fiche</span>
                   </th>
@@ -253,7 +253,7 @@ export default async function ComparatifParisSportifsPage() {
                     <td className={styles.conditionsCol}>{row.conditions}</td>
                     <td className={styles.ctaCol}>
                       <Link href={`/offres/${row.slug}`} className={styles.ctaLink}>
-                        Voir la fiche
+                        Voir la fiche détaillée
                       </Link>
                     </td>
                   </tr>
@@ -289,7 +289,7 @@ export default async function ComparatifParisSportifsPage() {
                     <dd>{row.parrainioReward}</dd>
                   </div>
                   <div>
-                    <dt>Condition essentielle</dt>
+                    <dt>Résumé des principales conditions</dt>
                     <dd>{row.conditions}</dd>
                   </div>
                 </dl>
