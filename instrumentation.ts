@@ -59,10 +59,8 @@ export async function register() {
     }
   })();
 
-  const checkResult = (await globalScope.__parrainioAlertsCheck) as
-    | { outcomes?: { slug: string; status: string; changedFields: string[] }[] }
-    | null
-    | undefined;
+  void globalScope.__parrainioAlertsCheck.then(async (checkResult) => {
+  const checkData = checkResult as { outcomes?: { slug: string; status: string; changedFields: string[] }[] } | null | undefined;
 
   /* ── IndexNow : soumission des URLs nouvelles/modifiées ───────────────────
      Consomme les mêmes outcomes (déjà idempotents : no-change → 0 soumission,
@@ -71,11 +69,11 @@ export async function register() {
        domaine canonique ;
      - try/catch séparé : un échec IndexNow ne touche ni les alertes ni la
        référence KV (la vérification est déjà terminée à ce stade). */
-  if (process.env.VERCEL_ENV === "production" && checkResult?.outcomes) {
+  if (process.env.VERCEL_ENV === "production" && checkData?.outcomes) {
     try {
       const { isIndexNowEnabled, urlsFromAlertOutcomes, submitIndexNow } = await import("@/lib/indexNow");
       if (isIndexNowEnabled()) {
-        const urls = urlsFromAlertOutcomes(checkResult.outcomes);
+        const urls = urlsFromAlertOutcomes(checkData.outcomes);
         if (urls.length > 0) {
           await submitIndexNow(urls);
         } else {
@@ -86,4 +84,7 @@ export async function register() {
       console.warn("[indexnow] étape ignorée :", error instanceof Error ? error.message : error);
     }
   }
+}).catch((error) => {
+  console.error("[alerts] étape post-scan échouée :", error instanceof Error ? error.message : error);
+});
 }

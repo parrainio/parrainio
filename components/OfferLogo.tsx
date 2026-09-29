@@ -38,6 +38,8 @@ export default function OfferLogo({
         <img
           alt=""
           src={logo}
+          loading="lazy"
+          decoding="async"
           style={{ width: "72%", height: "72%", objectFit: "contain" }}
         />
       </span>

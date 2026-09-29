@@ -63,6 +63,33 @@ async function rest<T>(command: (string | number)[], init?: RequestInit): Promis
     return { ok: false, error: error instanceof Error ? error.message : "kv-network-error" };
   }
 }
+async function restMany<T>(commands: (string | number)[][]): Promise<RestResult<T[]>> {
+  const kv = kvEnv();
+  if (!kv) return { ok: false, error: "kv-not-configured" };
+  try {
+    const response = await fetch(kv.url, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${kv.token}`, "Content-Type": "application/json" },
+      body: JSON.stringify(commands),
+      cache: "no-store",
+    });
+    if (!response.ok) return { ok: false, error: `kv-http-${response.status}` };
+    const payload = (await response.json()) as { result?: { result?: T | string; error?: string }[]; error?: string };
+    if (payload.error) return { ok: false, error: payload.error };
+    const out: T[] = [];
+    for (const item of payload.result ?? []) {
+      if (item?.error) return { ok: false, error: item.error };
+      let value = item?.result;
+      if (typeof value === "string") {
+        try { value = JSON.parse(value) as T; } catch { /* valeur non-JSON (ex. null) */ }
+      }
+      out.push(value as T);
+    }
+    return { ok: true, value: out };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "kv-network-error" };
+  }
+}
 
 export type SignatureLookup =
   | { ok: true; value: OfferSignatureRecord | null }
@@ -75,4 +102,25 @@ export async function loadSignature(slug: string): Promise<SignatureLookup> {
 export async function saveSignature(slug: string, record: OfferSignatureRecord): Promise<boolean> {
   const result = await rest(["SET", PREFIX + slug, JSON.stringify(record)]);
   return result.ok;
+}
+
+/**
+ * B (P5.1) : lecture groupée des signatures — une seule requête HTTP KV
+ * (pipeline Upstash) par tranche de 100, au lieu d'un GET par offre.
+ * Sémantique identique à loadSignature : clé absente → null.
+ */
+export async function loadSignaturesBulk(
+  slugs: string[]
+): Promise<Map<string, OfferSignatureRecord | null>> {
+  const out = new Map<string, OfferSignatureRecord | null>();
+  const CHUNK = 100;
+  for (let i = 0; i < slugs.length; i += CHUNK) {
+    const slice = slugs.slice(i, i + CHUNK);
+    const pipeline = await restMany<OfferSignatureRecord | null>(slice.map((slug) => ["GET", PREFIX + slug]));
+    if (!pipeline.ok) throw new Error(pipeline.error);
+    slice.forEach((slug, j) => {
+      out.set(slug, pipeline.value[j] ?? null);
+    });
+  }
+  return out;
 }

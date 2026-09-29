@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import type { SVGProps } from "react";
-import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { type Offer, getOfferReferralUrl } from "@/data/offers";
-import PublicHeader from "@/components/PublicHeader";
 import OfferRewards from "@/components/OfferRewards";
 import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
@@ -20,11 +18,13 @@ import {
   filterOffers,
 } from "@/lib/offerFilters";
 import { SITE_URL } from "@/lib/siteUrl";
-import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import styles from "./page.module.css";
 
 type OffersCatalogProps = {
   offers: Offer[];
+  hubSlugByCategory: Record<string, string>;
+  /** Slot serveur : le header est rendu côté serveur et passé en nœud React. */
+  header: React.ReactNode;
 };
 
 type IconName = "arrow" | "check" | "search" | "gift" | "info";
@@ -84,17 +84,31 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
   );
 }
 
-export default function OffersCatalog({ offers }: OffersCatalogProps) {
-  const searchParams = useSearchParams();
-  const requestedCategory = searchParams.get("category");
+/* Lecture tolérante du paramètre ?category= : reste compatible rendu statique
+   (window absent côté serveur → null). */
+function useRequestedCategory(): string | null {
+  const [value, setValue] = useState<string | null>(null);
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get("category");
+    if (param) setValue(param);
+  }, []);
+  return value;
+}
+
+export default function OffersCatalog({ offers, hubSlugByCategory, header }: OffersCatalogProps) {
   const [search, setSearch] = useState("");
   const [activePrime, setActivePrime] = useState<string | null>(null);
   const [activeCondition, setActiveCondition] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState(
-    requestedCategory && offers.some((offer) => offer.categoryGroup === requestedCategory)
-      ? requestedCategory
-      : "Toutes"
-  );
+  const [activeCategory, setActiveCategory] = useState("Toutes");
+
+  /* Deep-link ?category= : appliqué après hydratation pour laisser la page
+     se prérendre entièrement côté serveur (plus de bailout CSR). */
+  const requestedCategory = useRequestedCategory();
+  useEffect(() => {
+    if (requestedCategory && offers.some((offer) => offer.categoryGroup === requestedCategory)) {
+      setActiveCategory(requestedCategory);
+    }
+  }, [requestedCategory, offers]);
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
@@ -109,14 +123,6 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
       ? offers
       : offers.filter((offer) => offer.categoryGroup === activeCategory),
     [activeCategory, offers]
-  );
-
-  const hubSlugByCategory = useMemo(
-    () =>
-      Object.fromEntries(
-        CATEGORY_HUBS.map((hub) => [hub.group, hub.slug] as const)
-      ),
-    []
   );
 
   /* Carte hero : offre mise en avant, alimentée par les données gérées
@@ -194,7 +200,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
-      <PublicHeader active="offers" />
+      {header}
       <FavoritesDock />
 
       {/* HERO */}
@@ -334,6 +340,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                   <Link
                     className={styles.visualCta}
                     href={`/offres/${featuredOffer.slug}`}
+                    prefetch={false}
                   >
                     Voir l&apos;offre →
                   </Link>
@@ -482,6 +489,7 @@ export default function OffersCatalog({ offers }: OffersCatalogProps) {
                   <Link
                     href={`/offres/${offer.slug}`}
                     className={styles.offerLink}
+                    prefetch={false}
                   >
                     Voir l&apos;offre {offer.name}
                     <Icon

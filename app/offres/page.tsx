@@ -1,11 +1,11 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getManagedOffers } from "@/data/managedOffers";
 import { OG_IMAGE } from "@/lib/ogImage";
+import { CATEGORY_HUBS } from "@/lib/categoryHubs";
+import PublicHeader from "@/components/PublicHeader";
 import OffersCatalog from "./OffersCatalog";
-import CategoryOffers from "./CategoryOffers";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Offres de parrainage : primes et bons plans | Parrainio",
@@ -17,10 +17,17 @@ export const metadata: Metadata = {
 
 export default async function OffresPage() {
   const offers = await getManagedOffers();
+  const hubSlugByCategory = Object.fromEntries(
+    CATEGORY_HUBS.map((hub) => [hub.group, hub.slug] as const)
+  );
 
   return (
-    <Suspense>
-      <OffersCatalog offers={offers} />
-    </Suspense>
+    <>
+      <OffersCatalog
+        offers={offers}
+        hubSlugByCategory={hubSlugByCategory}
+        header={<PublicHeader active="offers" />}
+      />
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import { getManagedOffer, getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
-import { loadSignature, saveSignature, type OfferSignatureRecord } from "./offerSignature";
+import { loadSignature, saveSignature, loadSignaturesBulk, type OfferSignatureRecord } from "./offerSignature";
 import { listActiveSubscribers } from "./alertSubscriptions";
 import { hashEmail, signAlertToken } from "./alertTokens";
 import { getAlertsConfig } from "./alertsConfig";
@@ -188,10 +188,15 @@ export async function runOfferAlertCheck(options: {
     : await getManagedOffers();
   const outcomes: OfferAlertOutcome[] = [];
 
+  // B (P5.1) : lecture groupée des signatures (1 requête pipeline par tranche de 100).
+  const bulk = await loadSignaturesBulk(targets.filter((o): o is ManagedOffer => Boolean(o)).map((o) => o.slug));
+
   for (const offer of targets) {
     if (!offer) continue;
     const signature = computeOfferSignature(offer);
-    const lookup = await loadSignature(offer.slug);
+    // Lecture groupée ; repli individuel (ancien chemin) si l'offre est absente du groupe.
+    const stored = bulk.get(offer.slug);
+    const lookup = stored === undefined ? await loadSignature(offer.slug) : ({ ok: true, value: stored } as const);
     const previous: OfferSignatureRecord | null = lookup.ok ? lookup.value : null;
 
     if (options.dryRun) {
