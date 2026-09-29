@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import styles from "./page.module.css";
 
 export default function ReverseRequestForm({ offerSlug, offerName }: { offerSlug: string; offerName: string }) {
@@ -9,10 +9,13 @@ export default function ReverseRequestForm({ offerSlug, offerName }: { offerSlug
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("RIB");
+  const submitting = useRef(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting.current) return;
     setError("");
+    submitting.current = true;
     setSending(true);
     const form = new FormData(event.currentTarget);
 
@@ -33,11 +36,15 @@ export default function ReverseRequestForm({ offerSlug, offerName }: { offerSlug
         }),
       });
 
-      if (!response.ok) throw new Error();
+      const result: unknown = await response.json().catch(() => null);
+      if (!response.ok || !result || typeof result !== "object" || (result as { ok?: unknown }).ok !== true) {
+        throw new Error();
+      }
       setSubmitted(true);
     } catch {
       setError("Impossible d’envoyer votre demande pour le moment. Veuillez réessayer dans quelques instants.");
     } finally {
+      submitting.current = false;
       setSending(false);
     }
   }

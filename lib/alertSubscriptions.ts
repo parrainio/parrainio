@@ -12,9 +12,8 @@ import { alertSigningConfigured } from "./alertTokens";
  * l'e-mail (l'adresse en clair n'est pas la clé ; elle est stockée une fois,
  * chiffrable plus tard sans migration de clé). Une clé par couple (e-mail,
  * offre) : une soumission ne peut jamais créer de doublon. Statuts :
- * `active` (alerte créée par une soumission explicite) et `unsubscribed`.
- * `pending` n'est plus créé (l'ancien double opt-in a été retiré) mais
- * reste lu pour migrer proprement d'éventuelles anciennes entrées.
+ * `pending` attend la confirmation par e-mail, `active` a confirmé son adresse
+ * et `unsubscribed` a demandé l'arrêt des alertes.
  *
  * IMPORTANT (chantier) : la persistance n'existe que si les variables
  * ALERTS_KV_REST_API_URL / ALERTS_KV_REST_API_TOKEN sont configurées. Sans
@@ -32,7 +31,7 @@ export type AlertSubscription = {
   status: AlertSubscriptionStatus;
   /** Date de création de la demande (ISO). */
   createdAt: string;
-  /** Date d'activation de l'alerte (ISO) — posée dès la soumission explicite. */
+  /** Date de confirmation de l'adresse (ISO). */
   activatedAt: string | null;
   /** Date de désabonnement (ISO), si applicable. */
   unsubscribedAt: string | null;
@@ -41,6 +40,7 @@ export type AlertSubscription = {
 export type SubscribeOutcome =
   | { kind: "created" }
   | { kind: "reactivated" }
+  | { kind: "pending" }
   | { kind: "already-active" }
   | { kind: "unavailable"; reason: string };
 
@@ -98,11 +98,13 @@ async function restMany<T>(commands: (string | number)[][]): Promise<StorageResu
     if (!response.ok) return { ok: false, error: "storage-error", reason: `kv-http-${response.status}` };
     const payload = (await response.json()) as { result?: (T | string)[]; error?: string };
     if (payload.error) return { ok: false, error: "storage-error", reason: payload.error };
+    // Le pipeline Upstash REST enveloppe chaque résultat : [{ result: … }, …].
     const values = (payload.result ?? []).map((item) => {
-      if (typeof item === "string") {
-        try { return JSON.parse(item) as T; } catch { return item as T; }
+      const raw = item && typeof item === "object" && "result" in item ? (item as { result: unknown }).result : item;
+      if (typeof raw === "string") {
+        try { return JSON.parse(raw) as T; } catch { return raw as T; }
       }
-      return item as T;
+      return (raw ?? null) as T;
     });
     return { ok: true, value: values };
   } catch (error) {
@@ -125,12 +127,8 @@ export async function saveSubscription(subscription: AlertSubscription, emailHas
 }
 
 /**
- * Résout une demande de souscription (appelée APRÈS validation serveur et
- * vérification du consentement). Activation IMMÉDIATE : toute soumission
- * explicite crée (ou réactive) l'alerte en `active`, sans e-mail de
- * confirmation et sans renvoi. Ne crée jamais de doublon : une entrée
- * existante `active` reste inchangée (aucune réécriture) ; une entrée
- * `pending` (historique) ou `unsubscribed` passe à `active` sur la même clé.
+ * Enregistre une souscription après validation et consentement. Les alertes
+ * restent inactives tant que le lien de confirmation n'a pas été utilisé.
  */
 export async function resolveSubscription(params: {
   email: string;
@@ -150,19 +148,44 @@ export async function resolveSubscription(params: {
   if (previous && previous.status === "active") {
     return { ok: true, value: { kind: "already-active" } };
   }
+  if (previous && previous.status === "pending") {
+    return { ok: true, value: { kind: "pending" } };
+  }
 
   const next: AlertSubscription = {
     email: params.email,
     slug: params.slug,
     consent: true,
-    status: "active",
+    status: "pending",
     createdAt: previous?.createdAt ?? now,
-    activatedAt: now,
+    activatedAt: null,
     unsubscribedAt: null,
   };
   const saved = await saveSubscription(next, params.emailHash);
   if (!saved.ok) return saved;
   return { ok: true, value: previous?.status === "unsubscribed" ? { kind: "reactivated" } : { kind: "created" } };
+}
+
+export async function confirmSubscription(
+  emailHash: string,
+  slug: string,
+  now = new Date(),
+): Promise<StorageResult<AlertSubscription | null>> {
+  const existing = await getSubscription(emailHash, slug);
+  if (!existing.ok) return existing;
+  const previous = existing.value;
+  if (!previous || previous.status === "unsubscribed") return { ok: true, value: null };
+  if (previous.status === "active") return { ok: true, value: previous };
+
+  const next: AlertSubscription = {
+    ...previous,
+    status: "active",
+    activatedAt: now.toISOString(),
+    unsubscribedAt: null,
+  };
+  const saved = await saveSubscription(next, emailHash);
+  if (!saved.ok) return saved;
+  return { ok: true, value: next };
 }
 
 export async function performUnsubscribe(emailHash: string, slug: string): Promise<StorageResult<AlertSubscription | null>> {

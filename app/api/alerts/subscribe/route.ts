@@ -1,18 +1,17 @@
 import { NextResponse } from "next/server";
 import { getManagedOffer } from "@/data/managedOffers";
 import { getAlertsConfig, alertsUnavailableReason } from "@/lib/alertsConfig";
-import { hashEmail } from "@/lib/alertTokens";
+import { hashEmail, signAlertToken } from "@/lib/alertTokens";
 import { resolveSubscription } from "@/lib/alertSubscriptions";
+import { SITE_URL } from "@/lib/siteUrl";
+import { createParrainioMailer, PARRAINIO_CONTACT_EMAIL } from "@/lib/parrainioMailer";
 
 /**
  * Création d'une alerte e-mail (serveur uniquement).
  *
- * Parcours : soumission explicite → alerte `active` immédiatement, AUCUN
- * e-mail de confirmation (l'ancien double opt-in a été retiré). Une seule
- * entrée KV par couple (e-mail, offre) : les soumissions répétées sont
- * idempotentes (aucun doublon, aucun renvoi). Les e-mails ne partent que
- * lorsqu'une offre évolue réellement (voir lib/alertRunner.ts), un seul
- * par événement et par destinataire.
+ * Parcours : demande enregistrée en `pending` → email de confirmation accepté
+ * par SMTP → activation après clic sur le lien signé. Les alertes de changement
+ * ne partent qu'après cette confirmation.
  *
  * Sécurité : validation serveur complète (email, slug d'offre, consentement,
  * longueurs), honeypot, limite de débit en mémoire par IP. Consentement
@@ -50,6 +49,18 @@ function clientIp(request: Request): string {
 }
 
 export async function POST(request: Request) {
+  const startedAt = performance.now();
+  let offerMs = 0;
+  let subscriptionMs = 0;
+  let smtpMs = 0;
+  const timedJson = (body: unknown, status: number) =>
+    NextResponse.json(body, {
+      status,
+      headers: {
+        "Server-Timing": `offer;dur=${offerMs.toFixed(1)}, subscription;dur=${subscriptionMs.toFixed(1)}, smtp;dur=${smtpMs.toFixed(1)}, total;dur=${(performance.now() - startedAt).toFixed(1)}`,
+      },
+    });
+
   let body: Record<string, unknown>;
   try {
     body = (await request.json()) as Record<string, unknown>;
@@ -66,6 +77,10 @@ export async function POST(request: Request) {
   if (!config.storageReady) {
     return NextResponse.json({ error: alertsUnavailableReason() }, { status: 503 });
   }
+  const mailer = createParrainioMailer();
+  if (!mailer) {
+    return NextResponse.json({ error: "Le service de confirmation est momentanément indisponible. Veuillez réessayer plus tard." }, { status: 503 });
+  }
 
   const email = clean(body.email, 254).toLowerCase();
   const slug = clean(body.slug, 120);
@@ -74,7 +89,10 @@ export async function POST(request: Request) {
   if (!emailPattern.test(email) || email.length > 254) {
     return NextResponse.json({ error: "Veuillez saisir une adresse e-mail valide." }, { status: 400 });
   }
-  if (!(await getManagedOffer(slug))) {
+  const offerStartedAt = performance.now();
+  const offer = await getManagedOffer(slug);
+  offerMs = performance.now() - offerStartedAt;
+  if (!offer) {
     return NextResponse.json({ error: "Offre introuvable." }, { status: 400 });
   }
   if (!consent) {
@@ -85,17 +103,44 @@ export async function POST(request: Request) {
   }
 
   const emailHash = hashEmail(email);
+  const subscriptionStartedAt = performance.now();
   const outcome = await resolveSubscription({ email, emailHash, slug, now: new Date() });
+  subscriptionMs = performance.now() - subscriptionStartedAt;
   if (!outcome.ok) {
     return NextResponse.json({ error: alertsUnavailableReason() }, { status: 503 });
   }
 
-  switch (outcome.value.kind) {
-    case "created":
-      return NextResponse.json({ status: "active" });
-    case "reactivated":
-      return NextResponse.json({ status: "active" });
-    case "already-active":
-      return NextResponse.json({ status: "already-subscribed" });
+  if (outcome.value.kind === "already-active") {
+    return timedJson({ status: "already-subscribed" }, 200);
   }
+
+  const token = signAlertToken({ e: emailHash, s: slug });
+  const confirmationUrl = `${SITE_URL}/api/alerts/confirm?t=${encodeURIComponent(token)}`;
+  const smtpStartedAt = performance.now();
+  try {
+    const result = await mailer.transporter.sendMail({
+      from: mailer.from,
+      to: email,
+      replyTo: PARRAINIO_CONTACT_EMAIL,
+      subject: `Confirmez votre alerte Parrainio pour ${offer.name}`,
+      text: [
+        "Bonjour,",
+        "",
+        `Vous avez demandé à recevoir les évolutions de l'offre ${offer.name} sur Parrainio.`,
+        "Confirmez votre adresse et activez l'alerte en ouvrant ce lien :",
+        confirmationUrl,
+        "",
+        "Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.",
+      ].join("\n"),
+    });
+    smtpMs = performance.now() - smtpStartedAt;
+    if (!result.accepted.some((recipient: unknown) => String(recipient).toLowerCase() === email)) {
+      return timedJson({ error: "Le service mail n’a pas accepté votre adresse. Votre alerte n’est pas activée." }, 502);
+    }
+  } catch {
+    smtpMs = performance.now() - smtpStartedAt;
+    return timedJson({ error: "Impossible d’envoyer l’e-mail de confirmation. Votre alerte reste inactive ; veuillez réessayer." }, 502);
+  }
+
+  return timedJson({ status: "confirmation-required" }, 200);
 }

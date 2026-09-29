@@ -222,7 +222,7 @@ export default async function OfferPage({
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} /> : null}
+                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} /> : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} />
                   <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
@@ -359,7 +359,7 @@ export default async function OfferPage({
                   ) : null}
 
                   {!offer.referralCode && !referralUrl ? (
-                    <ReferralRequestForm offerName={offer.name} />
+                    <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
                   ) : null}
                 </div>
                 <ParrainioReverseRequest offerSlug={offer.slug} />

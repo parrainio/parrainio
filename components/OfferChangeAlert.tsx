@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import styles from "./OfferChangeAlert.module.css";
 
 /**
@@ -10,8 +10,8 @@ import styles from "./OfferChangeAlert.module.css";
  *   (« Vous serez alerté des évolutions de l'offre … ») ;
  * - consentement DÉDIÉ aux alertes, case décochée par défaut (jamais
  *   pré-cochée, jamais fusionnée avec une newsletter) ;
- * - parcours simple : validation du formulaire → alerte ACTIVE
- *   immédiatement, sans e-mail de confirmation (plus de double opt-in) ;
+ * - parcours : demande persistée puis adresse confirmée par e-mail avant
+ *   l'activation de l'alerte ;
  * - états gérés : initial, formulaire ouvert, e-mail invalide, consentement
  *   absent, chargement, succès, déjà inscrit, erreur (dont service non
  *   activé) ;
@@ -23,6 +23,7 @@ type Status =
   | { kind: "closed" }
   | { kind: "open" }
   | { kind: "loading" }
+  | { kind: "confirmation-required" }
   | { kind: "active" }
   | { kind: "already-subscribed" }
   | { kind: "error"; message: string };
@@ -34,6 +35,7 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [clientError, setClientError] = useState<string | null>(null);
+  const submitting = useRef(false);
 
   function openForm() {
     setStatus({ kind: "open" });
@@ -42,6 +44,7 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting.current) return;
     setClientError(null);
 
     const trimmed = email.trim();
@@ -54,6 +57,7 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
       return;
     }
 
+    submitting.current = true;
     setStatus({ kind: "loading" });
     try {
       const response = await fetch("/api/alerts/subscribe", {
@@ -70,9 +74,15 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
         setStatus({ kind: "active" });
         return;
       }
+      if (response.ok && payload.status === "confirmation-required") {
+        setStatus({ kind: "confirmation-required" });
+        return;
+      }
       setStatus({ kind: "error", message: payload.error ?? "Une erreur est survenue. Veuillez réessayer." });
     } catch {
       setStatus({ kind: "error", message: "Une erreur est survenue. Veuillez réessayer." });
+    } finally {
+      submitting.current = false;
     }
   }
 
@@ -82,6 +92,16 @@ export default function OfferChangeAlert({ slug, offerName }: { slug: string; of
         <button type="button" className={styles.cta} onClick={openForm}>
           <span aria-hidden="true">🔔</span> Être alerté si cette offre évolue
         </button>
+      </div>
+    );
+  }
+
+  if (status.kind === "confirmation-required") {
+    return (
+      <div className={styles.wrapper}>
+        <p className={styles.success} role="status">
+          Votre demande est enregistrée. Le service d’envoi a accepté le message de confirmation ; votre alerte sera activée après validation du lien.
+        </p>
       </div>
     );
   }
