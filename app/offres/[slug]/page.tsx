@@ -24,6 +24,7 @@ import { getCategoryHubForGroup } from "@/lib/categoryHubs";
 import { SITE_URL } from "@/lib/siteUrl";
 import { hasMeaningfulConditions } from "@/lib/offerCompleteness";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
+import { classifyReferralMechanism, getHubLinkAnchor } from "@/lib/referralMechanism";
 import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
 import ReferralRequestForm from "@/components/ReferralRequestForm";
@@ -131,6 +132,10 @@ export default async function OfferPage({
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
   const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
+  // Maillage contextuel vers le hub des codes (F2-E.3) : l'ancre suit le
+  // mécanisme réel de l'offre ; sans code ni invitation dédiée, pas de lien.
+  const hubMechanism = classifyReferralMechanism(offer.slug, offer.referralCode);
+  const hubAnchor = hubMechanism ? getHubLinkAnchor(hubMechanism) : null;
 
   return (
     <main className={styles.page}>
@@ -156,36 +161,43 @@ export default async function OfferPage({
           <div className={styles.compactLayout}>
             {/* Left: Main offer information */}
             <div className={styles.mainContent}>
-              <div className={`${styles.offerHeader} ${seoProfile ? styles.offerHeaderWithActions : ""}`}>
+              <div className={styles.offerHeader}>
                 <div className={styles.offerIdentity}>
-                <div className={styles.brandRow}>
+                {/* Ligne d'identité compacte : logo + catégorie + vérification,
+                    puis actions secondaires (site officiel conditionnel + favoris). */}
+                <div className={styles.identityRow}>
                   <OfferLogo
                     color={offer.color}
                     logo={offer.logo}
                     logoLetter={offer.logoLetter}
                     name={offer.name}
-                    size={48}
+                    size={44}
                   />
-                  <div className={styles.brandInfo}>
-                    <span className={styles.overline}>Offre partenaire</span>
-                    <h1>{seoProfile?.h1 || `${offer.name} : parrainage et conditions`}</h1>
-                    {seoProfile?.introduction && <p className={styles.seoDetailsIntro}>{seoProfile.introduction}</p>}
-                    {offer.officialWebsiteUrl && (
-                      <a
-                        href={referralUrl ?? offer.officialWebsiteUrl}
-                        className={styles.officialLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <GlobeIcon />
-                        Accéder au site officiel →
-                      </a>
-                    )}
+                  <div className={styles.identityInfo}>
+                    <div className={styles.identityMeta}>
+                      <span className={styles.categoryPill}>{offer.categoryGroup}</span>
+                      <VerificationBadge />
+                    </div>
+                    <div className={styles.identityActions}>
+                      {offer.officialWebsiteUrl && (
+                        <a
+                          href={referralUrl ?? offer.officialWebsiteUrl}
+                          className={styles.officialLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <GlobeIcon />
+                          Accéder au site officiel →
+                        </a>
+                      )}
+                      <FavoriteButton slug={offer.slug} variant="full" />
+                    </div>
                   </div>
                 </div>
-                <span className={styles.categoryPill}>{offer.categoryGroup}</span>
-                <VerificationBadge />
-                <FavoriteButton slug={offer.slug} variant="full" />
+                {/* Le H1 reste seul, pleine largeur, pour rester l'élément
+                    visuel principal du bloc supérieur. */}
+                <h1 className={styles.offerTitle}>{seoProfile?.h1 || `${offer.name} : parrainage et conditions`}</h1>
+                {seoProfile?.introduction && <p className={styles.headerIntro}>{seoProfile.introduction}</p>}
                 </div>
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
@@ -272,6 +284,14 @@ export default async function OfferPage({
                   </section>
                   {seoProfile.internalLinks && seoProfile.internalLinks.length > 0 && <nav className={styles.seoLinks} aria-label="Offres similaires"><span>Vous pourriez aussi être intéressé par</span>{seoProfile.internalLinks.map((link) => <Link key={link.slug} href={`/offres/${link.slug}`}>{link.label}</Link>)}</nav>}
                   <p className={styles.seoDate}>Informations vérifiées le {new Date(seoProfile.researchedAt).toLocaleDateString("fr-FR")}</p>
+                  {hubAnchor && (
+                    <p className={styles.seoDate}>
+                      <Link href="/codes-parrainage" className={styles.hubLinkInline}>
+                        {hubAnchor}
+                      </Link>{" "}
+                      — mécanismes de parrainage expliqués offre par offre.
+                    </p>
+                  )}
                 </section>
               )}
 

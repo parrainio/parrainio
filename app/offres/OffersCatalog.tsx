@@ -236,6 +236,10 @@ export default function OffersCatalog({ offers, hubSlugByCategory, header }: Off
                 >
                   Comprendre vos avantages
                 </Link>
+
+                <Link href="/codes-parrainage" className={styles.secondaryButton}>
+                  Codes de parrainage
+                </Link>
               </div>
 
               <div className={styles.heroNote}>

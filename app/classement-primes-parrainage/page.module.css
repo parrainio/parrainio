@@ -128,6 +128,8 @@
 .explainer h3 { margin:0 0 7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
 .explainer p { margin-bottom:0; color:var(--muted); font-size:.81rem; line-height:1.55; }
 .excludedNote { max-width:760px; margin:18px 0 0; padding:15px 18px; border-radius:14px; background:#f5f8f5; color:var(--muted); font-size:.8rem; line-height:1.55; }
+.excludedNote a { color:var(--green); font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+.excludedNote a:hover { color:var(--orange); }
 
 /* ── CTA final ────────────────────────────────────────────── */
 .ctaSection { padding:0 0 72px; background:#fffdfa; }

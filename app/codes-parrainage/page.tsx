@@ -3,7 +3,12 @@ import type { Metadata } from "next";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers } from "@/data/managedOffers";
+import { getOfferReferralUrl } from "@/data/offers";
+import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
+import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
 import styles from "./page.module.css";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Code de parrainage : comment le trouver et l'utiliser | Parrainio",
@@ -20,15 +25,118 @@ export const metadata: Metadata = {
 };
 
 /**
- * Statistiques descriptives calculées sur le catalogue courant :
- * elles servent uniquement à décrire la page (aucune donnée
- * commerciale n'est inventée ni dupliquée ici).
+ * Classification des mécanismes du hub.
+ *
+ * - CODE_PUBLIC : code générique/de marque documenté (identifié et vérifié
+ *   lors de l'audit des données, chantier F2-E.1) ;
+ * - NUMERO_PARRAIN : numéro/identifiant utilisé pour le rattachement ;
+ * - CODE_PARRAIN : code personnel d'un parrain, présenté comme tel ;
+ * - LIEN_EMAIL : rattachement par lien d'invitation ou e-mail du parrain
+ *   (jamais présenté comme un code, adresse e-mail jamais affichée).
+ *
+ * Les offres sans code ni invitation dédiée n'entrent pas dans le listing :
+ * elles restent accessibles via le catalogue /offres.
  */
+const GENERIC_CODE_SLUGS = new Set([
+  "swissborg",
+  "sumeria",
+  "naomi-1",
+  "coinhouse",
+  "crypto-com",
+  "primeo-energie",
+  "totalenergies",
+  "raizers",
+  "splint-invest",
+  "winamax",
+  "showroomprive",
+  "i-run-fr",
+]);
+
+// Rattachement documenté par lien d'invitation ou e-mail du parrain
+// (conditions officielles de l'offre) — jamais un code.
+const EMAIL_MECHANISM_SLUGS = new Set(["bebe-boutik"]);
+
+type Mechanism = "CODE_PUBLIC" | "CODE_PARRAIN" | "NUMERO_PARRAIN" | "LIEN_EMAIL";
+
+const MECHANISM_LABEL: Record<Mechanism, string> = {
+  CODE_PUBLIC: "Code public de la marque",
+  CODE_PARRAIN: "Code d'un parrain",
+  NUMERO_PARRAIN: "Numéro d'invitation",
+  LIEN_EMAIL: "Invitation par lien ou e-mail",
+};
+
+function classifyOffer(slug: string, referralCode: string | null): Mechanism | null {
+  if (EMAIL_MECHANISM_SLUGS.has(slug)) return "LIEN_EMAIL";
+  const code = referralCode?.trim();
+  if (!code) return null;
+  if (/^\d{4,}$/.test(code)) return "NUMERO_PARRAIN";
+  if (GENERIC_CODE_SLUGS.has(slug)) return "CODE_PUBLIC";
+  return "CODE_PARRAIN";
+}
+
+const FAQ = [
+  {
+    question: "Où trouver un code de parrainage ?",
+    answer:
+      "Sur cette page : le listing rassemble les offres du catalogue Parrainio qui documentent un code, un numéro d'invitation ou une invitation par lien. Le code est également visible sur la fiche de chaque offre, à côté des conditions et de la date de vérification.",
+  },
+  {
+    question: "Quelle est la différence entre un code et un lien d'invitation ?",
+    answer:
+      "Le lien d'invitation rattache automatiquement le filleul au parrain lorsqu'il est utilisé pour créer le compte. Le code doit être saisi manuellement dans un champ dédié, généralement pendant l'inscription ou avant la première commande. Certains programmes combinent les deux.",
+  },
+  {
+    question: "Peut-on utiliser le code d'un parrain ?",
+    answer:
+      "Oui. Plusieurs offres du catalogue affichent le code d'un parrain qui le partage publiquement. Il ne s'agit pas d'un code « officiel » de la marque : il rattache simplement le nouveau client à ce parrain, et l'avantage reste celui du programme actif.",
+  },
+  {
+    question: "Pourquoi certaines offres n'ont-elles pas de code ?",
+    answer:
+      "Parce que leur mécanisme repose sur un lien d'invitation, une activation dans l'application ou une campagne ciblée depuis l'espace client. Dans ce cas il n'existe aucun code à saisir : la fiche de l'offre décrit le parcours réel à suivre.",
+  },
+  {
+    question: "Que faire si un code ne fonctionne plus ?",
+    answer:
+      "Vérifier d'abord les conditions de la fiche et la période de la campagne. Les programmes évoluent : si le champ de saisie n'existe plus ou que l'offre est terminée, le code ne peut plus s'appliquer. Les conditions publiées par le partenaire font foi.",
+  },
+  {
+    question: "Comment savoir quelle offre donne réellement une réduction ?",
+    answer:
+      "Chaque carte du listing affiche l'avantage documenté et le mécanisme utilisé. Pour le détail — seuils, exclusions, délai de versement, reversement Parrainio — la fiche de l'offre reprend les conditions vérifiées.",
+  },
+];
+
 export default async function CodesParrainagePage() {
   const offers = await getManagedOffers();
-  const withCode = offers.filter(
-    (offer) => offer.referralCode && offer.referralCode.trim()
-  ).length;
+
+  const hubItems: HubItem[] = offers
+    .map((offer): HubItem | null => {
+      const mechanism = classifyOffer(offer.slug, offer.referralCode);
+      if (!mechanism) return null;
+      const reverse =
+        offer.parrainioReward && offer.parrainioReward !== "0 €" ? offer.parrainioReward : null;
+      return {
+        slug: offer.slug,
+        name: offer.name,
+        category: offer.categoryGroup,
+        mechanism,
+        mechanismLabel: MECHANISM_LABEL[mechanism],
+        code: mechanism === "LIEN_EMAIL" ? undefined : offer.referralCode?.trim(),
+        invitationHref:
+          mechanism === "LIEN_EMAIL" ? getOfferReferralUrl(offer) ?? undefined : undefined,
+        reward: offer.partnerReward,
+        reverse,
+        color: offer.color,
+        logo: offer.logo,
+        logoLetter: offer.logoLetter,
+        } satisfies HubItem;
+    })
+    .filter((item): item is HubItem => item !== null);
+
+  const categories = Array.from(new Set(hubItems.map((item) => item.category))).sort((a, b) =>
+    a.localeCompare(b, "fr"),
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -48,11 +156,29 @@ export default async function CodesParrainagePage() {
       },
       {
         "@type": "WebPage",
-        name: "Code de parrainage : comment le trouver et l'utiliser",
+        name: "Codes de parrainage : trouvez et utilisez le code de votre offre",
         description:
-          "Ce qu'est un code de parrainage, où le trouver sur Parrainio, comment le saisir correctement et ce qui peut l'invalider.",
+          "Listing des offres Parrainio qui documentent un code de parrainage, un numéro d'invitation ou une invitation par lien, avec le mécanisme de chacune.",
         url: `${SITE_URL}/codes-parrainage`,
         inLanguage: "fr-FR",
+      },
+      {
+        "@type": "ItemList",
+        name: "Codes de parrainage par offre",
+        itemListElement: hubItems.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          url: `${SITE_URL}/offres/${item.slug}`,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: FAQ.map((entry) => ({
+          "@type": "Question",
+          name: entry.question,
+          acceptedAnswer: { "@type": "Answer", text: entry.answer },
+        })),
       },
     ],
   };
@@ -99,18 +225,19 @@ export default async function CodesParrainagePage() {
             <span />
             Guide pratique
           </span>
-          <h1>Code de parrainage : à quoi ça sert et comment l&apos;utiliser</h1>
+          <h1>Codes de parrainage : trouvez et utilisez le code de votre offre</h1>
           <p className={styles.lead}>
-            Un code de parrainage est l&apos;identifiant d&apos;un parrain que
-            certaines entreprises demandent au moment de l&apos;inscription.
-            Saisi au bon endroit, il rattache le nouveau client à son parrain et
-            déclenche la prime prévue par le programme — pour le filleul, pour
-            le parrain, ou pour les deux. Voici comment l&apos;utiliser
-            correctement, et ce qui peut l&apos;invalider.
+            Un code de parrainage est l&apos;identifiant d&apos;un parrain que certaines
+            entreprises demandent au moment de l&apos;inscription. Saisi au bon endroit, il
+            rattache le nouveau client à son parrain et déclenche la prime prévue par le
+            programme — pour le filleul, pour le parrain, ou pour les deux. Le listing
+            ci-dessous rassemble les offres du catalogue qui documentent un code, un numéro
+            d&apos;invitation ou une invitation par lien ; les conditions peuvent évoluer,
+            celles affichées au moment de l&apos;inscription font foi.
           </p>
           <div className={styles.heroActions}>
-            <Link href="/offres" className={styles.primaryButton}>
-              Trouver une offre de parrainage
+            <Link href="#codes" className={styles.primaryButton}>
+              Voir les codes
             </Link>
             <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
               Comment fonctionne le parrainage →
@@ -119,28 +246,43 @@ export default async function CodesParrainagePage() {
         </div>
       </section>
 
+      {/* LISTING DES CODES */}
+      <section className={styles.listingSection} id="codes" aria-label="Codes de parrainage par offre">
+        <div className={styles.container}>
+          <div className={styles.listingHead}>
+            <h2>
+              Les codes du catalogue <em>offre par offre</em>
+            </h2>
+            <p>
+              {hubItems.length} offres documentent actuellement un code ou une invitation,
+              avec leur mécanisme réel : code public, code d&apos;un parrain, numéro
+              d&apos;invitation ou invitation par lien. Vérifié en {getCurrentPeriodLabel()}.
+            </p>
+          </div>
+          <CodesCatalog items={hubItems} categories={categories} />
+        </div>
+      </section>
+
       {/* TRANSPARENCE */}
       <section className={styles.transparency}>
         <div className={styles.container}>
           <ul>
             <li>
-              Cette page explique le mécanisme des codes de parrainage de
-              manière générale : chaque programme fixe ses propres règles et
-              seul son Conditions générales fait foi.
+              Cette page explique le mécanisme des codes de parrainage de manière générale :
+              chaque programme fixe ses propres règles et seul son Conditions générales fait
+              foi.
             </li>
             <li>
-              Sur Parrainio, chaque fiche affiche le code du partenaire
-              lorsqu&apos;un code est documenté — et le lien de parrainage
-              lorsqu&apos;il existe.
+              Sur Parrainio, chaque fiche affiche le code du partenaire lorsqu&apos;un code est
+              documenté — et le lien de parrainage lorsqu&apos;il existe.
             </li>
             <li>
-              Aucun code « magique » ni de réduction universelle : un code ne
-              crée un avantage que si le programme est actif et les conditions
-              remplies.
+              Aucun code « magique » ni de réduction universelle : un code ne crée un avantage
+              que si le programme est actif et les conditions remplies.
             </li>
             <li>
-              Les campagnes évoluent : vérifiez toujours les conditions
-              affichées au moment de l&apos;inscription.
+              Les campagnes évoluent : vérifiez toujours les conditions affichées au moment de
+              l&apos;inscription.
             </li>
           </ul>
         </div>
@@ -154,40 +296,37 @@ export default async function CodesParrainagePage() {
               Comment utiliser <em>un code de parrainage ?</em>
             </h2>
             <p>
-              Le parcours est simple, mais l&apos;ordre compte : la plupart des
-              codes refusés le sont parce qu&apos;ils ont été saisis trop tard
-              ou au mauvais endroit.
+              Le parcours est simple, mais l&apos;ordre compte : la plupart des codes refusés le
+              sont parce qu&apos;ils ont été saisis trop tard ou au mauvais endroit.
             </p>
           </div>
           <ol className={styles.steps}>
             <li>
-              <strong>Trouver le code de l&apos;offre concernée.</strong> Sur
-              Parrainio, ouvrez la fiche du partenaire : le code y est affiché
-              avec un bouton de copie lorsqu&apos;un code est documenté.
+              <strong>Trouver le code de l&apos;offre concernée.</strong> Sur Parrainio, ouvrez
+              la fiche du partenaire : le code y est affiché avec un bouton de copie
+              lorsqu&apos;un code est documenté.
             </li>
             <li>
               <strong>Suivre le parcours prévu par le programme.</strong>{" "}
-              Certains partenaires demandent de créer le compte via un lien de
-              parrainage, d&apos;autres de saisir un code pendant
-              l&apos;inscription, d&apos;autres encore les deux. Le parcours
-              exact est décrit sur la fiche et dans les conditions du
+              Certains partenaires demandent de créer le compte via un lien de parrainage,
+              d&apos;autres de saisir un code pendant l&apos;inscription, d&apos;autres encore
+              les deux. Le parcours exact est décrit sur la fiche et dans les conditions du
               programme.
             </li>
             <li>
-              <strong>Saisir le code au bon moment.</strong> Un code doit
-              généralement être entré pendant la création du compte ou avant la
-              première validation : rattraper un oubli après coup est rarement
-              possible.
+              <strong>Saisir le code au bon moment.</strong> Un code doit généralement être
+              entré pendant la création du compte ou avant la première validation : rattraper
+              un oubli après coup est rarement possible.
             </li>
             <li>
-              <strong>Vérifier son éligibilité.</strong> Nouveau client, âge,
-              résidence, première commande ou premier paiement : les conditions
-              d&apos;éligibilité déterminent si la prime s&apos;applique.
+              <strong>Vérifier son éligibilité.</strong> Nouveau client, âge, résidence,
+              première commande ou premier paiement : les conditions d&apos;éligibilité
+              déterminent si la prime s&apos;applique.
             </li>
             <li>
-              <strong>Attendre la validation.</strong> La prime est attribuée
-              après vérification par le partenaire, selon les délais du
-              programme — pas immédiatement après l&apos;inscription.
+              <strong>Attendre la validation.</strong> La prime est attribuée après
+              vérification par le partenaire, selon les délais du programme — pas immédiatement
+              après l&apos;inscription.
             </li>
           </ol>
         </div>
@@ -201,48 +340,43 @@ export default async function CodesParrainagePage() {
               Code, lien ou les deux ? <em>Les mécanismes utilisés</em>
             </h2>
             <p>
-              Les programmes de parrainage n&apos;utilisent pas tous le même
-              mécanisme. Quatre cas se rencontrent dans le catalogue
-              Parrainio.
+              Les programmes de parrainage n&apos;utilisent pas tous le même mécanisme. Quatre
+              cas se rencontrent dans le catalogue Parrainio.
             </p>
           </div>
           <div className={styles.mechanisms}>
             <div>
               <h3>Le lien de parrainage</h3>
               <p>
-                Un lien unique qui renvoie vers la page d&apos;inscription en
-                rattachant automatiquement le filleul à son parrain. C&apos;est
-                le mécanisme le plus courant : rien à saisir, mais le compte
-                doit bien être créé depuis ce lien.
+                Un lien unique qui renvoie vers la page d&apos;inscription en rattachant
+                automatiquement le filleul à son parrain. C&apos;est le mécanisme le plus
+                courant : rien à saisir, mais le compte doit bien être créé depuis ce lien.
               </p>
             </div>
             <div>
               <h3>Le code à saisir</h3>
               <p>
-                Un identifiant court (lettres, chiffres, parfois un e-mail) à
-                entrer dans un champ dédié pendant l&apos;inscription ou avant
-                la première commande. Le champ existe ou n&apos;existe pas :
-                si le formulaire ne le propose pas, le code ne s&apos;applique
-                pas.
+                Un identifiant court (lettres, chiffres, parfois un e-mail) à entrer dans un
+                champ dédié pendant l&apos;inscription ou avant la première commande. Le champ
+                existe ou n&apos;existe pas : si le formulaire ne le propose pas, le code ne
+                s&apos;applique pas.
               </p>
             </div>
             <div>
               <h3>Le code et le lien</h3>
               <p>
-                Certains programmes combinent les deux : le lien ouvre le
-                parcours et le code sécurise le rattachement. Dans ce cas, les
-                deux étapes sont généralement requises pour que la prime soit
-                versée.
+                Certains programmes combinent les deux : le lien ouvre le parcours et le code
+                sécurise le rattachement. Dans ce cas, les deux étapes sont généralement
+                requises pour que la prime soit versée.
               </p>
             </div>
             <div>
               <h3>Ni code ni lien</h3>
               <p>
-                Certains partenaires utilisent d&apos;autres mécaniques
-                (boutique d&apos;offres, activation dans l&apos;application,
-                offre à activer depuis l&apos;espace client). La fiche indique
-                alors « Voir l&apos;offre » : le parcours passe par le
-                partenaire.
+                Certains partenaires utilisent d&apos;autres mécaniques (boutique
+                d&apos;offres, activation dans l&apos;application, offre à activer depuis
+                l&apos;espace client). La fiche indique alors « Voir l&apos;offre » : le
+                parcours passe par le partenaire.
               </p>
             </div>
           </div>
@@ -257,91 +391,60 @@ export default async function CodesParrainagePage() {
               Ce qui peut <em>invalider un code</em>
             </h2>
             <p>
-              La plupart des primes perdues le sont pour une raison évitable.
-              Les cas fréquents :
+              La plupart des primes perdues le sont pour une raison évitable. Les cas
+              fréquents :
             </p>
           </div>
           <ul className={styles.pointsList}>
             <li>
-              <strong>Créer le compte avant d&apos;utiliser le code.</strong>{" "}
-              Un compte déjà ouvert n&apos;est plus « nouveau » : le
-              rattachement à un parrain est refusé.
+              <strong>Créer le compte avant d&apos;utiliser le code.</strong> Un compte déjà
+              ouvert n&apos;est plus « nouveau » : le rattachement à un parrain est refusé.
             </li>
             <li>
-              <strong>Saisir le code trop tard.</strong> Saisi après
-              l&apos;inscription ou après la première commande, le code est
-              rarement pris en compte, même si le champ existe encore.
+              <strong>Saisir le code trop tard.</strong> Saisi après l&apos;inscription ou
+              après la première commande, le code est rarement pris en compte, même si le champ
+              existe encore.
             </li>
             <li>
-              <strong>Utiliser un autre appareil ou un autre parcours.</strong>{" "}
-              Cookies bloqués, changement de navigateur entre le lien et
-              l&apos;inscription : le rattachement peut se perdre.
+              <strong>Utiliser un autre appareil ou un autre parcours.</strong> Cookies
+              bloqués, changement de navigateur entre le lien et l&apos;inscription : le
+              rattachement peut se perdre.
             </li>
             <li>
-              <strong>Ne pas remplir les conditions.</strong> Premier versement
-              manquant, commande en dessous du seuil, offre non concernée : le
-              code est validé mais la prime reste conditionnelle.
+              <strong>Ne pas remplir les conditions.</strong> Premier versement manquant,
+              commande en dessous du seuil, offre non concernée : le code est validé mais la
+              prime reste conditionnelle.
             </li>
             <li>
-              <strong>Se parrainer soi-même.</strong> Comptes multiples,
-              membres d&apos;un même foyer ou auto-parrainage : la plupart des
-              programmes l&apos;excluent explicitement.
+              <strong>Se parrainer soi-même.</strong> Comptes multiples, membres d&apos;un même
+              foyer ou auto-parrainage : la plupart des programmes l&apos;excluent
+              explicitement.
             </li>
             <li>
-              <strong>Compter sur une campagne terminée.</strong> Un code lu
-              dans un ancien article ne vaut que si le programme est toujours
-              actif : les conditions affichées au moment de
-              l&apos;inscription prévalent.
+              <strong>Compter sur une campagne terminée.</strong> Un code lu dans un ancien
+              article ne vaut que si le programme est toujours actif : les conditions affichées
+              au moment de l&apos;inscription prévalent.
             </li>
           </ul>
         </div>
       </section>
 
-      {/* OÙ TROUVER UN CODE */}
+      {/* FAQ */}
       <section className={styles.sectionAlt}>
         <div className={styles.container}>
           <div className={styles.sectionHead}>
             <h2>
-              Où trouver <em>un code de parrainage ?</em>
+              Questions fréquentes sur <em>les codes de parrainage</em>
             </h2>
-            <p>
-              Les parrains partagent leurs codes auprès de leurs proches, et
-              certaines plateformes facilitent la rencontre entre parrains et
-              filleuls. Sur Parrainio, {withCode} offres documentent
-              actuellement un code dans leur fiche.
-            </p>
           </div>
-          <ul className={styles.pointsList}>
-            <li>
-              <strong>Les fiches du catalogue.</strong> Chaque fiche du site
-              affiche le code du partenaire avec un bouton de copie
-              lorsqu&apos;un code est documenté, à côté des conditions et de la
-              date de vérification.{" "}
-              <Link href="/offres">Parcourir les offres</Link>.
-            </li>
-            <li>
-              <strong>Le classement des primes.</strong> Pour repérer les
-              primes filleul les plus élevées du catalogue avant de chercher le
-              code correspondant.{" "}
-              <Link href="/classement-primes-parrainage">
-                Voir le classement
-              </Link>
-              .
-            </li>
-            <li>
-              <strong>Les catégories du site.</strong> Banque, cashback,
-              énergie, crypto, télécom : chaque univers regroupe les fiches
-              concernées, avec leur mécanisme de parrainage.{" "}
-              <Link href="/categories/banque-finance">Banque &amp; Finance</Link>,{" "}
-              <Link href="/categories/cashback">Cashback</Link>,{" "}
-              <Link href="/categories/energie">Énergie</Link>.
-            </li>
-            <li>
-              <strong>Les conditions officielles du partenaire.</strong> En cas
-              de doute sur la validité d&apos;un code, les conditions du
-              programme publiées par le partenaire font foi.
-            </li>
-          </ul>
+          <div className={styles.hubFaq}>
+            {FAQ.map((entry) => (
+              <details key={entry.question}>
+                <summary>{entry.question}</summary>
+                <p>{entry.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -354,9 +457,9 @@ export default async function CodesParrainagePage() {
                 Un code n&apos;est utile que <em>si l&apos;offre correspond.</em>
               </h2>
               <p>
-                Avant de saisir un code, vérifiez que le service est réellement
-                utile et que les conditions de la prime sont remplies. Les
-                fiches détaillent tout, avec la date de vérification.
+                Avant de saisir un code, vérifiez que le service est réellement utile et que
+                les conditions de la prime sont remplies. Les fiches détaillent tout, avec la
+                date de vérification.
               </p>
             </div>
             <div className={styles.ctaActions}>
@@ -372,9 +475,6 @@ export default async function CodesParrainagePage() {
               <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                 Comment ça marche →
               </Link>
-              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
-                Nos avantages →
-              </Link>
             </div>
           </div>
         </div>
@@ -389,8 +489,7 @@ export default async function CodesParrainagePage() {
                 <span className={styles.logoMark}>P</span>Parrainio
               </Link>
               <p>
-                Le nouveau réflexe pour découvrir et profiter des offres de
-                parrainage.
+                Le nouveau réflexe pour découvrir et profiter des offres de parrainage.
               </p>
             </div>
             <div>

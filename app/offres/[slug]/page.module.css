@@ -1,4 +1,4 @@
-.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --muted:#71807d; min-height:100vh; background:#fffdfa; color:#173d35; font-family:"DM Sans",Arial,sans-serif; }
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --muted:#71807d; min-height:100vh; overflow-x:clip; background:#fffdfa; color:#173d35; font-family:"DM Sans",Arial,sans-serif; }
 .container { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
 .header { border-bottom:1px solid rgba(7,88,70,.1); background:rgba(255,253,250,.96); }
 .headerInner { min-height:80px; display:flex; align-items:center; justify-content:space-between; }
@@ -9,17 +9,43 @@
 .offerSection { padding:24px 0 48px; background:var(--cream); }
 .compactLayout { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:28px; align-items:start; }
 .mainContent { display:flex; flex-direction:column; gap:20px; }
-.offerHeader { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:16px 20px; border:1px solid #dfe9e1; border-radius:24px; background:#fff; box-shadow:0 13px 27px rgba(28,61,48,.04); }
-.offerHeaderWithActions { gap:24px; }
-.offerIdentity { display:flex; flex-direction:column; align-items:flex-start; gap:12px; flex:1; min-width:0; }
-.headerActionSummary { width:290px; flex:none; padding-left:18px; border-left:1px solid #e7eee8; }
-.headerSteps { display:grid; grid-template-columns:1fr; gap:5px; margin:5px 0 7px; padding:0; list-style:none; }
-.headerSteps li { display:flex; align-items:center; gap:8px; color:#71827a; font-size:.68rem; line-height:1.3; }
-.headerSteps b { display:grid; width:23px; height:23px; place-items:center; flex:none; border-radius:50%; color:var(--orange); background:#fff1e2; font-size:.62rem; }
-.headerSteps strong { display:block; color:var(--green); font-size:.63rem; letter-spacing:.04em; }
+.offerHeader { display:flex; flex-direction:column; align-items:stretch; gap:18px; padding:20px 24px; border:1px solid #dfe9e1; border-radius:24px; background:#fff; box-shadow:0 13px 27px rgba(28,61,48,.04); }.offerIdentity { display:flex; flex-direction:column; align-items:flex-start; gap:16px; flex:1; min-width:0; max-width:100%; }
+
+/* Ligne d'identité : logo + catégorie/vérification + actions secondaires.
+   Le wrap est autorisé naturellement — jamais de débordement forcé. */
+
+.identityRow { display:flex; align-items:center; gap:14px; max-width:100%; }
+
+.identityInfo { display:flex; flex:1 1 240px; min-width:0; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 18px; }
+
+.identityMeta { display:flex; min-width:0; flex-wrap:wrap; align-items:center; gap:7px 12px; }
+.identityMeta > p { margin:0; }
+
+.identityActions { display:flex; flex-wrap:wrap; align-items:center; gap:9px 16px; }
+
+/* H1 pleine largeur : l'élément visuel principal du bloc supérieur.
+   min-width:0 + max-width:100% neutralisent les contraintes flex/grid qui
+   empêchent le titre de se réduire ; le retour à la ligne reste naturel. */
+
+.offerTitle { margin:0; max-width:100%; min-width:0; overflow-wrap:break-word; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; font-weight:800; letter-spacing:-.065em; line-height:1.12; }
+
+.offerTitle em { color:var(--orange); font-style:normal; }
+
+.metaRow { display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; }
+.headerIntro { margin:2px 0 0; color:#536d64; font-size:.88rem; line-height:1.65; }
+/* « COMMENT EN PROFITER ? » — bandeau compact : les 4 étapes tiennent sur
+   une ligne desktop ; seul le numéro et l'intitulé sont alignés, la courte
+   description reste sous l'intitulé. */
+.headerActionSummary { width:auto; padding:10px 0 0; border-top:1px solid #e7eee8; }
+.headerActionSummary .stepsLabel { margin-bottom:4px; }
+.headerSteps { display:grid; grid-template-columns:repeat(4,auto); justify-content:start; gap:6px 26px; margin:0; padding:0; list-style:none; }
+.headerSteps li { display:flex; align-items:baseline; gap:7px; min-width:0; color:#71827a; font-size:.66rem; line-height:1.35; }
+.headerSteps li span { min-width:0; }
+.headerSteps b { flex:none; color:var(--orange); font-size:.66rem; font-weight:800; }
+.headerSteps strong { display:block; color:var(--green); font-size:.66rem; letter-spacing:.05em; }
 
 .brandRow { display:flex; align-items:center; gap:14px; }
-.brandInfo { display:flex; flex-direction:column; gap:6px; }
+.brandInfo { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
 .overline,.stepsLabel,.rewardLabel { color:#82938b; font-size:.62rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .brandInfo h1 { margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; font-weight:800; letter-spacing:-.065em; line-height:1.1; }
 .officialLink { display:inline-flex; align-items:center; gap:6px; color:#637870; font-size:.75rem; font-weight:700; text-decoration:none; }
@@ -74,6 +100,8 @@
 .seoLinks span { font-weight:800; }
 .seoLinks a { color:var(--green); font-weight:700; text-decoration:none; }
 .seoDate { margin:0; padding:0 4px; color:#899890; font-size:.68rem; }
+.hubLinkInline { color:var(--green); font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+.hubLinkInline:hover { color:var(--orange); }
 .compactSteps,.conditionsBlock,.relatedBlock { padding:10px 12px; border:1px solid #dfe9e1; border-radius:20px; background:#fff; box-shadow:0 10px 24px rgba(28,61,48,.035); }
 .stepsLabel { display:block; margin-bottom:7px; color:var(--green); }
 .stepsRow { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
@@ -131,5 +159,5 @@
 .sidebarFeaturedItem { display:flex; align-items:center; gap:7px; padding:7px 9px; border-radius:9px; color:#637870; background:#f8faf7; font-size:.7rem; font-weight:700; text-decoration:none; }
 .sidebarFeaturedItem:hover { color:var(--green); background:#edf6ef; }
 .miniLogo { width:23px; height:23px; display:grid; place-items:center; border-radius:6px; color:#fff; font-size:.65rem; font-weight:800; }
-@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .offerHeaderWithActions{display:block}.headerActionSummary{width:auto; margin-top:16px; padding:16px 0 0; border-top:1px solid #e7eee8; border-left:0}.headerSteps{grid-template-columns:1fr} }
-@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:16px; flex-direction:column}.brandInfo h1{font-size:1.6rem}.stepsRow,.conditionsBlock ul,.relatedList,.rewardsSection.headerSteps{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }
+@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .headerActionSummary{margin-top:0}.headerSteps{grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 14px} }
+@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:14px 15px; flex-direction:column}.offerTitle{font-size:1.5rem}.headerSteps{gap:8px 16px}.identityRow{align-items:flex-start}.stepsRow,.conditionsBlock ul,.relatedList{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }

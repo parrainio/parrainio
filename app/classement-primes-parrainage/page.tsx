@@ -266,7 +266,10 @@ export default async function ClassementPrimesPage() {
             montant chiffré (« Voir l&apos;offre ») et celles dont
             l&apos;avantage n&apos;est pas une prime — une remise de frais par
             exemple — ne sont volontairement pas classées. Elles restent
-            consultables sur leurs fiches et dans le catalogue.
+            consultables sur leurs fiches et dans le catalogue. Pour savoir
+            concrètement quoi saisir ou activer à l&apos;inscription, la page{" "}
+            <Link href="/codes-parrainage">codes et invitations de parrainage</Link>{" "}
+            détaille le mécanisme de chaque offre.
           </p>
         </div>
       </section>

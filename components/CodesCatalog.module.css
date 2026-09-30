@@ -1,0 +1,72 @@
+/* Listing du hub /codes-parrainage — filtres + cartes scannables. */
+
+.wrap { display: flex; flex-direction: column; gap: 18px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter {
+  padding: 8px 14px;
+  border: 1px solid rgba(7, 88, 70, .18);
+  border-radius: 999px;
+  background: #fffdfa;
+  color: #39765e;
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.filter:hover { border-color: #b9d0c2; background: #f2f7f2; }
+.filterActive { color: #fff; background: #075846; border-color: #075846; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 16px 18px;
+  border: 1px solid #e0e9e2;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.cardHead { display: flex; align-items: center; gap: 11px; }
+.cardTitle { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cardTitle strong { color: #173d35; font-size: .95rem; letter-spacing: -.02em; }
+.mechanism { color: #71807d; font-size: .7rem; font-weight: 700; }
+
+.reward { margin: 0; color: #075846; font-weight: 800; font-size: .9rem; }
+.reverse { margin: 0; color: #b4631f; font-size: .74rem; font-weight: 700; }
+
+.valueRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.codeValue {
+  padding: 7px 11px;
+  border: 1px dashed rgba(7, 88, 70, .3);
+  border-radius: 10px;
+  background: #f8f7f1;
+  color: #043f34;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+.inviteLink { color: #075846; font-size: .8rem; font-weight: 800; text-decoration: none; }
+.inviteLink:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.cardCta {
+  margin-top: auto;
+  color: #39765e;
+  font-size: .76rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.cardCta:hover { color: #075846; text-decoration: underline; text-underline-offset: 4px; }
+
+.empty { color: #71807d; font-size: .85rem; }
+
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .grid { grid-template-columns: 1fr; }
+  .filter { padding: 7px 11px; font-size: .7rem; }
+}
