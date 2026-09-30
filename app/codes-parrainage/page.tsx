@@ -6,6 +6,8 @@ import { getManagedOffers } from "@/data/managedOffers";
 import { getOfferReferralUrl } from "@/data/offers";
 import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
 import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
+import PublicHeader from "@/components/PublicHeader";
+import FavoritesDock from "@/components/FavoritesDock";
 import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
@@ -190,26 +192,8 @@ export default async function CodesParrainagePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* HEADER */}
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.headerInner}>
-            <Link href="/" className={styles.logo} aria-label="Parrainio, accueil">
-              <span className={styles.logoMark}>P</span>
-              <span>Parrainio</span>
-            </Link>
-            <nav className={styles.nav} aria-label="Navigation principale">
-              <Link href="/">Accueil</Link>
-              <Link href="/offres">Offres</Link>
-              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
-              <Link href="/pourquoi-parrainio">Nos avantages</Link>
-            </nav>
-            <Link href="/offres" className={styles.headerButton}>
-              Voir les offres →
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PublicHeader />
+      <FavoritesDock />
 
       {/* HERO */}
       <section className={styles.hero}>
