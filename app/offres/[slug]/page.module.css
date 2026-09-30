@@ -9,40 +9,37 @@
 .offerSection { padding:24px 0 48px; background:var(--cream); }
 .compactLayout { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:28px; align-items:start; }
 .mainContent { display:flex; flex-direction:column; gap:20px; }
-.offerHeader { display:flex; flex-direction:column; align-items:stretch; gap:18px; padding:20px 24px; border:1px solid #dfe9e1; border-radius:24px; background:#fff; box-shadow:0 13px 27px rgba(28,61,48,.04); }.offerIdentity { display:flex; flex-direction:column; align-items:flex-start; gap:16px; flex:1; min-width:0; max-width:100%; }
+.offerHeader { display:flex; flex-direction:column; align-items:stretch; gap:12px; padding:16px 22px; border:1px solid #dfe9e1; border-radius:24px; background:#fff; box-shadow:0 13px 27px rgba(28,61,48,.04); }.offerIdentity { display:flex; flex-direction:column; align-items:flex-start; gap:10px; flex:1; min-width:0; max-width:100%; }
 
-/* Ligne d'identité : logo + catégorie/vérification + actions secondaires.
+/* Ligne d'identité plate et compacte (UI-OFFRE-1.3) :
+   logo → site web → catégorie → vérification → favoris.
    Le wrap est autorisé naturellement — jamais de débordement forcé. */
-
-.identityRow { display:flex; align-items:center; gap:14px; max-width:100%; }
-
-.identityInfo { display:flex; flex:1 1 240px; min-width:0; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 18px; }
-
-.identityMeta { display:flex; min-width:0; flex-wrap:wrap; align-items:center; gap:7px 12px; }
-.identityMeta > p { margin:0; }
-
-.identityActions { display:flex; flex-wrap:wrap; align-items:center; gap:9px 16px; }
+.identityRow { display:flex; flex-wrap:wrap; align-items:center; gap:7px 7px; max-width:100%; }
+.identityRow > p { margin:0; font-size:.6rem; }
+.identityRow > button { padding:6px 10px; font-size:.68rem; }
 
 /* H1 pleine largeur : l'élément visuel principal du bloc supérieur.
    min-width:0 + max-width:100% neutralisent les contraintes flex/grid qui
    empêchent le titre de se réduire ; le retour à la ligne reste naturel. */
 
-.offerTitle { margin:0; max-width:100%; min-width:0; overflow-wrap:break-word; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:2rem; font-weight:800; letter-spacing:-.065em; line-height:1.12; }
+.offerTitle { margin:0; max-width:100%; min-width:0; overflow-wrap:break-word; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.75rem; font-weight:800; letter-spacing:-.06em; line-height:1.15; }
 
 .offerTitle em { color:var(--orange); font-style:normal; }
 
 .metaRow { display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; }
-.headerIntro { margin:2px 0 0; color:#536d64; font-size:.88rem; line-height:1.65; }
-/* « COMMENT EN PROFITER ? » — bandeau compact : les 4 étapes tiennent sur
-   une ligne desktop ; seul le numéro et l'intitulé sont alignés, la courte
-   description reste sous l'intitulé. */
-.headerActionSummary { width:auto; padding:10px 0 0; border-top:1px solid #e7eee8; }
-.headerActionSummary .stepsLabel { margin-bottom:4px; }
-.headerSteps { display:grid; grid-template-columns:repeat(4,auto); justify-content:start; gap:6px 26px; margin:0; padding:0; list-style:none; }
-.headerSteps li { display:flex; align-items:baseline; gap:7px; min-width:0; color:#71827a; font-size:.66rem; line-height:1.35; }
+.headerIntro { margin:2px 0 0; color:#536d64; font-size:.86rem; line-height:1.6; }
+/* « COMMENT EN PROFITER ? » — mini-ligne éditoriale (UI-OFFRE-1.3) :
+   01 CLIQUEZ · 02 INSCRIVEZ-VOUS · 03 VALIDEZ · 04 DEMANDEZ VOTRE REVERSE
+   Une seule ligne desktop, sans pastilles ni cartes. */
+.headerActionSummary { width:auto; margin-top:2px; padding:8px 0 0; border-top:1px solid #e7eee8; }
+.headerActionSummary .stepsLabel { margin-bottom:3px; }
+.headerSteps { display:flex; flex-wrap:wrap; align-items:baseline; column-gap:8px; row-gap:4px; margin:0; padding:0; list-style:none; }
+.headerSteps li { display:flex; align-items:baseline; gap:5px; min-width:0; color:#71827a; font-size:.66rem; line-height:1.35; }
+.headerSteps li + li::before { content:"·"; margin-right:3px; color:#b9c4bd; }
 .headerSteps li span { min-width:0; }
 .headerSteps b { flex:none; color:var(--orange); font-size:.66rem; font-weight:800; }
-.headerSteps strong { display:block; color:var(--green); font-size:.66rem; letter-spacing:.05em; }
+.headerSteps strong { color:var(--green); font-size:.66rem; letter-spacing:.05em; }
+.headerSteps small { display:none; color:#8a968f; font-size:.64rem; }
 
 .brandRow { display:flex; align-items:center; gap:14px; }
 .brandInfo { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
@@ -159,5 +156,5 @@
 .sidebarFeaturedItem { display:flex; align-items:center; gap:7px; padding:7px 9px; border-radius:9px; color:#637870; background:#f8faf7; font-size:.7rem; font-weight:700; text-decoration:none; }
 .sidebarFeaturedItem:hover { color:var(--green); background:#edf6ef; }
 .miniLogo { width:23px; height:23px; display:grid; place-items:center; border-radius:6px; color:#fff; font-size:.65rem; font-weight:800; }
-@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .headerActionSummary{margin-top:0}.headerSteps{grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 14px} }
-@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:14px 15px; flex-direction:column}.offerTitle{font-size:1.5rem}.headerSteps{gap:8px 16px}.identityRow{align-items:flex-start}.stepsRow,.conditionsBlock ul,.relatedList{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }
+@media (max-width:900px) { .compactLayout{grid-template-columns:1fr}.actionSidebar{position:static}.relatedList{grid-template-columns:repeat(3,1fr)} .headerActionSummary{margin-top:0}.headerSteps small{display:inline} }
+@media (max-width:620px) { .container{width:calc(100% - 34px)} .offerSection{padding:20px 0 36px}.offerHeader{padding:14px 15px; flex-direction:column}.offerTitle{font-size:1.4rem}.identityRow{row-gap:6px}.stepsRow,.conditionsBlock ul,.relatedList{grid-template-columns:1fr}.seoEssential .seoList{grid-template-columns:1fr}.compactStep{display:flex;align-items:center;gap:9px}.stepNumber{flex:none;margin:0}.actionCard{padding:16px}.desktopActionContent{display:none}.mobileActionSlot{display:block}.headerInner{min-height:68px} }

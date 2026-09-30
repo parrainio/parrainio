@@ -171,28 +171,22 @@ export default async function OfferPage({
                     logo={offer.logo}
                     logoLetter={offer.logoLetter}
                     name={offer.name}
-                    size={44}
+                    size={40}
                   />
-                  <div className={styles.identityInfo}>
-                    <div className={styles.identityMeta}>
-                      <span className={styles.categoryPill}>{offer.categoryGroup}</span>
-                      <VerificationBadge />
-                    </div>
-                    <div className={styles.identityActions}>
-                      {offer.officialWebsiteUrl && (
-                        <a
-                          href={referralUrl ?? offer.officialWebsiteUrl}
-                          className={styles.officialLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <GlobeIcon />
-                          Accéder au site officiel →
-                        </a>
-                      )}
-                      <FavoriteButton slug={offer.slug} variant="full" />
-                    </div>
-                  </div>
+                  {(referralUrl || offer.officialWebsiteUrl) && (
+                    <a
+                      href={referralUrl ?? offer.officialWebsiteUrl ?? undefined}
+                      className={styles.officialLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <GlobeIcon />
+                      Accéder au site web →
+                    </a>
+                  )}
+                  <span className={styles.categoryPill}>{offer.categoryGroup}</span>
+                  <VerificationBadge />
+                  <FavoriteButton slug={offer.slug} variant="full" />
                 </div>
                 {/* Le H1 reste seul, pleine largeur, pour rester l'élément
                     visuel principal du bloc supérieur. */}
@@ -202,9 +196,9 @@ export default async function OfferPage({
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>CLIQUEZ</strong>Utilisez notre lien ou code de parrainage.</span></li>
-                    <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong>Renseignez le code si nécessaire.</span></li>
-                    <li><b>03</b><span><strong>VALIDEZ</strong>Réalisez les conditions de l'offre.</span></li>
+                    <li><b>01</b><span><strong>CLIQUEZ</strong><small>Utilisez notre lien ou code de parrainage.</small></span></li>
+                    <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>Renseignez le code si nécessaire.</small></span></li>
+                    <li><b>03</b><span><strong>VALIDEZ</strong><small>Réalisez les conditions de l'offre.</small></span></li>
                     <li><b>04</b><span><strong>DEMANDEZ VOTRE REVERSE</strong></span></li>
                   </ol>
                 </div>}
