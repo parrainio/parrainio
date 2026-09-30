@@ -45,6 +45,18 @@ export function classifyReferralMechanism(
   return "CODE_PARRAIN";
 }
 
+/**
+ * Libellés affichés pour chaque mécanisme (hub /codes-parrainage).
+ * Source unique partagée : le hub et cette lib décrivent le même classement,
+ * les libellés doivent donc toujours correspondre.
+ */
+export const MECHANISM_LABEL: Record<ReferralMechanism, string> = {
+  CODE_PUBLIC: "Code public de la marque",
+  CODE_PARRAIN: "Code d'un parrain",
+  NUMERO_PARRAIN: "Numéro d'invitation",
+  LIEN_EMAIL: "Invitation par lien ou e-mail",
+};
+
 /** Ancre contextuelle du lien vers /codes-parrainage, selon le mécanisme réel. */
 const HUB_LINK_ANCHOR: Record<ReferralMechanism, string> = {
   CODE_PUBLIC: "Voir le code et les conditions",

@@ -5,6 +5,7 @@ import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers } from "@/data/managedOffers";
 import { getOfferReferralUrl } from "@/data/offers";
 import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
+import { classifyReferralMechanism, MECHANISM_LABEL } from "@/lib/referralMechanism";
 import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
 import PublicHeader from "@/components/PublicHeader";
 import FavoritesDock from "@/components/FavoritesDock";
@@ -25,56 +26,6 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
   },
 };
-
-/**
- * Classification des mécanismes du hub.
- *
- * - CODE_PUBLIC : code générique/de marque documenté (identifié et vérifié
- *   lors de l'audit des données, chantier F2-E.1) ;
- * - NUMERO_PARRAIN : numéro/identifiant utilisé pour le rattachement ;
- * - CODE_PARRAIN : code personnel d'un parrain, présenté comme tel ;
- * - LIEN_EMAIL : rattachement par lien d'invitation ou e-mail du parrain
- *   (jamais présenté comme un code, adresse e-mail jamais affichée).
- *
- * Les offres sans code ni invitation dédiée n'entrent pas dans le listing :
- * elles restent accessibles via le catalogue /offres.
- */
-const GENERIC_CODE_SLUGS = new Set([
-  "swissborg",
-  "sumeria",
-  "naomi-1",
-  "coinhouse",
-  "crypto-com",
-  "primeo-energie",
-  "totalenergies",
-  "raizers",
-  "splint-invest",
-  "winamax",
-  "showroomprive",
-  "i-run-fr",
-]);
-
-// Rattachement documenté par lien d'invitation ou e-mail du parrain
-// (conditions officielles de l'offre) — jamais un code.
-const EMAIL_MECHANISM_SLUGS = new Set(["bebe-boutik"]);
-
-type Mechanism = "CODE_PUBLIC" | "CODE_PARRAIN" | "NUMERO_PARRAIN" | "LIEN_EMAIL";
-
-const MECHANISM_LABEL: Record<Mechanism, string> = {
-  CODE_PUBLIC: "Code public de la marque",
-  CODE_PARRAIN: "Code d'un parrain",
-  NUMERO_PARRAIN: "Numéro d'invitation",
-  LIEN_EMAIL: "Invitation par lien ou e-mail",
-};
-
-function classifyOffer(slug: string, referralCode: string | null): Mechanism | null {
-  if (EMAIL_MECHANISM_SLUGS.has(slug)) return "LIEN_EMAIL";
-  const code = referralCode?.trim();
-  if (!code) return null;
-  if (/^\d{4,}$/.test(code)) return "NUMERO_PARRAIN";
-  if (GENERIC_CODE_SLUGS.has(slug)) return "CODE_PUBLIC";
-  return "CODE_PARRAIN";
-}
 
 const FAQ = [
   {
@@ -114,7 +65,7 @@ export default async function CodesParrainagePage() {
 
   const hubItems: HubItem[] = offers
     .map((offer): HubItem | null => {
-      const mechanism = classifyOffer(offer.slug, offer.referralCode);
+      const mechanism = classifyReferralMechanism(offer.slug, offer.referralCode);
       if (!mechanism) return null;
       const reverse =
         offer.parrainioReward && offer.parrainioReward !== "0 €" ? offer.parrainioReward : null;
