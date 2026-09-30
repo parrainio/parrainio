@@ -196,10 +196,10 @@ export default async function OfferPage({
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>CLIQUEZ</strong><small>Utilisez notre lien ou code de parrainage.</small></span></li>
+                    <li><b>01</b><span><strong>COPIEZ LE CODE</strong><small>Utilisez notre lien ou code de parrainage.</small></span></li>
                     <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>Renseignez le code si nécessaire.</small></span></li>
-                    <li><b>03</b><span><strong>VALIDEZ</strong><small>Réalisez les conditions de l'offre.</small></span></li>
-                    <li><b>04</b><span><strong>DEMANDEZ VOTRE REVERSE</strong></span></li>
+                    <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l'offre.</small></span></li>
+                    <li><b>04</b><span><strong>DEMANDEZ VOTRE VERSEMENT</strong></span></li>
                   </ol>
                 </div>}
               </div>
