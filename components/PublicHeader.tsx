@@ -13,7 +13,7 @@ export default function PublicHeader({ active }: PublicHeaderProps) {
   );
   const links = [
     ["home", "Accueil", "/"],
-    ["ranking", "Classement", "/classement-primes-parrainage"],
+    ["ranking", "Meilleures primes", "/classement-primes-parrainage"],
     ["reviews", "Avis clients", "/avis-clients"],
     ["blog", "Guide", "/blog"],
     ["faq", "FAQ", "/#faq"],
