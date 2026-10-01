@@ -466,7 +466,12 @@ export default async function ComparatifParisSportifsPage() {
               <p>
                 Chaque fiche détaille les conditions exactes et le parcours de
                 parrainage. Les catégories du site regroupent les univers les
-                plus recherchés.
+                plus recherchés. Pour comprendre ce qu&apos;un freebet peut
+                réellement rapporter, consultez notre guide{" "}
+                <Link href="/blog/freebet-comment-ca-marche">
+                  le freebet, comment ça marche
+                </Link>
+                .
               </p>
             </div>
             <div className={styles.ctaActions}>

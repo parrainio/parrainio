@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import {
   getOfferReferralUrl,
   getFeaturedOffers,
+  offers,
 } from "@/data/offers";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 import { OG_IMAGE } from "@/lib/ogImage";
@@ -38,7 +39,22 @@ import OfferRewards from "@/components/OfferRewards";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
 import styles from "./page.module.css";
 
-export const dynamic = "force-dynamic";
+// ISR : les lecteurs de données de la fiche (overrides KV via fetch tagué
+// 60 s, featured-config via le même mécanisme) sont compatibles rendu
+// statique — aucun fetch no-store au rendu (le seed admin est confiné aux
+// chemins d'écriture). Les écritures admin invalident les tags
+// (revalidateTag) et appellent revalidatePath sur les pages concernées.
+// TTL aligné sur CACHE_REVALIDATE_SECONDS (lib/adminKv.ts), même contrat
+// que /offres.
+export const revalidate = 60;
+
+// Prérendu des fiches au build — même liste de slugs que le sitemap. Les
+// 117 fiches sont générées puis revalidées par ISR (60 s) ; les écritures
+// admin les invalident via revalidatePath(`/offres/${slug}`). Un slug
+// inconnu reste résolu à la demande (notFound), sans mise en cache.
+export function generateStaticParams() {
+  return offers.map((offer) => ({ slug: offer.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -132,6 +148,31 @@ export default async function OfferPage({
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
   const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
+  // FAQPage (JSON-LD) : la MÊME donnée `faq` que le rendu visible ci-dessous
+  // (seoProfile.faq) — aucune duplication de texte, aucune réécriture.
+  // Garde-fous : sans FAQ valide, aucun nœud FAQPage ; une question ou une
+  // réponse vide est exclue plutôt que sérialisée invalide.
+  const faqItems = (seoProfile?.faq ?? []).filter(
+    (item) => item.question?.trim() && item.answer?.trim(),
+  );
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbJsonLd,
+      ...(faqItems.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: faqItems.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: { "@type": "Answer", text: item.answer },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
   // Maillage contextuel vers le hub des codes (F2-E.3) : l'ancre suit le
   // mécanisme réel de l'offre ; sans code ni invitation dédiée, pas de lien.
   const hubMechanism = classifyReferralMechanism(offer.slug, offer.referralCode);
@@ -139,7 +180,7 @@ export default async function OfferPage({
 
   return (
     <main className={styles.page}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PublicHeader />
       <FavoritesDock />
 

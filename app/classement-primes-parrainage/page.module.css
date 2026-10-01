@@ -50,6 +50,8 @@
    aucune cellule ne peut déborder dans la colonne voisine. La colonne
    « Conditions » est désormais un indicateur compact (⋯ + popover).  */
 .rankCols { display:grid; grid-template-columns:30px minmax(0,1.8fr) 165px 175px 34px 24px 112px; gap:14px; align-items:center; }
+/* H2 de la liste de classement (au-dessus des lignes, panneau droit) */
+.rankTitle { margin:0 0 12px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.25rem,2vw,1.55rem); font-weight:800; letter-spacing:-.04em; line-height:1.15; }
 .rankList { display:flex; flex-direction:column; gap:8px; }
 .rankHead { display:grid; grid-template-columns:30px minmax(0,1.8fr) 165px 175px 34px 24px 112px; gap:14px; align-items:center; padding:9px 14px; color:#5d7168; font-size:.62rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .hRank { text-align:center; }
@@ -117,6 +119,21 @@
 .unitCard strong { display:block; color:var(--ink); font-size:.86rem; }
 .unitCard small { display:block; color:var(--muted); font-size:.76rem; line-height:1.45; }
 
+/* ── Section « par catégorie » (leader de chaque famille, calcul serveur) ── */
+.familyGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+.familyCard { display:flex; align-items:center; gap:12px; padding:14px 16px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; color:inherit; text-decoration:none; transition:transform .15s ease,box-shadow .15s ease; }
+.familyCard:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(34,74,58,.1); }
+.familyCard span { min-width:0; }
+.familyCard small { display:block; margin-bottom:2px; color:#8ca396; font-size:.66rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; overflow-wrap:anywhere; }
+.familyCard strong { display:block; color:var(--ink); font-size:.86rem; }
+.familyCard em { display:block; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.8rem; font-style:normal; font-weight:800; letter-spacing:-.01em; }
+
+/* ── FAQ visible (source unique du JSON-LD FAQPage) ───────── */
+.faqList { display:grid; grid-template-columns:repeat(2,1fr); gap:13px; }
+.faqItem { padding:18px 20px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+.faqItem h3 { margin:0 0 7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
+.faqItem p { margin-bottom:0; color:var(--muted); font-size:.81rem; line-height:1.55; }
+
 .variableList { margin:0; padding:0; list-style:none; display:grid; gap:8px; }
 .variableList li { padding:11px 15px; border:1px solid #e0e9e2; border-radius:12px; background:#fff; font-size:.84rem; }
 .variableList a { color:var(--green); font-weight:800; text-decoration:none; }
@@ -151,7 +168,7 @@
   .selectWrap { max-width:420px; }
 }
 @media (max-width:930px) {
-  .unitGrid,.explainer { grid-template-columns:1fr; }
+  .unitGrid,.explainer,.familyGrid,.faqList { grid-template-columns:1fr; }
   .ctaCard { align-items:flex-start; flex-direction:column; }
   .rankHead { display:none; }
   .rankBody { grid-template-columns:1fr; padding-left:14px; }

@@ -11,7 +11,12 @@ import PublicHeader from "@/components/PublicHeader";
 import FavoritesDock from "@/components/FavoritesDock";
 import styles from "./page.module.css";
 
-export const dynamic = "force-dynamic";
+// ISR : le hub lit les overrides via le fetch tagué 60 s (lib/adminKv.ts) —
+// compatible rendu statique, aucun fetch no-store au rendu. Les écritures
+// admin invalident le tag (revalidateTag) → régénération à la requête suivante.
+// Le TTL est aligné sur CACHE_REVALIDATE_SECONDS, même contrat que /offres.
+// getCurrentPeriodLabel se rafraîchit à chaque revalidation.
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Code de parrainage : comment le trouver et l'utiliser | Parrainio",

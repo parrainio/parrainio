@@ -194,7 +194,7 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "Conclusion" },
       "Le cashback est un mécanisme simple à comprendre, à condition d'en connaître les règles : passer par la plateforme, respecter les conditions du marchand et attendre la validation de l'achat. Bien utilisé sur des achats que vous comptiez de toute façon effectuer, il permet de récupérer un peu d'argent au fil du temps — sans jamais être une raison d'acheter plus, ni une économie garantie.",
-      "Pour comparer les services actuellement documentés, leurs conditions et leurs éventuels bonus, consultez le [comparatif des plateformes de cashback](/comparatif/cashback) ou parcourez l'ensemble des [offres de parrainage](/offres).",
+      "Pour aller plus loin, l'article [utiliser le cashback intelligemment](/blog/comment-utiliser-cashback-intelligemment) détaille les règles de cumul et les pièges à éviter, le [comparatif des plateformes de cashback](/comparatif/cashback) répertorie les services documentés et leurs conditions, et l'ensemble des [offres de parrainage](/offres) reste le point de départ pour parcourir les programmes actifs.",
     ],
   },
   {
@@ -880,7 +880,7 @@ export const blogArticles: BlogArticle[] = [
             heading: "Commencer par les personnes réellement intéressées",
             blocks: [
             "La qualité prime nettement sur la quantité. Un filleul sincère, qui souscrit parce que le service répond à un besoin, remplit bien plus facilement les conditions du programme qu'une personne inscrite pour rendre service.",
-            "Prenez le temps de comprendre pourquoi chaque offre pourrait intéresser telle ou telle personne : un proche qui cherche à changer de banque, un autre qui fait beaucoup d'achats en ligne, un foyer qui compare ses fournisseurs d'énergie, ou une personne qui s'intéresse aux crypto-actifs. C'est exactement le genre de situations où un parrainage apporte quelque chose — et c'est aussi la meilleure façon d'éviter d'insister auprès de personnes qui n'en ont pas besoin."
+            "Prenez le temps de comprendre pourquoi chaque offre pourrait intéresser telle ou telle personne : un proche qui cherche à changer de banque, un autre qui fait beaucoup d'achats en ligne, un foyer qui compare ses fournisseurs d'énergie, ou une personne qui s'intéresse aux crypto-actifs. Certains services ont même plusieurs programmes selon le profil : Airbnb distingue ainsi son [parrainage côté voyageur](/offres/airbnb) de son programme Hôtes. C'est exactement le genre de situations où un parrainage apporte quelque chose — et c'est aussi la meilleure façon d'éviter d'insister auprès de personnes qui n'en ont pas besoin."
             ],
           },
           {

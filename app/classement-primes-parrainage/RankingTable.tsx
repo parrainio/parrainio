@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import OfferLogo from "@/components/OfferLogo";
 import { formatProductNames } from "@/lib/productNames";
+import { FAMILY_CATEGORIES, norm } from "./families";
 import styles from "./page.module.css";
 
 export type RankingRow = {
@@ -15,6 +16,8 @@ export type RankingRow = {
   parrainioReward: string | null;
   /** Conditions complètes — rendues dans le DOM même accordéon fermé (SEO). */
   conditions: string[];
+  /** Avantage total (prime filleul + reverse Parrainio) — rang ex æquo. */
+  total: number;
   color: string;
   logo: string | null;
   logoLetter: string;
@@ -30,41 +33,9 @@ type Props = {
 };
 
 /**
- * Groupes utilisateur — LOGIQUE D'AFFICHAGE UNIQUEMENT.
- * Les 29 catégories sous-jacentes des offres restent strictement inchangées ;
- * la correspondance est insensible à la casse (« sondage » comme « Sondage »).
+ * Familles utilisateur : voir families.ts (module partagé avec la page —
+ * mêmes groupes pour le filtre client et la section serveur « par catégorie »).
  */
-const FAMILY_CATEGORIES: { label: string; categories: string[] }[] = [
-  {
-    label: "Banque & assurance",
-    categories: ["banque", "assurance", "assurance auto", "finance", "pro & finance", "pro & assurance"],
-  },
-  {
-    label: "Investissement & crypto",
-    categories: ["crypto", "investissement", "épargne & assurance-vie"],
-  },
-  {
-    label: "Cashback & récompenses",
-    categories: ["cashback", "récompenses", "sondage"],
-  },
-  {
-    label: "Shopping & maison",
-    categories: ["shopping", "mode & shopping", "maison", "maison & shopping", "bébé", "animaux", "finance & shopping"],
-  },
-  {
-    label: "Sport & nutrition",
-    categories: ["sport", "sport & nutrition", "sport & shopping"],
-  },
-  {
-    label: "Courses & restaurants",
-    categories: ["courses", "courses & anti-gaspi", "restaurants"],
-  },
-  { label: "Jeux & paris", categories: ["jeux & paris"] },
-  { label: "Énergie", categories: ["énergie"] },
-  { label: "Mobilité", categories: ["mobilité"] },
-];
-
-const norm = (value: string) => value.trim().toLowerCase();
 
 const SHORT_LINK_LABELS: Record<string, string> = {
   wise: "Faire un transfert avec Wise",
@@ -108,6 +79,24 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
     return rows.filter((row) => family.categories.includes(norm(row.category)));
   }, [rows, activeFamily]);
 
+  /* Rangs « ex æquo » : les offres à avantage total égal partagent le rang de
+     la première d'entre elles (numérotation compétitive). Recalculé à chaque
+     filtre de famille, sur la liste visible. */
+  const rankBySlug = useMemo(() => {
+    const map = new Map<string, number>();
+    const firstByTotal = new Map<number, number>();
+    visible.forEach((row, index) => {
+      const first = firstByTotal.get(row.total);
+      if (first === undefined) {
+        firstByTotal.set(row.total, index + 1);
+        map.set(row.slug, index + 1);
+      } else {
+        map.set(row.slug, first);
+      }
+    });
+    return map;
+  }, [visible]);
+
   return (
     <div className={styles.workspace}>
       <aside className={styles.sidePanel}>
@@ -116,7 +105,8 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
         <p className={styles.panelCount}>
           <strong>{rows.length}</strong> offres avec un avantage total exprimé
           en euros, classées par avantage total décroissant (prime filleul +
-          reversement Parrainio).
+          reversement Parrainio). En cas d&apos;égalité, les offres partagent
+          le même rang et sont ordonnées alphabétiquement.
         </p>
         <p className={styles.updated}>Données vérifiées et mises à jour le {updated}.</p>
         <label className={styles.selectLabel} htmlFor="classement-famille">
@@ -143,6 +133,7 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
       </aside>
 
       <div className={styles.rankingPanel}>
+        <h2 className={styles.rankTitle}>Les primes de parrainage les plus élevées</h2>
         <div className={styles.rankList} role="region" aria-label="Classement des primes">
           <div className={styles.rankHead} aria-hidden="true">
             <span className={styles.hRank}>#</span>
@@ -157,7 +148,9 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
             <div className={styles.rankRow} key={row.slug}>
               <details className={styles.rankDetails}>
                 <summary className={styles.rankSummary}>
-                  <span className={styles.rankNum}>{index + 1}</span>
+                  <span className={styles.rankNum} aria-label={`Rang ${rankBySlug.get(row.slug) ?? index + 1}`}>
+                    {rankBySlug.get(row.slug) ?? index + 1}
+                  </span>
                   <span className={styles.offerCell}>
                     <OfferLogo
                       name={row.name}
