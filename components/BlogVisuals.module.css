@@ -20,7 +20,10 @@
 .figcaption { margin-top:10px; color:#71807d; font-size:.78rem; line-height:1.6; text-align:center; }
 
 .process { display:grid; gap:0; margin:8px 0 2px; padding:0; list-style:none; counter-reset:step; }
-.processStep { position:relative; display:grid; gap:2px; padding:0 0 0 56px; }
+/* Override generic article list spacing so each timeline step starts at the
+   component grid boundary instead of inheriting list markers or indentation. */
+:global(article) .process.process { padding:0; }
+:global(article) .processStep.processStep { padding:0 0 0 56px; }
 .processStep::before { position:absolute; top:0; left:20px; bottom:0; width:2px; background:#dcebe0; content:""; }
 .processStep:last-child::before { bottom:auto; height:40%; }
 .processStep::after { position:absolute; top:14px; left:10px; display:grid; width:22px; height:22px; place-items:center; border:2px solid #bfd8c8; border-radius:50%; background:#fffdfa; color:#27735a; counter-increment:step; content:counter(step); font-size:.62rem; font-weight:800; }
@@ -55,7 +58,7 @@
   .tile:nth-child(5) { grid-column:1 / -1; width:calc(50% - 6px); }
 }
 @media (max-width:460px) {
-  .processStep { padding-left:46px; }
+  :global(article) .processStep.processStep { padding-left:46px; }
   .processStep::before { left:15px; }
   .processStep::after { left:5px; }
   .processNode { flex-direction:column; gap:2px; }

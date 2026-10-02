@@ -24,18 +24,22 @@ export function ArticleImage({
   src,
   alt,
   caption,
+  width = 1200,
+  height = 675,
 }: {
   src: string;
   alt: string;
   caption?: string;
+  width?: number;
+  height?: number;
 }) {
   return (
     <figure className={styles.imageFigure}>
       <img
         src={src}
         alt={alt}
-        width={1200}
-        height={675}
+        width={width}
+        height={height}
         loading="lazy"
         decoding="async"
       />

@@ -320,6 +320,14 @@ export default async function CodesParrainagePage() {
               </p>
             </div>
           </div>
+          <p>
+            Avant de vous inscrire, consultez aussi notre guide pour{" "}
+            <Link href="/blog/comment-trouver-code-parrainage-fiable">
+              trouver un code de parrainage fiable et vérifier ses conditions
+            </Link>
+            , notamment la validité de la campagne et le bon moment pour utiliser
+            un lien ou un code.
+          </p>
         </div>
       </section>
 

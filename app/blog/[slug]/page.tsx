@@ -108,7 +108,15 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
     return null;
   }
   if (block.type === "image") {
-    return <ArticleImage src={block.src} alt={block.alt} caption={block.caption} />;
+    return (
+      <ArticleImage
+        src={block.src}
+        alt={block.alt}
+        caption={block.caption}
+        width={block.width}
+        height={block.height}
+      />
+    );
   }
   if (block.type === "process") {
     return <ProcessFlow steps={block.steps} />;

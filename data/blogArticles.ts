@@ -24,7 +24,7 @@ export type BlogBlock =
   | { type: "list"; ordered: boolean; items: string[] }
   /* Blocs visuels génériques (rendus par le template, réutilisables) : */
   | { type: "figure"; variant: "subscriptions" }
-  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "image"; src: string; alt: string; caption?: string; width?: number; height?: number }
   | { type: "process"; steps: { title: string; text: string }[] }
   | { type: "cards"; items: { icon: string; title: string; text: string }[] }
   | { type: "callout"; title: string; text?: string; items?: string[] }
@@ -1441,7 +1441,8 @@ export const blogArticles: BlogArticle[] = [
             heading: "Cashback, promotion et code promo : quelle différence ?",
             blocks: [
             "Trois mécanismes distincts se superposent souvent sur la même page marchande : la promotion est une baisse du prix affiché, le code promo applique une réduction au moment du paiement, et le cashback crédite ensuite un montant sur votre compte plateforme après validation de l'achat. Les trois peuvent se combiner ou non, selon les règles du marchand et de la plateforme.",
-            "Cette distinction change le calcul : une réduction immédiate est certaine et visible tout de suite, alors qu'un cashback est différé et conditionnel. Comprendre ce qui est « certain maintenant » et ce qui est « crédité plus tard sous conditions » évite de comparer des valeurs qui ne sont pas comparables."
+            "Cette distinction change le calcul : une réduction immédiate est certaine et visible tout de suite, alors qu'un cashback est différé et conditionnel. Comprendre ce qui est « certain maintenant » et ce qui est « crédité plus tard sous conditions » évite de comparer des valeurs qui ne sont pas comparables.",
+            "Pour distinguer plus précisément le [code promo du code de parrainage](/blog/code-promo-ou-code-parrainage-difference), consultez aussi notre guide dédié : une remise au panier et une invitation entre utilisateurs ne suivent pas le même parcours."
             ],
           },
           {
@@ -1520,6 +1521,287 @@ export const blogArticles: BlogArticle[] = [
       },
 
       "Utilisé intelligemment, le cashback est un complément d'optimisation parmi d'autres — comme le parrainage ou les bons plans — au service d'achats déjà réfléchis. Pour comparer les plateformes actuellement documentées et leurs conditions, consultez le [comparatif cashback](/comparatif/cashback) ou parcourez [la liste des offres](/offres).",
+    ],
+  },
+  {
+    slug: "code-promo-ou-code-parrainage-difference",
+    title: "Code promo ou code parrainage : quelle différence ?",
+    h1: "Code promo ou code parrainage : quelle différence ?",
+    excerpt:
+      "Code de réduction, code parrainage, lien d’invitation ou numéro de parrain : comprenez ce qui les distingue et vérifiez le bon parcours avant de vous inscrire.",
+    datePublished: "2026-10-02",
+    category: "Guides",
+    body: [
+      "Un champ intitulé « code » ne suffit pas à savoir quel avantage vous allez recevoir. Un code promo sert généralement à appliquer une réduction sur un achat ; un code de parrainage sert à rattacher une inscription à la recommandation d’un client. Le vocabulaire se ressemble, mais le rôle et le moment d’utilisation peuvent être différents. Voici les repères pour reconnaître le mécanisme demandé, sans supposer qu’un code ou une offre fonctionne partout de la même façon.",
+
+      { type: "h2", text: "Qu’est-ce qu’un code promo ?" },
+      "Un code promo — aussi appelé code de réduction ou code promotionnel — est une suite de lettres et parfois de chiffres utilisée dans le cadre d’une offre commerciale. Lorsqu’il est valide pour le panier concerné, il applique une remise ou un autre avantage prévu par la promotion. Le champ de saisie se trouve souvent dans le panier ou au moment du paiement, mais le parcours varie selon le site.",
+      "Ce code est lié à une promotion, pas nécessairement à une personne qui vous recommande le service. Il peut être diffusé par une marque, un partenaire ou dans une campagne, avec des conditions propres : produits concernés, période, montant minimum d’achat ou règles de cumul, par exemple. Il faut lire les conditions de la promotion en question plutôt que déduire son fonctionnement de son nom.",
+
+      { type: "h2", text: "Qu’est-ce qu’un code de parrainage ?" },
+      "Un code de parrainage identifie le parrain ou son invitation auprès du programme concerné. Le filleul le communique ou le saisit dans le parcours indiqué afin que l’inscription soit attribuée au bon parrain. Selon le programme, cette attribution peut ouvrir droit à un avantage pour le filleul, le parrain, ou les deux ; elle peut aussi dépendre d’étapes ultérieures. Le code, à lui seul, ne garantit donc ni une remise immédiate ni une récompense.",
+      "La différence essentielle tient à la fonction : le code promo agit sur une commande ou une offre promotionnelle ; le code parrainage sert d’abord à enregistrer une recommandation. Un programme peut toutefois prévoir une réduction pour le filleul : dans ce cas, l’avantage est lié au parrainage, même s’il prend la forme d’une remise.",
+
+      { type: "h2", text: "Code promo et code parrainage : les différences concrètes" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Objectif : le code promo applique une promotion ; le code de parrainage rattache un nouveau client à l’invitation d’un parrain.",
+          "Moment d’utilisation : un code promo est souvent saisi dans un panier ; un code de parrainage peut être demandé pendant l’inscription, la souscription ou la commande, selon le programme.",
+          "Résultat : le premier peut réduire le prix ; le second peut enregistrer le parrainage, avec un avantage éventuel soumis aux conditions du programme.",
+          "Cumul : on ne peut pas présumer que les deux codes sont cumulables. Seules les conditions de la promotion et du programme concernés permettent de le savoir.",
+        ],
+      },
+      "Un code de réduction n’est donc pas automatiquement un code de parrainage, même si les deux peuvent ressembler à une courte suite de caractères. Inversement, un programme de parrainage peut prévoir un code qui donne aussi accès à une remise : il faut regarder ce que les règles disent de son rôle, pas seulement le nom du champ.",
+
+      { type: "h2", text: "Et s’il n’y a pas de code ? Le lien d’invitation" },
+      "Certains programmes utilisent un lien d’invitation personnel plutôt qu’un code à recopier. En l’ouvrant, le site ou l’application peut associer automatiquement la visite ou l’inscription au parrain. Il n’y a alors aucun code à inventer ni à saisir, sauf si le parcours en demande un ensuite. Un lien d’invitation et un code peuvent aussi coexister : suivez les indications affichées pour cette invitation précise.",
+      "Pour éviter de perdre l’attribution, commencez depuis le lien reçu et poursuivez l’inscription dans le parcours prévu. Si vous quittez la page, changez d’appareil ou reprenez plus tard, vérifiez auprès du programme que l’invitation est toujours associée ; les règles techniques ne sont pas identiques d’un service à l’autre.",
+
+      { type: "h2", text: "Le numéro de parrain : un identifiant, pas forcément un code promo" },
+      "Un formulaire peut demander un « numéro de parrain », un « code parrain » ou un identifiant client. Il s’agit alors d’une information permettant au programme de reconnaître le parrain. Le numéro peut être composé de chiffres, de lettres ou des deux : sa forme ne permet pas, à elle seule, de conclure qu’il s’agit d’un code de réduction.",
+      "Recopiez uniquement l’identifiant que le parrain vous a transmis, dans le champ prévu. Ne saisissez pas un numéro de téléphone ou une autre donnée personnelle à sa place, et ne partagez pas publiquement un identifiant si son usage n’est pas prévu pour cela. Si le champ ou la consigne reste ambigu, demandez confirmation au parrain ou au service concerné avant de valider.",
+
+      { type: "h2", text: "Comment reconnaître le bon mécanisme ?" },
+      "Lisez d’abord le libellé du champ et les instructions autour : « code promo » ou « code de réduction » renvoie en principe à une promotion ; « code parrain », « numéro de parrain » ou « identifiant du parrain » indique une invitation à rattacher ; « lien d’invitation » signifie généralement qu’il faut ouvrir l’URL reçue. Le contexte compte davantage que l’apparence du code.",
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Identifiez ce que vous faites : achat, création de compte ou souscription.",
+          "Reprenez le lien ou le code fourni pour ce programme, sans le remplacer par un code trouvé ailleurs.",
+          "Utilisez-le à l’étape indiquée : panier, formulaire d’inscription ou souscription.",
+          "Avant de confirmer, vérifiez que le code est accepté ou que l’invitation apparaît bien dans le parcours.",
+          "En cas de doute, n’utilisez pas un code au hasard : consultez l’aide du service ou demandez une précision au parrain.",
+        ],
+      },
+      "Les parcours réels illustrent cette diversité : la fiche [i-Run](/offres/i-run-fr) documente une invitation transmise par lien, tandis que [Primeo Energie](/offres/primeo-energie) et [Alltricks](/offres/alltricks) présentent des parcours de parrainage associés à un code ou à un identifiant. Ce sont des exemples propres à ces services, pas des règles à généraliser.",
+
+      { type: "h2", text: "Vérifier les conditions avant d’utiliser un code" },
+      "Avant de vous inscrire ou de valider un achat, consultez les conditions de la campagne concernée, idéalement sur la page officielle du programme. Vérifiez notamment le profil éligible, l’étape à laquelle le lien ou le code doit être utilisé, la durée de validité, les actions éventuellement demandées, la forme de l’avantage et les règles de cumul. Ces points peuvent changer d’une offre à l’autre et évoluer dans le temps.",
+      "Gardez une trace des consignes et de la confirmation obtenue, surtout si l’attribution dépend d’une inscription ou d’une action ultérieure. Un message « code accepté » confirme parfois seulement la saisie, pas l’éligibilité finale à un avantage. En cas de question sur la procédure générale, la page [codes de parrainage](/codes-parrainage) explique où trouver les informations utiles ; pour comparer les programmes documentés, le [classement des primes](/classement-primes-parrainage) renvoie vers leurs fiches et conditions. Ces ressources ne remplacent pas les règles officielles du service concerné. Pour aller plus loin, suivez la méthode pas à pas pour [trouver un code de parrainage fiable et vérifier ses conditions](/blog/comment-trouver-code-parrainage-fiable).",
+
+      { type: "h2", text: "Questions fréquentes" },
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "Un code promo et un code de parrainage peuvent-ils être identiques ?",
+            blocks: [
+              "Un programme peut utiliser un code de parrainage qui donne aussi accès à une remise. Cela ne signifie pas que tous les codes promo sont des codes de parrainage. Vérifiez la fonction indiquée dans les conditions du programme.",
+            ],
+          },
+          {
+            heading: "Peut-on utiliser un code promo en plus d’un code parrainage ?",
+            blocks: [
+              "Cela dépend du marchand et du programme. Certains parcours autorisent plusieurs avantages, d’autres non ; vérifiez les règles de cumul avant de confirmer plutôt que de le supposer.",
+            ],
+          },
+          {
+            heading: "Que faire si je n’ai reçu qu’un lien d’invitation ?",
+            blocks: [
+              "Ouvrez le lien et suivez le parcours indiqué. Si le service demande ensuite un code ou un identifiant de parrain, utilisez seulement l’information fournie par votre parrain ou par le programme.",
+            ],
+          },
+          {
+            heading: "Un numéro de parrain garantit-il un avantage ?",
+            blocks: [
+              "Non. Le numéro sert à identifier ou rattacher le parrainage. L’existence et l’attribution d’un avantage dépendent des conditions et de la validation du programme concerné.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "À retenir" },
+      "Un code promo réduit potentiellement le prix d’une commande ; un code ou un numéro de parrain sert à identifier une recommandation ; un lien d’invitation peut effectuer ce rattachement sans saisie manuelle. Ces mécanismes peuvent se croiser, mais ne sont pas interchangeables. Suivez le parcours indiqué et vérifiez les conditions applicables avant de confirmer.",
+    ],
+  },
+  {
+    slug: "comment-trouver-code-parrainage-fiable",
+    title: "Comment trouver un code de parrainage fiable ?",
+    h1: "Comment trouver un code de parrainage fiable ?",
+    excerpt:
+      "Vérifiez la source, la validité de l’offre, votre éligibilité et le bon parcours avant de vous inscrire : distinguez code accepté et prime acquise.",
+    datePublished: "2026-10-02",
+    category: "Guides",
+    body: [
+      "Un code qui fonctionne n’est pas forcément une offre encore valable, et un code accepté ne signifie pas toujours que le parrainage est validé. Avant de créer un compte ou de passer commande, vérifiez séparément la source de l’invitation, les conditions de la campagne et l’étape à laquelle le partenaire attend votre code ou votre lien. Cette méthode évite les inscriptions impossibles à rattacher après coup et les mauvaises surprises sur la récompense.",
+      {
+        type: "image",
+        src: "/images/blog/code-parrainage-fiable-introduction.png",
+        alt: "Une personne compare plusieurs sources de codes de parrainage — site officiel, proche, blog, forums et réseaux sociaux — pour distinguer les sources fiables des sources à vérifier.",
+        width: 1536,
+        height: 1024,
+        caption: "La fiabilité d’une invitation dépend d’abord de sa source et de la possibilité d’en vérifier les conditions.",
+      },
+      "Ce guide se concentre sur la fiabilité et la vérification d’une offre. Pour distinguer d’abord les mécanismes, consultez notre article [code promo ou code parrainage : quelle différence ?](/blog/code-promo-ou-code-parrainage-difference). Pour retrouver les mécanismes documentés dans le catalogue Parrainio, la page [codes de parrainage](/codes-parrainage) réunit les offres et renvoie vers leurs fiches. Dans tous les cas, les conditions du partenaire au moment de l’inscription font foi.",
+
+      { type: "h2", text: "Où trouver un code ou un lien de parrainage fiable ?" },
+      "Commencez si possible par l’espace de parrainage de la personne qui vous invite ou par la page officielle du programme. Une plateforme de référencement peut aider à repérer une offre, mais ses informations doivent pouvoir être recoupées : nom exact du service, mécanisme utilisé, conditions résumées, date de vérification et renvoi vers une fiche ou une source du partenaire. La présence d’un code dans un ancien message ou une capture d’écran sans date ne prouve pas que la campagne est encore active.",
+      "Avant de saisir des informations personnelles, vérifiez la destination du lien et le nom de domaine. Si le lien est raccourci ou si sa destination vous paraît inattendue, demandez au parrain de confirmer le service visé, puis retrouvez la page du programme depuis le site ou l’application officielle. Un lien raccourci n’est pas automatiquement frauduleux, mais il mérite d’être vérifié avant de poursuivre.",
+
+      { type: "h2", text: "Code, lien ou numéro : repérer le parcours demandé" },
+      "Le bon mécanisme dépend des consignes du partenaire. Un lien d’invitation peut rattacher automatiquement votre inscription ; un code se saisit dans un champ précis ; un numéro de parrain peut servir d’identifiant plutôt que de réduction. Certains parcours combinent lien et code, d’autres n’utilisent ni l’un ni l’autre. Le champ intitulé « code promo » peut également accueillir un code de parrainage : fiez-vous aux instructions du programme, pas au seul libellé du champ.",
+      "Le parcours n’est pas interchangeable d’un service à l’autre. Par exemple, la fiche [i-Run](/offres/i-run-fr) documente une invitation par lien à utiliser avant la création du compte ; [Primeo Energie](/offres/primeo-energie) décrit un code client à saisir pendant la souscription ; [Alltricks](/offres/alltricks) présente un code utilisé au cours du parcours de commande. Ces fiches illustrent des cas particuliers, pas des règles générales, et leurs conditions peuvent évoluer.",
+      {
+        type: "cards",
+        items: [
+          {
+            icon: "Aa",
+            title: "Code de parrainage",
+            text: "Code à saisir dans le parcours prévu par le programme.",
+          },
+          {
+            icon: "↗",
+            title: "Lien d’invitation",
+            text: "Lien qui rattache l’inscription au parrainage, selon le parcours.",
+          },
+          {
+            icon: "#",
+            title: "Numéro de parrain",
+            text: "Identifiant à renseigner lorsqu’un champ dédié existe.",
+          },
+        ],
+      },
+      {
+        type: "process",
+        steps: [
+          {
+            title: "Identifier le mécanisme",
+            text: "Code, lien ou numéro demandé par le programme.",
+          },
+          {
+            title: "Suivre le bon parcours",
+            text: "Utiliser l’invitation à l’étape indiquée.",
+          },
+          {
+            title: "Vérifier la prise en compte",
+            text: "Contrôler que l’inscription est bien rattachée.",
+          },
+        ],
+      },
+
+      { type: "h2", text: "Contrôler si l’offre est encore valable" },
+      "Vérifiez la période de validité de la campagne et les conditions affichées sur la page du partenaire. Regardez le produit ou le service concerné, le pays, le profil du filleul, les éventuelles exclusions et la date à laquelle les règles ont été consultées. Une offre repérée sur un forum ou dans une publication ancienne peut avoir expiré ou avoir été remplacée ; une date écrite par un utilisateur n’est pas une confirmation officielle.",
+      "Ne confondez pas trois vérifications : un code peut avoir le bon format, être accepté techniquement, mais ne pas être associé à une campagne applicable à votre situation. Si la fiche et le parcours d’inscription ne concordent pas, suspendez la démarche et demandez une confirmation au partenaire ou à son service client avant de créer votre compte.",
+
+      { type: "h2", text: "Lire la récompense et ses conditions sans extrapoler" },
+      "Repérez précisément qui reçoit l’avantage : le filleul, le parrain ou les deux. Vérifiez sa forme — réduction sur une commande, crédit, points, remboursement ou versement — et le moment où elle est attribuée. Un avantage utilisable sur le service n’équivaut pas nécessairement à de l’argent disponible, et une formulation « jusqu’à » désigne un maximum possible plutôt qu’une somme garantie pour chaque inscription.",
+      "Lisez ensuite les actions requises : la création d’un compte peut être suivie d’un achat, d’un dépôt, d’un paiement, d’une utilisation du service, d’une vérification ou d’une période d’attente. Ce sont des exemples de conditions possibles, pas des règles communes. Si la prime dépend d’une dépense ou d’un engagement, assurez-vous que le service répond à un vrai besoin même sans la récompense. Le [classement des primes](/classement-primes-parrainage) aide à comparer les avantages documentés, mais la fiche du partenaire reste la référence pour les critères précis de chaque campagne.",
+
+      { type: "h2", text: "Vérifier le statut de nouveau client" },
+      "« Nouveau client » ne signifie pas forcément la même chose dans tous les programmes. L’éligibilité peut dépendre d’un compte antérieur, du produit souscrit, d’une période depuis une ancienne relation ou d’autres critères définis par le partenaire. Si vous avez déjà été client ou détenez un autre produit du même groupe, cherchez la définition écrite dans les conditions de l’offre au lieu de la supposer.",
+      "En cas d’ambiguïté, demandez une réponse au partenaire avant de commencer l’inscription. Après la création du compte, l’ajout d’un parrain ou la modification du parcours peut être impossible ; mieux vaut lever le doute en amont.",
+
+      { type: "h2", text: "Dans quel ordre utiliser le parrainage ?" },
+      "Suivez les étapes dans cet ordre, en adaptant le parcours aux instructions exactes du partenaire :",
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Choisir le service pour son utilité, pas uniquement pour la prime annoncée.",
+          "Lire les conditions actuelles : période, éligibilité, action requise, forme de la récompense et délai indiqué.",
+          "Identifier le mécanisme attendu : lien, code, numéro de parrain ou autre parcours, ainsi que le moment précis où l’utiliser.",
+          "Ouvrir le lien avant l’inscription ou saisir le code à l’étape demandée. Si le parcours doit rester continu, éviter de changer de navigateur ou d’appareil en cours de route.",
+          "Avant de confirmer, vérifier que l’invitation ou les informations du parrain apparaissent bien et conserver la confirmation.",
+          "Après l’inscription, suivre les actions prévues et garder les justificatifs jusqu’à la validation du parrainage.",
+        ],
+      },
+
+      { type: "h2", text: "Comment savoir si le parrainage a bien été pris en compte ?" },
+      "La confirmation d’un code et la validation d’une prime sont des étapes différentes. Quand le partenaire propose un espace de suivi, vérifiez que l’invitation ou l’inscription y figure, puis regardez son statut : reçu, en attente, validé ou autre selon le service. Ce suivi permet de repérer une inscription non rattachée ou une condition restant à remplir, mais seul le partenaire peut confirmer l’éligibilité finale.",
+      "Les délais varient selon l’offre et l’événement qui déclenche l’avantage. Ne reprenez pas le délai d’une autre marque : consultez celui mentionné dans les conditions de la campagne. Si le dossier reste absent du suivi ou si le délai annoncé est dépassé, contactez le partenaire avec les éléments utiles — date, parcours, confirmation et action réalisée — sans transmettre de données sensibles qui ne sont pas demandées.",
+
+      { type: "h2", text: "Les erreurs courantes à éviter" },
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Utiliser un code provenant d’une source sans date ni lien vers les conditions.",
+          "Créer le compte avant d’avoir vérifié si le parrainage doit être activé au préalable.",
+          "Confondre un code promo général avec un identifiant de parrainage.",
+          "Supposer que l’inscription seule déclenche une prime alors qu’une autre action est requise.",
+          "Prendre un montant maximum, un crédit ou une remise pour un versement garanti en argent.",
+          "Croire que le message « code accepté » prouve à lui seul le rattachement ou l’éligibilité.",
+          "Oublier de conserver la confirmation et les conditions consultées avant l’inscription.",
+        ],
+      },
+
+      {
+        type: "process",
+        steps: [
+          {
+            title: "Code ou lien utilisé",
+            text: "L’invitation est suivie dans le parcours demandé.",
+          },
+          {
+            title: "Parrainage enregistré",
+            text: "L’inscription rattachée apparaît dans le suivi lorsqu’il existe.",
+          },
+          {
+            title: "Conditions en cours de validation",
+            text: "Une action, une vérification ou un délai peut rester nécessaire.",
+          },
+          {
+            title: "Prime validée",
+            text: "Le partenaire confirme l’éligibilité et l’attribution.",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        title: "Code accepté ≠ prime définitivement acquise",
+        text: "L’acceptation confirme parfois seulement la saisie ou l’utilisation du code. Les étapes de validation et les délais varient selon le programme : consultez ses conditions et son suivi avant de considérer l’avantage comme acquis.",
+      },
+
+      { type: "h2", text: "Checklist avant de cliquer" },
+      {
+        type: "checklist",
+        items: [
+          "La source est identifiable et le lien mène au service attendu.",
+          "La campagne est encore valable selon les informations actuelles du partenaire.",
+          "Je comprends qui reçoit la récompense, sous quelle forme et après quelle action.",
+          "J’ai vérifié le statut de nouveau client et les autres critères d’éligibilité.",
+          "Je sais où et quand saisir le code ou ouvrir le lien d’invitation.",
+          "Je sais comment suivre le dossier et quelles confirmations conserver.",
+          "Le service m’intéresse même si l’avantage n’est finalement pas attribué.",
+        ],
+      },
+
+      { type: "h2", text: "Questions fréquentes" },
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "Comment savoir si un code de parrainage est toujours valide ?",
+            blocks: [
+              "Consultez la période de la campagne et les conditions publiées par le partenaire. Un code présent sur Internet ou accepté par un formulaire ne suffit pas à confirmer que l’offre s’applique à votre profil.",
+            ],
+          },
+          {
+            heading: "Si le code est accepté, la prime est-elle garantie ?",
+            blocks: [
+              "Non. Il peut rester des conditions à remplir, comme une action ou une validation du partenaire. Vérifiez le suivi de l’inscription et le statut du dossier.",
+            ],
+          },
+          {
+            heading: "Un ancien client peut-il profiter d’un code de parrainage ?",
+            blocks: [
+              "Cela dépend de la définition de nouveau client propre à la campagne. Vérifiez les règles écrites et demandez confirmation au partenaire si votre historique peut vous rendre inéligible.",
+            ],
+          },
+          {
+            heading: "Où trouver les offres de parrainage documentées ?",
+            blocks: [
+              "La page [codes de parrainage](/codes-parrainage) présente les mécanismes répertoriés sur Parrainio. Pour les conditions d’une offre donnée, ouvrez sa fiche et consultez également les informations officielles du partenaire.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "L’essentiel à retenir" },
+      "Pour trouver un code de parrainage fiable, recoupez la source, vérifiez la campagne et son éligibilité, puis suivez le mécanisme demandé avant de créer votre compte. Confirmez que l’invitation est bien rattachée, gardez une trace des conditions et distinguez l’acceptation du code de la validation de la prime. Si une information manque ou se contredit, demandez confirmation au partenaire avant de vous inscrire.",
     ],
   },
 ];
