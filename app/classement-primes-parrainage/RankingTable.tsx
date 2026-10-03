@@ -104,10 +104,10 @@ export default function RankingTable({ rows, panelHeading, panelMedia, updated }
         {panelMedia}
         {/* Méthodologie et volume d'offres : affichés sous l'illustration. */}
         <p className={styles.panelCount}>
-          <strong>{rows.length}</strong> offres avec un avantage total exprimé
-          en euros, classées par avantage total décroissant (prime filleul +
-          reversement Parrainio). En cas d&apos;égalité, les offres partagent
-          le même rang et sont ordonnées alphabétiquement.
+          Découvrez les <strong>{rows.length}</strong> offres de parrainage qui
+          offrent les avantages les plus élevés. Le classement tient compte de
+          la prime proposée par le partenaire et du reversement Parrainio. En
+          cas d&apos;égalité, les offres partagent le même rang.
         </p>
         <p className={styles.updated}>Données vérifiées et mises à jour le {updated}.</p>
         <label className={styles.selectLabel} htmlFor="classement-famille">
