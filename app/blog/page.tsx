@@ -43,8 +43,18 @@ const jsonLd = {
   ],
 };
 
+/**
+ * Tri automatique décroissant par date de publication réelle : le guide le
+ * plus récent arrive en premier, sans classement manuel à maintenir. À date
+ * égale, l'ordre du registre est conservé.
+ */
+function byNewestFirst(a: (typeof blogArticles)[number], b: (typeof blogArticles)[number]) {
+  if (a.datePublished === b.datePublished) return 0;
+  return a.datePublished < b.datePublished ? 1 : -1;
+}
+
 export default function BlogIndexPage() {
-  const articles = blogArticles;
+  const articles = [...blogArticles].sort(byNewestFirst);
 
   return (
     <main className={styles.page}>

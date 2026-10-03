@@ -1629,10 +1629,10 @@ export const blogArticles: BlogArticle[] = [
       "Un code qui fonctionne n’est pas forcément une offre encore valable, et un code accepté ne signifie pas toujours que le parrainage est validé. Avant de créer un compte ou de passer commande, vérifiez séparément la source de l’invitation, les conditions de la campagne et l’étape à laquelle le partenaire attend votre code ou votre lien. Cette méthode évite les inscriptions impossibles à rattacher après coup et les mauvaises surprises sur la récompense.",
       {
         type: "image",
-        src: "/images/blog/code-parrainage-fiable-introduction.png",
+        src: "/images/blog/code-parrainage-fiable-introduction.webp",
         alt: "Une personne compare plusieurs sources de codes de parrainage — site officiel, proche, blog, forums et réseaux sociaux — pour distinguer les sources fiables des sources à vérifier.",
-        width: 1536,
-        height: 1024,
+        width: 1400,
+        height: 933,
         caption: "La fiabilité d’une invitation dépend d’abord de sa source et de la possibilité d’en vérifier les conditions.",
       },
       "Ce guide se concentre sur la fiabilité et la vérification d’une offre. Pour distinguer d’abord les mécanismes, consultez notre article [code promo ou code parrainage : quelle différence ?](/blog/code-promo-ou-code-parrainage-difference). Pour retrouver les mécanismes documentés dans le catalogue Parrainio, la page [codes de parrainage](/codes-parrainage) réunit les offres et renvoie vers leurs fiches. Dans tous les cas, les conditions du partenaire au moment de l’inscription font foi.",
@@ -1694,18 +1694,27 @@ export const blogArticles: BlogArticle[] = [
       "« Nouveau client » ne signifie pas forcément la même chose dans tous les programmes. L’éligibilité peut dépendre d’un compte antérieur, du produit souscrit, d’une période depuis une ancienne relation ou d’autres critères définis par le partenaire. Si vous avez déjà été client ou détenez un autre produit du même groupe, cherchez la définition écrite dans les conditions de l’offre au lieu de la supposer.",
       "En cas d’ambiguïté, demandez une réponse au partenaire avant de commencer l’inscription. Après la création du compte, l’ajout d’un parrain ou la modification du parcours peut être impossible ; mieux vaut lever le doute en amont.",
 
-      { type: "h2", text: "Dans quel ordre utiliser le parrainage ?" },
-      "Suivez les étapes dans cet ordre, en adaptant le parcours aux instructions exactes du partenaire :",
       {
-        type: "list",
-        ordered: true,
+        type: "accordion",
         items: [
-          "Choisir le service pour son utilité, pas uniquement pour la prime annoncée.",
-          "Lire les conditions actuelles : période, éligibilité, action requise, forme de la récompense et délai indiqué.",
-          "Identifier le mécanisme attendu : lien, code, numéro de parrain ou autre parcours, ainsi que le moment précis où l’utiliser.",
-          "Ouvrir le lien avant l’inscription ou saisir le code à l’étape demandée. Si le parcours doit rester continu, éviter de changer de navigateur ou d’appareil en cours de route.",
-          "Avant de confirmer, vérifier que l’invitation ou les informations du parrain apparaissent bien et conserver la confirmation.",
-          "Après l’inscription, suivre les actions prévues et garder les justificatifs jusqu’à la validation du parrainage.",
+          {
+            heading: "Dans quel ordre utiliser le parrainage ?",
+            blocks: [
+              "Suivez les étapes dans cet ordre, en adaptant le parcours aux instructions exactes du partenaire :",
+              {
+                type: "list",
+                ordered: true,
+                items: [
+                  "Choisir le service pour son utilité, pas uniquement pour la prime annoncée.",
+                  "Lire les conditions actuelles : période, éligibilité, action requise, forme de la récompense et délai indiqué.",
+                  "Identifier le mécanisme attendu : lien, code, numéro de parrain ou autre parcours, ainsi que le moment précis où l’utiliser.",
+                  "Ouvrir le lien avant l’inscription ou saisir le code à l’étape demandée. Si le parcours doit rester continu, éviter de changer de navigateur ou d’appareil en cours de route.",
+                  "Avant de confirmer, vérifier que l’invitation ou les informations du parrain apparaissent bien et conserver la confirmation.",
+                  "Après l’inscription, suivre les actions prévues et garder les justificatifs jusqu’à la validation du parrainage.",
+                ],
+              },
+            ],
+          },
         ],
       },
 
@@ -1713,18 +1722,27 @@ export const blogArticles: BlogArticle[] = [
       "La confirmation d’un code et la validation d’une prime sont des étapes différentes. Quand le partenaire propose un espace de suivi, vérifiez que l’invitation ou l’inscription y figure, puis regardez son statut : reçu, en attente, validé ou autre selon le service. Ce suivi permet de repérer une inscription non rattachée ou une condition restant à remplir, mais seul le partenaire peut confirmer l’éligibilité finale.",
       "Les délais varient selon l’offre et l’événement qui déclenche l’avantage. Ne reprenez pas le délai d’une autre marque : consultez celui mentionné dans les conditions de la campagne. Si le dossier reste absent du suivi ou si le délai annoncé est dépassé, contactez le partenaire avec les éléments utiles — date, parcours, confirmation et action réalisée — sans transmettre de données sensibles qui ne sont pas demandées.",
 
-      { type: "h2", text: "Les erreurs courantes à éviter" },
       {
-        type: "list",
-        ordered: false,
+        type: "accordion",
         items: [
-          "Utiliser un code provenant d’une source sans date ni lien vers les conditions.",
-          "Créer le compte avant d’avoir vérifié si le parrainage doit être activé au préalable.",
-          "Confondre un code promo général avec un identifiant de parrainage.",
-          "Supposer que l’inscription seule déclenche une prime alors qu’une autre action est requise.",
-          "Prendre un montant maximum, un crédit ou une remise pour un versement garanti en argent.",
-          "Croire que le message « code accepté » prouve à lui seul le rattachement ou l’éligibilité.",
-          "Oublier de conserver la confirmation et les conditions consultées avant l’inscription.",
+          {
+            heading: "Les erreurs courantes à éviter",
+            blocks: [
+              {
+                type: "list",
+                ordered: false,
+                items: [
+                  "Utiliser un code provenant d’une source sans date ni lien vers les conditions.",
+                  "Créer le compte avant d’avoir vérifié si le parrainage doit être activé au préalable.",
+                  "Confondre un code promo général avec un identifiant de parrainage.",
+                  "Supposer que l’inscription seule déclenche une prime alors qu’une autre action est requise.",
+                  "Prendre un montant maximum, un crédit ou une remise pour un versement garanti en argent.",
+                  "Croire que le message « code accepté » prouve à lui seul le rattachement ou l’éligibilité.",
+                  "Oublier de conserver la confirmation et les conditions consultées avant l’inscription.",
+                ],
+              },
+            ],
+          },
         ],
       },
 
@@ -1755,17 +1773,26 @@ export const blogArticles: BlogArticle[] = [
         text: "L’acceptation confirme parfois seulement la saisie ou l’utilisation du code. Les étapes de validation et les délais varient selon le programme : consultez ses conditions et son suivi avant de considérer l’avantage comme acquis.",
       },
 
-      { type: "h2", text: "Checklist avant de cliquer" },
       {
-        type: "checklist",
+        type: "accordion",
         items: [
-          "La source est identifiable et le lien mène au service attendu.",
-          "La campagne est encore valable selon les informations actuelles du partenaire.",
-          "Je comprends qui reçoit la récompense, sous quelle forme et après quelle action.",
-          "J’ai vérifié le statut de nouveau client et les autres critères d’éligibilité.",
-          "Je sais où et quand saisir le code ou ouvrir le lien d’invitation.",
-          "Je sais comment suivre le dossier et quelles confirmations conserver.",
-          "Le service m’intéresse même si l’avantage n’est finalement pas attribué.",
+          {
+            heading: "Checklist avant de cliquer",
+            blocks: [
+              {
+                type: "checklist",
+                items: [
+                  "La source est identifiable et le lien mène au service attendu.",
+                  "La campagne est encore valable selon les informations actuelles du partenaire.",
+                  "Je comprends qui reçoit la récompense, sous quelle forme et après quelle action.",
+                  "J’ai vérifié le statut de nouveau client et les autres critères d’éligibilité.",
+                  "Je sais où et quand saisir le code ou ouvrir le lien d’invitation.",
+                  "Je sais comment suivre le dossier et quelles confirmations conserver.",
+                  "Le service m’intéresse même si l’avantage n’est finalement pas attribué.",
+                ],
+              },
+            ],
+          },
         ],
       },
 
