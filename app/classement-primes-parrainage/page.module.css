@@ -15,9 +15,13 @@
 .workspace { display:block; }
 .sidePanel { min-width:0; }
 .panelTitle { margin-bottom:12px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.85rem,2.7vw,2.5rem); font-weight:800; letter-spacing:-.055em; line-height:1.04; }
-.panelLead { max-width:660px; margin-bottom:12px; color:var(--muted); font-size:.94rem; line-height:1.6; }
-.panelCount { margin-bottom:4px; color:var(--muted); font-size:.88rem; line-height:1.55; }
-.panelCount strong { color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.05rem; letter-spacing:-.02em; }
+/* Visuel d'introduction : remplace le pavé de texte dans la colonne gauche.
+   La colonne fait 300 px sur desktop (grille workspace) ; le plafond évite
+   qu'il ne domine l'écran sur tablette et mobile. */
+.panelImage { display:block; width:100%; max-width:420px; height:auto; margin:0 0 4px; border-radius:24px; background:var(--cream); box-shadow:0 14px 30px rgba(7,88,70,.12); }
+/* Méthodologie + nombre d'offres : conservés pour les lecteurs d'écran et
+   les moteurs de recherche, retirés du visuel au profit de l'illustration. */
+.panelCount { position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; overflow:hidden; white-space:nowrap; clip:rect(0 0 0 0); clip-path:inset(50%); }
 .selectLabel { display:block; margin:14px 0 7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.7rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
 .selectWrap { position:relative; max-width:340px; }
 .familySelect { width:100%; padding:11px 36px 11px 14px; border:1.5px solid #dfe8e1; border-radius:12px; background:#fff; color:var(--ink); font-family:inherit; font-size:.86rem; font-weight:700; cursor:pointer; appearance:none; -webkit-appearance:none; transition:border-color .15s ease; }
@@ -163,29 +167,26 @@
   .sidePanel { position:sticky; top:20px; max-width:300px; }
 }
 @media (max-width:1023px) {
-  /* 621–1023 : une seule colonne — H1, intro, select, classement (grille desktop intacte) */
+  /* 621–1023 : une seule colonne — H1, visuel, select, classement (grille desktop intacte) */
   .panelTitle { font-size:clamp(2rem,4vw,2.6rem); }
   .selectWrap { max-width:420px; }
 }
 @media (max-width:930px) {
   .unitGrid,.explainer,.familyGrid,.faqList { grid-template-columns:1fr; }
   .ctaCard { align-items:flex-start; flex-direction:column; }
-  .rankHead { display:none; }
-  .rankBody { grid-template-columns:1fr; padding-left:14px; }
 }
-@media (max-width:620px) {
-  .container { width:min(100% - 34px,1160px); }
-  .slimTop { padding:12px 0 0; }
-  .secondaryButton { justify-content:center; }
-  .section,.sectionAlt { padding:34px 0; }
-  .ctaSection { padding-bottom:52px; }
-  .ctaActions { max-width:none; }
-  .ctaActions .primaryButton,.ctaActions .outlineButton,.ctaActions .secondaryButton { width:100%; }
-
-  /* Sélecteur pleine largeur */
-  .selectWrap { max-width:none; }
-
-  /* Ligne → carte compacte */
+@media (max-width:1240px) {
+  /* Ligne → carte compacte. La grille du classement repose sur des colonnes
+     fixes (30+165+175+34+24+112 px) plus 6 gouttières et 28 px de marge,
+     soit ~652 px avant d'accorder la moindre largeur à la colonne « offre ».
+     Or le conteneur n'atteint son maximum (1160 px) qu'à partir de 1208 px :
+     en dessous, la colonne « offre » se réduisait à quelques pixels et
+     `overflow-wrap:anywhere` cassait le nom lettre par lettre. On bascule donc
+     sur la carte en pile — déjà prévue pour le mobile — jusqu'à 1240 px (marge
+     de sécurité au-delà de 1208 px, où le rendu est de toute façon identique),
+     et on masque l'en-tête de colonnes sur la même plage. */
+  .rankHead { display:none; }
+  .rankBody { grid-template-columns:1fr; padding:4px 13px 13px; }
   .rankRow { display:flex; flex-direction:column; align-items:stretch; position:relative; }
   .rankDetails { grid-column:auto; grid-row:auto; }
   .rankCta { grid-column:auto; grid-row:auto; }
@@ -200,8 +201,22 @@
   .chev { position:absolute; top:12px; right:12px; }
   .rankDetails[open] .rankSummary { padding-bottom:12px; }
   .rankCta { flex:none; margin:0 13px 12px; }
-  .rankBody { padding:4px 13px 13px; }
+  /* Nom et catégorie : retour à la ligne par mots (plus de découpe
+     caractère par caractère), le mot entier ne cédant que s'il déborde. */
+  .offerName strong,.offerName small { overflow-wrap:break-word; word-break:normal; }
 }
-@media (min-width:621px) {
+@media (max-width:620px) {
+  .container { width:min(100% - 34px,1160px); }
+  .slimTop { padding:12px 0 0; }
+  .secondaryButton { justify-content:center; }
+  .section,.sectionAlt { padding:34px 0; }
+  .ctaSection { padding-bottom:52px; }
+  .ctaActions { max-width:none; }
+  .ctaActions .primaryButton,.ctaActions .outlineButton,.ctaActions .secondaryButton { width:100%; }
+
+  /* Sélecteur pleine largeur */
+  .selectWrap { max-width:none; }
+}
+@media (min-width:1241px) {
   .cellLabel { display:none; }
 }

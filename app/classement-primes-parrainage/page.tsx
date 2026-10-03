@@ -229,12 +229,16 @@ export default async function ClassementPrimesPage() {
                 Classement des primes <em>de parrainage</em>
               </>
             }
-            panelLead={
-              <>
-                Classement selon l&apos;avantage total potentiel : prime filleul
-                + Parraino reverse. Pour chaque offre, les deux montants restent
-                affichés séparément avec les conditions essentielles.
-              </>
+            panelMedia={
+              <img
+                className={styles.panelImage}
+                src="/images/classement/classement-primes-podium.webp"
+                alt="Podium de classement des primes de parrainage, entouré des univers Banque, Crypto, Énergie et Shopping."
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+              />
             }
             updated={LAST_UPDATED}
           />

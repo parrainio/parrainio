@@ -27,8 +27,8 @@ type Props = {
   rows: RankingRow[];
   /** H1 du panneau gauche — contenu serveur, rendu dans le HTML (SEO inchangé). */
   panelHeading: ReactNode;
-  /** Introduction courte du panneau gauche. */
-  panelLead: ReactNode;
+  /** Visuel d'introduction du panneau gauche (contenu serveur). */
+  panelMedia: ReactNode;
   updated: string;
 };
 
@@ -41,7 +41,7 @@ const SHORT_LINK_LABELS: Record<string, string> = {
   wise: "Faire un transfert avec Wise",
 };
 
-export default function RankingTable({ rows, panelHeading, panelLead, updated }: Props) {
+export default function RankingTable({ rows, panelHeading, panelMedia, updated }: Props) {
   const [activeFamily, setActiveFamily] = useState<string>("Toutes");
   /** Ligne dont le popover de conditions est épinglé (clic/clavier). */
   const [openCond, setOpenCond] = useState<string | null>(null);
@@ -101,7 +101,10 @@ export default function RankingTable({ rows, panelHeading, panelLead, updated }:
     <div className={styles.workspace}>
       <aside className={styles.sidePanel}>
         <h1 className={styles.panelTitle}>{panelHeading}</h1>
-        <p className={styles.panelLead}>{panelLead}</p>
+        {panelMedia}
+        {/* Méthodologie et volume d'offres : retirés du visuel pour laisser
+            place à l'illustration, mais conservés pour les lecteurs d'écran
+            et les moteurs de recherche. */}
         <p className={styles.panelCount}>
           <strong>{rows.length}</strong> offres avec un avantage total exprimé
           en euros, classées par avantage total décroissant (prime filleul +
