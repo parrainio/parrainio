@@ -32,16 +32,31 @@
 
 .articleBody { display:grid; gap:16px; min-width:0; }
 .articleOpenSection { display:grid; gap:16px; min-width:0; }
-.sectionAccordion { min-width:0; overflow:hidden; border:1px solid #dfe9e1; border-radius:18px; background:#fff; box-shadow:0 8px 20px rgba(28,61,48,.035); }
-.sectionAccordion > summary { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:18px 20px; color:var(--green); cursor:pointer; list-style:none; }
+/* Sections repliables : mêmes dimensions que .articleAccordion (accordéons
+   éditoriaux historiques) — le H2 garde la sémantique mais adopte la
+   typographie du summary d'un accordéon compact. L'espacement entre
+   sections reprend le pas de .accordionGroup (11px). */
+.sectionGroup { display:grid; gap:11px; min-width:0; }
+.sectionAccordion { min-width:0; overflow:hidden; border:1px solid #dfe9e1; border-radius:16px; background:#fff; box-shadow:0 8px 20px rgba(28,61,48,.025); }
+.sectionAccordion > summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; color:var(--green); cursor:pointer; list-style:none; }
 .sectionAccordion > summary::-webkit-details-marker { display:none; }
-.sectionAccordion > summary::after { flex:none; color:var(--orange); content:"+"; font-size:1.35rem; font-weight:800; line-height:1; }
+.sectionAccordion > summary::after { flex:none; color:var(--orange); content:"+"; font-size:1.15rem; font-weight:800; line-height:1; }
 .sectionAccordion[open] > summary::after { content:"−"; }
+.sectionAccordion[open] > summary { color:var(--green-dark); }
 .sectionAccordion > summary:focus-visible,.articleAccordion > summary:focus-visible { outline:3px solid #ef873e; outline-offset:-3px; }
-.sectionAccordion > summary h2 { flex:1; margin:0; font-size:clamp(1.18rem,2.5vw,1.55rem); }
-.sectionAccordion[open] > summary { border-bottom:1px solid #edf2ee; }
-.sectionAccordion > .accordionBody { padding:18px 20px 22px; }
+.sectionAccordion > summary h2 { flex:1; margin:0; font-family:"Manrope",Arial,sans-serif; font-size:1.02rem; font-weight:800; letter-spacing:-.025em; line-height:1.35; }
 .articleOpenSection > h2 { margin-bottom:0; }
+
+/* Introduction « texte + illustration » : empilement mobile, deux colonnes
+   dès que la colonne de lecture est assez large. */
+.introSplit { display:grid; gap:18px; min-width:0; }
+.introSplitText { display:grid; gap:16px; min-width:0; }
+.introSplitMedia { min-width:0; }
+/* ≥700px (tablette et desktop) : deux colonnes. En dessous, empilement
+   simple — l'image garde toute la largeur de lecture. */
+@media (min-width:700px) {
+  .introSplit { grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr); gap:26px; align-items:center; }
+}
 .articleBody h2 { margin:22px 0 2px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.4rem,2.8vw,1.85rem); font-weight:800; letter-spacing:-.04em; line-height:1.2; }
 .articleBody ul,.articleBody ol { display:grid; gap:8px; padding-left:22px; }
 .articleBody li { margin:0; padding-left:4px; }

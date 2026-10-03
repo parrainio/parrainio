@@ -167,6 +167,16 @@ function isFaqAnswerBlock(block: BlogBlock): boolean {
   return false;
 }
 
+/** Un seul bloc image dans l'introduction, entouré de texte simple : la
+ *  composition peut passer en deux colonnes sur grand écran au lieu
+ *  d'afficher l'illustration seule sur toute la largeur. */
+function isIntroImage(block: BlogBlock): boolean {
+  return typeof block !== "string" && block.type === "image";
+}
+function isIntroText(block: BlogBlock): boolean {
+  return typeof block === "string" || (typeof block !== "string" && block.type === "p");
+}
+
 function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
   const introduction: BlogBlock[] = [];
   const sections: { heading: string; role?: "body"; blocks: BlogBlock[] }[] = [];
@@ -184,53 +194,72 @@ function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
   }
   if (currentSection) sections.push(currentSection);
 
-  const renderBlocks = (items: BlogBlock[]) =>
-    items.map((block, index) => <ArticleBlock key={index} block={block} />);
+  const renderBlocks = (items: BlogBlock[], keyPrefix = "b") =>
+    items.map((block, index) => <ArticleBlock key={`${keyPrefix}${index}`} block={block} />);
+
+  const introImages = introduction.filter(isIntroImage);
+  const splitIntro =
+    introImages.length === 1 && introduction.some(isIntroText) && introduction.every(
+      (block) => isIntroImage(block) || isIntroText(block),
+    );
 
   return (
     <>
-      {renderBlocks(introduction)}
-      {sections.map((section, index) => {
-        const isFaq =
-          section.blocks.length === 1 &&
-          typeof section.blocks[0] !== "string" &&
-          section.blocks[0].type === "accordion" &&
-          section.blocks[0].items.every((item) => item.blocks.every(isFaqAnswerBlock));
-        const isFinalSection = index === sections.length - 1;
-        const isTerminalOutro = isFinalSection && section.role !== "body";
+      {splitIntro ? (
+        <div className={styles.introSplit}>
+          <div className={styles.introSplitText}>
+            {renderBlocks(introduction.filter(isIntroText), "intro-text")}
+          </div>
+          <div className={styles.introSplitMedia}>
+            {renderBlocks(introduction.filter(isIntroImage), "intro-media")}
+          </div>
+        </div>
+      ) : (
+        renderBlocks(introduction, "intro")
+      )}
+      <div className={styles.sectionGroup}>
+        {sections.map((section, index) => {
+          const isFaq =
+            section.blocks.length === 1 &&
+            typeof section.blocks[0] !== "string" &&
+            section.blocks[0].type === "accordion" &&
+            section.blocks[0].items.every((item) => item.blocks.every(isFaqAnswerBlock));
+          const isFinalSection = index === sections.length - 1;
+          const isTerminalOutro = isFinalSection && section.role !== "body";
 
-        const lastBlock = section.blocks[section.blocks.length - 1];
-        const trailingConclusion =
-          isFinalSection && section.role === "body" && typeof lastBlock === "string";
-        const sectionBlocks = trailingConclusion
-          ? section.blocks.slice(0, -1)
-          : section.blocks;
+          const lastBlock = section.blocks[section.blocks.length - 1];
+          const trailingConclusion =
+            isFinalSection && section.role === "body" && typeof lastBlock === "string";
+          const sectionBlocks = trailingConclusion
+            ? section.blocks.slice(0, -1)
+            : section.blocks;
 
-        if (isFaq || isTerminalOutro) {
-          return (
-            <section className={styles.articleOpenSection} key={section.heading}>
-              <h2>{section.heading}</h2>
-              {renderBlocks(section.blocks)}
-            </section>
-          );
-        }
-
-        return (
-          <Fragment key={section.heading}>
-            <details className={styles.sectionAccordion}>
-              <summary>
+          if (isFaq || isTerminalOutro) {
+            return (
+              <section className={styles.articleOpenSection} key={section.heading}>
                 <h2>{section.heading}</h2>
-              </summary>
-              <div className={styles.accordionBody}>{renderBlocks(sectionBlocks)}</div>
-            </details>
-            {trailingConclusion && (
-              <section className={styles.articleOpenSection}>
-                <ArticleBlock block={lastBlock} />
+                {renderBlocks(section.blocks)}
               </section>
-            )}
-          </Fragment>
-        );
-      })}
+            );
+          }
+
+          return (
+            <Fragment key={section.heading}>
+              <details className={styles.sectionAccordion}>
+                <summary>
+                  <h2>{section.heading}</h2>
+                </summary>
+                <div className={styles.accordionBody}>{renderBlocks(sectionBlocks)}</div>
+              </details>
+              {trailingConclusion && (
+                <section className={styles.articleOpenSection}>
+                  <ArticleBlock block={lastBlock} />
+                </section>
+              )}
+            </Fragment>
+          );
+        })}
+      </div>
     </>
   );
 }
