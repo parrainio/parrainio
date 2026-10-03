@@ -102,9 +102,7 @@ export default function RankingTable({ rows, panelHeading, panelMedia, updated }
       <aside className={styles.sidePanel}>
         <h1 className={styles.panelTitle}>{panelHeading}</h1>
         {panelMedia}
-        {/* Méthodologie et volume d'offres : retirés du visuel pour laisser
-            place à l'illustration, mais conservés pour les lecteurs d'écran
-            et les moteurs de recherche. */}
+        {/* Méthodologie et volume d'offres : affichés sous l'illustration. */}
         <p className={styles.panelCount}>
           <strong>{rows.length}</strong> offres avec un avantage total exprimé
           en euros, classées par avantage total décroissant (prime filleul +

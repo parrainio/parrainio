@@ -19,9 +19,8 @@
    La colonne fait 300 px sur desktop (grille workspace) ; le plafond évite
    qu'il ne domine l'écran sur tablette et mobile. */
 .panelImage { display:block; width:100%; max-width:420px; height:auto; margin:0 0 4px; border-radius:24px; background:var(--cream); box-shadow:0 14px 30px rgba(7,88,70,.12); }
-/* Méthodologie + nombre d'offres : conservés pour les lecteurs d'écran et
-   les moteurs de recherche, retirés du visuel au profit de l'illustration. */
-.panelCount { position:absolute; width:1px; height:1px; margin:-1px; padding:0; border:0; overflow:hidden; white-space:nowrap; clip:rect(0 0 0 0); clip-path:inset(50%); }
+.panelCount { margin-bottom:4px; color:var(--muted); font-size:.88rem; line-height:1.55; }
+.panelCount strong { color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.05rem; letter-spacing:-.02em; }
 .selectLabel { display:block; margin:14px 0 7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.7rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
 .selectWrap { position:relative; max-width:340px; }
 .familySelect { width:100%; padding:11px 36px 11px 14px; border:1.5px solid #dfe8e1; border-radius:12px; background:#fff; color:var(--ink); font-family:inherit; font-size:.86rem; font-weight:700; cursor:pointer; appearance:none; -webkit-appearance:none; transition:border-color .15s ease; }
@@ -75,7 +74,15 @@
 .rankNum { text-align:center; color:#9fb2a7; font-weight:800; font-size:.8rem; }
 .offerCell { display:flex; align-items:center; gap:11px; min-width:0; }
 .offerCell > svg, .offerCell > span:first-child { flex:none; }
-.offerName { min-width:0; overflow-wrap:anywhere; }
+/* Nom d'offre : retour à la ligne AU NIVEAU DES MOTS, jamais caractère par
+   caractère. `.rankSummary > *` pose `overflow-wrap:anywhere` (hérité ici), qui
+   autorise le navigateur à couper n'importe où dans un mot dès que la colonne
+   se resserre. On le neutralise sur le seul nom d'offre : `break-word` ne coupe
+   un mot que lorsqu'il ne tient pas seul sur une ligne, et `word-break:normal`
+   rétablit les points de coupure normaux (espaces, tirets). Les cellules
+   monétaires et « reverse » conservent `anywhere` : elles contiennent des
+   montants et des libellés courts. */
+.offerName { min-width:0; overflow-wrap:break-word; word-break:normal; }
 .offerName strong { display:block; color:var(--ink); font-size:.88rem; letter-spacing:-.01em; }
 .offerName small { display:block; color:#8ca396; font-size:.7rem; }
 .primeCell { display:flex; flex-direction:column; gap:1px; min-width:0; overflow-wrap:anywhere; }
@@ -167,26 +174,36 @@
   .sidePanel { position:sticky; top:20px; max-width:300px; }
 }
 @media (max-width:1023px) {
-  /* 621–1023 : une seule colonne — H1, visuel, select, classement (grille desktop intacte) */
+  /* ≤1023 px : une seule colonne — H1, visuel, select, classement. La grille
+     en bandeaux reste intacte de 681 à 1023 px ; sous 681 px c'est la carte. */
   .panelTitle { font-size:clamp(2rem,4vw,2.6rem); }
   .selectWrap { max-width:420px; }
 }
 @media (max-width:930px) {
   .unitGrid,.explainer,.familyGrid,.faqList { grid-template-columns:1fr; }
   .ctaCard { align-items:flex-start; flex-direction:column; }
-}
-@media (max-width:1240px) {
-  /* Ligne → carte compacte. La grille du classement repose sur des colonnes
-     fixes (30+165+175+34+24+112 px) plus 6 gouttières et 28 px de marge,
-     soit ~652 px avant d'accorder la moindre largeur à la colonne « offre ».
-     Or le conteneur n'atteint son maximum (1160 px) qu'à partir de 1208 px :
-     en dessous, la colonne « offre » se réduisait à quelques pixels et
-     `overflow-wrap:anywhere` cassait le nom lettre par lettre. On bascule donc
-     sur la carte en pile — déjà prévue pour le mobile — jusqu'à 1240 px (marge
-     de sécurité au-delà de 1208 px, où le rendu est de toute façon identique),
-     et on masque l'en-tête de colonnes sur la même plage. */
   .rankHead { display:none; }
-  .rankBody { grid-template-columns:1fr; padding:4px 13px 13px; }
+  .rankBody { grid-template-columns:1fr; padding-left:14px; }
+}
+/* Basculement en carte à 680 px (et non 620 px) : entre 621 et 680 px, la
+   grille compacte en 6 pistes ne pouvait plus garantir une colonne « offre »
+   assez large pour le plus long mot indivisible du corpus
+   (« assurancevie.com »). La carte existante, plus haute mais en pleine
+   largeur, supprime cette zone sans toucher au rendu en bandeaux, qui reste
+   intact de 681 px à 1440 px. */
+@media (max-width:680px) {
+  .container { width:min(100% - 34px,1160px); }
+  .slimTop { padding:12px 0 0; }
+  .secondaryButton { justify-content:center; }
+  .section,.sectionAlt { padding:34px 0; }
+  .ctaSection { padding-bottom:52px; }
+  .ctaActions { max-width:none; }
+  .ctaActions .primaryButton,.ctaActions .outlineButton,.ctaActions .secondaryButton { width:100%; }
+
+  /* Sélecteur pleine largeur */
+  .selectWrap { max-width:none; }
+
+  /* Ligne → carte compacte */
   .rankRow { display:flex; flex-direction:column; align-items:stretch; position:relative; }
   .rankDetails { grid-column:auto; grid-row:auto; }
   .rankCta { grid-column:auto; grid-row:auto; }
@@ -201,22 +218,50 @@
   .chev { position:absolute; top:12px; right:12px; }
   .rankDetails[open] .rankSummary { padding-bottom:12px; }
   .rankCta { flex:none; margin:0 13px 12px; }
-  /* Nom et catégorie : retour à la ligne par mots (plus de découpe
-     caractère par caractère), le mot entier ne cédant que s'il déborde. */
-  .offerName strong,.offerName small { overflow-wrap:break-word; word-break:normal; }
+  .rankBody { padding:4px 13px 13px; }
 }
-@media (max-width:620px) {
-  .container { width:min(100% - 34px,1160px); }
-  .slimTop { padding:12px 0 0; }
-  .secondaryButton { justify-content:center; }
-  .section,.sectionAlt { padding:34px 0; }
-  .ctaSection { padding-bottom:52px; }
-  .ctaActions { max-width:none; }
-  .ctaActions .primaryButton,.ctaActions .outlineButton,.ctaActions .secondaryButton { width:100%; }
-
-  /* Sélecteur pleine largeur */
-  .selectWrap { max-width:none; }
-}
-@media (min-width:1241px) {
+@media (min-width:681px) {
   .cellLabel { display:none; }
+}
+/* ── 681–1207 px : rendre de la largeur à la colonne « offre » ──────────
+   La grille compacte a besoin de 526 px pour ses colonnes fixes
+   (30+165+175+34+24, 5 rainures de 14 px, 28 px de marge interne), alors que
+   le panneau de gauche de 300 px ne s'active qu'à partir de 1024 px. La
+   colonne « offre » se faisait donc écraser (0 px à 1024 px, 50 px à
+   768 px) et le nom était découpé caractère par caractère — inopérante,
+   quelle que soit la valeur de `overflow-wrap`, sur une colonne de largeur
+   nulle.
+
+   Deux leviers, tous deux sans effet sur la hauteur des lignes ni sur le
+   rendu en petits bandeaux :
+   1. le bouton « Voir l'offre » (.rankCta : 112 px + 14 px de rainure) est
+      masqué — le lien reste accessible sur la fiche de l'offre, via le
+      titre du bandeau et le CTA de fin de page, inchangés ;
+   2. les colonnes monétaires passent de 165/175 px à 120/130 px, largeur
+      suffisante pour « Jusqu'à 160 € » ou « Fosfo : 17,50 € ; Gold : 27 € »
+      sur une ligne.
+
+   Résultat mesuré : colonne « offre » à 192 px à 1024 px (le pire cas de la
+   plage), 228 px à 1060, 242 px à 1200, 266 px à 768 — au-dessus du plancher
+   de 169 px imposé par le plus long mot indivisible du corpus
+   (« assurancevie.com », 124 px), donc plus aucune coupure en milieu de mot.
+   Sous 681 px la grille compacte ne peut plus garantir ce plancher : c'est
+   pourquoi le basculement en carte est avancé à 680 px, la carte occupant
+   toute la largeur disponible. */
+@media (min-width:681px) and (max-width:1207px) {
+  .rankRow { grid-template-columns:30px minmax(0,1.8fr) 120px 130px 34px 24px 112px; }
+  .rankSummary,.rankHead { grid-template-columns:30px minmax(0,1.8fr) 120px 130px 34px 24px; }
+}
+@media (min-width:681px) and (max-width:1199px) {
+  .rankCta { display:none; }
+  .rankDetails { grid-column:1/8; }
+  /* L'en-tête doit adopter le MÊME modèle de colonnes que les lignes, sinon
+     sa 7e piste (réservée au .rankCta masqué) resterait vide et le libellé
+     « Offre » se retrouverait dans une piste écrasée — découpé lettre par
+     lettre. Sans cette règle, l'en-tête reste sur 7 pistes pendant que les
+     lignes passent sur 6. */
+  .rankHead { grid-template-columns:30px minmax(0,1.8fr) 120px 130px 34px 24px; }
+  /* Même raison pour le libellé d'en-tête : `anywhere` le casserait dès que
+     la colonne se resserre. */
+  .hOffer { overflow-wrap:break-word; word-break:normal; }
 }
