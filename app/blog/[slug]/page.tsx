@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PublicHeader from "@/components/PublicHeader";
@@ -151,6 +152,89 @@ function ArticleBlock({ block }: { block: BlogBlock }) {
   return null;
 }
 
+/**
+ * Regroupe automatiquement chaque H2 et son contenu jusqu'au H2 suivant.
+ * Le chapô et les blocs qui le précèdent restent ouverts. Les FAQ conservent
+ * leur titre visible et leurs accordéons existants ; la conclusion est
+ * identifiée par sa position terminale, sans inspection du texte du titre.
+ */
+function isFaqAnswerBlock(block: BlogBlock): boolean {
+  if (typeof block === "string") return true;
+  if (block.type === "p" || block.type === "list") return true;
+  if (block.type === "accordion") {
+    return block.items.every((item) => item.blocks.every(isFaqAnswerBlock));
+  }
+  return false;
+}
+
+function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
+  const introduction: BlogBlock[] = [];
+  const sections: { heading: string; role?: "body"; blocks: BlogBlock[] }[] = [];
+  let currentSection: { heading: string; role?: "body"; blocks: BlogBlock[] } | null = null;
+
+  for (const block of blocks) {
+    if (typeof block !== "string" && block.type === "h2") {
+      if (currentSection) sections.push(currentSection);
+      currentSection = { heading: block.text, role: block.role, blocks: [] };
+    } else if (currentSection) {
+      currentSection.blocks.push(block);
+    } else {
+      introduction.push(block);
+    }
+  }
+  if (currentSection) sections.push(currentSection);
+
+  const renderBlocks = (items: BlogBlock[]) =>
+    items.map((block, index) => <ArticleBlock key={index} block={block} />);
+
+  return (
+    <>
+      {renderBlocks(introduction)}
+      {sections.map((section, index) => {
+        const isFaq =
+          section.blocks.length === 1 &&
+          typeof section.blocks[0] !== "string" &&
+          section.blocks[0].type === "accordion" &&
+          section.blocks[0].items.every((item) => item.blocks.every(isFaqAnswerBlock));
+        const isFinalSection = index === sections.length - 1;
+        const isTerminalOutro = isFinalSection && section.role !== "body";
+
+        const lastBlock = section.blocks[section.blocks.length - 1];
+        const trailingConclusion =
+          isFinalSection && section.role === "body" && typeof lastBlock === "string";
+        const sectionBlocks = trailingConclusion
+          ? section.blocks.slice(0, -1)
+          : section.blocks;
+
+        if (isFaq || isTerminalOutro) {
+          return (
+            <section className={styles.articleOpenSection} key={section.heading}>
+              <h2>{section.heading}</h2>
+              {renderBlocks(section.blocks)}
+            </section>
+          );
+        }
+
+        return (
+          <Fragment key={section.heading}>
+            <details className={styles.sectionAccordion}>
+              <summary>
+                <h2>{section.heading}</h2>
+              </summary>
+              <div className={styles.accordionBody}>{renderBlocks(sectionBlocks)}</div>
+            </details>
+            {trailingConclusion && (
+              <section className={styles.articleOpenSection}>
+                <ArticleBlock block={lastBlock} />
+              </section>
+            )}
+          </Fragment>
+        );
+      })}
+    </>
+  );
+}
+
 function relatedArticles(article: BlogArticle) {
   const others = blogArticles.filter((candidate) => candidate.slug !== article.slug);
   const sameCategory = others.filter(
@@ -243,9 +327,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               {offerContext && <ContextualOffers context={offerContext} />}
             </div>
             <article className={styles.articleBody}>
-              {article.body.map((block, index) => (
-                <ArticleBlock key={index} block={block} />
-              ))}
+              <ArticleBody blocks={article.body} />
             </article>
           </div>
           <div className={styles.sidebarCol}>

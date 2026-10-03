@@ -19,7 +19,7 @@
  */
 export type BlogBlock =
   | string
-  | { type: "h2"; text: string }
+  | { type: "h2"; text: string; role?: "body" }
   | { type: "p"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
   /* Blocs visuels génériques (rendus par le template, réutilisables) : */
@@ -1379,7 +1379,7 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
 
-      { type: "h2", text: "Les erreurs qui peuvent coûter plus cher" },
+      { type: "h2", text: "Les erreurs qui peuvent coûter plus cher", role: "body" },
       {
         type: "list",
         ordered: false,
