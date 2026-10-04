@@ -357,10 +357,10 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "parrainage-energie",
-    title: "Parrainage énergie : changer de fournisseur avec une prime",
-    h1: "Parrainage énergie : comment ça marche ?",
+    title: "Changer de fournisseur d'énergie : comprendre le parrainage",
+    h1: "Changer de fournisseur : comprendre le parrainage énergie",
     excerpt:
-      "Un fournisseur d'électricité ou de gaz peut récompenser un parrainage. Mais changer de fournisseur reste une décision de contrat : le guide complet.",
+      "Le parrainage peut accompagner un changement de fournisseur d’électricité ou de gaz : fonctionnement, conditions et points à comparer avant de souscrire.",
     datePublished: "2026-09-05",
     category: "Guides",
     body: [
@@ -446,7 +446,7 @@ export const blogArticles: BlogArticle[] = [
           {
             heading: "Quelles offres de parrainage énergie sont disponibles sur Parrainio ?",
             blocks: [
-            "Le catalogue de Parrainio documente des offres liées à l'énergie dans le hub [Énergie](/categories/energie). Les acteurs référencés ne sont pas tous des fournisseurs classiques : certains sont des fournisseurs d'électricité ou de gaz, d'autres accompagnent la consommation autrement. La page [Parrainage énergie](/parrainage-energie) réunit les fournisseurs documentés, la prime filleul annoncée par chacun et les points à vérifier avant de souscrire. Voici ceux actuellement présents :",
+            "Le catalogue de Parrainio documente des offres liées à l'énergie dans le hub [Énergie](/categories/energie). Les acteurs référencés ne sont pas tous des fournisseurs classiques : certains sont des fournisseurs d'électricité ou de gaz, d'autres accompagnent la consommation autrement. La page [comparatif des programmes de parrainage énergie](/parrainage-energie) réunit les fournisseurs documentés, la prime filleul annoncée par chacun et les points à vérifier avant de souscrire. Voici ceux actuellement présents :",
             {
         type: "list",
         ordered: false,
@@ -530,7 +530,7 @@ export const blogArticles: BlogArticle[] = [
 
 { type: "h2", text: "Conclusion" },
       "Le parrainage énergie peut être un complément intéressant lorsque vous changez de fournisseur pour de bonnes raisons : une offre adaptée, un prix compétitif, des services utiles. Mais il ne doit jamais primer sur le contrat lui-même, et chaque programme a ses propres conditions, à vérifier avant de souscrire. Le changement de fournisseur, lui, est simple, gratuit et sans coupure pour les particuliers.",
-      "Pour découvrir les offres d'énergie actuellement documentées sur Parrainio et leurs conditions, consultez la page [Parrainage énergie](/parrainage-energie), le [hub Énergie](/categories/energie) ou parcourez l'ensemble des [offres de parrainage](/offres).",
+      "Pour comparer les programmes des fournisseurs d'énergie et leurs conditions, consultez le [comparatif des parrainages énergie](/parrainage-energie) ; le [hub Énergie](/categories/energie) rassemble aussi les services liés à l'énergie. Vous pouvez enfin parcourir l'ensemble des [offres de parrainage](/offres).",
     ],
   },
   {

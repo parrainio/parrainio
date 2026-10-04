@@ -48,7 +48,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       "Pour comparer efficacement, regardez au-delà de la prime annoncée : frais de tenue de compte, conditions de revenus exigées, délai de versement et stabilité de l'établissement. [Les offres d'investissement et de crypto](/categories/investissement-crypto), souvent complémentaires d'un compte bancaire solide, font l'objet d'une catégorie dédiée sur Parrainio.",
     ],
     conclusion:
-      "Parcourez les fiches de la catégorie à votre rythme : chacune résume la prime du partenaire, les conditions d'ouverture et les étapes à suivre, pour repérer l'offre qui correspond vraiment à votre projet. Pour comparer les banques en ligne entre elles, consultez notre [Comparer les offres de parrainage bancaire](/comparatif/parrainage-bancaire).",
+      "Parcourez les fiches de la catégorie à votre rythme : chacune résume la prime du partenaire, les conditions d'ouverture et les étapes à suivre, pour repérer l'offre qui correspond vraiment à votre projet. Pour comparer les banques en ligne entre elles, consultez notre [comparatif des offres de parrainage bancaire](/comparatif/parrainage-bancaire).",
     guideTitle: "Banque, assurance, épargne : bien choisir son offre.",
     infoCards: [
       {
@@ -290,9 +290,9 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "energie",
     group: "Énergie",
-    title: "Offres de parrainage énergie : électricité, gaz et services | Parrainio",
+    title: "Offres de parrainage énergie : fournisseurs et services | Parrainio",
     metaDescription:
-      "Offres de parrainage fournisseurs d'énergie et services électriques : primes, conditions de souscription et reversement Parrainio.",
+      "Parcourez les offres de fournisseurs d'énergie et de services associés : fiches partenaires, conditions de parrainage et détails des récompenses.",
     h1Lead: "Offres de parrainage pour",
     h1Accent: "l'électricité, le gaz et l'énergie",
     intro: [
@@ -412,11 +412,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "telephone-internet",
     group: "Téléphone & Internet",
-    title: "Parrainage RED by SFR : code et conditions | Parrainio",
+    title: "Offres de parrainage téléphone & Internet | Parrainio",
     metaDescription:
-      "Découvrez le code de parrainage RED by SFR, les étapes de souscription et les conditions à consulter avant d’activer une nouvelle ligne.",
-    h1Lead: "RED by SFR :",
-    h1Accent: "code de parrainage et conditions",
+      "Offre de parrainage RED by SFR : conditions d’éligibilité à une nouvelle ligne et lien vers la fiche détaillée du partenaire.",
+    h1Lead: "Parrainage téléphone & Internet :",
+    h1Accent: "l’offre RED by SFR",
     intro: [
       "Une catégorie resserrée, dédiée aux offres mobiles et internet : souscrire via le lien ou le code de parrainage donne droit à l'avantage du partenaire, sans modifier le prix ni les conditions de l'offre.",
       "Le principe est simple : activez votre offre avec le parrainage, puis attendez la validation prévue par l'opérateur. Le délai, la forme de l'avantage et les conditions d'éligibilité — notamment la création d'une nouvelle ligne — sont détaillés sur la fiche.",

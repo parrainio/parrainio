@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
   title:
-    "Comparatif des parrainages énergie : primes et conditions | Parrainio",
+    "Comparatif des programmes de parrainage énergie | Parrainio",
   description:
-    "Comparez les programmes de parrainage de fournisseurs d'électricité et de gaz : conditions essentielles et liens vers les fiches détaillées.",
+    "Comparez les primes filleul des fournisseurs d'électricité et de gaz documentés, leurs conditions de parrainage et les fiches partenaires correspondantes.",
   alternates: { canonical: `${SITE_URL}/parrainage-energie` },
   openGraph: {
     url: "/parrainage-energie",
@@ -436,7 +436,7 @@ export default async function ParrainageEnergiePage() {
                 Voir les offres de parrainage énergie
               </Link>
               <Link href="/blog/parrainage-energie" className={styles.outlineButton}>
-                Le guide parrainage énergie
+                Comprendre le parrainage lors d&apos;un changement de fournisseur
               </Link>
               <Link
                 href="/classement-primes-parrainage"
