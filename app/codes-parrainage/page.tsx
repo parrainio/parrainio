@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { OG_IMAGE } from "@/lib/ogImage";
@@ -161,27 +162,37 @@ export default async function CodesParrainagePage() {
             <span aria-hidden="true">→</span>
             <strong>Codes de parrainage</strong>
           </nav>
-          <span className={styles.kicker}>
-            <span />
-            Guide pratique
-          </span>
-          <h1>Codes de parrainage : trouvez et utilisez le code de votre offre</h1>
-          <p className={styles.lead}>
-            Un code de parrainage est l&apos;identifiant d&apos;un parrain que certaines
-            entreprises demandent au moment de l&apos;inscription. Saisi au bon endroit, il
-            rattache le nouveau client à son parrain et déclenche la prime prévue par le
-            programme — pour le filleul, pour le parrain, ou pour les deux. Le listing
-            ci-dessous rassemble les offres du catalogue qui documentent un code, un numéro
-            d&apos;invitation ou une invitation par lien ; les conditions peuvent évoluer,
-            celles affichées au moment de l&apos;inscription font foi.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="#codes" className={styles.primaryButton}>
-              Voir les codes
-            </Link>
-            <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
-              Comment fonctionne le parrainage →
-            </Link>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <span className={styles.kicker}>
+                <span />
+                Guide pratique
+              </span>
+              <h1>Codes de parrainage : trouvez et utilisez le code de votre offre</h1>
+              <p className={styles.lead}>
+                Un code de parrainage rattache un nouveau client à son parrain : il peut prendre
+                la forme d&apos;un code, d&apos;un numéro ou d&apos;un lien. Les conditions affichées
+                lors de l&apos;inscription font foi.
+              </p>
+              <div className={styles.heroActions}>
+                <Link href="#codes" className={styles.primaryButton}>
+                  Voir les codes
+                </Link>
+                <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
+                  Comment fonctionne le parrainage →
+                </Link>
+              </div>
+            </div>
+            <div className={styles.heroArtwork}>
+              <Image
+                src="/images/illustrations/codes-parrainage-hero.webp"
+                alt="Deux personnes partagent une invitation, illustrée par un code, un lien et un numéro de téléphone."
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 680px) 100vw, (max-width: 1199px) 50vw, 560px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -204,7 +215,7 @@ export default async function CodesParrainagePage() {
       </section>
 
       {/* TRANSPARENCE */}
-      <section className={styles.transparency}>
+      <section className={styles.transparency} aria-label="Transparence sur les codes">
         <div className={styles.container}>
           <ul>
             <li>
@@ -231,16 +242,21 @@ export default async function CodesParrainagePage() {
       {/* COMMENT UTILISER UN CODE */}
       <section className={styles.section}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Comment utiliser <em>un code de parrainage ?</em>
-            </h2>
-            <p>
-              Le parcours est simple, mais l&apos;ordre compte : la plupart des codes refusés le
-              sont parce qu&apos;ils ont été saisis trop tard ou au mauvais endroit.
-            </p>
-          </div>
-          <ol className={styles.steps}>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              <h2>
+                Comment utiliser <em>un code de parrainage ?</em>
+              </h2>
+              <span aria-hidden="true" />
+            </summary>
+            <div className={styles.accordionContent}>
+              <div className={styles.sectionHead}>
+                <p>
+                  Le parcours est simple, mais l&apos;ordre compte : la plupart des codes refusés le
+                  sont parce qu&apos;ils ont été saisis trop tard ou au mauvais endroit.
+                </p>
+              </div>
+              <ol className={styles.steps}>
             <li>
               <strong>Trouver le code de l&apos;offre concernée.</strong> Sur Parrainio, ouvrez
               la fiche du partenaire : le code y est affiché avec un bouton de copie
@@ -268,23 +284,30 @@ export default async function CodesParrainagePage() {
               vérification par le partenaire, selon les délais du programme — pas immédiatement
               après l&apos;inscription.
             </li>
-          </ol>
+              </ol>
+            </div>
+          </details>
         </div>
       </section>
 
       {/* CODE OU LIEN ? */}
       <section className={styles.sectionAlt}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Code, lien ou les deux ? <em>Les mécanismes utilisés</em>
-            </h2>
-            <p>
-              Les programmes de parrainage n&apos;utilisent pas tous le même mécanisme. Quatre
-              cas se rencontrent dans le catalogue Parrainio.
-            </p>
-          </div>
-          <div className={styles.mechanisms}>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              <h2>
+                Code, lien ou les deux ? <em>Les mécanismes utilisés</em>
+              </h2>
+              <span aria-hidden="true" />
+            </summary>
+            <div className={styles.accordionContent}>
+              <div className={styles.sectionHead}>
+                <p>
+                  Les programmes de parrainage n&apos;utilisent pas tous le même mécanisme. Quatre
+                  cas se rencontrent dans le catalogue Parrainio.
+                </p>
+              </div>
+              <div className={styles.mechanisms}>
             <div>
               <h3>Le lien de parrainage</h3>
               <p>
@@ -318,32 +341,39 @@ export default async function CodesParrainagePage() {
                 l&apos;espace client). La fiche indique alors « Voir l&apos;offre » : le
                 parcours passe par le partenaire.
               </p>
+              </div>
+              </div>
+              <p>
+                Avant de vous inscrire, consultez aussi notre guide pour{" "}
+                <Link href="/blog/comment-trouver-code-parrainage-fiable">
+                  trouver un code de parrainage fiable et vérifier ses conditions
+                </Link>
+                , notamment la validité de la campagne et le bon moment pour utiliser
+                un lien ou un code.
+              </p>
             </div>
-          </div>
-          <p>
-            Avant de vous inscrire, consultez aussi notre guide pour{" "}
-            <Link href="/blog/comment-trouver-code-parrainage-fiable">
-              trouver un code de parrainage fiable et vérifier ses conditions
-            </Link>
-            , notamment la validité de la campagne et le bon moment pour utiliser
-            un lien ou un code.
-          </p>
+          </details>
         </div>
       </section>
 
       {/* CE QUI PEUT INVALIDER UN CODE */}
       <section className={styles.section}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Ce qui peut <em>invalider un code</em>
-            </h2>
-            <p>
-              La plupart des primes perdues le sont pour une raison évitable. Les cas
-              fréquents :
-            </p>
-          </div>
-          <ul className={styles.pointsList}>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              <h2>
+                Ce qui peut <em>invalider un code</em>
+              </h2>
+              <span aria-hidden="true" />
+            </summary>
+            <div className={styles.accordionContent}>
+              <div className={styles.sectionHead}>
+                <p>
+                  La plupart des primes perdues le sont pour une raison évitable. Les cas
+                  fréquents :
+                </p>
+              </div>
+              <ul className={styles.pointsList}>
             <li>
               <strong>Créer le compte avant d&apos;utiliser le code.</strong> Un compte déjà
               ouvert n&apos;est plus « nouveau » : le rattachement à un parrain est refusé.
@@ -373,26 +403,53 @@ export default async function CodesParrainagePage() {
               article ne vaut que si le programme est toujours actif : les conditions affichées
               au moment de l&apos;inscription prévalent.
             </li>
-          </ul>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      {/* OÙ TROUVER UN CODE */}
+      <section className={styles.sectionAlt}>
+        <div className={styles.container}>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              <h2>Où trouver un code de parrainage ?</h2>
+              <span aria-hidden="true" />
+            </summary>
+            <div className={styles.accordionContent}>
+              <p>
+                Le listing rassemble les offres du catalogue Parrainio qui documentent un code,
+                un numéro d&apos;invitation ou une invitation par lien. Le code est également
+                visible sur la fiche de chaque offre, à côté des conditions et de la date de
+                vérification.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
       {/* FAQ */}
       <section className={styles.sectionAlt}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <h2>
-              Questions fréquentes sur <em>les codes de parrainage</em>
-            </h2>
-          </div>
-          <div className={styles.hubFaq}>
-            {FAQ.map((entry) => (
-              <details key={entry.question}>
-                <summary>{entry.question}</summary>
-                <p>{entry.answer}</p>
-              </details>
-            ))}
-          </div>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              <h2>
+                Questions fréquentes sur <em>les codes de parrainage</em>
+              </h2>
+              <span aria-hidden="true" />
+            </summary>
+            <div className={styles.accordionContent}>
+              <div className={styles.hubFaq}>
+                {FAQ.map((entry) => (
+                  <details key={entry.question}>
+                    <summary>{entry.question}</summary>
+                    <p>{entry.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -405,23 +462,18 @@ export default async function CodesParrainagePage() {
                 Un code n&apos;est utile que <em>si l&apos;offre correspond.</em>
               </h2>
               <p>
-                Avant de saisir un code, vérifiez que le service est réellement utile et que
-                les conditions de la prime sont remplies. Les fiches détaillent tout, avec la
-                date de vérification.
+                Choisissez une offre et vérifiez ses conditions avant de vous inscrire.
               </p>
             </div>
             <div className={styles.ctaActions}>
               <Link href="/offres" className={styles.primaryButton}>
-                Voir toutes les offres
+                Explorer toutes les offres
               </Link>
               <Link
                 href="/classement-primes-parrainage"
                 className={styles.outlineButton}
               >
-                Classement des primes
-              </Link>
-              <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
-                Comment ça marche →
+                Comparer les primes
               </Link>
             </div>
           </div>
