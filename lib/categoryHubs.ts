@@ -29,6 +29,23 @@ export type CategoryHubContent = {
   hubLinks: CategoryHubCrossLink[];
 };
 
+/** Illustration d'accompagnement du hero, par slug de hub. Fichiers WebP
+ *  alpha fournis (aucun cadre ajouté) dans /images/illustrations/categories/.
+ *  width/height = dimensions intrinsèques réelles (ratio exact pour next/image). */
+export const HUB_ILLUSTRATIONS: Record<string, { src: string; alt: string; width: number; height: number }> = {
+  "banque-finance": { src: "/images/illustrations/categories/01-banque-finance.webp", alt: "Illustration banque et finance : carte bancaire, pièces et documents de parrainage.", width: 499, height: 214 },
+  "shopping-courses": { src: "/images/illustrations/categories/02-shopping-courses.webp", alt: "Illustration shopping et courses : sacs de courses et bons d'achat.", width: 536, height: 223 },
+  "investissement-crypto": { src: "/images/illustrations/categories/03-investissement-crypto.webp", alt: "Illustration investissement et crypto : graphique de croissance et pièces.", width: 520, height: 226 },
+  "recompenses-applications": { src: "/images/illustrations/categories/04-recompenses-applications.webp", alt: "Illustration récompenses et applications : téléphone et cadeaux gagnés.", width: 505, height: 237 },
+  "jeux-paris": { src: "/images/illustrations/categories/05-jeux-paris.webp", alt: "Illustration jeux et paris : ballon, jetons et gains.", width: 540, height: 219 },
+  "cashback": { src: "/images/illustrations/categories/06-cashback.webp", alt: "Illustration cashback : pièces et pourcentage reversé.", width: 509, height: 226 },
+  "energie": { src: "/images/illustrations/categories/07-energie.webp", alt: "Illustration énergie : panneaux solaires et ampoule.", width: 510, height: 240 },
+  "voyage-mobilite": { src: "/images/illustrations/categories/08-voyage-mobilite.webp", alt: "Illustration voyage et mobilité : valise, avion et billets.", width: 554, height: 240 },
+  "services-numeriques": { src: "/images/illustrations/categories/09-services-numeriques.webp", alt: "Illustration services numériques : écrans et abonnements.", width: 534, height: 234 },
+  "telephone-internet": { src: "/images/illustrations/categories/10-telephone-internet.webp", alt: "Illustration téléphone et internet : smartphone et wifi.", width: 575, height: 217 },
+  "autres-bons-plans": { src: "/images/illustrations/categories/11-autres-bons-plans.webp", alt: "Illustration autres bons plans : étiquette promo et cadeaux.", width: 562, height: 217 },
+};
+
 export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "banque-finance",

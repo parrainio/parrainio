@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Offer } from "@/data/offers";
 import PublicHeader from "@/components/PublicHeader";
@@ -10,6 +11,7 @@ import FavoriteButton from "@/components/FavoriteButton";
 import OfferLogo from "@/components/OfferLogo";
 import OfferRewards from "@/components/OfferRewards";
 import type { CategoryHubContent } from "@/lib/categoryHubs";
+import { HUB_ILLUSTRATIONS } from "@/lib/categoryHubs";
 import { SITE_URL } from "@/lib/siteUrl";
 import styles from "../page.module.css";
 
@@ -105,6 +107,8 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
   const guideAccent = guideRest.pop() ?? "";
   const guideMain = [guideLead, ...guideRest].join(" ");
 
+  const illustration = HUB_ILLUSTRATIONS[hub.slug];
+
   return (
     <main className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -122,25 +126,40 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
             <strong>{hub.group}</strong>
           </nav>
 
-          <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>
-              <span />
-              Catégorie {hub.group}
-            </p>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <p className={styles.eyebrow}>
+                <span />
+                Catégorie {hub.group}
+              </p>
 
-            <h1>
-              {hub.h1Lead} <em>{hub.h1Accent}</em>
-            </h1>
+              <h1>
+                {hub.h1Lead} <em>{hub.h1Accent}</em>
+              </h1>
 
-            <p>{hub.intro[0]}</p>
+              <p>{hub.intro[0]}</p>
 
-            <p className={styles.heroNote}>
-              <InfoIcon />
-              <span>
-                Les montants et conditions varient selon les offres :
-                chaque fiche détaille les conditions du partenaire.
-              </span>
-            </p>
+              <p className={styles.heroNote}>
+                <InfoIcon />
+                <span>
+                  Les montants et conditions varient selon les offres :
+                  chaque fiche détaille les conditions du partenaire.
+                </span>
+              </p>
+            </div>
+
+            {illustration ? (
+              <div className={styles.heroArt}>
+                <Image
+                  className={styles.heroArtImage}
+                  src={illustration.src}
+                  alt={illustration.alt}
+                  width={illustration.width}
+                  height={illustration.height}
+                  sizes="(max-width: 620px) 200px, (max-width: 930px) 250px, (max-width: 1024px) 280px, 340px"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
