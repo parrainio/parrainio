@@ -29,7 +29,12 @@
 .compactHero { padding: 8px 0 10px; background: radial-gradient(circle at 85% 15%, #e2f0e5 0, transparent 42%), linear-gradient(135deg, #f0f7f2 0%, #fffdfa 100%); }
 .compactHeroInner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(390px, .95fr); align-items: center; gap: 32px; }
 .compactHeroCopy { position: relative; }
-.heroPlus25 { position: absolute; right: 0; bottom: -12px; width: 192px; height: auto; margin: 0; }
+.heroParaSplit { display: block; }
+/* Sticker +25 % : élément visuel du hero, en flux sous le contenu de la
+   colonne gauche (l'ancien positionnement absolu plafonnait à ~192 px
+   sous peine de recouvrir les CTA) ; l'alignement à droite préserve la
+   lecture du texte et la composition 2 colonnes. */
+.heroPlus25 { position: static; display: block; width: 300px; height: auto; margin: 6px 0 0 auto; }
 .eyebrow, .kicker { color: #4d7b6b; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 16px; padding: 9px 13px; border: 1px solid rgba(7,88,70,.1); border-radius: 999px; background: rgba(255,255,255,.78); }
 .eyebrow > span { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(239,135,62,.12); }
@@ -104,7 +109,7 @@
   .compactHeroInner { grid-template-columns: minmax(0, 1fr) minmax(340px, .72fr); }
   /* Sticker en flux sous le lien : aucun chevauchement possible ;
      marges compensées pour conserver la hauteur du hero. */
-  .heroPlus25 { position: static; display: block; width: 150px; height: auto; margin: -8px 0 0 auto; }
+  .heroPlus25 { position: static; display: block; width: 230px; height: auto; margin: 2px 0 0 auto; }
   .heroBadges { margin-bottom: 4px; }
   .compactHeroCopy h1 { margin-bottom: 4px; }
   .compactHeroCopy > p { margin-bottom: 4px; }
@@ -113,7 +118,7 @@
 }
 @media (max-width: 900px) {
   .compactHeroInner { grid-template-columns: 1fr; gap: 24px; }
-  .heroPlus25 { width: 176px; margin: 4px auto 0; }
+  .heroPlus25 { width: 270px; margin: 4px auto 0; }
   .heroIllustration { min-height: 300px; max-width: 500px; margin:auto; width:100%; }
   .howSteps { flex-wrap:wrap; gap:10px; }.howSteps > div { flex:1 1 calc(50% - 10px); }
   .featuredGrid { grid-template-columns: repeat(2, 1fr); }
