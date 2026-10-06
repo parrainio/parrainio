@@ -34,7 +34,7 @@
    colonne gauche (l'ancien positionnement absolu plafonnait à ~192 px
    sous peine de recouvrir les CTA) ; l'alignement à droite préserve la
    lecture du texte et la composition 2 colonnes. */
-.heroPlus25 { position: static; display: block; width: 300px; height: auto; margin: 6px 0 0 auto; }
+.heroPlus25 { position: static; display: block; width: 300px; height: auto; margin: -40px -20px 0 auto; }
 .eyebrow, .kicker { color: #4d7b6b; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 16px; padding: 9px 13px; border: 1px solid rgba(7,88,70,.1); border-radius: 999px; background: rgba(255,255,255,.78); }
 .eyebrow > span { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(239,135,62,.12); }
