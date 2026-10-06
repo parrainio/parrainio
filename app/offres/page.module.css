@@ -616,12 +616,17 @@
 }
 
 .sectionHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 30px;
-  margin-bottom: 43px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 400px);
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 8px 24px;
+  margin-bottom: 28px;
 }
+
+.offersHeadingCopy { min-width:0; grid-column:1; grid-row:1; }
+.offersCount { grid-column:1; grid-row:2; justify-self:start; }
+.offersHeroImage { display:block; grid-column:2; grid-row:1 / span 2; width:100%; height:auto; align-self:center; object-fit:contain; }
 
 .sectionHead h2 {
   max-width: 620px;
@@ -1128,6 +1133,11 @@
   font-size: 0.7rem;
 }
 
+@media (min-width: 931px) and (max-width: 1100px) {
+  .sectionHead { grid-template-columns:minmax(0,1fr) minmax(280px,36vw); gap:16px; }
+  .offersHeroImage { width:100%; }
+}
+
 /* =========================
    TABLETTE
 ========================= */
@@ -1142,6 +1152,9 @@
     grid-template-columns: 1fr;
   }
 
+  .sectionHead { grid-template-columns:minmax(0,1fr) minmax(250px,300px); gap:8px 16px; margin-bottom:24px; }
+  .sectionHead h2 { font-size:clamp(2rem,3.5vw,2.8rem); }
+
   .heroVisual {
     width: min(100%, 600px);
   }
@@ -1155,10 +1168,12 @@
   }
 
   .sectionHead {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
+    grid-template-columns:minmax(0,1fr) minmax(250px,300px);
+    align-items:center;
+    gap:8px 16px;
   }
+
+  .offersHeroImage { grid-column:2; grid-row:1 / span 2; width:min(100%,300px); }
 
   .footerGrid {
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -1231,9 +1246,15 @@
 
   .featuredGrid { grid-template-columns: 1fr 1fr; }
 
+  .sectionHead { grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto auto; gap:12px; margin-bottom:28px; }
+  .offersHeadingCopy { grid-column:1; grid-row:1; }
+
   .sectionHead h2 {
     font-size: 2.55rem;
   }
+
+  .offersHeroImage { grid-column:1; grid-row:2; width:min(62%,210px); justify-self:center; }
+  .offersCount { grid-column:1; grid-row:3; justify-self:start; }
 
   /* Catégories défilantes sur mobile */
   .categoryBar {

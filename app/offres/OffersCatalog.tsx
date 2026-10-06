@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { SVGProps } from "react";
 import { useEffect, useMemo, useState } from "react";
@@ -371,7 +372,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, header }: Off
       >
         <div className={styles.container}>
           <div className={styles.sectionHead}>
-            <div>
+            <div className={styles.offersHeadingCopy}>
               <p className={styles.kicker}>
                 Opportunités disponibles
               </p>
@@ -382,12 +383,21 @@ export default function OffersCatalog({ offers, hubSlugByCategory, header }: Off
               </h2>
             </div>
 
-            <p>
+            <p className={styles.offersCount}>
               {filteredOffers.length}{" "}
               {filteredOffers.length > 1
                 ? "offres présentées"
                 : "offre présentée"}
             </p>
+
+            <Image
+              className={styles.offersHeroImage}
+              src="/images/illustrations/offres-hero.webp"
+              alt="Une cliente découvre une offre cadeau et des économies grâce aux offres Parrainio."
+              width={900}
+              height={600}
+              sizes="(max-width: 620px) 210px, (max-width: 1100px) 40vw, 400px"
+            />
           </div>
 
           <OfferFilterBar
