@@ -43,20 +43,25 @@ export function isIndexNowEnabled(): boolean {
 }
 
 /** Filtre strict : ne garde que des URLs canoniques indexables du site.
- *  Rejette tout ce qui n'est pas https://www.parrainio.fr (localhost,
- *  preview, apex redirigé…), les pages noindex et les doublons. */
+ *  Les chemins relatifs (ex. "/offres/x", tels que passés par l'admin)
+ *  sont normalisés en URLs absolues sur le domaine canonique AVANT les
+ *  contrôles ; rejette tout le reste qui n'est pas https://www.parrainio.fr
+ *  (localhost, preview, apex redirigé…), les pages noindex et les doublons. */
 export function filterIndexableUrls(urls: readonly (string | undefined | null)[]): string[] {
   const seen = new Set<string>();
   const kept: string[] = [];
   for (const raw of urls) {
     if (!raw) continue;
-    if (!raw.startsWith(`${SITE_URL}/`) && raw !== SITE_URL) continue;
-    const path = raw.slice(SITE_URL.length); // ex. "/mes-favoris", "/api/x"
+    // Chemin relatif → URL absolue canonique. « // » (URL protocole-relatif,
+    // jamais un chemin de site) reste rejeté : comportement existant conservé.
+    const url = raw.startsWith("/") && !raw.startsWith("//") ? `${SITE_URL}${raw}` : raw;
+    if (!url.startsWith(`${SITE_URL}/`) && url !== SITE_URL) continue;
+    const path = url.slice(SITE_URL.length); // ex. "/mes-favoris", "/api/x"
     if (NON_INDEXABLE_EXACT.has(path)) continue;
     if (NON_INDEXABLE_PREFIXES.some((prefix) => path.startsWith(prefix))) continue;
-    if (seen.has(raw)) continue;
-    seen.add(raw);
-    kept.push(raw);
+    if (seen.has(url)) continue;
+    seen.add(url);
+    kept.push(url);
   }
   return kept;
 }
