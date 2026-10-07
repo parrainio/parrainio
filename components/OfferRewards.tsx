@@ -9,11 +9,11 @@ type OfferRewardsProps = {
 };
 
 /* Zéro explicitement défini dans les données (« 0 € », « 0,00 € ») : affiché tel quel. */
-const EXPLICIT_ZERO = /^0(?:[,.]0+)?\s*€$/;
+export const EXPLICIT_ZERO = /^0(?:[,.]0+)?\s*€$/;
 
 /* Valeurs d'absence / non renseignées : masquées, jamais transformées en 0 €. */
 const ABSENT_PARTNER = /^(?:aucun|aucune|voir l'offre)$/i;
-const ABSENT_PARRAINIO =
+export const ABSENT_PARRAINIO =
   /^(?:aucun(?:e)?(?:\s+(?:bonus\s+)?parrainio(?:\s+bonus)?)?(?:\s+pour\s+cette\s+offre)?|rien(?:\s+pour\s+cette\s+fois)?)$/i;
 
 export default function OfferRewards({ offer, compact = false }: OfferRewardsProps) {

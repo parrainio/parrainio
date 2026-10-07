@@ -36,6 +36,7 @@ import VerificationBadge from "@/components/VerificationBadge";
 import OfferChangeAlert from "@/components/OfferChangeAlert";
 import FavoriteButton from "@/components/FavoriteButton";
 import OfferRewards from "@/components/OfferRewards";
+import OfferIllustration from "@/components/OfferIllustration";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
 import styles from "./page.module.css";
 
@@ -246,6 +247,11 @@ export default async function OfferPage({
               </div>
 
               <div className={styles.mobileActionSlot}>
+                <OfferIllustration
+                  parrainioReward={offer.parrainioReward}
+                  categoryHubSlug={categoryHub?.slug ?? null}
+                  variant="mobile"
+                />
                 <div className={styles.actionCard}>
                   <div className={styles.rewardsSection}>
                     <OfferRewards offer={offer} />
@@ -373,6 +379,10 @@ export default async function OfferPage({
 
             {/* Right: Referral/action card */}
             <div className={styles.actionSidebar}>
+              <OfferIllustration
+                parrainioReward={offer.parrainioReward}
+                categoryHubSlug={categoryHub?.slug ?? null}
+              />
               <div className={styles.actionCard}>
                 <div className={styles.desktopActionContent}>
                 <div className={styles.rewardsSection}>
