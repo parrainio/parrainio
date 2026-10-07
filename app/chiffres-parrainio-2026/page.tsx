@@ -6,14 +6,14 @@ import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Baromètre du parrainage en France 2026 | Parrainio",
+  title: "Les chiffres Parrainio 2026 | Parrainio",
   description:
     "Étude Parrainio sur 117 offres de parrainage analysées et vérifiées le 02/09/2026 : mécanismes, primes filleul, reversements parrain, répartition par secteur. Méthodologie et limites détaillées.",
-  alternates: { canonical: "https://www.parrainio.fr/barometre-parrainage" },
-  openGraph: { url: "/barometre-parrainage", type: "article", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
+  alternates: { canonical: "https://www.parrainio.fr/chiffres-parrainio-2026" },
+  openGraph: { url: "/chiffres-parrainio-2026", type: "article", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
 
-/* Chiffres issus exclusivement de docs/barometre-snapshot-2026-10-07.json
+/* Chiffres issus exclusivement du relevé daté du 07/10/2026
    (données réellement rendues en production au 07/10/2026, déploiement b3fc3fa).
    Aucun chiffre n'est recalculé depuis une autre source. */
 
@@ -84,7 +84,7 @@ const statExplanations = [
     title: "117 offres sur 117 vérifiées à la même date",
     figure: "02/09/2026",
     meaning:
-      "Les données ont été relevées le 07/10/2026 sur un catalogue de 117 offres dont les fiches avaient toutes été vérifiées le 02/09/2026. Les chiffres de ce baromètre décrivent donc un instant unique du marché.",
+      "Les données ont été relevées le 07/10/2026 sur un catalogue de 117 offres dont les fiches avaient toutes été vérifiées le 02/09/2026. Ces chiffres décrivent donc un instant unique du catalogue.",
     limits:
       "Les offres de parrainage évoluent régulièrement (campagnes datées, montants révisés). Les montants peuvent avoir évolué depuis la date de vérification : consulter la fiche de chaque offre pour la valeur en cours.",
   },
@@ -156,7 +156,7 @@ const excluded = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Baromètre du parrainage en France 2026",
+  headline: "Les chiffres Parrainio 2026",
   description:
     "Étude sur 117 offres de parrainage analysées et vérifiées le 02/09/2026 : mécanismes d'accès, primes filleul, reversements parrain et répartition par secteur.",
   datePublished: "2026-10-07",
@@ -164,10 +164,10 @@ const jsonLd = {
   inLanguage: "fr-FR",
   author: { "@type": "Organization", name: "Parrainio", url: "https://www.parrainio.fr" },
   publisher: { "@type": "Organization", name: "Parrainio", url: "https://www.parrainio.fr" },
-  mainEntityOfPage: "https://www.parrainio.fr/barometre-parrainage",
+  mainEntityOfPage: "https://www.parrainio.fr/chiffres-parrainio-2026",
 };
 
-export default function BarometreParrainagePage() {
+export default function ChiffresParrainage2026Page() {
   return (
     <main className={styles.page}>
       <PublicHeader active="how" />
@@ -180,12 +180,12 @@ export default function BarometreParrainagePage() {
       <section className={styles.hero}>
         <div className={styles.container}>
           <p className={styles.eyebrow}><span />Étude Parrainio — édition 2026</p>
-          <h1>Baromètre du parrainage <em>en France&nbsp;2026</em></h1>
+          <h1>Les chiffres <em>Parrainio</em> 2026</h1>
           <p className={styles.heroLead}>
             À quel point le parrainage est-il accessible, transparent et rémunérateur&nbsp;?
             Pour répondre factuellement, Parrainio a analysé l&apos;intégralité de son catalogue&nbsp;:
             <strong> 117 offres analysées</strong>, dont les données ont été vérifiées une à une le{" "}
-            <strong>02/09/2026</strong>. Ce baromètre observe le marché à partir de ce périmètre&nbsp;:
+            <strong>02/09/2026</strong>. Les chiffres Parrainio 2026 observent ce périmètre&nbsp;:
             ce que les programmes publient, ce qu&apos;ils cachent, et ce qu&apos;ils reversent réellement.
           </p>
           <div className={styles.heroMeta}>
@@ -201,7 +201,7 @@ export default function BarometreParrainagePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead}>
             <p className={styles.kicker}>Chiffres clés</p>
-            <h2>Le parrainage français en <em>7 mesures</em></h2>
+            <h2>Le catalogue Parrainio en <em>7 mesures</em></h2>
           </div>
           <div className={styles.keyGrid}>
             {keyStats.map((s) => (
@@ -310,7 +310,7 @@ export default function BarometreParrainagePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead}>
             <p className={styles.kicker}>Méthodologie</p>
-            <h2>Comment ce baromètre <em>a été construit</em></h2>
+            <h2>Comment ces chiffres <em>ont été construits</em></h2>
           </div>
           <div className={styles.methodGrid}>
             <article className={styles.methodCard}>
@@ -324,10 +324,9 @@ export default function BarometreParrainagePage() {
             <article className={styles.methodCard}>
               <h3>Source des données</h3>
               <p>
-                Snapshot du catalogue réalisé le 07/10/2026 ; les 117 fiches analysées
+                Catalogue de référence figé au 07/10/2026 ; les 117 fiches analysées
                 portaient une date de vérification au 02/09/2026. Les chiffres proviennent
-                du catalogue réellement rendu en production à la date du snapshot
-                (snapshot <code>barometre-snapshot-2026-10-07.json</code>)&nbsp;:
+                du catalogue réellement rendu en production à cette date&nbsp;:
                 chaque valeur a été relevée sur les pages publiques du site.
               </p>
             </article>
@@ -342,7 +341,7 @@ export default function BarometreParrainagePage() {
             <article className={styles.methodCard}>
               <h3>Agrégations</h3>
               <p>
-                Les montants étant publiés en texte libre, ce baromètre privilégie les comptages
+                Les montants étant publiés en texte libre, cette étude privilégie les comptages
                 et les médianes, jamais les moyennes. Les fourchettes «&nbsp;jusqu&apos;à
                 X&nbsp;€&nbsp;» sont comptées à leur borne haute, ce qui peut surestimer
                 légèrement la médiane. Les montants hors euro sont exclus des agrégations

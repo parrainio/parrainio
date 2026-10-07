@@ -61,7 +61,7 @@ const infoBlocks = [
 const trustItems = [
   { icon: "shield" as const, text: "Des conditions détaillées sur chaque fiche — dépôt, premier achat, minimums, durée." },
   { icon: "eye" as const, text: "Avantage filleul et reversement Parrainio affichés séparément, sans confusion." },
-  { icon: "spark" as const, text: "Des offres surveillées et actualisées — la date de vérification est indiquée." },
+  { icon: "spark" as const, text: "Des offres surveillées et actualisées — la date de vérification est indiquée.", href: "/chiffres-parrainio-2026", linkLabel: "Découvrez les chiffres Parrainio 2026" },
   { icon: "check" as const, text: "Des avis de la communauté, publiés après modération.", href: "/avis-clients", linkLabel: "Lire les avis clients" },
   { icon: "search" as const, text: "Un classement des primes comparé offre par offre, trié par montant.", href: "/classement-primes-parrainage", linkLabel: "Voir le classement" },
   { icon: "coin" as const, text: "Gratuit et sans inscription pour consulter les offres." },
