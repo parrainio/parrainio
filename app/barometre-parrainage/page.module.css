@@ -1,0 +1,103 @@
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+.container { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+.page h1,.page h2,.page h3,.page p { margin-top:0; }
+.page h2 em { color:var(--orange); font-style:normal; }
+.page code { padding:1px 6px; border-radius:6px; background:#eef4ee; color:var(--green-dark); font-size:.8em; }
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero { padding:14px 0 18px; background:radial-gradient(circle at 80% 20%,#e4f0e6 0,transparent 46%),radial-gradient(circle at 12% 96%,rgba(252,226,199,.4),transparent 28%),var(--cream); }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:8px; padding:4px 10px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 5px rgba(239,135,62,.13); }
+.hero h1 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.07em; font-size:clamp(2.1rem,3.4vw,2.9rem); line-height:1.04; }
+.heroLead { max-width:760px; color:var(--muted); font-size:.92rem; line-height:1.55; }
+.heroLead strong { color:var(--ink); }
+.heroMeta { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.heroMeta span { padding:5px 11px; border:1px solid #dbe7dc; border-radius:999px; background:#fff; color:#4d7b6b; font-size:.7rem; font-weight:800; letter-spacing:.04em; }
+
+/* ── Têtes de section ──────────────────────────────────────────────────── */
+.sectionHead { max-width:720px; margin-bottom:16px; }
+.sectionHead .kicker { margin-bottom:5px; color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.sectionHead h2 { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:clamp(1.45rem,2.4vw,2rem); line-height:1.08; }
+.sectionHead > p:not(.kicker) { margin-bottom:0; color:var(--muted); font-size:.88rem; line-height:1.55; }
+.sectionHead strong { color:var(--ink); }
+
+/* ── Chiffres clés ─────────────────────────────────────────────────────── */
+.keySection { padding:22px 0 26px; background:#fffdfa; }
+.keyGrid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.keyCard { padding:14px 15px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.keyCard:nth-child(5n) { border-color:#f6dfc4; background:#fff8ef; }
+.keyFigure { display:flex; align-items:flex-end; gap:5px; margin-bottom:5px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.07em; line-height:1; }
+.keyFigure strong { font-size:1.9rem; }
+.keyFigure span { margin-bottom:3px; color:var(--orange); font-size:.85rem; letter-spacing:-.04em; }
+.keyLabel { margin-bottom:0; color:var(--muted); font-size:.76rem; line-height:1.45; }
+
+/* ── Lecture détaillée ─────────────────────────────────────────────────── */
+.readSection { padding:24px 0 30px; background:#f5f8f5; }
+.readList { display:grid; gap:10px; }
+.readCard { padding:15px 17px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.readHead { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.readCard h3 { margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.02rem; letter-spacing:-.03em; }
+.readFigure { flex:none; padding:4px 10px; border-radius:999px; background:#eaf4ec; color:#27735a; font-size:.72rem; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+.readCard > p { margin:8px 0 0; color:var(--muted); font-size:.84rem; line-height:1.55; }
+.readCard .readLimits { margin-bottom:0; padding-top:8px; border-top:1px dashed #e0e9e2; font-size:.79rem; }
+.readLimits strong { color:#a3672c; }
+
+/* ── Typologie & secteurs (barres) ─────────────────────────────────────── */
+.typoSection { padding:26px 0 30px; background:#fffdfa; }
+.sectorSection { padding:26px 0 30px; background:#f5f8f5; }
+.bars { display:grid; gap:7px; max-width:860px; }
+.barRow { display:grid; grid-template-columns:minmax(170px,240px) 1fr 44px; align-items:center; gap:10px; }
+.barLabel { color:var(--ink); font-size:.78rem; font-weight:700; line-height:1.25; }
+.barTrack { height:14px; overflow:hidden; border-radius:99px; background:#edf3ed; }
+.barFill { display:block; height:100%; border-radius:99px; }
+.fillGreen { background:linear-gradient(90deg,#0b5d49,#27735a); }
+.fillOrange { background:linear-gradient(90deg,#f2a05e,#ef873e); }
+.fillLight { background:#c5dccd; }
+.barValue { color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; font-size:.9rem; text-align:right; }
+.typoNote { max-width:760px; margin:12px 0 0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+.typoNote strong { color:var(--ink); }
+.typoNote a { color:var(--green); font-weight:800; text-decoration:none; }
+.typoNote a:hover { text-decoration:underline; text-underline-offset:3px; }
+
+/* ── Méthodologie ──────────────────────────────────────────────────────── */
+.methodSection { padding:26px 0 30px; background:#fffdfa; }
+.methodGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.methodCard { padding:14px 16px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.methodCard h3 { margin:0 0 6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
+.methodCard p { margin-bottom:0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+.excludedCard { margin-top:12px; padding:16px 18px; border:1px solid #f0d9bd; border-radius:18px; background:#fff8ef; }
+.excludedCard h3 { margin:0 0 8px; color:#a3672c; font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
+.excludedCard ul { margin:0; padding:0 0 0 18px; display:grid; gap:8px; }
+.excludedCard li { color:var(--muted); font-size:.82rem; line-height:1.55; }
+.excludedCard strong { color:var(--ink); }
+
+/* ── CTA final ─────────────────────────────────────────────────────────── */
+.ctaSection { padding:26px 0 34px; background:#f5f8f5; }
+.ctaCard { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border-radius:22px; background:linear-gradient(145deg,#0b5d49,#043f34); color:#fff; }
+.ctaCard h2 { margin-bottom:5px; color:#fff; font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.05em; font-size:1.25rem; }
+.ctaCard h2 em { color:#f5a861; font-style:normal; }
+.ctaCard p { margin-bottom:0; max-width:560px; color:#c4ddcf; font-size:.82rem; line-height:1.5; }
+.ctaCard a:not(.ctaButton) { color:#f5a861; font-weight:800; text-decoration:none; }
+.ctaCard a:not(.ctaButton):hover { text-decoration:underline; text-underline-offset:3px; }
+.ctaButton { flex:none; display:inline-flex; align-items:center; padding:11px 18px; border-radius:999px; background:var(--orange); color:#fff; font-size:.82rem; font-weight:800; text-decoration:none; transition:transform .2s ease,background .2s ease; }
+.ctaButton:hover { background:#df6f2d; transform:translateY(-2px); }
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width:1000px) {
+  .keyGrid { grid-template-columns:repeat(2,1fr); }
+  .methodGrid { grid-template-columns:1fr; }
+}
+@media (max-width:620px) {
+  .keyGrid { grid-template-columns:1fr; gap:7px; }
+  /* Compaction mobile : padding vertical réduit, chiffres conservés lisibles */
+  .keyCard { padding:9px 13px 10px; border-radius:14px; }
+  .keyFigure { margin-bottom:3px; }
+  .keyFigure strong { font-size:1.62rem; }
+  .keyFigure span { font-size:.8rem; margin-bottom:2px; }
+  .keyLabel { font-size:.73rem; line-height:1.35; }
+  .barRow { grid-template-columns:1fr 44px; }
+  .barLabel { grid-column:1 / -1; margin-bottom:-3px; }
+  .barTrack { grid-column:1; }
+  .barValue { grid-column:2; }
+  .ctaCard { flex-direction:column; align-items:flex-start; }
+}
