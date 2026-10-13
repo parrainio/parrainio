@@ -32,7 +32,7 @@ const NON_INDEXABLE_PREFIXES: readonly string[] = ["/admin", "/api"];
 
 /** Clé IndexNow publique (sert uniquement à prouver la propriété du site).
  *  Fichier de validation hébergé : public/{INDEXNOW_KEY}.txt */
-export const INDEXNOW_KEY = "9406afe85af4263921ca07832e191e65";
+export const INDEXNOW_KEY = "c886019b654d4c2db0b021fefd1d66ab";
 
 /** Endpoint générique IndexNow (route les moteurs partenaires). */
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
