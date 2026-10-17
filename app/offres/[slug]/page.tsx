@@ -182,6 +182,13 @@ export default async function OfferPage({
   // mécanisme réel de l'offre ; sans code ni invitation dédiée, pas de lien.
   const hubMechanism = classifyReferralMechanism(offer.slug, offer.referralCode);
   const hubAnchor = hubMechanism ? getHubLinkAnchor(hubMechanism) : null;
+  // Note de contact (ex. : stock de liens restants) : la donnée admin
+  // (override) est prioritaire, sinon la valeur du profil SEO/seed.
+  const contactNote:
+    | string
+    | null
+    | undefined =
+    offer.contactNote?.trim() || seoProfile?.referralContact?.note || null;
 
   return (
     <main className={styles.page}>
@@ -292,7 +299,7 @@ export default async function OfferPage({
                         {seoProfile?.referralContact && (
                           <div className={styles.referralContact}>
                             <strong>{seoProfile.referralContact.heading}</strong>
-                            {seoProfile.referralContact.note && <small>{seoProfile.referralContact.note}</small>}
+                            {contactNote && <small>{contactNote}</small>}
                           </div>
                         )}
                         <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
@@ -458,7 +465,7 @@ export default async function OfferPage({
                       {seoProfile?.referralContact && (
                         <div className={styles.referralContact}>
                           <strong>{seoProfile.referralContact.heading}</strong>
-                          {seoProfile.referralContact.note && <small>{seoProfile.referralContact.note}</small>}
+                          {contactNote && <small>{contactNote}</small>}
                         </div>
                       )}
                       <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />

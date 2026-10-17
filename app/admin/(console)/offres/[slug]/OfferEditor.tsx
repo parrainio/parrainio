@@ -25,6 +25,7 @@ type EditorOffer = {
   color: string;
   logoLetter: string;
   manualReview: boolean;
+  contactNote: string;
 };
 
 function moveItem<T>(list: T[], index: number, direction: -1 | 1) {
@@ -51,6 +52,7 @@ export default function OfferEditor({ offer }: { offer: EditorOffer }) {
   const [publicationDate, setPublicationDate] = useState(offer.publicationDate);
   const [sourceUrl, setSourceUrl] = useState(offer.sourceUrl);
   const [manualReview, setManualReview] = useState(offer.manualReview);
+  const [contactNote, setContactNote] = useState(offer.contactNote || "");
   const [logo, setLogo] = useState(offer.logo);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -74,6 +76,7 @@ export default function OfferEditor({ offer }: { offer: EditorOffer }) {
         publicationDate,
         sourceUrl,
         manualReview,
+        contactNote,
       });
       setMessage("Modifications enregistrées. La page publique utilise déjà ces informations.");
     } catch (error) {
@@ -196,6 +199,14 @@ export default function OfferEditor({ offer }: { offer: EditorOffer }) {
               value={officialWebsiteUrl}
               placeholder="https://example.com"
               type="url"
+            />
+          </label>
+          <label className={styles.field}>
+            Note de contact affichée sur la fiche (ex. : nombre de liens disponibles)
+            <textarea
+              onChange={(event) => setContactNote(event.target.value)}
+              placeholder="Ex. : Il reste 6 liens de parrainage disponibles à ce jour. Laisse vide pour ne rien afficher."
+              value={contactNote}
             />
           </label>
           <label className={styles.field}>

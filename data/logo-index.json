@@ -442,5 +442,37 @@
   "kast": {
     "logo": "/logos/kast.png",
     "logoVerified": false
+  },
+  "weward": {
+    "logo": "/logos/weward.jpg",
+    "logoVerified": false
+  },
+  "choose": {
+    "logo": "/logos/choose.jpg",
+    "logoVerified": false
+  },
+  "macadam-4": {
+    "logo": "/logos/macadam-4.jpg",
+    "logoVerified": false
+  },
+  "coupon-network": {
+    "logo": "/logos/coupon-network.jpg",
+    "logoVerified": false
+  },
+  "myprotein": {
+    "logo": "/logos/myprotein.jpg",
+    "logoVerified": false
+  },
+  "caisse-depargne-loire-centre": {
+    "logo": "/logos/caisse-depargne-loire-centre.svg",
+    "logoVerified": false
+  },
+  "cartouche-du-toner": {
+    "logo": "/logos/cartouche-du-toner.png",
+    "logoVerified": false
+  },
+  "liberte-watts": {
+    "logo": "/logos/liberte-watts.svg",
+    "logoVerified": false
   }
 }

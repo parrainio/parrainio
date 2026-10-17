@@ -21,6 +21,10 @@ export type Offer = {
   logoLetter: string;
   logo: string | null;
   logoVerified: boolean;
+  /** Note affichée sur la fiche au-dessus du formulaire de demande de lien
+  *  personnel (ex. : stock de liens restants). Modifiable depuis l'admin
+  *  via les overrides — la valeur du seed sert de défaut. */
+  contactNote?: string | null;
   referralUrl: string;
   sourceUrl: string;
   partnerBonusLabel: string;
@@ -511,8 +515,16 @@ export const offers: Offer[] = [
   createOffer("simplis", "Simplis", "Pro & assurance", "Voir l'offre", "S"),
   // Chantier XTB + KAST : offres sans lien ni code public — la fiche sert le
   // formulaire ReferralRequestForm (demande de lien personnel) automatiquement.
-  createOffer("xtb", "XTB", "Investissement", "8 € de reverse Parrainio", "X"),
-  createOffer("kast", "KAST", "Banque", "Jusqu'à environ 373 € de paliers", "K"),
+  {
+    ...createOffer("xtb", "XTB", "Investissement", "8 € de reverse Parrainio", "X"),
+    contactNote:
+      "Il reste 6 liens de parrainage XTB disponibles à ce jour (mention à mettre à jour chaque fois qu'un lien est attribué).",
+  },
+  {
+    ...createOffer("kast", "KAST", "Banque", "Jusqu'à environ 373 € de paliers", "K"),
+    contactNote:
+      "Le stock restant de liens KAST est mis à jour sur cette fiche après chaque attribution.",
+  },
 ];
 
 export function getOffer(slug: string) {

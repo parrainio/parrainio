@@ -101,7 +101,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
     referralContact: {
       heading: "Me contacter pour obtenir un lien de parrainage personnel et unique",
       note:
-        "Le lien XTB est individuel : utilisez le formulaire ci-dessous et je vous l'envoie par e-mail. Mention de stock à mettre à jour ici après chaque attribution : il reste 6 liens de parrainage XTB disponibles aujourd'hui.",
+        "Le lien XTB est individuel : utilisez le formulaire ci-dessous et il vous sera envoyé par e-mail. Le stock restant est tenu à jour sur cette fiche après chaque attribution (champ gestionnable depuis l'administration).",
     },
   }),
   kast: make({
@@ -111,10 +111,10 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       "KAST : carte Standard gratuite, paliers de parrainage jusqu'à environ 373 € (conversions indicatives), reverse Parrainio jusqu'à environ 55 €. Validation manuelle de chaque palier obligatoire.",
     h1: "KAST : paliers du parrainage, validation manuelle et reverse Parrainio",
     introduction:
-      "KAST est un service financier qui propose une carte de paiement Standard : sans frais d'abonnement annuel selon les conditions publiées, avec du cashback (1,5 % sur les dépenses admissibles, plafonné à environ 1 778 € de dépenses par mois au taux indicatif utilisé ici) et deux cartes virtuelles incluses. Le parrainage KAST fonctionne par paliers de dépenses : chaque palier franchi peut débloquer une récompense, MAIS CHAQUE PALIER DOIT ÊTRE VALIDÉ MANUELLEMENT DANS L'APPLICATION par le filleul. Les montants de cette fiche sont des conversions indicatives en euros : les seuils officiels du programme sont libellés en dollars dans l'application KAST.",
+      "KAST est un service financier qui propose une carte de paiement Standard : sans frais d'abonnement annuel selon les conditions publiées, avec du cashback (1,5 % sur les dépenses admissibles, plafonné à environ 1 777 € de dépenses par mois au taux indicatif utilisé ici) et deux cartes virtuelles incluses. Le parrainage KAST fonctionne par paliers de dépenses : chaque palier franchi peut débloquer une récompense, MAIS CHAQUE PALIER DOIT ÊTRE VALIDÉ MANUELLEMENT DANS L'APPLICATION par le filleul. Les montants de cette fiche sont des conversions indicatives en euros : les seuils officiels du programme sont libellés en dollars dans l'application KAST.",
     summary: [
       "Filleul : jusqu'à environ 373 € de paliers KAST (conversions indicatives).",
-      "Paliers (dépenses cumulées admissibles) : ~444 €, ~889 €, ~1 778 €, ~6 221 €.",
+      "Paliers (dépenses cumulées admissibles) : ~444 €, ~889 €, ~1 777 €, ~6 221 €.",
       "Récompenses par palier : ~18 €, ~44 €, ~89 €, ~222 € — additionnelles.",
       "Validation manuelle de CHAQUE palier dans l'application, obligatoire.",
       "Reverse Parrainio : jusqu'à environ 55 € (25 % de la commission).",
@@ -132,7 +132,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
     alertBox: {
       title: "⚠️ AVERTISSEMENT — validation manuelle obligatoire de chaque palier",
       paragraphs: [
-        "LES PALIERS DOIVENT ÊTRE VALIDÉS MANUELLEMENT, UN PAR UN, DANS L'APPLICATION KAST. LES RÉCOMPENSES NE SONT PAS AUTOMATIQUEMENT CUMULÉES SI LES ÉTAPES NE SONT PAS VALIDÉES. Le filleul doit effectuer les dépenses requises, atteindre chaque palier de dépenses admissibles, puis VALIDER CHAQUE PALIER de l'application pour recevoir la récompense correspondante.",
+        "ATTENTION : CHAQUE PALIER DOIT ÊTRE VALIDÉ MANUELLEMENT, UN PAR UN, DANS L'APPLICATION KAST. LES RÉCOMPENSES NE SONT PAS CRÉDITÉES AUTOMATIQUEMENT DU SIMPLE FAIT DE DÉPENSER. Le filleul doit effectuer les dépenses requises, atteindre chaque palier de dépenses admissibles, puis VALIDER LUI-MÊME chaque palier dans l'application pour recevoir la récompense correspondante.",
         "Les récompenses de chaque étape sont ADDITIONNELLES et le total potentiel d'environ 373 € suppose que TOUTES les étapes soient franchies et validées. Les montants en euros de cette fiche (seuils comme récompenses) sont des conversions INDICATIVES : les seuils officiels du programme libellés dans l'application sont en dollars et peuvent évoluer. Une conversion n'est jamais un montant en euros contractuellement garanti.",
       ],
     },
@@ -141,7 +141,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
     conditions: [
       "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche (liens attribués un visiteur à la fois).",
       "Créer le compte KAST via ce lien et effectuer la vérification d'identité (KYC) exigée par KAST.",
-      "Effectuer les dépenses admissibles : dépenses cumulées de ~444 €, puis ~889 €, ~1 778 € puis ~6 221 € (conversions indicatives au taux utilisé par Parrainio) ; chaque palier franchi ouvre une récompense (~18 €, ~44 €, ~89 €, ~222 €).",
+      "Effectuer les dépenses admissibles : dépenses cumulées de ~444 €, puis ~889 €, ~1 777 € puis ~6 221 € (conversions indicatives au taux utilisé par Parrainio) ; chaque palier franchi ouvre une récompense (~18 €, ~44 €, ~89 €, ~222 €).",
       "VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION, un par un : sans cette validation, la récompense correspondante n'est pas débloquée.",
       "Vérifier les seuils affichés dans l'application KAST : les montants officiels sont en dollars et peuvent différer des conversions indicatives de cette fiche.",
       "KAST n'est pas une banque traditionnelle : le compte n'est pas couvert par une assurance des dépôts comparable à celle des banques régulées ; l'usage d'un VPN pour contourner une indisponibilité géographique est interdit par KAST.",
@@ -152,7 +152,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       "Chaque palier doit être franchi puis validé manuellement dans l'application ; certaines récompenses annoncées par KAST sont bloquées pendant une fenêtre d'attente avant déblocage. Les délais exacts dépendent de l'application KAST et des règles en vigueur.",
     practicalInformation: [
       "Carte Standard : 0 € d'abonnement annuel selon le barème publié ; la carte physique peut entraîner des frais de livraison annoncés par KAST, affichés avant commande.",
-      "Cashback Standard : 1,5 % sur les dépenses admissibles, plafonné à environ 1 778 € de dépenses par mois au taux indicatif utilisé par Parrainio.",
+      "Cashback Standard : 1,5 % sur les dépenses admissibles, plafonné à environ 1 777 € de dépenses par mois au taux indicatif utilisé par Parrainio.",
       "Change : les dépenses hors devise du compte peuvent entraîner des frais de change annoncés par KAST (barème affiché dans l'application).",
       "Éligibilité : accès selon le pays de résidence, vérification d'identité et barème officiel affiché dans l'application.",
     ],

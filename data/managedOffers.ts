@@ -26,6 +26,8 @@ export type OfferOverride = {
   steps?: OfferStep[];
   logo?: string | null;
   logoVerified?: boolean;
+  /** Note de contact affichée sur la fiche (ex. : stock de liens restants). */
+  contactNote?: string | null;
   sourceUrl?: string;
   publicationDate?: string | null;
   lastUpdated?: string;
@@ -154,6 +156,7 @@ export function mergeOfferRecord(
     steps: override.steps ?? seed.steps,
     logo: override.logo ?? auto.logo ?? seed.logo,
     logoVerified: override.logoVerified ?? auto.logoVerified ?? seed.logoVerified,
+    contactNote: keepExisting(override.contactNote, seed.contactNote ?? null),
     sourceUrl: override.sourceUrl ?? seed.sourceUrl,
     publicationDate:
       override.publicationDate ??

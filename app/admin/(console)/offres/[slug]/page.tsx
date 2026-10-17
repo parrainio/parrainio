@@ -34,6 +34,7 @@ export default async function AdminOfferPage({
         color: offer.color,
         logoLetter: offer.logoLetter,
         manualReview: offer.manualReview,
+        contactNote: offer.contactNote ?? "",
       }}
     />
   );

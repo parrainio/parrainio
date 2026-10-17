@@ -123,6 +123,7 @@ export type OfferSavePayload = {
   publicationDate: string;
   sourceUrl: string;
   manualReview: boolean;
+  contactNote?: string;
 };
 
 export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
@@ -175,6 +176,10 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
     publicationDate: payload.publicationDate.trim() || existing.publicationDate,
     sourceUrl: sourceUrl ?? undefined,
     manualReview: payload.manualReview,
+    /* Note de contact (ex. : stock de liens restants) vide dans le save =
+       aucune note affichée. Le champ reste optionnel pour la compatibilité
+       avec les appels existants. */
+    contactNote: payload.contactNote?.trim() ? payload.contactNote.trim() : null,
   };
 
   const { persisted, offer } = await saveOfferOverride(slug, override);
