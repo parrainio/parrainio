@@ -68,11 +68,11 @@
     "logoVerified": false
   },
   "bricks": {
-    "logo": "/logos/bricks.png",
+    "logo": "/logos/bricks.svg",
     "logoVerified": false
   },
   "bybit": {
-    "logo": "/logos/bybit.png",
+    "logo": "/logos/bybit.ico",
     "logoVerified": false
   },
   "c-monetiquette": {
@@ -124,7 +124,7 @@
     "logoVerified": false
   },
   "fdj-francaise-des-jeux": {
-    "logo": "/logos/fdj-francaise-des-jeux.png",
+    "logo": "/logos/fdj-francaise-des-jeux.ico",
     "logoVerified": false
   },
   "featurepoints": {
@@ -260,11 +260,11 @@
     "logoVerified": false
   },
   "okx": {
-    "logo": "/logos/okx.png",
+    "logo": "/logos/okx.ico",
     "logoVerified": false
   },
   "parions-sport": {
-    "logo": "/logos/parions-sport.png",
+    "logo": "/logos/parions-sport.ico",
     "logoVerified": false
   },
   "paypal": {
@@ -273,10 +273,6 @@
   },
   "phenix": {
     "logo": "/logos/phenix.png",
-    "logoVerified": false
-  },
-  "placesdescartes": {
-    "logo": "/logos/placesdescartes.png",
     "logoVerified": false
   },
   "pmu": {
@@ -316,7 +312,7 @@
     "logoVerified": false
   },
   "ritmic": {
-    "logo": "/logos/ritmic.png",
+    "logo": "/logos/ritmic.ico",
     "logoVerified": false
   },
   "rover-1": {
@@ -344,7 +340,7 @@
     "logoVerified": false
   },
   "showroomprive": {
-    "logo": "/logos/showroomprive.png",
+    "logo": "/logos/showroomprive.ico",
     "logoVerified": false
   },
   "simplis": {
@@ -352,12 +348,8 @@
     "logoVerified": false
   },
   "speedo": {
-    "logo": "/logos/speedo.png",
+    "logo": "/logos/speedo.svg",
     "logoVerified": false
-  },
-  "splint-invest": {
-    "logo": "/logos/splint-invest.svg",
-    "logoVerified": true
   },
   "sumeria": {
     "logo": "/logos/sumeria.png",
@@ -404,7 +396,7 @@
     "logoVerified": false
   },
   "unibet": {
-    "logo": "/logos/unibet.png",
+    "logo": "/logos/unibet.ico",
     "logoVerified": false
   },
   "wanteeed": {
@@ -437,6 +429,18 @@
   },
   "assurancevie-com": {
     "logo": "/logos/assurancevie-com.png",
+    "logoVerified": false
+  },
+  "edf": {
+    "logo": "/logos/edf.png",
+    "logoVerified": false
+  },
+  "xtb": {
+    "logo": "/logos/xtb.png",
+    "logoVerified": false
+  },
+  "kast": {
+    "logo": "/logos/kast.png",
     "logoVerified": false
   }
 }

@@ -381,6 +381,8 @@ function generateDescription(name: string, category: string): string {
     "Whatnot": "Whatnot est une plateforme de vente en direct par streaming.",
     "Naomi Models": "Naomi Models est une agence de mannequinat.",
     "Credit Agricole Centre Loire": "Le Crédit Agricole est une banque coopérative française qui propose des services bancaires aux particuliers et aux agriculteurs.",
+    "XTB": "XTB est un courtier en ligne international (actions, ETF, CFD, Warrants, matières premières). Offre de parrainage partenaire présentée par Parrainio avec un reverse de 8 € au filleul après validation ; investir comporte un risque de perte.",
+    "KAST": "KAST est un service financier proposant une carte de paiement Standard gratuite et un programme de parrainage à paliers cumulables ; chaque palier de dépenses doit être validé manuellement par le filleul dans l'application pour débloquer la récompense correspondante.",
   };
 
   return descriptions[name] || `${name} est un service dans le domaine ${category}.`;
@@ -507,6 +509,10 @@ export const offers: Offer[] = [
   createOffer("ritmic", "Ritmic", "Mobilité", "Voir l'offre", "R"),
   createOffer("zeconfiserie", "ZeConfiserie", "Alimentation", "Voir l'offre", "Z"),
   createOffer("simplis", "Simplis", "Pro & assurance", "Voir l'offre", "S"),
+  // Chantier XTB + KAST : offres sans lien ni code public — la fiche sert le
+  // formulaire ReferralRequestForm (demande de lien personnel) automatiquement.
+  createOffer("xtb", "XTB", "Investissement", "8 € de reverse Parrainio", "X"),
+  createOffer("kast", "KAST", "Banque", "Jusqu'à environ 373 € de paliers", "K"),
 ];
 
 export function getOffer(slug: string) {

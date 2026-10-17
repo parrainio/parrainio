@@ -2356,6 +2356,65 @@
     "parrainioReward": "0 €",
     "partnerReward": "10 % de remise sur votre première commande"
   },
+  "xtb": {
+    "name": "XTB",
+    "category": "Investissement",
+    "description": "XTB est un courtier en ligne international (actions, ETF, CFD), réglementé par la KNF et opérant en France sous supervision AMF, avec plateforme xStation 5.",
+    "partnerReward": "Aucun avantage filleul annoncé par le partenaire : seul le reverse Parrainio de 8 € après validation du parrainage s'applique.",
+    "parrainioReward": "8 €",
+    "referralCode": null,
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.xtb.com/fr",
+    "conditions": [
+      "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche (aucun lien public : les liens sont limités et attribués à un visiteur à la fois).",
+      "Créer le compte XTB en utilisant ce lien personnel ; une inscription faite sans ce lien ne peut être rattachée a posteriori.",
+      "Effectuer le dépôt et la vérification de compte demandés par XTB pour qualifier le parrainage.",
+      "Attendre la validation du parrainage par le programme partenaire de XTB : sans cette validation, aucun reverse n'est versé.",
+      "Les 33 € de rémunération et les 8 € de reverse Parrainio ne sont pas une prime garantie : ils ne sont dus qu'après validation complète du parrainage.",
+      "Les investissements en bourse comportent un risque de perte en capital ; les CFD, à effet de levier (maximum 1:30 pour les particuliers), peuvent entraîner la perte totale ou supérieure du capital investi."
+    ],
+    "steps": [
+      "Demander un lien de parrainage personnel à Parrainio via le formulaire de la fiche.",
+      "Ouvrir le compte XTB via le lien reçu.",
+      "Effectuer le dépôt et la vérification de compte.",
+      "Attendre la validation du parrainage par le partenaire puis percevoir le reverse Parrainio de 8 €."
+    ],
+    "publicationDate": "2026-10-17",
+    "sourceUrl": "https://www.xtb.com/fr/partenaires",
+    "manualReview": false,
+    "lastVerifiedAt": "2026-10-17",
+    "researchSource": "https://www.xtb.com/fr/partenaires"
+  },
+  "kast": {
+    "name": "KAST",
+    "category": "Banque",
+    "description": "KAST est un service financier qui propose une carte de paiement Standard gratuite : cashback 1,5 % jusqu'à 2 000 $ de dépenses admissibles par mois. Attention : les paliers de parrainage doivent être validés manuellement dans l'application.",
+    "partnerReward": "Jusqu'à environ 373 € de paliers KAST (approximatif, paliers en dollars validés manuellement)",
+    "parrainioReward": "Jusqu'à environ 55 € (25 % de la commission Parrainio après conversion en euros, aucun palier implicite)",
+    "referralCode": null,
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.kast.com",
+    "conditions": [
+      "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche ; les liens sont attribués par Parrainio et ne sont pas publics.",
+      "Créer le compte KAST via ce lien personnel et effectuer la vérification d'identité (KYC).",
+      "Atteindre chaque palier de dépenses admissibles (500 $, 1 000 $, 2 000 $, 5 000 $ selon les barèmes du programme) puis VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION : les récompenses ne sont pas cumulées automatiquement si un palier n'est pas validé.",
+      "Les montants donnés en euros sont indicatifs : les seuils officiels du programme KAST sont en dollars et peuvent évoluer.",
+      "KAST n'est pas un établissement bancaire : les fonds ne sont pas couverts par une assurance des dépôts comparable à celle des banques régulées.",
+      "Parrainio reverse jusqu'à 25 % de ce qu'il encaisse réellement en fonction des paliers parrain atteints : le maximum d'environ 55 € suppose que tout le parcours du filleul soit dûment validé sans échéance manquée."
+    ],
+    "steps": [
+      "Demander un lien de parrainage personnel à Parrainio via le formulaire de la fiche.",
+      "S'inscrire sur KAST via le lien reçu et valider le KYC.",
+      "Effectuer les dépenses admissibles pour franchir chaque palier KAST.",
+      "VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION, un par un, pour que chaque palier soit débloqué.",
+      "Attendre la validation des paliers côté Parrainio pour percevoir le reverse Parrainio."
+    ],
+    "publicationDate": "2026-10-17",
+    "sourceUrl": "https://www.kast.com",
+    "manualReview": false,
+    "lastVerifiedAt": "2026-10-17",
+    "researchSource": "https://www.kast.com"
+  },
   "simplis": {
     "lastVerifiedAt": "2026-08-30",
     "officialWebsiteUrl": "https://www.simplis.fr/",

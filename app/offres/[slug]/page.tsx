@@ -20,6 +20,7 @@ import { lot12Profiles } from "@/data/offer-seo-batch10";
 import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
+import { lot16Profiles } from "@/data/offer-seo-batch14";
 import { getRelatedOffers } from "@/lib/relatedOffers";
 import { getCategoryHubForGroup } from "@/lib/categoryHubs";
 import { SITE_URL } from "@/lib/siteUrl";
@@ -68,7 +69,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
-  const profile = lot15Profiles[slug] ?? lot14Profiles[slug] ?? lot13Profiles[slug] ?? lot12Profiles[slug] ?? lot11Profiles[slug] ?? lot10Profiles[slug] ?? lot09Profiles[slug] ?? lot08Profiles[slug] ?? lot07Profiles[slug] ?? lot06Profiles[slug] ?? lot05Profiles[slug] ?? lot02Profiles[slug] ?? offerSeoProfiles[slug];
+  const profile =
+    lot16Profiles[slug] ??
+    lot15Profiles[slug] ??
+    lot14Profiles[slug] ?? lot13Profiles[slug] ?? lot12Profiles[slug] ?? lot11Profiles[slug] ?? lot10Profiles[slug] ?? lot09Profiles[slug] ?? lot08Profiles[slug] ?? lot07Profiles[slug] ?? lot06Profiles[slug] ?? lot05Profiles[slug] ?? lot02Profiles[slug] ?? offerSeoProfiles[slug];
   const reward = offer.partnerReward;
   const categoryName = offer.categoryGroup;
 
@@ -148,7 +152,7 @@ export default async function OfferPage({
   };
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
-  const seoProfile = lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
+  const seoProfile = lot16Profiles[offer.slug] ?? lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
   // FAQPage (JSON-LD) : la MÊME donnée `faq` que le rendu visible ci-dessous
   // (seoProfile.faq) — aucune duplication de texte, aucune réécriture.
   // Garde-fous : sans FAQ valide, aucun nœud FAQPage ; une question ou une
@@ -255,6 +259,14 @@ export default async function OfferPage({
                 <div className={styles.actionCard}>
                   <div className={styles.rewardsSection}>
                     <OfferRewards offer={offer} />
+                    {seoProfile?.alertBox && (
+                      <aside className={styles.alertBox}>
+                        <h2 className={styles.alertBoxTitle}>{seoProfile.alertBox.title}</h2>
+                        {seoProfile.alertBox.paragraphs.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </aside>
+                    )}
                   </div>
                   <div className={styles.referralSection}>
                     {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" /></div></div> : null}
@@ -275,7 +287,17 @@ export default async function OfferPage({
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !referralUrl ? <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} /> : null}
+                    {!offer.referralCode && !referralUrl ? (
+                      <>
+                        {seoProfile?.referralContact && (
+                          <div className={styles.referralContact}>
+                            <strong>{seoProfile.referralContact.heading}</strong>
+                            {seoProfile.referralContact.note && <small>{seoProfile.referralContact.note}</small>}
+                          </div>
+                        )}
+                        <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
+                      </>
+                    ) : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} />
                   <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
@@ -387,6 +409,14 @@ export default async function OfferPage({
                 <div className={styles.desktopActionContent}>
                 <div className={styles.rewardsSection}>
                   <OfferRewards offer={offer} />
+                  {seoProfile?.alertBox && (
+                    <aside className={styles.alertBox}>
+                      <h2 className={styles.alertBoxTitle}>{seoProfile.alertBox.title}</h2>
+                      {seoProfile.alertBox.paragraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </aside>
+                  )}
                 </div><div className={styles.referralSection}>
                     {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" /></div></div> : null}
                     {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
@@ -424,7 +454,15 @@ export default async function OfferPage({
                   ) : null}
 
                   {!offer.referralCode && !referralUrl ? (
-                    <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
+                    <>
+                      {seoProfile?.referralContact && (
+                        <div className={styles.referralContact}>
+                          <strong>{seoProfile.referralContact.heading}</strong>
+                          {seoProfile.referralContact.note && <small>{seoProfile.referralContact.note}</small>}
+                        </div>
+                      )}
+                      <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
+                    </>
                   ) : null}
                 </div>
                 <ParrainioReverseRequest offerSlug={offer.slug} />

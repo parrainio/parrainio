@@ -1,11 +1,22 @@
 export type OfferSource = { title: string; url: string; type: "official" | "secondary"; checkedAt: string };
 export type OfferFaq = { question: string; answer: string };
+/** Encadré d'avertissement très visible rendu sur la fiche (ex. : KAST —
+ * validation manuelle des paliers ; XTB — risque de perte en capital).
+ * Optionnel : seules les fiches qui le définissent l'affichent. */
+export type OfferAlertBox = { title: string; paragraphs: string[] };
+
+/** Encadré au-dessus du formulaire de demande de lien personnel pour les
+ * offres sans lien ni code public (ex. : XTB, KAST). */
+export type OfferContactBox = { heading: string; note?: string };
+
 export type OfferSeoProfile = {
   status: "verified" | "partial" | "needs_manual_review";
   seoTitle: string;
   metaDescription: string;
   h1: string;
   introduction: string;
+  alertBox?: OfferAlertBox;
+  referralContact?: OfferContactBox;
   summary?: string[];
   whyChoose?: { heading: string; paragraphs: string[] };
   audience?: string;
@@ -20,7 +31,7 @@ export type OfferSeoProfile = {
   researchedAt: string;
 };
 
-const checkedAt = "2026-09-02";
+const checkedAt = "2026-10-17";
 const official = (title: string, url: string): OfferSource => ({ title, url, type: "official", checkedAt });
 const secondary = (title: string, url: string): OfferSource => ({ title, url, type: "secondary", checkedAt });
 

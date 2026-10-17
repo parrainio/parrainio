@@ -17,11 +17,13 @@ import { lot12Profiles } from "@/data/offer-seo-batch10";
 import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
+import { lot16Profiles } from "@/data/offer-seo-batch14";
 import { SITE_URL } from "@/lib/siteUrl";
 import { blogArticles } from "@/data/blogArticles";
 
 function resolveOfferSeoProfile(slug: string): OfferSeoProfile | undefined {
   return (
+    lot16Profiles[slug] ??
     lot15Profiles[slug] ??
     lot14Profiles[slug] ??
     lot13Profiles[slug] ??
