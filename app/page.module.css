@@ -46,10 +46,6 @@
 .compactHeroCopy h1 em { color: var(--orange); font-style: normal; }
 .compactHeroCopy p { margin: 0 0 20px; color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 540px; }
 
-/* Temporary Hello bank! promotion banner. */
-.helloBankPromoSection { padding:14px 0; background:#fff8ed; border-bottom:1px solid #f1dec8; color:#594431; font-size:.82rem; line-height:1.55; }
-.helloBankPromoSection p { margin:0 0 7px; }
-.helloBankPromoSection a { color:var(--green); font-weight:800; text-decoration:none; }
 /* Featured Offers Section — intro pleine largeur + grille de cartes équilibrées.
    5 colonnes sur grand écran (si le contenu reste lisible), puis 3 / 2 / 1
    naturellement. Aucune troncature : les noms et montants se replient. */
