@@ -711,17 +711,15 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                 Classement des primes
               </Link>
 
-              <Link href="/pourquoi-parrainio">
-                Comment ça marche
-              </Link>
             </div>
 
             <div>
-              <h3>Parrainio</h3>
+              <h3>À propos et aide</h3>
 
               <Link href="/pourquoi-parrainio">
-                Nos avantages
+                Pourquoi Parrainio ?
               </Link>
+              <Link href="/#faq">FAQ</Link>
 
               <a href="mailto:parrainage@parrainio.fr">
                 Contact

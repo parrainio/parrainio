@@ -21,13 +21,13 @@ export default function SiteFooter() {
             <Link href="/classement-primes-parrainage">Classement des primes</Link>
             <Link href="/codes-parrainage">Codes de parrainage</Link>
             <Link href="/avis-clients">Avis clients</Link>
-            <Link href="/pourquoi-parrainio">Comment ça marche</Link>
             <Link href="/blog">Le blog</Link>
           </div>
 
           <div>
-            <h3>Parrainio</h3>
-            <Link href="/pourquoi-parrainio">Nos avantages</Link>
+            <h3>À propos et aide</h3>
+            <Link href="/pourquoi-parrainio">Pourquoi Parrainio ?</Link>
+            <Link href="/#faq">FAQ</Link>
             <FavoritesCount />
             <a href="mailto:parrainage@parrainio.fr">Contact</a>
           </div>

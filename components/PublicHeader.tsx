@@ -17,8 +17,6 @@ export default function PublicHeader({ active, campaignActive = false }: PublicH
     ["ranking", "Meilleures primes", "/classement-primes-parrainage"],
     ["reviews", "Avis clients", "/avis-clients"],
     ["blog", "Guide", "/blog"],
-    ["faq", "FAQ", "/#faq"],
-    ["how", "Pourquoi Parrainio ?", "/pourquoi-parrainio"],
   ] as const;
 
   return (

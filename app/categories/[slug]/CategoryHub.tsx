@@ -352,15 +352,15 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
               <h3>Découvrir</h3>
 
               <Link href="/">Accueil</Link>
-              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
               <Link href="/offres">Offres</Link>
               <Link href="/classement-primes-parrainage">Classement des primes</Link>
             </div>
 
             <div>
-              <h3>Parrainio</h3>
+              <h3>À propos et aide</h3>
 
-              <Link href="/pourquoi-parrainio">Nos avantages</Link>
+              <Link href="/pourquoi-parrainio">Pourquoi Parrainio ?</Link>
+              <Link href="/#faq">FAQ</Link>
               <a href="mailto:parrainage@parrainio.fr">Contact</a>
             </div>
 

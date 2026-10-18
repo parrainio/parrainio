@@ -126,8 +126,6 @@ export default async function ComparatifParisSportifsPage() {
             <nav className={styles.nav} aria-label="Navigation principale">
               <Link href="/">Accueil</Link>
               <Link href="/offres">Offres</Link>
-              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
-              <Link href="/pourquoi-parrainio">Nos avantages</Link>
             </nav>
             <Link href="/offres" className={styles.headerButton}>
               Voir les offres →
@@ -511,11 +509,11 @@ export default async function ComparatifParisSportifsPage() {
             <div>
               <h3>Découvrir</h3>
               <Link href="/offres">Les offres</Link>
-              <Link href="/pourquoi-parrainio">Comment ça marche</Link>
             </div>
             <div>
-              <h3>Parrainio</h3>
-              <Link href="/pourquoi-parrainio">Nos avantages</Link>
+              <h3>À propos et aide</h3>
+              <Link href="/pourquoi-parrainio">Pourquoi Parrainio ?</Link>
+              <Link href="/#faq">FAQ</Link>
               <a href="mailto:parrainage@parrainio.fr">Contact</a>
             </div>
             <div>
