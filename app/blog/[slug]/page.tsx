@@ -33,6 +33,11 @@ export function generateStaticParams() {
   return blogArticles.map((article) => ({ slug: article.slug }));
 }
 
+// ISR court : le module d'offres contextuelles affiche des montants vivants
+// (promotion Hello bank! bornée dans le temps). 5 minutes de fraîcheur
+// suffisent à basculer au bon moment sans rendre les articles dynamiques.
+export const revalidate = 300;
+
 export async function generateMetadata({
   params,
 }: BlogArticlePageProps): Promise<Metadata> {

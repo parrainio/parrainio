@@ -133,6 +133,8 @@
 /* =========================
    HERO
 ========================= */
+.campaignHeroLink { display:inline-flex; flex-direction:column; gap:3px; padding:11px 14px; border:1px solid #f0d8bd; border-radius:13px; background:#fff8ef; color:#075846; font-size:.74rem; font-weight:900; text-decoration:none; }
+.campaignHeroLink span { color:#9a4f18; font-size:.62rem; }
 
 .hero {
   padding: 10px 0 12px;
@@ -799,6 +801,7 @@
 
 /* Groupe pilule + favori en haut à droite de la carte. */
 .topActions { display: inline-flex; align-items: center; gap: 4px; }
+.campaignCardBadge { padding:6px 8px; border-radius:8px; background:#fff0df; color:#9a4f18; font-size:.55rem; font-weight:900; text-align:center; text-decoration:none; }
 
 .description {
   margin: 22px 0;

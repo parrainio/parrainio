@@ -25,6 +25,7 @@ import {
   type OfferOverride,
 } from "@/data/managedOffers";
 import { saveFeaturedOffersConfig, type FeaturedOffersConfig } from "@/data/featuredOffersAdmin";
+import { saveBoostedCampaignConfig, type BoostedCampaignConfig } from "@/data/boostedCampaign";
 import {
   deleteReview,
   setReviewStatus,
@@ -305,6 +306,24 @@ export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfi
   revalidatePath("/admin/offres");
   revalidatePath("/admin/featured");
 
+  return { ok: true };
+}
+
+export async function saveBoostedCampaignAction(config: BoostedCampaignConfig) {
+  await requireAdmin();
+  const persisted = await saveBoostedCampaignConfig(config);
+  if (!persisted) {
+    throw new Error("Stockage persistant indisponible : la campagne n'a pas été enregistrée.");
+  }
+  revalidatePath("/");
+  revalidatePath("/sitemap.xml");
+  revalidatePath("/offres");
+  revalidatePath("/classement-primes-parrainage");
+  revalidatePath("/comparatif/parrainage-bancaire");
+  revalidatePath("/comparatif/parrainage-crypto");
+  revalidatePath("/offres-boostees");
+  revalidatePath("/offres/[slug]", "page");
+  revalidatePath("/offres");
   return { ok: true };
 }
 

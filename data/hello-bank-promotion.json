@@ -1,0 +1,17 @@
+{
+  "slug": "hello-bank",
+  "parrainioReward": {
+    "regular": "5 €",
+    "promotion": "60 €",
+    "promotionEnd": "2026-10-30T00:00:00+01:00",
+    "timezone": "Europe/Paris"
+  },
+  "applicationDeadline": "2026-10-29T15:00:00+01:00",
+  "partnerOffers": {
+    "helloPrime": "Jusqu'à 130 €",
+    "helloOne": "80 €",
+    "helloStartPlusVoucher": "Jusqu'à 200 €",
+    "helloStartPlusUntil": "2027-01-11"
+  },
+  "referralLink": "https://www.hellobank.fr/fr/parrainage-filleul/?code=PPART140OCTOBRE26&token=445ER418"
+}

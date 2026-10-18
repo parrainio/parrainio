@@ -1,0 +1,56 @@
+{
+  "active": true,
+  "startAt": "2026-10-18T00:00:00.000Z",
+  "endAt": null,
+  "title": "Offres boostées du moment",
+  "headline": "50 % de notre commission reversée",
+  "durationLabel": "Durée limitée",
+  "offerSlugs": [
+    "boursobank",
+    "kraken",
+    "n26",
+    "etoro",
+    "assurancevie-com"
+  ],
+  "offers": {
+    "boursobank": {
+      "parrainioReward": "40 €",
+      "partnerReward": "Jusqu'à 160 €"
+    },
+    "kraken": {
+      "parrainioReward": "15 €",
+      "partnerReward": "30 € en BTC"
+    },
+    "n26": {
+      "parrainioReward": "12,50 €"
+    },
+    "etoro": {
+      "parrainioReward": "42 €"
+    },
+    "assurancevie-com": {
+      "parrainioReward": "50 €"
+    }
+  },
+  "regularRewards": {
+    "boursobank": {
+      "parrainioReward": "15 €",
+      "partnerReward": "Jusqu'à 160€"
+    },
+    "kraken": {
+      "parrainioReward": "7,50 €",
+      "partnerReward": "30 € en BTC"
+    },
+    "n26": {
+      "parrainioReward": "0,25 €",
+      "partnerReward": "0 €"
+    },
+    "etoro": {
+      "parrainioReward": "40 €",
+      "partnerReward": "Aucun avantage filleul annoncé en France"
+    },
+    "assurancevie-com": {
+      "parrainioReward": "25 €",
+      "partnerReward": "50€ offerts"
+    }
+  }
+}

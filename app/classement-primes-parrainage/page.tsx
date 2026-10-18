@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
 import OfferLogo from "@/components/OfferLogo";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
+import { applyHelloBankReward } from "@/lib/helloBankPromotion";
 import { getTotalBenefit, NON_PRIME_SLUGS } from "@/lib/offerFilters";
 import styles from "./page.module.css";
 import RankingTable, { type RankingRow } from "./RankingTable";
@@ -96,11 +98,14 @@ function rowOf(offer: ManagedOffer, total: number): RankingRow {
 }
 
 export default async function ClassementPrimesPage() {
+  // Rendu dynamique : le reversement Hello bank! dépend de l'heure (60 €
+  // jusqu'au 29/10/2026 inclus, puis 5 € — heure de Paris).
+  await connection();
   const euros: { offer: ManagedOffer; total: number }[] = [];
   const others: ManagedOffer[] = [];
   const variables: ManagedOffer[] = [];
 
-  for (const offer of await getManagedOffers()) {
+  for (const offer of applyHelloBankReward(await getManagedOffers())) {
     const reward = (offer.partnerReward ?? "").trim();
     const reverse = (offer.parrainioReward ?? "").trim();
     // Classement par AVANTAGE TOTAL : prime filleul + Parraino reverse.

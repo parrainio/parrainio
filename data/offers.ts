@@ -13,6 +13,7 @@ export type Offer = {
   bonus: string;
   partnerReward: string;
   parrainioReward: string | null;
+  isCampaignBoosted?: boolean;
   referralCode: string | null;
   referralLink: string | null;
   officialWebsiteUrl: string | null;
@@ -408,7 +409,7 @@ export const offers: Offer[] = [
   createOffer("airbnb", "Airbnb", "Voyage", "Voir l'offre", "A"),
   createOffer("shopmium", "Shopmium", "Courses", "2 €", "S"),
   createOffer("showroomprive", "Showroomprivé", "Shopping", "Voir l'offre", "S"),
-  createOffer("hello-bank", "Hello bank!", "Banque", "Jusqu'à 80 €", "H"),
+  createOffer("hello-bank", "Hello bank!", "Banque", "Jusqu'à 130 € avec Hello Prime ou 80 € avec Hello One", "H"),
   createOffer("trade-republic", "Trade Republic", "Investissement", "10 € en action", "T"),
   createOffer("direct-assurance", "Direct Assurance", "Assurance", "50 €", "D"),
   createOffer("winamax", "Winamax", "Jeux & paris", "Voir l'offre", "W"),

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { getManagedOffers } from "@/data/managedOffers";
+import { applyBoostedCampaign, getActiveBoostedCampaign } from "@/data/boostedCampaign";
+import { applyHelloBankReward } from "@/lib/helloBankPromotion";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import PublicHeader from "@/components/PublicHeader";
 import OffersCatalog from "./OffersCatalog";
 
-export const revalidate = 60;
+
 
 export const metadata: Metadata = {
   title: "Offres de parrainage : primes et bons plans | Parrainio",
@@ -16,7 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default async function OffresPage() {
-  const offers = await getManagedOffers();
+  await connection();
+  const [managedOffers, campaign] = await Promise.all([getManagedOffers(), getActiveBoostedCampaign()]);
+  const offers = applyHelloBankReward(applyBoostedCampaign(managedOffers, campaign));
   const hubSlugByCategory = Object.fromEntries(
     CATEGORY_HUBS.map((hub) => [hub.group, hub.slug] as const)
   );
@@ -25,8 +30,9 @@ export default async function OffresPage() {
     <>
       <OffersCatalog
         offers={offers}
+        campaign={campaign}
         hubSlugByCategory={hubSlugByCategory}
-        header={<PublicHeader active="offers" />}
+        header={<PublicHeader active="offers" campaignActive={Boolean(campaign)} />}
       />
     </>
   );

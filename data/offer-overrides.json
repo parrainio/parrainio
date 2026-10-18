@@ -666,19 +666,24 @@
     "lastVerifiedAt": "2026-08-30",
     "researchSource": "https://parrainage.co/offers/125292",
     "conditions": [
-      "Être majeur et ne pas déjà détenir de compte Hello bank!.",
-      "Ouvrir un premier compte de dépôt en ligne via le lien d’invitation.",
-      "Pour Hello One/Prime, effectuer au moins 5 paiements ou retraits par carte par mois pendant les 3 premiers mois.",
-      "Conserver le compte et la carte pendant au moins 1 an."
+      "Avant le 29/10/2026 à 15 h selon les informations de la promotion, transmettre prénom et e-mail ou numéro de téléphone via le formulaire de contact présent sur cette fiche.",
+      "Recevoir l’invitation personnalisée de Parrainio avant de commencer la souscription ; utiliser le lien fourni pour ouvrir un premier compte Hello bank! éligible.",
+      "Hello Prime : jusqu’à 130 € de prime partenaire ; Hello One : 80 €, sous réserve d’éligibilité, d’acceptation et des conditions de campagne.",
+      "Pour Hello Start+, souscrire gratuitement au service de mobilité bancaire et remplir les conditions applicables, notamment le transfert d’au moins un prélèvement ou virement récurrent si requis. Le montant annoncé jusqu’à 200 € est un bon d’achat, pas du cash ; offre annoncée jusqu’au 11/01/2027 sous réserve des conditions en vigueur.",
+      "Conserver le compte et la carte pendant la durée éventuellement requise par le règlement Hello bank! ; réaliser les opérations carte demandées par le parcours choisi.",
+      "Le reversement Parrainio de 60 € est temporaire jusqu’au 29/10/2026 inclus ; il passe automatiquement à 5 € à 00 h 00 le 30/10/2026, heure de Paris, après réception de la prime de parrainage correspondante et validation de la demande.",
+      "Les totaux maximaux (Prime 390 € ou One 340 € avant le 30 octobre ; 335 € ou 285 € après) sont conditionnels, non garantis et ne valent que si les avantages partenaires et Hello Start+ sont toujours disponibles.",
+      "Après le 29/10/2026 à 15 h, la fenêtre de demande de cette promotion est annoncée terminée ; ne pas promettre les avantages expirés."
     ],
     "steps": [
-      "Utiliser le lien d’invitation.",
-      "Ouvrir le premier compte de dépôt.",
-      "Effectuer au moins 5 paiements ou retraits par carte par mois pendant 3 mois.",
-      "Conserver le compte et la carte pendant 1 an."
+      "Avant le 29 octobre 2026 à 15 h, transmettre votre prénom et adresse e-mail ou numéro de téléphone via le formulaire de cette fiche.",
+      "Recevoir l’invitation personnalisée de Parrainio.",
+      "Ouvrir le compte Hello bank! éligible en suivant le lien d’invitation et respecter le règlement de Hello Prime ou Hello One.",
+      "Pour Hello Start+, adhérer gratuitement à la mobilité bancaire et remplir les conditions, dont le transfert d’au moins un prélèvement ou virement récurrent lorsque requis.",
+      "Après réception par Parrainio de la prime de parrainage correspondante, demander votre reversement."
     ],
     "parrainioReward": "5 €",
-    "partnerReward": "Jusqu'à 80 € + 200 € en bons d'achat"
+    "partnerReward": "Hello Prime : jusqu'à 130 € ; Hello One : 80 € ; Hello Start+ : jusqu'à 200 € en bon d'achat"
   },
   "engie": {
     "referralCode": "RAD735473",

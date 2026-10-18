@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import type { SVGProps } from "react";
 import { useEffect, useMemo, useState } from "react";
-import { type Offer, getOfferReferralUrl } from "@/data/offers";
+import { getOfferReferralUrl } from "@/data/offers";
+import type { ManagedOffer } from "@/data/managedOffers";
 import OfferRewards from "@/components/OfferRewards";
-import MomentSelection from "@/components/MomentSelection";
 import OfferLogo from "@/components/OfferLogo";
 import OfferFilterBar from "@/components/OfferFilterBar";
 import FavoriteButton from "@/components/FavoriteButton";
@@ -20,10 +20,12 @@ import {
 } from "@/lib/offerFilters";
 import { SITE_URL } from "@/lib/siteUrl";
 import styles from "./page.module.css";
+import { getActiveBoostedCampaign } from "@/data/boostedCampaign";
 
 type OffersCatalogProps = {
-  offers: Offer[];
+  offers: ManagedOffer[];
   hubSlugByCategory: Record<string, string>;
+  campaign: Awaited<ReturnType<typeof getActiveBoostedCampaign>>;
   /** Slot serveur : le header est rendu côté serveur et passé en nœud React. */
   header: React.ReactNode;
 };
@@ -96,7 +98,7 @@ function useRequestedCategory(): string | null {
   return value;
 }
 
-export default function OffersCatalog({ offers, hubSlugByCategory, header }: OffersCatalogProps) {
+export default function OffersCatalog({ offers, hubSlugByCategory, campaign, header }: OffersCatalogProps) {
   const [search, setSearch] = useState("");
   const [activePrime, setActivePrime] = useState<string | null>(null);
   const [activeCondition, setActiveCondition] = useState<string | null>(null);
@@ -364,8 +366,6 @@ export default function OffersCatalog({ offers, hubSlugByCategory, header }: Off
       </section>
 
       {/* OFFRES */}
-      <MomentSelection offers={offers} />
-
       <section
         id="offres"
         className={styles.offersSection}
@@ -481,6 +481,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, header }: Off
                     </div>
 
                     <span className={styles.topActions}>
+                      {offer.isCampaignBoosted ? <Link href="/offres-boostees" className={styles.campaignCardBadge}>50 % reversés · Durée limitée</Link> : null}
                       <span className={styles.available}>
                         <i />
                         Disponible

@@ -1,4 +1,5 @@
 import { getManagedOffers } from "@/data/managedOffers";
+import { applyHelloBankReward } from "@/lib/helloBankPromotion";
 import { getSafeReferralUrl } from "@/lib/referralSafety";
 
 /**
@@ -81,7 +82,9 @@ export async function getBlogOfferContext(articleSlug: string): Promise<BlogOffe
   const mapping = ARTICLE_OFFERS[articleSlug];
   if (!mapping || mapping.offerSlugs.length === 0) return null;
 
-  const managed = await getManagedOffers();
+  // Le module blog affiche le reversement : le montant Hello bank! doit
+  // suivre la promotion temporaire (60 € jusqu'au 29/10/2026, puis 5 €).
+  const managed = applyHelloBankReward(await getManagedOffers());
   const offers = mapping.offerSlugs
     .slice(0, MAX_OFFERS)
     .map((offerSlug) => managed.find((offer) => offer.slug === offerSlug))

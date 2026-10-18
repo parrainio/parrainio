@@ -11,6 +11,7 @@
  *   admin:offer-overrides   → OfferOverrides (map slug → override, ~120 Ko)
  *   admin:featured-config   → { featuredOfferSlugs: string[] }
  *   admin:reviews           → { reviews: Review[] }
+ *   admin:boosted-campaign  → temporary boosted-offers campaign
  *   admin:login-fail:<hash> → compteur de connexions échouées
  *
  * Garantie de non-perte de données :
@@ -40,11 +41,13 @@ import { revalidateTag } from "next/cache";
 const OFFER_OVERRIDES_KEY = "admin:offer-overrides";
 const FEATURED_CONFIG_KEY = "admin:featured-config";
 const REVIEWS_KEY = "admin:reviews";
+const BOOSTED_CAMPAIGN_KEY = "admin:boosted-campaign";
 
 export const ADMIN_KV_KEYS = {
   offerOverrides: OFFER_OVERRIDES_KEY,
   featuredConfig: FEATURED_CONFIG_KEY,
   reviews: REVIEWS_KEY,
+  boostedCampaign: BOOSTED_CAMPAIGN_KEY,
 } as const;
 
 /** Tags invalidés par revalidateTag à chaque écriture admin. */
@@ -52,12 +55,14 @@ export const ADMIN_KV_TAGS = {
   offerOverrides: "admin-offer-overrides",
   featuredConfig: "admin-featured-config",
   reviews: "admin-reviews",
+  boostedCampaign: "admin-boosted-campaign",
 } as const;
 
 const TAG_BY_KEY: { [key: string]: string } = {
   [OFFER_OVERRIDES_KEY]: ADMIN_KV_TAGS.offerOverrides,
   [FEATURED_CONFIG_KEY]: ADMIN_KV_TAGS.featuredConfig,
   [REVIEWS_KEY]: ADMIN_KV_TAGS.reviews,
+  [BOOSTED_CAMPAIGN_KEY]: ADMIN_KV_TAGS.boostedCampaign,
 };
 
 /** Fraîcheur maximale sans action admin (bornée à 60 s). */
@@ -162,6 +167,13 @@ export async function getAdminFeaturedConfigCached(): Promise<Record<string, unk
 
 export async function getAdminReviewsCached(): Promise<Record<string, unknown> | null> {
   return readAdminKvJsonTagged<Record<string, unknown>>(REVIEWS_KEY, ADMIN_KV_TAGS.reviews);
+}
+
+export async function getAdminBoostedCampaignConfigCached(): Promise<Record<string, unknown> | null> {
+  return readAdminKvJsonTagged<Record<string, unknown>>(
+    BOOSTED_CAMPAIGN_KEY,
+    ADMIN_KV_TAGS.boostedCampaign,
+  );
 }
 
 /**

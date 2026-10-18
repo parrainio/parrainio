@@ -4,7 +4,7 @@ import { formatProductNames } from "@/lib/productNames";
 import styles from "./OfferRewards.module.css";
 
 type OfferRewardsProps = {
-  offer: Pick<Offer, "partnerReward" | "parrainioReward">;
+  offer: Pick<Offer, "partnerReward" | "parrainioReward" | "isCampaignBoosted">;
   compact?: boolean;
 };
 
@@ -32,8 +32,8 @@ export default function OfferRewards({ offer, compact = false }: OfferRewardsPro
         </div>
       )}
       {showParrainio && (
-        <div className={styles.parrainio}>
-          <span>PARRAINIO REVERSE EN PLUS</span>
+        <div className={`${styles.parrainio} ${offer.isCampaignBoosted ? styles.boosted : ""}`}>
+          <span>{offer.isCampaignBoosted ? "50 % DE NOTRE COMMISSION REVERSÉE · DURÉE LIMITÉE" : "PARRAINIO REVERSE EN PLUS"}</span>
           <strong>{formatProductNames(getReverseAmount(offer as Offer))}</strong>
         </div>
       )}

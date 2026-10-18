@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { connection } from "next/server";
 import { notFound } from "next/navigation";
 import {
   getOfferReferralUrl,
   getFeaturedOffers,
-  offers,
 } from "@/data/offers";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
+import { applyBoostedCampaignToOffer, getActiveBoostedCampaign } from "@/data/boostedCampaign";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { offerSeoProfiles } from "@/data/offer-seo";
 import { lot02Profiles } from "@/data/offer-seo-batch2";
@@ -24,7 +25,6 @@ import { lot16Profiles } from "@/data/offer-seo-batch14";
 import { getRelatedOffers } from "@/lib/relatedOffers";
 import { getCategoryHubForGroup } from "@/lib/categoryHubs";
 import { SITE_URL } from "@/lib/siteUrl";
-import { hasMeaningfulConditions } from "@/lib/offerCompleteness";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import { classifyReferralMechanism, getHubLinkAnchor } from "@/lib/referralMechanism";
 import CopyTextButton from "@/components/CopyTextButton";
@@ -38,26 +38,12 @@ import OfferChangeAlert from "@/components/OfferChangeAlert";
 import FavoriteButton from "@/components/FavoriteButton";
 import OfferRewards from "@/components/OfferRewards";
 import OfferIllustration from "@/components/OfferIllustration";
+import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/helloBankPromotion";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
 import styles from "./page.module.css";
 
-// ISR : les lecteurs de données de la fiche (overrides KV via fetch tagué
-// 60 s, featured-config via le même mécanisme) sont compatibles rendu
-// statique — aucun fetch no-store au rendu (le seed admin est confiné aux
-// chemins d'écriture). Les écritures admin invalident les tags
-// (revalidateTag) et appellent revalidatePath sur les pages concernées.
-// TTL aligné sur CACHE_REVALIDATE_SECONDS (lib/adminKv.ts), même contrat
-// que /offres.
-export const revalidate = 60;
-
-// Prérendu des fiches au build — même liste de slugs que le sitemap. Les
-// 117 fiches sont générées puis revalidées par ISR (60 s) ; les écritures
-// admin les invalident via revalidatePath(`/offres/${slug}`). Un slug
-// inconnu reste résolu à la demande (notFound), sans mise en cache.
-export function generateStaticParams() {
-  return offers.map((offer) => ({ slug: offer.slug }));
-}
-
+// Les fiches sont rendues sur demande pour relire les overrides et recalculer
+// le montant Hello bank! à la frontière de sa campagne temporelle.
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const offer = await getManagedOffer(slug);
@@ -92,6 +78,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+function HelloBankPromotionNotice({ promotion }: { promotion: ReturnType<typeof getHelloBankPromotion> }) {
+  if (promotion.deadlinePassed) {
+    return <aside className={styles.helloBankNotice} role="status"><strong>La fenêtre de demande de cette promotion est terminée.</strong><p>La date limite annoncée était le 29 octobre 2026 à 15 h. Le reversement Parrainio est maintenant de 5 €. Ne comptez pas sur les primes partenaires ou le bon Hello Start+ sans confirmer que les conditions actuelles les proposent encore.</p></aside>;
+  }
+  return <aside className={styles.helloBankNotice}><strong>Jusqu’à {promotion.primeTotal} avec Hello Prime ou {promotion.oneTotal} avec Hello One, sous conditions</strong><p>Ces totaux incluent jusqu’à 200 € en bon d’achat Hello Start+ (pas du cash), la prime partenaire et {promotion.parrainioReward} de reversement Parrainio. Ils ne sont valables que si chaque avantage est encore proposé et si ses conditions sont remplies.</p><p>Demande d’invitation avant le 29 octobre 2026 à 15 h. Contactez-nous via le formulaire ci-dessous pour recevoir votre invitation personnalisée. Pour Hello Start+, adhérez gratuitement à la mobilité bancaire et transférez au moins un prélèvement ou virement récurrent si les conditions l’exigent.</p></aside>;
+}
+
 function ArrowIcon() {
   return (
     <svg aria-hidden="true" fill="none" height="18" viewBox="0 0 24 24" width="18">
@@ -115,16 +108,21 @@ export default async function OfferPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const offer = await getManagedOffer(slug);
+  await connection();
+  const managedOffer = await getManagedOffer(slug);
 
-  if (!offer) {
+  if (!managedOffer) {
     notFound();
   }
 
+  const campaign = await getActiveBoostedCampaign();
+  const helloBankPromotion = slug === "hello-bank" ? getHelloBankPromotion(new Date()) : null;
+  const baseOffer = slug === "hello-bank"
+    ? { ...managedOffer, parrainioReward: selectHelloBankParrainioReward(new Date()) }
+    : managedOffer;
+  const offer = await applyBoostedCampaignToOffer(baseOffer);
+
   const referralUrl = getOfferReferralUrl(offer);
-  const detailedConditions = hasMeaningfulConditions(offer.conditions)
-    ? offer.conditions.filter((condition) => condition.trim())
-    : [];
   const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
   const categoryHub = getCategoryHubForGroup(offer.categoryGroup);
   // Fil d'Ariane (même pattern que hubs/blog/comparatifs) :
@@ -215,6 +213,11 @@ export default async function OfferPage({
             {/* Left: Main offer information */}
             <div className={styles.mainContent}>
               <div className={styles.offerHeader}>
+                {offer.isCampaignBoosted && campaign ? (
+                  <Link className={styles.campaignBadge} href="/offres-boostees">
+                    {campaign.headline} · {campaign.durationLabel}
+                  </Link>
+                ) : null}
                 <div className={styles.offerIdentity}>
                 {/* Ligne d'identité compacte : logo + catégorie + vérification,
                     puis actions secondaires (site officiel conditionnel + favoris). */}
@@ -251,7 +254,7 @@ export default async function OfferPage({
                   <ol className={styles.headerSteps}>
                     <li><b>01</b><span><strong>COPIEZ LE CODE</strong><small>Utilisez notre lien ou code de parrainage.</small></span></li>
                     <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>Renseignez le code si nécessaire.</small></span></li>
-                    <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l'offre.</small></span></li>
+                    <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l&apos;offre.</small></span></li>
                     <li><b>04</b><span><strong>DEMANDEZ VOTRE VERSEMENT</strong></span></li>
                   </ol>
                 </div>}
@@ -266,6 +269,7 @@ export default async function OfferPage({
                 <div className={styles.actionCard}>
                   <div className={styles.rewardsSection}>
                     <OfferRewards offer={offer} />
+                    {helloBankPromotion ? <HelloBankPromotionNotice promotion={helloBankPromotion} /> : null}
                     {seoProfile?.alertBox && (
                       <aside className={styles.alertBox}>
                         <h2 className={styles.alertBoxTitle}>{seoProfile.alertBox.title}</h2>
@@ -321,10 +325,10 @@ export default async function OfferPage({
                   )}
                   <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-details`}>
                     <h2 id={`${offer.slug}-details`}>Fonctionnement et conditions du parrainage {offer.name}</h2>
-                    <p className={styles.seoDetailsSubtitle}>Tout savoir avant de s'inscrire</p>
-                    <p className={styles.seoDetailsIntro}>Informations détaillées sur l'offre</p>
+                    <p className={styles.seoDetailsSubtitle}>Tout savoir avant de s&apos;inscrire</p>
+                    <p className={styles.seoDetailsIntro}>Informations détaillées sur l&apos;offre</p>
                     <div className={styles.seoGroup}>
-                    <span className={styles.seoGroupLabel}>POUR COMPRENDRE L'OFFRE</span>
+                    <span className={styles.seoGroupLabel}>POUR COMPRENDRE L&apos;OFFRE</span>
                     {[
                       seoProfile.whyChoose,
                       seoProfile.audience ? { heading: `À qui s'adresse ${offer.name} ?`, paragraphs: [seoProfile.audience] } : undefined,
@@ -348,7 +352,7 @@ export default async function OfferPage({
                         {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                       </details>
                     ))}
-                    {seoProfile.practicalInformation && <details className={styles.seoAccordion}><summary>À savoir avant de s'inscrire</summary><ul className={styles.seoList}>{seoProfile.practicalInformation.map((item) => <li key={item}>{item}</li>)}</ul></details>}
+                    {seoProfile.practicalInformation && <details className={styles.seoAccordion}><summary>À savoir avant de s&apos;inscrire</summary><ul className={styles.seoList}>{seoProfile.practicalInformation.map((item) => <li key={item}>{item}</li>)}</ul></details>}
                     {seoProfile.faq && seoProfile.faq.length > 0 && <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-faq`}><h2 id={`${offer.slug}-faq`}>Questions fréquentes sur le parrainage {offer.name}</h2><div className={styles.seoFaq}>{seoProfile.faq.map((item) => <details key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div></section>}
                     </div>
                   </section>
@@ -416,6 +420,7 @@ export default async function OfferPage({
                 <div className={styles.desktopActionContent}>
                 <div className={styles.rewardsSection}>
                   <OfferRewards offer={offer} />
+                  {helloBankPromotion ? <HelloBankPromotionNotice promotion={helloBankPromotion} /> : null}
                   {seoProfile?.alertBox && (
                     <aside className={styles.alertBox}>
                       <h2 className={styles.alertBoxTitle}>{seoProfile.alertBox.title}</h2>
@@ -481,6 +486,7 @@ export default async function OfferPage({
                   <div className={styles.sidebarFeatured}>
                     <span className={styles.sidebarFeaturedLabel}>🔥 Offres boostées</span>
                     <div className={styles.sidebarFeaturedList}>
+                      {campaign ? <Link href="/offres-boostees" className={styles.campaignLandingLink}>Découvrir les 5 offres · {campaign.durationLabel} →</Link> : null}
                       {featuredOffers.map((featuredOffer) => (
                         <Link
                           href={`/offres/${featuredOffer.slug}`}

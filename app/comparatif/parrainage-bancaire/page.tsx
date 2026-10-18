@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import OfferLogo from "@/components/OfferLogo";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
+import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/helloBankPromotion";
 
 export const metadata: Metadata = {
   title:
@@ -76,8 +78,9 @@ type BankRow = {
   logo: string | null;
 };
 
-function rowOf(offer: ManagedOffer): BankRow {
+function rowOf(offer: ManagedOffer, helloBankReward: string): BankRow {
   const override = DISPLAY_OVERRIDES[offer.slug];
+  const parrainioReward = offer.slug === "hello-bank" ? helloBankReward : offer.parrainioReward;
   const conditions = (offer.conditions ?? [])
     .filter(Boolean)
     .slice(0, 2)
@@ -91,7 +94,7 @@ function rowOf(offer: ManagedOffer): BankRow {
       ((offer.partnerReward ?? "").trim() || NOT_INDICATED),
     parrainioReward:
       override?.parrainioReward ??
-      (formatProductNames(offer.parrainioReward?.trim()) || NOT_INDICATED),
+      (formatProductNames(parrainioReward?.trim()) || NOT_INDICATED),
     parrainioRewardNote: override?.parrainioRewardNote,
     conditions: conditions || "Détails sur la fiche de l'offre.",
     color: offer.color,
@@ -101,10 +104,13 @@ function rowOf(offer: ManagedOffer): BankRow {
 }
 
 export default async function ComparatifParrainageBancairePage() {
+  await connection();
   const offers = await getManagedOffers();
+  const helloBankPromotion = getHelloBankPromotion(new Date());
+  const helloBankReward = selectHelloBankParrainioReward(new Date());
   const rows: BankRow[] = BANK_SLUGS.map((slug) => {
     const offer = offers.find((o) => o.slug === slug);
-    return offer ? rowOf(offer) : null;
+    return offer ? rowOf(offer, helloBankReward) : null;
   }).filter((row): row is BankRow => row !== null);
 
   const jsonLd = {
@@ -199,6 +205,8 @@ export default async function ComparatifParrainageBancairePage() {
           </div>
         </div>
       </section>
+
+      {helloBankPromotion.requestWindowOpen ? <section className={styles.transparency}><div className={styles.container}><p>Hello bank! : Hello Prime jusqu’à {helloBankPromotion.primeTotal} et Hello One jusqu’à {helloBankPromotion.oneTotal}, sous conditions et uniquement si la prime partenaire et le bon Hello Start+ sont encore disponibles. Ce total inclut jusqu’à 200 € en bon d’achat (non monétaire). Demande d’invitation avant le 29 octobre 2026 à 15 h via la fiche pour recevoir une invitation personnalisée.</p></div></section> : <section className={styles.transparency}><div className={styles.container}><p>La fenêtre de demande de la promotion Hello bank! annoncée pour le 29 octobre 2026 à 15 h est terminée. Parrainio reverse maintenant 5 € ; consultez le partenaire pour toute prime ou bon d’achat encore disponible.</p></div></section>}
 
       {/* TRANSPARENCE */}
       <section className={styles.transparency}>

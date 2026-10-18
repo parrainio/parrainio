@@ -181,16 +181,17 @@ export async function getManagedOffers(): Promise<ManagedOffer[]> {
   const logos = readLogoIndex();
   const research = readResearchMeta();
 
-  return offers.map((offer) =>
-    mergeOfferRecord(
+  return offers.map((offer) => {
+    const managed = mergeOfferRecord(
       offer,
       {
         ...logos[offer.slug],
         publicationDate: research[offer.slug]?.publicationDate ?? logos[offer.slug]?.publicationDate,
       },
       overrides[offer.slug],
-    ),
-  );
+    );
+    return managed;
+  });
 }
 
 export async function getManagedOffer(slug: string) {
