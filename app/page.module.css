@@ -50,20 +50,28 @@
 .helloBankPromoSection { padding:14px 0; background:#fff8ed; border-bottom:1px solid #f1dec8; color:#594431; font-size:.82rem; line-height:1.55; }
 .helloBankPromoSection p { margin:0 0 7px; }
 .helloBankPromoSection a { color:var(--green); font-weight:800; text-decoration:none; }
-/* Featured Offers Section */
-.campaignSection { padding:14px 0; background:#fff8ef; border-bottom:1px solid #f1dec8; }
-.campaignSection > .container { display:grid; grid-template-columns:minmax(220px,.8fr) minmax(0,2fr); gap:18px; align-items:center; }
-.campaignIntro > span { display:inline-block; margin-bottom:6px; padding:5px 8px; border-radius:8px; background:#fff0df; color:#9a4f18; font-size:.58rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
-.campaignIntro h2 { margin:0 0 5px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.1rem; }
-.campaignIntro p { margin:0 0 7px; color:#71807d; font-size:.68rem; line-height:1.4; }
-.campaignLink { color:#9a4f18; font-size:.7rem; font-weight:900; text-decoration:none; }
-.campaignCards { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; }
-.campaignCard { display:flex; min-width:0; align-items:center; gap:6px; padding:8px; border:1px solid #f1dec8; border-radius:12px; background:#fff; text-decoration:none; }
-.campaignCard > span { min-width:0; flex:1; }
-.campaignCard strong,.campaignCard small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.campaignCard strong { color:var(--green); font-size:.65rem; }
-.campaignCard small { margin-top:3px; color:#bf6426; font-size:.57rem; font-weight:800; }
-.campaignCard > b { color:#9a4f18; font-size:.57rem; }
+/* Featured Offers Section — intro pleine largeur + grille de cartes équilibrées.
+   5 colonnes sur grand écran (si le contenu reste lisible), puis 3 / 2 / 1
+   naturellement. Aucune troncature : les noms et montants se replient. */
+.campaignSection { padding:24px 0 26px; background:linear-gradient(180deg,#fff8ef,#fffdfa); border-bottom:1px solid #f1dec8; }
+.campaignSection > .container { display:flex; flex-direction:column; gap:18px; }
+.campaignIntro { display:flex; max-width:680px; flex-direction:column; align-items:center; margin:0 auto; text-align:center; }
+.campaignIntro > span { display:inline-block; margin-bottom:8px; padding:5px 10px; border-radius:999px; background:#fff0df; color:#9a4f18; font-size:.6rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+.campaignIntro h2 { margin:0 0 7px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.5rem; letter-spacing:-.04em; line-height:1.15; }
+.campaignIntro p { margin:0 0 10px; color:#71807d; font-size:.82rem; line-height:1.55; }
+.campaignLink { color:var(--green); font-size:.8rem; font-weight:900; text-decoration:none; }
+.campaignLink:hover { color:#9a4f18; }
+.campaignCards { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.campaignCard { display:flex; min-width:0; flex-direction:column; align-items:center; gap:9px; padding:16px 12px 12px; border:1px solid #f1dec8; border-radius:16px; background:#fff; box-shadow:0 8px 20px rgba(28,61,48,.05); text-decoration:none; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.campaignCard:hover { transform:translateY(-3px); border-color:#e8c39a; box-shadow:0 12px 26px rgba(28,61,48,.1); }
+.campaignCard > span { display:flex; min-width:0; width:100%; flex-direction:column; align-items:center; gap:3px; }
+.campaignCard strong { color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.92rem; font-weight:800; line-height:1.25; overflow-wrap:anywhere; text-align:center; }
+.campaignCard small { color:#bf6426; font-size:.8rem; font-weight:800; overflow-wrap:anywhere; text-align:center; }
+.campaignCard > b { display:flex; width:100%; align-items:center; justify-content:center; margin-top:auto; padding:10px 10px; border-radius:10px; background:var(--green); color:#fff; font-size:.74rem; font-weight:800; transition:background .2s ease; }
+.campaignCard:hover > b { background:var(--green-dark); }
+@media (max-width:1149px) { .campaignCards { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:899px) { .campaignCards { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:559px) { .campaignSection { padding:20px 0 22px; } .campaignCards { grid-template-columns:minmax(0,1fr); gap:10px; } .campaignCard { padding:14px 12px 12px; } .campaignCard > b { padding:12px 10px; } }
 .valueBanner { padding: 7px 0; background:#043f34; color:#fff; }.valueBanner .container{display:flex;align-items:center;gap:14px}.valueBannerIcon{width:40px;height:40px;display:grid;place-items:center;flex:none;border-radius:12px;color:#ef873e;background:#fff1e2}.valueBanner span,.valueBanner strong{display:block}.valueBanner span{color:#b9d7c7;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.valueBanner strong{margin-top:3px;font-size:.82rem;line-height:1.35}.valueBanner a{margin-left:auto;flex:none;color:#ffb36c;font-size:.72rem;font-weight:800;text-decoration:none}.valueBanner a:hover{color:#fff}
 .featuredSection { padding: 10px 0 16px; background: #fff; border-bottom: 1px solid #e5ebe5; } .featuredSection > .container { display:grid; grid-template-columns:150px minmax(0,1fr); align-items:start; gap:14px; }
 .featuredHeader { display: block; width: 150px; padding-top: 4px; margin: 0; }
@@ -135,8 +143,6 @@
 }
 @media (max-width: 900px) {
   .compactHeroInner { grid-template-columns: 1fr; gap: 24px; }
-  .campaignSection > .container { grid-template-columns:1fr; gap:12px; }
-  .campaignCards { grid-template-columns:repeat(3,minmax(0,1fr)); }
   .heroPlus25 { width: 270px; margin: 4px auto 0; }
   .heroIllustration { min-height: 300px; max-width: 500px; margin:auto; width:100%; }
   .howSteps { flex-wrap:wrap; gap:10px; }.howSteps > div { flex:1 1 calc(50% - 10px); }
@@ -148,9 +154,6 @@
 @media (max-width: 620px) {
   .compactHero { padding: 10px 0 14px; }
   .valueBanner .container{align-items:flex-start}.valueBanner strong{font-size:.75rem}.valueBanner a{display:none}
-  .campaignCards { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .campaignCard { padding:7px; }
-  .campaignSection { padding:12px 0; }
   .featuredSection > .container { display:block; }
   .featuredHeader { width:auto; margin-bottom:10px; }
   .featuredHeader h2 { margin-bottom: 12px; }
