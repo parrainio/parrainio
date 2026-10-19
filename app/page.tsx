@@ -84,11 +84,13 @@ export default async function Home() {
               </div>
               <h1><span>Votre prime de parrainage</span><em>plus un reversement Parrainio</em></h1>
               <p>Comparez les offres, vérifiez les conditions et récupérez une partie de notre commission en plus sur les offres éligibles.</p>
-              <div className={styles.heroActions}>
-                <Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link>
-                <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link>
+              <div className={styles.heroBottomRow}>
+                <div className={styles.heroActions}>
+                  <Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link>
+                  <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link>
+                </div>
+                <Image className={styles.heroRewardIllustration} src="/images/illustrations/home-hero-plus50.png" alt="Illustration d’un visiteur recevant un cadeau et des pièces, avec le message « Jusqu’à 50 % reversés en plus grâce à Parrainio »." width={1699} height={926} unoptimized />
               </div>
-              <Image className={styles.heroRewardIllustration} src="/images/illustrations/home-hero-plus50.png" alt="Illustration d’un visiteur recevant un cadeau et des pièces, avec le message « Jusqu’à 50 % reversés en plus grâce à Parrainio »." width={1699} height={926} unoptimized />
             </div>
             <div className={styles.heroIllustration} aria-label="Aperçu de l'offre Boursobank">
               <div className={styles.illustrationBlob} aria-hidden="true" />
