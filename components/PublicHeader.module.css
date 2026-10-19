@@ -10,3 +10,5 @@
 .categoryDropdown[hidden]{display:none}
 @media(max-width:900px){.header{min-height:0}.headerRow{display:flex;min-height:0;flex-wrap:wrap;padding:12px 0 0;gap:8px 14px}.categoriesMenu{position:relative;order:2}.nav{order:3;flex:1 0 100%;justify-content:flex-start;gap:12px 18px;flex-wrap:wrap;padding:0 0 12px}.nav .active::after{bottom:-6px}.categoryDropdown{top:calc(100% + 7px);left:0;right:auto;transform:none;width:min(620px,calc(100vw - 34px));max-height:220px;overflow-y:auto}.categoryDropdown::before{left:34px;right:auto}}
 @media(max-width:620px){.container{width:calc(100% - 34px)}.headerRow{gap:8px 10px}.nav{gap:12px 16px}.nav a,.categoryDropdown a{font-size:.76rem}.categoryDropdown{left:0;right:auto}.categoryDropdown::before{left:30px}}
+
+.categoryDropdown{position:fixed;transform:none}.categoryDropdown::before{left:var(--dropdown-arrow-left,8px);transform:rotate(45deg)}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import styles from "./PublicHeader.module.css";
 
 type OffersMenuProps = {
@@ -21,6 +21,8 @@ type OffersMenuProps = {
 export default function OffersMenu({ categories, hubSlugByCategory, active }: OffersMenuProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [dropdownPosition, setDropdownPosition] = useState<CSSProperties>({});
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = "offers-category-menu";
 
@@ -62,6 +64,23 @@ export default function OffersMenu({ categories, hubSlugByCategory, active }: Of
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const positionDropdown = () => {
+      const trigger = triggerRef.current;
+      if (!trigger) return;
+      const triggerBounds = trigger.getBoundingClientRect();
+      const gutter = 16;
+      const width = Math.min(620, window.innerWidth - gutter * 2);
+      const left = Math.min(Math.max(triggerBounds.left, gutter), window.innerWidth - width - gutter);
+      const arrowLeft = Math.max(4, Math.min(triggerBounds.left - left + triggerBounds.width / 2 - 5, width - 14));
+      setDropdownPosition({ left, top: triggerBounds.bottom + 8, width, "--dropdown-arrow-left": `${arrowLeft}px` } as CSSProperties);
+    };
+    positionDropdown();
+    window.addEventListener("resize", positionDropdown);
+    return () => window.removeEventListener("resize", positionDropdown);
+  }, [open]);
+
   useEffect(() => () => cancelClose(), []);
 
   return (
@@ -81,16 +100,22 @@ export default function OffersMenu({ categories, hubSlugByCategory, active }: Of
       <div className={styles.offersItem}>
         <Link href="/offres" className={`${styles.offersLink} ${active ? styles.active : ""}`}>Voir les offres</Link>
         <button
+          ref={triggerRef}
           type="button"
           className={`${styles.categoryTrigger} ${open ? styles.categoryTriggerOpen : ""}`}
           aria-expanded={open}
           aria-controls={menuId}
           aria-label="Choisir une catégorie d'offres"
-          onClick={() => { cancelClose(); setOpen((value) => !value); }}
+          onClick={(event) => {
+            cancelClose();
+            const desktopHover = window.innerWidth > 900 && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+            if (desktopHover && event.detail > 0) setOpen(true);
+            else setOpen((value) => !value);
+          }}
         >
           <span aria-hidden="true">▾</span>
         </button>
-        <div id={menuId} className={styles.categoryDropdown} hidden={!open}>
+        <div id={menuId} className={styles.categoryDropdown} style={dropdownPosition} hidden={!open}>
           {categories.map((category) => {
             const hubSlug = hubSlugByCategory[category];
             const href = hubSlug ? `/categories/${hubSlug}` : `/offres?category=${encodeURIComponent(category)}#offres`;

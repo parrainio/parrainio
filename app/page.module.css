@@ -59,7 +59,7 @@
 .campaignCard:hover { transform:translateY(-3px); border-color:#e8c39a; box-shadow:0 12px 26px rgba(28,61,48,.1); }
 .campaignBrand { display:flex; min-width:0; align-items:center; gap:9px; }
 .campaignBrand h3 { min-width:0; margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.94rem; font-weight:800; line-height:1.2; overflow-wrap:anywhere; }
-.campaignDescription { margin:0; color:#71807d; font-size:.73rem; line-height:1.45; overflow-wrap:anywhere; }
+
 .campaignCard :global([class*="rewards"]) { gap:6px; }
 .campaignCard :global([class*="rewards"]) > div { min-width:0; }
 .campaignCard :global([class*="rewards"]) strong { overflow-wrap:anywhere; }
@@ -170,4 +170,21 @@
   .categoryLinks { margin: 0 -17px; padding: 0 17px 3px; }
   .headerInner { flex-direction: column; gap: 16px; min-height: auto; padding: 16px 0; }
   .nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
+}
+
+/* L’introduction et les cinq cartes restent côte à côte quand la largeur le permet. */
+@media (min-width:1200px) {
+  .campaignCard { gap:8px; padding:11px 10px 10px; }
+  .campaignBrand { gap:7px; }
+  .campaignBrand h3 { font-size:.82rem; overflow-wrap:normal; word-break:normal; }
+  .campaignCardLink { padding:9px 8px; font-size:.74rem; }
+}
+/* À largeur intermédiaire, les cartes passent sous l’introduction en grille. */
+@media (min-width:560px) and (max-width:1199px) {
+  .campaignSection > .container { grid-template-columns:minmax(0,1fr); gap:16px; }
+  .campaignCards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); overflow:visible; gap:10px; padding:0; scroll-snap-type:none; }
+  .campaignCard { flex:initial; scroll-snap-align:none; }
+}
+@media (min-width:560px) and (max-width:800px) {
+  .campaignCards { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }

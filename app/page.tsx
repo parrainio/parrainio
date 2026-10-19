@@ -78,11 +78,10 @@ export default async function Home() {
       {campaign ? <section className={styles.campaignSection} aria-labelledby="campaign-title"><div className={styles.container}><div className={styles.campaignIntro}><span>{campaign.durationLabel}</span><h2 id="campaign-title">{campaign.headline}</h2><p>Nous reversons la moitié de notre commission sur cinq offres sélectionnées.</p><Link href="/offres-boostees" className={styles.campaignLink}>Découvrir les cinq offres →</Link></div><div className={styles.campaignCards}>{campaignOffers.map((offer) => {
         const referralUrl = getOfferReferralUrl(offer);
         return <article className={styles.campaignCard} key={offer.slug}>
-          <div className={styles.campaignBrand}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={40} /><h3>{offer.name}</h3></div>
-          <p className={styles.campaignDescription}>{offer.description}</p>
-          <OfferRewards offer={offer} />
+          <div className={styles.campaignBrand}><OfferLogo name={offer.name} logo={offer.logo} color={offer.color} logoLetter={offer.logoLetter} size={34} /><h3>{offer.name}</h3></div>
+          <OfferRewards offer={offer.slug === "etoro" ? { ...offer, partnerReward: "0 €" } : offer} compact />
           {offer.referralCode ? <p className={styles.campaignReferralCode}>Code public <code>{offer.referralCode}</code></p> : referralUrl ? <a className={styles.campaignReferralLink} href={referralUrl} target="_blank" rel="noopener noreferrer">Lien de parrainage ↗</a> : null}
-          <Link href={`/offres/${offer.slug}`} className={styles.campaignCardLink}>Voir l&apos;offre {offer.name} →</Link>
+          <Link href={`/offres/${offer.slug}`} className={styles.campaignCardLink}>Voir l&apos;offre →</Link>
         </article>;
       })}</div></div></section> : null}
       <section className={styles.categoryBanner} aria-label="Parcourir les offres par catégorie" hidden><div className={styles.container}><div className={styles.categoryBannerInner}><span className={styles.categoryBannerLabel}>Catégories</span><nav className={styles.categoryLinks} aria-label="Catégories d'offres">{categories.map((category) => <Link href={`/offres?category=${encodeURIComponent(category)}#offres`} className={styles.categoryLink} key={category}>{category}</Link>)}</nav></div></div></section>
