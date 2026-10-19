@@ -6,6 +6,7 @@ import { extractEurosAmount, computePotentialAdvantage } from "@/lib/eurosAmount
 import PublicHeader from "@/components/PublicHeader";
 import OfferLogo from "@/components/OfferLogo";
 import OfferRewards from "@/components/OfferRewards";
+import { ABSENT_PARRAINIO, EXPLICIT_ZERO } from "@/components/OfferRewards";
 import FAQ from "@/components/FAQ";
 import OfferSearchResults from "@/components/OfferSearchResults";
 import { SITE_URL } from "@/lib/siteUrl";
@@ -45,6 +46,12 @@ export default async function Home() {
     partnerReward: boursobank.partnerReward.trim(),
     parrainioReward: boursobank.parrainioReward,
   };
+  const heroReverse = heroRewards.parrainioReward?.trim() ?? "";
+  const heroHasRequestableReverse =
+    heroReverse !== "" &&
+    !EXPLICIT_ZERO.test(heroReverse) &&
+    !ABSENT_PARRAINIO.test(heroReverse) &&
+    !/^(?:non communiqué|voir l'offre)$/i.test(heroReverse);
   const heroRewardsColumns = [
     { label: "VOUS GAGNEZ", display: heroRewards.partnerReward },
     heroRewards.parrainioReward
@@ -107,7 +114,7 @@ export default async function Home() {
                 <div className={styles.marketingDivider} />
                 <small className={styles.marketingLabel}>Une vraie offre, en clair</small>
                 <strong className={styles.marketingAmount}>{marketingAmountText} <small>€</small></strong>
-                <div className={styles.marketingRows}>{heroRewardsColumns.map(({ label, display }) => <div key={label}><span>{label}</span><strong>{display}</strong></div>)}</div>
+                <div className={styles.marketingRows}>{heroRewardsColumns.map(({ label, display }) => <div key={label}><span>{label}</span><strong>{display}</strong>{label === "PARRAINIO REVERSE EN PLUS" && heroHasRequestableReverse ? <Link href={`/demander-ma-reverse/${boursobank.slug}`} className={styles.marketingReverseCta}>Demander ma reverse →</Link> : null}</div>)}</div>
                 {marketingTotalText ? <div className={styles.marketingTotal}><span>Avantage potentiel</span><strong>Jusqu&apos;à {marketingTotalText}</strong></div> : null}
                 <Link href={`/offres/${boursobank.slug}`} className={styles.marketingCta}>En profiter →</Link>
               </div>

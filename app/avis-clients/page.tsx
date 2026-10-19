@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 import { OG_IMAGE } from "@/lib/ogImage";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 import ReviewForm from "./ReviewForm";
 import ReviewList, { type ListReview } from "@/components/avis/ReviewList";
@@ -47,7 +47,7 @@ export default async function AvisClientsPage() {
 
   return (
     <main className={styles.page}>
-      <PublicHeader active="reviews" />
+      <PublicHeaderServer active="reviews" />
 
       <section className={styles.hero}>
         <div className={styles.container}>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { connection } from "next/server";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 import OfferLogo from "@/components/OfferLogo";
 import { OG_IMAGE } from "@/lib/ogImage";
@@ -215,7 +215,7 @@ export default async function ClassementPrimesPage() {
 
   return (
     <main className={styles.page}>
-      <PublicHeader active="ranking" />
+      <PublicHeaderServer active="ranking" />
       <FavoritesDock />
 
       <div className={styles.slimTop}>

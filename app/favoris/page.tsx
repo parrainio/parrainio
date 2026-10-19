@@ -14,7 +14,6 @@ import { offers } from "@/data/offers";
 import OfferRewards from "@/components/OfferRewards";
 import OfferLogo from "@/components/OfferLogo";
 import FavoriteButton from "@/components/FavoriteButton";
-import PublicHeader from "@/components/PublicHeader";
 import SiteFooter from "@/components/SiteFooter";
 import FavoritesDock from "@/components/FavoritesDock";
 import styles from "@/app/offres/page.module.css";
@@ -90,7 +89,6 @@ export default function FavorisPage() {
 
   return (
     <main className={styles.page}>
-      <PublicHeader />
       <FavoritesDock />
 
       <section className={styles.hero}>

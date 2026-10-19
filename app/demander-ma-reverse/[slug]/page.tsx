@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getManagedOffer } from "@/data/managedOffers";
 import { SITE_URL } from "@/lib/siteUrl";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import ReverseRequestForm from "./ReverseRequestForm";
 import styles from "./page.module.css";
 
@@ -34,7 +34,7 @@ export default async function ReverseRequestPage({ params }: ReverseRequestPageP
 
   return (
     <main className={styles.page}>
-      <PublicHeader />
+      <PublicHeaderServer />
       <section className={styles.wrapper}>
         <div className={styles.card}>
           <ReverseRequestForm offerSlug={offer.slug} offerName={offer.name} />

@@ -4,7 +4,7 @@ import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import OffersMenu from "./OffersMenu";
 import styles from "./PublicHeader.module.css";
 
-type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" | "reviews" | "favorites" | "codes"; campaignActive?: boolean };
+export type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" | "reviews" | "favorites" | "codes"; campaignActive?: boolean };
 
 export default function PublicHeader({ active, campaignActive = false }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));
@@ -22,12 +22,12 @@ export default function PublicHeader({ active, campaignActive = false }: PublicH
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.headerRow}>
+        <div className={`${styles.headerRow} ${campaignActive ? styles.withCampaign : ""}`}>
           <Link href="/" className={styles.logo} aria-label="Parrainio, accueil"><span className={styles.logoMark}>P</span><span>Parrainio</span></Link>
           <OffersMenu categories={categories} hubSlugByCategory={hubSlugByCategory} active={active === "offers"} />
+          {campaignActive ? <Link href="/offres-boostees" className={styles.campaignNav}>Offres boostées</Link> : null}
           <nav className={styles.nav} aria-label="Navigation principale">
             <Link href="/" className={active === "home" ? styles.active : ""}>Accueil</Link>
-            {campaignActive ? <Link href="/offres-boostees" className={styles.campaignNav}>Offres boostées</Link> : null}
             {links.slice(1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
           </nav>
         </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 import { OG_IMAGE } from "@/lib/ogImage";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -170,7 +170,7 @@ const jsonLd = {
 export default function ChiffresParrainage2026Page() {
   return (
     <main className={styles.page}>
-      <PublicHeader active="how" />
+      <PublicHeaderServer active="how" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 import FavoritesList from "./FavoritesList";
 import styles from "./page.module.css";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function MesFavorisPage() {
   return (
     <main className={styles.page}>
-      <PublicHeader active="favorites" />
+      <PublicHeaderServer active="favorites" />
       <section className={styles.hero}>
         <div className={styles.container}>
           <h1>Mes favoris</h1>

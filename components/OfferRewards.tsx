@@ -1,10 +1,11 @@
 import type { Offer } from "@/data/offers";
 import { getReverseAmount } from "@/data/offers";
 import { formatProductNames } from "@/lib/productNames";
+import Link from "next/link";
 import styles from "./OfferRewards.module.css";
 
 type OfferRewardsProps = {
-  offer: Pick<Offer, "partnerReward" | "parrainioReward" | "isCampaignBoosted">;
+  offer: Pick<Offer, "slug" | "partnerReward" | "parrainioReward" | "isCampaignBoosted">;
   compact?: boolean;
 };
 
@@ -22,6 +23,11 @@ export default function OfferRewards({ offer, compact = false }: OfferRewardsPro
   const parrainio = offer.parrainioReward?.trim() ?? "";
   const showParrainio =
     EXPLICIT_ZERO.test(parrainio) || (parrainio !== "" && !ABSENT_PARRAINIO.test(parrainio));
+  const canRequestReverse =
+    showParrainio &&
+    !EXPLICIT_ZERO.test(parrainio) &&
+    !/^(?:non communiqué|voir l'offre)$/i.test(parrainio) &&
+    !/^aucun(?:e)?(?:\s+reversement)?(?:\s+parrainio(?:\s+bonus)?)?(?:\s+pour\s+cette\s+offre)?$/i.test(parrainio);
 
   return (
     <div className={`${styles.rewards} ${compact ? styles.compact : ""}`}>
@@ -34,7 +40,14 @@ export default function OfferRewards({ offer, compact = false }: OfferRewardsPro
       {showParrainio && (
         <div className={`${styles.parrainio} ${offer.isCampaignBoosted ? styles.boosted : ""}`}>
           <span>{offer.isCampaignBoosted ? "50 % DE NOTRE COMMISSION REVERSÉE · DURÉE LIMITÉE" : "PARRAINIO REVERSE EN PLUS"}</span>
-          <strong>{formatProductNames(getReverseAmount(offer as Offer))}</strong>
+          <div className={styles.reverseAmountRow}>
+            <strong>{formatProductNames(getReverseAmount(offer as Offer))}</strong>
+            {canRequestReverse ? (
+              <Link href={`/demander-ma-reverse/${offer.slug}`} className={styles.reverseRequest}>
+                Demander ma reverse →
+              </Link>
+            ) : null}
+          </div>
         </div>
       )}
     </div>

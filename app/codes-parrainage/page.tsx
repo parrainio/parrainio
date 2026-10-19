@@ -8,7 +8,7 @@ import { getOfferReferralUrl } from "@/data/offers";
 import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
 import { classifyReferralMechanism, MECHANISM_LABEL } from "@/lib/referralMechanism";
 import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import FavoritesDock from "@/components/FavoritesDock";
 import styles from "./page.module.css";
 
@@ -149,7 +149,7 @@ export default async function CodesParrainagePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PublicHeader />
+      <PublicHeaderServer />
       <FavoritesDock />
 
       {/* HERO */}

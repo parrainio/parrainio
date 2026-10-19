@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
@@ -62,7 +62,7 @@ export default function BlogIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PublicHeader active="blog" />
+      <PublicHeaderServer active="blog" />
 
       {/* HERO */}
       <section className={styles.hero}>

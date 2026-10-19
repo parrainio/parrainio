@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getActiveBoostedCampaign } from "@/data/boostedCampaign";
 import { CATEGORY_HUBS, getCategoryHub } from "@/lib/categoryHubs";
 import { getCategoryHubOffers } from "@/lib/categoryHubOffers";
 import { SITE_URL } from "@/lib/siteUrl";
@@ -48,7 +49,11 @@ export default async function CategoryHubPage({ params }: HubParams) {
     return <CategoryHubNotFound />;
   }
 
-  return <CategoryHub hub={hub} offers={await getCategoryHubOffers(hub.group)} />;
+  const [offers, campaign] = await Promise.all([
+    getCategoryHubOffers(hub.group),
+    getActiveBoostedCampaign(),
+  ]);
+  return <CategoryHub hub={hub} offers={offers} campaignActive={Boolean(campaign)} />;
 }
 
 function CategoryHubNotFound() {

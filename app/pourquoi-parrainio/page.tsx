@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import type { SVGProps } from "react";
 import styles from "./page.module.css";
 import { OG_IMAGE } from "@/lib/ogImage";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ const trustItems = [
 export default function PourquoiParrainioPage() {
   return (
     <main className={styles.page}>
-      <PublicHeader active="how" />
+      <PublicHeaderServer active="how" />
 
       {/* Hero */}
       <section className={styles.hero}>

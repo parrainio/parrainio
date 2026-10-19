@@ -18,6 +18,7 @@ import styles from "../page.module.css";
 type CategoryHubProps = {
   hub: CategoryHubContent;
   offers: Offer[];
+  campaignActive: boolean;
 };
 
 function ArrowIcon() {
@@ -67,7 +68,7 @@ function EditorialParagraph({ text }: { text: string }) {
   );
 }
 
-export default function CategoryHub({ hub, offers }: CategoryHubProps) {
+export default function CategoryHub({ hub, offers, campaignActive }: CategoryHubProps) {
   const [search, setSearch] = useState("");
   const filteredOffers = useMemo(() => {
     const query = normalizeOfferSearch(search);
@@ -112,7 +113,7 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
   return (
     <main className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PublicHeader active="offers" />
+      <PublicHeader active="offers" campaignActive={campaignActive} />
       <FavoritesDock />
 
       {/* HERO compact */}

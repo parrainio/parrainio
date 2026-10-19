@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import PublicHeader from "@/components/PublicHeader";
+import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
@@ -329,7 +329,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PublicHeader active="blog" />
+      <PublicHeaderServer active="blog" />
 
       {/* HERO ARTICLE */}
       <section className={styles.hero}>

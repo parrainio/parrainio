@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import PublicHeader from "./PublicHeader";
+import PublicHeaderServer from "./PublicHeaderServer";
 import styles from "./LegalPage.module.css";
 
 type LegalPageProps = {
@@ -13,7 +13,7 @@ type LegalPageProps = {
 export default function LegalPage({ kicker, title, intro, children }: LegalPageProps) {
   return (
     <main className={styles.page}>
-      <PublicHeader />
+      <PublicHeaderServer />
 
       <section className={styles.hero}>
         <div className={styles.container}>

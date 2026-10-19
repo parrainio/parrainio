@@ -5,12 +5,18 @@ function CheckIcon() {
   return <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.2 4.2L19 6.5" /></svg>;
 }
 
-export default function ParrainioReverseRequest({ offerSlug }: { offerSlug: string }) {
+export default function ParrainioReverseRequest({
+  offerSlug,
+  showAction = true,
+}: {
+  offerSlug: string;
+  showAction?: boolean;
+}) {
   return (
     <section className={styles.section} aria-label={`Demande de reverse pour l'offre ${offerSlug}`}>
       <div className={styles.heading}><CheckIcon />Parrainage terminé ?</div>
       <p>Vous avez finalisé votre inscription chez le partenaire ? Envoyez-nous votre demande de reverse.</p>
-      <Link href={`/demander-ma-reverse/${offerSlug}`} className={styles.button}>Demander ma reverse →</Link>
+      {showAction ? <Link href={`/demander-ma-reverse/${offerSlug}`} className={styles.button}>Demander ma reverse →</Link> : null}
       <small>Une fois votre parrainage validé, nous vérifions votre demande avant le versement de votre reverse.</small>
     </section>
   );

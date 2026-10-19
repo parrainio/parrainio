@@ -191,7 +191,7 @@ export default async function OfferPage({
   return (
     <main className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PublicHeader />
+      <PublicHeader campaignActive={Boolean(campaign)} />
       <FavoritesDock />
 
       <section className={styles.offerSection}>
@@ -310,7 +310,7 @@ export default async function OfferPage({
                       </>
                     ) : null}
                   </div>
-                  <ParrainioReverseRequest offerSlug={offer.slug} />
+                  <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
                   <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
               </div>
@@ -477,7 +477,7 @@ export default async function OfferPage({
                     </>
                   ) : null}
                 </div>
-                <ParrainioReverseRequest offerSlug={offer.slug} />
+                <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
                 <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
 
