@@ -22,6 +22,7 @@ export default function OffersMenu({ categories, hubSlugByCategory, active }: Of
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const menuId = "offers-category-menu";
 
   const cancelClose = () => {
     if (closeTimer.current) {
@@ -67,28 +68,36 @@ export default function OffersMenu({ categories, hubSlugByCategory, active }: Of
     <div
       ref={rootRef}
       className={styles.categoriesMenu}
-      onMouseEnter={openMenu}
-      onMouseLeave={scheduleClose}
+      onMouseEnter={() => {
+        if (window.innerWidth > 900 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) openMenu();
+      }}
+      onMouseLeave={() => {
+        if (window.innerWidth > 900 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) scheduleClose();
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) scheduleClose();
+      }}
     >
-      <span className={styles.offersItem}>
-        <Link href="/offres" className={`${styles.offersLink} ${active ? styles.active : ""}`}>Offres</Link>
+      <div className={styles.offersItem}>
+        <Link href="/offres" className={`${styles.offersLink} ${active ? styles.active : ""}`}>Voir les offres</Link>
         <button
           type="button"
           className={`${styles.categoryTrigger} ${open ? styles.categoryTriggerOpen : ""}`}
           aria-expanded={open}
+          aria-controls={menuId}
           aria-label="Choisir une catégorie d'offres"
           onClick={() => { cancelClose(); setOpen((value) => !value); }}
         >
           <span aria-hidden="true">▾</span>
         </button>
-        <div className={styles.categoryDropdown} hidden={!open}>
+        <div id={menuId} className={styles.categoryDropdown} hidden={!open}>
           {categories.map((category) => {
             const hubSlug = hubSlugByCategory[category];
             const href = hubSlug ? `/categories/${hubSlug}` : `/offres?category=${encodeURIComponent(category)}#offres`;
             return <Link key={category} href={href} onClick={() => setOpen(false)}>{category}</Link>;
           })}
         </div>
-      </span>
+      </div>
     </div>
   );
 }

@@ -24,13 +24,12 @@ export default function PublicHeader({ active, campaignActive = false }: PublicH
       <div className={styles.container}>
         <div className={styles.headerRow}>
           <Link href="/" className={styles.logo} aria-label="Parrainio, accueil"><span className={styles.logoMark}>P</span><span>Parrainio</span></Link>
+          <OffersMenu categories={categories} hubSlugByCategory={hubSlugByCategory} active={active === "offers"} />
           <nav className={styles.nav} aria-label="Navigation principale">
-            {links.slice(0, 1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
-            <OffersMenu categories={categories} hubSlugByCategory={hubSlugByCategory} active={active === "offers"} />
-            {campaignActive ? <Link href="/offres-boostees" className={styles.campaignNav}>Boostées</Link> : null}
+            <Link href="/" className={active === "home" ? styles.active : ""}>Accueil</Link>
+            {campaignActive ? <Link href="/offres-boostees" className={styles.campaignNav}>Offres boostées</Link> : null}
             {links.slice(1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
           </nav>
-          <Link href="/offres" className={styles.cta}>Voir les offres <span>→</span></Link>
         </div>
 
       </div>
