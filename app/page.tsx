@@ -74,7 +74,46 @@ export default async function Home() {
     <main id="top" className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }} />
       <div className={styles.homeHeader}><PublicHeader active="home" campaignActive={Boolean(campaign)} /></div>
-      <section className={styles.compactHero}><div className={styles.container}><div className={styles.compactHeroInner}><div className={styles.compactHeroCopy}><div className={styles.heroBadges}><span className={styles.eyebrow}><span />Le parrainage simplifié</span><span className={styles.updateBadge}><span className={styles.updateDot} aria-hidden="true" />Site mis à jour en {getCurrentPeriodLabel()}</span></div><h1>Votre parrainage <em>vous rapporte plus.</em></h1><p>Parrainio réunit les meilleures offres <span className={styles.heroParaSplit}>et vous aide à comprendre votre gain potentiel.</span></p><div className={styles.heroActions}><Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link><Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link></div><Image className={styles.heroPlus25} src="/images/illustrations/home-hero-plus25.webp" alt="Parrainio reverse une part de sa commission après validation du parrainage." width={550} height={316} unoptimized /></div><div className={styles.heroIllustration} aria-label="Aperçu de l'offre Boursobank"><div className={styles.illustrationBlob} aria-hidden="true" /><div className={styles.laurierBranch} aria-hidden="true"><span /><span /><span /><span /><span /><span /></div><div className={styles.illustrationRing} aria-hidden="true" /><div className={styles.marketingCard}><div className={styles.marketingCardHeader}><div className={styles.marketingBrand}><OfferLogo name={boursobank.name} logo={boursobank.logo} color={boursobank.color} logoLetter={boursobank.logoLetter} size={36} className={styles.marketingLogo} /><span><strong>{boursobank.name}</strong><small>Vue d&apos;ensemble</small></span></div><span className={styles.readablePill}>Simple à lire</span></div><div className={styles.marketingDivider} /><small className={styles.marketingLabel}>Une vraie offre, en clair</small><strong className={styles.marketingAmount}>{marketingAmountText} <small>€</small></strong><div className={styles.marketingRows}>{heroRewardsColumns.map(({ label, display }) => <div key={label}><span>{label}</span><strong>{display}</strong></div>)}</div>{marketingTotalText ? <div className={styles.marketingTotal}><span>Avantage potentiel</span><strong>Jusqu&apos;à {marketingTotalText}</strong></div> : null}<Link href={`/offres/${boursobank.slug}`} className={styles.marketingCta}>En profiter →</Link></div><div className={styles.marketingCoin} aria-hidden="true">€</div></div></div></div></section>
+      <section className={styles.compactHero}>
+        <div className={styles.container}>
+          <div className={styles.compactHeroInner}>
+            <div className={styles.compactHeroCopy}>
+              <div className={styles.heroBadges}>
+                <span className={styles.eyebrow}><span />Le parrainage simplifié</span>
+                <span className={styles.updateBadge}><span className={styles.updateDot} aria-hidden="true" />Site mis à jour en {getCurrentPeriodLabel()}</span>
+              </div>
+              <h1><span>Votre prime de parrainage</span><em>plus un reversement Parrainio</em></h1>
+              <p>Comparez les offres, vérifiez les conditions et récupérez une partie de notre commission en plus sur les offres éligibles.</p>
+              <div className={styles.heroActions}>
+                <Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link>
+                <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link>
+              </div>
+              <Image className={styles.heroRewardIllustration} src="/images/illustrations/home-hero-plus50.png" alt="Illustration d’un visiteur recevant un cadeau et des pièces, avec le message « Jusqu’à 50 % reversés en plus grâce à Parrainio »." width={1699} height={926} unoptimized />
+            </div>
+            <div className={styles.heroIllustration} aria-label="Aperçu de l'offre Boursobank">
+              <div className={styles.illustrationBlob} aria-hidden="true" />
+              <div className={styles.laurierBranch} aria-hidden="true"><span /><span /><span /><span /><span /><span /></div>
+              <div className={styles.illustrationRing} aria-hidden="true" />
+              <div className={styles.marketingCard}>
+                <div className={styles.marketingCardHeader}>
+                  <div className={styles.marketingBrand}>
+                    <OfferLogo name={boursobank.name} logo={boursobank.logo} color={boursobank.color} logoLetter={boursobank.logoLetter} size={36} className={styles.marketingLogo} />
+                    <span><strong>{boursobank.name}</strong><small>Vue d&apos;ensemble</small></span>
+                  </div>
+                  <span className={styles.readablePill}>Simple à lire</span>
+                </div>
+                <div className={styles.marketingDivider} />
+                <small className={styles.marketingLabel}>Une vraie offre, en clair</small>
+                <strong className={styles.marketingAmount}>{marketingAmountText} <small>€</small></strong>
+                <div className={styles.marketingRows}>{heroRewardsColumns.map(({ label, display }) => <div key={label}><span>{label}</span><strong>{display}</strong></div>)}</div>
+                {marketingTotalText ? <div className={styles.marketingTotal}><span>Avantage potentiel</span><strong>Jusqu&apos;à {marketingTotalText}</strong></div> : null}
+                <Link href={`/offres/${boursobank.slug}`} className={styles.marketingCta}>En profiter →</Link>
+              </div>
+              <div className={styles.marketingCoin} aria-hidden="true">€</div>
+            </div>
+          </div>
+        </div>
+      </section>
       {campaign ? <section className={styles.campaignSection} aria-labelledby="campaign-title"><div className={styles.container}><div className={styles.campaignIntro}><span>{campaign.durationLabel}</span><h2 id="campaign-title">{campaign.headline}</h2><p>Nous reversons la moitié de notre commission sur cinq offres sélectionnées.</p><Link href="/offres-boostees" className={styles.campaignLink}>Découvrir les cinq offres →</Link></div><div className={styles.campaignCards}>{campaignOffers.map((offer) => {
         const referralUrl = getOfferReferralUrl(offer);
         return <article className={styles.campaignCard} key={offer.slug}>
