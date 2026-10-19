@@ -790,12 +790,18 @@
   }
 
   .ctaCard {
+    grid-template-columns: minmax(0, 1fr);
     padding: 34px 23px;
     border-radius: 25px;
   }
 
+  .ctaActions {
+    min-width: 0;
+  }
+
   .ctaButton {
     width: 100%;
+    min-width: 0;
   }
 
   .footer {
@@ -806,5 +812,11 @@
     grid-template-columns: 1fr;
     gap: 34px;
     padding-bottom: 41px;
+  }
+}
+
+@media (max-width: 360px) {
+  .ctaCard h2 {
+    font-size: 1.6rem;
   }
 }
