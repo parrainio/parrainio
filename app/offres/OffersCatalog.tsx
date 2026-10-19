@@ -494,7 +494,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                     {offer.description}
                   </p>
 
-                  <OfferRewards offer={offer} />
+                  <OfferRewards offer={offer} compact />
 
                   <p className={styles.condition}>
                     <Icon name="check" size={15} />

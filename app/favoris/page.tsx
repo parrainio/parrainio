@@ -166,7 +166,7 @@ export default function FavorisPage() {
 
                       <p className={styles.description}>{offer.description}</p>
 
-                      <OfferRewards offer={offer} />
+                      <OfferRewards offer={offer} compact />
 
                       <p className={styles.condition}>
                         <Icon name="check" size={15} />

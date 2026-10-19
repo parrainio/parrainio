@@ -240,17 +240,18 @@
 
 .offersGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 19px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 16px;
 }
 
 .offerCard {
   display: flex;
   flex-direction: column;
-  min-height: 385px;
-  padding: 23px;
+  min-height: 320px;
+  min-width: 0;
+  padding: 16px;
   border: 1px solid #e0e9e2;
-  border-radius: 24px;
+  border-radius: 20px;
   background: #fff;
   box-shadow: 0 13px 27px rgba(28, 61, 48, 0.04);
   transition:
@@ -265,6 +266,7 @@
 
 .offerTop {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
@@ -272,8 +274,14 @@
 
 .brand {
   display: flex;
+  flex: 1 1 140px;
   align-items: center;
-  gap: 11px;
+  min-width: 0;
+  gap: 8px;
+}
+
+.brand > div {
+  min-width: 0;
 }
 
 .brand small {
@@ -291,20 +299,21 @@
   font-family: "Manrope", Arial, sans-serif;
   font-size: 1rem;
   letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
 }
 
 /* Groupe pilule + favori (alignement identique à .available seul). */
-.cardActions { display: inline-flex; align-items: center; gap: 4px; }
+.cardActions { display: inline-flex; flex: 0 1 auto; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px; max-width: 100%; min-width: 0; margin-left: auto; }
 
 .available {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 6px 8px;
+  padding: 4px 6px;
   border-radius: 999px;
   color: #35775f;
   background: #edf6ef;
-  font-size: 0.57rem;
+  font-size: 0.54rem;
   font-weight: 800;
 }
 
@@ -316,10 +325,15 @@
 }
 
 .cardDescription {
-  margin: 22px 0;
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 12px 0;
   color: var(--muted);
   font-size: 0.79rem;
-  line-height: 1.62;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
 .cardRewards {
@@ -331,11 +345,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 9px;
+  padding-top: 9px;
   border-top: 1px solid #e7ece7;
   color: var(--green);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 800;
   text-decoration: none;
 }
@@ -688,10 +702,6 @@
     grid-template-columns: 1fr;
   }
 
-  .offersGrid {
-    grid-template-columns: 1fr;
-  }
-
   .offerCard {
     min-height: 0;
   }
@@ -766,6 +776,13 @@
 
   .hubNavSection {
     padding-bottom: 48px;
+  }
+
+  .hubNavLink {
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 
   .ctaSection {

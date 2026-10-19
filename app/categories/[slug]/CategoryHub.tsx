@@ -214,7 +214,7 @@ export default function CategoryHub({ hub, offers }: CategoryHubProps) {
                 <p className={styles.cardDescription}>{offer.description}</p>
 
                 <div className={styles.cardRewards}>
-                  <OfferRewards offer={offer} />
+                  <OfferRewards offer={offer} compact />
                 </div>
 
                 <Link href={`/offres/${offer.slug}`} className={styles.offerLink}>
