@@ -10,7 +10,12 @@ export const metadata: Metadata = {
   description:
     "Découvrez les meilleures offres de parrainage et récupérez jusqu'à 25 % de votre avantage.",
   // Balise de vérification Yandex Webmaster (propriété du domaine).
-  verification: { other: { "yandex-verification": "c973a379de6c529b" } },
+  verification: {
+    other: {
+      "yandex-verification": "c973a379de6c529b",
+      budirank: "8919b7360914401faceb0f99938efc40",
+    },
+  },
   // Socle Open Graph partagé : chaque page hérite de site_name/type/locale,
   // et Next.js dérive og:title, og:description et og:url de ses propres
   // title/description/canonical. Les pages qui définissent leur propre
