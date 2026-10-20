@@ -25,7 +25,14 @@ import {
   type OfferOverride,
 } from "@/data/managedOffers";
 import { saveFeaturedOffersConfig, type FeaturedOffersConfig } from "@/data/featuredOffersAdmin";
-import { saveBoostedCampaignConfig, type BoostedCampaignConfig } from "@/data/boostedCampaign";
+import {
+  BOOSTED_CAMPAIGN_OFFER_COUNT,
+  getBoostedCampaignConfig,
+  saveBoostedCampaignConfig,
+  saveBoostedSelection,
+  syncBoostedOfferRewards,
+  type BoostedCampaignConfig,
+} from "@/data/boostedCampaign";
 import {
   deleteReview,
   setReviewStatus,
@@ -183,7 +190,7 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
     contactNote: payload.contactNote?.trim() ? payload.contactNote.trim() : null,
   };
 
-  const { persisted, offer } = await saveOfferOverride(slug, override);
+  const { persisted } = await saveOfferOverride(slug, override);
   if (!persisted) {
     throw new Error(
       "Stockage persistant indisponible : la modification n'a pas pu être enregistrée durablement. Réessayez plus tard.",
@@ -194,6 +201,24 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
      (fiche, catalogue, classement, hub de catégorie, homepage, sitemap).
      Les pages fiche/catalogue sont déjà dynamiques ; la revalidation met à
      jour les surfaces statiques ou ISR et rafraîchit le sitemap. */
+  /* Cohérence campagne ↔ fiche : lorsqu'une offre fait partie de la sélection
+     boostée, le reversement affiché sur l'accueil provient de la campagne.
+     Sans cette propagation, une valeur saisie dans la fiche resterait masquée
+     par l'ancien montant de campagne (cause du montant SoBank figé). */
+  try {
+    const saved = await getManagedOffer(slug);
+    const synced = await syncBoostedOfferRewards(slug, {
+      parrainioReward: saved?.parrainioReward,
+      partnerReward: saved?.partnerReward,
+    });
+    if (synced) revalidatePath("/offres-boostees");
+  } catch (error) {
+    console.warn(
+      "[campagne] synchronisation du reversement boosté ignorée :",
+      error instanceof Error ? error.message : error,
+    );
+  }
+
   revalidatePath("/admin/offres");
   revalidatePath(`/admin/offres/${slug}`);
   revalidatePath(`/offres/${slug}`);
@@ -279,39 +304,66 @@ export async function getOffersExportJson() {
   return JSON.stringify((await getManagedOffers()).map(toExportRecord), null, 2);
 }
 
-export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfig) {
+export type BoostedSelectionPayload = {
+  slugs: string[];
+  /** Montants affichés, par slug. Absent = on conserve la valeur en place. */
+  rewards?: Record<string, { parrainioReward?: string; partnerReward?: string }>;
+};
+
+/**
+ * Enregistre la sélection des cinq offres mises en avant : ordre, ajout,
+ * retrait, remplacement et montants affichés. C'est l'unique écriture de la
+ * mise en avant : la campagne (`admin:boosted-campaign`) alimente le bandeau
+ * de l'accueil, la page /offres-boostees, les fiches et les hubs.
+ */
+export async function saveBoostedSelectionAction(payload: BoostedSelectionPayload) {
   await requireAdmin();
 
-  if (!config.featuredOfferSlugs || config.featuredOfferSlugs.length !== 5) {
-    throw new Error("Vous devez sélectionner exactement 5 offres.");
+  if ((payload.slugs ?? []).length !== BOOSTED_CAMPAIGN_OFFER_COUNT) {
+    throw new Error(`Vous devez sélectionner exactement ${BOOSTED_CAMPAIGN_OFFER_COUNT} offres.`);
   }
 
-  const allOffers = await getManagedOffers();
-  const validSlugs = config.featuredOfferSlugs.filter(slug =>
-    allOffers.some(offer => offer.slug === slug)
-  );
+  // Cœur partagé (validation + écriture) : aucune logique dupliquée ici.
+  const next = await saveBoostedSelection(payload);
 
-  if (validSlugs.length !== 5) {
-    throw new Error("Certaines offres sélectionnées n'existent pas.");
-  }
-
-  const persisted = await saveFeaturedOffersConfig({ featuredOfferSlugs: validSlugs });
-  if (!persisted) {
-    throw new Error(
-      "Stockage persistant indisponible : la configuration n'a pas pu être enregistrée durablement.",
-    );
+  /* Miroir de la sélection historique (mise en avant des hubs/offres liées
+     quand aucune campagne n'est configurée). Même liste : une seule vérité. */
+  try {
+    await saveFeaturedOffersConfig({ featuredOfferSlugs: next.offerSlugs });
+  } catch {
+    // La campagne reste enregistrée : le miroir est un repli, pas la source.
   }
 
   revalidatePath("/");
   revalidatePath("/admin/offres");
   revalidatePath("/admin/featured");
+  revalidatePath("/offres-boostees");
+  revalidatePath("/offres");
+  revalidatePath("/classement-primes-parrainage");
+  revalidatePath("/comparatif/parrainage-bancaire");
+  revalidatePath("/comparatif/parrainage-crypto");
+  revalidatePath("/offres/[slug]", "page");
+  revalidatePath("/categories/[slug]", "page");
 
   return { ok: true };
 }
 
-export async function saveBoostedCampaignAction(config: BoostedCampaignConfig) {
+/** Compatibilité : l'ancien point d'entrée ne portait que la liste des slugs. */
+export async function saveFeaturedOffersConfigAction(config: FeaturedOffersConfig) {
+  return saveBoostedSelectionAction({ slugs: config.featuredOfferSlugs, rewards: {} });
+}
+
+export type BoostedCampaignSettings = Pick<
+  BoostedCampaignConfig,
+  "active" | "startAt" | "endAt" | "title" | "headline" | "durationLabel"
+>;
+
+/** Paramètres de campagne : fusionnés côté serveur pour ne jamais écraser la
+ *  sélection ni les montants enregistrés depuis l'autre bloc de l'admin. */
+export async function saveBoostedCampaignAction(settings: BoostedCampaignSettings) {
   await requireAdmin();
-  const persisted = await saveBoostedCampaignConfig(config);
+  const current = await getBoostedCampaignConfig();
+  const persisted = await saveBoostedCampaignConfig({ ...current, ...settings });
   if (!persisted) {
     throw new Error("Stockage persistant indisponible : la campagne n'a pas été enregistrée.");
   }
@@ -323,7 +375,6 @@ export async function saveBoostedCampaignAction(config: BoostedCampaignConfig) {
   revalidatePath("/comparatif/parrainage-crypto");
   revalidatePath("/offres-boostees");
   revalidatePath("/offres/[slug]", "page");
-  revalidatePath("/offres");
   return { ok: true };
 }
 

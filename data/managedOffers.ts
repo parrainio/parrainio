@@ -225,12 +225,13 @@ export async function saveOfferOverride(slug: string, data: OfferOverride) {
     // l'écriture lèverait EROFS (surface client : React #441) — on renvoie
     // simplement persisted=false, que l'action admin transforme en erreur
     // propre.
-    if (!process.env.VERCEL_ENV) {
-      writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
-    }
-    return { persisted: false, offer: getManagedOffer(slug) };
+    if (process.env.VERCEL_ENV) return { persisted: false, offer: await getManagedOffer(slug) };
+    // Le repli local a réellement écrit : l'admin ne doit pas afficher une
+    // erreur alors que la modification est persistée (et relue ensuite).
+    writeFileSync(overridePath, `${JSON.stringify(overrides, null, 2)}\n`, "utf8");
+    return { persisted: true, offer: await getManagedOffer(slug) };
   }
-  return { persisted: true, offer: getManagedOffer(slug) };
+  return { persisted: true, offer: await getManagedOffer(slug) };
 }
 
 export async function saveLogoIndex(index: OfferOverrides) {

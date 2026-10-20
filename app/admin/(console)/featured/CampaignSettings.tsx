@@ -25,8 +25,10 @@ export default function CampaignSettings({ config }: { config: BoostedCampaignCo
     setSaving(true);
     setMessage("");
     try {
+      /* Seuls les réglages de campagne sont envoyés : le serveur fusionne
+         avec la sélection et les montants enregistrés dans l'autre bloc,
+         sinon un enregistrement ici les écraserait. */
       await saveBoostedCampaignAction({
-        ...config,
         active,
         startAt: startAt ? new Date(startAt).toISOString() : new Date().toISOString(),
         endAt: endAt ? new Date(endAt).toISOString() : null,
@@ -45,7 +47,7 @@ export default function CampaignSettings({ config }: { config: BoostedCampaignCo
   return (
     <section style={{ maxWidth: 900, margin: "0 auto 28px", padding: 20, border: "1px solid #d8e3db", borderRadius: 18, background: "#fff" }}>
       <h2 style={{ marginTop: 0, color: "#075846" }}>Campagne « Offres boostées du moment »</h2>
-      <p>Les montants des cinq offres restent centralisés dans la configuration de campagne.</p>
+      <p>La sélection, l’ordre et les montants affichés des cinq offres se règlent dans le bloc « Offres du bandeau » ci-dessous.</p>
       <label style={{ display: "flex", alignItems: "center", gap: 10, margin: "14px 0" }}>
         <input checked={active} onChange={(event) => setActive(event.target.checked)} type="checkbox" />
         Campagne activée (la désactivation restaure immédiatement les reversements habituels)

@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getAdminFeaturedConfigCached } from "@/lib/adminKv";
 import { SELECTION_DU_MOMENT } from "@/data/featuredOffersConfig";
+import { getBoostedCampaignSelection } from "@/data/boostedCampaign";
 
 export type FeaturedOffersConfig = {
   featuredOfferSlugs: string[];
@@ -15,7 +16,18 @@ export type FeaturedOffersConfig = {
  * Pas de seed ici : lecteur de rendu (page d'accueil statique) — le seed
  * émet des fetch no-store, interdits pendant le rendu (React #441).
  */
+/**
+ * Sélection effective des offres mises en avant.
+ *
+ * SOURCE DE VÉRITÉ : la campagne administrable (`admin:boosted-campaign`)
+ * lorsque sa sélection est complète. C'est elle qui pilote le bandeau de
+ * l'accueil ; les hubs de catégorie et les offres liées doivent donc suivre
+ * la même liste, sinon deux sélections divergentes coexistent.
+ */
 export async function getFeaturedOfferSlugsServer(): Promise<string[]> {
+  const campaignSlugs = await getBoostedCampaignSelection();
+  if (campaignSlugs) return campaignSlugs;
+
   const stored = await getAdminFeaturedConfigCached();
   const config = stored as FeaturedOffersConfig | null;
   if (config && Array.isArray(config.featuredOfferSlugs) && config.featuredOfferSlugs.length > 0) {

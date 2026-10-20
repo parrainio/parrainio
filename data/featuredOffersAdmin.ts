@@ -7,6 +7,7 @@ import {
   getAdminFeaturedConfigCached,
   writeAdminKvJson,
 } from "@/lib/adminKv";
+import { getBoostedCampaignSelection } from "@/data/boostedCampaign";
 
 const dataDir = join(process.cwd(), "data");
 const featuredConfigPath = join(dataDir, "featured-config.json");
@@ -27,6 +28,11 @@ const defaultFeaturedOffersConfig: FeaturedOffersConfig = {
  * émet des fetch no-store, interdits pendant le rendu (React #441).
  */
 export async function getFeaturedOffersAdmin(): Promise<FeaturedOffersConfig> {
+  // Même source de vérité que l'accueil : la sélection de la campagne
+  // administrable, afin que l'écran admin affiche exactement le bandeau servi.
+  const campaignSlugs = await getBoostedCampaignSelection();
+  if (campaignSlugs) return { featuredOfferSlugs: campaignSlugs };
+
   const stored = await getAdminFeaturedConfigCached();
   const config = stored as FeaturedOffersConfig | null;
   if (config && Array.isArray(config.featuredOfferSlugs)) return config;
@@ -47,11 +53,10 @@ export async function saveFeaturedOffersConfig(config: FeaturedOffersConfig) {
   if (!persisted) {
     // Repli fichier en local uniquement — sur Vercel (FS lecture seule),
     // l'écriture lèverait EROFS : persisted=false suffit à l'appelant.
-    if (!process.env.VERCEL_ENV) {
-      if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
-      writeFileSync(featuredConfigPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
-    }
-    return false;
+    if (process.env.VERCEL_ENV) return false;
+    if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
+    writeFileSync(featuredConfigPath, `${JSON.stringify(config, null, 2)}\n`, "utf8");
+    // Écriture locale réussie : on la considère comme persistée.
   }
   return true;
 }

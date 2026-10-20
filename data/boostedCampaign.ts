@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { offers, type Offer } from "@/data/offers";
+import { getManagedOffers } from "@/data/managedOffers";
 import {
   ADMIN_KV_KEYS,
   ensureAdminKvSeeded,
@@ -12,13 +13,14 @@ import {
 } from "@/lib/adminKv";
 
 export const BOOSTED_CAMPAIGN_PATH = "/offres-boostees";
-export const BOOSTED_CAMPAIGN_SLUGS = [
-  "boursobank",
-  "kraken",
-  "n26",
-  "etoro",
-  "assurancevie-com",
-] as const;
+
+/**
+ * Nombre d'offres mises en avant par la campagne (« les cinq offres »).
+ * La SÉLECTION est administrable (data/boostedCampaign.ts ← admin
+ * « Offres boostées ») : plus aucune liste de slugs n'est figée ici, sinon
+ * l'admin n'aurait aucun effet sur le bandeau de l'accueil.
+ */
+export const BOOSTED_CAMPAIGN_OFFER_COUNT = 5;
 
 export type BoostedCampaignOffer = {
   parrainioReward: string;
@@ -45,22 +47,18 @@ export type BoostedCampaignConfig = {
 
 const configPath = join(process.cwd(), "data", "boosted-campaign.json");
 
-const FIXED_CAMPAIGN_OFFERS: Record<string, BoostedCampaignOffer> = {
-  boursobank: { parrainioReward: "40 €", partnerReward: "Jusqu'à 160 €" },
-  kraken: { parrainioReward: "15 €", partnerReward: "30 € en BTC" },
-  n26: { parrainioReward: "12,50 €" },
-  etoro: { parrainioReward: "42 €" },
-  "assurancevie-com": { parrainioReward: "50 €" },
-};
-
 export async function getBoostedCampaignConfig(): Promise<BoostedCampaignConfig> {
   const stored = await getAdminBoostedCampaignConfigCached();
   const parsed = (stored ?? JSON.parse(readFileSync(configPath, "utf8"))) as BoostedCampaignConfig;
   return validateBoostedCampaignConfig(parsed);
 }
 
-/** Reads the raw persistent overrides before merging the campaign, so production KV values are preserved. */
-async function getRegularRewardsFromOverrides(): Promise<Record<string, RegularOfferRewards>> {
+/**
+ * Releve les reversements « habituels » (hors campagne) des offres demandées,
+ * depuis la même source que les fiches (overrides KV, repli JSON Git).
+ * Sert d'instantané pour restaurer les montants à la désactivation.
+ */
+async function getRegularRewardsFromOverrides(slugs: readonly string[]): Promise<Record<string, RegularOfferRewards>> {
   let overrides: Record<string, { parrainioReward?: string | null; partnerReward?: string }>;
   if (isAdminKvConfigured()) {
     // Seeding is restricted to the authenticated, dynamic admin action. Its
@@ -79,7 +77,7 @@ async function getRegularRewardsFromOverrides(): Promise<Record<string, RegularO
     overrides = JSON.parse(readFileSync(join(process.cwd(), "data", "offer-overrides.json"), "utf8")) as Record<string, { parrainioReward?: string | null; partnerReward?: string }>;
   }
   const seeds = new Map(offers.map((offer) => [offer.slug, offer]));
-  return Object.fromEntries(BOOSTED_CAMPAIGN_SLUGS.map((slug) => {
+  return Object.fromEntries(slugs.map((slug) => {
     const seed = seeds.get(slug);
     if (!seed) throw new Error(`Offre introuvable : ${slug}.`);
     const override = overrides[slug] ?? {};
@@ -108,24 +106,49 @@ function validateBoostedCampaignConfig(parsed: BoostedCampaignConfig): BoostedCa
   }
   const uniqueSlugs = new Set(parsed.offerSlugs);
   if (
-    uniqueSlugs.size !== parsed.offerSlugs.length ||
-    parsed.offerSlugs.some((slug) => !(BOOSTED_CAMPAIGN_SLUGS as readonly string[]).includes(slug)) ||
-    BOOSTED_CAMPAIGN_SLUGS.some((slug) => {
-      const configured = parsed.offers[slug];
-      const expected = FIXED_CAMPAIGN_OFFERS[slug];
-      return !uniqueSlugs.has(slug) ||
-        !configured ||
-        configured.parrainioReward !== expected.parrainioReward ||
-        configured.partnerReward !== expected.partnerReward;
-    }) ||
-    (parsed.regularRewards !== undefined && BOOSTED_CAMPAIGN_SLUGS.some((slug) => {
-      const regular = parsed.regularRewards?.[slug];
-      return !regular || (regular.parrainioReward !== null && typeof regular.parrainioReward !== "string") || typeof regular.partnerReward !== "string";
-    }))
+    parsed.offerSlugs.length !== BOOSTED_CAMPAIGN_OFFER_COUNT ||
+    uniqueSlugs.size !== parsed.offerSlugs.length
   ) {
-    throw new Error("La campagne doit contenir les cinq offres boostées configurées.");
+    throw new Error(`La campagne doit contenir exactement ${BOOSTED_CAMPAIGN_OFFER_COUNT} offres, sans doublon.`);
   }
-  return parsed;
+
+  // La sélection est libre : seules l'existence de l'offre et la présence des
+  // montants à afficher sont vérifiées. Les montants ne sont plus figés ici —
+  // ils sont saisis dans l'admin et repris tels quels par l'accueil.
+  const knownSlugs = new Set(offers.map((offer) => offer.slug));
+  const unknown = parsed.offerSlugs.filter((slug) => !knownSlugs.has(slug));
+  if (unknown.length > 0) {
+    throw new Error(`Offre inconnue dans la campagne : ${unknown.join(", ")}.`);
+  }
+  for (const slug of parsed.offerSlugs) {
+    const boost = parsed.offers[slug];
+    if (!boost || typeof boost.parrainioReward !== "string" || !boost.parrainioReward.trim()) {
+      throw new Error(`Reversement Parrainio manquant pour l'offre « ${slug} ».`);
+    }
+    if (boost.partnerReward !== undefined && (typeof boost.partnerReward !== "string" || !boost.partnerReward.trim())) {
+      throw new Error(`Prime partenaire invalide pour l'offre « ${slug} ».`);
+    }
+  }
+  if (
+    parsed.regularRewards !== undefined &&
+    Object.values(parsed.regularRewards).some(
+      (regular) =>
+        !regular ||
+        (regular.parrainioReward !== null && typeof regular.parrainioReward !== "string") ||
+        typeof regular.partnerReward !== "string",
+    )
+  ) {
+    throw new Error("Instantané des reversements habituels invalide.");
+  }
+
+  // Normalisation : seules les offres sélectionnées sont conservées, dans
+  // l'ordre choisi. C'est cet ordre que suit le bandeau de l'accueil.
+  return {
+    ...parsed,
+    offers: Object.fromEntries(
+      parsed.offerSlugs.map((slug) => [slug, parsed.offers[slug]]),
+    ),
+  };
 }
 
 export function isBoostedCampaignActive(
@@ -143,6 +166,22 @@ export async function getActiveBoostedCampaign(now = Date.now()) {
   // from the current overrides store (including an existing production KV).
   if (!config.regularRewards) return null;
   return isBoostedCampaignActive(config, now) ? config : null;
+}
+
+/**
+ * Sélection effective des cinq offres (lecture de rendu). Renvoie null si la
+ * campagne est absente ou invalide — l'appelant retombe alors sur la
+ * configuration historique. Couvre KV et repli JSON local (sans KV).
+ */
+export async function getBoostedCampaignSelection(): Promise<string[] | null> {
+  try {
+    const config = await getBoostedCampaignConfig();
+    return config.offerSlugs.length === BOOSTED_CAMPAIGN_OFFER_COUNT
+      ? config.offerSlugs
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function isOfferBoosted(slug: string, now = Date.now()) {
@@ -182,6 +221,95 @@ export async function applyBoostedCampaignToOffer<T extends Offer>(
   return applyBoostedCampaign([offer], await getActiveBoostedCampaign(now))[0];
 }
 
+/**
+ * Sélection des cinq offres mises en avant : ordre, ajout, retrait,
+ * remplacement, et montants affichés. Cœur réutilisable (sans contrôle
+ * d'accès) appelé par l'action admin.
+ */
+export type BoostedSelectionInput = {
+  slugs: string[];
+  rewards?: Record<string, { parrainioReward?: string; partnerReward?: string }>;
+};
+
+export async function saveBoostedSelection(input: BoostedSelectionInput): Promise<BoostedCampaignConfig> {
+  const slugs = (input.slugs ?? []).map((slug) => String(slug).trim());
+  if (slugs.length !== BOOSTED_CAMPAIGN_OFFER_COUNT) {
+    throw new Error(`Vous devez sélectionner exactement ${BOOSTED_CAMPAIGN_OFFER_COUNT} offres.`);
+  }
+  if (new Set(slugs).size !== slugs.length) {
+    throw new Error("La sélection contient deux fois la même offre.");
+  }
+
+  const managedOffers = await getManagedOffers();
+  const bySlug = new Map(managedOffers.map((offer) => [offer.slug, offer]));
+  const unknown = slugs.filter((slug) => !bySlug.has(slug));
+  if (unknown.length > 0) {
+    throw new Error(`Certaines offres sélectionnées n'existent pas : ${unknown.join(", ")}.`);
+  }
+
+  const current = await getBoostedCampaignConfig();
+  const offersBySlug: Record<string, BoostedCampaignOffer> = {};
+  for (const slug of slugs) {
+    const managed = bySlug.get(slug)!;
+    const inputReward = input.rewards?.[slug];
+    const existing = current.offers[slug];
+    const parrainioReward = (
+      inputReward?.parrainioReward ??
+      existing?.parrainioReward ??
+      managed.parrainioReward ??
+      ""
+    ).trim();
+    const partnerReward = (
+      inputReward?.partnerReward ??
+      existing?.partnerReward ??
+      managed.partnerReward ??
+      ""
+    ).trim();
+    if (!parrainioReward) {
+      throw new Error(`Renseignez le reversement Parrainio de « ${managed.name} ».`);
+    }
+    offersBySlug[slug] = partnerReward
+      ? { parrainioReward, partnerReward }
+      : { parrainioReward };
+  }
+
+  const next: BoostedCampaignConfig = { ...current, offerSlugs: slugs, offers: offersBySlug };
+  const persisted = await saveBoostedCampaignConfig(next);
+  if (!persisted) {
+    throw new Error(
+      "Stockage persistant indisponible : la sélection n'a pas pu être enregistrée durablement.",
+    );
+  }
+  return next;
+}
+
+/**
+ * Aligne le montant boosté d'une offre sur celui enregistré dans sa fiche.
+ * Sans cela, une valeur saisie dans l'admin des offres resterait masquée par
+ * l'ancien montant de campagne (cas du reversement SoBank figé).
+ */
+export async function syncBoostedOfferRewards(
+  slug: string,
+  rewards: { parrainioReward?: string | null; partnerReward?: string },
+): Promise<boolean> {
+  const parrainioReward = rewards.parrainioReward?.trim();
+  if (!parrainioReward) return false;
+  const campaign = await getBoostedCampaignConfig();
+  if (!campaign.offerSlugs.includes(slug)) return false;
+  const partnerReward = rewards.partnerReward?.trim();
+  return saveBoostedCampaignConfig({
+    ...campaign,
+    offers: {
+      ...campaign.offers,
+      [slug]: {
+        ...(campaign.offers[slug] ?? {}),
+        parrainioReward,
+        ...(partnerReward ? { partnerReward } : {}),
+      },
+    },
+  });
+}
+
 export async function saveBoostedCampaignConfig(config: BoostedCampaignConfig): Promise<boolean> {
   const validated = validateBoostedCampaignConfig(config);
   if (validated.headline !== "50 % de notre commission reversée" || validated.durationLabel !== "Durée limitée") {
@@ -193,11 +321,20 @@ export async function saveBoostedCampaignConfig(config: BoostedCampaignConfig): 
   const previous = await getBoostedCampaignConfig();
   const wasActive = isBoostedCampaignActive(previous);
   if (validated.active && !wasActive) {
-    validated.regularRewards = await getRegularRewardsFromOverrides();
+    validated.regularRewards = await getRegularRewardsFromOverrides(validated.offerSlugs);
+  } else if (validated.active) {
+    // Campagne déjà active : on complète l'instantané pour les offres
+    // nouvellement sélectionnées, sans jamais réécrire celui des autres —
+    // la désactivation restaure les montants d'avant campagne.
+    const missing = validated.offerSlugs.filter((slug) => !previous.regularRewards?.[slug]);
+    validated.regularRewards = {
+      ...(previous.regularRewards ?? {}),
+      ...(missing.length > 0 ? await getRegularRewardsFromOverrides(missing) : {}),
+    };
   } else {
-    // Keep the original snapshot on edits and deactivation. The base override
-    // record is never rewritten by the campaign, so turning it off exposes the
-    // exact values that were present before activation.
+    // Keep the original snapshot on deactivation. The base override record is
+    // never rewritten by the campaign, so turning it off exposes the exact
+    // values that were present before activation.
     validated.regularRewards = previous.regularRewards;
   }
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.boostedCampaign, validated);

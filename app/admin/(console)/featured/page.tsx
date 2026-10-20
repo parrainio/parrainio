@@ -21,9 +21,10 @@ export default async function FeaturedOffersPage() {
         <p>Campagne temporaire et offres mises en avant sur l’accueil</p>
       </div>
       <CampaignSettings config={campaignConfig} />
-      <FeaturedOffersManager 
+      <FeaturedOffersManager
         allOffers={allOffers}
         featuredConfig={featuredConfig}
+        campaignConfig={campaignConfig}
       />
     </main>
   );
