@@ -48,6 +48,10 @@ export type BlogArticle = {
   h1?: string;
   /** Suffixe du <title> SEO ; défaut : « Blog Parrainio ». */
   titleSuffix?: string;
+  /** Titre SEO autonome (≤ 60 caractères), prioritaire sur `title` + suffixe. */
+  seoTitle?: string;
+  /** Meta description dédiée si l'extrait dépasse 160 caractères. */
+  seoDescription?: string;
   /** Extrait affiché sur la carte de la page /blog et en meta description. */
   excerpt: string;
   /** Date de publication, format ISO (AAAA-MM-JJ). */
@@ -65,6 +69,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "le-cashback-comment-ca-marche",
     title: "Cashback : comment ça marche et comment en profiter",
+    seoTitle: "Cashback : fonctionnement et erreurs à éviter",
     h1: "Le cashback, comment ça marche ?",
     excerpt:
       "Le cashback permet de récupérer une partie de vos achats en ligne : fonctionnement, différence avec le parrainage et erreurs à éviter.",
@@ -200,6 +205,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "changer-de-banque-prime-parrainage",
     title: "Changer de banque avec une prime de parrainage : le guide",
+    seoTitle: "Changer de banque avec une prime de parrainage",
     h1: "Changer de banque et profiter d'une prime de parrainage",
     excerpt:
       "Mobilité bancaire, étapes du changement, primes de parrainage et pièges à éviter : le guide complet pour changer de banque sereinement.",
@@ -358,6 +364,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "parrainage-energie",
     title: "Changer de fournisseur d'énergie : comprendre le parrainage",
+    seoTitle: "Parrainage énergie : comment ça marche",
     h1: "Changer de fournisseur : comprendre le parrainage énergie",
     excerpt:
       "Le parrainage peut accompagner un changement de fournisseur d’électricité ou de gaz : fonctionnement, conditions et points à comparer avant de souscrire.",
@@ -536,6 +543,9 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "parrainage-crypto-fonctionnement-risques",
     title: "Parrainage crypto : récompenses, conditions et risques",
+    seoTitle: "Parrainage crypto : récompenses et risques",
+    seoDescription:
+      "Bonus, KYC, dépôt et volatilité : comment fonctionne un parrainage crypto et ce qu'il faut vérifier avant de s'inscrire.",
     h1: "Le parrainage crypto, comment ça marche ?",
     excerpt:
       "Bonus, KYC, dépôt, versement en crypto et volatilité : comment fonctionne vraiment un parrainage crypto, et ce qu'il faut vérifier avant de s'inscrire.",
@@ -693,6 +703,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "freebet-comment-ca-marche",
     title: "Freebet : comment ça marche et quelles sont les conditions ?",
+    seoTitle: "Freebet : fonctionnement et conditions",
     h1: "Le freebet, comment ça marche ?",
     excerpt:
       "Le freebet n'est pas de l'argent disponible : définition, fonctionnement, conditions à vérifier et précautions à connaître avant de parier.",
@@ -857,6 +868,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-trouver-des-filleuls",
     title: "Comment trouver des filleuls et partager son parrainage ?",
+    seoTitle: "Trouver des filleuls et partager son parrainage",
     titleSuffix: "Guides & astuces Parrainio",
     h1: "Comment trouver des filleuls pour ses parrainages ?",
     excerpt:
@@ -1004,6 +1016,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-economiser-au-quotidien",
     title: "Comment économiser au quotidien : les dépenses à optimiser",
+    seoTitle: "Comment économiser au quotidien",
     titleSuffix: "Guides & astuces Parrainio",
     h1: "Comment économiser au quotidien ?",
     excerpt:
@@ -1116,6 +1129,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-economiser-sur-ses-abonnements",
     title: "Comment économiser sur ses abonnements : le guide pratique",
+    seoTitle: "Économiser sur ses abonnements : le guide",
     titleSuffix: "Guides & astuces Parrainio",
     h1: "Comment économiser sur ses abonnements ?",
     excerpt:
@@ -1263,6 +1277,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-reduire-facture-telephone-internet",
     title: "Comment réduire sa facture de téléphone et internet ?",
+    seoTitle: "Réduire sa facture téléphone et internet",
     titleSuffix: "Guides & astuces Parrainio",
     h1: "Comment réduire sa facture de téléphone et internet ?",
     excerpt:
@@ -1400,6 +1415,9 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-utiliser-cashback-intelligemment",
     title: "Comment utiliser le cashback intelligemment pour économiser ?",
+    seoTitle: "Utiliser le cashback intelligemment",
+    seoDescription:
+      "Le cashback n'est pas une raison d'acheter : la méthode pour l'utiliser comme outil d'optimisation, sans fausses économies.",
     titleSuffix: "Guides & astuces Parrainio",
     h1: "Comment utiliser le cashback intelligemment ?",
     excerpt:
@@ -1526,6 +1544,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "code-promo-ou-code-parrainage-difference",
     title: "Code promo ou code parrainage : quelle différence ?",
+    seoTitle: "Code promo ou code parrainage : la différence",
     h1: "Code promo ou code parrainage : quelle différence ?",
     excerpt:
       "Code de réduction, code parrainage, lien d’invitation ou numéro de parrain : comprenez ce qui les distingue et vérifiez le bon parcours avant de vous inscrire.",
@@ -1620,6 +1639,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "comment-trouver-code-parrainage-fiable",
     title: "Comment trouver un code de parrainage fiable ?",
+    seoTitle: "Trouver un code de parrainage fiable",
     h1: "Comment trouver un code de parrainage fiable ?",
     excerpt:
       "Vérifiez la source, la validité de l’offre, votre éligibilité et le bon parcours avant de vous inscrire : distinguez code accepté et prime acquise.",
@@ -1829,6 +1849,423 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "L’essentiel à retenir" },
       "Pour trouver un code de parrainage fiable, recoupez la source, vérifiez la campagne et son éligibilité, puis suivez le mécanisme demandé avant de créer votre compte. Confirmez que l’invitation est bien rattachée, gardez une trace des conditions et distinguez l’acceptation du code de la validation de la prime. Si une information manque ou se contredit, demandez confirmation au partenaire avant de vous inscrire.",
+    ],
+  },
+  {
+    slug: "prime-parrainage-pas-encore-versee",
+    title: "Ma prime de parrainage n’est pas encore versée : que faire ?",
+    seoTitle: "Prime de parrainage non versée : causes et étapes",
+    h1: "Ma prime de parrainage n’est toujours pas versée : les causes possibles",
+    seoDescription:
+      "Condition non remplie, validation en cours, délai bancaire, reversement Parrainio : les causes d’une prime qui tarde et les vérifications à faire.",
+    excerpt:
+      "Condition non remplie, validation en cours, délai bancaire, reversement Parrainio : les causes d’une prime qui tarde et les vérifications à faire dans l’ordre.",
+    datePublished: "2026-10-21",
+    category: "Guides",
+    body: [
+      "Une prime de parrainage annoncée « jusqu’à 160 € » ne se transforme pas en virement le jour de l’ouverture. Entre l’inscription et l’argent, il y a des conditions à remplir, une validation par la banque, un délai de versement — puis, si vous êtes passé par Parrainio, un reversement distinct. Quand rien n’arrive, la question utile n’est pas « est-ce une arnaque ? » mais « à quelle étape le dossier s’est-il arrêté ? ». Cet article reprend les causes documentées dans notre [observatoire de onze offres bancaires](/observatoire-conditions-prime), relevé le 20 octobre 2026 et revérifié le 21.",
+
+      {
+        type: "callout",
+        title: "Trois délais différents, souvent confondus",
+        items: [
+          "Le délai d’action : le temps dont vous disposez pour remplir une condition (premier versement, opérations, rétractation).",
+          "Le délai de versement : le temps que met la banque à payer la prime une fois le parrainage validé.",
+          "Le délai de reversement : le temps que met Parrainio à verser sa part, après avoir reçu sa commission.",
+        ],
+      },
+
+      { type: "h2", text: "1. La condition de l’offre n’est pas encore remplie" },
+      "Un délai de versement ne commence à courir qu’une fois la condition remplie. Avant cela, aucune horloge ne tourne, et la prime n’est pas due. Trois exemples tirés de notre relevé :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "[BoursoBank](/offres/boursobank) demande un premier versement pendant l’ouverture ou dans les 30 jours suivants, puis une opération carte par mois pendant 3 mois.",
+          "[Hello bank!](/offres/hello-bank) considère le parrainage validé lorsque le compte du filleul est définitivement ouvert ; l’opération en cours se termine le 29 octobre 2026 à 15 h.",
+          "[Assurancevie.com](/offres/assurancevie-com) ne valide le parrainage qu’après la période de rétractation légale de 30 jours suivant la souscription du contrat.",
+          "[BNP Paribas](/observatoire-conditions-prime) demande dix paiements dans les trois mois suivant l’ouverture ; selon notre retour terrain, la prime du filleul ne se déclenche pas tant qu’ils ne sont pas réalisés.",
+        ],
+      },
+      "La formulation « versement de 300 € dans les 6 jours suivant l’ouverture », que l’on rencontre sur certaines pages, décrit une action à réaliser ou un versement attendu du client, pas la date d’arrivée de la prime. C’est précisément pour éviter cette confusion que l’observatoire sépare le délai d’action du délai de versement.",
+
+      { type: "h2", text: "2. Le parrainage est en cours de validation" },
+      "Même condition remplie, la banque doit rattacher l’ouverture au bon parrain. Plusieurs points bloquent fréquemment cette étape :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Le lien ou le code n’a pas été utilisé au moment de l’inscription, ou l’a été après la création du compte. Notre guide [utiliser un code de parrainage](/codes-parrainage) détaille le bon moment.",
+          "Le filleul n’est pas considéré comme nouveau client : plusieurs offres excluent les personnes déjà clientes ou clientes récentes.",
+          "Le compte n’est plus ouvert à la date du versement. Monabanq l’écrit explicitement : la prime est versée « à condition que le compte du filleul soit toujours ouvert à cette date ».",
+          "Un doublon de parrainage existe : deux parrains pour la même ouverture, par exemple.",
+        ],
+      },
+      "Ces règles ne sont pas uniformes : chaque établissement définit son règlement. La page de la campagne, et non un comparateur, fait foi au moment de souscrire.",
+
+      { type: "h2", text: "3. Le délai publié n’est pas encore écoulé" },
+      "Neuf des onze offres de notre relevé chiffrent leur délai de versement. Trois exemples suffisent à voir pourquoi il faut les lire avec précaution : [Simplis](/offres/simplis) annonce 15 jours à compter de l’entrée en vigueur du contrat, [BoursoBank](/offres/boursobank) un maximum de 2 mois après l’ouverture effective, et [N26](/offres/n26) jusqu’à 60 jours ouvrés après la réussite du parrainage. Deux offres ne permettent aucun calcul : Fortuneo renvoie à ses mentions sans chiffrer le délai, et Linxea annonce un envoi par e-mail sans durée.",
+      "Le terrain donne des repères nettement plus courts pour ces mêmes offres : 24 à 48 h chez BoursoBank, 7 à 10 jours chez Fortuneo, jusqu’à 72 h chez N26. Ils ne remplacent pas les plafonds publiés et ne permettent pas de réclamer une date. Ils évitent simplement de conclure à un impayé au bout de trois jours. Le détail, offre par offre, se trouve dans [le guide des délais](/blog/delai-versement-prime-parrainage-comment-lire).",
+      "Les unités ne sont pas interchangeables : 60 jours ouvrés représentent environ douze semaines, et « au plus tard » fixe un plafond, pas une date promise. Le détail offre par offre, les points de départ et la conversion des unités sont traités dans [notre guide pour lire un délai de versement](/blog/delai-versement-prime-parrainage-comment-lire). L’[échéancier de versement](/echeancier-prime-parrainage) applique ces règles à une date de souscription et refuse de calculer quand la banque ne publie rien.",
+
+      { type: "h2", text: "4. La prime bancaire est arrivée, mais pas le reversement Parrainio" },
+      "Ce sont deux flux distincts, et ils ne partent pas au même moment. La banque paie la prime du filleul et, séparément, la commission du site de parrainage. Parrainio reverse ensuite une part de cette commission, généralement sous 24 à 72 heures après l’avoir reçue. Un reversement ne peut donc jamais précéder le paiement de la banque.",
+      "Notre retour de terrain indique que ces deux paiements suivent d’assez près le même calendrier pour la majorité des offres bancaires, et que le partenaire envoie habituellement une notification ou un e-mail au moment du versement. Ce n’est pas une règle publiée : aucune des onze pages lues ne garantit cette simultanéité.",
+      "[Assurancevie.com](/offres/assurancevie-com) est la seule exception documentée de notre relevé : la prime du filleul arrive vers 30 jours, celle du parrain vers 90 jours. Le calendrier du reversement ne suit donc pas celui de la prime du filleul, et un reversement peut être versé avant que Parrainio ait reçu sa commission. Le détail figure dans la section [« trois délais, trois natures »](/observatoire-conditions-prime#delai-pratique) de l’observatoire.",
+      "Si la prime du partenaire apparaît sur votre relevé mais que le reversement n’arrive pas, le problème se situe donc après la banque : rattachement du parrainage, réception de la commission, ou traitement du reversement. Pour comprendre l’assiette de ce reversement — la commission, et non la prime — voir [qui paie quoi dans un parrainage](/comprendre-prime-parrain-filleul-commission).",
+
+      { type: "h2", text: "5. Le compte a été fermé, ou une clause de reprise s’applique" },
+      "Quatre offres sur onze prévoient explicitement un prélèvement des primes si le compte est fermé trop tôt : BoursoBank sur 24 mois, Hello bank!, Monabanq et Assurancevie.com sur 12 mois. Une clôture pendant cette période peut donc annuler le gain, même si la prime a déjà été versée. Ce point est détaillé, citations à l’appui, dans [notre article sur la reprise après clôture](/blog/reprise-prime-parrainage-cloture-compte).",
+
+      { type: "h2", text: "Que faire, dans l’ordre ?" },
+      {
+        type: "checklist",
+        items: [
+          "Relire la condition exacte de l’offre, sur la page officielle et à sa date du jour : les campagnes changent.",
+          "Vérifier que la condition est remplie et à quelle date elle l’a été : c’est le point de départ du délai.",
+          "Vérifier que le compte est toujours ouvert et que le parrainage est bien rattaché à votre inscription.",
+          "Comparer la date du jour au délai publié — pas au délai observé par quelqu’un d’autre.",
+          "Si la prime bancaire est arrivée, distinguer ce versement du reversement Parrainio avant de conclure à un impayé.",
+          "Conserver les preuves : confirmation d’ouverture, relevés, date d’utilisation du lien ou du code, échanges avec le service client.",
+          "Contacter d’abord le partenaire, avec ces éléments et la clause citée ; pour un reversement Parrainio, utiliser les coordonnées indiquées sur le site.",
+        ],
+      },
+
+      { type: "h2", text: "Questions fréquentes" },
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "Au bout de combien de temps faut-il relancer ?",
+            blocks: [
+              "Il n’existe pas de délai légal unique : c’est le règlement de l’offre qui fixe le versement. Le repère raisonnable est le délai publié, augmenté de quelques jours ouvrés. Relancer avant l’échéance annoncée donne généralement peu de résultats, puisque la banque est encore dans les temps.",
+            ],
+          },
+          {
+            heading: "La banque peut-elle ne jamais payer la prime ?",
+            blocks: [
+              "Oui, si une condition n’est pas remplie ou si une clause de non-paiement s’applique. Meilleurtaux.com prévoit par exemple que, si le parrain ou le filleul n’a pas renseigné son IBAN dans les 3 mois après la concrétisation du dossier, la société se réserve le droit de ne pas payer. Ce n’est pas une reprise : la prime n’est jamais versée.",
+            ],
+          },
+          {
+            heading: "Mon parrain a reçu sa prime, mais pas moi : est-ce normal ?",
+            blocks: [
+              "Oui, ce sont deux paiements distincts, avec des montants et parfois des conditions différents. Hello bank! verse par exemple une prime fixe au parrain pendant l’opération, tandis que l’avantage du filleul dépend de la formule souscrite. Chez Assurancevie.com, la prime du filleul arrive même avant celle du parrain, autour de 30 jours contre 90. Le fait que le parrain soit payé ne prouve pas que la condition du filleul est remplie.",
+            ],
+          },
+          {
+            heading: "60 jours ouvrés, cela fait combien de temps ?",
+            blocks: [
+              "Douze semaines si l’on retire les samedis et dimanches, soit environ trois mois. Notre échéancier exclut les week-ends mais pas les jours fériés : la date affichée peut donc être légèrement antérieure à l’échéance réelle.",
+            ],
+          },
+          {
+            heading: "Le reversement Parrainio est-il garanti ?",
+            blocks: [
+              "Le reversement est un engagement de Parrainio, pas une condition bancaire. Il dépend de la réception de la commission, elle-même conditionnée à la validation du parrainage par le partenaire. Les montants et les campagnes concernées figurent sur chaque fiche d’offre, avec leur date de vérification.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "L’essentiel à retenir" },
+      "Une prime qui tarde n’est pas nécessairement une prime perdue. Vérifiez dans cet ordre : la condition est-elle remplie, le parrainage est-il validé, le délai publié est-il écoulé, le compte est-il toujours ouvert ? Si la prime bancaire est arrivée, le retard concerne peut-être seulement le reversement Parrainio, qui suit la commission. Et gardez en tête qu’aucune estimation — la nôtre comprise — ne remplace le règlement de l’offre.",
+    ],
+  },
+  {
+    slug: "reprise-prime-parrainage-cloture-compte",
+    title: "Une banque peut-elle reprendre une prime après la clôture ?",
+    seoTitle: "Reprise d’une prime de parrainage après clôture",
+    h1: "Une banque peut-elle reprendre une prime de parrainage après la clôture du compte ?",
+    seoDescription:
+      "Quatre banques sur onze prévoient un prélèvement rétroactif, sur 12 ou 24 mois. Ce que disent les conditions, et ce qu’elles ne disent pas.",
+    excerpt:
+      "Quatre banques sur onze prévoient un prélèvement rétroactif après une clôture, sur 12 ou 24 mois. Ce que disent les conditions, et ce qu’elles taisent.",
+    datePublished: "2026-10-21",
+    category: "Guides",
+    body: [
+      "Une prime de bienvenue n’est pas un cadeau sans contrepartie. La plupart des offres de parrainage demandent de garder le compte ouvert un certain temps, et certaines prévoient que la banque puisse reprendre les primes si vous fermez trop tôt. Sur les onze offres dont nous avons lu les conditions le 20 octobre 2026 — revérifiées le 21 — **quatre décrivent explicitement un prélèvement rétroactif**, une décrit un cas de non-paiement, et six ne publient ni durée de conservation ni clause de reprise. Ce dernier chiffre ne signifie pas que tout est permis : il signifie que la page ne dit rien.",
+
+      {
+        type: "callout",
+        title: "Absence de clause ≠ absence de reprise",
+        text: "Nous ne déduisons jamais qu’une reprise est impossible parce qu’une clause n’a pas été trouvée. Une page peut renvoyer à un règlement non lu, avoir changé depuis notre relevé, ou ne décrire que la prime du filleul. La source officielle reste le règlement de l’offre au moment de la souscription.",
+      },
+
+      { type: "h2", text: "Ce que « reprise » veut dire exactement" },
+      "Trois mécanismes différents sont souvent regroupés sous le mot « reprise » :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "La durée de conservation : une obligation de garder le compte ou le contrat ouvert pendant une période minimale. Elle est parfois écrite séparément de la clause de reprise.",
+          "Le prélèvement rétroactif : la banque se réserve le droit de débiter le montant des primes déjà versées si le compte est fermé dans la période visée.",
+          "Le non-paiement : la prime n’est jamais versée, faute d’une condition (IBAN renseigné, compte toujours ouvert à la date du versement, par exemple).",
+        ],
+      },
+      "La formulation compte. Les clauses que nous avons lues disent que la banque « se réserve le droit » de prélever : elles ne décrivent ni automatisme, ni préavis, ni procédure. Leur mise en œuvre dépend du règlement complet et du dossier, pas d’une règle générale que nous pourrions résumer à votre place.",
+
+      { type: "h2", text: "Quatre offres prévoient un prélèvement" },
+      "Voici ce que chacune publie, avec la durée qu’elle fixe :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "[BoursoBank](/offres/boursobank) — **24 mois**. En cas de clôture du compte dans les 24 mois suivant son ouverture effective, la banque se réserve le droit de prélever « le montant de l’ensemble des primes commerciales perçues dans le cadre de l’offre commerciale ».",
+          "[Hello bank!](/offres/hello-bank) — **12 mois**. Le compte et la carte doivent être conservés « pendant au moins un an à compter de leur souscription ». En cas de clôture dans les 12 mois, la banque peut prélever « le montant correspondant aux primes commerciales dont il a bénéficié ».",
+          "[Monabanq](/offres/monabanq) — **12 mois**. En cas de clôture dans les 12 mois suivant l’ouverture effective, la banque se réserve le droit de prélever « l’ensemble des primes commerciales » perçues dans le cadre de l’offre.",
+          "[Assurancevie.com](/offres/assurancevie-com) — **12 mois**, sur un contrat d’assurance-vie et non un compte bancaire. Le filleul s’engage à conserver son contrat au moins 12 mois ; en cas de dénouement à son initiative dans les 12 mois, la société peut prélever la prime de parrainage sur le contrat.",
+        ],
+      },
+      "Ces quatre offres représentent moins de la moitié du relevé. Elles suffisent pourtant à invalider une idée répandue : la prime ne serait acquise qu’une fois versée. Elle peut être reprise après le versement, tant que la période de conservation n’est pas écoulée.",
+
+      { type: "h2", text: "12 ou 24 mois : combien de temps garder ?" },
+      "La durée à retenir est celle de l’offre souscrite, pas une moyenne :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**24 mois** : BoursoBank.",
+          "**12 mois** : Hello bank!, Monabanq, Assurancevie.com.",
+          "**Aucune durée ni clause publiée** : Fortuneo, N26, Linxea, Caisse d’Épargne Loire-Centre, Simplis, Direct Assurance. Pour ces six offres, la page ne permet pas de conclure — et [Fortuneo](/offres/fortuneo) renvoie même explicitement à ses mentions pour le délai.",
+          "**Cas particulier** : [Meilleurtaux.com](/offres/meilleurtaux-com) ne décrit pas de prélèvement, mais se réserve le droit de ne pas payer la prime si l’IBAN n’est pas renseigné dans les 3 mois.",
+        ],
+      },
+      "Deux pièges de lecture. D’abord, la durée de conservation et la durée de reprise ne coïncident pas toujours : Hello bank! demande de conserver le compte « au moins un an » et prévoit un prélèvement sur 12 mois, ce qui revient au même ici, mais d’autres offres pourraient distinguer les deux. Ensuite, la prime de fidélité de Monabanq est calculée le 13e mois : elle ne suit pas le calendrier de la prime d’ouverture.",
+
+      { type: "h2", text: "Ce que l’expérience terrain ajoute" },
+      "Le responsable de Parrainio, qui suit ses parrainages depuis environ sept mois, distingue trois natures de durée — et ne les confond pas avec une reprise vécue :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Clause publiée** : [BoursoBank](/offres/boursobank) 24 mois, [Hello bank!](/offres/hello-bank), [Monabanq](/offres/monabanq) et [Assurancevie.com](/offres/assurancevie-com) 12 mois. Ce sont les textes cités plus haut.",
+          "**Recommandation de terrain** : [Fortuneo](/offres/fortuneo), où le responsable conseille de garder le compte un an sans avoir identifié de clause de reprise. Une recommandation n’est pas une obligation contractuelle.",
+          "**Repère pratique** : chez Hello bank!, six mois servent de repère dans son expérience, alors que la page fixe un an. Le repère ne remplace pas la clause.",
+        ],
+      },
+      "Une précision de méthode s’impose : **aucune reprise de prime n’a été constatée personnellement** par le responsable. Les cas décrits dans cet article sont des clauses contractuelles identifiées dans les pages officielles, pas des prélèvements observés. C’est une différence importante : une clause peut ne jamais être appliquée, et son absence de mise en œuvre ne prouve pas qu’elle est inopérante.",
+
+      { type: "h2", text: "Fermer après la période : ce qui reste possible" },
+      "Une fois la période écoulée, la clause de prélèvement ne s’applique plus — pour autant que le règlement n’en prévoie pas d’autre. Cela ne veut pas dire que la clôture est sans conséquence : les conditions tarifaires de la banque, la perte des services associés et les frais éventuels de clôture relèvent d’un autre document, que nous n’avons pas analysé ici.",
+      "Il reste aussi la question de la prime du parrain. Nos citations portent sur les primes perçues par le client dont le compte est fermé. Nous n’avons pas vérifié, offre par offre, si la clôture du filleul peut affecter la prime déjà versée au parrain : aucune des pages lues ne le précise clairement. Nous préférons l’écrire plutôt que de le supposer.",
+
+      { type: "h2", text: "Et si je veux fermer malgré tout ?" },
+      {
+        type: "checklist",
+        items: [
+          "Lire le règlement de l’offre, pas seulement la page marketing : c’est là que figurent les durées et les modalités.",
+          "Demander par écrit, avant la clôture, si une prime a déjà été versée et si une reprise est prévue : la réponse datée vaut mieux qu’une interprétation.",
+          "Vérifier la date exacte d’ouverture et celle du versement : les périodes courent à partir de l’ouverture effective, pas de la demande.",
+          "Conserver les relevés montrant les primes reçues et les échanges avec la banque.",
+          "Anticiper un éventuel débit et vérifier auprès de la banque les conséquences d’un solde insuffisant — point que les pages lues ne traitent pas.",
+          "En cas de désaccord sur l’application d’une clause, passer par le service client, puis par le médiateur de la banque.",
+        ],
+      },
+      "Cette liste n’est pas un conseil juridique : elle sert à réunir les bonnes pièces avant une décision qui, elle, dépend de votre contrat.",
+
+      { type: "h2", text: "Questions fréquentes" },
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "La banque peut-elle reprendre la prime sans prévenir ?",
+            blocks: [
+              "Les clauses que nous avons lues ne décrivent pas de préavis : elles indiquent que la banque « se réserve le droit » de prélever. Nous ne pouvons donc pas affirmer qu’un avertissement est systématique, ni qu’il ne l’est pas. Le règlement de l’offre et les conditions du compte sont les documents à consulter.",
+            ],
+          },
+          {
+            heading: "Fermer le compte annule-t-il aussi la prime du parrain ?",
+            blocks: [
+              "Nous ne l’avons pas vérifié. Les clauses citées visent les primes perçues par le client dont le compte est fermé. Aucune des pages lues ne traite explicitement du sort de la prime déjà versée au parrain. C’est une question à poser à la banque avant de fermer. L’expérience du responsable ne permet pas de trancher : il n’a pas constaté de reprise, ce qui ne prouve pas que le cas ne se produit jamais.",
+            ],
+          },
+          {
+            heading: "La prime de fidélité Monabanq est-elle concernée ?",
+            blocks: [
+              "La prime de fidélité est calculée le 1er jour du 13e mois et versée au plus tard le 16. Elle ne relève donc pas du délai de 60 jours de la prime d’ouverture. Notre relevé ne permet pas de dire si la clause de prélèvement sur 12 mois l’inclut : le texte parle de « l’ensemble des primes commerciales », ce qui appelle une confirmation auprès de la banque.",
+            ],
+          },
+          {
+            heading: "Un prélèvement est-il automatique ?",
+            blocks: [
+              "Non, la clause est rédigée comme une faculté : la banque « se réserve le droit » de prélever. Les conditions ne disent pas dans quels cas elle l’exerce. Il ne faut donc ni compter sur une bienveillance systématique, ni décrire un prélèvement automatique que le texte ne prévoit pas.",
+            ],
+          },
+          {
+            heading: "Et si la prime a déjà été reprise ?",
+            blocks: [
+              "Demandez par écrit le fondement du débit : clause appliquée, date d’ouverture retenue, montant et primes concernées. Comparez-les au règlement de l’offre que vous avez souscrite. En cas de désaccord persistant, le médiateur de la banque est la voie prévue pour les litiges de ce type.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "L’essentiel à retenir" },
+      "Quatre offres sur onze prévoient un prélèvement rétroactif, sur 12 mois pour Hello bank!, Monabanq et Assurancevie.com, sur 24 mois pour BoursoBank. Six n’en publient aucun — ce qui ne prouve pas qu’elles l’interdisent. Avant de fermer, lisez le règlement, demandez confirmation par écrit et gardez la trace des dates et des montants. Le tableau complet, avec les citations et les sources, se trouve dans [l’observatoire des conditions de versement](/observatoire-conditions-prime) ; pour savoir quand la prime arrive, utilisez l’[échéancier](/echeancier-prime-parrainage).",
+    ],
+  },
+  {
+    slug: "delai-versement-prime-parrainage-comment-lire",
+    title: "Délai de versement d’une prime de parrainage : comment le lire ?",
+    seoTitle: "Délai de versement d’une prime de parrainage : le guide",
+    h1: "Délai de versement d’une prime de parrainage : ce que la banque annonce, ce que le terrain montre",
+    seoDescription:
+      "« 2 mois », « 60 jours ouvrés », « 24 à 48 h » : délai publié et délai constaté ne mesurent pas la même chose. Guide des unités, des points de départ et des écarts, offre par offre.",
+    excerpt:
+      "Deux mois publiés, 24 à 48 h constatées : derrière chaque délai, une unité, un point de départ et une nature différents. Comment les lire sans se tromper.",
+    datePublished: "2026-10-21",
+    dateModified: "2026-10-21",
+    category: "Guides",
+    body: [
+      "« Prime versée sous 6 jours », « au plus tard 2 mois », « 60 jours ouvrés » : ces trois formules décrivent des choses différentes, et aucune ne veut dire « dans une semaine ». Sur les onze offres de parrainage bancaire dont nous avons lu les pages officielles le 20 octobre 2026, neuf publient un délai de versement chiffré. Mais un chiffre seul ne suffit pas : il faut savoir **ce qui est compté**, **à partir de quand**, et **ce que la banque garantit réellement**. Ce guide reprend les définitions de [l’observatoire des conditions de versement](/observatoire-conditions-prime) et y ajoute une seconde source : les délais constatés par le responsable de Parrainio sur plusieurs centaines de parrainages suivis pendant environ sept mois.",
+
+      {
+        type: "callout",
+        title: "Quatre horloges, pas une",
+        items: [
+          "Le délai d’action : le temps pour remplir une condition (premier versement, opérations, souscription).",
+          "Le délai publié : le maximum que la banque s’engage à respecter une fois le parrainage validé.",
+          "Le délai constaté : la durée réellement observée sur le terrain, souvent bien plus courte — mais non opposable.",
+          "Le délai de reversement : le temps que met Parrainio après avoir reçu sa commission, soit 24 à 72 h.",
+        ],
+      },
+
+      { type: "h2", text: "1. Une action n’est pas une date de versement" },
+      "La confusion la plus fréquente vient d’une phrase qui ressemble à un délai de paiement sans en être un. [Fortuneo](/offres/fortuneo) demande par exemple un « versement de 300 € sur le compte du filleul dans les 6 jours suivant l’ouverture ». Il s’agit d’une somme à apporter, pas de la date à laquelle la prime arrive. La page de Fortuneo ne chiffre d’ailleurs aucun délai de versement : elle renvoie à ses mentions.",
+      "Le même mot « versement » peut donc désigner l’argent que vous déposez et celui que la banque vous paie. La seule façon de trancher est de regarder le sujet de la phrase : qui verse, à qui, et à quelle occasion. C’est pour cette raison que l’observatoire sépare une colonne « conditions à remplir » d’une colonne « délai de versement ».",
+
+      { type: "h2", text: "2. Le point de départ change tout" },
+      "Un délai de 60 jours ne commence pas le jour où vous cliquez sur un lien. Selon l’offre, le compte à rebours part d’un événement différent :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**L’ouverture effective du compte** : [BoursoBank](/offres/boursobank) parle d’une prime créditée « au plus tard 2 mois après l’ouverture effective ».",
+          "**L’ouverture définitive** : [Hello bank!](/offres/hello-bank) compte 20 jours à partir de l’ouverture définitive du compte du filleul — et ce délai concerne la prime du parrain.",
+          "**La validation du parrainage** : [N26](/offres/n26) indique jusqu’à 60 jours ouvrés après la réussite du parrainage.",
+          "**La fin de la rétractation** : [Assurancevie.com](/offres/assurancevie-com) valide le parrainage après 30 jours, puis verse sous 60 jours maximum.",
+          "**La signature du contrat** : [Meilleurtaux.com](/offres/meilleurtaux-com) compte un mois après la signature de l’assurance de prêt, et deux mois pour les chèques cadeaux du crédit immobilier.",
+          "**L’entrée en vigueur du contrat** : [Simplis](/offres/simplis) annonce 15 jours à compter de cette date.",
+        ],
+      },
+      "Deux offres peuvent donc afficher le même nombre de jours et ne pas se terminer à la même date. Avant de comparer, vérifiez la base indiquée : ouverture, validation, signature ou souscription. Quand la page ne la précise pas, c’est une information à demander, pas à supposer.",
+
+      { type: "h2", text: "3. Jours, jours ouvrés, mois : trois unités différentes" },
+      "Un délai en **jours calendaires** inclut les week-ends. Un délai en **jours ouvrés** les exclut : 60 jours ouvrés représentent environ douze semaines, soit près de trois mois. Ce n’est pas un détail de vocabulaire, c’est un écart de plusieurs semaines sur la date d’arrivée.",
+      "Les **mois** ne se convertissent pas exactement en jours : deux mois peuvent compter 59, 60, 61 ou 62 jours selon la date de départ. Et « au plus tard » fixe un plafond, pas une promesse de paiement à cette date. Une prime peut arriver avant ; elle ne devrait pas arriver après, sauf condition non remplie ou clause contraire.",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "**Jours** (calendaires, sauf mention contraire) : [Simplis](/offres/simplis) 15 jours, [Hello bank!](/offres/hello-bank) 20 jours, [Monabanq](/offres/monabanq) et la [Caisse d’Épargne Loire-Centre](/offres/caisse-depargne-loire-centre) 60 jours.",
+          "**Jours ouvrés** : [N26](/offres/n26) parle de 60 jours ouvrés, soit environ douze semaines.",
+          "**Mois** : [BoursoBank](/offres/boursobank) et [Direct Assurance](/offres/direct-assurance) indiquent 2 mois au plus tard ; [Meilleurtaux.com](/offres/meilleurtaux-com) un mois après la signature de l’assurance de prêt.",
+        ],
+      },
+      "Notre [échéancier de versement](/echeancier-prime-parrainage) applique ces règles à une date de souscription : il ajoute des mois au calendrier, exclut les week-ends pour les jours ouvrés, mais pas les jours fériés. La date affichée est donc une échéance théorique, légèrement avancée si un jour férié tombe dans l’intervalle.",
+
+      { type: "h2", text: "4. Ce que les onze offres publient — et ce qu’elles taisent" },
+      "Le relevé du 20 octobre 2026 donne neuf délais chiffrés sur onze offres. Les voici, résumés dans leur unité d’origine :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "[Simplis](/offres/simplis) : 15 jours après l’entrée en vigueur du contrat.",
+          "[Hello bank!](/offres/hello-bank) : 20 jours après l’ouverture définitive (prime du parrain).",
+          "[BoursoBank](/offres/boursobank) et [Direct Assurance](/offres/direct-assurance) : 2 mois au plus tard.",
+          "[Monabanq](/offres/monabanq) et [Caisse d’Épargne Loire-Centre](/offres/caisse-depargne-loire-centre) : 60 jours maximum.",
+          "[N26](/offres/n26) : jusqu’à 60 jours ouvrés.",
+          "[Assurancevie.com](/offres/assurancevie-com) : 30 jours de rétractation, puis 60 jours maximum.",
+          "[Meilleurtaux.com](/offres/meilleurtaux-com) : 1 mois après la signature de l’assurance de prêt ; 2 mois pour les chèques cadeaux.",
+        ],
+      },
+      "Deux offres ne permettent aucun calcul. [Fortuneo](/offres/fortuneo) renvoie à ses mentions sans chiffrer le délai, et [Linxea](/offres/linxea) indique un envoi par e-mail sans durée. Nous ne convertissons ni l’un ni l’autre en estimation : une absence de délai n’est pas un délai court.",
+
+      { type: "h2", text: "5. Ce que le terrain montre, offre par offre" },
+      "Un délai publié est un maximum, pas une date habituelle. Le responsable de Parrainio suit personnellement les versements depuis environ sept mois, sur plusieurs centaines de parrainages, et relève deux choses différentes : le moment où la prime arrive, et l’opération qui la déclenche. Voici ce qu’il constate, à comparer avec la colonne « délai publié » ci-dessus :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "[BoursoBank](/offres/boursobank) : **24 à 48 h** après le dépôt requis et la validation du compte, contre un plafond publié de deux mois.",
+          "[Fortuneo](/offres/fortuneo) : **7 à 10 jours** après le dépôt de 300 € et la validation du compte. La page, elle, ne chiffre rien.",
+          "[Hello bank!](/offres/hello-bank) : **2 à 7 jours** après la validation des justificatifs, sans achat ni dépôt supplémentaire.",
+          "[Monabanq](/offres/monabanq) : **jusqu’à 30 jours** après la validation du compte, contre 60 jours publiés.",
+          "[Direct Assurance](/offres/direct-assurance) : **30 à 60 jours** après l’activation du contrat.",
+          "[N26](/offres/n26) : **jusqu’à 72 h** après l’achat de 30 €, la carte virtuelle gratuite suffisant.",
+          "[Linxea](/offres/linxea) : **environ 30 jours** après la validation du contrat.",
+          "[Assurancevie.com](/offres/assurancevie-com) : **environ 30 jours** pour la prime du filleul, **environ 90 jours** pour celle du parrain.",
+          "Plateformes d’investissement : **36 à 48 h** après un trade de 20 € chez [Coinbase](/offres/coinbase), **environ 72 h** après un trade de 200 € chez [Kraken](/offres/kraken), **environ 7 jours** après un trade de 100 $ chez [eToro](/offres/etoro).",
+          "Crédit immédiat : chez [XTB](/offres/xtb), la prime est créditée dès l’opération requise, mais reste bloquée trois jours avant retrait. Chez [Splint Invest](/offres/splint-invest), le bonus s’active avec le code, tandis que l’argent investi reste immobilisé de trois mois à sept ans selon l’actif.",
+        ],
+      },
+      "Ces durées ne sont pas des conditions : elles sont **déclarées, non mesurées**, et elles ne constituent ni une moyenne ni un taux de versement. Elles ne contredisent pas les pages officielles : un plafond de deux mois et une pratique de 24 à 48 h peuvent coexister. Elles répondent simplement à une autre question — celle que se pose le filleul le jour de l’ouverture.",
+
+      { type: "h2", text: "6. Deux primes, deux calendriers" },
+      "Le filleul reçoit sa prime, le parrain reçoit la sienne, et Parrainio reçoit une commission : trois versements qui, dans la majorité des offres, arrivent au même moment. Le responsable indique recevoir habituellement une notification ou un e-mail au moment du versement, puis traiter le reversement sous 24 à 72 h.",
+      "Deux exceptions méritent d’être connues avant de calculer une date. Chez [Assurancevie.com](/offres/assurancevie-com), les deux primes ne sont pas simultanées : la prime du filleul arrive vers 30 jours, celle du parrain vers 90 jours. Le calendrier du reversement ne suit donc pas celui de la prime du filleul. Chez BNP Paribas (offre hors du tableau officiel faute de page de conditions lue), la prime du filleul ne se déclenche qu’après dix paiements réalisés dans les trois mois suivant l’ouverture : le compte à rebours ne commence pas à l’ouverture du compte.",
+      "Si vous êtes passé par Parrainio, distinguez toujours les deux flux : la banque paie la prime du filleul et, séparément, la commission du site. Le reversement intervient après réception de cette commission. Un reversement ne peut donc jamais précéder le paiement bancaire, sauf exception documentée où la prime du filleul précède la commission. Le mécanisme complet est expliqué dans [qui paie quoi dans un parrainage](/comprendre-prime-parrain-filleul-commission).",
+      "À l’inverse, une prime peut arriver après le délai si une condition n’était pas remplie, si le compte a été fermé avant le versement ou si le parrainage n’a pas été correctement rattaché. Ces causes sont détaillées dans [notre guide des primes qui tardent](/blog/prime-parrainage-pas-encore-versee). Le délai de versement ne règle donc qu’une partie de la question ; il ne remplace ni les conditions, ni la validation.",
+
+      { type: "h2", text: "7. Estimer sans confondre" },
+      "Trois chiffres différents peuvent désormais être affichés pour une même offre, et ils ne s’additionnent pas :",
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Le **délai publié** : le maximum écrit par la banque, cité avec sa source. C’est la seule valeur opposable.",
+          "Le **délai pratique** : le délai publié plus 24 à 72 h de reversement, calculé uniquement quand la banque chiffre un délai. C’est un ordre de grandeur haut, pas une date promise.",
+          "Le **délai constaté** : la durée observée sur le terrain, affichée à côté du délai publié et jamais substituée à lui.",
+        ],
+      },
+      "Additionner le délai constaté et le reversement pour annoncer une date serait une erreur : ces durées peuvent se recouvrir, et le point de départ du terrain n’est pas toujours écrit par la banque. C’est pourquoi l’[échéancier](/echeancier-prime-parrainage) ne calcule une date qu’à partir du délai publié, et affiche le retour terrain comme un repère séparé.",
+
+      { type: "h2", text: "Questions fréquentes" },
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "60 jours ouvrés, cela fait combien de temps ?",
+            blocks: [
+              "Environ douze semaines, soit près de trois mois, si l’on retire les samedis et dimanches. Notre échéancier exclut les week-ends mais pas les jours fériés : la date calculée peut donc être légèrement antérieure à l’échéance réelle.",
+            ],
+          },
+          {
+            heading: "Le délai part-il de l’ouverture du compte ou de la validation du parrainage ?",
+            blocks: [
+              "Cela dépend de l’offre. BoursoBank part de l’ouverture effective, Hello bank! de l’ouverture définitive, N26 de la réussite du parrainage, Assurancevie.com de la fin de la rétractation. La base est indiquée dans l’observatoire pour chaque ligne ; si la page ne la précise pas, demandez confirmation.",
+            ],
+          },
+          {
+            heading: "Une prime peut-elle arriver avant le délai annoncé ?",
+            blocks: [
+              "Oui. Un délai « au plus tard » est un plafond, pas une date fixe. Notre retour de terrain situe la prime d’ouverture BoursoBank entre 24 et 48 h, contre deux mois publiés. C’est une observation déclarée, pas une règle générale ni une garantie.",
+            ],
+          },
+          {
+            heading: "Pourquoi certaines banques n’affichent-elles aucun délai ?",
+            blocks: [
+              "Fortuneo renvoie à ses mentions et Linxea ne chiffre pas l’envoi de la récompense. Nous préférons afficher cette absence plutôt que de la combler par une moyenne. Le règlement de l’offre reste la source à consulter avant de souscrire.",
+            ],
+          },
+          {
+            heading: "Le délai constaté est-il opposable à la banque ?",
+            blocks: [
+              "Non. C’est une observation du responsable de Parrainio, ni une clause ni une garantie. Elle sert à se situer et à savoir qu’un versement à 24 ou 48 h n’a rien d’anormal ; elle ne permet pas de réclamer une prime à cette date. Seul le délai publié dans le règlement de l’offre fixe l’échéance.",
+            ],
+          },
+          {
+            heading: "Pourquoi le terrain est-il souvent plus court que la page ?",
+            blocks: [
+              "Parce qu’une page annonce un maximum, pas une durée habituelle. BoursoBank publie deux mois et verse souvent sous 48 h ; N26 publie 60 jours ouvrés et verse souvent sous 72 h. L’écart n’est pas une contradiction : le plafond protège la banque en cas de validation lente, il ne décrit pas la pratique courante.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "L’essentiel à retenir" },
+      "Un délai de versement se lit avec quatre informations : l’unité (jours, jours ouvrés, mois), le point de départ (ouverture, validation, signature, souscription), la nature de la promesse (« au plus tard ») et l’origine du chiffre (page officielle ou terrain). Sans elles, un chiffre seul ne dit pas quand la prime arrivera. Pour comparer les offres, utilisez [le classement des primes](/classement-primes-parrainage) ; pour vérifier les conditions, les délais constatés et les cas de reprise, consultez [l’observatoire](/observatoire-conditions-prime).",
     ],
   },
 ];

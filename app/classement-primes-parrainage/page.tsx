@@ -318,7 +318,12 @@ export default async function ClassementPrimesPage() {
               <p>
                 Premier dépôt, minimum de commande, délai de versement,
                 conservation du compte : c&apos;est souvent là que se joue la
-                différence entre la promesse et le résultat.
+                différence entre la promesse et le résultat. Le détail offre
+                par offre est dans notre{" "}
+                <Link href="/observatoire-conditions-prime">
+                  observatoire des conditions de versement
+                </Link>
+                .
               </p>
             </div>
             <div>

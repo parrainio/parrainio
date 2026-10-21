@@ -69,6 +69,18 @@ const ARTICLE_OFFERS: Record<string, { label: string; offerSlugs: string[] }> = 
     label: "Offre associée",
     offerSlugs: ["sfr"],
   },
+  "prime-parrainage-pas-encore-versee": {
+    label: "Offres banque",
+    offerSlugs: ["boursobank", "fortuneo", "hello-bank", "monabanq"],
+  },
+  "reprise-prime-parrainage-cloture-compte": {
+    label: "Offres à durée de conservation",
+    offerSlugs: ["boursobank", "hello-bank", "monabanq", "assurancevie-com"],
+  },
+  "delai-versement-prime-parrainage-comment-lire": {
+    label: "Offres à délai publié",
+    offerSlugs: ["boursobank", "hello-bank", "monabanq", "n26"],
+  },
 };
 
 const MAX_OFFERS = 4;

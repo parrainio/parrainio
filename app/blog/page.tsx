@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Blog Parrainio : bons plans, parrainage et économies",
   description:
-    "Le blog Parrainio explique le parrainage et les économies du quotidien : primes de bienvenue, cashback, bons plans et astuces pour dépenser moins, avec des conditions toujours vérifiées.",
+    "Le blog Parrainio explique le parrainage et les économies du quotidien : primes de bienvenue, cashback, bons plans et conditions vérifiées.",
   alternates: {
     canonical: `${SITE_URL}/blog`,
   },

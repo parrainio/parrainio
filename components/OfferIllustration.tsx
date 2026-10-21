@@ -5,7 +5,7 @@ import styles from "./OfferIllustration.module.css";
 
 /**
  * Illustration au-dessus de la carte de droite des fiches offres.
- * CAS 1 : reverse Parrainio réellement exploitable → visuel homepage +25 %.
+ * CAS 1 : reverse Parrainio réellement exploitable → visuel promotionnel 50 %.
  * CAS 2 : sinon → illustration de la catégorie via le mapping central
  * HUB_ILLUSTRATIONS (aucun mapping parallèle, aucune image nouvelle).
  * La sémantique du reverse est celle d'OfferRewards (export partagé) :
@@ -33,10 +33,10 @@ export default function OfferIllustration({
 
   const illustration = hasParrainioReward
     ? ({
-        src: "/images/illustrations/home-hero-plus25.webp",
-        alt: "Jusqu'à 25 % reversés en plus grâce à Parrainio : un client souriant reçoit un cadeau entouré de pièces.",
-        width: 550,
-        height: 316,
+        src: "/images/illustrations/home-hero-plus50.webp",
+        alt: "Jusqu'à 50 % reversés en plus grâce à Parrainio : un client souriant reçoit un cadeau entouré de pièces.",
+        width: 1699,
+        height: 926,
       } as const)
     : categoryHubSlug
       ? HUB_ILLUSTRATIONS[categoryHubSlug]
@@ -51,7 +51,7 @@ export default function OfferIllustration({
       alt={illustration.alt}
       width={illustration.width}
       height={illustration.height}
-      unoptimized
+      sizes="175px"
     />
   );
 }

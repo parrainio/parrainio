@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: HubParams): Promise<Metadata>
   }
 
   return {
-    title: hub.title,
+    title: hub.seoTitle ?? hub.title,
     description: hub.metaDescription,
     alternates: { canonical: `${SITE_URL}/categories/${hub.slug}` },
     openGraph: {

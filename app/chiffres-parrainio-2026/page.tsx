@@ -8,7 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "Les chiffres Parrainio 2026 | Parrainio",
   description:
-    "Étude Parrainio sur 117 offres de parrainage analysées et vérifiées le 02/09/2026 : mécanismes, primes filleul, reversements parrain, répartition par secteur. Méthodologie et limites détaillées.",
+    "Étude Parrainio sur 117 offres de parrainage vérifiées le 02/09/2026 : mécanismes, primes filleul, reversements parrain et répartition par secteur.",
   alternates: { canonical: "https://www.parrainio.fr/chiffres-parrainio-2026" },
   openGraph: { url: "/chiffres-parrainio-2026", type: "article", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
@@ -348,6 +348,15 @@ export default function ChiffresParrainage2026Page() {
                 monétaires.
               </p>
             </article>
+          </div>
+          <div className={styles.excludedCard}>
+            <h3>Ce que cette étude ne mesure pas</h3>
+            <p>
+              Les <strong>délais de versement</strong> et les <strong>cas de reprise</strong> ne sont pas
+              agrégés ici : ils dépendent de chaque règlement d’offre et ne se déduisent pas d’un
+              catalogue. Ils font l’objet d’un relevé séparé, offre par offre :{" "}
+              <Link href="/observatoire-conditions-prime">l’observatoire des conditions de versement</Link>.
+            </p>
           </div>
           <div className={styles.excludedCard}>
             <h3>Statistiques volontairement exclues</h3>

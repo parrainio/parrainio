@@ -40,8 +40,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# campagne e-mail : journal local (données de contact)
+docs/netlinking/campagne-email/journal-envois.jsonl
+
 # agent/workspace artifacts (do not publish)
 .freebuff/
 in
 AUDIT_SEO_PROGRESS.md
 scripts/contact-perf-sink.mjs
+
+# relève IMAP : données de contact et curseur local
+docs/netlinking/donnees/reponses-email.jsonl
+docs/netlinking/donnees/contacts-alternatifs.jsonl
+docs/netlinking/donnees/pages-publication.jsonl
+docs/netlinking/donnees/replies-sync-state.json

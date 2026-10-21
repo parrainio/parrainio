@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const campaign = await getActiveBoostedCampaign();
   if (!campaign) return { title: "Offres boostées | Parrainio", robots: { index: false, follow: true }, alternates: { canonical: "/offres-boostees" } };
   return {
-    title: `${campaign.title} : ${campaign.headline} | Parrainio`,
+    title: `${campaign.title} : ${campaign.headline}`,
     description: "Découvrez cinq offres Parrainio : 50 % de notre commission reversée, pendant une durée limitée.",
     alternates: { canonical: "/offres-boostees" },
     openGraph: { url: "/offres-boostees", title: `${campaign.title} : ${campaign.headline}`, description: "50 % de notre commission reversée sur cinq offres, pendant une durée limitée.", type: "website", siteName: "Parrainio", locale: "fr_FR" },

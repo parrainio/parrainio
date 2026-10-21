@@ -10,8 +10,7 @@ import { formatProductNames } from "@/lib/productNames";
 import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/helloBankPromotion";
 
 export const metadata: Metadata = {
-  title:
-    "Comparatif de parrainage bancaire : primes et conditions | Parrainio",
+  title: "Parrainage bancaire : comparatif des primes | Parrainio",
   description:
     "Comparez les parrainages de banques en ligne, banques mobiles et caisses régionales : conditions d’éligibilité, étapes et reversement Parrainio.",
   alternates: {
@@ -433,8 +432,15 @@ export default async function ComparatifParrainageBancairePage() {
             </li>
             <li>
               <strong>Le délai de versement.</strong> Les primes sont créditées
-              après validation par la banque, parfois plusieurs semaines après
-              l&apos;ouverture.
+              après validation par la banque. Le plafond publié va de 15 jours à
+              60 jours ouvrés, mais les durées constatées sont souvent plus
+              courtes : 24 à 48 h chez BoursoBank, 2 à 7 jours chez Hello bank!.
+              Notre{" "}
+              <Link href="/observatoire-conditions-prime">
+                observatoire des conditions de versement
+              </Link>{" "}
+              sépare, offre par offre, le délai publié, le délai constaté et ce
+              qui peut faire perdre la prime.
             </li>
             <li>
               <strong>La contrepartie du parrain.</strong> Elle dépend du

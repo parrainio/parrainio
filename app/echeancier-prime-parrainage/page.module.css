@@ -1,0 +1,46 @@
+.page { --green:#075846; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+.container { width:min(1060px,calc(100% - 48px)); margin:0 auto; }
+.page h1,.page h2,.page h3,.page p { margin-top:0; }
+.page h2 em,.page h1 em { color:var(--orange); font-style:normal; }
+
+.hero { padding:14px 0 16px; background:radial-gradient(circle at 80% 20%,#e4f0e6 0,transparent 46%),radial-gradient(circle at 12% 96%,rgba(252,226,199,.4),transparent 28%),var(--cream); }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:8px; padding:4px 10px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 5px rgba(239,135,62,.13); }
+.hero h1 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.07em; font-size:clamp(2rem,3.4vw,2.8rem); line-height:1.05; }
+.lead { max-width:780px; margin-bottom:0; color:var(--muted); font-size:.92rem; line-height:1.55; }
+.lead strong { color:var(--ink); }
+
+.toolSection { padding:22px 0 18px; }
+.tool { border:1px solid #e0e9e2; border-radius:22px; background:#fff; padding:18px; box-shadow:0 10px 30px rgba(7,88,70,.05); }
+.fields { display:grid; grid-template-columns:1.2fr 1fr; gap:12px; }
+.field { display:grid; gap:5px; }
+.field span { color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.field select,.field input { width:100%; padding:11px 12px; border:1px solid #cfdcd3; border-radius:12px; background:#fbfcfa; color:var(--ink); font:inherit; font-size:.9rem; }
+.field select:focus-visible,.field input:focus-visible { outline:2px solid var(--orange); outline-offset:2px; }
+
+.result { margin-top:14px; padding:16px; border:1px solid #e3eee6; border-radius:18px; background:#f7fbf7; }
+.resultLabel { margin-bottom:4px; color:#4d7b6b; font-size:.7rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.resultDate { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:800; letter-spacing:-.05em; line-height:1.1; }
+.resultText { margin-bottom:8px; color:var(--muted); font-size:.84rem; line-height:1.55; }
+.warning { margin-bottom:8px; padding:8px 10px; border-left:3px solid var(--orange); background:#fff8ef; color:#8a5a2b; font-size:.78rem; line-height:1.5; }
+.terrainNote { margin:0 0 8px; padding:8px 10px; border-left:3px solid #b8c9bd; background:#f4f8f4; color:#3f5a4c; font-size:.78rem; line-height:1.55; }
+.source { color:#0a6b55; font-size:.76rem; font-weight:800; text-decoration:none; }
+.source:hover { text-decoration:underline; text-underline-offset:3px; }
+.details { margin-top:14px; padding-top:12px; border-top:1px solid #eef3ee; }
+.details p { margin-bottom:6px; color:var(--ink); font-size:.8rem; line-height:1.55; }
+.detailsMeta { color:var(--muted); font-size:.72rem; }
+.detailsMeta a { color:#0a6b55; font-weight:700; }
+
+.explainSection { padding:22px 0 34px; background:#f5f8f5; }
+.explainSection h2 { margin-bottom:12px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.05em; font-size:clamp(1.4rem,2.3vw,1.9rem); }
+.columns { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.columns article { padding:14px 16px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.columns h3 { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
+.columns p { margin-bottom:0; color:var(--muted); font-size:.82rem; line-height:1.55; }
+.note { margin:14px 0 0; color:var(--muted); font-size:.78rem; line-height:1.6; }
+.note a { color:#0a6b55; font-weight:700; }
+
+@media (max-width:760px) {
+  .fields { grid-template-columns:1fr; }
+  .columns { grid-template-columns:1fr; }
+}

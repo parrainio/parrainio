@@ -38,7 +38,7 @@ const secondary = (title: string, url: string): OfferSource => ({ title, url, ty
 export const offerSeoProfiles: Record<string, OfferSeoProfile> = {
   boursobank: {
     status: "verified",
-    seoTitle: "Parrainage BoursoBank : lien d’invitation et conditions | Parrainio",
+    seoTitle: "Parrainage BoursoBank : lien et conditions | Parrainio",
     metaDescription: "Parrainage BoursoBank : comprenez le parcours d’ouverture, les actions demandées et les conditions liées à l’offre affichée avant de commencer.",
     h1: "BoursoBank : parrainage, offre et conditions",
     introduction: "BoursoBank est une banque en ligne qui permet d'ouvrir et de gérer un compte individuel, une carte bancaire et différents produits d'épargne ou d'investissement depuis ses services numériques. Pour un nouveau client, le parrainage ne se résume pas à l'ouverture du compte : le montant dépend de l'offre active et peut associer premier versement, utilisation de la carte et mobilité bancaire. Cette fiche reprend l'offre Parrainio enregistrée, jusqu'à 160 € selon l'offre bancaire en cours, et détaille le parcours à vérifier avant de commencer. Le lien de parrainage doit être utilisé au début du parcours, car les conditions de la campagne s'appliquent dès l'entrée dans la souscription.",

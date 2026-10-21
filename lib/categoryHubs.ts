@@ -14,6 +14,8 @@ export type CategoryHubContent = {
   slug: string;
   group: OfferCategory;
   title: string;
+  /** Titre SEO court (≤ 60 caractères) ; défaut : `title`. */
+  seoTitle?: string;
   metaDescription: string;
   h1Lead: string;
   h1Accent: string;
@@ -51,6 +53,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "banque-finance",
     group: "Banque & Finance",
     title: "Parrainage Banque & Finance : offres et conditions | Parrainio",
+    seoTitle: "Parrainage bancaire : offres et conditions",
     metaDescription:
       "Comparez les parrainages bancaires, d’assurance, d’épargne et de services financiers : conditions d’éligibilité et parcours résumés par partenaire.",
     h1Lead: "Les offres de parrainage",
@@ -92,6 +95,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "shopping-courses",
     group: "Shopping & Courses",
     title: "Parrainage Shopping & Courses : offres et bons plans | Parrainio",
+    seoTitle: "Parrainage shopping et courses",
     metaDescription:
       "Offres de parrainage e-commerce, mode, sport et courses : primes, codes et liens d'invitation, conditions détaillées et reversement Parrainio.",
     h1Lead: "Les offres de parrainage",
@@ -133,6 +137,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "investissement-crypto",
     group: "Investissement & Crypto",
     title: "Parrainage Investissement & Crypto : offres et bonus | Parrainio",
+    seoTitle: "Parrainage investissement et crypto",
     metaDescription:
       "Offres de parrainage courtiers, épargne et plateformes crypto : conditions, dépôts et récompenses expliqués, plus le reversement Parrainio.",
     h1Lead: "Les offres de parrainage",
@@ -174,6 +179,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "recompenses-applications",
     group: "Récompenses & Applications",
     title: "Parrainage Récompenses & Applications : offres et bonus | Parrainio",
+    seoTitle: "Parrainage récompenses et applications",
     metaDescription:
       "Offres de parrainage d'applications récompenses : missions, sondages et programmes de gains, conditions détaillées et reversement Parrainio.",
     h1Lead: "Les offres de parrainage",
@@ -308,6 +314,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "energie",
     group: "Énergie",
     title: "Offres de parrainage énergie : fournisseurs et services | Parrainio",
+    seoTitle: "Parrainage énergie : offres et fournisseurs",
     metaDescription:
       "Parcourez les offres de fournisseurs d'énergie et de services associés : fiches partenaires, conditions de parrainage et détails des récompenses.",
     h1Lead: "Offres de parrainage pour",
@@ -350,6 +357,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "voyage-mobilite",
     group: "Voyage & Mobilité",
     title: "Parrainage Voyage & Mobilité : offres et bons plans | Parrainio",
+    seoTitle: "Parrainage voyage et mobilité",
     metaDescription:
       "Offres de parrainage voyage et mobilité : hébergements, hôtes, covoiturage et vélos électriques — conditions, déclencheurs et reversement Parrainio.",
     h1Lead: "Les offres de parrainage",
@@ -390,8 +398,9 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "services-numeriques",
     group: "Services numériques",
     title: "Parrainage et affiliation numérique : programmes et conditions | Parrainio",
+    seoTitle: "Parrainage services numériques",
     metaDescription:
-      "Comparez les programmes de recommandation et d’affiliation pour l’hébergement web, les services freelance et les outils en ligne : éligibilité, attribution et forme de la rémunération.",
+      "Programmes de recommandation et d’affiliation pour l’hébergement web, le freelance et les outils en ligne : éligibilité et rémunération.",
     h1Lead: "Les offres de parrainage",
     h1Accent: "services numériques.",
     intro: [
@@ -464,6 +473,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     slug: "autres-bons-plans",
     group: "Autres bons plans",
     title: "Parrainage Autres bons plans : offres et bons plans | Parrainio",
+    seoTitle: "Parrainage autres bons plans",
     metaDescription:
       "Une sélection d'offres de parrainage hors des grandes catégories : réservations du quotidien et services de proximité, conditions et reversement Parrainio.",
     h1Lead: "Les offres de parrainage",

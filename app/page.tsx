@@ -96,7 +96,7 @@ export default async function Home() {
                   <Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link>
                   <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>Comment ça marche →</Link>
                 </div>
-                <Image className={styles.heroRewardIllustration} src="/images/illustrations/home-hero-plus50.png" alt="Illustration d’un visiteur recevant un cadeau et des pièces, avec le message « Jusqu’à 50 % reversés en plus grâce à Parrainio »." width={1699} height={926} unoptimized />
+                <Image className={styles.heroRewardIllustration} src="/images/illustrations/home-hero-plus50.webp" alt="Illustration d’un visiteur recevant un cadeau et des pièces, avec le message « Jusqu’à 50 % reversés en plus grâce à Parrainio »." width={1699} height={926} unoptimized />
               </div>
             </div>
             <div className={styles.heroIllustration} aria-label="Aperçu de l'offre Boursobank">

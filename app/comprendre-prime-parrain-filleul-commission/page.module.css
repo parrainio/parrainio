@@ -1,0 +1,80 @@
+.page { --green:#075846; --green-dark:#043f34; --orange:#ef873e; --cream:#f8f7f1; --ink:#173d35; --muted:#71807d; min-height:100vh; background:#fffdfa; color:var(--ink); font-family:"DM Sans",Arial,sans-serif; }
+.container { width:min(1080px,calc(100% - 48px)); margin:0 auto; }
+.page h1,.page h2,.page h3,.page p { margin-top:0; }
+.page h2 em { color:var(--orange); font-style:normal; }
+
+.hero { padding:16px 0 20px; background:radial-gradient(circle at 78% 18%,#e4f0e6 0,transparent 46%),radial-gradient(circle at 12% 96%,rgba(252,226,199,.4),transparent 28%),var(--cream); }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; margin-bottom:8px; padding:4px 10px; border:1px solid rgba(7,88,70,.1); border-radius:999px; background:rgba(255,255,255,.78); color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 5px rgba(239,135,62,.13); }
+.hero h1 { margin-bottom:8px; max-width:900px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:clamp(1.9rem,3.2vw,2.6rem); line-height:1.06; }
+.heroLead { max-width:760px; margin-bottom:0; color:var(--muted); font-size:.92rem; line-height:1.55; }
+
+.section { padding:26px 0 30px; background:#fffdfa; }
+.sectionAlt { padding:26px 0 30px; background:#f5f8f5; }
+.sectionHead { max-width:740px; margin-bottom:16px; }
+.sectionHead .kicker { margin-bottom:5px; color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.sectionHead h2 { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.05em; font-size:clamp(1.4rem,2.3vw,1.9rem); line-height:1.1; }
+.sectionHead > p:not(.kicker) { margin-bottom:0; color:var(--muted); font-size:.88rem; line-height:1.55; }
+
+.flowGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.flowCard { padding:16px 18px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.flowStep { margin-bottom:8px; color:var(--orange); font-family:"Manrope",Arial,sans-serif; font-size:.8rem; font-weight:800; letter-spacing:.1em; }
+.flowCard h2 { margin-bottom:6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.02rem; letter-spacing:-.03em; }
+.flowCard p { margin-bottom:0; color:var(--muted); font-size:.83rem; line-height:1.55; }
+.flowCard strong { color:var(--ink); }
+
+.tableWrap { overflow-x:auto; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.table { width:100%; min-width:620px; border-collapse:collapse; font-size:.82rem; }
+.table th,.table td { padding:12px 14px; border-bottom:1px solid #eef3ee; text-align:left; vertical-align:top; }
+.table thead th { background:#f5f8f5; color:#4d7b6b; font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+.table tbody th { color:var(--green); font-family:"Manrope",Arial,sans-serif; font-weight:800; }
+.table tbody tr:last-child th,.table tbody tr:last-child td { border-bottom:0; }
+.note { margin:10px 0 0; color:var(--muted); font-size:.76rem; line-height:1.5; }
+
+.mathCard { padding:18px 20px; border:1px solid #f0d9bd; border-radius:18px; background:#fff8ef; }
+.mathCard p { color:var(--ink); font-size:.9rem; line-height:1.6; }
+.mathCard ul { margin:0 0 10px; padding-left:20px; display:grid; gap:8px; }
+.mathCard li { color:var(--muted); font-size:.85rem; line-height:1.55; }
+.mathCard strong { color:var(--ink); }
+.mathCard .mathNote { margin-bottom:0; padding-top:10px; border-top:1px dashed #e8cfae; color:#8a6a2f; font-size:.82rem; }
+
+.confusionGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.confusionCard { padding:15px 17px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.confusionCard h3 { margin:0 0 6px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.98rem; letter-spacing:-.03em; }
+.confusionCard p { margin-bottom:0; color:var(--muted); font-size:.83rem; line-height:1.55; }
+
+.faqList { display:grid; gap:8px; }
+.faqItem { padding:13px 16px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+.faqItem summary { cursor:pointer; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.92rem; font-weight:800; letter-spacing:-.02em; }
+.faqItem summary::-webkit-details-marker { color:var(--orange); }
+.faqItem p { margin:9px 0 0; color:var(--muted); font-size:.84rem; line-height:1.55; }
+.faqItem[open] { border-color:#cfe2d5; background:#fbfdfb; }
+
+.ctaSection { padding:26px 0 34px; background:#fffdfa; }
+.ctaCard { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border-radius:22px; background:linear-gradient(145deg,#0b5d49,#043f34); color:#fff; }
+.ctaCard h2 { margin-bottom:5px; color:#fff; font-family:"Manrope",Arial,sans-serif; font-weight:800; letter-spacing:-.05em; font-size:1.22rem; }
+.ctaCard h2 em { color:#f5a861; font-style:normal; }
+.ctaCard p { margin-bottom:0; max-width:640px; color:#c4ddcf; font-size:.82rem; line-height:1.55; }
+.ctaCard a:not(.ctaButton) { color:#f5a861; font-weight:800; text-decoration:none; }
+.ctaCard a:not(.ctaButton):hover { text-decoration:underline; text-underline-offset:3px; }
+.ctaButton { flex:none; display:inline-flex; align-items:center; padding:11px 18px; border-radius:999px; background:var(--orange); color:#fff; font-size:.82rem; font-weight:800; text-decoration:none; }
+.ctaButton:hover { background:#df6f2d; }
+
+.srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+@media (max-width:900px) {
+  .flowGrid { grid-template-columns:1fr; }
+  .confusionGrid { grid-template-columns:1fr; }
+}
+@media (max-width:700px) {
+  .tableWrap { overflow:visible; border:0; background:transparent; }
+  .table { min-width:0; display:block; }
+  .table thead { display:none; }
+  .table tbody { display:grid; gap:10px; }
+  .table tbody tr { display:block; padding:12px 14px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+  .table tbody th,.table tbody td { display:block; padding:0; border:0; }
+  .table tbody th { margin-bottom:6px; }
+  .table tbody td { margin-top:8px; }
+  .table tbody td::before { content:attr(data-label); display:block; margin-bottom:3px; color:#4d7b6b; font-size:.64rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+  .ctaCard { flex-direction:column; align-items:flex-start; }
+}

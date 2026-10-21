@@ -24,6 +24,8 @@ import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { lot16Profiles } from "@/data/offer-seo-batch14";
 import { getRelatedOffers } from "@/lib/relatedOffers";
 import { getCategoryHubForGroup } from "@/lib/categoryHubs";
+import { observatoire } from "@/lib/observatoireConditions";
+import { getRetourTerrain } from "@/lib/experienceTerrain";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import { classifyReferralMechanism, getHubLinkAnchor } from "@/lib/referralMechanism";
@@ -40,6 +42,7 @@ import OfferRewards from "@/components/OfferRewards";
 import OfferIllustration from "@/components/OfferIllustration";
 import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/helloBankPromotion";
 import ParrainioReverseRequest from "@/components/ParrainioReverseRequest";
+import OfferDelayNotice from "@/components/OfferDelayNotice";
 import styles from "./page.module.css";
 
 // Les fiches sont rendues sur demande pour relire les overrides et recalculer
@@ -121,6 +124,10 @@ export default async function OfferPage({
     ? { ...managedOffer, parrainioReward: selectHelloBankParrainioReward(new Date()) }
     : managedOffer;
   const offer = await applyBoostedCampaignToOffer(baseOffer);
+  const observatoireOffre = observatoire.offres.find((entry) => entry.slug === offer.slug);
+  // Les offres hors observatoire (crypto, courtage) n'ont pas de citation
+  // officielle : elles gardent leur retour terrain, sans condition inventée.
+  const terrainOffre = observatoireOffre?.terrain ?? getRetourTerrain(offer.slug);
 
   const referralUrl = getOfferReferralUrl(offer);
   const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
@@ -311,6 +318,9 @@ export default async function OfferPage({
                     ) : null}
                   </div>
                   <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
+                  {observatoireOffre || terrainOffre ? (
+                    <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
+                  ) : null}
                   <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
               </div>
@@ -352,6 +362,26 @@ export default async function OfferPage({
                         {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                       </details>
                     ))}
+                    {terrainOffre && (
+                      <details className={styles.seoAccordion}>
+                        <summary>Quand la prime arrive-t-elle en pratique ?</summary>
+                        <p>
+                          Notre retour d’expérience indique {terrainOffre.delai.texte}, déclenché par :{" "}
+                          {terrainOffre.declencheur}. C’est une observation du responsable de Parrainio,
+                          pas une condition de l’établissement.
+                        </p>
+                        <p>
+                          Prime du filleul : {terrainOffre.delais.primeFilleul}. Prime du parrain :{" "}
+                          {terrainOffre.delais.commissionParrain}. Reversement Parrainio :{" "}
+                          {terrainOffre.delais.reversementParrainio}.
+                        </p>
+                        <p>
+                          Conservation : {terrainOffre.conservation.texte}. Reprise :{" "}
+                          {terrainOffre.reprise.texte}
+                        </p>
+                        {terrainOffre.exception ? <p>À noter : {terrainOffre.exception}</p> : null}
+                      </details>
+                    )}
                     {seoProfile.practicalInformation && <details className={styles.seoAccordion}><summary>À savoir avant de s&apos;inscrire</summary><ul className={styles.seoList}>{seoProfile.practicalInformation.map((item) => <li key={item}>{item}</li>)}</ul></details>}
                     {seoProfile.faq && seoProfile.faq.length > 0 && <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-faq`}><h2 id={`${offer.slug}-faq`}>Questions fréquentes sur le parrainage {offer.name}</h2><div className={styles.seoFaq}>{seoProfile.faq.map((item) => <details key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div></section>}
                     </div>
@@ -478,6 +508,9 @@ export default async function OfferPage({
                   ) : null}
                 </div>
                 <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
+                {observatoireOffre || terrainOffre ? (
+                  <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
+                ) : null}
                 <OfferChangeAlert slug={offer.slug} offerName={offer.name} />
                 </div>
 

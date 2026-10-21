@@ -399,7 +399,7 @@ export const offers: Offer[] = [
   createOffer("totalenergies", "TotalEnergies", "Énergie", "50 €", "T"),
   createOffer("sfr", "RED by SFR", "Téléphonie & Internet", "Jusqu'à 15 €", "R"),
   {
-    ...createOffer("fortuneo", "Fortuneo", "Banque", "Jusqu'à 160 €", "F"),
+    ...createOffer("fortuneo", "Fortuneo", "Banque", "70 € (Fosfo) à 130 € (Gold)", "F"),
     referralCode: "14241677",
   },
   createOffer("poulpeo", "Poulpeo", "Cashback", "5 €", "P"),

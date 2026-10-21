@@ -8,10 +8,9 @@ import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
-  title:
-    "Comparatif paris sportifs : bonus, conditions et offres | Parrainio",
+  title: "Comparatif paris sportifs : bonus et conditions | Parrainio",
   description:
-    "Comparatif des offres de parrainage des opérateurs de paris sportifs actuellement documentés sur Parrainio : Winamax, Betclic, Unibet, Parions Sport et Betsson. Bonus filleul, reversement Parrainio et conditions essentielles, sans promesse de gain.",
+    "Comparatif des offres de parrainage des opérateurs de paris sportifs : Winamax, Betclic, Unibet, Parions Sport et Betsson. Bonus et conditions.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/paris-sportifs`,
   },

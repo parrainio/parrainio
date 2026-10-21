@@ -20,9 +20,9 @@ import styles from "./page.module.css";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Code de parrainage : comment le trouver et l'utiliser | Parrainio",
+  title: "Code parrainage : le trouver et l'utiliser | Parrainio",
   description:
-    "Code parrainage : ce que c'est, où le trouver sur Parrainio, comment le saisir correctement et ce qui peut l'invalider. Codes, liens et conditions expliqués simplement.",
+    "Code parrainage : ce que c'est, où le trouver, comment le saisir et ce qui peut l'invalider. Codes, liens et conditions expliqués simplement.",
   alternates: { canonical: `${SITE_URL}/codes-parrainage` },
   openGraph: {
     url: "/codes-parrainage",

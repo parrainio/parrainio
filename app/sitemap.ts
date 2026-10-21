@@ -55,6 +55,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/parrainage-energie`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/codes-parrainage`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/chiffres-parrainio-2026`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/observatoire-conditions-prime`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/echeancier-prime-parrainage`, changeFrequency: "monthly", priority: 0.7 },
+    {
+      url: `${SITE_URL}/comprendre-prime-parrain-filleul-commission`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     { url: `${SITE_URL}/comparatif/parrainage-bancaire`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/parrainage-crypto`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/cashback`, changeFrequency: "weekly", priority: 0.7 },

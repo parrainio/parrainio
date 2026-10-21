@@ -45,8 +45,8 @@ export async function generateMetadata({
   const article = getBlogArticle(slug);
   if (!article) return {};
   return {
-    title: `${article.title} | ${article.titleSuffix ?? "Blog Parrainio"}`,
-    description: article.excerpt,
+    title: article.seoTitle ?? `${article.title} | ${article.titleSuffix ?? "Blog Parrainio"}`,
+    description: article.seoDescription ?? article.excerpt,
     alternates: { canonical: `${SITE_URL}/blog/${article.slug}` },
     openGraph: {
       url: `/blog/${article.slug}`,
@@ -64,20 +64,28 @@ export async function generateMetadata({
   };
 }
 
-/** Rend le texte avec liens internes au format [ancre](/chemin). */
+/**
+ * Rend le texte avec liens internes au format [ancre](/chemin) et passages
+ * en gras au format **texte**. Les deux ne se combinent pas : une ancre reste
+ * un lien simple, un gras ne contient pas de lien.
+ */
 function Inline({ text }: { text: string }) {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g);
   return (
     <>
       {parts.map((part, index) => {
-        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-        if (!match) return <span key={index}>{part}</span>;
-        const [, anchor, href] = match;
-        return (
-          <Link key={index} href={href}>
-            {anchor}
-          </Link>
-        );
+        const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (link) {
+          const [, anchor, href] = link;
+          return (
+            <Link key={index} href={href}>
+              {anchor}
+            </Link>
+          );
+        }
+        const bold = part.match(/^\*\*([^*]+)\*\*$/);
+        if (bold) return <strong key={index}>{bold[1]}</strong>;
+        return <span key={index}>{part}</span>;
       })}
     </>
   );
@@ -269,6 +277,40 @@ function ArticleBody({ blocks }: { blocks: BlogBlock[] }) {
   );
 }
 
+/**
+ * Texte brut d'un bloc, pour le JSON-LD FAQ : mêmes réponses que celles
+ * affichées, sans balisage Markdown ni lien. Les blocs non textuels sont
+ * ignorés plutôt que résumés approximativement.
+ */
+function plainBlockText(block: BlogBlock): string | null {
+  if (typeof block === "string") return block;
+  if (block.type === "p") return block.text;
+  if (block.type === "list") return block.items.join(" ");
+  return null;
+}
+
+function plainInline(text: string): string {
+  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*([^*]+)\*\*/g, "$1");
+}
+
+/** Questions/réponses des accordéons de premier niveau, pour FAQPage. */
+function extractFaq(article: BlogArticle) {
+  return article.body
+    .filter((block): block is Extract<BlogBlock, { type: "accordion" }> =>
+      typeof block !== "string" && block.type === "accordion",
+    )
+    .flatMap((block) => block.items)
+    .filter((item) => item.heading.trim().endsWith("?"))
+    .map((item) => {
+      const parts = item.blocks.map(plainBlockText);
+      if (parts.some((part) => part === null)) return null;
+      const answer = plainInline(parts.join(" ")).trim();
+      if (!answer) return null;
+      return { question: plainInline(item.heading), answer };
+    })
+    .filter((entry): entry is { question: string; answer: string } => entry !== null);
+}
+
 function relatedArticles(article: BlogArticle) {
   const others = blogArticles.filter((candidate) => candidate.slug !== article.slug);
   const sameCategory = others.filter(
@@ -285,6 +327,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   const related = relatedArticles(article);
   const offerContext = await getBlogOfferContext(article.slug);
+  const faq = extractFaq(article);
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -320,6 +363,18 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           url: SITE_URL,
         },
       },
+      ...(faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: faq.map((entry) => ({
+                "@type": "Question",
+                name: entry.question,
+                acceptedAnswer: { "@type": "Answer", text: entry.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 

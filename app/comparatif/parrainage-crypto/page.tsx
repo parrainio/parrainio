@@ -8,10 +8,9 @@ import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
-  title:
-    "Comparatif parrainage crypto : bonus, conditions et risques | Parrainio",
+  title: "Comparatif parrainage crypto : bonus et risques | Parrainio",
   description:
-    "Comparatif des offres de parrainage crypto actuellement documentées sur Parrainio : Coinbase, Crypto.com, OKX et Kraken, ainsi que SwissBorg, Bitstack, Bitpanda, Bybit, Coinhouse et Cointiply. Récompenses filleul, unités (EUR, USD, BTC), reversement Parrainio et conditions essentielles, sans conversion artificielle.",
+    "Comparatif des offres de parrainage crypto : Coinbase, Crypto.com, OKX, Kraken et SwissBorg. Récompenses filleul, conditions et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/parrainage-crypto`,
   },

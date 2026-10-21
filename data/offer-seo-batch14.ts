@@ -12,9 +12,9 @@ const source = (title: string, url: string, type: "official" | "secondary" = "of
 export const lot16Profiles: Record<string, OfferSeoProfile> = {
   xtb: make({
     status: "partial",
-    seoTitle: "Parrainage XTB : reverse Parrainio de 8 € et conditions | Parrainio",
+    seoTitle: "Parrainage XTB : reverse de 8 € et conditions | Parrainio",
     metaDescription:
-      "XTB : demandez un lien de parrainage personnel, ouvrez un compte actions/ETF/CFD et percevez un reverse Parrainio de 8 € après validation. Conditions et risques.",
+      "XTB : demandez un lien de parrainage, ouvrez un compte actions/ETF/CFD et percevez un reverse Parrainio de 8 € après validation. Conditions et risques.",
     h1: "XTB : parrainage partenaire, reverse de 8 € et conditions",
     introduction:
       "XTB est un courtier en ligne international qui permet d'investir en actions, ETF, CFD et matières premières via la plateforme xStation 5. L'offre Parrainio s'appuie sur le programme partenaire de XTB, dont les modalités détaillées ne sont pas publiques : Parrainio les suit lui-même et reverse 8 € au filleul après validation du parrainage par le programme. Le compte XTB fonctionne comme chez tout courtier : une inscription avec vérification d'identité, un dépôt (aucun minimum d'ouverture n'est affiché dans les informations vérifiées) puis des transactions selon votre stratégie. Investir comporte un risque de perte en capital ; les CFD, à effet de levier limité à 1:30 pour les particuliers, peuvent entraîner la perte du capital investi.",
@@ -106,9 +106,9 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
   }),
   kast: make({
     status: "partial",
-    seoTitle: "Parrainage KAST : paliers en euros, validation manuelle et reverse Parrainio",
+    seoTitle: "Parrainage KAST : paliers et reverse Parrainio",
     metaDescription:
-      "KAST : carte Standard gratuite, paliers de parrainage jusqu'à environ 373 € (conversions indicatives), reverse Parrainio jusqu'à environ 55 €. Validation manuelle de chaque palier obligatoire.",
+      "KAST : carte Standard gratuite, paliers jusqu'à environ 373 € (conversions indicatives) et reverse Parrainio jusqu'à environ 55 €. Validation manuelle.",
     h1: "KAST : paliers du parrainage, validation manuelle et reverse Parrainio",
     introduction:
       "KAST est un service financier qui propose une carte de paiement Standard : sans frais d'abonnement annuel selon les conditions publiées, avec du cashback (1,5 % sur les dépenses admissibles, plafonné à environ 1 777 € de dépenses par mois au taux indicatif utilisé ici) et deux cartes virtuelles incluses. Le parrainage KAST fonctionne par paliers de dépenses : chaque palier franchi peut débloquer une récompense, MAIS CHAQUE PALIER DOIT ÊTRE VALIDÉ MANUELLEMENT DANS L'APPLICATION par le filleul. Les montants de cette fiche sont des conversions indicatives en euros : les seuils officiels du programme sont libellés en dollars dans l'application KAST.",

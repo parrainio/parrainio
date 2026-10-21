@@ -8,10 +8,9 @@ import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
 
 export const metadata: Metadata = {
-  title:
-    "Comparatif cashback : iGraal, Poulpeo, eBuyClub, Widilo… | Parrainio",
+  title: "Comparatif cashback : iGraal, Poulpeo, eBuyClub… | Parrainio",
   description:
-    "Comparatif des plateformes de cashback actuellement documentées sur Parrainio : iGraal, Poulpeo, eBuyClub, Widilo et TopCashback. Bonus de parrainage filleul, reversement Parrainio et conditions essentielles, sans inventer de taux de cashback.",
+    "Comparatif cashback Parrainio : iGraal, Poulpeo, eBuyClub, Widilo et TopCashback. Bonus de parrainage, reversement Parrainio et conditions essentielles.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/cashback`,
   },

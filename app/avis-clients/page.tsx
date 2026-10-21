@@ -10,9 +10,9 @@ import { getApprovedReviews, getReviewsStats } from "@/lib/reviews";
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 
 export const metadata: Metadata = {
-  title: "Avis clients Parrainio : les retours de la communauté | Parrainio",
+  title: "Avis clients Parrainio : les retours vérifiés | Parrainio",
   description:
-    "Les avis des utilisateurs de Parrainio : fiabilité des parrains, réactivité des reversements et expérience réelle du parrainage. Partagez votre avis en quelques minutes.",
+    "Les avis des utilisateurs de Parrainio : fiabilité des parrains, réactivité des reversements et expérience réelle du parrainage.",
   alternates: { canonical: "https://www.parrainio.fr/avis-clients" },
   openGraph: { url: "/avis-clients", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };

@@ -140,11 +140,16 @@ async function sendAlertEmails(params: {
   if (!smtp || params.subscriberEmails.length === 0) return { sent: 0, failed: 0 };
 
   const nodemailer = await import("nodemailer");
+  const local = ["localhost", "127.0.0.1", "::1", "[::1]"].includes(smtp.host.toLowerCase());
   const transporter = nodemailer.default.createTransport({
     host: smtp.host,
     port: smtp.port,
     secure: smtp.port === 465,
+    requireTLS: smtp.port !== 465 && !local,
+    tls: { minVersion: "TLSv1.2" },
     auth: { user: smtp.user, pass: smtp.password },
+    logger: false,
+    debug: false,
   });
 
   let sent = 0;

@@ -169,6 +169,11 @@
 .referralContact strong { color:var(--green); font-size:.78rem; line-height:1.4; }
 .referralContact small { color:#668075; font-size:.66rem; line-height:1.45; }
 .helloBankNotice { margin-top:10px; padding:13px 14px; border:1px solid #efc99e; border-left:5px solid #ef873e; border-radius:14px; background:#fff8ed; color:#594431; font-size:.75rem; line-height:1.55; }
+.delayNotice { margin-top:10px; padding:13px 14px; border:1px solid #cfe2d5; border-left:5px solid #075846; border-radius:14px; background:#f5faf5; color:#3c534d; font-size:.75rem; line-height:1.55; }
+.delayNotice strong { display:block; margin-bottom:6px; color:#075846; font-size:.82rem; }
+.delayNotice p { margin:5px 0 0; }
+.delayNotice a { color:#075846; font-weight:800; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+@media (max-width:620px) { .delayNotice { padding:11px 12px; } }
 .helloBankNotice strong { display:block; margin-bottom:6px; color:#075846; font-size:.82rem; }
 .helloBankNotice p { margin:5px 0 0; }
 @media (max-width:620px) { .helloBankNotice { padding:11px 12px; } }
