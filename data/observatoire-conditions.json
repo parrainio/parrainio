@@ -37,7 +37,7 @@
         "texte": "2 mois (prime d'ouverture)"
       },
       "reversementParrainio": {
-        "montant": "15 € — 40 € pendant la campagne boostée en cours",
+        "montant": "15 € — 60 € pendant la campagne boostée en cours",
         "source": "Fiche Parrainio",
         "verifieLe": "2026-10-21",
         "delai": "24 à 72 heures"
@@ -53,7 +53,7 @@
         "delaiObserve": "24 à 48 heures au maximum",
         "conservationConseillee": "24 mois",
         "primeObservee": "variable selon le montant du premier versement (300 € pour viser le maximum)",
-        "reversementObserve": "15 € (40 € pendant la campagne boostée en cours)",
+        "reversementObserve": "15 € (60 € pendant la campagne boostée en cours)",
         "concordance": "ecart",
         "note": "Le délai observé ne correspond pas au délai publié (2 mois). Il peut viser une autre prime (mobilité, parrain) ou une campagne antérieure : à ne pas présenter comme la règle."
       },
@@ -157,7 +157,7 @@
         "texte": "20 jours"
       },
       "reversementParrainio": {
-        "montant": "5 € (fiche) — 60 € annoncés par le responsable jusqu'au 29/10/2026, à vérifier",
+        "montant": "60 € (fiche, montant de l'opération jusqu'au 29/10/2026)",
         "source": "Fiche Parrainio",
         "verifieLe": "2026-10-21",
         "delai": "24 à 72 heures"
@@ -173,9 +173,9 @@
         "delaiObserve": "2 à 7 jours selon la validation du compte",
         "conservationConseillee": "un an conseillé, six mois présentés comme une recommandation",
         "primeObservee": "60 € de reversement annoncés jusqu'au 29/10/2026, à vérifier",
-        "reversementObserve": "60 € annoncés jusqu'au 29/10/2026 ; la fiche affiche 5 €",
+        "reversementObserve": "60 €, alignés sur la fiche pendant l'opération jusqu'au 29/10/2026",
         "concordance": "ecart",
-        "note": "Écart entre les 60 € annoncés et les 5 € de la fiche. La page officielle prévoit par ailleurs une conservation d'un an et un prélèvement en cas de clôture dans les 12 mois : la croyance « aucune reprise » est démentie par la source."
+        "note": "La fiche affiche les 60 € du retour terrain pendant l'opération, mais ce montant reste lié à sa date de fin et à revérifier ensuite. La page officielle prévoit par ailleurs une conservation d'un an et un prélèvement en cas de clôture dans les 12 mois : la croyance « aucune reprise » est démentie par la source."
       },
       "delaiPratique": {
         "statut": "estimation_parrainio",
