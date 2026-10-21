@@ -73,7 +73,7 @@
     "category": "Voyage",
     "description": "Devenez hôte Airbnb et gagnez de l’argent en louant votre logement. 🏠💰\n",
     "partnerReward": "Prime variable selon la campagne",
-    "parrainioReward": "25% de notre récompense",
+    "parrainioReward": "50% de notre récompense",
     "referralCode": null,
     "referralLink": "https://www.airbnb.fr/rp/mathieum247?p=stay&s=67&unique_share_id=6c4cfe3c-d1f1-4382-98b6-1de7624dd86b",
     "conditions": [
@@ -418,7 +418,7 @@
     "category": "Crypto",
     "description": "Bitpanda est une plateforme d'investissement en ligne basée en Autriche.",
     "partnerReward": "Jusqu'à 100€",
-    "parrainioReward": "Jusqu'à 25€  (25%)",
+    "parrainioReward": "Jusqu'à 50€  (50%)",
     "referralCode": null,
     "referralLink": "https://www.bitpanda.com/?ref=255935660578001233",
     "officialWebsiteUrl": null,
@@ -1235,7 +1235,7 @@
       "Choisir la récompense proposée.",
       "Recevoir le ticket de récompense BTC."
     ],
-    "parrainioReward": "25 % de ma prime (entre 0,25 € et 12,50 € selon la prime)",
+    "parrainioReward": "50 % de ma prime (entre 0,50 € et 25 € selon la prime)",
     "partnerReward": "Entre 1 € et 50 €"
   },
   "okx": {
@@ -1826,7 +1826,7 @@
       "Créer le compte.",
       "Acheter un plan éligible."
     ],
-    "parrainioReward": "25 % de ma prime (environ 10 € actuellement)",
+    "parrainioReward": "50 % de ma prime (environ 20 € actuellement)",
     "partnerReward": "20 % de réduction sur votre abonnement"
   },
   "pourdebon": {
@@ -2395,7 +2395,7 @@
     "category": "Banque",
     "description": "KAST est un service financier qui propose une carte de paiement Standard gratuite : cashback 1,5 % jusqu'à 2 000 $ de dépenses admissibles par mois. Attention : les paliers de parrainage doivent être validés manuellement dans l'application.",
     "partnerReward": "Jusqu'à environ 373 € de paliers KAST (approximatif, paliers en dollars validés manuellement)",
-    "parrainioReward": "Jusqu'à environ 55 € (25 % de la commission Parrainio après conversion en euros, aucun palier implicite)",
+    "parrainioReward": "Jusqu'à environ 111 € (50 % de la commission Parrainio après conversion en euros, aucun palier implicite)",
     "referralCode": null,
     "referralLink": null,
     "officialWebsiteUrl": "https://www.kast.com",
@@ -2405,7 +2405,7 @@
       "Atteindre chaque palier de dépenses admissibles (500 $, 1 000 $, 2 000 $, 5 000 $ selon les barèmes du programme) puis VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION : les récompenses ne sont pas cumulées automatiquement si un palier n'est pas validé.",
       "Les montants donnés en euros sont indicatifs : les seuils officiels du programme KAST sont en dollars et peuvent évoluer.",
       "KAST n'est pas un établissement bancaire : les fonds ne sont pas couverts par une assurance des dépôts comparable à celle des banques régulées.",
-      "Parrainio reverse jusqu'à 25 % de ce qu'il encaisse réellement en fonction des paliers parrain atteints : le maximum d'environ 55 € suppose que tout le parcours du filleul soit dûment validé sans échéance manquée."
+      "Parrainio reverse jusqu'à 50 % de ce qu'il encaisse réellement en fonction des paliers parrain atteints : le maximum d'environ 111 € suppose que tout le parcours du filleul soit dûment validé sans échéance manquée."
     ],
     "steps": [
       "Demander un lien de parrainage personnel à Parrainio via le formulaire de la fiche.",

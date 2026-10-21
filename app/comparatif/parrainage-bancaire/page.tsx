@@ -59,9 +59,9 @@ type DisplayOverride = {
 const DISPLAY_OVERRIDES: Record<string, DisplayOverride> = {
   sumeria: {
     partnerReward: "0 € pour le filleul",
-    parrainioReward: "Jusqu'à 13,75 € reversés par Parrainio",
+    parrainioReward: "Jusqu'à 27,50 € reversés par Parrainio",
     parrainioRewardNote:
-      "25 % de la commission générée : 25 € sans abonnement ou 55 € avec abonnement.",
+      "50 % de la commission générée : 25 € sans abonnement ou 55 € avec abonnement.",
   },
 };
 
@@ -444,7 +444,7 @@ export default async function ComparatifParrainageBancairePage() {
             <li>
               <strong>Le reversement Parrainio.</strong> Une fois le parrainage
               validé par le partenaire, Parrainio peut reverser une partie de
-              sa commission, jusqu&apos;à 25 %.
+              sa commission, jusqu&apos;à 50 %.
             </li>
           </ul>
         </div>

@@ -43,7 +43,7 @@ export default function CguPage() {
 
       <h2>4. Reversement</h2>
       <p>
-        Parrainio peut reverser à l'utilisateur une partie de la commission perçue, jusqu'à 25 % de celle-ci,
+        Parrainio peut reverser à l'utilisateur une partie de la commission perçue, jusqu'à 50 % de celle-ci,
         lorsque les conditions de l'offre du partenaire sont validées.
       </p>
       <p>

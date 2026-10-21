@@ -78,7 +78,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Une fois le parrainage validé par le partenaire, Parrainio reverse une partie de sa commission, jusqu'à 25 %.",
+        text: "Une fois le parrainage validé par le partenaire, Parrainio reverse une partie de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -120,7 +120,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Parrainage validé par le partenaire, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 25 %.",
+        text: "Parrainage validé par le partenaire, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -161,7 +161,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Le parrainage validé, Parrainio reverse une part de la commission reçue, jusqu'à 25 %.",
+        text: "Le parrainage validé, Parrainio reverse une part de la commission reçue, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -204,7 +204,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Après validation du parrainage, Parrainio vous reverse une partie de sa commission, jusqu'à 25 %.",
+        text: "Après validation du parrainage, Parrainio vous reverse une partie de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -251,7 +251,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Le parrainage validé par l'opérateur, Parrainio vous reverse une fraction de sa commission, jusqu'à 25 %.",
+        text: "Le parrainage validé par l'opérateur, Parrainio vous reverse une fraction de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -294,7 +294,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Parrainage validé, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 25 %.",
+        text: "Parrainage validé, reversement en plus : Parrainio cède une part de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -337,7 +337,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Le parrainage validé, Parrainio vous reverse une part de sa commission, jusqu'à 25 %.",
+        text: "Le parrainage validé, Parrainio vous reverse une part de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -377,7 +377,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Une fois le parrainage validé, Parrainio partage avec vous une partie de sa commission, jusqu'à 25 %.",
+        text: "Une fois le parrainage validé, Parrainio partage avec vous une partie de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -417,7 +417,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Parrainage accepté par le partenaire, Parrainio vous restitue une fraction de sa commission, jusqu'à 25 %.",
+        text: "Parrainage accepté par le partenaire, Parrainio vous restitue une fraction de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -451,7 +451,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Parrainage confirmé, Parrainio reverse sur votre compte une part de sa commission, jusqu'à 25 %.",
+        text: "Parrainage confirmé, Parrainio reverse sur votre compte une part de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [
@@ -490,7 +490,7 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
       },
       {
         title: "Reversement Parrainio",
-        text: "Dès que le partenaire valide le parrainage, Parrainio vous redistribue une partie de sa commission, jusqu'à 25 %.",
+        text: "Dès que le partenaire valide le parrainage, Parrainio vous redistribue une partie de sa commission, jusqu'à 50 %.",
       },
     ],
     hubLinks: [

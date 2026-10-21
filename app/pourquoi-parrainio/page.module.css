@@ -88,6 +88,18 @@
 .remunerationCard p:last-child { margin-bottom:0; }
 .remunerationCard strong { color:#dc762d; font-weight:800; }
 
+/* ── Section 5 : reversement ──────────────────────────────────────────── */
+.reversalSection { padding:26px 0 34px; background:#fffdfa; }
+.reversalSteps { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:0; padding:0; list-style:none; }
+.reversalSteps li { display:flex; gap:11px; padding:14px 16px; border:1px solid #e0e9e2; border-radius:18px; background:#fff; }
+.reversalSteps li > span { flex:none; display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:#eaf4ec; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.78rem; font-weight:800; }
+.reversalSteps h3 { margin:0 0 5px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.95rem; letter-spacing:-.03em; }
+.reversalSteps p { margin:0; color:var(--muted); font-size:.82rem; line-height:1.5; }
+.reversalNote { max-width:840px; margin:12px 0 0; padding:13px 16px; border-left:3px solid #f0c79a; border-radius:0 14px 14px 0; background:#fff8ef; color:#6b6252; font-size:.82rem; line-height:1.55; }
+.reversalNote strong { color:var(--ink); }
+.reversalNote a { color:var(--green); font-weight:800; text-decoration:none; }
+.reversalNote a:hover { text-decoration:underline; text-underline-offset:3px; }
+
 /* ── CTA final (rapproché) ────────────────────────────────────────────── */
 .ctaSection { padding:26px 0 38px; background:#fffdfa; }
 .ctaCard { position:relative; display:flex; align-items:center; justify-content:space-between; gap:22px; overflow:hidden; padding:clamp(22px,3.5vw,36px); border-radius:24px; background:#ffead4; }
@@ -106,7 +118,7 @@
   .infoGrid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:700px) {
-  .infoGrid,.stepsGrid { grid-template-columns:1fr; }
+  .infoGrid,.stepsGrid,.reversalSteps { grid-template-columns:1fr; }
 }
 @media (max-width:620px) {
   .container { width:min(100% - 34px,1160px); }
@@ -122,6 +134,7 @@
   .infoSection,.stepsSection { padding:26px 0 30px; }
   .trustSection { padding:26px 0; }
   .remunerationSection { padding:24px 0 0; }
+  .reversalSection { padding:24px 0 30px; }
   .remunerationCard { padding:26px 18px; border-radius:22px; }
   .ctaSection { padding-bottom:40px; }
   .ctaCard { align-items:flex-start; flex-direction:column; padding:26px 20px; border-radius:22px; }

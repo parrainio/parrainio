@@ -409,7 +409,7 @@ export default async function ParrainageEnergiePage() {
             <li>
               <strong>Le reversement Parrainio.</strong> Une fois le
               parrainage validé par le partenaire, Parrainio peut reverser une
-              partie de sa commission, jusqu&apos;à 25 %.
+              partie de sa commission, jusqu&apos;à 50 %.
             </li>
           </ul>
         </div>

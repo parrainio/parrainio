@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/` },
   title: "Parrainio — Les offres de parrainage, en clair",
   description:
-    "Découvrez les meilleures offres de parrainage et récupérez jusqu'à 25 % de votre avantage.",
+    "Découvrez les meilleures offres de parrainage et récupérez jusqu'à 50 % de la commission Parrainio, selon les conditions de l'offre.",
   // Balise de vérification Yandex Webmaster (propriété du domaine).
   verification: {
     other: {

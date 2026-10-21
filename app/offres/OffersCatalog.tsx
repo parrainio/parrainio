@@ -560,12 +560,12 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
               <p className={styles.kicker}>Le guide Parrainio</p>
               <h2>Bien choisir son offre de <em>parrainage.</em></h2>
               <p>Une offre de parrainage permet à un nouveau client de profiter d&apos;une prime lorsqu&apos;il s&apos;inscrit grâce à un client existant. Parrainio rassemble ces bons plans et présente clairement les montants, les conditions et les étapes à suivre.</p>
-              <p>Après validation du parrainage par le partenaire, Parrainio reverse jusqu&apos;à 25 % de la commission reçue. Comparez les offres selon la prime partenaire, le délai, les conditions et le reversement potentiel pour choisir celle qui correspond à votre situation. Pour aller plus loin, consultez notre guide <Link href="/codes-parrainage">où trouver et utiliser un code de parrainage</Link>.</p>
+              <p>Après validation du parrainage par le partenaire, Parrainio reverse jusqu&apos;à 50 % de la commission reçue, selon les conditions de l&apos;offre. Comparez les offres selon la prime partenaire, le délai, les conditions et le reversement potentiel pour choisir celle qui correspond à votre situation. Pour aller plus loin, consultez notre guide <Link href="/codes-parrainage">où trouver et utiliser un code de parrainage</Link>.</p>
             </div>
             <div className={styles.faqCard}>
               <h2>Questions fréquentes</h2>
               <details open><summary>Comment fonctionne une offre de parrainage ?</summary><p>Inscrivez-vous via le parcours indiqué, respectez les conditions du partenaire, puis faites confirmer votre parrainage auprès de Parrainio.</p></details>
-              <details><summary>Comment fonctionne le reversement Parrainio ?</summary><p>Après confirmation du parrainage, Parrainio reverse jusqu&apos;à 25 % de la commission reçue.</p></details>
+              <details><summary>Comment fonctionne le reversement Parrainio ?</summary><p>Après confirmation du parrainage, Parrainio reverse jusqu&apos;à 50 % de la commission reçue, selon les conditions de l&apos;offre.</p></details>
               <details><summary>Quand reçoit-on le reversement Parrainio ?</summary><p>Le reversement intervient après la validation du parrainage par le partenaire et la confirmation auprès de Parrainio.</p></details>
               <details><summary>Comment choisir la meilleure offre de parrainage ?</summary><p>Comparez la prime, les conditions, le délai de validation et le reversement potentiel avant de vous lancer.</p></details>
             </div>

@@ -7,9 +7,9 @@ import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Pourquoi Parrainio ? Fonctionnement, avantages et transparence | Parrainio",
+  title: "Pourquoi Parrainio ? Fonctionnement et transparence",
   description:
-    "Comment fonctionne Parrainio : les étapes d'un parrainage, le fonctionnement des offres et codes, jusqu'à 25 % de commission reversée et une information claire avant de vous lancer.",
+    "Comment fonctionne Parrainio : les étapes d'un parrainage, les offres et codes, jusqu'à 50 % de commission reversée et une information claire.",
   alternates: { canonical: "https://www.parrainio.fr/pourquoi-parrainio" },
   openGraph: { url: "/pourquoi-parrainio", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };
@@ -30,9 +30,9 @@ function Icon({ name, size = 24 }: { name: IconName; size?: number }) {
 }
 
 const steps = [
-  { number: "01", title: "Choisissez une offre", text: "Parcourez les offres et repérez celle qui vous correspond.", icon: "search" as const },
-  { number: "02", title: "Utilisez le lien ou le code de parrainage", text: "Inscrivez-vous via le lien ou le code indiqué sur la fiche.", icon: "link" as const },
-  { number: "03", title: "Respectez les conditions et recevez votre avantage", text: "Une fois les conditions remplies, recevez votre prime — et le reversement Parrainio lorsque l’offre le prévoit.", icon: "gift" as const },
+  { number: "01", title: "Choisissez une offre", text: "Lisez sa fiche avant de commencer : elle précise l’éligibilité, le lien ou code à utiliser et les actions demandées.", icon: "search" as const },
+  { number: "02", title: "Utilisez le lien ou le code de parrainage", text: "Suivez le lien ou saisissez le code au moment indiqué sur la fiche, souvent avant l’ouverture du compte ou la commande.", icon: "link" as const },
+  { number: "03", title: "Effectuez les actions demandées", text: "Réalisez les étapes et opérations prévues dans le délai de l’offre. Le partenaire vérifie ensuite que les conditions sont remplies.", icon: "gift" as const },
 ];
 
 const infoBlocks = [
@@ -94,9 +94,9 @@ export default function PourquoiParrainioPage() {
               <div className={styles.heroRing} aria-hidden="true" />
               <div className={styles.benefitCard}>
                 <div className={styles.benefitCardTop}><span>Votre avantage Parrainio</span><span className={styles.cardMark}>P</span></div>
-                <div className={styles.percent}><strong>25</strong><span>%</span></div>
-                <p className={styles.benefitMain}>Jusqu&apos;à 25 % de notre commission reversée</p>
-                <p className={styles.benefitSub}>Votre bonus + jusqu&apos;à 25 % de notre commission</p>
+                <div className={styles.percent}><strong>50</strong><span>%</span></div>
+                <p className={styles.benefitMain}>Jusqu&apos;à 50 % de notre commission reversée</p>
+                <p className={styles.benefitSub}>Votre bonus + jusqu&apos;à 50 % de notre commission</p>
                 <div className={styles.cardBottom}><span><Icon name="check" size={16} /> Selon les conditions de l&apos;offre</span><Icon name="spark" size={18} /></div>
               </div>
               <span className={styles.coinOne} aria-hidden="true">€</span>
@@ -182,10 +182,105 @@ export default function PourquoiParrainioPage() {
               C&apos;est ce que nous appelons le «&nbsp;Parrainio reverse&nbsp;».
             </p>
             <p>
-              Jusqu&apos;à <strong>25&nbsp;%</strong> de notre commission peut ainsi vous être
+              Jusqu&apos;à <strong>50&nbsp;%</strong> de notre commission peut ainsi vous être
               reversée, selon les conditions de l&apos;offre.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* 5. Comment demander le reversement et quand arrive-t-il ? */}
+      <section id="reversement" className={styles.reversalSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <p className={styles.kicker}>Le reversement</p>
+            <h2>Comment demander <em>votre reversement&nbsp;?</em></h2>
+            <p>
+              Le reversement s’ajoute à la prime du partenaire uniquement lorsque la fiche de l’offre
+              le prévoit. La fiche indique les conditions à remplir ; le délai de versement dépend ensuite
+              du calendrier de cette offre. Dans la majorité des cas, le filleul reçoit sa prime au moment
+              où le parrain reçoit la sienne, et le partenaire envoie une notification à ce moment-là.
+            </p>
+          </div>
+          <ol className={styles.reversalSteps}>
+            <li>
+              <span>1</span>
+              <div>
+                <h3>Suivez les conditions de l’offre</h3>
+                <p>
+                  Utilisez le lien ou le code au moment indiqué, puis effectuez les actions requises
+                  (par exemple un dépôt, un achat ou des opérations). Consultez les{" "}
+                  <Link href="/offres">fiches d’offres et leurs conditions</Link> avant de vous inscrire :
+                  chaque partenaire fixe ses propres étapes et délais.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>2</span>
+              <div>
+                <h3>Demandez le reversement après votre parcours</h3>
+                <p>
+                  Depuis la fiche de l’offre, ouvrez « Demander ma reverse » une fois les étapes du
+                  partenaire effectuées. Le formulaire demande votre prénom, votre nom et votre adresse
+                  e-mail. La référence du contrat est facultative ; le mode de paiement est à choisir,
+                  et ses coordonnées peuvent être transmises plus tard si nécessaire.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>3</span>
+              <div>
+                <h3>Ajoutez les précisions utiles, si l’offre le demande</h3>
+                <p>
+                  Il n’y a pas de justificatif à joindre systématiquement. Si la fiche précise que le
+                  partenaire identifie l’ouverture du compte avec un numéro de téléphone, indiquez le
+                  même numéro dans le champ « Message » facultatif du formulaire. Aucun justificatif n’est
+                  à joindre par défaut ; transmettez-en un uniquement si la fiche le prévoit ou si
+                  Parrainio vous le demande pour vérifier le dossier.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>4</span>
+              <div>
+                <h3>Parrainio vérifie la demande</h3>
+                <p>
+                  Parrainio vérifie que le parrainage et les conditions de l’offre sont validés. Pour les
+                  offres où le reversement dépend de la commission du partenaire, il faut aussi que cette
+                  commission ait été reçue par Parrainio. La prime du filleul et la commission sont deux
+                  paiements distincts et leurs calendriers peuvent différer.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>5</span>
+              <div>
+                <h3>Comptez habituellement 24 à 72 h après la commission</h3>
+                <p>
+                  Pour les offres concernées, le responsable de Parrainio indique un délai de traitement
+                  habituel de 24 à 72 heures à partir de la réception de la commission par Parrainio.
+                  Ce délai n’est pas garanti et ne commence donc pas nécessairement à l’ouverture du compte
+                  ni à la réception de votre prime partenaire.
+                </p>
+              </div>
+            </li>
+          </ol>
+          <p className={styles.reversalNote}>
+            <strong>Une exception documentée : Assurancevie.com.</strong> Le retour de terrain du responsable
+            distingue environ 30 jours pour la prime du filleul et environ 90 jours pour la récompense liée
+            au parrainage ; ce décalage peut permettre un reversement avant que Parrainio reçoive sa
+            commission. C’est une observation de terrain, pas un calendrier officiel du partenaire : le
+            délai de 24 à 72 h après commission ne doit pas être appliqué automatiquement à ce cas. Consultez
+            les <Link href="/offres/assurancevie-com">conditions de l’offre Assurancevie.com</Link> et le{" "}
+            <Link href="/observatoire-conditions-prime#delai-pratique">détail de l’observatoire</Link>.
+            {" "}Autre cas à connaître : chez BNP Paribas, la prime du filleul ne se déclenche qu’après dix
+            paiements réalisés dans les trois mois suivant l’ouverture — le compte à rebours ne part donc
+            pas de l’ouverture. Les durées constatées, offre par offre, sont détaillées dans{" "}
+            <Link href="/blog/delai-versement-prime-parrainage-comment-lire">le guide des délais de versement</Link>.
+            Pour les autres questions, retrouvez la{" "}
+            <Link href="/#faq">FAQ</Link> ou les{" "}
+            <Link href="/blog/prime-parrainage-pas-encore-versee">causes possibles d’un versement retardé</Link>.
+          </p>
         </div>
       </section>
 

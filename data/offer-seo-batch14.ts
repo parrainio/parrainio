@@ -117,7 +117,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       "Paliers (dépenses cumulées admissibles) : ~444 €, ~889 €, ~1 777 €, ~6 221 €.",
       "Récompenses par palier : ~18 €, ~44 €, ~89 €, ~222 € — additionnelles.",
       "Validation manuelle de CHAQUE palier dans l'application, obligatoire.",
-      "Reverse Parrainio : jusqu'à environ 55 € (25 % de la commission).",
+      "Reverse Parrainio : jusqu'à environ 111 € (50 % de la commission).",
       "KAST n'est pas une banque régulée : pas d'assurance des dépôts comparable.",
     ],
     whyChoose: {
@@ -137,7 +137,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       ],
     },
     referralExplanation:
-      "Aucun lien de parrainage KAST n'est publié en accès public : vous le demandez via le formulaire de cette fiche, Parrainio vous l'envoie par e-mail. Vous l'utilisez à l'inscription, puis vous effectuez la vérification d'identité, vos dépenses admissibles pour franchir les paliers et, à chaque palier atteint, la validation manuelle dans l'application. Parrainio reverse, après conversion en euros, jusqu'à 25 % de sa rémunération de parrainage réellement encaissée : le maximum indicatif d'environ 55 € correspond à 25 % d'une rémunération maximale d'environ 222 € ; il suppose que tous les paliers du filleul aient été franchis et validés sans échéance manquée.",
+      "Aucun lien de parrainage KAST n'est publié en accès public : vous le demandez via le formulaire de cette fiche, Parrainio vous l'envoie par e-mail. Vous l'utilisez à l'inscription, puis vous effectuez la vérification d'identité, vos dépenses admissibles pour franchir les paliers et, à chaque palier atteint, la validation manuelle dans l'application. Parrainio reverse, après conversion en euros, jusqu'à 50 % de sa rémunération de parrainage réellement encaissée : le maximum indicatif d'environ 111 € correspond à 50 % d'une rémunération maximale d'environ 222 € ; il suppose que tous les paliers du filleul aient été franchis et validés sans échéance manquée.",
     conditions: [
       "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche (liens attribués un visiteur à la fois).",
       "Créer le compte KAST via ce lien et effectuer la vérification d'identité (KYC) exigée par KAST.",
@@ -147,7 +147,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       "KAST n'est pas une banque traditionnelle : le compte n'est pas couvert par une assurance des dépôts comparable à celle des banques régulées ; l'usage d'un VPN pour contourner une indisponibilité géographique est interdit par KAST.",
     ],
     earnings:
-      "Filleul : jusqu'à environ 373 € de récompenses KAST si toutes les étapes (dépenses admissibles et validations manuelles de chaque palier) sont accomplies. Parrain : les récompenses échelonnées généralisent la rémunération de Parrainio, non publiée (programmation commerciale) et conditionnelle. Parrainio : reverse jusqu'à environ 55 € (25 % de la rémunération réellement encaissée après conversion en euros).",
+      "Filleul : jusqu'à environ 373 € de récompenses KAST si toutes les étapes (dépenses admissibles et validations manuelles de chaque palier) sont accomplies. Parrain : les récompenses échelonnées généralisent la rémunération de Parrainio, non publiée (programmation commerciale) et conditionnelle. Parrainio : reverse jusqu'à environ 111 € (50 % de la rémunération réellement encaissée après conversion en euros).",
     rewardTiming:
       "Chaque palier doit être franchi puis validé manuellement dans l'application ; certaines récompenses annoncées par KAST sont bloquées pendant une fenêtre d'attente avant déblocage. Les délais exacts dépendent de l'application KAST et des règles en vigueur.",
     practicalInformation: [
@@ -185,7 +185,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       {
         question: "Combien Parrainio reverse-t-il au filleul sur KAST ?",
         answer:
-          "Parrainio reverse jusqu'à 25 % de sa rémunération de parrainage réellement encaissée, après conversion en euros. Sur la base d'une rémunération maximale d'environ 222 €, cela correspond à un maximum indicatif d'environ 55 € : ce montant suppose que tous les paliers du filleul aient été franchis et validés.",
+          "Parrainio reverse jusqu'à 50 % de sa rémunération de parrainage réellement encaissée, après conversion en euros. Sur la base d'une rémunération maximale d'environ 222 €, cela correspond à un maximum indicatif d'environ 111 € : ce montant suppose que tous les paliers du filleul aient été franchis et validés.",
       },
     ],
     sources: [

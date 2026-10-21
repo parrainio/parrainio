@@ -314,7 +314,7 @@ export default function CategoryHub({ hub, offers, campaignActive }: CategoryHub
               </h2>
               <p>
                 Après validation du parrainage par le partenaire, Parrainio
-                reverse jusqu&apos;à 25 % de la commission reçue. Comparez les
+                reverse jusqu&apos;à 50 % de la commission reçue. Comparez les
                 offres, respectez les conditions, puis demandez votre reverse.
               </p>
             </div>
