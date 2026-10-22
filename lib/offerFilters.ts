@@ -256,14 +256,48 @@ const DERIVED_PREDICATES: Record<ConditionKey, (offer: Offer) => boolean> = {
 /* ── Avantage total (comparaison classement + filtres de montant) ────────────
    AVANTAGE TOTAL = prime filleul + Parraino reverse.
 
-   Règle de lecture d'un champ de récompense : on retient la valeur € la plus
-   élevée RÉELLEMENT ÉCRITE dans le texte (« jusqu'à 160 € » → 160, « entre 1 €
-   et 50 € » → 50, « Fosfo : 17,50 € ; Gold : 27 € » → 27), sans jamais
-   additionner ni inventer de montant. Les seuils d'achat (« 10 € dès 40 €
-   d'achat ») ne sont pas des récompenses : ils sont ignorés au profit du
-   montant de la récompense elle-même. Un pourcentage sans € ne compte pas. */
+   Règle de lecture d'un champ de récompense :
+   - Si le texte décrit une FOURCHETTE (« entre 10 € et 200 € », « de 10 à 200 € »),
+     on calcule la MOYENNE des deux bornes pour le classement (105 € dans l'exemple).
+   - Si le texte décrit des récompenses CUMULABLES (« 10 € + 200 € », « 80 € et 50 € »),
+     on conserve le CUMUL (210 € dans l'exemple) car ces montants peuvent réellement s'ajouter.
+   - Sinon, on retient la valeur € la plus élevée RÉELLEMENT ÉCRITE (« jusqu'à 160 € » → 160).
+   - Les seuils d'achat (« 10 € dès 40 € d'achat ») ne sont pas des récompenses : ignorés.
+   - Un pourcentage sans € ne compte pas. */
 function rewardEuroMax(text: string | null | undefined): number | null {
   if (!text) return null;
+
+  // Détection d'une fourchette : "entre X et Y", "de X à Y", "X à Y", "X - Y"
+  const rangeRe = /(?:entre|de)\s*(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:et|à|-)\s*(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:€|euros)/gi;
+  for (const m of text.matchAll(rangeRe)) {
+    const low = Number.parseFloat(m[1].replace(/[\u00a0\u202f\s]/g, "").replace(",", "."));
+    const high = Number.parseFloat(m[2].replace(/[\u00a0\u202f\s]/g, "").replace(",", "."));
+    if (Number.isFinite(low) && Number.isFinite(high) && low < high) {
+      return (low + high) / 2;
+    }
+  }
+
+  // Détection de récompenses cumulables : presence de "+", " avec ", "puis " entre montants
+  // On exclut "et" car il peut aussi marquer une fourchette ("entre X et Y")
+  const cumulativeContext = /(?:\+| avec |puis )\s*\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?\s*(?:€|euros)/i;
+  if (cumulativeContext.test(text)) {
+    let sum = 0;
+    const re = /(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:€|euros)/gi;
+    for (const m of text.matchAll(re)) {
+      const start = m.index ?? 0;
+      const before = text.slice(Math.max(0, start - 12), start);
+      const after = text.slice(start + m[0].length, start + m[0].length + 16);
+      // Seuil d'achat / de dépôt, pas une récompense (« 10 € dès 40 € d'achat »).
+      if (/(?:dès|depuis)\s*$/i.test(before)) continue;
+      if (/(?:dép[ôo]t|versement|recharge)\s+d[e']\s*$/i.test(before)) continue;
+      if (/^\s*(?:d'achat|de commande|de dép[ôo]t|de recharge|minimum)/i.test(after)) continue;
+      const value = Number.parseFloat(m[1].replace(/[\u00a0\u202f\s]/g, "").replace(",", "."));
+      if (Number.isFinite(value)) sum += value;
+    }
+    if (sum > 0) return sum;
+  }
+
+  // Sinon, on retient le maximum (comportement original)
   let max: number | null = null;
   const re = /(\d[\d\u00a0\u202f\s]*(?:[,.]\d+)?)\s*(?:€|euros)/gi;
   for (const m of text.matchAll(re)) {

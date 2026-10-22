@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 // Date de mise à jour contrôlée manuellement (constantes identifiables) :
 // à actualiser uniquement lorsqu'un changement de données affecte le classement.
 // LAST_UPDATED_ISO alimente le JSON-LD (dateModified) — toujours liées.
-const LAST_UPDATED = "01/10/2026";
-const LAST_UPDATED_ISO = "2026-10-01";
+const LAST_UPDATED = "22/10/2026";
+const LAST_UPDATED_ISO = "2026-10-22";
 
 const EXCLUDED_PATTERN = /^(voir l'offre|aucun)/i;
 const VARIABLE_PATTERN =
@@ -51,7 +51,7 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "Comment est calculé le classement des primes ?",
     answer:
-      "Chaque offre est positionnée selon son avantage total : la prime filleul additionnée au reversement Parrainio lorsque les deux sont chiffrés en euros. Pour un même champ, c'est le montant le plus élevé réellement écrit qui compte — « jusqu'à 160 € » vaut donc 160 €, en tant que maximum de campagne. Les offres à avantage égal partagent le même rang et sont ordonnées alphabétiquement.",
+      "Chaque offre est positionnée selon son avantage total : la prime filleul additionnée au reversement Parrainio lorsque les deux sont chiffrés en euros. Pour un même champ, les règles sont : si une fourchette est indiquée (« entre 10 € et 200 € »), on utilise la moyenne (105 €) ; si plusieurs récompenses peuvent se cumuler (« 10 € + 200 € »), on conserve le cumul (210 €) ; sinon, on retient le montant le plus élevé écrit (« jusqu'à 160 € » → 160 €). Les offres à avantage égal partagent le même rang et sont ordonnées alphabétiquement.",
   },
   {
     question: "Quelle différence entre la prime filleul et la prime parrain ?",
@@ -67,6 +67,11 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
     question: "Une prime peut-elle changer au cours d'une campagne ?",
     answer:
       "Oui. Certains partenaires font varier leur prime selon la campagne, des paliers ou le territoire. Ces offres sont listées à part, avec la formulation exacte des données. Avant de vous inscrire, vérifiez le montant en vigueur et la date limite sur la fiche de l'offre.",
+  },
+  {
+    question: "Comment distingue-t-on une fourchette d'un cumul de récompenses ?",
+    answer:
+      "Une fourchette décrit une plage possible (« entre 10 € et 200 € ») : le classement utilise la moyenne (105 €). Un cumul décrit plusieurs avantages réellement additionnels (« 10 € + 200 € ») : le classement conserve le total (210 €). Ces règles ne changent pas la prime affichée sur la fiche, qui reste fidèle aux données du partenaire.",
   },
   {
     question: "Peut-on comparer des primes en euros avec des avantages en points ?",
@@ -104,9 +109,7 @@ export default async function ClassementPrimesPage() {
   const others: ManagedOffer[] = [];
   const variables: ManagedOffer[] = [];
 
-  const rankingOffers = (await getManagedOffers()).filter(
-    (offer) => offer.slug !== "hello-bank",
-  );
+  const rankingOffers = await getManagedOffers();
 
   for (const offer of rankingOffers) {
     const reward = (offer.partnerReward ?? "").trim();
