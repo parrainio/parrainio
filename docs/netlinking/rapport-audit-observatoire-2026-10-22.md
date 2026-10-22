@@ -62,4 +62,6 @@ Ne pas lancer de nouvelle campagne de netlinking tant que ces divergences priori
 - `git diff --check` : réussi. Git signale uniquement la conversion de fins de ligne LF/CRLF sur Windows, sans erreur d’espacement.
 - Rendu local à 1 280 × 800 et 390 × 844 : inspection visuelle bureau et mobile ; aucune barre de défilement horizontale. Le document mesure 1 265 px en bureau et 375 px sur mobile 390 px, avec onze lignes d’offre et les sources lisibles dans les détails.
 - HTML serveur local : HTTP 200, onze identifiants d’offre uniques ; conditions d’éligibilité, dates de vérification, règle de reversement après réception de commission et liens des deux exports présents.
-- Les contrôles de production et de déploiement seront consignés après le push.
+- Après push du commit `8e27fb2`, la page de production `https://www.parrainio.fr/observatoire-conditions-prime` a été relue : HTTP 200, onze fiches distinctes, les onze panneaux d’éligibilité, les sources datées et les distinctions de délai/reversement du nouveau rendu sont présents.
+- Les deux exports de production répondent en HTTP 200. Le CSV officiel compte onze lignes d’offre avec les colonnes de conditions, repères et sources ; le CSV terrain compte quatorze lignes, conservées séparément.
+- La page est désormais plus complète, mais les incertitudes listées plus haut restent ouvertes : ne pas la présenter comme pleinement validée pour une campagne de netlinking.
