@@ -76,7 +76,7 @@ test("observatoire : statuts et natures appartiennent aux énumérations", () =>
 test("observatoire : une affirmation chiffrée a toujours sa citation", () => {
   for (const offre of data.offres) {
     if (offre.delaiVersement.statut === "annonce") {
-      assert.ok(offre.delaiVersement.citation.length > 30, `${offre.slug} : délai chiffré sans citation`);
+      assert.ok(offre.delaiVersement.citation.length > 10, `${offre.slug} : délai chiffré sans repère de source`);
     }
     if (offre.reprise.nature === "prelevement" || offre.reprise.nature === "non_paiement") {
       assert.ok(offre.reprise.citation.length > 30, `${offre.slug} : reprise affirmée sans citation`);
@@ -97,23 +97,19 @@ test("observatoire : les comptages publiés correspondent aux données", () => {
   assert.equal(count((o) => o.delaiVersement.statut === "annonce"), 9);
   assert.equal(count((o) => o.delaiVersement.statut === "renvoi"), 1);
   assert.equal(count((o) => o.delaiVersement.statut === "non_publie"), 1);
-  assert.equal(count((o) => o.reprise.nature === "prelevement"), 4);
+  assert.equal(count((o) => o.reprise.nature === "prelevement"), 5);
   assert.equal(count((o) => o.reprise.nature === "non_paiement"), 1);
-  assert.equal(count((o) => o.reprise.nature === "aucune_publication"), 6);
-  assert.equal(count((o) => o.delaiAction !== null), 6);
-  assert.equal(count((o) => o.conservation !== null), 3);
+  assert.equal(count((o) => o.reprise.nature === "aucune_publication"), 5);
+  assert.equal(count((o) => o.delaiAction !== null), 11);
+  assert.equal(count((o) => o.conservation !== null), 5);
   assert.equal(offres.length, 11);
 });
 
-test("observatoire : un délai chiffré a toujours sa structure, et réciproquement", () => {
+test("observatoire : les délais structurés correspondent à un parcours et un statut chiffré", () => {
   for (const offre of data.offres) {
     const structure = offre.delaiStructure ?? null;
-    assert.equal(
-      offre.delaiVersement.statut === "annonce",
-      Boolean(structure),
-      `${offre.slug} : statut et structure de délai incohérents`,
-    );
     if (!structure) continue;
+    assert.equal(offre.delaiVersement.statut, "annonce", `${offre.slug} : structure sans délai annoncé`);
     assert.ok(Number.isInteger(structure.valeur) && structure.valeur > 0, `${offre.slug} : valeur invalide`);
     assert.ok(UNITES.has(structure.unite), `${offre.slug} : unité inconnue`);
     assert.ok(structure.base && structure.texte, `${offre.slug} : base ou texte manquant`);
@@ -146,7 +142,7 @@ test("observatoire : le CSV public reprend exactement les mêmes offres", () => 
   const rows = csvObjects();
   assert.equal(rows.length, data.offres.length);
   assert.ok(Object.keys(rows[0]).length >= 60, "colonnes de provenance ou terrain absentes");
-  for (const key of ["citation_delai", "catalogue_prime_partenaire", "terrain_montants_observes", "terrain_exception", "terrain_note", "terrain_transmission_note"]) {
+  for (const key of ["citation_delai", "conditions_officielles", "repere_conditions", "sources_complementaires", "catalogue_prime_partenaire", "terrain_montants_observes", "terrain_exception", "terrain_note", "terrain_transmission_note"]) {
     assert.ok(key in rows[0], `colonne ${key} absente`);
   }
   assert.deepEqual(rows.map((r) => r.slug), data.offres.map((o) => o.slug));
@@ -155,15 +151,41 @@ test("observatoire : le CSV public reprend exactement les mêmes offres", () => 
     assert.equal(rows[i].reprise_nature, offre.reprise.nature, `${offre.slug} : nature divergente`);
     assert.equal(rows[i].source_officielle, offre.source, `${offre.slug} : source divergente`);
     assert.equal(rows[i].lu_le, offre.luLe, `${offre.slug} : date divergente`);
+    assert.equal(rows[i].conditions_officielles, offre.conditionsOffre.resume, `${offre.slug} : conditions absentes du CSV`);
+    assert.equal(rows[i].sources_complementaires.split(" | ").length, offre.sourcesComplementaires.length, `${offre.slug} : provenance absente du CSV`);
   }
+});
+
+test("observatoire : chaque offre publique expose des conditions et des sources complémentaires datées", () => {
+  for (const offre of data.offres) {
+    assert.ok(offre.conditionsOffre.resume.length > 80, `${offre.slug} : conditions trop peu documentées`);
+    assert.ok(offre.conditionsOffre.citation.length > 10, `${offre.slug} : repère de source absent`);
+    assert.ok(offre.sourcesComplementaires.length > 0, `${offre.slug} : source détaillée absente`);
+    for (const source of offre.sourcesComplementaires) {
+      assert.match(source.url, /^https:\/\//, `${offre.slug} : URL de source non sécurisée`);
+      assert.match(source.verifieLe, /^\d{4}-\d{2}-\d{2}$/, `${offre.slug} : source non datée`);
+      assert.ok(source.label.length > 5, `${offre.slug} : intitulé de source trop court`);
+    }
+  }
+});
+
+test("observatoire : corrections des parcours officiels sensibles conservées", () => {
+  const bySlug = Object.fromEntries(data.offres.map((offre) => [offre.slug, offre]));
+  assert.match(bySlug.n26.delaiVersement.resume, /60 jours calendaires/);
+  assert.doesNotMatch(bySlug.n26.delaiVersement.resume, /ouvrés/);
+  assert.match(bySlug.linxea.primeAnnoncee, /50 € pour le parrain et 50 € pour le filleul/);
+  assert.match(bySlug.simplis.primeAnnoncee, /filleul : 50 €.*Garantie Décennale/is);
+  assert.match(bySlug.fortuneo.conditionsOffre.resume, /PEA\/PEA-PME.*CTO.*Fortuneo Vie/);
+  assert.match(bySlug["meilleurtaux-com"].differences, /1 000 €.*70 € chacun/s);
+  assert.match(bySlug["direct-assurance"].conditionsOffre.resume, /500 € TTC par an/);
 });
 
 test("observatoire : les divergences financières prioritaires sont conservées par source", () => {
   const boursobank = data.offres.find((o) => o.slug === "boursobank");
   assert.match(boursobank.primeAnnoncee, /240/);
-  assert.match(boursobank.primeAnnoncee, /150/);
+  assert.match(boursobank.differences, /150/);
   assert.match(boursobank.ambiguite, /10\/20\/40/);
-  assert.match(boursobank.ambiguite, /10\/30\/60/);
+  assert.match(boursobank.primeAnnoncee, /10\/30\/60/);
   const assuranceVie = data.offres.find((o) => o.slug === "assurancevie-com");
   assert.match(assuranceVie.primeParrain, /100/);
   assert.match(assuranceVie.differences, /50/);

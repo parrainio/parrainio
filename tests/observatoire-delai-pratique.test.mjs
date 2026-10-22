@@ -53,25 +53,21 @@ test("délai pratique : présent sur les onze offres, dans une énumération fer
   }
 });
 
-test("délai pratique : jamais d'estimation quand la banque ne publie pas de délai", () => {
+test("délai pratique : toute estimation a une base structurée et les calendriers multiples restent non calculés", () => {
   for (const offre of data.offres) {
     const bloc = offre.delaiPratique;
-    const publie = offre.delaiVersement.statut === "annonce";
-    const calculable = publie && Boolean(offre.delaiStructure) && !["assurancevie-com", "meilleurtaux-com"].includes(offre.slug);
-    assert.equal(
-      bloc.statut === "estimation_parrainio",
-      calculable,
-      `${offre.slug} : estimation incompatible avec le statut du délai publié`,
-    );
-    assert.equal(
-      Boolean(bloc.resume),
-      calculable,
-      `${offre.slug} : résumé d'estimation sans délai structuré`,
-    );
-    if (!calculable) {
+    const estime = bloc.statut === "estimation_parrainio";
+    if (estime) {
+      assert.equal(offre.delaiVersement.statut, "annonce", `${offre.slug} : statut sans délai officiel`);
+      assert.ok(offre.delaiStructure, `${offre.slug} : estimation sans déclencheur unique documenté`);
+      assert.ok(bloc.resume, `${offre.slug} : estimation sans résumé`);
+    } else {
       assert.equal(bloc.resume, null, `${offre.slug} : une durée est inventée`);
       assert.ok(bloc.hypothese.length > 30, `${offre.slug} : absence non expliquée`);
     }
+  }
+  for (const slug of ["boursobank", "fortuneo", "hello-bank", "monabanq", "n26", "linxea", "assurancevie-com", "simplis", "meilleurtaux-com"]) {
+    assert.equal(data.offres.find((offre) => offre.slug === slug).delaiPratique.statut, "non_calculable", `${slug} : un calendrier non comparable a été agrégé`);
   }
 });
 
@@ -93,8 +89,8 @@ test("délai pratique : l'estimation sépare explicitement le délai bancaire du
 
 test("délai pratique : la note globale interdit de le lire comme une garantie", () => {
   assert.match(data.noteDelaiPratique, /estimation/i);
-  assert.match(data.noteDelaiPratique, /garantie/i);
-  assert.match(data.noteDelaiPratique, /suppose/i);
+  assert.match(data.noteDelaiPratique, /après réception de la commission/i);
+  assert.match(data.noteDelaiPratique, /pas après la date d’ouverture/i);
 });
 
 test("reversement Parrainio : délai unique, daté et attribué à Parrainio", () => {

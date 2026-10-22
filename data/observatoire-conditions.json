@@ -1,41 +1,39 @@
 {
   "edition": "Édition 2026",
   "releveLe": "2026-10-22",
-  "perimetre": "Onze pages officielles du groupe Banque & Finance relues le 22 octobre 2026. Les données de campagne, les fiches Parrainio et les observations terrain sont indiquées séparément et datées.",
+  "perimetre": "Onze partenaires du catalogue Parrainio relevant de Banque & Finance et de l’assurance ont été relus le 22 octobre 2026. Un partenaire peut proposer plusieurs parcours aux conditions ou calendriers distincts. Conditions officielles, instantanés du catalogue et observations terrain sont séparés et datés.",
   "offres": [
     {
       "slug": "boursobank",
       "nom": "BoursoBank",
       "categorie": "Banque",
-      "primeAnnoncee": "Filleul : jusqu’à 240 € pendant la campagne du 20 au 23/10/2026 (20 € ouverture + versement initial jusqu’à 60 € + opérations carte jusqu’à 80 € + EasyMove 80 €). La fiche Parrainio versionnée affiche jusqu’à 150 €.",
+      "primeAnnoncee": "Filleul : jusqu’à 240 € pendant l’opération du 20 au 23/10/2026 : 20 € à l’ouverture, 10/30/60 € selon le palier de premier versement, jusqu’à 80 € pour les opérations carte et 80 € pour EasyMove. Chaque composante a ses conditions.",
       "primeParrain": "Montant non chiffré sur la page publique consultée ; bonus attribué le jour de l’ouverture effective. La fiche Parrainio versionnée affiche jusqu’à 160 €.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Délai par composante : 20 € d’ouverture au plus tard sous 2 mois ; versement initial crédité sous 7 jours, au plus tard sous 2 mois ; chaque prime carte sous 7 jours après la condition, au plus tard le mois suivant ; mobilité EasyMove au plus tard 60 jours après la signature du formulaire.",
-        "citation": "Ouverture : 20 € crédités au plus tard dans les 2 mois suivant l’ouverture effective. Premier versement : prime de 10 € pour 1 à 49 €, 30 € pour 50 à 299 €, 60 € à partir de 300 €, créditée sous 7 jours après le versement et au plus tard dans les 2 mois. Carte : chaque prime est créditée sous 7 jours après la condition, au plus tard le mois suivant. EasyMove : au plus tard 60 jours après la signature du formulaire."
+        "resume": "Calendrier par composante : prime d’ouverture sous 2 mois ; premier versement crédité sous 7 jours et au plus tard sous 2 mois ; prime carte sous 7 jours après la condition (au plus tard le mois suivant) ; EasyMove sous 60 jours après signature du formulaire.",
+        "citation": "Les composantes ont des échéances et points de départ différents ; le plafond de deux mois ne couvre pas EasyMove."
       },
       "delaiAction": {
-        "resume": "Premier versement dans les 30 jours : 1 à 49 € pour la prime de 10 €, 50 à 299 € pour 30 €, au moins 300 € pour 60 € ; au moins une opération par carte pendant chacun des 3 premiers mois ; pour EasyMove, demande signée dans le mois suivant l’ouverture et transfert d’au moins un prélèvement ou virement récurrent.",
-        "citation": "Une prime maximale de 60€ pour un 1er versement effectué pendant l'ouverture de votre nouveau Compte ou dans les 30 jours suivants"
+        "resume": "Premier versement d’au moins 300 € pour le maximum, dans les 30 jours ; une opération carte dans chacun des trois mois suivants ; formulaire EasyMove signé dans le mois et transfert d’au moins un prélèvement ou virement récurrent.",
+        "citation": "Conditions officielles de la campagne du 20 au 23 octobre 2026."
       },
-      "conservation": null,
+      "conservation": {
+        "resume": "Si la domiciliation EasyMove n’est pas maintenue pendant 24 mois, la prime de mobilité peut être reprise. La clôture du compte dans les 24 mois peut entraîner le prélèvement de l’ensemble des primes commerciales.",
+        "citation": "La page prévoit des reprises distinctes pour la domiciliation et la clôture du compte sous 24 mois."
+      },
       "reprise": {
         "nature": "prelevement",
-        "resume": "Clôture du compte dans les 24 mois : la banque peut prélever l'ensemble des primes perçues.",
-        "citation": "En cas de clôture du compte dans les 24 mois suivant son ouverture effective, par le client ou par Boursorama en cas de comportement répréhensible, Boursorama se réserve le droit de prélever sur le compte associé le montant de l'ensemble des primes commerciales perçues dans le cadre de l'offre commerciale."
+        "resume": "La banque prévoit la reprise de la prime liée à EasyMove si la domiciliation n’est pas maintenue 24 mois ; elle peut aussi reprendre toutes les primes en cas de clôture du compte sous 24 mois.",
+        "citation": "La page officielle distingue la prime de mobilité de l’ensemble des primes commerciales après clôture."
       },
-      "differences": "La page officielle consultée chiffre jusqu’à 240 € pour le filleul pendant la campagne et détaille les composantes. La fiche Parrainio versionnée indique jusqu’à 150 € pour le filleul et jusqu’à 160 € pour le parrain ; la page publique ne chiffre pas ce dernier montant.",
-      "ambiguite": "Écart de campagne non résolu entre la page officielle (jusqu’à 240 € filleul, paliers de versement 10/30/60 €) et la fiche Parrainio versionnée (jusqu’à 150 € filleul ; jusqu’à 160 € parrain). Le retour reçu du responsable indique un ancien ou autre barème de versement 10/20/40 €, non daté par campagne : les deux sources ne doivent pas être fusionnées.",
+      "differences": "La campagne officielle affiche jusqu’à 240 € filleul et des paliers de premier versement de 10/30/60 €. Le catalogue versionné Parrainio indique jusqu’à 150 € filleul et 160 € parrain. Les montants proviennent de sources et campagnes distinctes.",
+      "ambiguite": "Le responsable a communiqué un autre barème (10/20/40 €), sans campagne datée. Il reste uniquement dans la fiche terrain. Le montant officiel du parrain n’est pas chiffré sur la page consultée.",
       "source": "https://www.boursobank.com/bon-plan/parrainage-boursobank",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 2,
-        "unite": "mois",
-        "base": "ouverture_effective",
-        "texte": "2 mois (prime d'ouverture)"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "15 € — 60 € pendant la campagne boostée en cours",
         "source": "Fiche Parrainio",
@@ -47,35 +45,46 @@
         "finLe": "2026-10-23"
       },
       "delaiPratique": {
-        "statut": "estimation_parrainio",
-        "resume": "Au plus tard 2 mois, puis 24 à 72 h",
-        "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
-        "exception": "Le terrain indique 24 à 48 h pour une prime d'ouverture, très en deçà du maximum publié de deux mois."
-      }
+        "statut": "non_calculable",
+        "resume": null,
+        "hypothese": "Plusieurs composantes ont des délais et déclencheurs différents ; une estimation globale serait trompeuse.",
+        "exception": "Le délai de la prime filleul ne détermine pas la date de réception de la commission Parrainio."
+      },
+      "conditionsOffre": {
+        "resume": "Première ouverture effective d’un compte individuel (hors professionnel ou joint) via invitation. Pour atteindre 240 € : premier versement d’au moins 300 €, au moins une opération par carte chaque mois pendant les trois mois suivants, et mobilité EasyMove réalisée dans les 30 jours. Le palier de versement donne 10 € pour 1–49 €, 30 € pour 50–299 € et 60 € à partir de 300 €. Opération du 20/10/2026 14 h au 23/10/2026 14 h ; non cumulable.",
+        "citation": "La prime maximale suppose une première ouverture individuelle, un premier versement d’au moins 300 €, trois mois d’opérations carte et EasyMove sous 30 jours."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Conditions de la campagne",
+          "url": "https://www.boursobank.com/bon-plan/parrainage-boursobank",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "fortuneo",
       "nom": "Fortuneo",
-      "categorie": "Banque",
-      "primeAnnoncee": "70 € (Fosfo) à 130 € (Gold)",
-      "primeParrain": "70 € (Fosfo) à 110 € (Gold)",
+      "categorie": "Banque, bourse & assurance-vie",
+      "primeAnnoncee": "Parcours distincts, non additionnés : carte Fosfo (70 € filleul) ou Gold (130 €) ; PEA/PEA-PME (80 €) ; compte-titres ordinaire (30 €) ; Fortuneo Vie (120 €).",
+      "primeParrain": "Cartes : 70 € Fosfo ou 110 € Gold ; PEA/PEA-PME : 80 € ; compte-titres : 30 € ; Fortuneo Vie : 100 €. Le montant dépend du produit.",
       "delaiVersement": {
         "statut": "renvoi",
-        "resume": "Aucun délai chiffré sur la page : elle renvoie aux mentions de l'offre.",
-        "citation": "A nous de jouer, vos primes vous seront versées dans les délais indiqués en mentions (sous réserve du respect des conditions de l'offre)."
+        "resume": "Le calendrier dépend du produit. La campagne carte d’octobre a des échéances distinctes pour filleul et parrain ; les parcours Bourse et assurance-vie renvoient aux conditions propres à ces produits. Aucun délai commun aux cinq parcours n’est publié.",
+        "citation": "La page générale renvoie aux mentions de chaque produit ; un calendrier unique ferait perdre cette distinction."
       },
       "delaiAction": {
-        "resume": "Versement de 300 € sur le compte du filleul dans les 6 jours suivant l'ouverture.",
-        "citation": "un versement de 300 € sur le compte bancaire du filleul dans les 6 jours suivant l'ouverture de son compte"
+        "resume": "Utiliser le code dans le dossier du premier produit Fortuneo éligible. Carte : versement de 300 € sous 6 jours. PEA/PEA-PME : première ouverture ou premier transfert ; 1 000 € initiaux uniquement pour l’ouverture. CTO : première ouverture avec 1 000 €. Fortuneo Vie : première adhésion avec 1 000 € nets. Les pages Bourse et Vie demandent au parrain 300 € d’encours au moment du dossier.",
+        "citation": "Les montants, seuils et échéances diffèrent entre carte, Bourse et assurance-vie."
       },
       "conservation": null,
       "reprise": {
-        "nature": "aucune_publication",
-        "resume": "La page ne décrit ni durée de conservation ni cas de reprise.",
-        "citation": ""
+        "nature": "prelevement",
+        "resume": "Une reprise sous 12 mois est publiée pour le seul parcours Fortuneo Vie en cas de renonciation ou de rachat total ; cette clause n’est pas étendue aux autres produits.",
+        "citation": "La condition de reprise relevée concerne Fortuneo Vie."
       },
-      "differences": "Les primes parrain et filleul sont annoncées séparément, par type de compte (Fosfo, Gold, Bourse).",
-      "ambiguite": "Le délai de versement n'est lisible que dans les mentions, non consultées ici : le statut reste « renvoi ». Les montants ont été alignés le 21/10/2026 sur la campagne officielle du 1er au 31 octobre (70 €/130 € pour le filleul, 70 €/110 € pour le parrain selon la carte) : l'ancienne valeur « jusqu'à 160 € » ne figure plus sur la page.",
+      "differences": "La campagne carte (Fosfo/Gold) ne s’additionne pas aux parcours PEA/PEA-PME, CTO ou assurance-vie. Les primes et conditions d’investissement sont indépendantes.",
+      "ambiguite": "La page générale renvoie aux conditions de chaque produit ; le calendrier carte ne permet pas de déduire celui de la Bourse ou de Fortuneo Vie. Les montants carte sont datés d’octobre 2026.",
       "source": "https://www.fortuneo.fr/parrainage",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
@@ -94,24 +103,50 @@
       "delaiPratique": {
         "statut": "non_calculable",
         "resume": null,
-        "hypothese": "Délai renvoyé aux mentions, non consulté : aucune estimation n’est produite.",
-        "exception": null
-      }
+        "hypothese": "Les produits ont des déclencheurs et calendriers distincts ; aucune estimation globale n’est produite.",
+        "exception": "Le délai partenaire d’un produit ne décrit pas la réception de commission Parrainio pour les autres."
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain transmet son code. Le filleul doit être majeur, personne physique, résident en France et résident fiscal français, et ne jamais avoir souscrit chez Fortuneo. Choisir un parcours : première ouverture Fosfo/Gold, PEA/PEA-PME, CTO ou Fortuneo Vie. Cartes (01–31/10/2026) : versement de 300 € sous 6 jours. PEA/PEA-PME : ouverture avec versement initial de 1 000 €, sauf transfert. CTO : versement initial de 1 000 €. Fortuneo Vie : première adhésion avec 1 000 € nets. Pour le parrain, les parcours investissement demandent au moins 300 € d’encours. Ces parcours ne forment pas un bonus cumulable unique. La FAQ limite également le parrain à 10 parrainages par année civile.",
+        "citation": "Conditions générales : majeur, résident français et sans ancien compte/contrat Fortuneo ; les seuils dépendent du produit."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Éligibilité générale",
+          "url": "https://www.fortuneo.fr/faq/quelles-conditions-dois-je-respecter-pour-beneficier-de-l-offre-de-parrainage",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Offre cartes",
+          "url": "https://www.fortuneo.fr/parrainage/cartes-bancaires",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Offres Bourse",
+          "url": "https://www.fortuneo.fr/parrainage/bourse",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Offre Fortuneo Vie",
+          "url": "https://www.fortuneo.fr/parrainage/assurance-vie",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "hello-bank",
       "nom": "Hello bank!",
       "categorie": "Banque",
-      "primeAnnoncee": "Hello One : 80 € ; Hello Prime : 80 € à l’ouverture + 50 € si au moins 5 paiements/retraits par mois durant les 12 premiers mois entiers ; Hello Start+ : bon d’achat de 200 €, distinct du cash.",
+      "primeAnnoncee": "Hello One : 80 € ; Hello Prime : 80 € à l’ouverture + 50 € si au moins 5 opérations par mois pendant 12 mois ; Hello Business : 80 € et 3 mois de cotisation offerts ; Hello Start+ : bon d’achat de 200 € lié à la mobilité. Le parrain reçoit 140 € sous conditions.",
       "primeParrain": "140 € par parrainage validé (opération jusqu’au 29/10/2026 à 15 h ; ouverture définitive possible jusqu’au 29/11/2026 sous conditions).",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "20 jours suivant l'ouverture définitive du compte du filleul.",
-        "citation": "La somme vous sera versée sur votre compte de dépôt Hello bank! dans les 20 jours suivant l'ouverture définitive du compte de votre filleul."
+        "resume": "Prime du parrain : dans les 20 jours après l’ouverture définitive. Le complément Hello Prime est payé le mois suivant sa période conditionnelle ; le bon Start+ suit le parcours de mobilité et un calendrier distinct.",
+        "citation": "Le délai de 20 jours annoncé concerne la prime du parrain, pas toutes les composantes filleul."
       },
       "delaiAction": {
-        "resume": "Le parrainage est validé quand le compte du filleul est définitivement ouvert ; opération jusqu'au 29/10/2026 à 15 h.",
-        "citation": "Un parrainage est considéré comme validé si le compte Hello bank! est définitivement ouvert dans les conditions du (2)."
+        "resume": "Partager le lien ou QR code ; le filleul doit ouvrir un compte éligible pendant les dates du règlement. Hello Prime exige au moins cinq paiements ou retraits par mois durant les 12 premiers mois entiers. Start+ exige une mobilité bancaire selon ses modalités.",
+        "citation": "L’ouverture définitive valide le parrainage ; les bonus filleul ont leurs propres conditions."
       },
       "conservation": {
         "resume": "Compte et carte à conserver au moins un an à compter de la souscription.",
@@ -128,12 +163,7 @@
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 20,
-        "unite": "jours",
-        "base": "ouverture_definitive",
-        "texte": "20 jours"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "60 € (fiche, montant de l'opération jusqu'au 29/10/2026)",
         "source": "Fiche Parrainio",
@@ -145,27 +175,41 @@
         "finLe": "2026-10-29"
       },
       "delaiPratique": {
-        "statut": "estimation_parrainio",
-        "resume": "Au plus tard 20 jours, puis 24 à 72 h",
-        "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
-        "exception": "Les 20 jours portent sur la prime du parrain. L'avantage du filleul dépend de la formule souscrite et peut suivre un autre calendrier."
-      }
+        "statut": "non_calculable",
+        "resume": null,
+        "hypothese": "Le délai publié concerne la prime du parrain ou des composantes distinctes de la prime du filleul ; il ne permet pas de calculer un délai filleul unique.",
+        "exception": "La commission Parrainio peut suivre un autre calendrier selon la validation du partenaire."
+      },
+      "conditionsOffre": {
+        "resume": "Le filleul utilise le lien ou QR code et ouvre définitivement un compte éligible dans la période de l’opération (invitation jusqu’au 29/10/2026 à 15 h, ouverture possible jusqu’au 29/11/2026 selon le règlement). Hello One : 80 €. Hello Prime/Prime Duo : 80 € à l’ouverture, puis 50 € si au moins cinq paiements ou retraits sont effectués par mois pendant les 12 premiers mois entiers ; le complément est payé le mois suivant. Hello Business : 80 € et trois mois de cotisation offerts sous réserve de souscrire simultanément à l’offre professionnelle. Hello Start+ : bon d’achat de 200 € pour la mobilité bancaire du 10/08/2026 au 11/01/2027 ; au moins un prélèvement ou virement récurrent doit être transféré et le filleul doit accepter la transmission de ses coordonnées à ISIFID. Le parrain reçoit 140 €, au plus 20 fois par année civile.",
+        "citation": "Lien ou QR code requis ; le complément Hello Prime dépend de cinq opérations mensuelles pendant douze mois entiers."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Règlement et détail des offres",
+          "url": "https://www.hellobank.fr/fr/parrainage/reglement-parrainage/",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "monabanq",
       "nom": "Monabanq",
       "categorie": "Banque",
-      "primeAnnoncee": "Filleul : jusqu’à 280 € sur l’offre de bienvenue ; parrain : 30 € (Pratiq+ ou Uniq) ou 50 € (Uniq+). Les conditions de l’offre de bienvenue sont distinctes du bonus de parrainage.",
+      "primeAnnoncee": "Filleul : jusqu’à 280 € de bienvenue, distincts du parrainage : 80 € à l’ouverture/au versement, 60 € après 30 paiements carte, 80 € avec mobilité bancaire et 60 € de fidélité au 13e mois. Parrain : 30 € (Pratiq+/Uniq) ou 50 € (Uniq+).",
       "primeParrain": "30 € (Pratiq+ ou Uniq) ; 50 € (Uniq+), au plus tard sous 60 jours après ouverture si le compte reste ouvert.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "60 jours suivant l'ouverture du compte, à condition qu'il soit toujours ouvert.",
-        "citation": "La prime de parrainage est versée au maximum dans les 60 jours suivant l'ouverture du compte du filleul."
+        "resume": "Prime du parrain : au plus tard 60 jours après l’ouverture du compte courant du filleul, si celui-ci est encore ouvert. Le bonus fidélité du filleul intervient au 13e mois et ne relève pas de ce délai.",
+        "citation": "Le délai maximal de 60 jours concerne la prime de parrainage du parrain."
       },
-      "delaiAction": null,
+      "delaiAction": {
+        "resume": "Le filleul utilise le lien reçu et ouvre pour la première fois un compte courant éligible. Pour les composantes de bienvenue : respecter le versement initial de 300 €, réaliser 30 paiements carte dans les deux premiers mois, activer la mobilité bancaire avec un flux récurrent, puis conserver les produits requis pour la fidélité du 13e mois.",
+        "citation": "Les 280 € correspondent à plusieurs composantes avec des déclencheurs propres."
+      },
       "conservation": {
-        "resume": "Le compte du filleul doit être ouvert à la date du versement.",
-        "citation": "à condition que le compte du filleul soit toujours ouvert à cette date"
+        "resume": "Le compte du filleul doit rester ouvert jusqu’au paiement du parrainage. La domiciliation nécessaire à sa prime doit être maintenue 12 mois ; les conditions du bonus de fidélité se vérifient au 13e mois.",
+        "citation": "Le compte ouvert à la date de paiement et les conditions de mobilité/fidélité sont distincts."
       },
       "reprise": {
         "nature": "prelevement",
@@ -178,12 +222,7 @@
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 60,
-        "unite": "jours",
-        "base": "ouverture_compte",
-        "texte": "60 jours maximum"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "7,50 €",
         "source": "Fiche Parrainio",
@@ -192,42 +231,56 @@
       },
       "campagne": null,
       "delaiPratique": {
-        "statut": "estimation_parrainio",
-        "resume": "Au plus tard 60 jours, puis 24 à 72 h",
-        "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
-        "exception": "La prime de fidélité est calculée le 13e mois : elle n'entre pas dans ce délai."
-      }
+        "statut": "non_calculable",
+        "resume": null,
+        "hypothese": "Le délai publié concerne la prime du parrain ou des composantes distinctes de la prime du filleul ; il ne permet pas de calculer un délai filleul unique.",
+        "exception": "La commission Parrainio peut suivre un autre calendrier selon la validation du partenaire."
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain client majeur résident en France invite son proche depuis son espace ; le filleul utilise le lien, doit être majeur et résident en France, et ne doit pas être client/ancien client ni salarié. Maximum cinq filleuls par année glissante. Le compte du filleul doit rester ouvert au paiement. L’offre de bienvenue du filleul est distincte : 80 € (20 € à l’ouverture + 60 € après dépôt d’au moins 300 € dans le délai prévu), 60 € après 30 paiements carte dans les deux premiers mois, 80 € après une mobilité bancaire effective transférant au moins un flux récurrent, puis 60 € au 13e mois si deux produits supplémentaires, dont un produit d’épargne, sont détenus et le compte reste ouvert.",
+        "citation": "Le bonus de parrainage et les composantes de bienvenue ont des conditions et calendriers séparés."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Offre de bienvenue jusqu’à 280 €",
+          "url": "https://www.monabanq.com/fr/ma-prime.html?id-prime=3012PRIME280",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Questions-réponses et mobilité bancaire",
+          "url": "https://www.monabanq.com/fr/questions-reponses.html?c=26",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "n26",
       "nom": "N26",
       "categorie": "Banque",
-      "primeAnnoncee": "Fiche Parrainio versionnée : 15 € pour le filleul ; la page officielle publique consultée ne fixe pas de montant, celui-ci dépend de l’invitation affichée dans l’application.",
-      "primeParrain": "Fiche Parrainio versionnée : 0 € pour le parrain ; l’offre de parrainage peut varier selon la campagne affichée dans l’application.",
+      "primeAnnoncee": "Filleul : montant non publié dans l’aide ; il dépend de l’invitation et peut ne pas exister dans son parcours. Parrain : montant personnalisé affiché dans l’application, variable selon formule et pays. Le catalogue Parrainio est séparé.",
+      "primeParrain": "Montant variable affiché dans l’application N26 ; la page d’aide officielle ne fixe pas de somme.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Jusqu'à 60 jours ouvrés après la réussite du parrainage.",
-        "citation": "Veuillez également noter que votre prime peut être versée jusqu'à 60 jours ouvrés après la réussite de votre parrainage, le temps que nous le vérifions."
+        "resume": "Prime de parrainage décrite par l’aide N26 : attribution sous 60 jours calendaires après réalisation de toutes les conditions (inscription avec lien/code et achat Mastercard qualifiant). Le délai d’une éventuelle prime filleul n’est pas distinctement publié.",
+        "citation": "Le délai court après réalisation de toutes les conditions, pas après l’ouverture seule."
       },
-      "delaiAction": null,
+      "delaiAction": {
+        "resume": "S’inscrire via le lien/code puis faire un achat admissible par Mastercard, en magasin ou en ligne, d’au moins le montant affiché dans l’invitation ; PayPal ne qualifie pas.",
+        "citation": "Le minimum d’achat est personnalisé selon l’offre, le compte et le pays."
+      },
       "conservation": null,
       "reprise": {
         "nature": "aucune_publication",
         "resume": "Aucun cas de reprise décrit sur la page d'aide.",
         "citation": ""
       },
-      "differences": "Le montant dépend de l'offre d'invitation acceptée par le filleul.",
-      "ambiguite": "La page publique indique un maximum de 60 jours ouvrés après la réussite du parrainage, sans chiffrer la prime ni détailler l’achat qualifiant. La fiche Parrainio versionnée affiche 15 € filleul / 0 € parrain ; une transmission du responsable du 21/10 décrit séparément 25 € après un achat de 30 €, jusqu’à 75 € liés à un abonnement et 100 € au total, ainsi qu’un reversement de 50 % plafonné à 50 €. Campagne et parcours exacts non vérifiés.",
+      "differences": "L’aide officielle indique un montant variable dans l’application. Le catalogue versionné (15 € filleul / 0 € parrain) et l’observation terrain (25 € puis jusqu’à 75 €) sont des valeurs d’autres sources et ne décrivent pas nécessairement la même campagne.",
+      "ambiguite": "Le responsable rapporte achat de 30 € (carte virtuelle admise), prime généralement sous 72 h et complément après trois mois d’abonnement. La page d’aide ne confirme pas ce seuil ni cette campagne ; le montant minimal officiel varie. Le reversement signalé n’est pas documenté par N26.",
       "source": "https://n26.com/fr-fr/invitez-vos-amis",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 60,
-        "unite": "jours_ouvres",
-        "base": "reussite_parrainage",
-        "texte": "60 jours ouvrés"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "0,25 € (fiche) — 12,50 € pendant la campagne boostée en cours",
         "source": "Fiche Parrainio",
@@ -236,26 +289,37 @@
       },
       "campagne": null,
       "delaiPratique": {
-        "statut": "estimation_parrainio",
-        "resume": "Jusqu'à 60 jours ouvrés, puis 24 à 72 h",
-        "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
-        "exception": "La prime complémentaire liée à l'abonnement suppose trois mois d'abonnement ; elle arrive après la première."
-      }
+        "statut": "non_calculable",
+        "resume": null,
+        "hypothese": "Le montant et le parcours dépendent de l’invitation dans l’application ; aucune estimation globale fiable ne peut être dérivée de l’aide publique.",
+        "exception": "Le responsable évoque séparément 25 € après achat de 30 €, jusqu’à 75 € sous condition d’abonnement, et un reversement plafonné à 50 € ; campagne exacte non identifiée."
+      },
+      "conditionsOffre": {
+        "resume": "S’inscrire avec le lien ou code du parrain, puis effectuer avec Mastercard un achat en magasin ou un paiement en ligne d’au moins le seuil affiché dans l’invitation (PayPal exclu). Le seuil dépend de la formule et du pays. Le montant de la récompense est celui visible dans l’application du parrain ; la source publique ne donne pas de montant universel.",
+        "citation": "Le seuil Mastercard varie selon la formule et le pays ; les paiements PayPal sont exclus."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Centre d’aide N26 : montant et achat éligible",
+          "url": "https://support.n26.com/fr-fr/application-et-produits/parrainage/comment-recevoir-la-prime-de-parrainage-n26",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "linxea",
       "nom": "Linxea",
       "categorie": "Épargne & assurance-vie",
-      "primeAnnoncee": "Montant de la prime du filleul non indiqué sur la page publique consultée. Le catalogue Parrainio indique une carte cadeau Kadéos de 50 € pour le parrain.",
-      "primeParrain": "50 € en carte cadeau Kadéos",
+      "primeAnnoncee": "50 € pour le parrain et 50 € pour le filleul, en cartes-cadeaux numériques (valeur susceptible d’évoluer), pas en espèces.",
+      "primeParrain": "50 € en carte-cadeau numérique ; la même valeur est indiquée pour le filleul par l’aide officielle.",
       "delaiVersement": {
         "statut": "non_publie",
-        "resume": "La récompense est envoyée par e-mail ; aucun délai de versement n'est indiqué.",
-        "citation": "Vous recevrez les récompenses par email sous réserve que les conditions d’éligibilité du parrainage soient remplies"
+        "resume": "Carte-cadeau envoyée par e-mail après validation de l’assureur et fin du délai de renonciation de 30 jours. Aucun délai maximal supplémentaire de paiement n’est indiqué ; le support indique un minimum d’environ cinq semaines avant éligibilité.",
+        "citation": "L’éligibilité exige la validation de l’assureur et l’expiration du délai de renonciation."
       },
       "delaiAction": {
-        "resume": "Cinq semaines minimum entre la souscription et l'éligibilité, en raison du délai de renonciation de 30 jours.",
-        "citation": "Il faut un minimum de 5 semaines entre la souscription en ligne du contrat et l’éligibilité du parrainage en raison du délai légal de renonciation de 30 jours."
+        "resume": "Mentionner le nom du parrain pendant la souscription en ligne ; attendre la validation du contrat par l’assureur et la fin du délai de renonciation de 30 jours. Le contrat ne doit pas être annulé durant cette période.",
+        "citation": "Les cartes-cadeaux sont envoyées par e-mail après validation et période de renonciation."
       },
       "conservation": null,
       "reprise": {
@@ -263,8 +327,8 @@
         "resume": "Pas de reprise décrite ; l'usage d'un code offre invalide le parrainage.",
         "citation": ""
       },
-      "differences": "Le parrain reçoit une carte cadeau, pas un virement.",
-      "ambiguite": "La page officielle exige au minimum 5 semaines entre la souscription et l’éligibilité ; elle ne publie pas de délai de paiement. Le responsable a également évoqué un versement initial de 600 €, mais cette condition n’a pas été retrouvée dans les conditions publiques relues le 22/10/2026 ; elle reste non vérifiée.",
+      "differences": "L’aide officielle indique 50 € de carte numérique pour le parrain et le filleul ; l’ancien instantané catalogue ne chiffrait que le parrain. Ce n’est pas un virement.",
+      "ambiguite": "Le responsable a évoqué un versement initial de 600 €, non retrouvé dans les conditions publiques consultées le 22/10/2026. Aucun délai maximal de traitement après éligibilité n’est donné.",
       "source": "https://www.linxea.com/parrainage/",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
@@ -282,22 +346,33 @@
         "resume": null,
         "hypothese": "Aucun délai publié : aucune estimation n'est produite.",
         "exception": null
-      }
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain et le filleul doivent avoir plus de 18 ans. Le filleul doit être nouveau client et souscrire en ligne une assurance-vie ou un PER. Il mentionne le nom du parrain au parcours dédié. Le contrat doit être validé par l’assureur et ne pas être annulé pendant le délai de renonciation de 30 jours. Une offre promotionnelle de bienvenue invalide le parrainage. Chacun reçoit une carte-cadeau numérique de 50 € ; le lien du mail est valable trois mois et le montant peut évoluer.",
+        "citation": "Le code de bienvenue et le parrainage ne se cumulent pas ; les deux récompenses sont des cartes-cadeaux numériques."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Centre d’aide : éligibilité et récompenses",
+          "url": "https://support.linxea.com/fr/articles/4819-parrainage-comment-ca-marche",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "assurancevie-com",
       "nom": "assurancevie.com",
       "categorie": "Épargne & assurance-vie",
-      "primeAnnoncee": "50 € pour le filleul (page officielle Lucya, dès la souscription après conditions). La fiche Parrainio versionnée ne précise pas le montant filleul.",
+      "primeAnnoncee": "50 € pour le filleul après validation, crédités sur son contrat éligible et non versés en espèces. Aucun versement initial minimal chiffré n’a été retrouvé dans les conditions consultées.",
       "primeParrain": "100 € pour le parrain selon la page officielle Lucya ; la fiche Parrainio versionnée indique 50 €.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Validation après 30 jours de rétractation, puis versement sous 60 jours maximum.",
-        "citation": "La prime de parrainage est versée sur votre contrat dans un délai maximum de 60 jours après validation du parrainage."
+        "resume": "Validation après la période légale de rétractation de 30 jours suivant la souscription ; la prime est versée sur le contrat dans les 60 jours maximum après validation, soit jusqu’à environ 90 jours après la souscription.",
+        "citation": "Les 60 jours commencent après validation, laquelle intervient après les 30 jours de rétractation."
       },
       "delaiAction": {
-        "resume": "Le parrainage n'est validé qu'après la période de rétractation légale de 30 jours.",
-        "citation": "Le parrainage est validé après la période de rétractation légale de 30 jours suivant la souscription du contrat."
+        "resume": "Souscrire en ligne au moyen de l’invitation/code et laisser passer les 30 jours légaux de rétractation pour que le parrainage soit validé. La limite est de dix filleuls par année civile.",
+        "citation": "La prime est créditée au contrat après validation, pas versée comme espèces."
       },
       "conservation": {
         "resume": "Le filleul s'engage à conserver son contrat au moins 12 mois.",
@@ -308,8 +383,8 @@
         "resume": "Dénouement du contrat dans les 12 mois : la prime peut être prélevée sur le contrat.",
         "citation": "En cas de dénouement du contrat à l’initiative du filleul, au cours des 12 mois suivants l’ouverture du contrat, Assurancevie.com se réserve le droit de prélever sur le contrat, le montant correspondant à la prime de parrainage dont il a bénéficié dans le cadre de cette offre commerciale."
       },
-      "differences": "La page officielle Lucya chiffre 50 € pour le filleul et 100 € pour le parrain. Le catalogue Parrainio versionné affiche 50 € pour le parrain et ne chiffre pas la prime filleul : écart de catalogue à corriger hors de cette page.",
-      "ambiguite": "La page officielle décrit 30 jours de rétractation puis jusqu’à 60 jours après validation, soit un plafond potentiel de 90 jours depuis la souscription. Le responsable observe environ 30 jours pour le filleul et 90 jours pour le parrain. Il indique aussi que le reversement Parrainio peut précéder la réception de sa commission, ce qui ne concorde pas avec la règle générale « 24 à 72 h après réception » : le déclencheur et le délai propres à cette exception restent à confirmer.",
+      "differences": "La page officielle affiche 50 € filleul et 100 € parrain ; le catalogue versionné indique 50 € parrain et ne chiffre pas la prime filleul. Les récompenses vont sur les contrats. Les délais terrain diffèrent selon le bénéficiaire.",
+      "ambiguite": "Le responsable observe environ 30 jours pour le filleul et 90 jours pour le parrain, et signale que Parrainio peut reverser avant la réception de commission. Cette exception n’a pas de déclencheur ni de délai publiés et ne remplace pas la règle générale 24–72 h après réception.",
       "source": "https://lucya.com/parrainage/",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
@@ -332,20 +407,34 @@
         "resume": null,
         "hypothese": "Les primes du filleul et du parrain ne sont pas simultanées et les retours indiquent que le reversement Parrainio peut précéder la commission.",
         "exception": "Le cumul 30 jours de rétractation + jusqu’à 60 jours après validation concerne la prime partenaire, pas le reversement Parrainio."
-      }
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain transmet son invitation/code ; le filleul souscrit en ligne à un produit éligible indiqué par Lucya. Offre réservée aux personnes physiques majeures, dans la limite de dix filleuls par année civile. La page indique 100 € pour le parrain et 50 € pour le filleul, crédités sur les contrats concernés. Aucun seuil minimum de dépôt n’est chiffré dans les conditions publiques consultées.",
+        "citation": "Réservé aux personnes majeures ; parrainage limité à dix filleuls par année civile et souscription en ligne."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Conditions et calendrier Lucya",
+          "url": "https://lucya.com/parrainage/",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "caisse-depargne-loire-centre",
       "nom": "Caisse d'Épargne Loire-Centre",
       "categorie": "Banque",
-      "primeAnnoncee": "80 € pour le filleul (page officielle) ; l’offre publique consultée ne précise pas la prime du parrain dans le détail relevé.",
+      "primeAnnoncee": "80 € pour le filleul et 50 € pour le parrain, crédités sur les comptes de dépôt sous conditions, dont la mobilité bancaire demandée.",
       "primeParrain": "50 € (page officielle).",
       "delaiVersement": {
         "statut": "annonce",
         "resume": "60 jours maximum après l'ouverture définitive du compte de dépôt.",
         "citation": "Le Parrain et le Filleul recevront leurs avantages directement sur leurs comptes de dépôt ouvert auprès de Caisse d’Epargne Loire-Centre dans un délai de 60 jours maximum après l’ouverture définitive du compte de dépôt par Caisse d’Epargne Loire-Centre."
       },
-      "delaiAction": null,
+      "delaiAction": {
+        "resume": "Inviter le proche dans l’espace parrainage ou BANXO ; le filleul accepte, ouvre un compte de dépôt éligible et effectue la mobilité bancaire dans le cadre de l’offre.",
+        "citation": "Le filleul reçoit l’invitation, ouvre le compte et effectue la mobilité bancaire."
+      },
       "conservation": null,
       "reprise": {
         "nature": "aucune_publication",
@@ -376,38 +465,47 @@
         "resume": "Au plus tard 60 jours, puis 24 à 72 h",
         "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
         "exception": null
-      }
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain invite via son espace ou l’application BANXO ; il doit être un client particulier majeur. Maximum trois parrainages par an et un même filleul ne peut être parrainé qu’une fois. Le filleul est majeur, particulier, sans produit/service dans cette caisse régionale au cours des 12 mois précédents, ouvre un compte de dépôt et réalise la mobilité bancaire demandée. Offre annoncée pour les ouvertures avant le 31/12/2026.",
+        "citation": "Le parcours inclut invitation, ouverture de compte et mise en place de la mobilité bancaire."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Détails, exclusions et dates de l’offre",
+          "url": "https://www.caisse-epargne.fr/loire-centre/notre-offre-de-parrainage/",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "simplis",
       "nom": "Simplis",
       "categorie": "Pro & assurance",
-      "primeAnnoncee": "Aucune prime filleul chiffrée sur la page publique consultée ; le parrain reçoit 10 € pour un contrat RC Pro ou 50 € pour une Garantie Décennale.",
-      "primeParrain": "10 € (RC Pro) ou 50 € (Garantie Décennale).",
+      "primeAnnoncee": "Parrain : 10 € pour un contrat RC Pro ou 50 € pour une Garantie Décennale. Filleul : 50 € sur le parcours Garantie Décennale selon les conditions d’utilisation ; aucune prime filleul RC Pro chiffrée n’est publiée.",
+      "primeParrain": "10 € en RC Pro ; 50 € en Garantie Décennale.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "15 jours suivant l'entrée en vigueur du contrat du filleul.",
-        "citation": "Ces primes de parrainage varient de 10€ à 50€ selon les produits souscrits par vos filleuls et vous sont versées en une fois dans les 15 jours suivants l’entrée en vigueur du contrat de votre filleul."
+        "resume": "La page programme annonce un versement sous 15 jours après la prise d’effet du contrat. Les conditions d’utilisation indiquent un crédit après 15 jours puis un paiement par virement une fois par mois, sans date mensuelle précise : les sources ne donnent pas un même délai maximal.",
+        "citation": "La page de présentation et les conditions d’utilisation décrivent deux étapes ou calendriers différents."
       },
-      "delaiAction": null,
+      "delaiAction": {
+        "resume": "Envoyer le lien personnalisé ou enregistrer le proche dans l’espace assuré ; le filleul souscrit un contrat Simplis. Le contrat et le barème associé sont distingués entre RC Pro et Garantie Décennale.",
+        "citation": "La récompense dépend du produit et la période annoncée part de la prise d’effet."
+      },
       "conservation": null,
       "reprise": {
         "nature": "aucune_publication",
         "resume": "Aucun cas de reprise décrit.",
         "citation": ""
       },
-      "differences": "Le montant dépend du produit souscrit par le filleul, pas de la personne qui parraine.",
-      "ambiguite": "",
+      "differences": "La page programme annonce 10 € parrain en RC Pro et 50 € en Décennale ; les conditions d’utilisation indiquent aussi 50 € filleul en Décennale. Aucune prime filleul RC Pro n’est chiffrée dans les sources consultées.",
+      "ambiguite": "La page de présentation promet un paiement sous 15 jours après prise d’effet ; les conditions d’utilisation mentionnent un paiement mensuel après crédit de la prime. Elles ne permettent pas de confirmer un même délai maximal ; aucune date mensuelle précise n’est publiée.",
       "source": "https://www.simplis.fr/le-programme-de-parrainage-de-simplis",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 15,
-        "unite": "jours",
-        "base": "entree_en_vigueur_contrat",
-        "texte": "15 jours"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "10 €",
         "source": "Fiche Parrainio",
@@ -416,42 +514,54 @@
       },
       "campagne": null,
       "delaiPratique": {
-        "statut": "estimation_parrainio",
-        "resume": "Au plus tard 15 jours, puis 24 à 72 h",
-        "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
-        "exception": null
-      }
+        "statut": "non_calculable",
+        "resume": null,
+        "hypothese": "Le calendrier public est contradictoire entre la page de présentation et les conditions ; aucune estimation n’est calculée.",
+        "exception": "Le délai de crédit et le cycle mensuel de paiement peuvent être distincts."
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain partage son lien personnalisé ou saisit les coordonnées du proche depuis son espace assuré. La récompense du parrain dépend du produit souscrit : 10 € en RC Pro, 50 € en Garantie Décennale. Les conditions d’utilisation ajoutent 50 € au filleul en Décennale ; aucun montant filleul RC Pro n’a été trouvé.",
+        "citation": "Les montants varient selon le contrat du filleul ; le détail filleul est précisé dans les conditions d’utilisation."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Conditions générales d’utilisation",
+          "url": "https://www.simplis.fr/assurances-simplis/conditions-generales-utilisation",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "meilleurtaux-com",
       "nom": "Meilleurtaux.com",
-      "categorie": "Finance",
-      "primeAnnoncee": "Assurance de prêt : 50 € pour le filleul ; crédit immobilier : aucun montant filleul relevé ; assurance-vie/PER : jusqu’à 1 000 € pour le filleul.",
-      "primeParrain": "Assurance de prêt : 100 € ; crédit immobilier : 150 € en chèques cadeaux ; assurance-vie/PER : jusqu’à 1 000 €.",
+      "categorie": "Finance & assurance",
+      "primeAnnoncee": "Parcours non additionnés : assurance de prêt (50 € filleul, 100 € parrain en espèces) ; crédit immobilier (150 € en chèques cadeaux au parrain, montant filleul non publié) ; mutuelle (20 € filleul et carte cadeau parrain 20–60 € selon le rang) ; placement (70 € carte cadeau chacun selon la page dédiée). La page générale mentionne également jusqu’à 1 000 € chacun en AV/PER : divergence non résolue.",
+      "primeParrain": "Selon le programme : 100 € espèces (assurance de prêt), 150 € chèques cadeaux (crédit immobilier), 20–60 € carte cadeau (mutuelle), 70 € carte cadeau (placement détaillé). La page générale annonce jusqu’à 1 000 € AV/PER, non réconciliés avec la page Placement.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Par programme : assurance de prêt, virement dans le mois suivant la signature ; crédit immobilier, chèques cadeaux dans les 2 mois après la déclaration informatique de finalisation et déblocage des fonds ; AV/PER, aucun délai chiffré relevé.",
-        "citation": "La prime est versée par virement réalisé sur les comptes respectifs du parrain et du filleul dans un délai d’un mois après la signature du contrat d’assurance de prêt."
+        "resume": "Assurance de prêt : virement sous un mois après signature. Crédit immobilier : chèques-cadeaux sous deux mois après finalisation et déblocage des fonds. Placement : carte cadeau de 70 € pour chacun sous deux mois après validation de l’assureur ; carte valable 90 jours. Mutuelle : aucun délai chiffré relevé. Les programmes ne partagent pas un calendrier unique.",
+        "citation": "Aucun calendrier unique ne s’applique aux programmes regroupés sous Meilleurtaux."
       },
-      "delaiAction": null,
-      "conservation": null,
+      "delaiAction": {
+        "resume": "Assurance de prêt : le parrain envoie son URL personnalisée ; contrat signé, personnes distinctes et pas de demande en cours. Crédit immobilier : parrain client du centre de relations, filleul sans relation/demande incompatible ; offre de prêt signée et fonds débloqués. Mutuelle : première cotisation encaissée, pas de rétractation dans les 14 jours, cotisations à jour les 60 premiers jours. Placement : premier contrat éligible, versement initial d’au moins 3 000 € dont 30 % en UC, pas de rachat pendant un an et pas de cumul avec une autre offre. Renseigner l’IBAN sous trois mois lorsque le règlement le demande.",
+        "citation": "Chaque programme a son événement qualifiant ; l’IBAN peut conditionner le paiement."
+      },
+      "conservation": {
+        "resume": "Placement détaillé : aucun rachat pendant la première année. Mutuelle : rétractation pendant 14 jours ou cotisations impayées pendant les 60 premiers jours peuvent invalider la récompense. Ces conditions ne sont pas généralisées aux autres produits.",
+        "citation": "Les restrictions de conservation s’appliquent seulement aux parcours explicitement concernés."
+      },
       "reprise": {
         "nature": "non_paiement",
-        "resume": "IBAN non renseigné sous 3 mois : la prime peut ne pas être payée.",
-        "citation": "Dans le cas où le parrain ou le filleul n'a pas renseigné son IBAN sur son espace parrainage dans un délai de 3 mois après la concrétisation du dossier du filleul, Meilleurtaux se réserve le droit de ne pas payer la prime."
+        "resume": "Pour les programmes concernés, l’absence d’IBAN dans les trois mois après concrétisation du dossier peut entraîner le non-paiement. Les autres conditions d’éligibilité sont propres à chaque produit ; aucune reprise globale n’est publiée.",
+        "citation": "Le règlement permet de ne pas payer si l’IBAN n’est pas communiqué sous trois mois."
       },
-      "differences": "Les montants diffèrent par produit : assurance emprunteur, crédit immobilier, placement, mutuelle.",
-      "ambiguite": "Trois programmes distincts sur la même page, avec des délais différents.",
+      "differences": "La page générale annonce jusqu’à 1 000 € par personne en assurance-vie/PER ; la page dédiée Placement annonce 70 € chacun et détaille les conditions (3 000 € initiaux, 30 % en UC, deux mois après validation). Les sources consultées ne réconcilient pas les offres : les deux valeurs sont conservées avec leur provenance et ne sont pas additionnées. Mutuelle et placement utilisent des cartes cadeaux, pas du cash.",
+      "ambiguite": "Le détail de l’offre générale AV/PER à 1 000 € n’est pas donné ; les conditions et le délai 70 € sont rattachés à la page dédiée Placement. La mutuelle annonce 20–60 € parrain par rang (jusqu’à 200 € pour cinq filleuls) et 20 € filleul, sans échéance chiffrée trouvée.",
       "source": "https://www.meilleurtaux.com/parrainage/",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
       "sourceStatut": "accessible",
-      "delaiStructure": {
-        "valeur": 1,
-        "unite": "mois",
-        "base": "signature_contrat_assurance_pret",
-        "texte": "1 mois (assurance de prêt)"
-      },
+      "delaiStructure": null,
       "reversementParrainio": {
         "montant": "25 € (assurance de prêt), 50 € (crédit immobilier), 5 € (mutuelle)",
         "source": "Fiche Parrainio",
@@ -462,15 +572,31 @@
       "delaiPratique": {
         "statut": "non_calculable",
         "resume": null,
-        "hypothese": "La page regroupe plusieurs programmes avec des déclencheurs et délais différents ; une estimation unique ferait perdre cette distinction.",
-        "exception": "Assurance de prêt, crédit immobilier, assurance-vie et PER doivent être lus séparément."
-      }
+        "hypothese": "Les parcours ont des calendriers et supports distincts ; aucune estimation globale n’est produite.",
+        "exception": "Le délai de virement assurance de prêt ne décrit pas le délai des cartes cadeaux."
+      },
+      "conditionsOffre": {
+        "resume": "Programmes distincts : assurance de prêt, crédit immobilier, mutuelle santé et placement ; montants et supports ne s’additionnent pas automatiquement. Assurance de prêt : le parrain doit avoir rempli un formulaire, envoyer son lien personnalisé, et les deux personnes doivent être distinctes ; ni co-souscription du même contrat ni demande filleul déjà en cours. Maximum 10 parrainages par an. Prime de 100 € au parrain et 50 € au filleul. Crédit immobilier : parrain client du centre de relations Meilleurtaux, maximum 3 parrainages ; filleul sans relation ou demande en cours selon le règlement ; le prêt doit être signé et les fonds débloqués. Prime parrain de 150 € en chèques-cadeaux, filleul non chiffré. Mutuelle : 20 € au filleul ; carte cadeau parrain de 20/30/40/50/60 € du 1er au 5e filleul (jusqu’à 200 € pour cinq), contrat actif et première cotisation encaissée ; pas de rétractation sous 14 jours et cotisations à jour pendant 60 jours. Placement : premier contrat éligible parmi les contrats listés dans les conditions, versement initial ≥ 3 000 € dont 30 % en unités de compte ; aucun rachat la première année, offre non cumulable. Chaque parcours garde ses règles. Pour les programmes concernés, l’IBAN doit être fourni sous trois mois après concrétisation, sinon le paiement peut être refusé.",
+        "citation": "Les montants, déclencheurs, supports et délais sont propres à chaque programme ; les montants généraux ne doivent pas être additionnés."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Détail du programme Meilleurtaux Placement",
+          "url": "https://placement.meilleurtaux.com/parrainage/",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Règlement mutuelle santé (PDF)",
+          "url": "https://www.meilleurtaux.com/images/Meilleurtaux_sante/reglement/reglement_parrainage.pdf",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     },
     {
       "slug": "direct-assurance",
       "nom": "Direct Assurance",
       "categorie": "Assurance",
-      "primeAnnoncee": "50 € (fiche Parrainio)",
+      "primeAnnoncee": "50 € au filleul et 50 € au parrain pour le premier contrat Auto ou Habitation éligible. Plafond annuel : 500 € TTC, ou le montant de la cotisation annuelle si inférieur.",
       "primeParrain": "50 €",
       "delaiVersement": {
         "statut": "annonce",
@@ -478,16 +604,16 @@
         "citation": "Vous gagnez chacun 50 € par contrat auto ou habitation souscrit, remboursés au plus tard dans les 2 mois."
       },
       "delaiAction": {
-        "resume": "Souscription au plus tard 60 jours après la création du devis.",
-        "citation": "donnant lieu à la souscription au plus tard 60 jours après la création du devis d'un contrat d'assurance Auto"
+        "resume": "Transmettre le numéro du contrat et le code DIRECTPARRAIN ; le filleul les inscrit dans son devis Auto ou Habitation et souscrit sous 60 jours. Le contrat doit être accepté, prendre effet et les cotisations être à jour au remboursement.",
+        "citation": "Les 60 jours partent de la création du devis, pas de l’ouverture d’un compte."
       },
       "conservation": null,
       "reprise": {
         "nature": "aucune_publication",
-        "resume": "Aucun cas de reprise décrit sur la page.",
+        "resume": "Aucune clause de reprise après versement n’a été identifiée dans cette page. Le paiement reste conditionné à l’acceptation, à la prise d’effet et aux cotisations à jour.",
         "citation": ""
       },
-      "differences": "Les deux parties reçoivent 50 €, sous réserve d'acceptation du contrat.",
+      "differences": "La campagne couvre Auto et Habitation : 50 € chacun par premier contrat éligible, avec plafond annuel de 500 € TTC ou cotisation annuelle si inférieure.",
       "ambiguite": "",
       "source": "https://www.direct-assurance.fr/nos-assurances/assurance-auto/offres/parrainage",
       "luLe": "2026-10-22",
@@ -511,7 +637,18 @@
         "resume": "Au plus tard 2 mois, puis 24 à 72 h",
         "hypothese": "Délai publié + 24 à 72 h de traitement Parrainio.",
         "exception": null
-      }
+      },
+      "conditionsOffre": {
+        "resume": "Le parrain, client Direct Assurance, transmet son numéro de contrat Auto ou Habitation et le code DIRECTPARRAIN. Le filleul saisit ces informations dans un devis Auto ou Habitation standard et souscrit dans les 60 jours après sa création. Contrat soumis à acceptation, prise d’effet et cotisations à jour au remboursement. Seul le premier contrat est éligible ; le filleul doit être nouveau client et ne peut être conjoint, concubin ou partenaire de PACS du parrain. Plafond : 500 € TTC par an ou cotisation annuelle si inférieure.",
+        "citation": "Le code et le numéro du contrat du parrain sont nécessaires ; la souscription intervient dans les 60 jours du devis."
+      },
+      "sourcesComplementaires": [
+        {
+          "label": "Conditions Auto, Habitation et exclusions",
+          "url": "https://www.direct-assurance.fr/nos-assurances/assurance-auto/offres/parrainage",
+          "verifieLe": "2026-10-22"
+        }
+      ]
     }
   ],
   "exclues": [
@@ -537,7 +674,7 @@
     }
   ],
   "verifieLe": "2026-10-22",
-  "noteVerification": "Les 11 sources officielles ont été relues le 22/10/2026. Les valeurs de campagne susceptibles de changer sont datées. Les observations du responsable, reçues le 21/10/2026, sont séparées du présent relevé officiel et ne valent pas condition contractuelle.",
+  "noteVerification": "Les 11 sources principales et leurs sources officielles complémentaires ont été relues le 22/10/2026. Les campagnes susceptibles de changer sont datées ; les parcours distincts d’un partenaire ne sont pas additionnés. Les observations reçues du responsable le 21/10/2026 restent séparées des conditions officielles.",
   "reversement": {
     "delai": "24 à 72 heures",
     "declencheur": "réception de la commission versée par le partenaire",
@@ -546,5 +683,5 @@
     "recuLe": "2026-10-21",
     "note": "Délai de traitement annoncé par Parrainio, pas une condition bancaire. Il court à partir du moment où Parrainio reçoit sa commission, elle-même dépendante de la validation du parrainage par le partenaire."
   },
-  "noteDelaiPratique": "Le délai pratique est une estimation Parrainio : il additionne le délai maximum publié par la banque et le délai de traitement du reversement. Il suppose que le délai publié décrit la commission reçue par Parrainio, ce que les pages officielles ne précisent pas toujours. Ce n'est ni une garantie ni une date de versement."
+  "noteDelaiPratique": "Le délai pratique n’est estimé que lorsqu’un calendrier publié permet une comparaison utile. Le délai Parrainio communiqué est de 24 à 72 heures après réception de la commission (information du responsable, 21/10/2026), pas après la date d’ouverture ni nécessairement après le paiement de la prime au filleul. La commission dépend de la validation par le partenaire. Si plusieurs parcours ont des calendriers différents ou si une exception terrain n’est pas clarifiée, aucune estimation globale n’est produite."
 }

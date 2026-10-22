@@ -21,6 +21,7 @@ export type BlocCitation = {
 
 export type BlocDelai = BlocCitation & { statut: StatutDelai };
 export type BlocReprise = BlocCitation & { nature: NatureReprise };
+export type SourceOfficielle = { label: string; url: string; verifieLe: string };
 
 /** Délai chiffré tel que publié, dans son unité d'origine. */
 export type DelaiStructure = {
@@ -62,6 +63,8 @@ export type OffreObservatoire = {
   categorie: string;
   primeAnnoncee: string;
   primeParrain: string;
+  conditionsOffre: BlocCitation;
+  sourcesComplementaires: SourceOfficielle[];
   delaiVersement: BlocDelai;
   delaiAction: BlocCitation | null;
   conservation: BlocCitation | null;
@@ -186,5 +189,5 @@ export function phraseCle(stats: ObservatoireStats = computeStats()): string {
     year: "numeric",
     timeZone: "UTC",
   });
-  return `Sur ${stats.total} offres de parrainage bancaire dont la page officielle a été lue le ${releve}, ${stats.delaiChiffre} indiquent un délai de versement chiffré, et ${stats.reprisePrelevement} seulement décrivent un prélèvement rétroactif de la prime.`;
+  return `Sur ${stats.total} offres de parrainage suivies dans les catégories Banque, Finance et Assurance, dont les sources officielles ont été relues le ${releve}, ${stats.delaiChiffre} indiquent un délai de versement chiffré et ${stats.reprisePrelevement} décrivent une possibilité de prélèvement rétroactif.`;
 }

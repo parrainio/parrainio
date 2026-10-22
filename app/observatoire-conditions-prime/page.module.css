@@ -435,6 +435,38 @@
   line-height: 1.5;
 }
 
+.sourceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+  margin: -3px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.sourceList li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 7px;
+  align-items: baseline;
+  min-width: 0;
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.sourceList a {
+  color: #25644e;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.sourceList span {
+  color: #77847f;
+  font-size: .68rem;
+}
+
 .factGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

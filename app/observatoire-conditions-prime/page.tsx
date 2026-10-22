@@ -219,7 +219,17 @@ function OfficialOfferDetails({ offer }: { offer: (typeof observatoire.offres)[n
               Ouvrir la source officielle ↗
             </a>
           </div>
-          <p className={styles.sourceDate}>Page relue le {releveLabel} · source primaire du partenaire</p>
+          <p className={styles.sourceDate}>Page relue le {releveLabel} · source primaire du partenaire · état : {offer.sourceStatut ?? "non précisé"}</p>
+          {offer.sourcesComplementaires.filter((source) => source.url !== offer.source).length ? (
+            <ul className={styles.sourceList} aria-label={`Sources officielles complémentaires pour ${offer.nom}`}>
+              {offer.sourcesComplementaires.filter((source) => source.url !== offer.source).map((source) => (
+                <li key={`${source.url}-${source.label}`}>
+                  <a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+                  <span>Vérifiée le {new Date(`${source.verifieLe}T12:00:00Z`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
 
           <div className={styles.factGrid}>
             <div>
@@ -229,6 +239,10 @@ function OfficialOfferDetails({ offer }: { offer: (typeof observatoire.offres)[n
             <div>
               <h4>Montant parrain annoncé</h4>
               <p>{offer.primeParrain || "Non chiffré dans la source consultée."}</p>
+            </div>
+            <div className={styles.factWide}>
+              <h4>Étapes et conditions d’éligibilité</h4>
+              <p>{offer.conditionsOffre.resume}</p>
             </div>
             <div className={styles.factWide}>
               <h4>Délai officiel et point de départ</h4>
@@ -284,10 +298,11 @@ function OfficialOfferDetails({ offer }: { offer: (typeof observatoire.offres)[n
           </div>
 
           <details className={styles.citationDetails}>
-            <summary>Voir les extraits, la date et les limites de lecture</summary>
+            <summary>Voir les repères de source et les limites de lecture</summary>
             <div className={styles.citationBody}>
-              <p><strong>Délai :</strong> {offer.delaiVersement.citation || "Aucune citation de délai chiffré."}</p>
-              {offer.delaiAction?.citation ? <p><strong>Action :</strong> {offer.delaiAction.citation}</p> : null}
+              <p><strong>Délai :</strong> {offer.delaiVersement.citation || "Aucun délai chiffré dans la source consultée."}</p>
+              <p><strong>Éligibilité :</strong> {offer.conditionsOffre.citation}</p>
+              {offer.delaiAction?.citation ? <p><strong>Étapes :</strong> {offer.delaiAction.citation}</p> : null}
               {offer.conservation?.citation ? <p><strong>Conservation :</strong> {offer.conservation.citation}</p> : null}
               {offer.reprise.citation ? <p><strong>Reprise :</strong> {offer.reprise.citation}</p> : null}
               <p>Relevé officiel : {offer.luLe}. État de source : {offer.sourceStatut ?? "non précisé"}.</p>
@@ -364,7 +379,7 @@ export default function ObservatoireConditionsPrimePage() {
           <article><strong>{terrainStats.total}</strong><span>observations terrain transmises, dont {terrainHorsPerimetre.length} hors périmètre officiel</span></article>
         </div>
         <p className={styles.metricsNote}>
-          Périmètre : {stats.total} pages officielles de Banque &amp; Finance, relues le {releveLabel}.
+          Périmètre : {stats.total} partenaires du catalogue Parrainio en banque, finance et assurance, relus le {releveLabel}.
           Les retours terrain couvrent {terrainStats.total} offres et ne représentent pas un échantillon statistique.
         </p>
       </section>
@@ -444,14 +459,14 @@ export default function ObservatoireConditionsPrimePage() {
             <h2>Ce que les données permettent de dire</h2>
           </div>
           <div className={styles.methodGrid}>
-            <article><h3>Officiel</h3><p>Les résumés s’appuient sur les pages publiques des partenaires, relues le {releveLabel}. Les citations exactes, URL et dates figurent dans le détail de chaque offre et dans le CSV.</p></article>
+            <article><h3>Officiel</h3><p>Les résumés s’appuient sur les pages publiques des partenaires, relues le {releveLabel}. Les conditions, extraits, URL et dates de vérification figurent dans le détail de chaque offre et dans le CSV.</p></article>
             <article><h3>Terrain</h3><p>Les retours ont été communiqués par le responsable le {terrainLabel}. Ils décrivent son suivi, mais aucun nombre d’observations par offre ni protocole de mesure n’est fourni.</p></article>
             <article><h3>Estimation</h3><p>Quand elle existe, elle combine le délai public et le traitement Parrainio annoncé de 24 à 72 heures après réception de la commission. C’est une estimation interne, pas une date promise par le partenaire.</p></article>
             <article><h3>Inconnu</h3><p>Une information non trouvée reste inconnue. Une clause de reprise absente de la page lue n’est jamais présentée comme une garantie qu’aucune reprise n’existe.</p></article>
           </div>
           <blockquote className={styles.citationReady}>
             <p>{phraseCle(stats)}</p>
-            <cite>Observatoire Parrainio · relevé officiel du {releveLabel} · périmètre : {stats.total} offres Banque &amp; Finance</cite>
+            <cite>Observatoire Parrainio · relevé officiel du {releveLabel} · périmètre : {stats.total} partenaires en Banque, Finance et Assurance</cite>
           </blockquote>
           <div className={styles.downloadGrid} id="telechargements">
             <a className={styles.downloadCard} href={`/data/observatoire-conditions-${observatoire.releveLe}.csv`} download>
