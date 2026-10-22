@@ -3,13 +3,12 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 const DATA_PATH = "data/observatoire-conditions.json";
-const CSV_PATH = "public/data/observatoire-conditions-2026-10-20.csv";
+const CSV_PATH = "public/data/observatoire-conditions-2026-10-22.csv";
 
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 const STATUTS = new Set(["annonce", "renvoi", "non_publie"]);
 const NATURES = new Set(["prelevement", "non_paiement", "aucune_publication"]);
 const UNITES = new Set(["jours", "jours_ouvres", "mois"]);
-const CONCORDANCES = new Set(["concorde", "ecart", "non_verifiable"]);
 
 function parseCsv(content) {
   const rows = [];
@@ -121,23 +120,18 @@ test("observatoire : un délai chiffré a toujours sa structure, et réciproquem
   }
 });
 
-test("observatoire : les retours d'expérience sont séparés et étiquetés", () => {
-  const avecExperience = data.offres.filter((o) => o.experience);
-  assert.ok(avecExperience.length >= 7, "retours d'expérience manquants");
-  for (const offre of avecExperience) {
-    const exp = offre.experience;
-    assert.equal(exp.statut, "retour_non_officiel", `${offre.slug} : retour présenté comme officiel`);
-    assert.ok(exp.source && exp.recuLe, `${offre.slug} : source du retour manquante`);
-    assert.ok(CONCORDANCES.has(exp.concordance), `${offre.slug} : concordance inconnue`);
-    assert.ok(exp.note.length > 40, `${offre.slug} : note trop courte`);
+test("observatoire : le jeu officiel ne contient aucun retour terrain", () => {
+  for (const offre of data.offres) {
+    assert.equal("experience" in offre, false, `${offre.slug} : observation mélangée aux conditions officielles`);
+    assert.equal("terrain" in offre, false, `${offre.slug} : retour terrain incorporé au fichier officiel`);
+    assert.equal("delais" in offre, false, `${offre.slug} : délais terrain incorporés au fichier officiel`);
   }
-  assert.ok(avecExperience.some((o) => o.experience.concordance === "ecart"), "aucun écart signalé");
 });
 
-test("observatoire : la vérification du 21/10 est datée et sourcée", () => {
-  assert.equal(data.verifieLe, "2026-10-21");
+test("observatoire : la vérification du 22/10 est datée et sourcée", () => {
+  assert.equal(data.verifieLe, "2026-10-22");
   for (const offre of data.offres) {
-    assert.equal(offre.verifieLe, "2026-10-21", `${offre.slug} : date de vérification absente`);
+    assert.equal(offre.verifieLe, "2026-10-22", `${offre.slug} : date de vérification absente`);
     assert.ok(offre.sourceStatut, `${offre.slug} : statut de source absent`);
   }
 });
@@ -151,15 +145,29 @@ test("observatoire : le CSV public reprend exactement les mêmes offres", () => 
   assert.ok(fs.existsSync(CSV_PATH), "CSV absent");
   const rows = csvObjects();
   assert.equal(rows.length, data.offres.length);
-  assert.equal(Object.keys(rows[0]).length, 41, "colonnes CSV inattendues");
-  assert.ok("verifie_le" in rows[0] && "experience_concordance" in rows[0], "colonnes d'audit absentes");
+  assert.ok(Object.keys(rows[0]).length >= 60, "colonnes de provenance ou terrain absentes");
+  for (const key of ["citation_delai", "catalogue_prime_partenaire", "terrain_montants_observes", "terrain_exception", "terrain_note", "terrain_transmission_note"]) {
+    assert.ok(key in rows[0], `colonne ${key} absente`);
+  }
   assert.deepEqual(rows.map((r) => r.slug), data.offres.map((o) => o.slug));
   for (const [i, offre] of data.offres.entries()) {
     assert.equal(rows[i].delai_versement_statut, offre.delaiVersement.statut, `${offre.slug} : statut divergent`);
     assert.equal(rows[i].reprise_nature, offre.reprise.nature, `${offre.slug} : nature divergente`);
-    assert.equal(rows[i].source, offre.source, `${offre.slug} : source divergente`);
+    assert.equal(rows[i].source_officielle, offre.source, `${offre.slug} : source divergente`);
     assert.equal(rows[i].lu_le, offre.luLe, `${offre.slug} : date divergente`);
   }
+});
+
+test("observatoire : les divergences financières prioritaires sont conservées par source", () => {
+  const boursobank = data.offres.find((o) => o.slug === "boursobank");
+  assert.match(boursobank.primeAnnoncee, /240/);
+  assert.match(boursobank.primeAnnoncee, /150/);
+  assert.match(boursobank.ambiguite, /10\/20\/40/);
+  assert.match(boursobank.ambiguite, /10\/30\/60/);
+  const assuranceVie = data.offres.find((o) => o.slug === "assurancevie-com");
+  assert.match(assuranceVie.primeParrain, /100/);
+  assert.match(assuranceVie.differences, /50/);
+  assert.equal(assuranceVie.delaiPratique.statut, "non_calculable");
 });
 
 test("observatoire : une campagne datée se ferme à sa date de fin, sans prolongation", async () => {

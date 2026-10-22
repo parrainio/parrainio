@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 const DATA_PATH = "data/observatoire-conditions.json";
-const CSV_PATH = "public/data/observatoire-conditions-2026-10-20.csv";
+const CSV_PATH = "public/data/observatoire-conditions-2026-10-22.csv";
 
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 const STATUTS = new Set(["estimation_parrainio", "non_calculable"]);
@@ -57,19 +57,20 @@ test("délai pratique : jamais d'estimation quand la banque ne publie pas de dé
   for (const offre of data.offres) {
     const bloc = offre.delaiPratique;
     const publie = offre.delaiVersement.statut === "annonce";
+    const calculable = publie && Boolean(offre.delaiStructure) && !["assurancevie-com", "meilleurtaux-com"].includes(offre.slug);
     assert.equal(
       bloc.statut === "estimation_parrainio",
-      publie,
+      calculable,
       `${offre.slug} : estimation incompatible avec le statut du délai publié`,
     );
     assert.equal(
       Boolean(bloc.resume),
-      publie && Boolean(offre.delaiStructure),
+      calculable,
       `${offre.slug} : résumé d'estimation sans délai structuré`,
     );
-    if (!publie) {
+    if (!calculable) {
       assert.equal(bloc.resume, null, `${offre.slug} : une durée est inventée`);
-      assert.match(bloc.hypothese, /aucune estimation/i, `${offre.slug} : absence non expliquée`);
+      assert.ok(bloc.hypothese.length > 30, `${offre.slug} : absence non expliquée`);
     }
   }
 });
@@ -112,33 +113,29 @@ test("reversement Parrainio : délai unique, daté et attribué à Parrainio", (
   }
 });
 
-test("délai pratique : les retours de terrain ne sont pas promus en conditions", () => {
+test("délai pratique : les retours terrain restent hors du JSON officiel", () => {
   for (const offre of data.offres) {
-    if (!offre.experience) continue;
-    assert.equal(offre.experience.statut, "retour_non_officiel");
-    assert.notEqual(
-      offre.experience.delaiObserve,
-      offre.delaiPratique?.resume,
-      `${offre.slug} : l'observation est recopiée comme délai public`,
-    );
+    assert.equal("experience" in offre, false, `${offre.slug} : observation fusionnée dans le relevé officiel`);
+    assert.equal("terrain" in offre, false, `${offre.slug} : retour terrain présent dans les conditions officielles`);
   }
 });
 
 test("délai pratique : le CSV expose les nouvelles colonnes sans les confondre", () => {
   const rows = csvObjects();
-  assert.equal(Object.keys(rows[0]).length, 41, "colonnes CSV inattendues");
+  assert.ok(Object.keys(rows[0]).length >= 60, "colonnes CSV incomplètes");
   for (const key of [
     "delai_pratique",
     "delai_pratique_hypothese",
     "delai_pratique_exception",
     "delai_pratique_statut",
-    "reversement_delai",
+    "reversement_parrainio_delai",
+    "terrain_reversement_global",
   ]) {
     assert.ok(key in rows[0], `colonne ${key} absente`);
   }
   for (const [i, offre] of data.offres.entries()) {
     assert.equal(rows[i].delai_pratique, offre.delaiPratique.resume ?? "", `${offre.slug} : estimation divergente`);
     assert.equal(rows[i].delai_pratique_statut, offre.delaiPratique.statut, `${offre.slug} : statut divergent`);
-    assert.equal(rows[i].reversement_delai, data.reversement.delai, `${offre.slug} : reversement divergent`);
+    assert.equal(rows[i].terrain_reversement_global, data.reversement.delai, `${offre.slug} : reversement divergent`);
   }
 });

@@ -4,7 +4,7 @@ import fs from "node:fs";
 
 const TERRAIN_PATH = "data/experience-terrain.json";
 const OFFICIAL_PATH = "data/observatoire-conditions.json";
-const CSV_PATH = "public/data/observatoire-conditions-2026-10-20.csv";
+const CSV_PATH = "public/data/observatoire-terrain-2026-10-21.csv";
 
 const terrain = JSON.parse(fs.readFileSync(TERRAIN_PATH, "utf8"));
 const officiel = JSON.parse(fs.readFileSync(OFFICIAL_PATH, "utf8"));
@@ -51,7 +51,7 @@ test("terrain : jeu de données daté, sourcé et présenté comme non officiel"
   assert.equal(terrain.source, "Responsable Parrainio");
   assert.match(terrain.recuLe, /^\d{4}-\d{2}-\d{2}$/);
   assert.ok(terrain.note.length > 80, "note de cadrage trop courte");
-  assert.match(terrain.note, /pas des conditions officielles/i);
+  assert.match(terrain.note, /ne sont pas des conditions officielles/i);
 });
 
 test("terrain : un slug unique par offre, présent dans le catalogue ou signalé", () => {
@@ -110,11 +110,14 @@ test("terrain : la mécanique de reversement est datée et attribuée à Parrain
   assert.match(terrain.reversement.declencheur, /commission/i);
   assert.match(terrain.reversement.simultaneite, /même moment/i);
   assert.match(terrain.reversement.note, /précéder/i);
+  assert.match(terrain.reversement.note, /exception/i);
+  assert.doesNotMatch(terrain.reversement.note, /ne peut donc jamais précéder/i);
   assert.equal(terrain.reversement.exception, "assurancevie-com");
 });
 
 test("terrain : l'observatoire officiel n'embarque aucune observation", () => {
   for (const offre of officiel.offres) {
+    assert.equal("experience" in offre, false, `${offre.slug} : complément terrain dans le JSON officiel`);
     assert.equal("terrain" in offre, false, `${offre.slug} : observation écrite dans le JSON officiel`);
     assert.equal("delais" in offre, false, `${offre.slug} : délais terrain dans le JSON officiel`);
   }
@@ -128,38 +131,42 @@ test("terrain : huit offres du périmètre officiel ont un retour rattachable", 
   }
 });
 
-test("terrain : le CSV expose les colonnes terrain sans les confondre avec l'officiel", () => {
+test("terrain : le CSV dédié conserve intégralement les quatorze observations", () => {
   const rows = parseCsv(fs.readFileSync(CSV_PATH, "utf8"));
   const header = rows[0];
   const objects = rows.slice(1).map((r) => Object.fromEntries(header.map((k, i) => [k, r[i] ?? ""])));
 
   for (const key of [
-    "terrain_delai",
-    "terrain_declencheur",
-    "terrain_prime_filleul",
-    "terrain_commission_parrain",
-    "terrain_conservation",
-    "terrain_conservation_nature",
-    "terrain_reprise_nature",
-    "terrain_simultaneite",
-    "terrain_concordance",
-    "terrain_source",
-    "terrain_recu_le",
+    "delai_prime_filleul", "delai_prime_parrain_commission", "delai_reversement_parrainio",
+    "declencheur", "conservation", "conservation_nature", "reprise", "reprise_nature",
+    "montants_observes", "exception", "concordance_officielle", "note",
+    "transmission_prime_observee", "transmission_reversement_observe", "transmission_note", "source", "recu_le",
   ]) {
     assert.ok(header.includes(key), `colonne ${key} absente`);
   }
 
-  const parSlug = new Map(terrain.offres.map((o) => [o.slug, o]));
-  for (const row of objects) {
-    const retour = parSlug.get(row.slug);
-    if (!retour) {
-      assert.equal(row.terrain_delai, "", `${row.slug} : délai terrain inventé`);
-      continue;
-    }
-    assert.equal(row.terrain_delai, retour.delai.texte, `${row.slug} : délai terrain divergent`);
-    assert.equal(row.terrain_source, terrain.source, `${row.slug} : source terrain absente`);
-    assert.equal(row.terrain_recu_le, terrain.recuLe, `${row.slug} : date terrain absente`);
-    assert.equal(row.terrain_concordance, retour.concordance, `${row.slug} : concordance divergente`);
-    assert.notEqual(row.terrain_delai, row.delai_versement, `${row.slug} : terrain confondu avec l'officiel`);
+  assert.equal(objects.length, 14, "le CSV ne reprend pas tous les retours terrain");
+  const bySlug = new Map(objects.map((row) => [row.slug, row]));
+  for (const retour of terrain.offres) {
+    const row = bySlug.get(retour.slug);
+    assert.ok(row, `${retour.slug} : observation absente du CSV`);
+    assert.equal(row.nom, retour.nom);
+    assert.equal(row.fiche_au_catalogue, String(retour.fiche));
+    assert.equal(row.source, terrain.source);
+    assert.equal(row.statut, terrain.statut);
+    assert.equal(row.recu_le, terrain.recuLe);
+    assert.equal(row.delai_prime_filleul, retour.delais.primeFilleul);
+    assert.equal(row.delai_prime_parrain_commission, retour.delais.commissionParrain);
+    assert.equal(row.delai_reversement_parrainio, retour.delais.reversementParrainio);
+    assert.equal(row.declencheur, retour.declencheur);
+    assert.equal(row.conservation, retour.conservation.texte);
+    assert.equal(row.reprise, retour.reprise.texte);
+    assert.equal(row.montants_observes, retour.montantsObserves ?? "");
+    assert.equal(row.exception, retour.exception ?? "");
+    assert.equal(row.concordance_officielle, retour.concordance);
+    assert.equal(row.note, retour.note);
+    assert.equal(row.transmission_prime_observee, retour.transmissionComplementaire?.primeObservee ?? "");
+    assert.equal(row.transmission_reversement_observe, retour.transmissionComplementaire?.reversementObserve ?? "");
+    assert.equal(row.transmission_note, retour.transmissionComplementaire?.note ?? "");
   }
 });

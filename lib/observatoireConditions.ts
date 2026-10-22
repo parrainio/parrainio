@@ -30,19 +30,6 @@ export type DelaiStructure = {
   texte: string;
 };
 
-/** Retour d'expérience du responsable : jamais une condition officielle. */
-export type Experience = {
-  statut: "retour_non_officiel";
-  source: string;
-  recuLe: string;
-  delaiObserve: string;
-  conservationConseillee: string;
-  primeObservee: string;
-  reversementObserve: string;
-  concordance: "concorde" | "ecart" | "non_verifiable";
-  note: string;
-};
-
 export type Campagne = { libelle: string; finLe: string };
 
 /**
@@ -89,7 +76,6 @@ export type OffreObservatoire = {
   delaiPratique?: DelaiPratique;
   reversementParrainio?: { montant: string; source: string; verifieLe: string; delai?: string };
   campagne?: Campagne | null;
-  experience?: Experience;
   /** Retour terrain rattaché par slug, jamais recopié dans le JSON officiel. */
   terrain?: RetourTerrain;
 };
@@ -149,12 +135,6 @@ export const BASE_DELAI_LABEL: Record<BaseDelai, string> = {
 export const DELAI_PRATIQUE_LABEL: Record<DelaiPratique["statut"], string> = {
   estimation_parrainio: "Estimation Parrainio",
   non_calculable: "Pas d'estimation",
-};
-
-export const CONCORDANCE_LABEL: Record<Experience["concordance"], string> = {
-  concorde: "Concorde avec la page officielle",
-  ecart: "Écart avec la page officielle",
-  non_verifiable: "Non vérifiable sur la page officielle",
 };
 
 export type ObservatoireStats = {

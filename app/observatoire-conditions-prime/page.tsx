@@ -4,8 +4,9 @@ import styles from "./page.module.css";
 import { OG_IMAGE } from "@/lib/ogImage";
 import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
+import overridesJson from "@/data/offer-overrides.json";
 import {
-  DELAI_PRATIQUE_LABEL,
+  BASE_DELAI_LABEL,
   NATURE_REPRISE_LABEL,
   STATUT_DELAI_LABEL,
   campagneActive,
@@ -13,7 +14,6 @@ import {
   computeStats,
   dateDuJourParis,
   observatoire,
-  offresAvecTerrain,
   phraseCle,
 } from "@/lib/observatoireConditions";
 import {
@@ -26,9 +26,9 @@ import {
 } from "@/lib/experienceTerrain";
 
 export const metadata: Metadata = {
-  title: "Quand la prime de parrainage est-elle versée ? | Parrainio",
+  title: "Délais et conditions des primes de parrainage | Parrainio",
   description:
-    "Observatoire Parrainio : onze offres de parrainage bancaire passées au crible. Délai de versement, conditions et cas de reprise, sources à l’appui.",
+    "Observatoire daté de 11 offres : montants, délais officiels, retours terrain, conditions de conservation et clauses de reprise, avec sources vérifiables.",
   alternates: { canonical: "https://www.parrainio.fr/observatoire-conditions-prime" },
   openGraph: {
     url: "/observatoire-conditions-prime",
@@ -39,15 +39,30 @@ export const metadata: Metadata = {
   },
 };
 
-// Le statut des campagnes datées vieillit sans nous : revalidation horaire.
+// Les badges de campagne changent d'état sans attendre un nouveau déploiement.
 export const revalidate = 3600;
 
-const stats = computeStats();
-const today = dateDuJourParis();
-const retours = offresAvecTerrain();
-const terrainStats = computeTerrainStats(retours.map((offre) => offre.terrain!));
+type CatalogueSnapshot = {
+  partnerReward?: string;
+  parrainioReward?: string | null;
+  lastVerifiedAt?: string;
+  lastUpdated?: string;
+};
 
-/** Date lisible en français ; l'ISO reste réservé au JSON-LD et au CSV. */
+const catalogueParSlug = overridesJson as Record<string, CatalogueSnapshot>;
+const stats = computeStats();
+const terrainStats = computeTerrainStats();
+const today = dateDuJourParis();
+const officialSlugs = new Set(observatoire.offres.map((offer) => offer.slug));
+const terrainHorsPerimetre = experienceTerrain.offres.filter((offer) => !officialSlugs.has(offer.slug));
+const terrainRattache = observatoire.offres.filter((offer) => offer.terrain).length;
+
+function amountSummary(text: string) {
+  if (text.length <= 120) return text;
+  const end = text.lastIndexOf(" ", 116);
+  return `${text.slice(0, Math.max(end, 100))}…`;
+}
+
 const releveLabel = new Date(`${observatoire.releveLe}T12:00:00Z`).toLocaleDateString("fr-FR", {
   day: "numeric",
   month: "long",
@@ -55,21 +70,19 @@ const releveLabel = new Date(`${observatoire.releveLe}T12:00:00Z`).toLocaleDateS
   timeZone: "UTC",
 });
 
-const verifieLabel = observatoire.verifieLe
-  ? new Date(`${observatoire.verifieLe}T12:00:00Z`).toLocaleDateString("fr-FR", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "UTC",
-    })
-  : null;
+const terrainLabel = new Date(`${experienceTerrain.recuLe}T12:00:00Z`).toLocaleDateString("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Dataset",
   name: "Observatoire Parrainio des conditions de versement des primes de parrainage",
   description:
-    "Relevé de onze offres de parrainage bancaire en France : délai de versement annoncé, conditions à remplir, durée de conservation et cas de reprise de la prime, avec citation littérale et source officielle.",
+    "Onze offres documentées à partir de leurs pages officielles, avec un jeu séparé de quatorze retours de terrain attribués et datés.",
   datePublished: observatoire.releveLe,
   dateModified: observatoire.verifieLe ?? observatoire.releveLe,
   inLanguage: "fr-FR",
@@ -77,24 +90,248 @@ const jsonLd = {
   creator: { "@type": "Organization", name: "Parrainio", url: "https://www.parrainio.fr" },
   spatialCoverage: "France",
   variableMeasured: [
-    "Délai de versement annoncé",
-    "Délai pratique estimé pour le filleul",
-    "Délai de reversement Parrainio",
+    "Montants annoncés pour le filleul et le parrain",
+    "Délai officiel et point de départ",
     "Conditions à remplir",
-    "Durée de conservation",
-    "Cas de reprise de la prime",
-    "Délai constaté sur le terrain",
-    "Déclencheur du délai",
-    "Commissions versées simultanément ou non",
+    "Conservation et reprise des primes",
+    "Observations terrain séparées des conditions officielles",
+    "Délai de reversement Parrainio après réception de la commission",
   ],
   distribution: [
     {
       "@type": "DataDownload",
+      name: "Conditions officielles et observations rattachées — 11 offres",
       encodingFormat: "text/csv",
-      contentUrl: "https://www.parrainio.fr/data/observatoire-conditions-2026-10-20.csv",
+      contentUrl: `https://www.parrainio.fr/data/observatoire-conditions-${observatoire.releveLe}.csv`,
+    },
+    {
+      "@type": "DataDownload",
+      name: "Retours terrain du responsable — 14 observations",
+      encodingFormat: "text/csv",
+      contentUrl: `https://www.parrainio.fr/data/observatoire-terrain-${experienceTerrain.recuLe}.csv`,
     },
   ],
 };
+
+function TerrainDetails({ retour }: { retour: (typeof experienceTerrain.offres)[number] }) {
+  return (
+    <section className={styles.terrainPanel} aria-label={`Retour terrain pour ${retour.nom}`}>
+      <div className={styles.panelHeading}>
+        <div>
+          <p className={styles.kicker}>Observation indépendante des conditions officielles</p>
+          <h3>Transmission du responsable</h3>
+        </div>
+        <span className={`${styles.tag} ${styles.tagTerrain}`}>Non officielle · {terrainLabel}</span>
+      </div>
+      <dl className={styles.factGrid}>
+        <div>
+          <dt>Prime du filleul</dt>
+          <dd>{retour.delais.primeFilleul}</dd>
+        </div>
+        <div>
+          <dt>Prime ou commission du parrain</dt>
+          <dd>{retour.delais.commissionParrain}</dd>
+        </div>
+        <div>
+          <dt>Reversement Parrainio</dt>
+          <dd>{retour.delais.reversementParrainio}</dd>
+        </div>
+        <div>
+          <dt>Déclencheur observé</dt>
+          <dd>{retour.declencheur}</dd>
+        </div>
+        <div>
+          <dt>Montants communiqués</dt>
+          <dd>{retour.montantsObserves ?? "Aucun montant communiqué pour cette observation."}</dd>
+        </div>
+        <div>
+          <dt>Calendrier des primes</dt>
+          <dd>{SIMULTANEITE_LABEL[retour.simultaneite]}</dd>
+        </div>
+        <div>
+          <dt>Conservation</dt>
+          <dd>
+            <span className={styles.inlineTag}>{NATURE_CONSERVATION_LABEL[retour.conservation.nature]}</span>{" "}
+            {retour.conservation.texte}
+          </dd>
+        </div>
+        <div>
+          <dt>Reprise rapportée</dt>
+          <dd>
+            <span className={styles.inlineTag}>{NATURE_REPRISE_TERRAIN_LABEL[retour.reprise.nature]}</span>{" "}
+            {retour.reprise.texte}
+          </dd>
+        </div>
+        {retour.exception ? (
+          <div className={styles.factWide}>
+            <dt>Exception ou réserve</dt>
+            <dd>{retour.exception}</dd>
+          </div>
+        ) : null}
+        <div className={styles.factWide}>
+          <dt>Écart avec la source officielle</dt>
+          <dd>{CONCORDANCE_TERRAIN_LABEL[retour.concordance]}</dd>
+        </div>
+        <div className={styles.factWide}>
+          <dt>Note du responsable</dt>
+          <dd>{retour.note}</dd>
+        </div>
+        {retour.transmissionComplementaire ? (
+          <div className={styles.factWide}>
+            <dt>Complément financier reçu le {terrainLabel}</dt>
+            <dd>
+              <p><strong>Prime observée :</strong> {retour.transmissionComplementaire.primeObservee}</p>
+              <p><strong>Reversement Parrainio :</strong> {retour.transmissionComplementaire.reversementObserve}</p>
+              <p><strong>Concordance indiquée :</strong> {CONCORDANCE_TERRAIN_LABEL[retour.transmissionComplementaire.concordance]}</p>
+              <p>{retour.transmissionComplementaire.note}</p>
+            </dd>
+          </div>
+        ) : null}
+      </dl>
+      <p className={styles.provenance}>
+        Source : {experienceTerrain.source}, reçu le {terrainLabel}. Retour d’une seule personne ; aucun
+        effectif ni protocole de mesure par offre n’est communiqué. Ces éléments décrivent une pratique,
+        pas une condition contractuelle.
+      </p>
+    </section>
+  );
+}
+
+function OfficialOfferDetails({ offer }: { offer: (typeof observatoire.offres)[number] }) {
+  const catalogue = catalogueParSlug[offer.slug];
+  const catalogueDate = catalogue?.lastVerifiedAt ?? catalogue?.lastUpdated;
+  const noClawbackPublished = offer.reprise.nature === "aucune_publication";
+
+  return (
+    <details className={styles.offerDetails} id={`offre-${offer.slug}`}>
+      <summary>
+        <span className={styles.summaryName}>{offer.nom}</span>
+        <span className={styles.summaryHint}>{STATUT_DELAI_LABEL[offer.delaiVersement.statut]}</span>
+      </summary>
+      <div className={styles.offerBody}>
+        <div className={styles.officialPanel}>
+          <div className={styles.panelHeading}>
+            <div>
+              <p className={styles.kicker}>Conditions publiées par le partenaire</p>
+              <h3>{offer.nom}</h3>
+            </div>
+            <a className={styles.sourceLink} href={offer.source} target="_blank" rel="noreferrer">
+              Ouvrir la source officielle ↗
+            </a>
+          </div>
+          <p className={styles.sourceDate}>Page relue le {releveLabel} · source primaire du partenaire</p>
+
+          <div className={styles.factGrid}>
+            <div>
+              <h4>Montant filleul annoncé</h4>
+              <p>{offer.primeAnnoncee}</p>
+            </div>
+            <div>
+              <h4>Montant parrain annoncé</h4>
+              <p>{offer.primeParrain || "Non chiffré dans la source consultée."}</p>
+            </div>
+            <div className={styles.factWide}>
+              <h4>Délai officiel et point de départ</h4>
+              <p>
+                <span className={`${styles.tag} ${styles[`tag_${offer.delaiVersement.statut}`]}`}>
+                  {STATUT_DELAI_LABEL[offer.delaiVersement.statut]}
+                </span>{" "}
+                {offer.delaiVersement.resume}
+              </p>
+              {offer.delaiStructure ? (
+                <p className={styles.secondaryText}>
+                  Durée structurée : {offer.delaiStructure.texte}, {BASE_DELAI_LABEL[offer.delaiStructure.base]}.
+                </p>
+              ) : null}
+            </div>
+            <div className={styles.factWide}>
+              <h4>Actions ou validations requises</h4>
+              <p>{offer.delaiAction?.resume ?? "Aucune action supplémentaire n’est chiffrée dans la source relevée."}</p>
+            </div>
+            <div>
+              <h4>Conservation publiée</h4>
+              <p>{offer.conservation?.resume ?? "Aucune durée de conservation relevée sur cette page."}</p>
+            </div>
+            <div>
+              <h4>Reprise ou non-paiement</h4>
+              <p>
+                <span className={`${styles.tag} ${offer.reprise.nature === "prelevement" ? styles.tagRisk : styles.tagNeutral}`}>
+                  {NATURE_REPRISE_LABEL[offer.reprise.nature]}
+                </span>{" "}
+                {offer.reprise.resume}
+                {noClawbackPublished ? " Cela ne garantit pas qu’aucune reprise soit possible." : ""}
+              </p>
+            </div>
+            <div className={styles.factWide}>
+              <h4>Estimation Parrainio</h4>
+              {offer.delaiPratique?.resume ? (
+                <>
+                  <p>{offer.delaiPratique.resume}</p>
+                  <p className={styles.secondaryText}>{offer.delaiPratique.hypothese} Estimation indicative, pas un délai du partenaire.</p>
+                  {offer.delaiPratique.exception ? <p className={styles.secondaryText}>{offer.delaiPratique.exception}</p> : null}
+                </>
+              ) : (
+                <p>{offer.delaiPratique?.hypothese ?? "Aucune estimation calculable à partir des informations publiées."}</p>
+              )}
+            </div>
+            {offer.differences || offer.ambiguite ? (
+              <div className={styles.factWide}>
+                <h4>Divergences et informations à vérifier</h4>
+                {offer.differences ? <p>{offer.differences}</p> : null}
+                {offer.ambiguite ? <p className={styles.warningText}>{offer.ambiguite}</p> : null}
+              </div>
+            ) : null}
+          </div>
+
+          <details className={styles.citationDetails}>
+            <summary>Voir les extraits, la date et les limites de lecture</summary>
+            <div className={styles.citationBody}>
+              <p><strong>Délai :</strong> {offer.delaiVersement.citation || "Aucune citation de délai chiffré."}</p>
+              {offer.delaiAction?.citation ? <p><strong>Action :</strong> {offer.delaiAction.citation}</p> : null}
+              {offer.conservation?.citation ? <p><strong>Conservation :</strong> {offer.conservation.citation}</p> : null}
+              {offer.reprise.citation ? <p><strong>Reprise :</strong> {offer.reprise.citation}</p> : null}
+              <p>Relevé officiel : {offer.luLe}. État de source : {offer.sourceStatut ?? "non précisé"}.</p>
+            </div>
+          </details>
+
+          <div className={styles.cataloguePanel}>
+            <h4>Instantané du catalogue Parrainio versionné</h4>
+            <p><strong>Prime partenaire :</strong> {catalogue?.partnerReward ?? "Non renseignée dans l’override versionné."}</p>
+            <p><strong>Reversement Parrainio :</strong> {catalogue?.parrainioReward ?? "Non renseigné dans l’override versionné."}</p>
+            <p className={styles.secondaryText}>
+              Fichier <code>data/offer-overrides.json</code>{catalogueDate ? ` · vérification indiquée : ${catalogueDate}` : " · date de vérification absente"}.
+              Cet instantané Git peut différer de la fiche actuellement servie si une valeur a été modifiée dans l’administration.
+            </p>
+          </div>
+        </div>
+
+        {offer.terrain ? <TerrainDetails retour={offer.terrain} /> : null}
+
+        <p className={styles.offerFooter}>
+          <Link href={`/offres/${offer.slug}`}>Voir la fiche Parrainio de {offer.nom} ↗</Link>
+        </p>
+      </div>
+    </details>
+  );
+}
+
+function TerrainOnlyDetails({ retour }: { retour: (typeof experienceTerrain.offres)[number] }) {
+  return (
+    <details className={styles.offerDetails} id={`terrain-${retour.slug}`}>
+      <summary>
+        <span className={styles.summaryName}>{retour.nom}</span>
+        <span className={styles.summaryHint}>{retour.fiche ? "Fiche au catalogue" : "Hors catalogue Parrainio"}</span>
+      </summary>
+      <div className={styles.offerBody}>
+        {!retour.fiche ? (
+          <p className={styles.warningText}>Observation conservée, mais aucune fiche Parrainio ne permet de la rattacher à une offre suivie.</p>
+        ) : null}
+        <TerrainDetails retour={retour} />
+        {retour.fiche ? <p className={styles.offerFooter}><Link href={`/offres/${retour.slug}`}>Voir la fiche Parrainio de {retour.nom} ↗</Link></p> : null}
+      </div>
+    </details>
+  );
+}
 
 export default function ObservatoireConditionsPrimePage() {
   return (
@@ -104,575 +341,144 @@ export default function ObservatoireConditionsPrimePage() {
 
       <section className={styles.hero}>
         <div className={styles.container}>
-          <p className={styles.eyebrow}><span />Observatoire Parrainio — édition 2026</p>
-          <h1>Quand la prime de parrainage <em>arrive-t-elle</em> ?</h1>
+          <p className={styles.eyebrow}>Observatoire Parrainio · relevé du {releveLabel}</p>
+          <h1>Quand arrivent les primes de parrainage&nbsp;?</h1>
           <p className={styles.heroLead}>
-            Les comparatifs répondent au <strong>combien</strong>. Rarement au <strong>quand</strong>, et
-            presque jamais au <strong>qu’est-ce qui peut me la reprendre</strong>. Nous avons lu les pages
-            officielles de {stats.total} offres de parrainage bancaire le {releveLabel} et relevé,
-            mot pour mot, ce que chacune publie.
+            Nous confrontons les conditions publiées par les partenaires, les montants du catalogue Parrainio
+            et les observations du responsable. Chaque donnée garde sa source, sa date et son statut :
+            officielle, constatée, estimée ou encore inconnue.
           </p>
-          <div className={styles.heroMeta}>
-            <span>{stats.total} offres lues</span>
-            <span>Relevé du {releveLabel}</span>
-            <span>Citations et sources vérifiables</span>
-            {verifieLabel ? <span>Sources revérifiées le {verifieLabel}</span> : null}
-            <span>CSV téléchargeable</span>
+          <div className={styles.heroLinks}>
+            <a href={`#offres-${observatoire.releveLe}`}>Comparer les 11 offres</a>
+            <a href="#retours-terrain">Voir les 14 retours terrain</a>
+            <a href="#telechargements">Télécharger les données</a>
           </div>
         </div>
       </section>
 
-      <section className={styles.keySection}>
-        <div className={styles.container}>
-          <div className={styles.keyGrid}>
-            <article className={styles.keyCard}>
-              <p className={styles.keyFigure}><strong>{stats.delaiChiffre}</strong><span>/ {stats.total}</span></p>
-              <p className={styles.keyLabel}>offres indiquent un délai de versement chiffré</p>
-            </article>
-            <article className={styles.keyCard}>
-              <p className={styles.keyFigure}><strong>{stats.reprisePrelevement}</strong><span>/ {stats.total}</span></p>
-              <p className={styles.keyLabel}>offres décrivent un prélèvement rétroactif de la prime</p>
-            </article>
-            <article className={styles.keyCard}>
-              <p className={styles.keyFigure}><strong>{stats.delaiActionDocumente}</strong><span>/ {stats.total}</span></p>
-              <p className={styles.keyLabel}>offres indiquent une échéance pour remplir les conditions</p>
-            </article>
-            <article className={styles.keyCard}>
-              <p className={styles.keyFigure}><strong>{stats.delaiNonPublie + stats.delaiRenvoi}</strong><span>/ {stats.total}</span></p>
-              <p className={styles.keyLabel}>offres ne donnent aucun délai lisible sur la page</p>
-            </article>
-          </div>
-          <p className={styles.keyNote}>
-            Décompte sur {stats.total} offres : {stats.delaiChiffre} délais chiffrés, {stats.delaiRenvoi} renvois
-            vers un document externe, {stats.delaiNonPublie} absence de délai. Les dénominateurs sont toujours
-            le nombre d’offres incluses, jamais le nombre de mentions trouvées.
-          </p>
+      <section className={styles.metricsSection} aria-label="Résultats du relevé">
+        <div className={`${styles.container} ${styles.metricsGrid}`}>
+          <article><strong>{stats.delaiChiffre}/{stats.total}</strong><span>délai officiel chiffré</span></article>
+          <article><strong>{stats.reprisePrelevement}/{stats.total}</strong><span>clause de prélèvement rétroactif identifiée</span></article>
+          <article><strong>{terrainRattache}/{stats.total}</strong><span>offres du relevé avec un retour terrain rattaché</span></article>
+          <article><strong>{terrainStats.total}</strong><span>observations terrain transmises, dont {terrainHorsPerimetre.length} hors périmètre officiel</span></article>
         </div>
+        <p className={styles.metricsNote}>
+          Périmètre : {stats.total} pages officielles de Banque &amp; Finance, relues le {releveLabel}.
+          Les retours terrain couvrent {terrainStats.total} offres et ne représentent pas un échantillon statistique.
+        </p>
       </section>
 
-      <section className={styles.chainSection} id="delai-pratique">
+      <section className={styles.processSection}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Du versement au reversement</p>
-            <h2>Trois délais, <em>trois natures</em></h2>
-            <p>
-              Un parrainage ne produit pas un versement, mais une chaîne. La banque valide le
-              parrainage et verse la prime ; Parrainio reçoit ensuite la commission du partenaire,
-              puis reverse sa part au filleul. Chaque étape a son propre délai — et une seule est
-              écrite noir sur blanc dans les conditions de la banque.
-            </p>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Quatre étapes distinctes</p>
+            <h2>Le point de départ change selon l’offre</h2>
+            <p>Une durée ne se lit qu’avec son déclencheur. Une ouverture de compte, un dépôt, une opération qualifiante et une validation ne sont pas la même date.</p>
           </div>
-
-          <ol className={styles.chain}>
-            <li>
-              <span className={styles.chainNumber}>1</span>
-              <div>
-                <h3>Les conditions sont remplies</h3>
-                <p>
-                  Dépôt, premier versement, opérations : la banque vérifie que le filleul a fait ce
-                  que l’offre demande. Tant que ce n’est pas fait, aucun délai de versement ne court.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span className={styles.chainNumber}>2</span>
-              <div>
-                <h3>La banque verse la prime</h3>
-                <p>
-                  C’est le délai publié dans le tableau ci-dessous. Il s’agit souvent d’un maximum,
-                  pas d’une date : « au plus tard dans les 2 mois » n’annonce pas un virement à
-                  échéance fixe.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span className={styles.chainNumber}>3</span>
-              <div>
-                <h3>Parrainio reçoit sa commission</h3>
-                <p>
-                  Le partenaire rémunère le site de parrainage pour le client apporté. Notre retour
-                  de terrain indique que ce règlement accompagne généralement le versement de la
-                  prime, et qu’une notification ou un e-mail signale l’opération. Aucune page
-                  officielle ne le garantit offre par offre.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span className={styles.chainNumber}>4</span>
-              <div>
-                <h3>Parrainio reverse sa part</h3>
-                <p>
-                  Le reversement part après réception de cette commission, généralement sous{" "}
-                  {observatoire.reversement.delai}. C’est un engagement de Parrainio, pas une
-                  condition bancaire : il ne peut pas commencer avant que la banque ait payé.
-                </p>
-              </div>
-            </li>
+          <ol className={styles.steps}>
+            <li><b>1</b><div><h3>Remplir les conditions</h3><p>Dépôt, achat, validations ou justificatifs : la fiche de chaque offre indique les étapes relevées.</p></div></li>
+            <li><b>2</b><div><h3>Le partenaire verse la prime</h3><p>Le délai officiel et son point de départ sont cités séparément. Un délai d’action n’est pas un délai de paiement.</p></div></li>
+            <li><b>3</b><div><h3>Parrainio reçoit sa commission</h3><p>Le responsable rapporte que cela accompagne généralement la prime du filleul ou du parrain. Les pages partenaires ne le garantissent pas offre par offre.</p></div></li>
+            <li><b>4</b><div><h3>Parrainio reverse sa part</h3><p>Le délai habituel communiqué est de 24 à 72 heures après réception de la commission. Pour assurancevie.com, le responsable signale une exception de calendrier à clarifier.</p></div></li>
           </ol>
-
-          <div className={styles.chainCards}>
-            <article>
-              <p className={styles.chainTag}>Ce que dit la banque</p>
-              <h3>Délai publié</h3>
-              <p>
-                {stats.delaiChiffre} offres sur {stats.total} le chiffrent. Il est cité mot pour mot,
-                avec sa source et sa date — et laissé vide quand il n’existe pas.
-              </p>
-            </article>
-            <article>
-              <p className={styles.chainTag}>Ce que nous estimons</p>
-              <h3>Délai pratique</h3>
-              <p>
-                {stats.estimationDisponible} offres sur {stats.total} permettent une estimation :
-                délai publié + 24 à 72 h de traitement. C’est un ordre de grandeur haut, jamais une
-                date promise.
-              </p>
-            </article>
-            <article>
-              <p className={styles.chainTag}>Ce que nous observons</p>
-              <h3>Retour de terrain</h3>
-              <p>
-                {stats.terrainDocumente} offres du relevé ont un délai constaté par le responsable de
-                Parrainio, et {terrainStats.avecRetour} au total dans notre base. Il est stocké dans un
-                fichier distinct, marqué non officiel, et confronté à la page de la banque ci-dessous.
-              </p>
-            </article>
-          </div>
-
-          <p className={styles.chainNote}>
-            <strong>Une exception documentée.</strong> {experienceTerrain.reversement.simultaneite}{" "}
-            Le relevé terrain contient une exception : chez assurancevie.com, la prime du filleul arrive
-            vers 30 jours et celle du parrain vers 90 jours. Pour cette offre, le calendrier du
-            reversement ne suit donc pas celui de la prime du filleul, et un reversement peut être
-            versé avant que Parrainio ait reçu sa commission. Les deux primes ne se lisent jamais comme
-            une seule durée. {" "}
-            {observatoire.noteDelaiPratique} Pour comprendre pourquoi un versement peut tarder, voir{" "}
-            <Link href="/blog/prime-parrainage-pas-encore-versee">les causes d’un versement retardé</Link> ;
-            pour les durées de conservation, voir{" "}
-            <Link href="/blog/reprise-prime-parrainage-cloture-compte">la reprise après clôture</Link>, et{" "}
-            <Link href="/blog/delai-versement-prime-parrainage-comment-lire">le guide de lecture des délais</Link>{" "}
-            pour les unités et les points de départ.
+          <p className={styles.exceptionNote}>
+            <strong>Exception assurancevie.com :</strong> les données du responsable indiquent une prime filleul autour de 30 jours,
+            une prime parrain autour de 90 jours et la possibilité d’un reversement Parrainio avant réception de la commission.
+            Le déclencheur exact de ce reversement n’est pas établi ; la règle générale de 24 à 72 heures ne lui est donc pas appliquée automatiquement.
           </p>
         </div>
       </section>
 
-      <section className={styles.tableSection} id="tableau">
+      <section className={styles.tableSection} id={`offres-${observatoire.releveLe}`}>
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Le tableau</p>
-            <h2>Ce que chaque banque publie — <em>et ce qu’elle tait</em></h2>
-            <p>
-              Une ligne par offre. La première ligne de la colonne « délai de versement » ne reprend que ce
-              qui est écrit sur la page officielle ; la seconde est notre estimation, clairement séparée.
-              Quand la page ne dit rien, les deux le disent.
-            </p>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Comparaison rapide</p>
+            <h2>Les 11 offres relues</h2>
+            <p>Les montants du partenaire sont distincts entre filleul et parrain. Ouvrez une ligne pour les sources, les citations, les conditions de conservation, les écarts de catalogue et les détails terrain.</p>
           </div>
-
           <div className={styles.tableWrap}>
             <table className={styles.table}>
-              <caption className={styles.srOnly}>
-                Délai de versement, conditions et cas de reprise des primes de parrainage, par offre, relevé le{" "}
-                {releveLabel}
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Offre</th>
-                  <th scope="col">Prime annoncée</th>
-                  <th scope="col">Délai de versement</th>
-                  <th scope="col">Conditions à remplir</th>
-                  <th scope="col">Ce qui peut faire perdre la prime</th>
-                </tr>
-              </thead>
+              <caption className={styles.srOnly}>Montants, délais officiels, observations terrain et clauses de reprise, relevé du {releveLabel}</caption>
+              <thead><tr><th scope="col">Offre</th><th scope="col">Montants partenaire</th><th scope="col">Délai officiel</th><th scope="col">Retour terrain</th><th scope="col">Conservation / reprise</th></tr></thead>
               <tbody>
-                {observatoire.offres.map((offre) => (
-                  <tr key={offre.slug}>
-                    <th scope="row">
-                      <Link className={styles.offerName} href={`/offres/${offre.slug}`}>
-                        {offre.nom}
-                      </Link>
-                      <span className={styles.offerCat}>{offre.categorie}</span>
-                    </th>
-                    <td data-label="Prime annoncée">
-                      {offre.primeAnnoncee}
-                      {offre.campagne ? (
-                        <span
-                          className={`${styles.campagneBadge} ${
-                            campagneActive(offre.campagne, today) ? "" : styles.campagneBadgeExpiree
-                          }`}
-                          title={offre.campagne.libelle}
-                        >
-                          {campagneLabel(offre.campagne, today)}
-                        </span>
-                      ) : null}
-                    </td>
-                    <td data-label="Délai de versement">
-                      <span className={`${styles.badge} ${styles[`badge_${offre.delaiVersement.statut}`]}`}>
-                        {STATUT_DELAI_LABEL[offre.delaiVersement.statut]}
-                      </span>
-                      <span className={styles.cellText}>{offre.delaiVersement.resume}</span>
-                      <span className={styles.practice}>
-                        <span className={styles.practiceLabel}>
-                          {DELAI_PRATIQUE_LABEL[offre.delaiPratique?.statut ?? "non_calculable"]}
-                        </span>
-                        <span className={offre.delaiPratique?.resume ? styles.practiceValue : styles.muted}>
-                          {offre.delaiPratique?.resume ??
-                            (offre.delaiVersement.statut === "renvoi"
-                              ? "Délai dans les mentions : pas d’estimation"
-                              : "Aucun délai publié : pas d’estimation")}
-                        </span>
-                        {offre.delaiPratique?.exception ? (
-                          <span className={styles.practiceException}>À noter : {offre.delaiPratique.exception}</span>
-                        ) : null}
-                      </span>
-                      {offre.terrain ? (
-                        <span className={styles.terrain}>
-                          <span className={styles.terrainLabel}>Délai constaté — non officiel</span>
-                          <span className={styles.terrainValue}>{offre.terrain.delai.texte}</span>
-                          <span className={styles.terrainDeclencheur}>Déclencheur : {offre.terrain.declencheur}</span>
-                        </span>
-                      ) : null}
-                    </td>
-                    <td data-label="Conditions à remplir">{offre.delaiAction ? offre.delaiAction.resume : <span className={styles.muted}>Non détaillées sur la page</span>}</td>
-                    <td data-label="Ce qui peut faire perdre la prime">
-                      <span className={`${styles.badge} ${offre.reprise.nature === "aucune_publication" ? styles.badge_non_publie : styles.badge_prelevement}`}>
-                        {NATURE_REPRISE_LABEL[offre.reprise.nature]}
-                      </span>
-                      <span className={offre.reprise.nature === "aucune_publication" ? styles.muted : styles.cellText}>
-                        {offre.reprise.resume}
-                      </span>
-                    </td>
+                {observatoire.offres.map((offer) => (
+                  <tr key={offer.slug}>
+                    <th scope="row" data-label="Offre"><a href={`#offre-${offer.slug}`}>{offer.nom}</a><small>{offer.categorie}</small></th>
+                    <td data-label="Montants partenaire"><span title={offer.primeAnnoncee}><b>Filleul :</b> {amountSummary(offer.primeAnnoncee.replace(/^Filleul\s*:\s*/i, ""))}</span><span title={offer.primeParrain}><b>Parrain :</b> {amountSummary((offer.primeParrain || "Non chiffré").replace(/^Parrain\s*:\s*/i, ""))}</span></td>
+                    <td data-label="Délai officiel"><span className={`${styles.tag} ${styles[`tag_${offer.delaiVersement.statut}`]}`}>{STATUT_DELAI_LABEL[offer.delaiVersement.statut]}</span><span>{offer.delaiStructure?.texte ?? offer.delaiVersement.resume}</span></td>
+                    <td data-label="Retour terrain">{offer.terrain ? <><strong>{offer.terrain.delai.texte}</strong><span>Départ : {offer.terrain.declencheur}</span></> : <span className={styles.unknown}>Aucun retour rattaché</span>}</td>
+                    <td data-label="Conservation / reprise"><strong>{offer.conservation?.resume ?? "Conservation non précisée sur la page relevée"}</strong><span>{offer.reprise.resume}</span></td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className={styles.tableNote}>
-            Les montants affichés sont ceux de nos fiches au {releveLabel} ; les campagnes changent,
-            seule la page de l’établissement fait foi au moment de souscrire. Le « délai pratique »
-            est une estimation Parrainio, pas une information de la banque : elle additionne le délai
-            publié et 24 à 72 h de traitement du reversement, en supposant que le délai publié décrit
-            la commission reçue par Parrainio. Aucune durée n’est calculée quand le délai n’est pas
-            lisible sur la page officielle. La dernière ligne de chaque cellule, « délai constaté »,
-            vient du terrain : ce n’est pas une condition publiée et elle n’entre pas dans le calcul.
+            « Aucun cas publié » signifie qu’aucune clause n’a été identifiée dans la source consultée ; ce n’est pas une garantie d’absence de reprise.
+            Les campagnes datées peuvent expirer : vérifiez le règlement affiché par le partenaire avant de souscrire.
           </p>
-        </div>
-      </section>
-
-      <section className={styles.quotesSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Les mots exacts</p>
-            <h2>Chaque ligne a sa <em>citation</em></h2>
-            <p>
-              Un résumé peut trahir. Voici les extraits littéraux, avec la page d’origine : vous pouvez tout
-              revérifier sans nous croire.
-            </p>
-          </div>
-          <div className={styles.quoteList}>
-            {observatoire.offres.map((offre) => (
-              <article key={offre.slug} className={styles.quoteCard}>
-                <div className={styles.quoteHead}>
-                  <h3>{offre.nom}</h3>
-                  <a href={offre.source} rel="nofollow noopener" target="_blank" className={styles.sourceLink}>
-                    Page officielle ↗
-                  </a>
-                </div>
-                <blockquote className={styles.quote}>
-                  <p>« {offre.delaiVersement.citation} »</p>
-                </blockquote>
-                {offre.reprise.citation ? (
-                  <p className={styles.quoteSecond}>
-                    <strong>Reprise :</strong> « {offre.reprise.citation} »
-                  </p>
-                ) : null}
-                {offre.ambiguite ? (
-                  <p className={styles.ambiguity}><strong>Ambiguïté relevée :</strong> {offre.ambiguite}</p>
-                ) : null}
-              </article>
-            ))}
+          <div className={styles.offerDetailList}>
+            {observatoire.offres.map((offer) => <OfficialOfferDetails key={offer.slug} offer={offer} />)}
           </div>
         </div>
       </section>
 
-      <section className={styles.experienceSection} id="retours-experience">
+      <section className={styles.terrainSection} id="retours-terrain">
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Retours d’expérience</p>
-            <h2>Ce que le terrain montre — <em>et ce qui reste à prouver</em></h2>
-            <p>
-              Ces observations viennent du responsable de Parrainio, pas des banques. Elles ne sont ni
-              des conditions officielles ni des garanties : chaque ligne indique si la page de
-              l’établissement la confirme, la contredit, ou ne permet pas de trancher.
-            </p>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Source séparée · non contractuelle</p>
+            <h2>Les {terrainStats.total} observations du responsable</h2>
+            <p>{experienceTerrain.note} Huit observations recoupent les 11 offres officielles ci-dessus ; les autres restent accessibles ici, y compris celle de BNP Paribas qui n’a pas de fiche au catalogue.</p>
           </div>
-          <div className={styles.experienceGrid}>
-            {retours.map((offre) => {
-              const terrain = offre.terrain!;
-              return (
-                <article key={offre.slug} className={styles.experienceCard}>
-                  <div className={styles.experienceHead}>
-                    <h3>
-                      <Link href={`/offres/${offre.slug}`}>{offre.nom}</Link>
-                    </h3>
-                    <span
-                      className={`${styles.concordance} ${styles[`concordance_${terrain.concordance}`]}`}
-                    >
-                      {CONCORDANCE_TERRAIN_LABEL[terrain.concordance]}
-                    </span>
-                  </div>
-                  <dl className={styles.experienceList}>
-                    <div>
-                      <dt>Délai constaté</dt>
-                      <dd>{terrain.delai.texte}</dd>
-                    </div>
-                    <div>
-                      <dt>Déclencheur</dt>
-                      <dd>{terrain.declencheur}</dd>
-                    </div>
-                    <div>
-                      <dt>Prime du filleul</dt>
-                      <dd>{terrain.delais.primeFilleul}</dd>
-                    </div>
-                    <div>
-                      <dt>Prime du parrain</dt>
-                      <dd>{terrain.delais.commissionParrain}</dd>
-                    </div>
-                    <div>
-                      <dt>Reversement Parrainio</dt>
-                      <dd>
-                        {terrain.delais.reversementParrainio} — {SIMULTANEITE_LABEL[terrain.simultaneite]}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>Conservation</dt>
-                      <dd>
-                        {terrain.conservation.texte}
-                        <span className={styles.natureTag}>
-                          {NATURE_CONSERVATION_LABEL[terrain.conservation.nature]}
-                        </span>
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>Reprise</dt>
-                      <dd>
-                        <span className={styles.natureTag}>{NATURE_REPRISE_TERRAIN_LABEL[terrain.reprise.nature]}</span>
-                        {terrain.reprise.texte}
-                      </dd>
-                    </div>
-                    {terrain.montantsObserves ? (
-                      <div>
-                        <dt>Montants observés</dt>
-                        <dd>{terrain.montantsObserves}</dd>
-                      </div>
-                    ) : null}
-                  </dl>
-                  {terrain.exception ? (
-                    <p className={styles.experienceException}><strong>Exception :</strong> {terrain.exception}</p>
-                  ) : null}
-                  <p className={styles.experienceNote}>{terrain.note}</p>
-                  <p className={styles.experienceSource}>
-                    {experienceTerrain.source}, {experienceTerrain.recuLe} — non officiel, non mesuré.
-                  </p>
-                </article>
-              );
-            })}
+          <div className={styles.offerDetailList}>
+            {terrainHorsPerimetre.map((retour) => <TerrainOnlyDetails key={retour.slug} retour={retour} />)}
           </div>
         </div>
       </section>
 
-      <section className={styles.methodSection}>
+      <section className={styles.methodSection} id="methodologie">
         <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Méthode</p>
-            <h2>Comment ces {stats.total} lignes <em>ont été construites</em></h2>
+          <div className={styles.sectionIntro}>
+            <p className={styles.kicker}>Méthode et limites</p>
+            <h2>Ce que les données permettent de dire</h2>
           </div>
           <div className={styles.methodGrid}>
-            <article className={styles.methodCard}>
-              <h3>Périmètre</h3>
-              <p>
-                Les offres du groupe Banque &amp; Finance du catalogue dont une page officielle de parrainage
-                était lisible le {releveLabel}. Dix autres ont été écartées : page inexistante,
-                accès refusé ou conditions réservées à l’espace client.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Ce qui est compté</h3>
-              <p>
-                Un délai n’est « chiffré » que s’il est écrit en jours, semaines ou mois. Un renvoi vers un
-                règlement non lu n’est pas un délai. Une absence de mention n’est jamais convertie en
-                estimation.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Délai d’action ≠ délai de versement</h3>
-              <p>
-                « Versement sous 6 jours » décrit une action à faire. « Prime versée sous 60 jours » décrit
-                l’arrivée de l’argent. Les deux colonnes sont séparées pour ne pas les confondre.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Délai estimé ≠ délai garanti</h3>
-              <p>
-                Le « délai pratique » additionne un maximum publié et notre délai de traitement. Il
-                suppose que la page officielle décrit la commission reçue par Parrainio, ce qu’elle
-                ne précise pas toujours. Il sert à se situer, pas à réclamer une date.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Faits et retours de terrain</h3>
-              <p>
-                Chaque page officielle est citée. Les délais constatés par le responsable de
-                Parrainio vivent dans un fichier distinct ({experienceTerrain.offres.length} offres,
-                reçu le {experienceTerrain.recuLe}) et s’affichent dans une section séparée, marquée
-                « retour d’expérience ». Ils ne valent pas condition et sont signalés comme
-                concordants ou non avec la source.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Ce que d’autres publient déjà</h3>
-              <p>
-                Certains comparateurs indiquent parfois un délai, sans source ni date par ligne.
-                Notre parti pris est différent : chaque valeur est citée, datée, et l’absence est
-                écrite comme une absence.
-              </p>
-            </article>
-            <article className={styles.methodCard}>
-              <h3>Fraîcheur</h3>
-              <p>
-                Relevé unique, daté. Les campagnes changent vite : chaque ligne porte sa date et sa source,
-                et une offre dont la page change est réexaminée avant republication.
-              </p>
-            </article>
+            <article><h3>Officiel</h3><p>Les résumés s’appuient sur les pages publiques des partenaires, relues le {releveLabel}. Les citations exactes, URL et dates figurent dans le détail de chaque offre et dans le CSV.</p></article>
+            <article><h3>Terrain</h3><p>Les retours ont été communiqués par le responsable le {terrainLabel}. Ils décrivent son suivi, mais aucun nombre d’observations par offre ni protocole de mesure n’est fourni.</p></article>
+            <article><h3>Estimation</h3><p>Quand elle existe, elle combine le délai public et le traitement Parrainio annoncé de 24 à 72 heures après réception de la commission. C’est une estimation interne, pas une date promise par le partenaire.</p></article>
+            <article><h3>Inconnu</h3><p>Une information non trouvée reste inconnue. Une clause de reprise absente de la page lue n’est jamais présentée comme une garantie qu’aucune reprise n’existe.</p></article>
           </div>
-
-          <div className={styles.downloadCard}>
-            <div>
-              <h3>Réutiliser les données</h3>
-              <p>
-                Le relevé complet est disponible en CSV : une ligne par offre, les mêmes valeurs que ce
-                tableau, sources comprises.
-              </p>
-            </div>
-            <a className={styles.downloadLink} href="/data/observatoire-conditions-2026-10-20.csv" download>
-              Télécharger le CSV
+          <blockquote className={styles.citationReady}>
+            <p>{phraseCle(stats)}</p>
+            <cite>Observatoire Parrainio · relevé officiel du {releveLabel} · périmètre : {stats.total} offres Banque &amp; Finance</cite>
+          </blockquote>
+          <div className={styles.downloadGrid} id="telechargements">
+            <a className={styles.downloadCard} href={`/data/observatoire-conditions-${observatoire.releveLe}.csv`} download>
+              <strong>CSV des conditions officielles · {stats.total} offres</strong>
+              <span>Inclut citations, montants du catalogue versionné, dates, déclencheurs et retours terrain rattachés.</span>
+            </a>
+            <a className={styles.downloadCard} href={`/data/observatoire-terrain-${experienceTerrain.recuLe}.csv`} download>
+              <strong>CSV des observations terrain · {terrainStats.total} offres</strong>
+              <span>Jeu séparé comprenant les 14 transmissions, les réserves et les compléments financiers.</span>
             </a>
           </div>
-
-          <div className={styles.excludedCard}>
-            <h3>Offres écartées du relevé</h3>
-            <ul>
-              {observatoire.exclues.map((e) => (
-                <li key={e.nom}><strong>{e.nom}</strong> — {e.motif}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.synthesisSection} id="synthese">
-        <div className={styles.container}>
-          <div className={styles.sectionHead}>
-            <p className={styles.kicker}>Note de synthèse</p>
-            <h2>Ce que le relevé montre — <em>et ce qu’il ne prouve pas</em></h2>
-            <p>
-              Ces chiffres portent sur {stats.total} offres dont la page officielle a été lue, pas sur
-              l’ensemble du marché bancaire. Ils décrivent ce que ces pages publiaient le {releveLabel}.
-            </p>
-          </div>
-
-          <div className={styles.synthesisGrid}>
-            <article>
-              <h3>Un délai souvent publié, pas toujours daté</h3>
-              <p>
-                {stats.delaiChiffre} offres sur {stats.total} chiffrent leur délai de versement. Une
-                seule renvoie à un document externe, une seule n’en publie aucun. Le chiffre ne dit rien
-                de la date réelle : la base de calcul (ouverture, validation, signature) change d’une
-                offre à l’autre.
-              </p>
-            </article>
-            <article>
-              <h3>La reprise est minoritaire, pas absente</h3>
-              <p>
-                {stats.reprisePrelevement} offres sur {stats.total} décrivent un prélèvement rétroactif,
-                sur 12 ou 24 mois. {stats.repriseNonPubliee} ne publient aucune clause de reprise — ce
-                qui ne signifie pas qu’elles l’interdisent, seulement que la page ne documente pas le
-                point. Une clause absente n’est pas une autorisation.
-              </p>
-            </article>
-            <article>
-              <h3>Conservation et échéance d’action ne se recouvrent pas</h3>
-              <p>
-                {stats.conservationDocumentee} offres publient une durée de conservation et{" "}
-                {stats.delaiActionDocumente} une échéance pour remplir une condition. Ce sont deux
-                horloges distinctes : l’une court après l’ouverture, l’autre avant ou pendant. Les
-                confondre fait croire qu’une prime est acquise alors qu’une action reste à faire.
-              </p>
-            </article>
-            <article>
-              <h3>Le terrain nuance, il ne remplace pas</h3>
-              <p>
-                {terrainStats.avecRetour} offres ont un retour d’expérience du responsable de
-                Parrainio, dont {terrainStats.ecarts} divergent de la page officielle,
-                {" "}{terrainStats.concordent} concordent et {terrainStats.nonVerifiables} ne sont pas
-                vérifiables (page muette ou non lue). Ces retours sont déclarés, non mesurés : ils ne
-                constituent ni un taux de versement ni une moyenne.
-              </p>
-            </article>
-          </div>
-
-          <div className={styles.citationCard}>
+          <details className={styles.methodDetails}>
+            <summary>Périmètre et offres écartées</summary>
             <div>
-              <h3>Citer cette page</h3>
-              <p className={styles.citationText}>« {phraseCle(stats)} »</p>
-              <p className={styles.citationSource}>
-                Parrainio, <em>Observatoire des conditions de versement des primes de parrainage</em>,
-                édition 2026, relevé du {releveLabel}
-                {verifieLabel ? `, sources revérifiées le ${verifieLabel}` : ""}.
-              </p>
-              <p className={styles.citationUrl}>
-                https://www.parrainio.fr/observatoire-conditions-prime#synthese
-              </p>
+              <p>{observatoire.perimetre} Le relevé décrit les sources consultées, pas l’ensemble du marché.</p>
+              <ul>{observatoire.exclues.map((item) => <li key={item.nom}><strong>{item.nom} :</strong> {item.motif}</li>)}</ul>
             </div>
-            <a
-              className={styles.downloadLink}
-              href="mailto:parrainage@parrainio.fr?subject=Correction%20observatoire"
-            >
-              Signaler une correction
-            </a>
-          </div>
-
-          <p className={styles.synthesisNote}>
-            <strong>Limites.</strong> Périmètre de {stats.total} offres sur les 21 du groupe Banque &amp;
-            Finance, dix écartées avec motif ; un seul lecteur par page, sans double lecture ; retours de
-            terrain déclarés et non mesurés ; campagnes datées à revérifier après leur échéance. Aucun de
-            ces chiffres ne doit être présenté comme représentatif de toutes les banques françaises.
-            Pour le détail des unités et des points de départ, voir{" "}
-            <Link href="/blog/delai-versement-prime-parrainage-comment-lire">le guide de lecture des délais</Link>.
-            {" "}Vous avez déjà parrainé ? La marche à suivre est décrite dans{" "}
-            <Link href="/pourquoi-parrainio#reversement">le fonctionnement du reversement</Link>.
-          </p>
+          </details>
+          <p className={styles.reportLink}>Les fichiers téléchargeables préservent les valeurs détaillées et leur provenance. Pour calculer une échéance indicative, consultez <Link href="/echeancier-prime-parrainage">l’échéancier</Link>.</p>
         </div>
       </section>
 
-      <section className={styles.ctaSection}>
+      <section className={styles.linksSection}>
         <div className={styles.container}>
-          <div className={styles.ctaCard}>
-            <div>
-              <h2>Comparer les montants, puis <em>vérifier les conditions.</em></h2>
-              <p>
-                L’<Link href="/echeancier-prime-parrainage">échéancier de versement</Link> applique ces délais
-                à une date de souscription ; le <Link href="/classement-primes-parrainage">classement des primes</Link> donne les montants ;
-                le <Link href="/comparatif/parrainage-bancaire">comparatif bancaire</Link> détaille les parcours ;
-                l’<Link href="/chiffres-parrainio-2026">étude 2026</Link> replace ces offres dans l’ensemble du
-                catalogue, et <Link href="/comprendre-prime-parrain-filleul-commission">les trois montants d’un
-                parrainage</Link> expliquent qui paie quoi.
-              </p>
-            </div>
-            <Link href="/offres" className={styles.ctaButton}>Voir les offres →</Link>
-          </div>
+          <p>Pour comprendre une prime en attente, voir <Link href="/blog/prime-parrainage-pas-encore-versee">le guide des retards</Link>. Pour les reprises, consulter <Link href="/blog/reprise-prime-parrainage-cloture-compte">les clauses de clôture</Link>. Les montants de Parrainio et le rôle de la commission sont expliqués dans <Link href="/comprendre-prime-parrain-filleul-commission">le guide filleul, parrain et commission</Link> et dans la <Link href="/faq">FAQ</Link>.</p>
         </div>
       </section>
-
       <SiteFooter />
     </main>
   );

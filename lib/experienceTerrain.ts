@@ -19,6 +19,14 @@ export type NatureReprise =
   | "non_publiee";
 export type Concordance = "concorde" | "ecart" | "non_verifiable";
 
+/** Compléments financiers transmis séparément le même jour que les retours terrain. */
+export type TransmissionComplementaire = {
+  primeObservee: string;
+  reversementObserve: string;
+  concordance: Concordance;
+  note: string;
+};
+
 export type RetourTerrain = {
   slug: string;
   nom: string;
@@ -37,6 +45,8 @@ export type RetourTerrain = {
   conservation: { texte: string; nature: NatureConservation };
   reprise: { texte: string; nature: NatureReprise };
   montantsObserves: string | null;
+  /** Complément financier reçu le 21/10/2026, conservé avec sa provenance. */
+  transmissionComplementaire?: TransmissionComplementaire;
   exception: string | null;
   concordance: Concordance;
   note: string;

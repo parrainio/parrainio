@@ -3,7 +3,7 @@
   "recuLe": "2026-10-21",
   "source": "Responsable Parrainio",
   "statut": "retour_non_officiel",
-  "note": "Délais et fonctionnements constatés par le responsable de Parrainio sur plusieurs centaines de parrainages suivis pendant environ sept mois. Ces valeurs ne sont pas des conditions officielles : elles décrivent une pratique observée, datée, et sont toujours affichées à côté du délai publié par l'établissement, jamais à sa place.",
+  "note": "Transmission du responsable de Parrainio reçue le 21/10/2026. Elle décrit plusieurs centaines de parrainages suivis sur environ sept mois, mais aucun effectif par offre ni protocole de mesure n’est fourni. Ces observations ne sont pas des conditions officielles ; elles sont utiles à comparer aux conditions publiées, jamais à leur place.",
   "reversement": {
     "delai": "24 à 72 heures",
     "declencheur": "réception de la commission versée par le partenaire",
@@ -11,7 +11,7 @@
     "simultaneite": "Pour la majorité des offres, le filleul reçoit sa prime au même moment que le parrain reçoit la sienne, ou que Parrainio reçoit sa commission.",
     "suivi": "Le responsable suit les versements et les reversements quotidiennement.",
     "exception": "assurancevie-com",
-    "note": "Le reversement Parrainio court à partir de la réception de la commission, elle-même dépendante de la validation du parrainage par le partenaire. Il ne peut donc jamais précéder le paiement bancaire."
+    "note": "Le responsable décrit généralement un traitement Parrainio de 24 à 72 heures après réception de la commission du partenaire. Il signale assurancevie.com comme exception : le reversement au filleul peut, selon sa transmission, précéder la réception de la commission. Le déclencheur et le délai propres à cette exception ne sont pas établis par les données disponibles ; ne pas lui appliquer automatiquement la règle générale."
   },
   "offres": [
     {
@@ -22,19 +22,31 @@
         "commissionParrain": "généralement au même moment que la prime du filleul",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "24 à 48 h après le dépôt et la validation", "portee": "les_deux" },
+      "delai": {
+        "texte": "24 à 48 h après le dépôt et la validation",
+        "portee": "les_deux"
+      },
       "declencheur": "dépôt requis par le filleul, puis validation du compte",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "24 mois", "nature": "clause_officielle" },
+      "conservation": {
+        "texte": "24 mois",
+        "nature": "clause_officielle"
+      },
       "reprise": {
         "texte": "Clause de prélèvement sur 24 mois publiée par la banque ; le responsable indique ne pas avoir constaté de reprise, mais la signale comme un risque réel en cas de clôture anticipée.",
         "nature": "clause_identifiee"
       },
-      "montantsObserves": "Barème filleul communiqué : 10 € pour un dépôt de 1 à 49 €, 20 € de 50 à 299 €, 40 € à partir de 300 €. Plafond de campagne à rapprocher de la fiche, qui affiche 150 €.",
+      "montantsObserves": "Barème filleul communiqué par le responsable : 10 € pour un dépôt de 1 à 49 €, 20 € de 50 à 299 €, 40 € à partir de 300 € (300 € pour viser le maximum). La page officielle relue le 22/10/2026 affiche 10 €, 30 € et 60 € selon ces mêmes tranches. La campagne ou le parcours auquel se rapporte le barème terrain n’est pas identifié.",
       "exception": null,
       "concordance": "ecart",
-      "note": "Les 24 à 48 h constatées sont très inférieures au maximum publié de deux mois. Les deux peuvent coexister : le terrain décrit la durée habituelle, la page décrit le plafond.",
-      "fiche": true
+      "note": "Le responsable rapporte 24 à 48 h après dépôt et validation, contre plusieurs plafonds publiés selon la composante. Son barème observé (10/20/40 €) diffère du barème officiel actuellement affiché (10/30/60 €) ; il est conservé avec sa provenance, sans être présenté comme la règle en vigueur.",
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "variable selon le montant du premier versement (300 € pour viser le maximum)",
+        "reversementObserve": "15 € (60 € pendant la campagne boostée en cours)",
+        "concordance": "ecart",
+        "note": "Le délai observé ne correspond pas au délai publié (2 mois). Il peut viser une autre prime (mobilité, parrain) ou une campagne antérieure : à ne pas présenter comme la règle."
+      }
     },
     {
       "slug": "fortuneo",
@@ -44,10 +56,16 @@
         "commissionParrain": "généralement au même moment que la prime du filleul",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "7 à 10 jours après le dépôt de 300 € et la validation", "portee": "les_deux" },
+      "delai": {
+        "texte": "7 à 10 jours après le dépôt de 300 € et la validation",
+        "portee": "les_deux"
+      },
       "declencheur": "versement de 300 € puis validation du compte",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "un an", "nature": "recommendation_terrain" },
+      "conservation": {
+        "texte": "un an",
+        "nature": "recommendation_terrain"
+      },
       "reprise": {
         "texte": "Aucune clause de reprise identifiée par le responsable ; la page officielle renvoie à ses mentions, non consultées pour ce point.",
         "nature": "non_publiee"
@@ -56,7 +74,13 @@
       "exception": null,
       "concordance": "non_verifiable",
       "note": "La page de parrainage ne chiffre aucun délai de versement : elle renvoie aux mentions. Les 7 à 10 jours sont donc une observation de terrain, pas une échéance publiée.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "variable selon la carte (Fosfo ou Gold) et la campagne",
+        "reversementObserve": "17,50 € (Fosfo) à 27 € (Gold)",
+        "concordance": "non_verifiable",
+        "note": "La page officielle renvoie aux mentions sans chiffrer le délai : le délai observé reste un retour de terrain, non une condition publiée."
+      }
     },
     {
       "slug": "hello-bank",
@@ -66,7 +90,10 @@
         "commissionParrain": "généralement au même moment que la prime du filleul",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "2 à 7 jours après la validation du compte", "portee": "les_deux" },
+      "delai": {
+        "texte": "2 à 7 jours après la validation du compte",
+        "portee": "les_deux"
+      },
       "declencheur": "ouverture du compte et validation des justificatifs, sans achat ni dépôt supplémentaire",
       "simultaneite": "simultanee",
       "conservation": {
@@ -81,7 +108,13 @@
       "exception": null,
       "concordance": "ecart",
       "note": "Le délai constaté est bien plus court que les 20 jours publiés. La recommandation de conserver le compte un an rejoint la clause officielle, mais elle reste une recommandation : seul le règlement fixe l'obligation.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "60 € de reversement annoncés jusqu'au 29/10/2026, à vérifier",
+        "reversementObserve": "60 €, alignés sur la fiche pendant l'opération jusqu'au 29/10/2026",
+        "concordance": "ecart",
+        "note": "La fiche affiche les 60 € du retour terrain pendant l'opération, mais ce montant reste lié à sa date de fin et à revérifier ensuite. La page officielle prévoit par ailleurs une conservation d'un an et un prélèvement en cas de clôture dans les 12 mois : la croyance « aucune reprise » est démentie par la source."
+      }
     },
     {
       "slug": "monabanq",
@@ -91,10 +124,16 @@
         "commissionParrain": "dans le même mouvement que la prime du filleul",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "jusqu'à 30 jours après la validation du compte", "portee": "les_deux" },
+      "delai": {
+        "texte": "jusqu'à 30 jours après la validation du compte",
+        "portee": "les_deux"
+      },
       "declencheur": "ouverture du compte, sans opération supplémentaire signalée",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "12 mois publiés par la banque", "nature": "clause_officielle" },
+      "conservation": {
+        "texte": "12 mois publiés par la banque",
+        "nature": "clause_officielle"
+      },
       "reprise": {
         "texte": "Prélèvement possible en cas de clôture dans les 12 mois ; le responsable ne rapporte pas de reprise constatée.",
         "nature": "clause_identifiee"
@@ -103,7 +142,13 @@
       "exception": null,
       "concordance": "ecart",
       "note": "Les 30 jours constatés sont plus courts que le maximum publié de 60 jours. Le montant de 280 € est un plafond de bienvenue, pas une prime de parrainage : les paliers dépendent des démarches du filleul.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "30 € ou 50 € selon la carte",
+        "reversementObserve": "7,50 € (fiche)",
+        "concordance": "ecart",
+        "note": "Le délai observé (30 jours) est plus court que le maximum publié (60 jours) : les deux peuvent coexister, le second étant un plafond."
+      }
     },
     {
       "slug": "bnp-paribas",
@@ -113,11 +158,20 @@
         "commissionParrain": "non documenté dans nos données",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "délai non documenté", "portee": "les_deux" },
+      "delai": {
+        "texte": "délai non documenté",
+        "portee": "les_deux"
+      },
       "declencheur": "dix paiements réalisés dans les trois mois suivant l'ouverture du compte",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "non précisé", "nature": "non_precisee" },
-      "reprise": { "texte": "Aucune clause identifiée dans nos données.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "non précisé",
+        "nature": "non_precisee"
+      },
+      "reprise": {
+        "texte": "Aucune clause identifiée dans nos données.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": null,
       "exception": "La prime du filleul ne se déclenche pas tant que les dix paiements ne sont pas réalisés : le compte à rebours du versement ne commence donc pas à l'ouverture.",
       "concordance": "non_verifiable",
@@ -132,11 +186,20 @@
         "commissionParrain": "au moment du versement de la prime, ce qui ouvre la demande de reversement",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "30 à 60 jours après l'activation du contrat", "portee": "les_deux" },
+      "delai": {
+        "texte": "30 à 60 jours après l'activation du contrat",
+        "portee": "les_deux"
+      },
       "declencheur": "souscription acceptée, contrat activé et cotisations à jour",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "non précisé", "nature": "non_precisee" },
-      "reprise": { "texte": "Aucune clause de reprise publiée sur la page lue.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "non précisé",
+        "nature": "non_precisee"
+      },
+      "reprise": {
+        "texte": "Aucune clause de reprise publiée sur la page lue.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": "50 € pour le filleul et 50 € pour le parrain selon la page officielle.",
       "exception": "Trois étapes distinctes : activation du contrat, versement de la prime, puis demande de reversement Parrainio.",
       "concordance": "concorde",
@@ -151,19 +214,31 @@
         "commissionParrain": "généralement au même moment que la prime du filleul",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "jusqu'à 72 h après l'achat de 30 €", "portee": "les_deux" },
+      "delai": {
+        "texte": "jusqu'à 72 h après l'achat de 30 €",
+        "portee": "les_deux"
+      },
       "declencheur": "achat de 30 € avec la carte, la carte virtuelle gratuite suffisant",
       "simultaneite": "simultanee",
       "conservation": {
         "texte": "Aucun abonnement nécessaire pour le bonus de base ; les bonus liés à un abonnement supposent de le conserver trois mois",
         "nature": "recommendation_terrain"
       },
-      "reprise": { "texte": "Aucune clause de reprise publiée sur la page d'aide lue.", "nature": "non_publiee" },
+      "reprise": {
+        "texte": "Aucune clause de reprise publiée sur la page d'aide lue.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": "Le bonus de base ne dépend pas d'un abonnement ; les bonus complémentaires liés aux abonnements ne sont mentionnés que si la campagne les prévoit.",
       "exception": "La prime complémentaire liée à un abonnement suit un autre calendrier que le bonus de base.",
       "concordance": "ecart",
       "note": "72 h constatées contre un plafond publié de 60 jours ouvrés. Le décalage est cohérent avec la nature du plafond, mais il reste une observation.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "25 € après un achat de 30 €, jusqu'à 75 € liés à l'abonnement, 100 € au total selon la campagne",
+        "reversementObserve": "50 % de la prime, jusqu'à 50 € selon la campagne",
+        "concordance": "ecart",
+        "note": "La fiche affiche 0,25 € de reversement et 0 € de prime parrain : les montants observés relèvent d'une autre campagne ou d'un autre parcours. À vérifier avant toute promesse."
+      }
     },
     {
       "slug": "linxea",
@@ -173,16 +248,31 @@
         "commissionParrain": "dans le même mouvement que la récompense",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "environ 30 jours après la validation", "portee": "les_deux" },
+      "delai": {
+        "texte": "environ 30 jours après la validation",
+        "portee": "les_deux"
+      },
       "declencheur": "contrat validé par l'assureur après le délai de renonciation",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "aucune condition de maintien particulière signalée", "nature": "recommendation_terrain" },
-      "reprise": { "texte": "Aucune clause de reprise publiée ; un code offre invalide annule le parrainage.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "aucune condition de maintien particulière signalée",
+        "nature": "recommendation_terrain"
+      },
+      "reprise": {
+        "texte": "Aucune clause de reprise publiée ; un code offre invalide annule le parrainage.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": "Le parrain reçoit une carte cadeau Kadéos ; le reversement Parrainio en cash est indiqué sur la fiche.",
       "exception": "Le périmètre exact des contrats éligibles reste à confirmer : l'observation ne couvre que les contrats connus du responsable.",
       "concordance": "non_verifiable",
       "note": "La page officielle n'indique aucun délai de versement. Les 30 jours sont une observation de terrain et ne doivent pas être présentés comme une règle du contrat.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "plusieurs contrats annoncés éligibles, périmètre exact à confirmer (versement minimum annoncé de 600 €)",
+        "reversementObserve": "12,50 € en cash (fiche)",
+        "concordance": "non_verifiable",
+        "note": "Le versement minimum de 600 € n'a pas été retrouvé sur la page le 21/10/2026 : à confirmer avec le partenaire."
+      }
     },
     {
       "slug": "assurancevie-com",
@@ -192,10 +282,16 @@
         "commissionParrain": "environ 90 jours",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "prime filleul ~30 jours, prime parrain ~90 jours", "portee": "exception" },
+      "delai": {
+        "texte": "prime filleul ~30 jours, prime parrain ~90 jours",
+        "portee": "exception"
+      },
       "declencheur": "souscription validée après la période de rétractation",
       "simultaneite": "non_simultanee",
-      "conservation": { "texte": "un an", "nature": "clause_officielle" },
+      "conservation": {
+        "texte": "un an",
+        "nature": "clause_officielle"
+      },
       "reprise": {
         "texte": "Reprise possible en cas de clôture anticipée ; le responsable indique ne pas avoir constaté de reprise, la clause officielle la prévoit sur 12 mois.",
         "nature": "clause_identifiee"
@@ -204,7 +300,13 @@
       "exception": "Seule offre du relevé où les deux primes ne sont pas versées simultanément : le reversement au filleul peut intervenir avant la réception de la commission par Parrainio.",
       "concordance": "concorde",
       "note": "Les 90 jours observés pour la prime du parrain correspondent au cumul publié (30 jours de rétractation puis 60 jours maximum). Un délai de 14 jours a aussi été mentionné sans que l'étape concernée puisse être identifiée : il n'est attribué ni à la prime, ni à la commission, ni au reversement.",
-      "fiche": true
+      "fiche": true,
+      "transmissionComplementaire": {
+        "primeObservee": "versement minimum de 100 €, parfois davantage selon le contrat",
+        "reversementObserve": "25 € (50 € pendant la campagne boostée en cours)",
+        "concordance": "concorde",
+        "note": "Les 90 jours observés correspondent au cumul publié : 30 jours de rétractation puis 60 jours de versement maximum."
+      }
     },
     {
       "slug": "coinbase",
@@ -214,11 +316,20 @@
         "commissionParrain": "au moment du versement de la récompense",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "36 à 48 h après un trade de 20 €", "portee": "les_deux" },
+      "delai": {
+        "texte": "36 à 48 h après un trade de 20 €",
+        "portee": "les_deux"
+      },
       "declencheur": "un seul trade de 20 €, sans autre condition signalée",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "non précisé", "nature": "non_precisee" },
-      "reprise": { "texte": "Aucune clause de reprise identifiée dans nos données.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "non précisé",
+        "nature": "non_precisee"
+      },
+      "reprise": {
+        "texte": "Aucune clause de reprise identifiée dans nos données.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": null,
       "exception": null,
       "concordance": "non_verifiable",
@@ -233,11 +344,20 @@
         "commissionParrain": "au moment du versement de la récompense",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "environ 72 h après le trade de 200 €", "portee": "les_deux" },
+      "delai": {
+        "texte": "environ 72 h après le trade de 200 €",
+        "portee": "les_deux"
+      },
       "declencheur": "trade de 200 € réalisé par le filleul",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "non précisé", "nature": "non_precisee" },
-      "reprise": { "texte": "Aucune clause de reprise identifiée dans nos données.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "non précisé",
+        "nature": "non_precisee"
+      },
+      "reprise": {
+        "texte": "Aucune clause de reprise identifiée dans nos données.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": null,
       "exception": null,
       "concordance": "non_verifiable",
@@ -252,11 +372,20 @@
         "commissionParrain": "au moment du versement de la récompense",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "environ 7 jours après le trade de 100 $", "portee": "les_deux" },
+      "delai": {
+        "texte": "environ 7 jours après le trade de 100 $",
+        "portee": "les_deux"
+      },
       "declencheur": "dépôt et positions d'au moins 100 $, dans les 90 jours suivant l'inscription",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "récompense non retirable pendant 30 jours après son crédit", "nature": "clause_officielle" },
-      "reprise": { "texte": "Aucune reprise de prime publiée ; la récompense est bloquée 30 jours.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "récompense non retirable pendant 30 jours après son crédit",
+        "nature": "clause_officielle"
+      },
+      "reprise": {
+        "texte": "Aucune reprise de prime publiée ; la récompense est bloquée 30 jours.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": "Aucun avantage filleul n'est annoncé en France sur la fiche ; le reversement Parrainio figure sur la fiche.",
       "exception": null,
       "concordance": "concorde",
@@ -271,11 +400,20 @@
         "commissionParrain": "au moment du crédit de la prime",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "crédit immédiat après l'opération requise", "portee": "les_deux" },
+      "delai": {
+        "texte": "crédit immédiat après l'opération requise",
+        "portee": "les_deux"
+      },
       "declencheur": "opération requise sur l'action Michelin, sans autre étape signalée",
       "simultaneite": "simultanee",
-      "conservation": { "texte": "prime non retirable pendant trois jours", "nature": "clause_officielle" },
-      "reprise": { "texte": "Aucune reprise de prime identifiée ; la contrainte porte sur le retrait, pas sur l'acquisition.", "nature": "non_publiee" },
+      "conservation": {
+        "texte": "prime non retirable pendant trois jours",
+        "nature": "clause_officielle"
+      },
+      "reprise": {
+        "texte": "Aucune reprise de prime identifiée ; la contrainte porte sur le retrait, pas sur l'acquisition.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": null,
       "exception": "Trois étapes à ne pas confondre : le crédit de la prime, sa disponibilité au retrait, puis le retrait effectif vers un autre compte.",
       "concordance": "non_verifiable",
@@ -290,14 +428,20 @@
         "commissionParrain": "au moment de l'activation du bonus",
         "reversementParrainio": "24 à 72 h après réception de la commission"
       },
-      "delai": { "texte": "bonus activé instantanément avec le code", "portee": "les_deux" },
+      "delai": {
+        "texte": "bonus activé instantanément avec le code",
+        "portee": "les_deux"
+      },
       "declencheur": "saisie du code de parrainage",
       "simultaneite": "simultanee",
       "conservation": {
         "texte": "L'argent investi reste immobilisé de trois mois à sept ans selon l'actif choisi",
         "nature": "clause_officielle"
       },
-      "reprise": { "texte": "Aucune reprise du bonus identifiée ; la durée d'immobilisation porte sur l'investissement.", "nature": "non_publiee" },
+      "reprise": {
+        "texte": "Aucune reprise du bonus identifiée ; la durée d'immobilisation porte sur l'investissement.",
+        "nature": "non_publiee"
+      },
       "montantsObserves": "Bonus de 50 € selon la fiche.",
       "exception": "La disponibilité du bonus et la durée de détention de l'investissement sont deux choses différentes : la seconde dépend de l'actif, pas de l'offre.",
       "concordance": "non_verifiable",
