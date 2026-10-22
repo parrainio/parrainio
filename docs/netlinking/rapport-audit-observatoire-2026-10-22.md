@@ -60,4 +60,5 @@ Ne pas lancer de nouvelle campagne de netlinking vers cette page avant clarifica
 - `git diff --check` : réussi.
 - Rendu local de production vérifié dans un navigateur à taille bureau et à 390 × 844 px. Le contrôle mobile a révélé une largeur erronée sur la cellule du nom de l’offre ; le CSS a été corrigé puis revérifié. Les noms comme Monabanq sont désormais lisibles en ligne.
 - Contrôle HTTP local du HTML serveur : statut 200, 11 identifiants de fiches officielles distincts, et comparaison des champs montants, citations, conditions, reprises et divergences pour chacune des 11 offres ; les 14 observations terrain et leurs compléments transmis sont également présents.
-- Contrôle HTML sur le domaine de production : à faire après le déploiement.
+- Après push de `0a32701`, contrôle du HTML sur le domaine de production : statut 200, 11 fiches officielles et six fiches terrain supplémentaires ; relevé du 22 octobre, écart BoursoBank, exception assurancevie.com et liens vers les deux exports présents.
+- Vérification directe des exports en production : les deux réponses HTTP sont 200 ; l’export officiel contient 11 lignes d’offre et l’export terrain 14 observations, dont assurancevie.com.
