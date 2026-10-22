@@ -231,7 +231,7 @@
       "montantsObserves": "Le bonus de base ne dépend pas d'un abonnement ; les bonus complémentaires liés aux abonnements ne sont mentionnés que si la campagne les prévoit.",
       "exception": "La prime complémentaire liée à un abonnement suit un autre calendrier que le bonus de base.",
       "concordance": "ecart",
-      "note": "72 h constatées contre un plafond publié de 60 jours ouvrés. Le décalage est cohérent avec la nature du plafond, mais il reste une observation.",
+      "note": "Le responsable rapporte un versement sous 72 h après l’achat requis de 30 €. L’aide N26 annonce une attribution sous 60 jours, sans préciser si ces jours sont calendaires ou ouvrés. L’observation reste un retour terrain, pas une échéance contractuelle.",
       "fiche": true,
       "transmissionComplementaire": {
         "primeObservee": "25 € après un achat de 30 €, jusqu'à 75 € liés à l'abonnement, 100 € au total selon la campagne",

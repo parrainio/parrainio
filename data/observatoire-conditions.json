@@ -261,7 +261,7 @@
       "primeParrain": "Montant variable affiché dans l’application N26 ; la page d’aide officielle ne fixe pas de somme.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Prime de parrainage décrite par l’aide N26 : attribution sous 60 jours calendaires après réalisation de toutes les conditions (inscription avec lien/code et achat Mastercard qualifiant). Le délai d’une éventuelle prime filleul n’est pas distinctement publié.",
+        "resume": "Prime de parrainage décrite par l’aide N26 : attribution sous 60 jours après réalisation de toutes les conditions (inscription avec lien/code et achat Mastercard qualifiant). La source ne précise pas s’il s’agit de jours calendaires ou ouvrés. Le délai d’une éventuelle prime filleul n’est pas distinctement publié.",
         "citation": "Le délai court après réalisation de toutes les conditions, pas après l’ouverture seule."
       },
       "delaiAction": {
@@ -314,7 +314,7 @@
       "primeParrain": "50 € en carte-cadeau numérique ; la même valeur est indiquée pour le filleul par l’aide officielle.",
       "delaiVersement": {
         "statut": "non_publie",
-        "resume": "Carte-cadeau envoyée par e-mail après validation de l’assureur et fin du délai de renonciation de 30 jours. Aucun délai maximal supplémentaire de paiement n’est indiqué ; le support indique un minimum d’environ cinq semaines avant éligibilité.",
+        "resume": "Carte-cadeau numérique envoyée automatiquement par e-mail après validation par l’assureur et expiration du délai de renonciation de 30 jours. Aucun délai maximal supplémentaire de traitement n’est publié.",
         "citation": "L’éligibilité exige la validation de l’assureur et l’expiration du délai de renonciation."
       },
       "delaiAction": {
@@ -348,8 +348,8 @@
         "exception": null
       },
       "conditionsOffre": {
-        "resume": "Le parrain et le filleul doivent avoir plus de 18 ans. Le filleul doit être nouveau client et souscrire en ligne une assurance-vie ou un PER. Il mentionne le nom du parrain au parcours dédié. Le contrat doit être validé par l’assureur et ne pas être annulé pendant le délai de renonciation de 30 jours. Une offre promotionnelle de bienvenue invalide le parrainage. Chacun reçoit une carte-cadeau numérique de 50 € ; le lien du mail est valable trois mois et le montant peut évoluer.",
-        "citation": "Le code de bienvenue et le parrainage ne se cumulent pas ; les deux récompenses sont des cartes-cadeaux numériques."
+        "resume": "Le filleul doit être nouveau client et souscrire en ligne une assurance-vie ou un PER. Il mentionne le nom du parrain au parcours dédié. Le contrat doit être validé par l’assureur et ne pas être annulé pendant le délai de renonciation de 30 jours. Une offre promotionnelle de bienvenue invalide le parrainage. Chacun reçoit une carte-cadeau numérique de 50 € ; le lien reçu par e-mail est valable trois mois et le montant peut évoluer. Linxea précise que les liens de parrainage personnels ne doivent pas être diffusés sur des sites commerciaux ou blogs, ni envoyés en masse ou par automatisation ; la source ne précise pas si cette règle vise également les liens issus d’un accord d’affiliation distinct.",
+        "citation": "Le code de bienvenue et le parrainage ne se cumulent pas ; les deux récompenses sont des cartes-cadeaux numériques. Les liens de parrainage personnels sont réservés à un usage non commercial."
       },
       "sourcesComplementaires": [
         {
@@ -363,28 +363,28 @@
       "slug": "assurancevie-com",
       "nom": "assurancevie.com",
       "categorie": "Épargne & assurance-vie",
-      "primeAnnoncee": "50 € pour le filleul après validation, crédités sur son contrat éligible et non versés en espèces. Aucun versement initial minimal chiffré n’a été retrouvé dans les conditions consultées.",
-      "primeParrain": "100 € pour le parrain selon la page officielle Lucya ; la fiche Parrainio versionnée indique 50 €.",
+      "primeAnnoncee": "50 € pour le filleul selon le règlement Lucya de mars 2026, versés sur son compte bancaire après la période de rétractation ; la page de présentation comporte aussi une mention contradictoire d’un versement sur le contrat. Aucun montant minimal du premier versement n’est chiffré dans le règlement consulté.",
+      "primeParrain": "100 € selon le règlement Lucya de mars 2026, versés sur le compte bancaire du parrain ; la fiche Parrainio versionnée indique 50 €.",
       "delaiVersement": {
         "statut": "annonce",
-        "resume": "Validation après la période légale de rétractation de 30 jours suivant la souscription ; la prime est versée sur le contrat dans les 60 jours maximum après validation, soit jusqu’à environ 90 jours après la souscription.",
-        "citation": "Les 60 jours commencent après validation, laquelle intervient après les 30 jours de rétractation."
+        "resume": "Le règlement officiel Lucya (version mars 2026) prévoit le versement des primes sur les comptes bancaires respectifs dans les 60 jours suivant la période de rétractation de 30 jours, sous réserve d’un dossier complet et conforme. L’unité du délai de 60 jours n’est pas précisée. Le bloc récapitulatif de la page web dit à tort que la prime du parrain est versée sur son contrat.",
+        "citation": "Le règlement rattache les 60 jours à la fin du délai de rétractation de 30 jours ; il ne précise pas l’unité calendaire ou ouvrée."
       },
       "delaiAction": {
-        "resume": "Souscrire en ligne au moyen de l’invitation/code et laisser passer les 30 jours légaux de rétractation pour que le parrainage soit validé. La limite est de dix filleuls par année civile.",
-        "citation": "La prime est créditée au contrat après validation, pas versée comme espèces."
+        "resume": "Le filleul utilise le code du parrain lors d’une première ouverture de contrat Lucya. Le dossier doit être complet et conforme, avec le premier versement nécessaire à l’ouverture, puis la période de rétractation de 30 jours doit être passée. Le règlement de mars 2026 limite le parrain à dix primes par année civile. La page web comporte des mentions divergentes sur la majorité du filleul et le nombre de parrainages.",
+        "citation": "Le règlement de mars 2026 indique dix primes par parrain et un versement sur le compte bancaire de chaque bénéficiaire."
       },
       "conservation": {
-        "resume": "Le filleul s'engage à conserver son contrat au moins 12 mois.",
-        "citation": "le filleul s’engage à conserver son contrat auquel il a souscrit / adhéré durant une période minimum de 12 mois"
+        "resume": "Le règlement prévoit que la clôture du contrat du filleul dans les 12 mois suivant son ouverture effective peut entraîner le prélèvement, sur ce contrat, du montant de la prime de bienvenue qu’il a reçue. Il prévoit aussi des cas distincts de reprise du bonus du parrain liés à la fraude ou au non-respect du règlement.",
+        "citation": "La clôture du contrat du filleul dans les 12 mois peut entraîner un prélèvement de la prime dont il a bénéficié."
       },
       "reprise": {
         "nature": "prelevement",
-        "resume": "Dénouement du contrat dans les 12 mois : la prime peut être prélevée sur le contrat.",
-        "citation": "En cas de dénouement du contrat à l’initiative du filleul, au cours des 12 mois suivants l’ouverture du contrat, Assurancevie.com se réserve le droit de prélever sur le contrat, le montant correspondant à la prime de parrainage dont il a bénéficié dans le cadre de cette offre commerciale."
+        "resume": "Clôture du contrat du filleul dans les 12 mois suivant son ouverture effective : Lucya se réserve le droit de prélever sur ce contrat la prime de bienvenue reçue par le filleul. Le règlement prévoit séparément la reprise du bonus du parrain en cas de fraude ou de non-respect des conditions.",
+        "citation": "Règlement Lucya, article 4.4 : en cas de clôture du contrat du filleul au cours des 12 mois suivant son ouverture effective, Lucya peut prélever le montant de la prime de bienvenue."
       },
-      "differences": "La page officielle affiche 50 € filleul et 100 € parrain ; le catalogue versionné indique 50 € parrain et ne chiffre pas la prime filleul. Les récompenses vont sur les contrats. Les délais terrain diffèrent selon le bénéficiaire.",
-      "ambiguite": "Le responsable observe environ 30 jours pour le filleul et 90 jours pour le parrain, et signale que Parrainio peut reverser avant la réception de commission. Cette exception n’a pas de déclencheur ni de délai publiés et ne remplace pas la règle générale 24–72 h après réception.",
+      "differences": "Le règlement Lucya officiel (mars 2026) fixe 100 € au parrain et 50 € au filleul, versés sur leurs comptes bancaires ; le catalogue versionné indique 50 € au parrain. La page web présente en outre des mentions contradictoires : versement sur le contrat ou compte bancaire, dix ou un nombre illimité de parrainages, et majorité du filleul ou possibilité qu’il soit mineur. Les délais terrain diffèrent selon le bénéficiaire.",
+      "ambiguite": "Le règlement officiel lié à la page (mars 2026) permet de distinguer ses propres modalités des résumés contradictoires du HTML ; une confirmation de Lucya reste nécessaire sur l’application de la règle de minorité et la correction de sa page. Le responsable observe environ 30 jours pour la prime du filleul et environ 90 jours pour celle du parrain/commission, sans point de départ terrain vérifiable ; il rapporte aussi que Parrainio peut reverser avant la réception de commission, sans déclencheur ni délai précisés. Cette exception ne remplace pas la règle générale de 24–72 h après réception de commission.",
       "source": "https://lucya.com/parrainage/",
       "luLe": "2026-10-22",
       "verifieLe": "2026-10-22",
@@ -409,13 +409,18 @@
         "exception": "Le cumul 30 jours de rétractation + jusqu’à 60 jours après validation concerne la prime partenaire, pas le reversement Parrainio."
       },
       "conditionsOffre": {
-        "resume": "Le parrain transmet son invitation/code ; le filleul souscrit en ligne à un produit éligible indiqué par Lucya. Offre réservée aux personnes physiques majeures, dans la limite de dix filleuls par année civile. La page indique 100 € pour le parrain et 50 € pour le filleul, crédités sur les contrats concernés. Aucun seuil minimum de dépôt n’est chiffré dans les conditions publiques consultées.",
-        "citation": "Réservé aux personnes majeures ; parrainage limité à dix filleuls par année civile et souscription en ligne."
+        "resume": "Selon le règlement Lucya de mars 2026, le parrain doit être une personne physique majeure et le filleul peut être majeur ou mineur ; tous deux doivent être des personnes physiques, et le filleul ne doit jamais avoir été client. Le code s’utilise lors d’une première souscription en ligne avec un dossier complet et un premier versement. Le règlement limite le parrain à dix primes par année civile. La page web récapitulative diverge sur l’âge du filleul et affiche aussi une mention « nombre illimité » ; le règlement contractuel lié indique dix. Le montant minimal du premier versement n’est pas chiffré.",
+        "citation": "Le règlement Lucya de mars 2026, articles 1, 3 et 4, détaille l’éligibilité, les primes, les délais et les reprises."
       },
       "sourcesComplementaires": [
         {
-          "label": "Conditions et calendrier Lucya",
+          "label": "Page de présentation et calendrier Lucya — comporte des résumés contradictoires",
           "url": "https://lucya.com/parrainage/",
+          "verifieLe": "2026-10-22"
+        },
+        {
+          "label": "Règlement officiel du parrainage Lucya, version mars 2026 (PDF)",
+          "url": "https://lucya.com/app/uploads/2026/06/RGPA-LUCYA.pdf",
           "verifieLe": "2026-10-22"
         }
       ]

@@ -4,6 +4,7 @@ import fs from "node:fs";
 
 const DATA_PATH = "data/observatoire-conditions.json";
 const CSV_PATH = "public/data/observatoire-conditions-2026-10-22.csv";
+const TERRAIN_PATH = "data/experience-terrain.json";
 
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 const STATUTS = new Set(["annonce", "renvoi", "non_publie"]);
@@ -171,13 +172,22 @@ test("observatoire : chaque offre publique expose des conditions et des sources 
 
 test("observatoire : corrections des parcours officiels sensibles conservées", () => {
   const bySlug = Object.fromEntries(data.offres.map((offre) => [offre.slug, offre]));
-  assert.match(bySlug.n26.delaiVersement.resume, /60 jours calendaires/);
-  assert.doesNotMatch(bySlug.n26.delaiVersement.resume, /ouvrés/);
+  assert.match(bySlug.n26.delaiVersement.resume, /60 jours après réalisation de toutes les conditions/);
+  assert.match(bySlug.n26.delaiVersement.resume, /ne précise pas s’il s’agit de jours calendaires ou ouvrés/);
+  assert.doesNotMatch(bySlug.n26.delaiVersement.resume, /60 jours calendaires|60 jours ouvrés/);
   assert.match(bySlug.linxea.primeAnnoncee, /50 € pour le parrain et 50 € pour le filleul/);
   assert.match(bySlug.simplis.primeAnnoncee, /filleul : 50 €.*Garantie Décennale/is);
   assert.match(bySlug.fortuneo.conditionsOffre.resume, /PEA\/PEA-PME.*CTO.*Fortuneo Vie/);
   assert.match(bySlug["meilleurtaux-com"].differences, /1 000 €.*70 € chacun/s);
   assert.match(bySlug["direct-assurance"].conditionsOffre.resume, /500 € TTC par an/);
+  assert.match(bySlug["assurancevie-com"].primeAnnoncee, /versés sur son compte bancaire/);
+  assert.match(bySlug["assurancevie-com"].delaiVersement.resume, /règlement officiel Lucya/);
+  assert.match(bySlug["assurancevie-com"].sourcesComplementaires.map((source) => source.url).join(" "), /RGPA-LUCYA\.pdf/);
+  const terrain = JSON.parse(fs.readFileSync(TERRAIN_PATH, "utf8"));
+  const n26Terrain = terrain.offres.find((offre) => offre.slug === "n26");
+  assert.match(n26Terrain.delais.primeFilleul, /72 h/);
+  assert.match(n26Terrain.declencheur, /30 €/);
+  assert.match(n26Terrain.note, /sans préciser si ces jours sont calendaires ou ouvrés/);
 });
 
 test("observatoire : les divergences financières prioritaires sont conservées par source", () => {
