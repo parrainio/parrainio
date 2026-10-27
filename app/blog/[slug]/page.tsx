@@ -410,7 +410,13 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <span className={styles.categoryPill}>{article.category}</span>
           <h1>{article.h1 ?? article.title}</h1>
           {article.heroImage && (
-            <div className={styles.heroImage}>
+            <div
+              className={`${styles.heroImage} ${
+                article.slug === "cumuler-reductions-black-friday"
+                  ? styles.heroImageBlackFriday
+                  : ""
+              }`}
+            >
               <ArticleImage
                 src={article.heroImage.src}
                 alt={article.heroImage.alt}
