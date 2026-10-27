@@ -52,6 +52,8 @@ export type BlogArticle = {
   seoTitle?: string;
   /** Meta description dédiée si l'extrait dépasse 160 caractères. */
   seoDescription?: string;
+  /** Image affichée sous le titre de l'article, lorsqu'elle est définie. */
+  heroImage?: { src: string; alt: string; width: number; height: number };
   /** Extrait affiché sur la carte de la page /blog et en meta description. */
   excerpt: string;
   /** Date de publication, format ISO (AAAA-MM-JJ). */
@@ -2266,6 +2268,51 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "L’essentiel à retenir" },
       "Un délai de versement se lit avec quatre informations : l’unité (jours, jours ouvrés, mois), le point de départ (ouverture, validation, signature, souscription), la nature de la promesse (« au plus tard ») et l’origine du chiffre (page officielle ou terrain). Sans elles, un chiffre seul ne dit pas quand la prime arrivera. Pour comparer les offres, utilisez [le classement des primes](/classement-primes-parrainage) ; pour vérifier les conditions, les délais constatés et les cas de reprise, consultez [l’observatoire](/observatoire-conditions-prime).",
+    ],
+  },
+  {
+    slug: "cumuler-reductions-black-friday",
+    title: "Comment cumuler les réductions pour un Black Friday à prix mini ?",
+    heroImage: {
+      src: "/images/blog/black-friday-shopping-basket.png",
+      alt: "Réveil, panier de courses et promotions du Black Friday",
+      width: 1200,
+      height: 800,
+    },
+    excerpt:
+      "Découvrez comment utiliser ces précieux coupons pour un Black Friday à prix cassé.",
+    datePublished: "2026-10-27",
+    category: "Bons plans",
+    body: [
+      "Programmé pour enflammer le dernier vendredi de novembre, le Black Friday est le rendez-vous incontournable de l’année pour faire de bonnes affaires. Que ce soit pour renouveler votre équipement informatique, refaire votre garde-robe ou préparer vos cadeaux de Noël, cette journée de promotions massives réserve des opportunités uniques. Cependant, devant la multiplication des rabais affichés d'emblée par les boutiques en ligne, on passe trop souvent à côté des codes promo qui ont pourtant une efficacité redoutable. Une fois cumulés avec les remises de départ, ils transforment un bon plan classique en une véritable aubaine. Découvrez comment utiliser ces précieux coupons pour un Black Friday à prix cassé.",
+
+      { type: "h2", text: "Pourquoi chercher des codes promo pendant le Black Friday ?" },
+      "Pendant le Black Friday, la majorité des e-commerçants proposent des réductions immédiates, appliquées automatiquement dans votre panier. On pourrait penser que ces démarques se suffisent à elles-mêmes, mais le recours à un code promo confère des privilèges remarquables comme :",
+      "Le cumul des réductions : De nombreuses enseignes permettent de combiner une offre promotionnelle en cours avec un code promo, qu'il s'agisse de frais de port offerts ou d'une remise supplémentaire.",
+      "Les récompenses VIP et Membres : Les marques chouchoutent leurs clients réguliers avec des ventes flash ou des points bonus, et convertissent les nouveaux profils avec un code de bienvenue.",
+      "Les cadeaux contre achat : Au lieu de baisser le prix de votre commande, certains codes donnent droit à des cadeaux et des accessoires gratuits.",
+
+      { type: "h2", text: "Les meilleures stratégies pour dénicher des codes promo valides" },
+      "L'enjeu central du Black Friday tient à la très courte durée de validité des promotions ainsi qu'à la prolifération de faux codes promo. Pour éviter de perdre du temps à tester des coupons invalides au moment de valider votre panier, appliquez ces astuces infaillibles :",
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "L'inscription préventive aux newsletters\nDès la mi-novembre, abonnez-vous aux newsletters de vos magasins préférés pour accéder aux ventes privées du Black Friday avant tout le monde et recevoir des codes exclusifs.",
+          "La technique du panier abandonné\nSimuler un abandon d'achat est une stratégie efficace. Connectez-vous à votre compte, remplissez votre panier quelques jours avant le Black Friday, puis fermez l'onglet. La plupart du temps, les sites envoient un email de relance avec un [code promo](https://www.swootic.com/) pour vous inciter à finaliser la commande.",
+          "Le suivi des influenceurs et des réseaux sociaux\nPour la Black Week, les marques collaborent avec des créateurs de contenu sur YouTube, TikTok et Instagram afin de diffuser des codes promo personnalisés ou des liens promotionnels temporaires, relayés par des publications et des campagnes publicitaires ciblées.",
+          "Le passage par des sites de codes promo fiables\nConsultez des plateformes comme Swootic, qui proposent des codes promo vérifiés et négocient des offres exclusives avec les marchands pour vous faire économiser encore plus.",
+        ],
+      },
+
+      { type: "h2", text: "Attention aux pièges : Acheter malin et éviter les déceptions" },
+      "Le Black Friday génère une urgence psychologique qui peut vous pousser à prendre des décisions hâtives et erronées. Pour que votre expérience reste positive, gardez en tête ces quelques règles de sécurité et d'optimisation :",
+      "Vérifiez les conditions d'application : Un code promo peut être soumis à un montant minimum d'achat, limité à une sélection ou catégorie de produits (valable uniquement sur les smartphones par exemple) ou non cumulable avec les soldes. Lisez toujours les petites lignes.",
+      "Méfiez-vous des faux sites de coupons : Il existe des sites frauduleux qui profitent de l'effervescence du Black Friday pour attirer du trafic ou voler des données personnelles en promettant des codes miracles (comme -80% sur tout le site). Restez sur des plateformes que vous connaissez déjà.",
+      "Calculez le vrai prix de revient : Parfois, un code promo de 20€ sur un site se révèle moins attractif qu’une baisse de prix instantanée de 40€ chez un concurrent. Ne vous laissez pas aveugler par le simple fait d'avoir trouvé un code.",
+
+      "En conclusion",
+      "Rien de tel que les codes promo pour maximiser votre pouvoir d'achat durant le Black Friday. Anticipation, maîtrise technologique et méthode sont les maîtres-mots des acheteurs avertis pour exploiter tout le potentiel de cet événement commercial majeur. Listez vos envies, ciblez vos coups de cœur, et que la chasse aux prix bas commence.",
     ],
   },
 ];

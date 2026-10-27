@@ -59,7 +59,16 @@ export async function generateMetadata({
         ? undefined
         : article.datePublished,
       modifiedTime: article.dateModified,
-      images: [OG_IMAGE],
+      images: article.heroImage
+        ? [
+            {
+              url: `${SITE_URL}${article.heroImage.src}`,
+              width: article.heroImage.width,
+              height: article.heroImage.height,
+              alt: article.heroImage.alt,
+            },
+          ]
+        : [OG_IMAGE],
     },
   };
 }
@@ -351,7 +360,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         datePublished: article.datePublished,
         ...(article.dateModified ? { dateModified: article.dateModified } : {}),
         mainEntityOfPage: `${SITE_URL}/blog/${article.slug}`,
-        image: `${SITE_URL}${OG_IMAGE.url}`,
+        image: article.heroImage
+          ? `${SITE_URL}${article.heroImage.src}`
+          : `${SITE_URL}${OG_IMAGE.url}`,
         author: {
           "@type": "Organization",
           name: "Parrainio",
@@ -398,6 +409,16 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           </nav>
           <span className={styles.categoryPill}>{article.category}</span>
           <h1>{article.h1 ?? article.title}</h1>
+          {article.heroImage && (
+            <div className={styles.heroImage}>
+              <ArticleImage
+                src={article.heroImage.src}
+                alt={article.heroImage.alt}
+                width={article.heroImage.width}
+                height={article.heroImage.height}
+              />
+            </div>
+          )}
           <p className={styles.articleDates}>
             Publié le {formatBlogDate(article.datePublished)}
             {article.dateModified && (

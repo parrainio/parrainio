@@ -11,6 +11,9 @@
 .breadcrumb strong { color:var(--muted); font-weight:700; }
 .categoryPill { display:inline-block; margin-bottom:10px; padding:6px 12px; border-radius:999px; background:#eaf4ec; color:#27735a; font-size:.66rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
 .hero h1 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.95rem,7vw,2.15rem); font-weight:800; letter-spacing:-.05em; line-height:1.06; }
+.heroImage { min-width:0; max-width:100%; margin:0 0 12px; }
+.heroImage figure { margin-top:10px; }
+.articleBody li { white-space:pre-line; }
 .articleDates { margin-bottom:10px; color:#8ca396; font-size:.8rem; }
 .lead { max-width:720px; margin-bottom:0; color:var(--muted); font-size:1rem; line-height:1.7; }
 
