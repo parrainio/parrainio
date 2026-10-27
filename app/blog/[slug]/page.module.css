@@ -13,7 +13,8 @@
 .hero h1 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.95rem,7vw,2.15rem); font-weight:800; letter-spacing:-.05em; line-height:1.06; }
 .heroImage { min-width:0; max-width:100%; margin:0 0 12px; }
 .heroImage figure { margin-top:10px; }
-.heroImageBlackFriday img { width:100%; max-width:760px; height:auto; margin-inline:auto; }
+.heroImageBlackFriday { width:100%; max-width:600px; margin:0 auto 12px; }
+.heroImageBlackFriday img { display:block; width:100%; max-width:600px; height:auto; margin-inline:auto; }
 .articleBody li { white-space:pre-line; }
 .articleDates { margin-bottom:10px; color:#8ca396; font-size:.8rem; }
 .lead { max-width:720px; margin-bottom:0; color:var(--muted); font-size:1rem; line-height:1.7; }
