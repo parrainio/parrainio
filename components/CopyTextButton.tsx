@@ -7,12 +7,22 @@ type CopyTextButtonProps = {
   value: string;
   label: string;
   copiedLabel: string;
+  openUrlOnClick?: string;
 };
 
-export default function CopyTextButton({ value, label, copiedLabel }: CopyTextButtonProps) {
+export default function CopyTextButton({
+  value,
+  label,
+  copiedLabel,
+  openUrlOnClick,
+}: CopyTextButtonProps) {
   const [copied, setCopied] = useState(false);
 
   async function copyValue() {
+    if (openUrlOnClick) {
+      window.open(openUrlOnClick, "_blank", "noopener,noreferrer");
+    }
+
     try {
       await navigator.clipboard.writeText(value);
     } catch {

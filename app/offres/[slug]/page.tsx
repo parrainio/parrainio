@@ -105,6 +105,14 @@ function GlobeIcon() {
   );
 }
 
+const bemoveCopyTrackingUrls: Record<string, string> = {
+  sfr: "https://www.awin1.com/cread.php?awinmid=7310&awinaffid=274935&clickref=pao&ued=https%3A%2F%2Fwww.red-by-sfr.fr%2Ftelephones%2F",
+  fortuneo: "https://tracking.publicidees.com/clic.php?promoid=272395&progid=1325&partid=37815&cb=pao",
+  lolivier: "https://action.metaffiliation.com/trk.php?mclic=P5110055639012251&argsite=pao",
+  engie: "https://xyd.particuliers.engie.fr/?P511AD156390124D1&argsite=pao",
+  coinhouse: "https://www.financeads.net/tc.php?t=81972C386875220T&subid=pao",
+};
+
 export default async function OfferPage({
   params,
 }: {
@@ -293,7 +301,7 @@ export default async function OfferPage({
                         <div className={styles.codeRow}>
                           <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
                           <div className={styles.codeActionColumn}>
-                            <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" />
+                            <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
                             <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                           </div>
                         </div>
@@ -301,7 +309,7 @@ export default async function OfferPage({
                     ) : offer.referralCode ? (
                       <div className={styles.codeRow}>
                         <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
-                        <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" />
+                        <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
@@ -469,7 +477,7 @@ export default async function OfferPage({
                           <strong>{offer.referralCode}</strong>
                         </div>
                         <div className={styles.codeActionColumn}>
-                          <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" />
+                          <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
                           <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                         </div>
                       </div>
@@ -480,7 +488,7 @@ export default async function OfferPage({
                         <span>Votre code de parrainage</span>
                         <strong>{offer.referralCode}</strong>
                       </div>
-                      <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" />
+                      <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
                     </div>
                   ) : null}
 
