@@ -874,6 +874,41 @@
   color: #388368;
 }
 
+.offerCardCode {
+  margin-top: 9px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: #f3f5f3;
+}
+
+.offerCardCode > span {
+  display: block;
+  color: #71807d;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.offerCardCodeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.offerCardCodeRow code {
+  min-width: 0;
+  color: var(--green);
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
 .offerLink {
   display: flex;
   align-items: center;

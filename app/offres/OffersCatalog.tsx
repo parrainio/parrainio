@@ -324,7 +324,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
 
                 {featuredOffer?.referralCode ? (
                   <div className={styles.visualCode}>
-                    <span>Code de parrainage</span>
+                    <span>CODE DE PARRAINAGE</span>
                     <div className={styles.visualCodeRow}>
                       <code>{featuredOffer.referralCode}</code>
                       <CopyTextButton
@@ -505,12 +505,18 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                   </p>
 
                   {getBemoveCopyTrackingUrl(offer.slug) && offer.referralCode ? (
-                    <CopyTextButton
-                      value={offer.referralCode}
-                      label="Copier"
-                      copiedLabel="Copié ✓"
-                      openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)}
-                    />
+                    <div className={styles.offerCardCode}>
+                      <span>CODE DE PARRAINAGE</span>
+                      <div className={styles.offerCardCodeRow}>
+                        <code>{offer.referralCode}</code>
+                        <CopyTextButton
+                          value={offer.referralCode}
+                          label="Copier"
+                          copiedLabel="Copié ✓"
+                          openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)}
+                        />
+                      </div>
+                    </div>
                   ) : null}
 
                   <Link
