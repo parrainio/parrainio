@@ -1,19 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import CopyTextButton from "@/components/CopyTextButton";
-import OfferLogo from "@/components/OfferLogo";
 import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
-import { esimPromoCodes } from "@/data/esimPromoCodes";
-import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
+import EsimComparison from "./EsimComparison";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Comparatif eSIM de voyage : forfaits et codes promo | Parrainio",
   description:
-    "Comparez Saily, Ubigi, Airalo, Esimo et Holafly : formats de forfaits, couverture, données, durée et codes promo eSIM à vérifier.",
+    "Comparez les forfaits eSIM Saily, Ubigi, Airalo, Esimo et Holafly par destination : tarifs officiels vérifiés, limites et codes promo.",
   alternates: { canonical: `${SITE_URL}/comparatif-esim` },
   openGraph: {
     url: "/comparatif-esim",
@@ -91,120 +88,49 @@ export default function ComparatifEsimPage() {
               Cinq services eSIM, <em>à comparer selon votre voyage</em>
             </h2>
             <p>
-              Les informations ci-dessous proviennent des présentations des fournisseurs. Elles ne
-              remplacent pas les détails du forfait au moment de l’achat ; les tarifs ne sont pas
-              comparés car aucun prix actuel et daté n’a été vérifié.
+              Choisissez une destination et comparez séparément les forfaits fixes de 10 Go / 30
+              jours et les offres annoncées illimitées. Les prix non vérifiables sont laissés
+              explicitement sans montant.
             </p>
           </div>
+          <EsimComparison />
+        </div>
+      </section>
 
-          <div className={styles.tableWrap} role="region" aria-label="Comparatif des services eSIM" tabIndex={0}>
-            <table className={styles.table}>
-              <caption className={styles.srOnly}>
-                Comparaison des forfaits eSIM et codes promo annoncés pour cinq fournisseurs.
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Service</th>
-                  <th scope="col">Type de forfaits</th>
-                  <th scope="col">Destinations</th>
-                  <th scope="col">Données</th>
-                  <th scope="col">Durée</th>
-                  <th scope="col">Prix</th>
-                  <th scope="col">Code promo Bemove</th>
-                  <th scope="col">À vérifier</th>
-                </tr>
-              </thead>
-              <tbody>
-                {esimPromoCodes.map((offer) => (
-                  <tr key={offer.slug}>
-                    <th scope="row">
-                      <Link
-                        href={offer.officialUrl}
-                        className={styles.brand}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <OfferLogo
-                          name={offer.name}
-                          logo={offer.logo}
-                          color={offer.color}
-                          logoLetter={offer.name.slice(0, 1)}
-                          size={36}
-                        />
-                        {offer.name} <span aria-hidden="true">↗</span>
-                      </Link>
-                      <small className={styles.brandDescription}>{offer.description}</small>
-                    </th>
-                    <td>{offer.packageModel}</td>
-                    <td>{offer.coverage}</td>
-                    <td>{offer.dataAllowance}</td>
-                    <td>{offer.validity}</td>
-                    <td>{offer.price}</td>
-                    <td>
-                      <div className={styles.promoCell}>
-                        <code>{offer.code}</code>
-                        <span>{offer.discountPercent} % annoncés*</span>
-                        <CopyTextButton
-                          value={offer.code}
-                          label="Copier"
-                          copiedLabel="Copié ✓"
-                          openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)}
-                        />
-                      </div>
-                    </td>
-                    <td>{offer.conditions}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <section className={styles.sectionAlt} aria-labelledby="recommendations-heading">
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <h2 id="recommendations-heading">Quel forfait choisir selon votre séjour ?</h2>
+            <p>
+              Il n’y a pas de gagnant universel : les prix affichés ne sont pas tous dans la même
+              devise et certaines offres n’ont pas pu être confirmées.
+            </p>
           </div>
-
-          <ul className={styles.mobileCards}>
-            {esimPromoCodes.map((offer) => (
-              <li key={offer.slug} className={styles.mobileCard}>
-                <div className={styles.mobileCardBrand}>
-                  <OfferLogo
-                    name={offer.name}
-                    logo={offer.logo}
-                    color={offer.color}
-                    logoLetter={offer.name.slice(0, 1)}
-                    size={42}
-                  />
-                  <div>
-                    <Link href={offer.officialUrl} target="_blank" rel="noreferrer">
-                      {offer.name} ↗
-                    </Link>
-                    <p>{offer.description}</p>
-                  </div>
-                </div>
-                <dl>
-                  <div><dt>Type de forfaits</dt><dd>{offer.packageModel}</dd></div>
-                  <div><dt>Destinations</dt><dd>{offer.coverage}</dd></div>
-                  <div><dt>Données</dt><dd>{offer.dataAllowance}</dd></div>
-                  <div><dt>Durée</dt><dd>{offer.validity}</dd></div>
-                  <div><dt>Prix</dt><dd>{offer.price}</dd></div>
-                  <div><dt>À vérifier</dt><dd>{offer.conditions}</dd></div>
-                </dl>
-                <div className={styles.mobilePromo}>
-                  <span>
-                    Code promo Bemove : <code>{offer.code}</code> · {offer.discountPercent} % annoncés*
-                  </span>
-                  <CopyTextButton
-                    value={offer.code}
-                    label="Copier"
-                    copiedLabel="Copié ✓"
-                    openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <p className={styles.note}>
-            * Codes et remises transcrits du fichier partenaire Bemove ; cela ne confirme pas leur
-            validité actuelle. Vérifiez l’éligibilité, la date, les exclusions et le prix final sur
-            le parcours officiel avant de payer.
-          </p>
+          <div className={styles.recommendationGrid}>
+            <article>
+              <h3>Vous voulez un quota fixe sur un mois</h3>
+              <p>
+                Comparez les formules 10 Go / 30 jours d’Ubigi et d’Airalo pour le pays choisi.
+                Vérifiez la devise, le réseau annoncé et le total affiché au paiement avant de
+                trancher.
+              </p>
+            </article>
+            <article>
+              <h3>Vous consommez beaucoup de données aux États-Unis</h3>
+              <p>
+                Holafly affiche une formule annoncée illimitée à 46,90 € pour 15 jours et 68,90 €
+                pour 30 jours. Tenez compte de l’enveloppe distincte du partage de connexion.
+              </p>
+            </article>
+            <article>
+              <h3>Vous souhaitez gérer vos recharges depuis une application</h3>
+              <p>
+                Ubigi et Esimo présentent des fonctions de recharge dans leur application. Pour
+                Esimo, confirmez le prix, le volume et la validité du forfait choisi dans son
+                sélecteur avant l’achat.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 

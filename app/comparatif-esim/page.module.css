@@ -63,12 +63,48 @@
 .cta p { margin-bottom:0; color:#637870; font-size:.82rem; }
 .cta a { display:inline-flex; align-items:center; min-height:42px; padding:10px 15px; border-radius:999px; color:white; background:var(--green); font-size:.76rem; font-weight:800; text-decoration:none; }
 .cta a:hover { background:var(--green-dark); }
+.comparisonFilters { display:grid; grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr); gap:18px; align-items:end; margin:0 0 16px; padding:18px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+.destinationFilter { display:grid; gap:7px; color:#5d7168; font-size:.72rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.destinationFilter select { min-height:44px; padding:9px 12px; border:1px solid #cbd9cf; border-radius:10px; background:#fff; color:var(--ink); font:inherit; font-size:.85rem; text-transform:none; }
+.planFilter { display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; border:0; }
+.planFilter legend { width:100%; margin-bottom:2px; color:#5d7168; font-size:.72rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.planFilter label { display:flex; flex:1 1 200px; align-items:center; gap:8px; min-height:42px; padding:8px 11px; border:1px solid #cbd9cf; border-radius:10px; color:var(--ink); font-size:.78rem; font-weight:700; cursor:pointer; }
+.planFilter input { accent-color:var(--green); }
+.filterStatus { margin:0 0 12px; color:var(--green); font-size:.82rem; font-weight:800; }
+.comparisonBrand { display:flex; align-items:center; gap:10px; color:var(--green); }
+.comparisonBrand h3,.comparisonBrand h4 { margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:.95rem; font-weight:800; }
+.table { min-width:900px; }
+.table tbody th { width:150px; min-width:150px; }
+.table a,.comparisonCard a,.unlimitedCard a { color:var(--green); font-size:.75rem; font-weight:800; text-underline-offset:3px; }
+.price { color:var(--green); font-size:1rem; font-weight:800; white-space:nowrap; }
+.unverified { display:inline-block; padding:4px 8px; border-radius:999px; background:#fff1df; color:#7c4c15; font-size:.72rem; font-weight:800; }
+.mobileComparisonCards { display:none; margin:0; padding:0; list-style:none; gap:12px; }
+.comparisonCard,.unlimitedCard,.providerCard,.promoCard { padding:18px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+.comparisonCard > p,.unlimitedCard > p,.providerCard > p { margin:12px 0 0; color:var(--muted); font-size:.8rem; line-height:1.6; }
+.comparisonCard .comparisonBrand { margin-bottom:14px; }
+.unlimitedGrid,.providerGrid,.promoGrid,.recommendationGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.unlimitedCard .comparisonBrand,.providerCard .comparisonBrand,.promoCard .comparisonBrand { margin-bottom:12px; }
+.providerSection,.promoSection { margin-top:34px; }
+.providerSection .sectionHead,.promoSection .sectionHead { margin-bottom:16px; }
+.providerSection .sectionHead h3,.promoSection .sectionHead h3 { margin:0 0 8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.35rem; letter-spacing:-.04em; }
+.providerCard .comparisonBrand h4,.promoCard .comparisonBrand h4 { margin:0; font-size:.95rem; }
+.promoGrid { margin:0; padding:0; list-style:none; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.promoCard > p { margin:8px 0; color:var(--muted); font-size:.8rem; }
+.promoCard code { color:var(--green); font-family:"SFMono-Regular",Consolas,monospace; font-weight:800; }
+.promoCard button { margin-top:8px; }
+.recommendationGrid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.recommendationGrid article { padding:20px; border:1px solid #e0e9e2; border-radius:16px; background:#fff; }
+.recommendationGrid h3 { margin-bottom:8px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1rem; }
+.recommendationGrid p { margin-bottom:0; color:var(--muted); font-size:.82rem; line-height:1.65; }
 @media (max-width:760px) {
   .container { width:min(100% - 32px,620px); }
   .hero { padding:26px 0 36px; }
   .section,.sectionAlt { padding:42px 0; }
   .tableWrap { display:none; }
   .mobileCards { display:grid; }
+  .mobileComparisonCards { display:grid; }
+  .comparisonFilters { grid-template-columns:1fr; }
+  .unlimitedGrid,.providerGrid,.promoGrid,.recommendationGrid { grid-template-columns:1fr; }
   .adviceGrid { grid-template-columns:1fr; }
   .ctaSection { padding-bottom:42px; }
 }
