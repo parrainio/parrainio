@@ -29,6 +29,7 @@ import { getRetourTerrain } from "@/lib/experienceTerrain";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import { classifyReferralMechanism, getHubLinkAnchor } from "@/lib/referralMechanism";
+import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
 import ReferralRequestForm from "@/components/ReferralRequestForm";
@@ -104,14 +105,6 @@ function GlobeIcon() {
     </svg>
   );
 }
-
-const bemoveCopyTrackingUrls: Record<string, string> = {
-  sfr: "https://www.awin1.com/cread.php?awinmid=7310&awinaffid=274935&clickref=pao&ued=https%3A%2F%2Fwww.red-by-sfr.fr%2Ftelephones%2F",
-  fortuneo: "https://tracking.publicidees.com/clic.php?promoid=272395&progid=1325&partid=37815&cb=pao",
-  lolivier: "https://action.metaffiliation.com/trk.php?mclic=P5110055639012251&argsite=pao",
-  engie: "https://xyd.particuliers.engie.fr/?P511AD156390124D1&argsite=pao",
-  coinhouse: "https://www.financeads.net/tc.php?t=81972C386875220T&subid=pao",
-};
 
 export default async function OfferPage({
   params,
@@ -295,13 +288,13 @@ export default async function OfferPage({
                     )}
                   </div>
                   <div className={styles.referralSection}>
-                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" /></div></div> : null}
+                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
                     {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                       <div className={styles.codeActionsRow}>
                         <div className={styles.codeRow}>
                           <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
                           <div className={styles.codeActionColumn}>
-                            <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
+                            <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
                             <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                           </div>
                         </div>
@@ -309,7 +302,7 @@ export default async function OfferPage({
                     ) : offer.referralCode ? (
                       <div className={styles.codeRow}>
                         <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
-                        <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
+                        <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
@@ -468,7 +461,7 @@ export default async function OfferPage({
                     </aside>
                   )}
                 </div><div className={styles.referralSection}>
-                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" /></div></div> : null}
+                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
                     {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                     <div className={styles.codeActionsRow}>
                       <div className={styles.codeRow}>
@@ -477,7 +470,7 @@ export default async function OfferPage({
                           <strong>{offer.referralCode}</strong>
                         </div>
                         <div className={styles.codeActionColumn}>
-                          <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
+                          <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
                           <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                         </div>
                       </div>
@@ -488,7 +481,7 @@ export default async function OfferPage({
                         <span>Votre code de parrainage</span>
                         <strong>{offer.referralCode}</strong>
                       </div>
-                      <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={bemoveCopyTrackingUrls[offer.slug]} />
+                      <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
                     </div>
                   ) : null}
 

@@ -14,6 +14,7 @@ import FavoritesDock from "@/components/FavoritesDock";
 import CookieSettingsLink from "@/components/CookieSettingsLink";
 import CopyTextButton from "@/components/CopyTextButton";
 import { formatProductNames, parseProductReverses } from "@/lib/productNames";
+import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import {
   PRIME_THRESHOLDS,
   CONDITION_OPTIONS,
@@ -330,6 +331,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                         value={featuredOffer.referralCode}
                         label="Copier"
                         copiedLabel="Copié ✓"
+                        openUrlOnClick={getBemoveCopyTrackingUrl(featuredOffer.slug)}
                       />
                     </div>
                   </div>
@@ -501,6 +503,15 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                     <Icon name="check" size={15} />
                     Selon les conditions de l&apos;offre
                   </p>
+
+                  {getBemoveCopyTrackingUrl(offer.slug) && offer.referralCode ? (
+                    <CopyTextButton
+                      value={offer.referralCode}
+                      label="Copier"
+                      copiedLabel="Copié ✓"
+                      openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)}
+                    />
+                  ) : null}
 
                   <Link
                     href={`/offres/${offer.slug}`}

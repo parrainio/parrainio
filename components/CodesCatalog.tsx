@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
+import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import styles from "./CodesCatalog.module.css";
 
 /**
@@ -90,7 +91,12 @@ export default function CodesCatalog({
               {item.code ? (
                 <>
                   <code className={styles.codeValue}>{item.code}</code>
-                  <CopyTextButton value={item.code} label="Copier" copiedLabel="Copié ✓" />
+                  <CopyTextButton
+                    value={item.code}
+                    label="Copier"
+                    copiedLabel="Copié ✓"
+                    openUrlOnClick={getBemoveCopyTrackingUrl(item.slug)}
+                  />
                 </>
               ) : item.invitationHref ? (
                 <a
