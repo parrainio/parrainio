@@ -66,6 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/comparatif/parrainage-crypto`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/cashback`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/comparatif/paris-sportifs`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/comparatif-esim`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/mentions-legales`, changeFrequency: "monthly", priority: 0.2 },
     { url: `${SITE_URL}/confidentialite`, changeFrequency: "monthly", priority: 0.2 },

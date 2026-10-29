@@ -108,8 +108,7 @@ export default async function CodesParrainagePage() {
     logo: promo.logo,
     logoLetter: promo.name.slice(0, 1),
     showOfferLink: false,
-    sourceNote:
-      "Code et remise indiqués dans le fichier Bemove ; disponibilité à vérifier auprès du partenaire.",
+    sourceNote: promo.description,
   }));
   const hubItems = [...referralItems, ...esimItems];
 
@@ -229,6 +228,9 @@ export default async function CodesParrainagePage() {
               vérifiés en {getCurrentPeriodLabel()}. Les cadres eSIM reprennent des codes et remises
               indiqués dans le fichier Bemove ; leur disponibilité actuelle n&apos;est pas garantie.
             </p>
+            <Link href="/comparatif-esim" className={styles.comparisonLink}>
+              Comparer les forfaits eSIM →
+            </Link>
           </div>
           <CodesCatalog items={hubItems} categories={categories} />
         </div>
