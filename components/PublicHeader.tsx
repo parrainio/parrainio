@@ -13,7 +13,7 @@ export default function PublicHeader({ active, campaignActive = false }: PublicH
   );
   const links = [
     ["home", "Accueil", "/"],
-    ["codes", "Codes de parrainage", "/codes-parrainage"],
+    ["codes", "Codes promo / parrainage", "/codes-parrainage"],
     ["ranking", "Meilleures primes", "/classement-primes-parrainage"],
     ["reviews", "Avis clients", "/avis-clients"],
     ["blog", "Guide", "/blog"],

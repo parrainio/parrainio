@@ -37,6 +37,7 @@
 
 .reward { margin: 0; color: #075846; font-weight: 800; font-size: .9rem; }
 .reverse { margin: 0; color: #b4631f; font-size: .74rem; font-weight: 700; }
+.sourceNote { margin: 0; color: #71807d; font-size: .72rem; line-height: 1.45; }
 
 .valueRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .codeValue {

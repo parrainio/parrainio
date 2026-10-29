@@ -8,14 +8,13 @@ import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import styles from "./CodesCatalog.module.css";
 
 /**
- * Item du hub /codes-parrainage : une offre dont le mécanisme est
- * code (public ou parrain), numéro d'invitation, ou invitation par lien/e-mail.
+ * Item du hub /codes-parrainage : une offre avec code/invitation ou un code promo eSIM.
  */
 export type HubItem = {
   slug: string;
   name: string;
   category: string;
-  mechanism: "CODE_PUBLIC" | "CODE_PARRAIN" | "NUMERO_PARRAIN" | "LIEN_EMAIL";
+  mechanism: "CODE_PUBLIC" | "CODE_PARRAIN" | "NUMERO_PARRAIN" | "LIEN_EMAIL" | "CODE_PROMO";
   mechanismLabel: string;
   code?: string;
   invitationHref?: string;
@@ -24,6 +23,8 @@ export type HubItem = {
   color: string;
   logo: string | null;
   logoLetter: string;
+  showOfferLink?: boolean;
+  sourceNote?: string;
 };
 
 /**
@@ -87,6 +88,7 @@ export default function CodesCatalog({
             {item.reverse && (
               <p className={styles.reverse}>Parrainio reverse en plus : {item.reverse}</p>
             )}
+            {item.sourceNote && <p className={styles.sourceNote}>{item.sourceNote}</p>}
             <div className={styles.valueRow}>
               {item.code ? (
                 <>
@@ -109,9 +111,11 @@ export default function CodesCatalog({
                 </a>
               ) : null}
             </div>
-            <Link href={`/offres/${item.slug}`} className={styles.cardCta}>
-              Voir la fiche et les conditions →
-            </Link>
+            {item.showOfferLink !== false && (
+              <Link href={`/offres/${item.slug}`} className={styles.cardCta}>
+                Voir la fiche et les conditions →
+              </Link>
+            )}
           </article>
         ))}
       </div>

@@ -151,7 +151,7 @@ export default async function Home() {
               <Link href="/offres">Les offres</Link>
               {campaign ? <Link href="/offres-boostees">Offres boostées</Link> : null}
               <Link href="/classement-primes-parrainage">Classement des primes</Link>
-              <Link href="/codes-parrainage">Codes de parrainage</Link>
+              <Link href="/codes-parrainage">Codes promo / parrainage</Link>
             </div>
             <div>
               <h3>À propos et aide</h3>

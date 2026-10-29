@@ -5,6 +5,7 @@ import { OG_IMAGE } from "@/lib/ogImage";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers } from "@/data/managedOffers";
 import { getOfferReferralUrl } from "@/data/offers";
+import { esimPromoCodes } from "@/data/esimPromoCodes";
 import { getCurrentPeriodLabel } from "@/lib/currentPeriod";
 import { classifyReferralMechanism, MECHANISM_LABEL } from "@/lib/referralMechanism";
 import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
@@ -21,9 +22,9 @@ import CookieSettingsLink from "@/components/CookieSettingsLink";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Code parrainage : le trouver et l'utiliser | Parrainio",
+  title: "Codes promo / parrainage : les trouver et les utiliser | Parrainio",
   description:
-    "Code parrainage : ce que c'est, où le trouver, comment le saisir et ce qui peut l'invalider. Codes, liens et conditions expliqués simplement.",
+    "Retrouvez des codes promo eSIM et des codes ou liens de parrainage. Consultez les mécanismes et vérifiez les conditions auprès de chaque partenaire.",
   alternates: { canonical: `${SITE_URL}/codes-parrainage` },
   openGraph: {
     url: "/codes-parrainage",
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
 
 const FAQ = [
   {
-    question: "Où trouver un code de parrainage ?",
+    question: "Où trouver un code promo ou de parrainage ?",
     answer:
-      "Sur cette page : le listing rassemble les offres du catalogue Parrainio qui documentent un code, un numéro d'invitation ou une invitation par lien. Le code est également visible sur la fiche de chaque offre, à côté des conditions et de la date de vérification.",
+      "Cette page rassemble les offres du catalogue Parrainio qui documentent un code ou une invitation, ainsi que des codes promo eSIM issus du fichier Bemove. Les codes et remises eSIM peuvent évoluer et leur disponibilité doit être vérifiée auprès du partenaire.",
   },
   {
     question: "Quelle est la différence entre un code et un lien d'invitation ?",
@@ -70,7 +71,7 @@ const FAQ = [
 export default async function CodesParrainagePage() {
   const offers = await getManagedOffers();
 
-  const hubItems: HubItem[] = offers
+  const referralItems: HubItem[] = offers
     .map((offer): HubItem | null => {
       const mechanism = classifyReferralMechanism(offer.slug, offer.referralCode);
       if (!mechanism) return null;
@@ -94,6 +95,24 @@ export default async function CodesParrainagePage() {
     })
     .filter((item): item is HubItem => item !== null);
 
+  const esimItems: HubItem[] = esimPromoCodes.map((promo) => ({
+    slug: promo.slug,
+    name: promo.name,
+    category: "eSIM",
+    mechanism: "CODE_PROMO",
+    mechanismLabel: "Code promo",
+    code: promo.code,
+    reward: `${promo.discountPercent} % de remise annoncés`,
+    reverse: null,
+    color: promo.color,
+    logo: promo.logo,
+    logoLetter: promo.name.slice(0, 1),
+    showOfferLink: false,
+    sourceNote:
+      "Code et remise indiqués dans le fichier Bemove ; disponibilité à vérifier auprès du partenaire.",
+  }));
+  const hubItems = [...referralItems, ...esimItems];
+
   const categories = Array.from(new Set(hubItems.map((item) => item.category))).sort((a, b) =>
     a.localeCompare(b, "fr"),
   );
@@ -109,23 +128,23 @@ export default async function CodesParrainagePage() {
           {
             "@type": "ListItem",
             position: 3,
-            name: "Codes de parrainage",
+            name: "Codes promo / parrainage",
             item: `${SITE_URL}/codes-parrainage`,
           },
         ],
       },
       {
         "@type": "WebPage",
-        name: "Codes de parrainage : trouvez et utilisez le code de votre offre",
+        name: "Codes promo / parrainage : trouvez et utilisez le code de votre offre",
         description:
-          "Listing des offres Parrainio qui documentent un code de parrainage, un numéro d'invitation ou une invitation par lien, avec le mécanisme de chacune.",
+          "Listing des codes promo eSIM et des offres Parrainio qui documentent un code de parrainage, un numéro d'invitation ou une invitation par lien.",
         url: `${SITE_URL}/codes-parrainage`,
         inLanguage: "fr-FR",
       },
       {
         "@type": "ItemList",
-        name: "Codes de parrainage par offre",
-        itemListElement: hubItems.map((item, index) => ({
+        name: "Codes promo et de parrainage par offre",
+        itemListElement: referralItems.map((item, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: item.name,
@@ -161,7 +180,7 @@ export default async function CodesParrainagePage() {
             <span aria-hidden="true">→</span>
             <Link href="/offres">Offres</Link>
             <span aria-hidden="true">→</span>
-            <strong>Codes de parrainage</strong>
+            <strong>Codes promo / parrainage</strong>
           </nav>
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
@@ -169,7 +188,7 @@ export default async function CodesParrainagePage() {
                 <span />
                 Guide pratique
               </span>
-              <h1>Codes de parrainage : trouvez et utilisez le code de votre offre</h1>
+              <h1>Codes promo / parrainage : trouvez et utilisez le code de votre offre</h1>
               <p className={styles.lead}>
                 Un code de parrainage rattache un nouveau client à son parrain : il peut prendre
                 la forme d&apos;un code, d&apos;un numéro ou d&apos;un lien. Les conditions affichées
@@ -177,7 +196,7 @@ export default async function CodesParrainagePage() {
               </p>
               <div className={styles.heroActions}>
                 <Link href="#codes" className={styles.primaryButton}>
-                  Voir les codes
+                  Voir les codes promo / parrainage
                 </Link>
                 <Link href="/pourquoi-parrainio" className={styles.secondaryButton}>
                   Comment fonctionne le parrainage →
@@ -199,16 +218,16 @@ export default async function CodesParrainagePage() {
       </section>
 
       {/* LISTING DES CODES */}
-      <section className={styles.listingSection} id="codes" aria-label="Codes de parrainage par offre">
+      <section className={styles.listingSection} id="codes" aria-label="Codes promo et de parrainage">
         <div className={styles.container}>
           <div className={styles.listingHead}>
             <h2>
               Les codes du catalogue <em>offre par offre</em>
             </h2>
             <p>
-              {hubItems.length} offres documentent actuellement un code ou une invitation,
-              avec leur mécanisme réel : code public, code d&apos;un parrain, numéro
-              d&apos;invitation ou invitation par lien. Vérifié en {getCurrentPeriodLabel()}.
+              {referralItems.length} offres du catalogue documentent un code ou une invitation,
+              vérifiés en {getCurrentPeriodLabel()}. Les cadres eSIM reprennent des codes et remises
+              indiqués dans le fichier Bemove ; leur disponibilité actuelle n&apos;est pas garantie.
             </p>
           </div>
           <CodesCatalog items={hubItems} categories={categories} />

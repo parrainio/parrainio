@@ -243,7 +243,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
                 </Link>
 
                 <Link href="/codes-parrainage" className={styles.secondaryButton}>
-                  Codes de parrainage
+                  Codes promo / parrainage
                 </Link>
               </div>
 
