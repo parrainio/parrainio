@@ -9,6 +9,7 @@ import FavoritesDock from "@/components/FavoritesDock";
 import OfferSearch, { normalizeOfferSearch } from "@/components/OfferSearch";
 import FavoriteButton from "@/components/FavoriteButton";
 import OfferLogo from "@/components/OfferLogo";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 import OfferRewards from "@/components/OfferRewards";
 import type { CategoryHubContent } from "@/lib/categoryHubs";
 import { HUB_ILLUSTRATIONS } from "@/lib/categoryHubs";
@@ -371,6 +372,7 @@ export default function CategoryHub({ hub, offers, campaignActive }: CategoryHub
               <Link href="/mentions-legales">Mentions légales</Link>
               <Link href="/confidentialite">Politique de confidentialité</Link>
               <Link href="/cgu">Conditions générales</Link>
+              <CookieSettingsLink />
             </div>
           </div>
 

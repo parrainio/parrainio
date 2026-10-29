@@ -1,0 +1,180 @@
+.panel {
+  position: fixed;
+  z-index: 200;
+  right: 20px;
+  bottom: 20px;
+  width: min(760px, calc(100vw - 40px));
+  max-height: min(85vh, 720px);
+  overflow: auto;
+  padding: 24px;
+  border: 1px solid #d5e4d9;
+  border-radius: 20px;
+  background: #fffdfa;
+  box-shadow: 0 18px 60px rgba(4, 63, 52, .23);
+  color: #173d35;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.copy {
+  max-width: 470px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #55766a;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.copy h2 {
+  margin: 0 0 9px;
+  color: #075846;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.copy p:not(.eyebrow) {
+  margin: 0;
+  color: #405c53;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 196px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choiceButton,
+.withdrawButton,
+.closeButton,
+.detailsButton {
+  min-height: 42px;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.choiceButton {
+  border: 1px solid #075846;
+  background: #075846;
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 800;
+}
+
+.choiceButton:hover {
+  background: #043f34;
+}
+
+.detailsButton,
+.withdrawButton,
+.closeButton {
+  padding: 8px 11px;
+  border: 1px solid #bbcec1;
+  background: #fff;
+  color: #075846;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.detailsButton {
+  min-height: 0;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.withdrawButton,
+.closeButton {
+  min-height: 38px;
+}
+
+.details {
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid #e1ebe4;
+  color: #405c53;
+  font-size: .86rem;
+  line-height: 1.55;
+}
+
+.details h3 {
+  margin: 0 0 9px;
+  color: #075846;
+  font-size: .94rem;
+}
+
+.details ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.details li {
+  margin: 0 0 8px;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+.details code {
+  font-size: .82rem;
+}
+
+.details a {
+  color: #075846;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.error {
+  color: #9c2c20 !important;
+  font-weight: 700;
+}
+
+@media (max-width: 620px) {
+  .panel {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    max-height: 88vh;
+    padding: 19px;
+    border-radius: 16px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .actions {
+    flex: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .withdrawButton,
+  .closeButton {
+    grid-column: span 2;
+  }
+}

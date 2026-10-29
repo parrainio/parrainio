@@ -7,6 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "test:consent": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/cookieConsent.test.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "test:netlinking": "node --test tests/netlinking-check-backlinks.test.mjs tests/netlinking-sync-replies.test.mjs tests/netlinking-find-contact.test.mjs tests/netlinking-publication-chain.test.mjs tests/netlinking-funnel.test.mjs tests/netlinking-registry.test.mjs",
     "test:observatoire": "node --test tests/observatoire-conditions.test.mjs tests/observatoire-echeance.test.mjs tests/observatoire-delai-pratique.test.mjs tests/observatoire-terrain.test.mjs"

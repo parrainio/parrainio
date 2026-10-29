@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FavoritesCount from "./FavoritesCount";
+import CookieSettingsLink from "./CookieSettingsLink";
 import styles from "./SiteFooter.module.css";
 
 export default function SiteFooter() {
@@ -37,6 +38,7 @@ export default function SiteFooter() {
             <Link href="/mentions-legales">Mentions légales</Link>
             <Link href="/confidentialite">Politique de confidentialité</Link>
             <Link href="/cgu">Conditions générales</Link>
+            <CookieSettingsLink />
           </div>
         </div>
 

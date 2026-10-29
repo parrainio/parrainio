@@ -6,6 +6,7 @@ import { SITE_URL } from "@/lib/siteUrl";
 import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
   title: "Comparatif parrainage crypto : bonus et risques | Parrainio",
@@ -549,6 +550,7 @@ export default async function ComparatifParrainageCryptoPage() {
               <Link href="/mentions-legales">Mentions légales</Link>
               <Link href="/confidentialite">Politique de confidentialité</Link>
               <Link href="/cgu">Conditions générales</Link>
+              <CookieSettingsLink />
             </div>
           </div>
           <div className={styles.footerBottom}>

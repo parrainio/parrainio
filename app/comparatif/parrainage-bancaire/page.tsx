@@ -8,6 +8,7 @@ import { getManagedOffers, type ManagedOffer } from "@/data/managedOffers";
 import styles from "./page.module.css";
 import { formatProductNames } from "@/lib/productNames";
 import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/helloBankPromotion";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
   title: "Parrainage bancaire : comparatif des primes | Parrainio",
@@ -525,6 +526,7 @@ export default async function ComparatifParrainageBancairePage() {
               <Link href="/mentions-legales">Mentions légales</Link>
               <Link href="/confidentialite">Politique de confidentialité</Link>
               <Link href="/cgu">Conditions générales</Link>
+              <CookieSettingsLink />
             </div>
           </div>
           <div className={styles.footerBottom}>

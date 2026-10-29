@@ -122,23 +122,49 @@ export default function ConfidentialitePage() {
         nécessaire.
       </p>
 
-      <h2>Cookies et traceurs</h2>
+      <h2 id="cookies-traceurs">Cookies et traceurs</h2>
       <p>
-        Le site ne dépose actuellement aucun cookie publicitaire et n'utilise aucun outil de mesure
-        d'audience (pas de Google Analytics, Google Tag Manager ou outil équivalent), ni aucun traceur de
-        tracking public.
+        À la date du 29 octobre 2026, Parrainio n&apos;utilise aucun outil de mesure d&apos;audience,
+        de publicité ou de suivi de navigation. Aucun traceur optionnel actif de ces catégories n&apos;a été
+        identifié dans le code du site. Cette observation porte sur les fonctionnalités et scripts visibles
+        dans le code audité; elle ne constitue pas une garantie sur les services externes.
       </p>
       <p>
-        Le seul cookie utilisé est le cookie de session de l'espace d'administration
-        (<code>parrainio_admin</code>), strictement réservé à l'administration du site : il n'est pas
-        déposé lors d'une simple visite du site public.
+        Lors de la première visite, une bannière propose « Accepter », « Refuser » et « Personnaliser /
+        en savoir plus ». Les deux premiers choix sont mémorisés avec la même durée. « Personnaliser / en
+        savoir plus » ouvre les détails des éléments utilisés; aucun réglage par catégorie n&apos;est proposé
+        actuellement, car aucun traceur optionnel n&apos;a été identifié. Accepter ou refuser n&apos;active donc
+        aujourd&apos;hui aucun traceur optionnel.
+      </p>
+      <p>
+        Le cookie <code>parrainio_admin</code> est utilisé uniquement pour l&apos;authentification de l&apos;espace
+        d&apos;administration. Il est limité au chemin <code>/admin</code>, a une durée de huit heures et n&apos;est
+        pas déposé lors d&apos;une simple visite publique. Il est nécessaire au fonctionnement de cet espace.
       </p>
       <p>
         La fonctionnalité « Mes favoris » enregistre les identifiants des offres ajoutées en favoris
         uniquement dans le stockage local de votre navigateur (localStorage), sans compte et sans
-        transmission à Parrainio : ces données restent sur votre appareil et ne sont ni consultables ni
-        exploitées par le site. Vous pouvez les supprimer à tout moment en retirant les offres de vos
-        favoris ou en vidant les données de votre navigateur.
+        transmission à Parrainio. Votre navigateur les lit pour afficher les favoris; ils restent sur votre
+        appareil et ne sont pas envoyés aux serveurs Parrainio. Vous pouvez les supprimer à tout moment en
+        retirant les offres de vos favoris ou en vidant les données de votre navigateur. Parrainio ne
+        configure pas de durée d&apos;expiration pour ces données.
+      </p>
+      <p>
+        Votre choix (acceptation ou refus) est mémorisé sous la clé <code>parrainio_cookie_consent</code>
+        dans le stockage local du navigateur pour une durée exacte de 180 jours, que vous acceptiez ou
+        refusiez; cette mémorisation ne crée pas de cookie. Le lien permanent « Gérer mes cookies » dans le
+        pied de page permet de modifier ce choix ou de retirer l&apos;acceptation, ce qui enregistre alors un
+        refus. Après 180 jours, un nouveau choix est demandé. Le navigateur ou l&apos;utilisateur peut
+        également effacer ce stockage avant cette échéance.
+      </p>
+      <p>
+        Les polices de caractères sont chargées depuis Google Fonts. Ce chargement entraîne une requête
+        de feuille de style vers <code>fonts.googleapis.com</code>; cette feuille référence les fichiers de
+        police servis par <code>fonts.gstatic.com</code>. Il s&apos;agit d&apos;un chargement de ressources externe,
+        et non d&apos;un cookie ajouté par le code de Parrainio. Le navigateur transmet au service externe les
+        informations techniques nécessaires à la requête, dont l&apos;adresse IP. L&apos;inspection du code ne
+        permet pas de déterminer si Google dépose ou lit des cookies dans ce contexte, ni les durées
+        éventuelles de conservation de ces données par le fournisseur.
       </p>
 
       <h2>Vos droits</h2>

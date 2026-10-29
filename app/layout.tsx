@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/siteUrl";
 import { OG_IMAGE } from "@/lib/ogImage";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,7 +37,10 @@ export default function RootLayout({
 }>) {
   return (
 <html lang="fr" data-scroll-behavior="smooth">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

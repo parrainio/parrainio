@@ -11,6 +11,7 @@ import CodesCatalog, { type HubItem } from "@/components/CodesCatalog";
 import PublicHeaderServer from "@/components/PublicHeaderServer";
 import FavoritesDock from "@/components/FavoritesDock";
 import styles from "./page.module.css";
+import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 // ISR : le hub lit les overrides via le fetch tagué 60 s (lib/adminKv.ts) —
 // compatible rendu statique, aucun fetch no-store au rendu. Les écritures
@@ -507,6 +508,7 @@ export default async function CodesParrainagePage() {
               <Link href="/mentions-legales">Mentions légales</Link>
               <Link href="/confidentialite">Politique de confidentialité</Link>
               <Link href="/cgu">Conditions générales</Link>
+              <CookieSettingsLink />
             </div>
           </div>
           <div className={styles.footerBottom}>
