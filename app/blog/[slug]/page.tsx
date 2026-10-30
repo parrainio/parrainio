@@ -412,7 +412,8 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           {article.heroImage && (
             <div
               className={`${styles.heroImage} ${
-                article.slug === "cumuler-reductions-black-friday"
+                article.slug === "cumuler-reductions-black-friday" ||
+                article.slug === "black-friday-2026-economiser-parrainage"
                   ? styles.heroImageBlackFriday
                   : ""
               }`}

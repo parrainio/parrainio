@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import PublicHeaderServer from "@/components/PublicHeaderServer";
 import SiteFooter from "@/components/SiteFooter";
@@ -113,7 +114,19 @@ export default function BlogIndexPage() {
                     <span className={styles.cardCategory}>
                       {article.category}
                     </span>
-                    <h3>{article.title}</h3>
+                    <div className={styles.cardTitleRow}>
+                      {article.thumbnail && (
+                        <Image
+                          className={styles.cardThumbnail}
+                          src={article.thumbnail.src}
+                          alt={article.thumbnail.alt}
+                          width={article.thumbnail.width}
+                          height={article.thumbnail.height}
+                          sizes="72px"
+                        />
+                      )}
+                      <h3>{article.title}</h3>
+                    </div>
                     <p>{article.excerpt}</p>
                     <span className={styles.cardMeta}>
                       <time dateTime={article.datePublished}>

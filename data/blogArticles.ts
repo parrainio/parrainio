@@ -54,6 +54,8 @@ export type BlogArticle = {
   seoDescription?: string;
   /** Image affichée sous le titre de l'article, lorsqu'elle est définie. */
   heroImage?: { src: string; alt: string; width: number; height: number };
+  /** Vignette facultative affichée sur la carte de /blog. */
+  thumbnail?: { src: string; alt: string; width: number; height: number };
   /** Extrait affiché sur la carte de la page /blog et en meta description. */
   excerpt: string;
   /** Date de publication, format ISO (AAAA-MM-JJ). */
@@ -2268,6 +2270,157 @@ export const blogArticles: BlogArticle[] = [
 
       { type: "h2", text: "L’essentiel à retenir" },
       "Un délai de versement se lit avec quatre informations : l’unité (jours, jours ouvrés, mois), le point de départ (ouverture, validation, signature, souscription), la nature de la promesse (« au plus tard ») et l’origine du chiffre (page officielle ou terrain). Sans elles, un chiffre seul ne dit pas quand la prime arrivera. Pour comparer les offres, utilisez [le classement des primes](/classement-primes-parrainage) ; pour vérifier les conditions, les délais constatés et les cas de reprise, consultez [l’observatoire](/observatoire-conditions-prime).",
+    ],
+  },
+  {
+    slug: "black-friday-2026-economiser-parrainage",
+    title: "Black Friday 2026 : comment économiser grâce au parrainage ?",
+    h1: "Black Friday 2026 : comment économiser grâce au parrainage ?",
+    seoTitle: "Black Friday 2026 : économiser grâce au parrainage",
+    seoDescription:
+      "Parrainage, primes de bienvenue et Parrainio reverse : comment préparer le Black Friday 2026 sans négliger les conditions ni les risques.",
+    excerpt:
+      "Parrainage, primes de bienvenue et Parrainio reverse : comment préparer le Black Friday 2026 sans négliger les conditions ni les risques.",
+    datePublished: "2026-10-30",
+    category: "Bons plans",
+    heroImage: {
+      src: "/images/blog/black-friday-parrainage-2026.png",
+      alt: "Sacs cadeaux, téléphone avec des offres, panier et réductions pour le Black Friday",
+      width: 1672,
+      height: 941,
+    },
+    thumbnail: {
+      src: "/images/blog/black-friday-parrainage-2026.png",
+      alt: "Sacs cadeaux et offres Black Friday affichées sur un téléphone",
+      width: 1672,
+      height: 941,
+    },
+    body: [
+      "Le Black Friday 2026 approche à grands pas. Prévu le vendredi 27 novembre, ce rendez-vous commercial est devenu une période incontournable pour réaliser des achats à prix réduit avant les fêtes de fin d'année.",
+      "Promotions, codes de réduction, ventes flash et offres de bienvenue : les possibilités d'économiser sont nombreuses. Pourtant, un autre levier reste parfois oublié : le parrainage.",
+      "Banques en ligne, applications, assurances, plateformes d'investissement et services du quotidien proposent régulièrement des avantages pour accueillir de nouveaux clients. Ces primes peuvent parfois compléter les économies réalisées pendant le Black Friday, à condition de bien comprendre les conditions de chaque programme.",
+      "Voici comment profiter intelligemment de cette période pour optimiser votre budget grâce au parrainage.",
+
+      { type: "h2", text: "1. Pourquoi penser au parrainage pendant le Black Friday ?" },
+      "Pendant le Black Friday, la plupart des consommateurs se concentrent sur les réductions affichées par les boutiques en ligne. Pourtant, certaines entreprises proposent également des avantages à leurs nouveaux clients.",
+      "Le principe du parrainage est simple : une personne déjà cliente recommande un service à un nouveau client. En échange, les deux personnes peuvent recevoir une récompense.",
+      "Selon les entreprises, cet avantage peut prendre différentes formes :",
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          "Une prime en argent versée après l'ouverture d'un compte.",
+          "Un bonus de bienvenue après un premier achat.",
+          "Une réduction sur un abonnement ou un service.",
+          "Une carte cadeau ou un crédit utilisable ultérieurement.",
+          "Des récompenses conditionnées à un dépôt ou à plusieurs opérations.",
+        ],
+      },
+      "L'intérêt est de ne pas se limiter aux promotions visibles pendant le Black Friday. Une offre de parrainage peut présenter un avantage supplémentaire, même lorsqu'elle n'est pas associée à une réduction commerciale classique.",
+      "Il faut toutefois vérifier les conditions de cumul : une prime de parrainage n'est pas automatiquement compatible avec toutes les promotions.",
+
+      { type: "h2", text: "2. Comment fonctionne une offre de parrainage ?" },
+      "Le fonctionnement varie selon les marques, mais le principe repose généralement sur deux participants.",
+      "**Le parrain** est le client qui recommande le service. Il transmet un lien ou un code de parrainage à une personne de son entourage.",
+      "**Le filleul** est le nouveau client qui utilise cette invitation pour rejoindre l'entreprise.",
+      "Lorsque les conditions prévues par le programme sont respectées, chacun peut recevoir un avantage.",
+      "Prenons un exemple fictif : une banque propose 50 € au nouveau client et 30 € à la personne qui l'a invité. Le filleul peut ainsi profiter d'une prime de bienvenue, tandis que le parrain est récompensé pour sa recommandation.",
+      "Ces montants sont uniquement illustratifs. Les primes réelles dépendent des campagnes et des conditions en vigueur chez chaque partenaire.",
+      "Certaines offres nécessitent simplement une inscription, tandis que d'autres imposent un premier dépôt, une commande, plusieurs paiements par carte ou une durée minimale de détention du compte.",
+      "Il est donc indispensable de lire les conditions avant de commencer.",
+
+      { type: "h2", text: "3. Le Parrainio reverse : un avantage supplémentaire à ne pas oublier" },
+      "Parrainio propose un fonctionnement complémentaire : sur certaines offres, une partie de la commission perçue par le site peut être reversée au filleul.",
+      "C'est le principe du « Parrainio reverse ».",
+      "Concrètement, lorsqu'un partenaire rémunère Parrainio pour une mise en relation éligible, une partie de cette commission peut être redistribuée à la personne qui utilise l'offre.",
+      "Selon les conditions de l'offre, le reversement peut atteindre jusqu'à 50 % de la commission de Parrainio.",
+      "Cet avantage vient s'ajouter à la prime du partenaire uniquement lorsque la fiche de l'offre le prévoit.",
+      "Par exemple, si une offre prévoit une prime de bienvenue de 50 € et un reversement Parrainio de 10 €, le filleul peut recevoir 60 € au total, sous réserve de remplir toutes les conditions.",
+      "Il ne faut cependant pas généraliser cet avantage à l'ensemble du catalogue : toutes les offres ne donnent pas nécessairement lieu à un reversement.",
+      "Pour comprendre le fonctionnement du dispositif, consultez notre page [Pourquoi Parrainio ?](https://www.parrainio.fr/pourquoi-parrainio).",
+
+      { type: "h2", text: "4. Comment choisir les meilleures offres de parrainage ?" },
+      "Une prime élevée ne signifie pas forcément que l'offre est intéressante.",
+      "Avant de vous inscrire, plusieurs éléments méritent votre attention.",
+      "**Le montant réellement obtenu**",
+      "Vérifiez le montant de la prime du filleul, mais aussi l'existence éventuelle d'un reversement complémentaire.",
+      "**Les conditions d'obtention**",
+      "Un bonus peut être conditionné à un premier versement, à une dépense minimale, à une commande ou à une opération spécifique.",
+      "**Le délai de versement**",
+      "Certaines récompenses sont versées rapidement, tandis que d'autres nécessitent plusieurs semaines ou la validation d'une opération.",
+      "**Les frais éventuels**",
+      "Pour une banque, une assurance ou un service financier, prenez le temps de regarder les frais associés et les éventuelles contraintes.",
+      "**Votre besoin réel**",
+      "Ne souscrivez pas à un produit ou à un service uniquement pour obtenir une prime. L'offre doit rester intéressante au-delà de sa récompense de bienvenue.",
+      "Le meilleur parrainage est celui qui correspond à un service dont vous avez réellement l'utilité.",
+
+      { type: "h2", text: "5. La bonne méthode pour préparer le Black Friday 2026" },
+      "Pour profiter pleinement des offres disponibles, mieux vaut anticiper plutôt que de multiplier les inscriptions dans la précipitation.",
+      "Voici une méthode simple :",
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "**Définissez votre budget** Listez vos achats prévus pour le Black Friday et déterminez la somme maximale que vous souhaitez dépenser.",
+          "**Repérez les offres intéressantes** Consultez les programmes de parrainage qui correspondent à vos besoins : banque, assurance, cashback, services en ligne ou investissement.",
+          "**Vérifiez les conditions** Regardez les montants, les délais, les éventuelles dépenses obligatoires et les conditions d'éligibilité.",
+          "**Comparez les avantages** Ne comparez pas uniquement les primes affichées. Prenez en compte les frais, les éventuels reversements et la valeur réelle des avantages.",
+          "**Suivez les campagnes** Les entreprises peuvent modifier leurs offres au cours du mois de novembre. Une prime peut être temporairement augmentée ou remplacée par une autre récompense.",
+        ],
+      },
+      "Pensez donc à consulter les conditions actualisées juste avant de vous inscrire.",
+      "Vous pouvez retrouver les [offres de parrainage disponibles sur Parrainio](https://www.parrainio.fr/offres) pour comparer les avantages et les conditions.",
+      "Pour compléter votre préparation, retrouvez également notre guide sur [comment cumuler les réductions pour un Black Friday à prix mini](https://www.parrainio.fr/blog/cumuler-reductions-black-friday).",
+
+      { type: "h2", text: "6. Attention aux fausses bonnes affaires du Black Friday" },
+      "Le Black Friday est aussi une période pendant laquelle les consommateurs doivent rester vigilants.",
+      "Une réduction spectaculaire n'est pas nécessairement une bonne affaire. Certains prix peuvent être présentés de façon trompeuse afin de donner l'impression d'une économie plus importante qu'elle ne l'est réellement.",
+      "En France, lorsqu'un professionnel annonce une réduction de prix, le prix de référence doit correspondre au prix le plus bas qu'il a pratiqué au cours des 30 jours précédant cette réduction.",
+      "Il est donc utile de comparer les tarifs avant et pendant les opérations commerciales.",
+      "La DGCCRF rappelle également l'importance de vérifier la fiabilité des boutiques, les caractéristiques des produits et les conditions de vente.",
+      "Vous pouvez consulter les [recommandations officielles de la DGCCRF sur les annonces de réduction de prix](https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/annonces-de-reduction-de-prix-ce-que-vous-devez-savoir).",
+      "Enfin, méfiez-vous des inscriptions précipitées. Une prime de bienvenue ne doit jamais vous pousser à communiquer vos informations personnelles sur un site dont vous n'avez pas vérifié la fiabilité.",
+
+      {
+        type: "accordion",
+        items: [
+          {
+            heading: "Quand aura lieu le Black Friday 2026 ?",
+            blocks: [
+              "Le Black Friday 2026 aura lieu le vendredi 27 novembre. Certaines enseignes pourront commencer leurs promotions plusieurs jours auparavant, notamment pendant la Black Week.",
+            ],
+          },
+          {
+            heading: "Peut-on cumuler une prime de parrainage et une promotion Black Friday ?",
+            blocks: [
+              "Cela dépend des conditions de chaque entreprise. Certaines offres autorisent le cumul, tandis que d'autres prévoient des règles spécifiques ou des exclusions. Il faut consulter les conditions du programme avant de s'inscrire.",
+            ],
+          },
+          {
+            heading: "Qu'est-ce que le Parrainio reverse ?",
+            blocks: [
+              "C'est le reversement d'une partie de la commission perçue par Parrainio sur certaines offres éligibles. Il vient compléter l'avantage du filleul lorsque la fiche de l'offre le prévoit.",
+            ],
+          },
+          {
+            heading: "Toutes les offres Parrainio donnent-elles droit à un reversement ?",
+            blocks: [
+              "Non. Le reversement dépend de chaque partenariat. Son montant et ses conditions sont indiqués directement sur la fiche de l'offre lorsqu'il est disponible.",
+            ],
+          },
+          {
+            heading: "Faut-il être déjà client pour profiter d'un parrainage ?",
+            blocks: [
+              "Dans la plupart des programmes, le filleul doit être un nouveau client éligible. Les conditions exactes varient selon la marque et doivent être vérifiées avant l'inscription.",
+            ],
+          },
+        ],
+      },
+
+      { type: "h2", text: "Conclusion" },
+      "Le Black Friday 2026 ne se résume pas aux promotions affichées par les boutiques en ligne. Les offres de parrainage représentent également une possibilité intéressante pour obtenir des primes de bienvenue et, sur certaines offres, bénéficier d'un reversement supplémentaire.",
+      "En anticipant vos inscriptions, en comparant les conditions et en privilégiant les services dont vous avez réellement besoin, vous pouvez tirer davantage de valeur de cette période commerciale.",
+      "Pour découvrir les offres disponibles et les avantages proposés, consultez le catalogue de Parrainio.",
     ],
   },
   {
