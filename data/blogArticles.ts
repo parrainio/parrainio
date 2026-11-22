@@ -280,7 +280,7 @@ export const blogArticles: BlogArticle[] = [
           "Les éventuels frais ou contraintes après la période promotionnelle, souvent oubliés.",
         ],
       },
-            "Aucun tarif ni aucune condition ne sont cités ici volontairement : ils diffèrent selon les banques et les offres en cours. Le réflexe utile est de comparer les grilles tarifaires officielles des établissements qui vous intéressent, puis de vérifier, pour celles qui proposent un programme de parrainage, les conditions exactes sur leur fiche Parrainio ou via le [comparateur bancaire](/comparatif/parrainage-bancaire)."
+            "Aucun tarif ni aucune condition ne sont cités ici volontairement : ils diffèrent selon les banques et les offres en cours. Le réflexe utile est de comparer les grilles tarifaires officielles des établissements qui vous intéressent, puis de vérifier, pour celles qui proposent un programme de parrainage, les conditions exactes sur leur fiche Parrainio ou via le [comparateur bancaire](/comparatif/parrainage-bancaire). Pour les professionnels qui souhaitent approfondir le sujet, Expert Fiscal présente la [comptabilisation des frais bancaires](https://expertfiscal.fr/comptabilisation-des-frais-bancaires/)."
             ],
           },
           {
