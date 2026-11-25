@@ -11,9 +11,9 @@ import OffersCatalog from "./OffersCatalog";
 
 
 export const metadata: Metadata = {
-  title: "Offres de parrainage : primes et bons plans | Parrainio",
+  title: "Offres de parrainage : primes, codes et conditions",
   description:
-    "Découvrez les meilleures offres de parrainage, comparez les primes, les conditions et le reversement Parrainio avant de vous lancer.",
+    "Toutes les offres de parrainage du catalogue : primes filleul, codes ou liens d'invitation, conditions vérifiées et reversement Parrainio.",
   alternates: { canonical: "https://www.parrainio.fr/offres" },
   openGraph: { url: "/offres", type: "website", siteName: "Parrainio", locale: "fr_FR", images: [OG_IMAGE] },
 };

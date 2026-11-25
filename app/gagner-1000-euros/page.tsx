@@ -7,7 +7,7 @@ import { PARCOURS_LIST } from "@/data/parcoursGagner1000";
 import { SITE_URL } from "@/lib/siteUrl";
 import styles from "@/components/ParcoursGagner1000Pages.module.css";
 
-const TITLE = "Gagner 1 000 € avec le parrainage : deux parcours | Parrainio";
+const TITLE = "Gagner 1 000 € avec le parrainage : 2 parcours";
 const DESCRIPTION =
   "Comment gagner 1 000 euros avec le parrainage : deux parcours détaillés pour cumuler les primes de bienvenue des banques en ligne, courtiers et applications.";
 

@@ -237,7 +237,7 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
               </p>
 
               <h1>
-                Toutes les offres de parrainage, <em>en un coup d’œil.</em>
+                Toutes les offres de parrainage et codes, <em>en un coup d’œil.</em>
               </h1>
 
               <p>

@@ -4,9 +4,9 @@ import { PARCOURS_B } from "@/data/parcoursGagner1000";
 import { SITE_URL } from "@/lib/siteUrl";
 
 export const metadata: Metadata = {
-  title: "Parcours B : la variante vers 1 052,01 € nets | Parrainio",
+  title: "Parcours B : 1 052,01 € nets avec le parrainage",
   description:
-    "Découvrez les 12 étapes du parcours alternatif, avec les frais Revolut déduits, les délais indicatifs, les primes et les annonces Parrainio liées.",
+    "Douze étapes de parrainage pour viser 1 052,01 € nets, frais Revolut déduits : dépôts, délais indicatifs, primes et offres Parrainio liées.",
   alternates: { canonical: `${SITE_URL}/parcours-b` },
   openGraph: {
     title: "Parcours B – Le parcours alternatif | Parrainio",

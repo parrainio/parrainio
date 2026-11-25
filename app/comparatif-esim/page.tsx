@@ -8,7 +8,7 @@ import EsimComparison from "./EsimComparison";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Comparatif eSIM de voyage : forfaits et codes promo | Parrainio",
+  title: "Comparatif eSIM : forfaits et codes promo 2026",
   description:
     "Comparez les forfaits eSIM Saily, Ubigi, Airalo, Esimo et Holafly par destination : tarifs officiels vérifiés, limites et codes promo.",
   alternates: { canonical: `${SITE_URL}/comparatif-esim` },

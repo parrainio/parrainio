@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
-  title: "Comparatif cashback : iGraal, Poulpeo, eBuyClub… | Parrainio",
+  title: "Code promo cashback : comparatif iGraal, Poulpeo…",
   description:
-    "Comparatif cashback Parrainio : iGraal, Poulpeo, eBuyClub, Widilo et TopCashback. Bonus de parrainage, reversement Parrainio et conditions essentielles.",
+    "Comparatif cashback et codes de parrainage : iGraal, Poulpeo, eBuyClub, Widilo et TopCashback. Bonus, conditions et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/cashback`,
   },

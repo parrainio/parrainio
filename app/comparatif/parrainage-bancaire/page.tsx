@@ -11,9 +11,9 @@ import { getHelloBankPromotion, selectHelloBankParrainioReward } from "@/lib/hel
 import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
-  title: "Parrainage bancaire : comparatif des primes | Parrainio",
+  title: "Comparatif parrainage bancaire 2026 : primes et codes",
   description:
-    "Comparez les parrainages de banques en ligne, banques mobiles et caisses régionales : conditions d’éligibilité, étapes et reversement Parrainio.",
+    "Comparez les codes de parrainage des banques en ligne, mobiles et caisses régionales : primes, conditions d'éligibilité, étapes et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/parrainage-bancaire`,
   },

@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
-  title: "Comparatif parrainage crypto : bonus et risques | Parrainio",
+  title: "Code parrainage crypto : comparatif et risques",
   description:
-    "Comparatif des offres de parrainage crypto : Coinbase, Crypto.com, OKX, Kraken et SwissBorg. Récompenses filleul, conditions et reversement Parrainio.",
+    "Comparatif des codes de parrainage crypto : Coinbase, Crypto.com, OKX, Kraken et SwissBorg. Récompenses filleul, conditions, risques et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/parrainage-crypto`,
   },

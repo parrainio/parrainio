@@ -14,9 +14,9 @@ import { FAMILY_CATEGORIES, norm } from "./families";
 import FavoritesDock from "@/components/FavoritesDock";
 
 export const metadata: Metadata = {
-  title: "Classement des primes de parrainage | Parrainio",
+  title: "Meilleures primes de parrainage 2026 : classement",
   description:
-    "Les primes de parrainage actuellement documentées sur Parrainio : montants filleul, avantage parrain, conditions et reversement Parrainio, offre par offre.",
+    "Classement des meilleures primes de parrainage 2026 : montants filleul, avantage parrain, code ou lien et reversement Parrainio, offre par offre.",
   alternates: { canonical: "https://www.parrainio.fr/classement-primes-parrainage" },
   openGraph: {
     url: "/classement-primes-parrainage",
@@ -237,7 +237,7 @@ export default async function ClassementPrimesPage() {
             rows={euros.map(({ offer, total }) => rowOf(offer, total))}
             panelHeading={
               <>
-                Classement des primes <em>de parrainage</em>
+                Classement des primes <em>de parrainage 2026</em>
               </>
             }
             panelMedia={

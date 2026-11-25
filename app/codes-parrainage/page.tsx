@@ -22,9 +22,9 @@ import CookieSettingsLink from "@/components/CookieSettingsLink";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Codes promo / parrainage : les trouver et les utiliser | Parrainio",
+  title: "Codes promo de parrainage : annuaire et guide 2026",
   description:
-    "Retrouvez des codes promo eSIM et des codes ou liens de parrainage. Consultez les mécanismes et vérifiez les conditions auprès de chaque partenaire.",
+    "Codes promo de parrainage, codes de réduction et liens d'invitation : trouvez le code de chaque offre, comprenez le mécanisme et vérifiez les conditions.",
   alternates: { canonical: `${SITE_URL}/codes-parrainage` },
   openGraph: {
     url: "/codes-parrainage",
@@ -134,9 +134,9 @@ export default async function CodesParrainagePage() {
       },
       {
         "@type": "WebPage",
-        name: "Codes promo / parrainage : trouvez et utilisez le code de votre offre",
+        name: "Codes promo de parrainage : trouvez et utilisez le code de votre offre",
         description:
-          "Listing des codes promo eSIM et des offres Parrainio qui documentent un code de parrainage, un numéro d'invitation ou une invitation par lien.",
+          "Annuaire des codes promo de parrainage, codes de réduction et invitations : mécanisme, conditions et lien vers la fiche de chaque offre.",
         url: `${SITE_URL}/codes-parrainage`,
         inLanguage: "fr-FR",
       },
@@ -187,7 +187,7 @@ export default async function CodesParrainagePage() {
                 <span />
                 Guide pratique
               </span>
-              <h1>Codes promo / parrainage : trouvez et utilisez le code de votre offre</h1>
+              <h1>Codes promo de parrainage : trouvez le code de votre offre</h1>
               <p className={styles.lead}>
                 Un code de parrainage rattache un nouveau client à son parrain : il peut prendre
                 la forme d&apos;un code, d&apos;un numéro ou d&apos;un lien. Les conditions affichées

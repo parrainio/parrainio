@@ -90,8 +90,8 @@ export default async function Home() {
                 <span className={styles.eyebrow}><span />Le parrainage simplifié</span>
                 <span className={styles.updateBadge}><span className={styles.updateDot} aria-hidden="true" />Site mis à jour en {getCurrentPeriodLabel()}</span>
               </div>
-              <h1><span>Votre prime de parrainage</span><em>plus un reversement Parrainio</em></h1>
-              <p>Comparez les offres, vérifiez les conditions et récupérez une partie de notre commission en plus sur les offres éligibles.</p>
+              <h1><span>Vos offres de parrainage</span><em>et codes vérifiés</em></h1>
+              <p>Comparez les offres, vérifiez les codes et les conditions, et récupérez une partie de notre commission en plus sur les offres éligibles.</p>
               <div className={styles.heroBottomRow}>
                 <div className={styles.heroActions}>
                   <Link href="/offres#offres" className={styles.primaryButton}>Voir toutes les offres <Icon name="arrow" size={16} /></Link>

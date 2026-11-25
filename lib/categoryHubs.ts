@@ -52,11 +52,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "banque-finance",
     group: "Banque & Finance",
-    title: "Parrainage Banque & Finance : offres et conditions | Parrainio",
-    seoTitle: "Parrainage bancaire : offres et conditions",
+    title: "Code parrainage bancaire : offres et primes 2026 | Parrainio",
+    seoTitle: "Code parrainage bancaire : offres et primes",
     metaDescription:
-      "Comparez les parrainages bancaires, d’assurance, d’épargne et de services financiers : conditions d’éligibilité et parcours résumés par partenaire.",
-    h1Lead: "Les offres de parrainage",
+      "Codes de parrainage bancaire : primes filleul, conditions d’éligibilité, délais de versement et reversement Parrainio, banque par banque.",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "banque & finance.",
     intro: [
       "Cette catégorie rassemble des offres de parrainage liées aux banques, aux services de paiement et de transfert, à l’assurance, à l’épargne et à d’autres services financiers. Selon le partenaire, l’avantage peut être une prime, une remise ou une récompense conditionnelle. Consultez chaque fiche pour identifier le produit concerné, le public éligible et les étapes à réaliser.",
@@ -94,11 +94,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "shopping-courses",
     group: "Shopping & Courses",
-    title: "Parrainage Shopping & Courses : offres et bons plans | Parrainio",
-    seoTitle: "Parrainage shopping et courses",
+    title: "Codes promo shopping : parrainage et réductions | Parrainio",
+    seoTitle: "Codes promo shopping : parrainage et réductions",
     metaDescription:
       "Offres de parrainage e-commerce, mode, sport et courses : primes, codes et liens d'invitation, conditions détaillées et reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "shopping & courses.",
     intro: [
       "Ici se trouvent les offres de parrainage du commerce en ligne : mode, sport et nutrition, maison, jeux, produits pour bébés, ainsi que les courses et l'alimentation. Le principe reste le même que partout ailleurs sur Parrainio : passer par le lien ou le code de parrainage au moment de l'inscription pour débloquer l'avantage du partenaire.",
@@ -136,11 +136,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "investissement-crypto",
     group: "Investissement & Crypto",
-    title: "Parrainage Investissement & Crypto : offres et bonus | Parrainio",
-    seoTitle: "Parrainage investissement et crypto",
+    title: "Code parrainage investissement et crypto | Parrainio",
+    seoTitle: "Code parrainage investissement et crypto",
     metaDescription:
-      "Offres de parrainage courtiers, épargne et plateformes crypto : conditions, dépôts et récompenses expliqués, plus le reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+      "Codes de parrainage courtiers, épargne et plateformes crypto : dépôts, conditions, récompenses et reversement Parrainio.",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "investissement & crypto.",
     intro: [
       "Cette catégorie rassemble des offres de parrainage liées à l’investissement, à l’épargne et aux crypto-actifs. Selon la plateforme, l’avantage peut prendre la forme d’une prime, d’un crédit ou d’une récompense déclenchée par une opération. Le lien ou le code rattache l’inscription au programme du partenaire ; il ne constitue pas un rendement de placement.",
@@ -178,11 +178,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "recompenses-applications",
     group: "Récompenses & Applications",
-    title: "Parrainage Récompenses & Applications : offres et bonus | Parrainio",
-    seoTitle: "Parrainage récompenses et applications",
+    title: "Code parrainage applications récompenses | Parrainio",
+    seoTitle: "Code parrainage applications récompenses",
     metaDescription:
       "Offres de parrainage d'applications récompenses : missions, sondages et programmes de gains, conditions détaillées et reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "récompenses & applications.",
     intro: [
       "Cette catégorie regroupe les applications qui récompensent des activités du quotidien : marches, missions locales, sondages, lectures de reçus ou micro-tâches. S'inscrire via le lien ou le code de parrainage ouvre l'accès à l'avantage de bienvenue du partenaire, sans changer le fonctionnement de l'application.",
@@ -223,10 +223,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "jeux-paris",
     group: "Jeux & Paris",
-    title: "Parrainage Jeux & Paris : offres et bonus | Parrainio",
+    title: "Code parrainage paris sportifs et jeux 2026 | Parrainio",
+    seoTitle: "Code parrainage paris sportifs et jeux",
     metaDescription:
-      "Offres de parrainage paris sportifs et jeux en ligne : freebets, conditions d'éligibilité chez les opérateurs agréés et reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+      "Codes de parrainage paris sportifs et jeux : freebets, conditions d'éligibilité chez les opérateurs agréés et reversement Parrainio.",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "jeux & paris.",
     intro: [
       "Cette catégorie rassemble les opérateurs de paris sportifs et de jeux en ligne qui proposent un programme de parrainage. Utiliser le lien ou le code d'un parrain permet de débloquer le bonus de bienvenue du partenaire, généralement sous forme de freebet, selon les conditions propres à chaque opérateur.",
@@ -269,10 +270,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "cashback",
     group: "Cashback",
-    title: "Parrainage Cashback : offres et bons plans | Parrainio",
+    title: "Code promo cashback : parrainage et bonus | Parrainio",
+    seoTitle: "Code promo cashback : parrainage et bonus",
     metaDescription:
-      "Offres de parrainage des plateformes de cashback : bonus de bienvenue, conditions de validation et reversement Parrainio sur vos achats.",
-    h1Lead: "Les offres de parrainage",
+      "Codes promo cashback et parrainage : bonus de bienvenue, conditions de validation des achats et reversement Parrainio, plateforme par plateforme.",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "cashback.",
     intro: [
       "Cette catégorie rassemble des plateformes qui proposent du cashback et des programmes de parrainage. Selon le partenaire, l’avantage peut être destiné au filleul, au parrain ou aux deux, et dépendre d’une inscription, d’un achat ou d’un cashback confirmé. Consultez la fiche pour connaître le parcours concerné et distinguer la récompense de parrainage du remboursement associé aux achats.",
@@ -313,8 +315,8 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "energie",
     group: "Énergie",
-    title: "Offres de parrainage énergie : fournisseurs et services | Parrainio",
-    seoTitle: "Parrainage énergie : offres et fournisseurs",
+    title: "Code parrainage énergie : fournisseurs et offres | Parrainio",
+    seoTitle: "Code parrainage énergie : fournisseurs",
     metaDescription:
       "Parcourez les offres de fournisseurs d'énergie et de services associés : fiches partenaires, conditions de parrainage et détails des récompenses.",
     h1Lead: "Offres de parrainage pour",
@@ -356,11 +358,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "voyage-mobilite",
     group: "Voyage & Mobilité",
-    title: "Parrainage Voyage & Mobilité : offres et bons plans | Parrainio",
-    seoTitle: "Parrainage voyage et mobilité",
+    title: "Code parrainage voyage et mobilité | Parrainio",
+    seoTitle: "Code parrainage voyage et mobilité",
     metaDescription:
       "Offres de parrainage voyage et mobilité : hébergements, hôtes, covoiturage et vélos électriques — conditions, déclencheurs et reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "voyage & mobilité.",
     intro: [
       "Cette catégorie réunit des programmes liés aux séjours, à l’accueil de voyageurs et aux déplacements du quotidien. Le parcours et la forme de l’avantage varient selon le service ; consultez chaque fiche pour connaître le public concerné et l’action attendue.",
@@ -397,11 +399,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "services-numeriques",
     group: "Services numériques",
-    title: "Parrainage et affiliation numérique : programmes et conditions | Parrainio",
-    seoTitle: "Parrainage services numériques",
+    title: "Code parrainage services numériques | Parrainio",
+    seoTitle: "Code parrainage services numériques",
     metaDescription:
       "Programmes de recommandation et d’affiliation pour l’hébergement web, le freelance et les outils en ligne : éligibilité et rémunération.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "services numériques.",
     intro: [
       "Cette catégorie réunit des programmes de recommandation et d’affiliation. Certaines fiches décrivent un avantage pour un nouveau client ; d’autres une commission pour l’affilié qui apporte un acheteur. Vérifiez à qui s’adresse chaque programme et si le nouveau client reçoit lui-même un avantage.",
@@ -438,9 +440,10 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "telephone-internet",
     group: "Téléphone & Internet",
-    title: "Offres de parrainage téléphone & Internet | Parrainio",
+    title: "Code parrainage téléphone et Internet | Parrainio",
+    seoTitle: "Code parrainage téléphone et Internet",
     metaDescription:
-      "Offre de parrainage RED by SFR : conditions d’éligibilité à une nouvelle ligne et lien vers la fiche détaillée du partenaire.",
+      "Code de parrainage RED by SFR : conditions d’éligibilité à une nouvelle ligne, activation et première facture, avec lien vers la fiche.",
     h1Lead: "Parrainage téléphone & Internet :",
     h1Accent: "l’offre RED by SFR",
     intro: [
@@ -472,11 +475,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "immobilier",
     group: "Immobilier",
-    title: "Parrainage immobilier : offres et conditions | Parrainio",
-    seoTitle: "Parrainage immobilier : programmes et primes",
+    title: "Parrainage immobilier : offres et conditions",
+    seoTitle: "Parrainage immobilier : offres et conditions",
     metaDescription:
       "Comparez les parrainages de promoteurs, constructeurs et services immobiliers : conditions d'enregistrement, avantages annoncés et reversements personnels.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "immobilier.",
     intro: [
       "Cette catégorie réunit des parrainages liés à l'achat d'un logement neuf, à la construction, à la gestion locative et aux services immobiliers. Les récompenses peuvent être une remise, un bon cadeau ou un reversement personnel après la signature d'un contrat ou d'un acte.",
@@ -513,11 +516,11 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
   {
     slug: "autres-bons-plans",
     group: "Autres bons plans",
-    title: "Parrainage Autres bons plans : offres et bons plans | Parrainio",
-    seoTitle: "Parrainage autres bons plans",
+    title: "Code parrainage bons plans : offres variées | Parrainio",
+    seoTitle: "Code parrainage bons plans",
     metaDescription:
       "Une sélection d'offres de parrainage hors des grandes catégories : réservations du quotidien et services de proximité, conditions et reversement Parrainio.",
-    h1Lead: "Les offres de parrainage",
+    h1Lead: "Codes et offres de parrainage",
     h1Accent: "autres bons plans.",
     intro: [
       "Cette page rassemble une petite sélection d'offres qui ne rentrent dans aucune grande famille du site : réserver une table dans un restaurant et faire garder son animal. Le principe Parrainio reste identique : utilisez le lien ou le code de parrainage lors de l'inscription pour ouvrir l'avantage du partenaire.",

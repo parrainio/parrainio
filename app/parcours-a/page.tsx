@@ -4,9 +4,9 @@ import { PARCOURS_A } from "@/data/parcoursGagner1000";
 import { SITE_URL } from "@/lib/siteUrl";
 
 export const metadata: Metadata = {
-  title: "Parcours A : le parcours classique vers 1 017,50 € | Parrainio",
+  title: "Parcours A : 1 017,50 € avec le parrainage",
   description:
-    "Consultez les 11 étapes du parcours classique, les dépôts et délais indicatifs, les primes cumulées et les annonces Parrainio correspondantes.",
+    "Onze étapes de parrainage pour viser 1 017,50 € : dépôts, délais indicatifs, primes cumulées et offres Parrainio correspondantes, sans dépôt de départ.",
   alternates: { canonical: `${SITE_URL}/parcours-a` },
   openGraph: {
     title: "Parcours A – Le parcours classique | Parrainio",

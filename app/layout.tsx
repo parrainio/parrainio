@@ -7,9 +7,9 @@ import CookieConsent from "@/components/CookieConsent";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: `${SITE_URL}/` },
-  title: "Parrainio — Les offres de parrainage, en clair",
+  title: "Parrainio : offres de parrainage et codes vérifiés",
   description:
-    "Découvrez les meilleures offres de parrainage et récupérez jusqu'à 50 % de la commission Parrainio, selon les conditions de l'offre.",
+    "Comparez les offres de parrainage, les codes promo et les primes vérifiées : conditions, délais et reversement Parrainio, offre par offre.",
   // Balise de vérification Yandex Webmaster (propriété du domaine).
   verification: {
     other: {

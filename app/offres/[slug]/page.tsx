@@ -32,6 +32,7 @@ import { getRetourTerrain } from "@/lib/experienceTerrain";
 import { SITE_URL } from "@/lib/siteUrl";
 import { getFeaturedOfferSlugsServer } from "@/lib/featuredOffersServer";
 import { classifyReferralMechanism, getHubLinkAnchor } from "@/lib/referralMechanism";
+import { buildOfferSeoRewrite } from "@/lib/offerSeoRewrite";
 import { getBemoveCopyTrackingUrl } from "@/lib/bemoveTracking";
 import CopyTextButton from "@/components/CopyTextButton";
 import OfferLogo from "@/components/OfferLogo";
@@ -67,6 +68,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     adaptCampaignDeep(lot17Profiles[slug], slug) ?? adaptCampaignDeep(lot16Profiles[slug], slug) ??
     adaptCampaignDeep(lot15Profiles[slug], slug) ??
     adaptCampaignDeep(lot14Profiles[slug], slug) ?? adaptCampaignDeep(lot13Profiles[slug], slug) ?? adaptCampaignDeep(lot12Profiles[slug], slug) ?? adaptCampaignDeep(lot11Profiles[slug], slug) ?? adaptCampaignDeep(lot10Profiles[slug], slug) ?? adaptCampaignDeep(lot09Profiles[slug], slug) ?? adaptCampaignDeep(lot08Profiles[slug], slug) ?? adaptCampaignDeep(lot07Profiles[slug], slug) ?? adaptCampaignDeep(lot06Profiles[slug], slug) ?? adaptCampaignDeep(lot05Profiles[slug], slug) ?? adaptCampaignDeep(lot02Profiles[slug], slug) ?? adaptCampaignDeep(offerSeoProfiles[slug], slug);
+  const seoRewrite = buildOfferSeoRewrite(offer, profile);
   const reward = offer.partnerReward;
   const categoryName = offer.categoryGroup;
   const referralAccess = offer.referralLink && offer.referralCode
@@ -78,12 +80,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         : "modalités de l'offre";
 
   return {
-    title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage | Parrainio`,
-    description: profile?.metaDescription ?? `Profitez de l'offre de parrainage ${offer.name} et recevez ${reward}. Découvrez les conditions et accédez au ${referralAccess} dans la catégorie ${categoryName}.`,
+    title: seoRewrite.title,
+    description: seoRewrite.description,
     alternates: { canonical: `/offres/${slug}` },
     openGraph: {
-      title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage`,
-      description: profile?.metaDescription ?? `Offre de parrainage ${offer.name} : ${reward}. Consultez les conditions de l'offre et accédez au ${referralAccess}.`,
+      title: seoRewrite.title,
+      description: seoRewrite.description,
       url: `/offres/${slug}`,
       type: "website",
       siteName: "Parrainio",
@@ -185,6 +187,7 @@ export default async function OfferPage({
   // (seoProfile.faq) — aucune duplication de texte, aucune réécriture.
   // Garde-fous : sans FAQ valide, aucun nœud FAQPage ; une question ou une
   // réponse vide est exclue plutôt que sérialisée invalide.
+  const seoRewrite = buildOfferSeoRewrite(offer, seoProfile);
   const faqItems = (seoProfile?.faq ?? []).filter(
     (item) => item.question?.trim() && item.answer?.trim(),
   );
@@ -276,8 +279,8 @@ export default async function OfferPage({
                 </div>
                 {/* Le H1 reste seul, pleine largeur, pour rester l'élément
                     visuel principal du bloc supérieur. */}
-                <h1 className={styles.offerTitle}>{seoProfile?.h1 || `${offer.name} : parrainage et conditions`}</h1>
-                {seoProfile?.introduction && <p className={styles.headerIntro}>{seoProfile.introduction}</p>}
+                <h1 className={styles.offerTitle}>{seoRewrite.h1}</h1>
+                {seoProfile?.introduction && <p className={styles.headerIntro}>{seoRewrite.lead} {seoProfile.introduction}</p>}
                 </div>
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>

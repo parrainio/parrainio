@@ -2115,7 +2115,7 @@ export const blogArticles: BlogArticle[] = [
     seoTitle: "Délai de versement d’une prime de parrainage : le guide",
     h1: "Délai de versement d’une prime de parrainage : ce que la banque annonce, ce que le terrain montre",
     seoDescription:
-      "« 2 mois », « 60 jours ouvrés », « 24 à 48 h » : délai publié et délai constaté ne mesurent pas la même chose. Guide des unités, des points de départ et des écarts, offre par offre.",
+      "« 2 mois », « 60 jours ouvrés », « 24 à 48 h » : délai publié et délai constaté ne mesurent pas la même chose. Guide des unités et des écarts, offre par offre.",
     excerpt:
       "Deux mois publiés, 24 à 48 h constatées : derrière chaque délai, une unité, un point de départ et une nature différents. Comment les lire sans se tromper.",
     datePublished: "2026-10-21",
@@ -2425,7 +2425,8 @@ export const blogArticles: BlogArticle[] = [
   },
   {
     slug: "cumuler-reductions-black-friday",
-    title: "Comment cumuler les réductions pour un Black Friday à prix mini ?",
+    title: "Cumuler les réductions pour un Black Friday à prix mini",
+    seoTitle: "Black Friday : cumuler les réductions à prix mini",
     heroImage: {
       src: "/images/blog/black-friday-shopping-basket.png",
       alt: "Réveil, panier de courses et promotions du Black Friday",

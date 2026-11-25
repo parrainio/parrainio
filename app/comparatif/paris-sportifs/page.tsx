@@ -9,9 +9,9 @@ import { formatProductNames } from "@/lib/productNames";
 import CookieSettingsLink from "@/components/CookieSettingsLink";
 
 export const metadata: Metadata = {
-  title: "Comparatif paris sportifs : bonus et conditions | Parrainio",
+  title: "Code parrainage paris sportifs : comparatif 2026",
   description:
-    "Comparatif des offres de parrainage des opérateurs de paris sportifs : Winamax, Betclic, Unibet, Parions Sport et Betsson. Bonus et conditions.",
+    "Comparatif des codes de parrainage paris sportifs : Winamax, Betclic, Unibet, Parions Sport et Betsson. Bonus, conditions et reversement Parrainio.",
   alternates: {
     canonical: `${SITE_URL}/comparatif/paris-sportifs`,
   },
