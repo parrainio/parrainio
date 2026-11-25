@@ -1,0 +1,25 @@
+{
+  "_comment": "Corrections vérifiées des offres dont la valeur publiée (KV d'administration) est restée obsolète. Chaque correction ne s'applique que si la valeur courante est encore exactement l'ancienne valeur indiquée : dès qu'un administrateur publie une autre valeur, la correction devient inopérante.",
+  "totalenergies": {
+    "partnerReward": {
+      "from": "50 €",
+      "to": "20 €"
+    }
+  },
+  "fdj-francaise-des-jeux": {
+    "partnerReward": {
+      "from": "10 €",
+      "to": "Parrainage terminé (campagne de juin-juillet 2026)"
+    },
+    "parrainioReward": {
+      "from": "2,50 €",
+      "to": null
+    }
+  },
+  "unibet": {
+    "partnerReward": {
+      "from": "Premier dépôt doublé en Freebet jusqu'à 30 €",
+      "to": "Montant selon la campagne en cours"
+    }
+  }
+}
