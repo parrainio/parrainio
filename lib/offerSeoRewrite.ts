@@ -34,12 +34,12 @@ const PROMO_CATEGORIES = new Set([
 /** Overrides manuels des pages à fort enjeu (GSC / intention dominante). */
 const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
   igraal: {
-    title: "Code parrainage iGraal : 5 € et 10 % à vie",
+    title: "Parrainage iGraal : 5 € et 10 % à vie",
     description:
-      "Code parrainage iGraal : 5 € de bonus après un premier cashback validé de 10 €, puis 10 % des gains des filleuls à vie. Conditions et délai détaillés.",
-    h1: "Code de parrainage iGraal : 5 € et 10 % des gains",
+      "Parrainage iGraal : le lien rattache le compte au parrain, sans code à saisir. 5 € de bonus après un premier cashback validé, puis 10 % des gains des filleuls à vie.",
+    h1: "Parrainage iGraal : 5 € et 10 % des gains",
     lead:
-      "Le code de parrainage iGraal se saisit lors de la création du compte : il déclenche 5 € de bonus après un premier cashback validé, puis 10 % des gains des filleuls à vie.",
+      "Le lien de parrainage iGraal suffit : il rattache le compte au parrain, sans code à saisir. Le bonus de 5 € est déclenché après un premier cashback validé, puis 10 % des gains des filleuls à vie.",
   },
   alltricks: {
     title: "Code parrainage Alltricks : 10 € dès 100 €",
@@ -58,20 +58,20 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage RED by SFR s'utilise pendant la commande : l'activation de la ligne et le paiement de la première facture conditionnent le versement de la prime.",
   },
   poulpeo: {
-    title: "Code parrainage Poulpeo : 5 € et 10 % des gains",
+    title: "Parrainage Poulpeo : 5 € et 10 % des gains",
     description:
-      "Code parrainage Poulpeo : 5 € de bonus après un cashback validé, puis 10 % des gains des filleuls. Conditions, seuils et délai de versement détaillés.",
-    h1: "Code de parrainage Poulpeo : 5 € et cashback",
+      "Parrainage Poulpeo : le lien rattache le compte au parrain, sans code à saisir. 5 € de bonus après un cashback validé, puis 10 % des gains des filleuls.",
+    h1: "Parrainage Poulpeo : 5 € et cashback",
     lead:
-      "Le code de parrainage Poulpeo crédite 5 € après un premier cashback validé, puis 10 % des gains des filleuls dans la durée.",
+      "Le lien de parrainage Poulpeo suffit : il rattache le compte au parrain, sans code à saisir. Le bonus de 5 € est crédité après un premier cashback validé, puis 10 % des gains des filleuls.",
   },
   "the-protein-works": {
-    title: "Code promo The Protein Works : parrainage 10 %",
+    title: "Parrainage The Protein Works : 10 % de réduction",
     description:
-      "Code promo The Protein Works : 10 % de réduction supplémentaire via le parrainage, codes non cumulables et programme distinct de la fidélité.",
-    h1: "Code promo The Protein Works et parrainage",
+      "Parrainage The Protein Works : le lien ajoute 10 % de réduction, sans code à saisir. Avantage non cumulable avec d'autres codes et distinct de la fidélité.",
+    h1: "Parrainage The Protein Works : 10 % de réduction",
     lead:
-      "Le code promo The Protein Works lié au parrainage ajoute 10 % de réduction ; il n'est pas cumulable avec d'autres codes et reste distinct du programme de fidélité.",
+      "Le lien de parrainage The Protein Works ajoute 10 % de réduction, sans code à saisir ; l'avantage n'est pas cumulable avec d'autres codes et reste distinct du programme de fidélité.",
   },
   speedo: {
     title: "Code promo Speedo : parrainage et réductions",
@@ -90,12 +90,12 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage Phenix donne 1 € en points de fidélité après une première commande validée dans l'application anti-gaspillage.",
   },
   whatnot: {
-    title: "Code parrainage Whatnot : crédit et conditions",
+    title: "Parrainage Whatnot : crédit et conditions",
     description:
-      "Code parrainage Whatnot : invitation et crédit généralement lié à une première commande éligible sur la plateforme de live shopping. Conditions détaillées.",
-    h1: "Code de parrainage Whatnot : invitation et achat",
+      "Parrainage Whatnot : le lien rattache le nouveau compte au parrain. Le crédit annoncé est généralement lié à une première commande éligible sur le live shopping.",
+    h1: "Parrainage Whatnot : invitation et achat",
     lead:
-      "Le code de parrainage Whatnot rattache le nouveau compte à son parrain ; le crédit annoncé est généralement lié à une première commande éligible.",
+      "Le lien de parrainage Whatnot rattache le nouveau compte au parrain, sans code à saisir ; le crédit annoncé est généralement lié à une première commande éligible.",
   },
   "assurancevie-com": {
     title: "Code parrainage Assurancevie.com : 100 € + 50 €",
@@ -122,20 +122,20 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage FidMe s'utilise à l'inscription : la récompense du filleul et du parrain dépend ensuite de l'usage de l'application et de la campagne.",
   },
   "hello-bank": {
-    title: "Code parrainage Hello bank! : 130 € et 37,50 €",
+    title: "Parrainage Hello bank! : 130 € et 37,50 €",
     description:
-      "Code parrainage Hello bank! : Hello Prime jusqu'à 130 €, Hello One 80 € et 37,50 € reversés par Parrainio, plus Hello Start+ selon conditions.",
-    h1: "Code de parrainage Hello bank! : primes et reverse",
+      "Parrainage Hello bank! : Hello Prime jusqu'à 130 €, Hello One 80 € et 37,50 € reversés par Parrainio, plus Hello Start+ selon conditions. Lien d'invitation.",
+    h1: "Parrainage Hello bank! : primes et reverse",
     lead:
-      "Le code de parrainage Hello bank! ouvre deux parcours : Hello Prime jusqu'à 130 € et Hello One 80 €, auxquels s'ajoutent 37,50 € reversés par Parrainio selon conditions.",
+      "Le lien de parrainage Hello bank! ouvre le parcours, sans code à saisir : Hello Prime peut donner jusqu'à 130 € et Hello One 80 €, auxquels s'ajoutent 37,50 € reversés par Parrainio selon conditions.",
   },
   boursobank: {
-    title: "Code parrainage BoursoBank : jusqu'à 160 €",
+    title: "Parrainage BoursoBank : jusqu'à 160 €",
     description:
-      "Code parrainage BoursoBank : jusqu'à 160 € selon l'offre active, avec premier versement, opérations carte et mobilité bancaire. Conditions détaillées.",
-    h1: "Code de parrainage BoursoBank : offre et conditions",
+      "Parrainage BoursoBank : jusqu'à 160 € selon l'offre active, avec premier versement, opérations carte et mobilité bancaire. Lien d'invitation, sans code.",
+    h1: "Parrainage BoursoBank : offre et conditions",
     lead:
-      "Le code ou lien de parrainage BoursoBank doit être utilisé au début du parcours : le montant, jusqu'à 160 €, dépend de l'offre active et des étapes réalisées.",
+      "Le lien de parrainage BoursoBank doit être utilisé au début du parcours, sans code à saisir : le montant, jusqu'à 160 €, dépend de l'offre active et des étapes réalisées.",
   },
   fortuneo: {
     title: "Code parrainage Fortuneo : prime et conditions",
@@ -154,12 +154,12 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le parrainage L by LCL se fait par lien, avec deux formules : XL jusqu'à 200 € et XXL jusqu'à 260 €, en incluant les 10 € reversés par Parrainio.",
   },
   revolut: {
-    title: "Code parrainage Revolut : 40 € reversés",
+    title: "Parrainage Revolut : 40 € reversés",
     description:
-      "Code parrainage Revolut : lien personnel, ouverture d'un compte Personnel et étapes variables selon la campagne. Parrainio reverse 40 € au parrain.",
-    h1: "Code de parrainage Revolut : étapes et conditions",
+      "Parrainage Revolut : lien personnel, ouverture d'un compte Personnel et étapes variables selon la campagne. Aucun code à saisir. Parrainio reverse 40 € au parrain.",
+    h1: "Parrainage Revolut : étapes et conditions",
     lead:
-      "Le code de parrainage Revolut passe par un lien personnel : le filleul ouvre un compte Personnel et réalise les étapes de la campagne, tandis que Parrainio reverse 40 € au parrain.",
+      "Le parrainage Revolut passe par un lien personnel, sans code à saisir : le filleul ouvre un compte Personnel et réalise les étapes de la campagne, tandis que Parrainio reverse 40 € au parrain.",
   },
 };
 
