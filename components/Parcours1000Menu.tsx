@@ -79,9 +79,6 @@ export default function Parcours1000Menu({ active }: Parcours1000MenuProps) {
         if (window.innerWidth > 900 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) scheduleClose();
       }}
     >
-      <Link href="/offres?prime=100#offres" className={styles.parcoursLink} onClick={() => setOpen(false)}>
-        Gagner 100 €
-      </Link>
       <Link
         href="/gagner-1000-euros"
         className={`${styles.parcoursLink} ${styles.parcoursLinkMain}`}
