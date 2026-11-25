@@ -50,10 +50,10 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage Alltricks donne 10 € de remise au filleul dès 100 € de première commande ; l'avantage est valable 2 mois et limité à 5 filleuls.",
   },
   sfr: {
-    title: "Code parrainage RED by SFR : 15 € et conditions",
+    title: "Code parrainage RED by SFR : jusqu'à 15 €",
     description:
       "Code parrainage RED by SFR : le code se saisit pendant la commande, puis la ligne doit être activée et la première facture payée pour déclencher la prime.",
-    h1: "Code de parrainage RED by SFR : comment l'utiliser",
+    h1: "Code de parrainage RED by SFR : jusqu'à 15 €",
     lead:
       "Le code de parrainage RED by SFR s'utilise pendant la commande : l'activation de la ligne et le paiement de la première facture conditionnent le versement de la prime.",
   },
@@ -122,9 +122,9 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage FidMe s'utilise à l'inscription : la récompense du filleul et du parrain dépend ensuite de l'usage de l'application et de la campagne.",
   },
   "hello-bank": {
-    title: "Parrainage Hello bank! : 130 € et 37,50 €",
+    title: "Parrainage Hello bank! : jusqu'à 130 € + 37,50 €",
     description:
-      "Parrainage Hello bank! : Hello Prime jusqu'à 130 €, Hello One 80 € et 37,50 € reversés par Parrainio, plus Hello Start+ selon conditions. Lien d'invitation.",
+      "Parrainage Hello bank! : Hello Prime jusqu'à 130 €, Hello One 80 € et 37,50 € reversés par Parrainio, plus Hello Start+ selon conditions. Lien, sans code.",
     h1: "Parrainage Hello bank! : primes et reverse",
     lead:
       "Le lien de parrainage Hello bank! ouvre le parcours, sans code à saisir : Hello Prime peut donner jusqu'à 130 € et Hello One 80 €, auxquels s'ajoutent 37,50 € reversés par Parrainio selon conditions.",
