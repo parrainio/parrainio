@@ -6,6 +6,7 @@ import {
   type OfferCompleteness,
   type OfferStatusKey,
 } from "@/lib/offerCompleteness";
+import { adaptCampaignDeep } from "@/lib/offerCampaigns";
 import {
   ADMIN_KV_KEYS,
   ensureAdminKvSeeded,
@@ -190,7 +191,9 @@ export async function getManagedOffers(): Promise<ManagedOffer[]> {
       },
       overrides[offer.slug],
     );
-    return managed;
+    // Une campagne dont l'échéance est passée ne peut plus être présentée
+    // comme active : les formulations datées sont remplacées à la lecture.
+    return adaptCampaignDeep(managed, offer.slug);
   });
 }
 

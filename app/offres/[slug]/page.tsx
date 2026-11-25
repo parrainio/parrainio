@@ -8,6 +8,7 @@ import {
 import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 import { applyBoostedCampaignToOffer, getActiveBoostedCampaign } from "@/data/boostedCampaign";
 import { OG_IMAGE } from "@/lib/ogImage";
+import { adaptCampaignDeep } from "@/lib/offerCampaigns";
 import { offerSeoProfiles } from "@/data/offer-seo";
 import { lot18Profiles } from "@/data/offer-seo-batch16";
 import { lot02Profiles } from "@/data/offer-seo-batch2";
@@ -62,10 +63,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const profile =
-    lot18Profiles[slug] ??
-    lot17Profiles[slug] ?? lot16Profiles[slug] ??
-    lot15Profiles[slug] ??
-    lot14Profiles[slug] ?? lot13Profiles[slug] ?? lot12Profiles[slug] ?? lot11Profiles[slug] ?? lot10Profiles[slug] ?? lot09Profiles[slug] ?? lot08Profiles[slug] ?? lot07Profiles[slug] ?? lot06Profiles[slug] ?? lot05Profiles[slug] ?? lot02Profiles[slug] ?? offerSeoProfiles[slug];
+    adaptCampaignDeep(lot18Profiles[slug], slug) ??
+    adaptCampaignDeep(lot17Profiles[slug], slug) ?? adaptCampaignDeep(lot16Profiles[slug], slug) ??
+    adaptCampaignDeep(lot15Profiles[slug], slug) ??
+    adaptCampaignDeep(lot14Profiles[slug], slug) ?? adaptCampaignDeep(lot13Profiles[slug], slug) ?? adaptCampaignDeep(lot12Profiles[slug], slug) ?? adaptCampaignDeep(lot11Profiles[slug], slug) ?? adaptCampaignDeep(lot10Profiles[slug], slug) ?? adaptCampaignDeep(lot09Profiles[slug], slug) ?? adaptCampaignDeep(lot08Profiles[slug], slug) ?? adaptCampaignDeep(lot07Profiles[slug], slug) ?? adaptCampaignDeep(lot06Profiles[slug], slug) ?? adaptCampaignDeep(lot05Profiles[slug], slug) ?? adaptCampaignDeep(lot02Profiles[slug], slug) ?? adaptCampaignDeep(offerSeoProfiles[slug], slug);
   const reward = offer.partnerReward;
   const categoryName = offer.categoryGroup;
   const referralAccess = offer.referralLink && offer.referralCode
@@ -179,7 +180,7 @@ export default async function OfferPage({
   };
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
-  const seoProfile = lot18Profiles[offer.slug] ?? lot17Profiles[offer.slug] ?? lot16Profiles[offer.slug] ?? lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
+  const seoProfile = adaptCampaignDeep(lot18Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot17Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot16Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot15Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot14Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot13Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot12Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot11Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot10Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot09Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot08Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot07Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot06Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot05Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(lot02Profiles[offer.slug], offer.slug) ?? adaptCampaignDeep(offerSeoProfiles[offer.slug], offer.slug);
   // FAQPage (JSON-LD) : la MÊME donnée `faq` que le rendu visible ci-dessous
   // (seoProfile.faq) — aucune duplication de texte, aucune réécriture.
   // Garde-fous : sans FAQ valide, aucun nœud FAQPage ; une question ou une

@@ -453,7 +453,7 @@ export const offers: Offer[] = [
     ],
   },
   createOffer("igraal", "iGraal", "Cashback", "5 €", "I"),
-  createOffer("totalenergies", "TotalEnergies", "Énergie", "50 €", "T"),
+  createOffer("totalenergies", "TotalEnergies", "Énergie", "20 €", "T"),
   createOffer("sfr", "RED by SFR", "Téléphonie & Internet", "Jusqu'à 15 €", "R"),
   {
     ...createOffer("fortuneo", "Fortuneo", "Banque", "80 € (Fosfo) à 150 € (Gold)", "F"),

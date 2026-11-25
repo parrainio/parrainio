@@ -1005,7 +1005,7 @@
   },
   "totalenergies": {
     "referralCode": "TotalEnergies",
-    "lastVerifiedAt": "2026-11-22",
+    "lastVerifiedAt": "2026-11-25",
     "researchSource": "https://parrainage.co/offers/125133",
     "conditions": [
       "Le filleul ne peut bénéficier que d'un seul parrainage pour une souscription.",
@@ -1067,7 +1067,7 @@
       "Respecter la règle d’ancienneté de jeu et les limites du programme."
     ],
     "parrainioReward": "5 € sous forme de paris / bonus de paris",
-    "partnerReward": "Premier dépôt doublé en Freebet jusqu'à 30 €"
+    "partnerReward": "Montant selon la campagne en cours"
   },
   "weward": {
     "referralCode": "JustePerche8874",
@@ -1965,8 +1965,8 @@
       "Valider le compte joueur.",
       "Effectuer le dépôt ou l’action de jeu affichée."
     ],
-    "parrainioReward": "2,50 €",
-    "partnerReward": "10 €"
+    "parrainioReward": null,
+    "partnerReward": "Parrainage terminé (campagne de juin-juillet 2026)"
   },
   "whatnot": {
     "referralLink": "https://whatnot.com/invite/mathieumor25752",
