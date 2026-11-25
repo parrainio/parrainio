@@ -163,6 +163,12 @@ export default function Gagner1000Page() {
               </Link>
             ))}
           </div>
+          <p className={styles.simulationNote}>
+            <strong>Montants indicatifs :</strong> les totaux présentés sont des estimations. Une marge de variation
+            d’environ 3 à 4 % peut exister sur certaines opérations, selon les frais des applications, les frais de
+            transaction, le prix d’achat des actions ou actifs, les frais de retrait et les conditions commerciales
+            des partenaires.
+          </p>
           <p className={styles.indexNote}>
             Les visuels reprennent les montants et délais de leur scénario. Pour le parcours B, le visuel affiche 440,01 € après huit étapes ; après déduction des 7,99 € de frais Revolut qu’il mentionne, le cumul net est de 432,01 €. Les primes et conditions des annonces peuvent aussi évoluer : les fiches Parrainio liées dans chaque parcours donnent les informations publiées pour chaque offre.
           </p>

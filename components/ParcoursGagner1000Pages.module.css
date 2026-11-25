@@ -27,6 +27,8 @@
 .pathCard:hover .cardButton,.primaryButton:hover { background:var(--green-dark); }
 .secondaryButton { border:1px solid #cddfd2; background:#fff; color:var(--green); }
 .secondaryButton:hover { background:#edf6ee; }
+.simulationNote { margin:20px 0 0; color:#6b7d77; font-size:.8rem; line-height:1.65; }
+.simulationNote strong { color:#526a61; font-weight:700; }
 .indexNote { margin:24px 0 0; padding:17px 19px; border:1px solid #eadcc9; border-radius:14px; background:#fff8ef; color:#725433; font-size:.82rem; line-height:1.6; }
 
 .detailHero { padding:20px 0 24px; background:radial-gradient(circle at 83% 25%,#e4f0e6 0,rgba(228,240,230,.45) 22%,transparent 45%),var(--cream); }

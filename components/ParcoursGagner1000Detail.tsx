@@ -204,6 +204,10 @@ export default async function ParcoursGagner1000Detail({ parcours }: { parcours:
             <li>Les délais sont indicatifs et peuvent varier selon la validation du dossier, les opérations demandées et les délais de traitement.</li>
             <li>Chaque offre a ses propres conditions d’éligibilité et de validation. Un dépôt ou un gain peut rester bloqué ; les investissements et actifs numériques comportent un risque de perte.</li>
           </ul>
+          <p className={styles.simulationNote}>
+            Les montants de ce parcours sont indicatifs et peuvent évoluer avec les conditions des partenaires. Une
+            marge de variation d’environ 3 à 4 % peut exister sur certaines opérations selon les frais appliqués.
+          </p>
         </div>
       </section>
 
@@ -269,6 +273,12 @@ export default async function ParcoursGagner1000Detail({ parcours }: { parcours:
               </tbody>
             </table>
           </div>
+          <p className={styles.simulationNote}>
+            <strong>Montants estimés :</strong> les primes et les cumuls de ce tableau sont des estimations issues du
+            scénario. Une marge de variation d’environ 3 à 4 % peut exister sur certaines opérations, selon les frais
+            des applications, les frais de transaction, le prix d’achat des actions ou actifs, les frais de retrait et
+            les conditions commerciales des partenaires.
+          </p>
         </div>
       </section>
 
