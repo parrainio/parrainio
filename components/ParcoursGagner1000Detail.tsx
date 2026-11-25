@@ -11,6 +11,19 @@ import styles from "./ParcoursGagner1000Pages.module.css";
 
 const milestones = [100, 200, 300] as const;
 
+/** Montants (ex. « 1 017,50 € ») : insécables pour éviter toute coupure dans le nombre. */
+const AMOUNT_PATTERN = /(\d+(?:[\s\u00a0]\d{3})*(?:,\d+)?\s*€)/g;
+
+function withWholeAmounts(text: string) {
+  return text.split(AMOUNT_PATTERN).map((part, index) =>
+    index % 2 === 1 ? (
+      <span className={styles.amountNowrap} key={index}>{part}</span>
+    ) : (
+      part
+    ),
+  );
+}
+
 type FaqItem = { question: string; answer: string };
 
 function faqFor(parcours: ParrainioParcours): FaqItem[] {
@@ -103,7 +116,7 @@ export default async function ParcoursGagner1000Detail({ parcours }: { parcours:
             <strong>{parcours.shortTitle}</strong>
           </nav>
           <p className={styles.eyebrow}>{parcours.title}</p>
-          <h1>{headline}</h1>
+          <h1>{withWholeAmounts(headline)}</h1>
           <p>
             Le {parcours.shortTitle.toLowerCase()} part de 0 € et cumule progressivement les primes de bienvenue
             d’une série d’offres de parrainage : banques en ligne, courtiers et applications. Vous conservez vos

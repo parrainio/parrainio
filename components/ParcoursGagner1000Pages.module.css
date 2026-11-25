@@ -35,6 +35,7 @@
 .detailImage { position:relative; width:min(820px,100%); aspect-ratio:1200 / 1300; margin:0 auto; overflow:hidden; border:1px solid #e2e9e3; border-radius:20px; background:#fff; box-shadow:0 12px 32px rgba(31,75,55,.09); }
 .detailImage img { object-fit:contain; }
 .detailIntro { padding:34px 0 20px; }
+.detailIntro h1 .amountNowrap { white-space:nowrap; }
 .detailIntro h1 { max-width:900px; margin:0 0 15px; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:clamp(1.9rem,3.8vw,2.7rem); font-weight:850; letter-spacing:-.06em; line-height:1.06; }
 .detailIntro > p { max-width:850px; margin-bottom:13px; color:#526a61; font-size:.96rem; line-height:1.72; }
 .quickStats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:22px 0 0; }
