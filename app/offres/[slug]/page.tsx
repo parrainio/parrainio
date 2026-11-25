@@ -93,10 +93,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 function HelloBankPromotionNotice({ promotion }: { promotion: ReturnType<typeof getHelloBankPromotion> }) {
-  if (promotion.deadlinePassed) {
-    return <aside className={styles.helloBankNotice} role="status"><strong>La fenêtre de demande de cette promotion est terminée.</strong><p>La date limite annoncée était le 29 octobre 2026 à 15 h. Le reversement Parrainio est maintenant de 5 €. Ne comptez pas sur les primes partenaires ou le bon Hello Start+ sans confirmer que les conditions actuelles les proposent encore.</p></aside>;
-  }
-  return <aside className={styles.helloBankNotice}><strong>Jusqu’à {promotion.primeTotal} avec Hello Prime ou {promotion.oneTotal} avec Hello One, sous conditions</strong><p>Ces totaux incluent jusqu’à 200 € en bon d’achat Hello Start+ (pas du cash), la prime partenaire et {promotion.parrainioReward} de reversement Parrainio. Ils ne sont valables que si chaque avantage est encore proposé et si ses conditions sont remplies.</p><p>Demande d’invitation avant le 29 octobre 2026 à 15 h. Contactez-nous via le formulaire ci-dessous pour recevoir votre invitation personnalisée. Pour Hello Start+, adhérez gratuitement à la mobilité bancaire et transférez au moins un prélèvement ou virement récurrent si les conditions l’exigent.</p></aside>;
+  if (!promotion.promotionActive) return null;
+  return (
+    <aside className={styles.helloBankNotice}>
+      <strong>Jusqu’à {promotion.primeTotal} avec Hello Prime ou {promotion.oneTotal} avec Hello One, sous conditions</strong>
+      <p>Ces totaux incluent jusqu’à 200 € en bon d’achat Hello Start+ (pas du cash), la prime partenaire et {promotion.parrainioReward} de reversement Parrainio. Ils ne sont valables que si chaque avantage est encore proposé et si ses conditions sont remplies.</p>
+      <p>Pour Hello Start+, adhérez gratuitement à la mobilité bancaire et transférez au moins un prélèvement ou virement récurrent si les conditions l’exigent.</p>
+    </aside>
+  );
 }
 
 function ArrowIcon() {
@@ -140,7 +144,7 @@ export default async function OfferPage({
   // officielle : elles gardent leur retour terrain, sans condition inventée.
   const terrainOffre = observatoireOffre?.terrain ?? getRetourTerrain(offer.slug);
 
-  const referralUrl = getOfferReferralUrl(offer);
+  const referralUrl = slug === "hello-bank" && helloBankPromotion ? helloBankPromotion.referralLink : getOfferReferralUrl(offer);
   const referralDisplayLabel = slug === "bnp"
     ? "Lien de parrainage BNP Paribas"
     : referralUrl;

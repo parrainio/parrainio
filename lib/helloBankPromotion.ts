@@ -1,15 +1,45 @@
-// Paris est en UTC+1 (heure d'hiver) du 25/10/2026 à la fin de la
-// promotion : 30/10/2026 00 h 00 Europe/Paris = 29/10/2026 23 h 00 UTC.
-// Le reversement reste donc à 60 € jusqu'au 29 octobre inclus et repasse à
-// 5 € automatiquement à minuit, heure de Paris.
-export const HELLO_BANK_PROMOTION_END = Date.parse("2026-10-30T00:00:00+01:00");
-// Fin de la fenêtre de demande d'invitation : 29/10/2026 15 h Paris = +01:00
-// (et non +02:00 : l'heure d'été est terminée depuis le 25/10/2026).
-export const HELLO_BANK_REQUEST_DEADLINE = Date.parse("2026-10-29T15:00:00+01:00");
+import campaign from "@/data/hello-bank-promotion.json";
+
+/**
+ * Les informations variables de Hello bank! (lien de parrainage, montant du
+ * reversement, fin de la promotion) vivent dans `data/hello-bank-promotion.json`.
+ * Ce module est le seul endroit qui les interprète : changer une valeur dans le
+ * JSON suffit, sans toucher au contenu public ni au design de la fiche.
+ *
+ * `promotionEnd` est une borne exclusive exprimée à l'heure de Paris : la
+ * promotion reste active jusqu'à la veille 23 h 59 incluses.
+ */
+const TIMEZONE = campaign.parrainioReward.timezone;
+const PROMOTION_END = Date.parse(campaign.parrainioReward.promotionEnd);
+
+const euro = new Intl.NumberFormat("fr-FR", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+function parseAmount(value: string): number {
+  const amount = Number(value.replace(/[^\d,.-]/g, "").replace(",", "."));
+  return Number.isFinite(amount) ? amount : 0;
+}
+
+function formatAmount(value: number): string {
+  return `${euro.format(value)} €`;
+}
+
+function lastPromotionDay(): string {
+  return new Intl.DateTimeFormat("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: TIMEZONE,
+  }).format(new Date(PROMOTION_END - 1));
+}
 
 export function selectHelloBankParrainioReward(now: Date | number = Date.now()): string {
   const timestamp = typeof now === "number" ? now : now.getTime();
-  return timestamp < HELLO_BANK_PROMOTION_END ? "60 €" : "5 €";
+  return timestamp < PROMOTION_END
+    ? campaign.parrainioReward.promotion
+    : campaign.parrainioReward.regular;
 }
 
 export function applyHelloBankReward<T extends { slug: string; parrainioReward: string | null }>(
@@ -22,17 +52,24 @@ export function applyHelloBankReward<T extends { slug: string; parrainioReward: 
   );
 }
 
+/**
+ * État public de la campagne, sans aucune donnée de gestion interne : le
+ * visiteur ne voit que le montant en cours et, s'il est actif, le total
+ * conditionnel des avantages. Aucune date de campagne expirée n'est exposée.
+ */
 export function getHelloBankPromotion(now: Date | number = Date.now()) {
   const timestamp = typeof now === "number" ? now : now.getTime();
   const parrainioReward = selectHelloBankParrainioReward(timestamp);
-  const promotionActive = parrainioReward === "60 €";
-  const requestWindowOpen = timestamp < HELLO_BANK_REQUEST_DEADLINE;
+  const promotionActive = timestamp < PROMOTION_END;
+  const reward = parseAmount(parrainioReward);
+  const { helloPrime, helloOne, helloStartPlusVoucher } = campaign.partnerOffers;
+
   return {
     parrainioReward,
     promotionActive,
-    requestWindowOpen,
-    primeTotal: requestWindowOpen ? (promotionActive ? "390 €" : "335 €") : null,
-    oneTotal: requestWindowOpen ? (promotionActive ? "340 €" : "285 €") : null,
-    deadlinePassed: !requestWindowOpen,
+    primeTotal: formatAmount(helloPrime + reward + helloStartPlusVoucher),
+    oneTotal: formatAmount(helloOne + reward + helloStartPlusVoucher),
+    promoEndLabel: lastPromotionDay(),
+    referralLink: campaign.referralLink,
   };
 }

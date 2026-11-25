@@ -1886,7 +1886,7 @@ export const blogArticles: BlogArticle[] = [
         ordered: false,
         items: [
           "[BoursoBank](/offres/boursobank) demande un premier versement pendant l’ouverture ou dans les 30 jours suivants, puis une opération carte par mois pendant 3 mois.",
-          "[Hello bank!](/offres/hello-bank) considère le parrainage validé lorsque le compte du filleul est définitivement ouvert ; l’opération en cours se termine le 29 octobre 2026 à 15 h.",
+          "[Hello bank!](/offres/hello-bank) considère le parrainage validé lorsque le compte du filleul est définitivement ouvert ; les dates de l’opération en cours sont précisées par le règlement du partenaire.",
           "[Assurancevie.com](/offres/assurancevie-com) ne valide le parrainage qu’après la période de rétractation légale de 30 jours suivant la souscription du contrat.",
           "[BNP Paribas](/observatoire-conditions-prime) demande dix paiements dans les trois mois suivant l’ouverture ; selon notre retour terrain, la prime du filleul ne se déclenche pas tant qu’ils ne sont pas réalisés.",
         ],
