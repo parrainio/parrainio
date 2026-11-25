@@ -67,17 +67,29 @@ async function restMany<T>(commands: (string | number)[][]): Promise<RestResult<
   const kv = kvEnv();
   if (!kv) return { ok: false, error: "kv-not-configured" };
   try {
-    const response = await fetch(kv.url, {
+    const response = await fetch(`${kv.url}/pipeline`, {
       method: "POST",
       headers: { Authorization: `Bearer ${kv.token}`, "Content-Type": "application/json" },
       body: JSON.stringify(commands),
       cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
     });
     if (!response.ok) return { ok: false, error: `kv-http-${response.status}` };
-    const payload = (await response.json()) as { result?: { result?: T | string; error?: string }[]; error?: string };
-    if (payload.error) return { ok: false, error: payload.error };
+    const payload = (await response.json()) as unknown;
+    let items: { result?: T | string; error?: string }[];
+    if (Array.isArray(payload)) {
+      items = payload as { result?: T | string; error?: string }[];
+    } else if (payload && typeof payload === "object") {
+      const body = payload as { result?: unknown; error?: string };
+      if (body.error) return { ok: false, error: body.error };
+      if (!Array.isArray(body.result)) return { ok: false, error: "kv-invalid-pipeline-response" };
+      items = body.result as { result?: T | string; error?: string }[];
+    } else {
+      return { ok: false, error: "kv-invalid-pipeline-response" };
+    }
+    if (items.length !== commands.length) return { ok: false, error: "kv-pipeline-result-count-mismatch" };
     const out: T[] = [];
-    for (const item of payload.result ?? []) {
+    for (const item of items) {
       if (item?.error) return { ok: false, error: item.error };
       let value = item?.result;
       if (typeof value === "string") {

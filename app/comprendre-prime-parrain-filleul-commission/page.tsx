@@ -28,8 +28,8 @@ const exemples = [
   },
   {
     offre: "Fortuneo",
-    primeFilleul: "70 € (Fosfo) à 130 € (Gold)",
-    primePartenaire: "70 € à 110 € pour le parrain, selon la carte",
+    primeFilleul: "80 € (Fosfo) ou 150 € (Gold) pendant la campagne de novembre",
+    primePartenaire: "80 € (Fosfo) ou 120 € (Gold), selon la carte",
     reversement: "17,50 € (Fosfo) à 27 € (Gold)",
   },
   {

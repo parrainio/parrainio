@@ -177,3 +177,41 @@
 .helloBankNotice strong { display:block; margin-bottom:6px; color:#075846; font-size:.82rem; }
 .helloBankNotice p { margin:5px 0 0; }
 @media (max-width:620px) { .helloBankNotice { padding:11px 12px; } }
+.lclFormulaSection { display:flex; flex-direction:column; gap:14px; padding:16px; border:1px solid #dfe9e1; border-radius:22px; background:#fff; box-shadow:0 12px 26px rgba(28,61,48,.04); }
+.lclFormulaHeading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.lclFormulaHeading h2 { margin:3px 0 0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1.25rem; letter-spacing:-.04em; }
+.lclFormulaOverline { color:#82938b; font-size:.62rem; font-weight:800; letter-spacing:.11em; }
+.lclDeadline { flex:none; padding:7px 9px; border-radius:9px; background:#fff1e2; color:#9a4f18; font-size:.68rem; line-height:1.35; text-align:right; }
+.lclFormulaGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.lclFormulaCard { position:relative; min-width:0; padding:14px; border:1px solid #dfe9e1; border-radius:16px; background:#f8faf7; }
+.lclFormulaFeatured { border:2px solid #ef873e; background:#fffaf4; }
+.lclFormulaBadge { position:absolute; top:-10px; right:12px; padding:5px 8px; border-radius:999px; background:#ef873e; color:#fff; font-size:.58rem; font-weight:900; letter-spacing:.04em; }
+.lclFormulaTitle { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:11px; }
+.lclFormulaTitle h3 { margin:0; color:var(--green); font-family:"Manrope",Arial,sans-serif; font-size:1rem; }
+.lclFormulaTitle strong { color:#9a4f18; font-size:.78rem; text-align:right; }
+.lclFormulaList { display:flex; flex-direction:column; gap:6px; margin:0; }
+.lclFormulaList div { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+.lclFormulaList dt { color:#637870; font-size:.72rem; line-height:1.35; }
+.lclFormulaList dd { flex:none; margin:0; color:var(--green); font-size:.78rem; font-weight:900; }
+.lclFormulaLivret { display:flex; flex-direction:column; gap:2px; margin-top:10px; padding:8px 10px; border-radius:10px; background:#edf6ef; }
+.lclFormulaLivret span { color:#6b8178; font-size:.58rem; font-weight:800; text-transform:uppercase; }
+.lclFormulaLivret b { color:var(--green); font-size:.78rem; }
+.lclFormulaLivret small { color:#7f9188; font-size:.62rem; }
+.lclFormulaTotals { display:flex; flex-direction:column; gap:5px; margin-top:10px; }
+.lclFormulaTotals p { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:0; padding-top:7px; border-top:1px solid #dde7df; }
+.lclFormulaTotals p span { color:#637870; font-size:.68rem; }
+.lclFormulaTotals p strong { color:var(--green); font-size:.86rem; }
+.lclFormulaTotals .lclParrainioTotal { border-top:0; padding-top:0; }
+.lclFormulaTotals .lclParrainioTotal strong { color:#b85e20; }
+.lclImportantInfo { padding:12px 14px; border-radius:14px; background:#f8faf7; }
+.lclImportantInfo h3 { margin:0 0 8px; color:var(--green); font-size:.88rem; }
+.lclImportantInfo ul { margin:0; padding-left:18px; color:#536d64; font-size:.76rem; line-height:1.55; }
+.lclImportantInfo p { margin:9px 0 0; color:#536d64; font-size:.72rem; line-height:1.5; }
+.lclImportantInfo a { color:var(--green); font-weight:800; }
+@media (max-width:620px) {
+  .lclFormulaHeading { flex-direction:column; }
+  .lclDeadline { text-align:left; }
+  .lclFormulaGrid { grid-template-columns:minmax(0,1fr); }
+  .lclFormulaSection { padding:12px; }
+  .lclFormulaCard { padding:12px; }
+}

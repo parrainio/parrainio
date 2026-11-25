@@ -1,3 +1,5 @@
+import { superParrainBatch18Offers } from "./offers-superparrain-batch18";
+
 export type OfferStep = {
   title: string;
   description: string;
@@ -16,6 +18,8 @@ export type Offer = {
   isCampaignBoosted?: boolean;
   referralCode: string | null;
   referralLink: string | null;
+  referralOptions?: { label: string; url: string }[];
+  additionalReferralCodes?: { label: string; code: string }[];
   officialWebsiteUrl: string | null;
   description: string;
   color: string;
@@ -48,6 +52,7 @@ export type OfferCategory =
   | "Jeux & Paris"
   | "Services numériques"
   | "Autres bons plans"
+  | "Immobilier"
   | "Sans dépôt ou avec 1 €"
   | "Instantané";
 
@@ -89,6 +94,7 @@ const categoryGroups: Record<string, OfferCategory> = {
   Récompenses: "Récompenses & Applications",
   "Jeux & paris": "Jeux & Paris",
   "Web & numérique": "Services numériques",
+  Immobilier: "Immobilier",
 };
 
 const recoveredReferralCodes: Record<string, string> = {
@@ -231,6 +237,7 @@ const colors: Record<string, string> = {
   "Web & numérique": "#46566c",
   Services: "#5b6660",
   Alimentation: "#7b5f48",
+  Immobilier: "#665b50",
 };
 
 function createOffer(
@@ -395,11 +402,61 @@ function generateDescription(name: string, category: string): string {
 
 export const offers: Offer[] = [
   createOffer("boursobank", "BoursoBank", "Banque", "Jusqu'à 150 €", "B"),
+  {
+    ...createOffer(
+      "l-by-lcl",
+      "L by LCL",
+      "Banque",
+      "Jusqu'à 260 € au total : 250 € chez LCL + 10 € reversés par Parrainio",
+      "L",
+    ),
+    description:
+      "L by LCL est une banque en ligne du groupe LCL proposant deux formules d'ouverture de compte, XL et XXL, avec une prime de parrainage, un bonus Livret Plus et une éventuelle mobilité bancaire.",
+    partnerReward:
+      "Jusqu'à 250 € chez LCL : prime de parrainage, Livret Plus et mobilité bancaire",
+    partnerBonusLabel:
+      "250 € maximum de primes bancaires",
+    parrainioReward: "10 €",
+    referralUrl:
+      "https://lcleasypart.onelink.me/M4TL/spf2pjyf",
+    referralLink:
+      "https://lcleasypart.onelink.me/M4TL/spf2pjyf",
+    officialWebsiteUrl: "https://www.lcl.fr/",
+    sourceUrl:
+      "https://lcleasypart.onelink.me/M4TL/spf2pjyf",
+    publicationDate: "31/12/2026",
+    steps: [
+      {
+        title: "Choisissez la formule XL ou XXL",
+        description:
+          "Comparez les montants de prime de parrainage, de Livret Plus et les conditions applicables avant l'ouverture.",
+      },
+      {
+        title: "Ouvrez le compte depuis le lien",
+        description:
+          "Effectuez le parcours depuis le lien de parrainage Parrainio et réalisez le dépôt initial de 50 € nécessaire.",
+      },
+      {
+        title: "Cumulez les avantages éligibles",
+        description:
+          "Souscrivez le Livret Plus depuis l'application, versez au moins 10 € et vérifiez les conditions de mobilité bancaire.",
+      },
+    ],
+    conditions: [
+      "Les formules XL et XXL sont toutes les deux proposées avec un abonnement de 5 € par mois.",
+      "Il est possible de repasser vers l'offre gratuite après avoir reçu sa prime, selon les conditions applicables.",
+      "Un dépôt initial de 50 € est nécessaire pour valider définitivement l'ouverture du compte.",
+      "Le Livret Plus doit être souscrit depuis l'application L by LCL avec un dépôt d'au moins 10 €.",
+      "Le bonus de mobilité bancaire de 80 € est soumis aux conditions de l'offre officielle de mobilité bancaire.",
+      "L'offre de parrainage est valable jusqu'au 31 décembre 2026.",
+      "Chaque client peut parrainer jusqu'à 5 personnes par an et percevoir jusqu'à 5 primes de 40 €, soit 200 € de gains de parrainage.",
+    ],
+  },
   createOffer("igraal", "iGraal", "Cashback", "5 €", "I"),
   createOffer("totalenergies", "TotalEnergies", "Énergie", "50 €", "T"),
   createOffer("sfr", "RED by SFR", "Téléphonie & Internet", "Jusqu'à 15 €", "R"),
   {
-    ...createOffer("fortuneo", "Fortuneo", "Banque", "70 € (Fosfo) à 130 € (Gold)", "F"),
+    ...createOffer("fortuneo", "Fortuneo", "Banque", "80 € (Fosfo) à 150 € (Gold)", "F"),
     referralCode: "14241677",
   },
   createOffer("poulpeo", "Poulpeo", "Cashback", "5 €", "P"),
@@ -514,6 +571,141 @@ export const offers: Offer[] = [
   createOffer("ritmic", "Ritmic", "Mobilité", "Voir l'offre", "R"),
   createOffer("zeconfiserie", "ZeConfiserie", "Alimentation", "Voir l'offre", "Z"),
   createOffer("simplis", "Simplis", "Pro & assurance", "Voir l'offre", "S"),
+  {
+    ...createOffer(
+      "octopus-energy",
+      "Octopus Energy",
+      "Énergie",
+      "50 € pour le filleul (40 € Octopus + 10 € reversés par le parrain)",
+      "O",
+    ),
+    description:
+      "Octopus Energy est un fournisseur d'électricité et de gaz. Son programme de parrainage crédite une cagnotte au parrain et au nouveau client après l'activation du contrat ; l'annonce de ce parrain ajoute un reversement de 10 € au filleul.",
+    referralUrl:
+      "https://share.octopusenergy.fr/codeparrainage/prudent-photo-311",
+    referralLink:
+      "https://share.octopusenergy.fr/codeparrainage/prudent-photo-311",
+    officialWebsiteUrl: "https://octopusenergy.fr/",
+    partnerReward:
+      "50 € pour le filleul : 40 € crédités par Octopus Energy + 10 € reversés par le parrain",
+    partnerBonusLabel:
+      "40 € sur la cagnotte Octopus Energy, plus 10 € reversés par le parrain",
+    sourceUrl:
+      "https://www.super-parrain.com/offres/octopus-energy-2/parrainage-octopus-energy-2/annonces/mathieu-m",
+    conditions: [
+      "Être un nouveau client Octopus Energy et souscrire un contrat éligible.",
+      "Commencer la souscription depuis le lien de parrainage personnel.",
+      "Attendre l'activation effective du contrat : Octopus Energy crédite alors 40 € sur la cagnotte du parrain et du filleul.",
+      "Les 10 € supplémentaires annoncés par le parrain sont un reversement personnel, distinct de la cagnotte Octopus Energy ; demander au parrain ses modalités.",
+    ],
+    steps: [
+      {
+        title: "Ouvrez le lien de parrainage",
+        description:
+          "Utilisez le lien avant de commencer une nouvelle souscription Octopus Energy.",
+      },
+      {
+        title: "Souscrivez un contrat éligible",
+        description:
+          "Suivez les étapes de souscription et vérifiez les conditions du contrat proposé.",
+      },
+      {
+        title: "Attendez l'activation et le crédit",
+        description:
+          "Après activation, Octopus Energy crédite 40 € dans chaque cagnotte. Le parrain annonce un reversement supplémentaire de 10 € au filleul.",
+      },
+    ],
+  },
+  {
+    ...createOffer(
+      "hello-fresh",
+      "HelloFresh",
+      "Courses",
+      "Jusqu'à 90 € annoncés + dessert offert à vie (conditions à vérifier)",
+      "H",
+    ),
+    description:
+      "HelloFresh livre des ingrédients pré-dosés et des recettes à cuisiner à domicile. Cette annonce de parrainage affiche une réduction de 90 € et un dessert offert à vie ; le montant réellement appliqué dépend de la campagne présentée au moment de la première commande.",
+    referralUrl:
+      "https://www.hellofresh.fr/freebox/MzczMzUxMDA1LTAtNC0xLUZS",
+    referralLink:
+      "https://www.hellofresh.fr/freebox/MzczMzUxMDA1LTAtNC0xLUZS",
+    referralCode: "HS-NGFG5SC5L",
+    officialWebsiteUrl: "https://www.hellofresh.fr/",
+    partnerReward:
+      "Jusqu'à 90 € de réduction + dessert offert à vie selon l'annonce du parrain ; vérifier le panier avant commande",
+    partnerBonusLabel:
+      "90 € de réduction annoncés et dessert offert à vie (campagne à vérifier)",
+    sourceUrl:
+      "https://www.super-parrain.com/offres/hello-fresh/parrainage-hello-fresh/annonces/mathieu-m",
+    conditions: [
+      "Réserver l'offre aux nouveaux clients n'ayant pas déjà utilisé de code de parrainage HelloFresh.",
+      "Ouvrir le lien et saisir le code HS-NGFG5SC5L au moment indiqué dans le parcours de commande.",
+      "Vérifier le montant de chaque remise, le nombre de commandes concernées et la durée de l'avantage dessert dans le récapitulatif avant paiement.",
+      "Les réductions et cadeaux peuvent dépendre de la taille de la première commande, de la zone de livraison et de la campagne active.",
+    ],
+    steps: [
+      {
+        title: "Commencez depuis le lien du parrain",
+        description:
+          "Le lien dirige vers la page d'offre HelloFresh liée à cette annonce.",
+      },
+      {
+        title: "Ajoutez le code de parrainage",
+        description:
+          "Saisissez HS-NGFG5SC5L dans la zone prévue au cours de votre première commande, si elle est proposée.",
+      },
+      {
+        title: "Contrôlez le prix final",
+        description:
+          "Avant de payer, vérifiez les remises affichées sur vos boîtes et la durée de l'avantage dessert : l'offre publique actuelle peut différer de l'annonce.",
+      },
+    ],
+  },
+  {
+    ...createOffer(
+      "gaz-de-bordeaux",
+      "Gaz de Bordeaux",
+      "Énergie",
+      "25 € au total pour le filleul : 20 € sur facture + 5 € reversés par le parrain",
+      "G",
+    ),
+    description:
+      "Gaz de Bordeaux fournit des contrats d'électricité et de gaz naturel. Son programme de parrainage accorde une remise de 20 € sur facture au parrain et au nouveau client ; cette annonce ajoute 5 € reversés au filleul par le parrain.",
+    referralCode: "1429114",
+    officialWebsiteUrl:
+      "https://www.gazdebordeaux.fr/nos-conseils-energie/mon-contrat-d-energie/parrainage-gaz-de-bordeaux",
+    partnerReward:
+      "25 € pour le filleul : 20 € de remise Gaz de Bordeaux + 5 € reversés par le parrain",
+    partnerBonusLabel:
+      "20 € sur facture + 5 € reversés par le parrain",
+    sourceUrl:
+      "https://www.super-parrain.com/offres/gaz-de-bordeaux/parrainage-gaz-de-bordeaux/annonces/mathieu-m",
+    conditions: [
+      "Être un nouveau client Gaz de Bordeaux et souscrire une offre de fourniture d'énergie éligible.",
+      "Saisir la référence de parrainage 1429114 à l'étape 3 de la souscription en ligne ou la communiquer au conseiller.",
+      "La remise officielle de 20 € est déduite d'une facture dans les trois mois suivant la souscription, si le parrain et le filleul sont à jour de leurs factures.",
+      "Le parrain annonce un reversement personnel supplémentaire de 5 € au filleul ; ses modalités doivent être confirmées directement avec lui.",
+      "L'auto-parrainage est interdit et le programme limite le parrain à 10 filleuls sur 12 mois glissants.",
+    ],
+    steps: [
+      {
+        title: "Choisissez une offre éligible",
+        description:
+          "Vérifiez les contrats d'électricité ou de gaz disponibles pour votre logement.",
+      },
+      {
+        title: "Renseignez la référence du parrain",
+        description:
+          "Saisissez 1429114 à l'étape 3 du parcours de souscription ou donnez cette référence au conseiller.",
+      },
+      {
+        title: "Attendez la remise sur facture",
+        description:
+          "Gaz de Bordeaux prévoit 20 € chacun sur une facture émise dans les trois mois, sous conditions. Le parrain ajoute 5 € au filleul selon son annonce.",
+      },
+    ],
+  },
   // Chantier XTB + KAST : offres sans lien ni code public — la fiche sert le
   // formulaire ReferralRequestForm (demande de lien personnel) automatiquement.
   {
@@ -526,6 +718,7 @@ export const offers: Offer[] = [
     contactNote:
       "Le stock restant de liens KAST est mis à jour sur cette fiche après chaque attribution.",
   },
+  ...superParrainBatch18Offers,
 ];
 
 export function getOffer(slug: string) {

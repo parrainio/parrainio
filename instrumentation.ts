@@ -33,11 +33,17 @@ export async function register() {
   // Single-flight : seule la première exécution lance la vérification.
   const globalScope = globalThis as typeof globalThis & { __parrainioAlertsCheck?: Promise<unknown> };
   if (globalScope.__parrainioAlertsCheck) return;
+  const dryRun = process.env.ALERTS_BOOT_DRY_RUN === "true";
 
   globalScope.__parrainioAlertsCheck = (async () => {
     try {
       const { runOfferAlertCheck } = await import("@/lib/alertRunner");
-      const result = await runOfferAlertCheck({});
+      const result = await runOfferAlertCheck({ dryRun });
+      if (dryRun) {
+        const changedOffers = result.outcomes.filter((outcome) => outcome.status === "changed-no-subscribers").length;
+        console.info(`[alerts] dry-run : ${result.outcomes.length} offres vérifiées, ${changedOffers} avec des changements ; aucune écriture ni aucun e-mail.`);
+        return result;
+      }
       for (const outcome of result.outcomes) {
         if (outcome.status === "first-reference") {
           console.info(`[alerts] référence initiale enregistrée pour ${outcome.slug}.`);
@@ -69,7 +75,7 @@ export async function register() {
        domaine canonique ;
      - try/catch séparé : un échec IndexNow ne touche ni les alertes ni la
        référence KV (la vérification est déjà terminée à ce stade). */
-  if (process.env.VERCEL_ENV === "production" && checkData?.outcomes) {
+  if (!dryRun && process.env.VERCEL_ENV === "production" && checkData?.outcomes) {
     try {
       const { isIndexNowEnabled, urlsFromAlertOutcomes, submitIndexNow } = await import("@/lib/indexNow");
       if (isIndexNowEnabled()) {

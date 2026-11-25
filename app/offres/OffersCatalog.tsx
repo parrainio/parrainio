@@ -100,6 +100,16 @@ function useRequestedCategory(): string | null {
   return value;
 }
 
+function useRequestedPrime(): number | null {
+  const [value, setValue] = useState<number | null>(null);
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get("prime");
+    const prime = param ? Number(param) : null;
+    setValue(PRIME_THRESHOLDS.some((threshold) => threshold.value === prime) ? prime : null);
+  }, []);
+  return value;
+}
+
 export default function OffersCatalog({ offers, hubSlugByCategory, campaign, header }: OffersCatalogProps) {
   const [search, setSearch] = useState("");
   const [activePrime, setActivePrime] = useState<string | null>(null);
@@ -114,6 +124,14 @@ export default function OffersCatalog({ offers, hubSlugByCategory, campaign, hea
       setActiveCategory(requestedCategory);
     }
   }, [requestedCategory, offers]);
+
+  const requestedPrime = useRequestedPrime();
+  useEffect(() => {
+    if (requestedPrime !== null) {
+      const threshold = PRIME_THRESHOLDS.find((option) => option.value === requestedPrime);
+      if (threshold) setActivePrime(threshold.label);
+    }
+  }, [requestedPrime]);
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(

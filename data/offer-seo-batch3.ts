@@ -1,6 +1,6 @@
 import type { OfferSeoProfile } from "./offer-seo";
 
-const checkedAt = "2026-09-02";
+const checkedAt = "2026-11-22";
 const source = (title: string, url: string) => ({ title, url, type: "official" as const, checkedAt });
 
 export const lot05Profiles: Record<string, OfferSeoProfile> = {

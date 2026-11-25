@@ -491,7 +491,7 @@ export default function ObservatoireConditionsPrimePage() {
 
       <section className={styles.linksSection}>
         <div className={styles.container}>
-          <p>Pour comprendre une prime en attente, voir <Link href="/blog/prime-parrainage-pas-encore-versee">le guide des retards</Link>. Pour les reprises, consulter <Link href="/blog/reprise-prime-parrainage-cloture-compte">les clauses de clôture</Link>. Les montants de Parrainio et le rôle de la commission sont expliqués dans <Link href="/comprendre-prime-parrain-filleul-commission">le guide filleul, parrain et commission</Link> et dans la <Link href="/faq">FAQ</Link>.</p>
+          <p>Pour comprendre une prime en attente, voir <Link href="/blog/prime-parrainage-pas-encore-versee">le guide des retards</Link>. Pour les reprises, consulter <Link href="/blog/reprise-prime-parrainage-cloture-compte">les clauses de clôture</Link>. Les montants de Parrainio et le rôle de la commission sont expliqués dans <Link href="/comprendre-prime-parrain-filleul-commission">le guide filleul, parrain et commission</Link> et dans la <Link href="/#faq">FAQ</Link>.</p>
         </div>
       </section>
       <SiteFooter />

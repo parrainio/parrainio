@@ -66,11 +66,11 @@
       "slug": "fortuneo",
       "nom": "Fortuneo",
       "categorie": "Banque, bourse & assurance-vie",
-      "primeAnnoncee": "Parcours distincts, non additionnés : carte Fosfo (70 € filleul) ou Gold (130 €) ; PEA/PEA-PME (80 €) ; compte-titres ordinaire (30 €) ; Fortuneo Vie (120 €).",
-      "primeParrain": "Cartes : 70 € Fosfo ou 110 € Gold ; PEA/PEA-PME : 80 € ; compte-titres : 30 € ; Fortuneo Vie : 100 €. Le montant dépend du produit.",
+      "primeAnnoncee": "Parcours distincts, non additionnés : carte Fosfo (80 € filleul et 80 € parrain) ou Gold (150 € filleul et 120 € parrain) pour la campagne cartes du 1er au 30/11/2026 ; les parcours Bourse et Fortuneo Vie ont leurs propres règles et dates.",
+      "primeParrain": "Cartes : 80 € Fosfo ou 120 € Gold ; les autres produits suivent leurs campagnes propres.",
       "delaiVersement": {
         "statut": "renvoi",
-        "resume": "Le calendrier dépend du produit. La campagne carte d’octobre a des échéances distinctes pour filleul et parrain ; les parcours Bourse et assurance-vie renvoient aux conditions propres à ces produits. Aucun délai commun aux cinq parcours n’est publié.",
+        "resume": "La campagne cartes de novembre est valable jusqu’au 30 novembre 2026 ; le versement initial de 300 € doit être effectué sous 6 jours. Les parcours Bourse, CTO et assurance-vie ont des conditions et calendriers distincts ; la campagne Bourse observée du 10 au 20 novembre est terminée.",
         "citation": "La page générale renvoie aux mentions de chaque produit ; un calendrier unique ferait perdre cette distinction."
       },
       "delaiAction": {
@@ -84,10 +84,10 @@
         "citation": "La condition de reprise relevée concerne Fortuneo Vie."
       },
       "differences": "La campagne carte (Fosfo/Gold) ne s’additionne pas aux parcours PEA/PEA-PME, CTO ou assurance-vie. Les primes et conditions d’investissement sont indépendantes.",
-      "ambiguite": "La page générale renvoie aux conditions de chaque produit ; le calendrier carte ne permet pas de déduire celui de la Bourse ou de Fortuneo Vie. Les montants carte sont datés d’octobre 2026.",
+      "ambiguite": "Les montants et périodes diffèrent selon le produit. La campagne cartes active du 1er au 30 novembre 2026 prévoit 80 € pour Fosfo et 150 € pour Gold côté filleul ; les primes parrain sont respectivement de 80 € et 120 €. La campagne Bourse observée du 10 au 20 novembre est terminée et ne doit pas être présentée comme active.",
       "source": "https://www.fortuneo.fr/parrainage",
-      "luLe": "2026-10-22",
-      "verifieLe": "2026-10-22",
+      "luLe": "2026-11-22",
+      "verifieLe": "2026-11-22",
       "sourceStatut": "accessible",
       "delaiStructure": null,
       "reversementParrainio": {
@@ -97,8 +97,8 @@
         "delai": "24 à 72 heures"
       },
       "campagne": {
-        "libelle": "Campagne du 1er au 31/10/2026 — non reconduite au-delà sans nouvelle page officielle",
-        "finLe": "2026-10-31"
+        "libelle": "Campagne cartes du 1er au 30/11/2026",
+        "finLe": "2026-11-30"
       },
       "delaiPratique": {
         "statut": "non_calculable",
@@ -107,7 +107,7 @@
         "exception": "Le délai partenaire d’un produit ne décrit pas la réception de commission Parrainio pour les autres."
       },
       "conditionsOffre": {
-        "resume": "Le parrain transmet son code. Le filleul doit être majeur, personne physique, résident en France et résident fiscal français, et ne jamais avoir souscrit chez Fortuneo. Choisir un parcours : première ouverture Fosfo/Gold, PEA/PEA-PME, CTO ou Fortuneo Vie. Cartes (01–31/10/2026) : versement de 300 € sous 6 jours. PEA/PEA-PME : ouverture avec versement initial de 1 000 €, sauf transfert. CTO : versement initial de 1 000 €. Fortuneo Vie : première adhésion avec 1 000 € nets. Pour le parrain, les parcours investissement demandent au moins 300 € d’encours. Ces parcours ne forment pas un bonus cumulable unique. La FAQ limite également le parrain à 10 parrainages par année civile.",
+        "resume": "Le parrain transmet son code. Le filleul doit être majeur, personne physique, résident en France et résident fiscal français, et ne jamais avoir souscrit chez Fortuneo. Pour les cartes : première ouverture Fosfo ou Gold pendant la campagne du 1er au 30 novembre 2026, code saisi dans le dossier et versement initial de 300 € sous 6 jours. Les parcours PEA/PEA-PME, CTO et Fortuneo Vie ont des conditions distinctes ; l’offre Bourse affichée du 10 au 20 novembre est terminée au 22 novembre. Ces parcours ne forment pas un bonus cumulable unique.",
         "citation": "Conditions générales : majeur, résident français et sans ancien compte/contrat Fortuneo ; les seuils dépendent du produit."
       },
       "sourcesComplementaires": [
@@ -119,7 +119,7 @@
         {
           "label": "Offre cartes",
           "url": "https://www.fortuneo.fr/parrainage/cartes-bancaires",
-          "verifieLe": "2026-10-22"
+          "verifieLe": "2026-11-22"
         },
         {
           "label": "Offres Bourse",

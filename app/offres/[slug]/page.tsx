@@ -9,6 +9,7 @@ import { getManagedOffer, getManagedOffers } from "@/data/managedOffers";
 import { applyBoostedCampaignToOffer, getActiveBoostedCampaign } from "@/data/boostedCampaign";
 import { OG_IMAGE } from "@/lib/ogImage";
 import { offerSeoProfiles } from "@/data/offer-seo";
+import { lot18Profiles } from "@/data/offer-seo-batch16";
 import { lot02Profiles } from "@/data/offer-seo-batch2";
 import { lot05Profiles } from "@/data/offer-seo-batch3";
 import { lot06Profiles } from "@/data/offer-seo-batch4";
@@ -22,6 +23,7 @@ import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { lot16Profiles } from "@/data/offer-seo-batch14";
+import { lot17Profiles } from "@/data/offer-seo-batch15";
 import { getRelatedOffers } from "@/lib/relatedOffers";
 import { getCategoryHubForGroup } from "@/lib/categoryHubs";
 import { observatoire } from "@/lib/observatoireConditions";
@@ -60,19 +62,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const profile =
-    lot16Profiles[slug] ??
+    lot18Profiles[slug] ??
+    lot17Profiles[slug] ?? lot16Profiles[slug] ??
     lot15Profiles[slug] ??
     lot14Profiles[slug] ?? lot13Profiles[slug] ?? lot12Profiles[slug] ?? lot11Profiles[slug] ?? lot10Profiles[slug] ?? lot09Profiles[slug] ?? lot08Profiles[slug] ?? lot07Profiles[slug] ?? lot06Profiles[slug] ?? lot05Profiles[slug] ?? lot02Profiles[slug] ?? offerSeoProfiles[slug];
   const reward = offer.partnerReward;
   const categoryName = offer.categoryGroup;
+  const referralAccess = offer.referralLink && offer.referralCode
+    ? "lien et code de parrainage"
+    : offer.referralLink
+      ? "lien de parrainage"
+      : offer.referralCode
+        ? "code de parrainage"
+        : "modalités de l'offre";
 
   return {
     title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage | Parrainio`,
-    description: profile?.metaDescription ?? `Profitez de l'offre de parrainage ${offer.name} et recevez ${reward}. Découvrez les conditions et bénéficiez d'un éventuel reversement Parrainio dans la catégorie ${categoryName}.`,
+    description: profile?.metaDescription ?? `Profitez de l'offre de parrainage ${offer.name} et recevez ${reward}. Découvrez les conditions et accédez au ${referralAccess} dans la catégorie ${categoryName}.`,
     alternates: { canonical: `/offres/${slug}` },
     openGraph: {
       title: profile?.seoTitle ?? `${offer.name} - ${reward} de parrainage`,
-      description: profile?.metaDescription ?? `Offre de parrainage ${offer.name} : ${reward}. Conditions et reversement Parrainio.`,
+      description: profile?.metaDescription ?? `Offre de parrainage ${offer.name} : ${reward}. Consultez les conditions de l'offre et accédez au ${referralAccess}.`,
       url: `/offres/${slug}`,
       type: "website",
       siteName: "Parrainio",
@@ -131,6 +141,13 @@ export default async function OfferPage({
   const terrainOffre = observatoireOffre?.terrain ?? getRetourTerrain(offer.slug);
 
   const referralUrl = getOfferReferralUrl(offer);
+  const referralDisplayLabel = slug === "bnp"
+    ? "Lien de parrainage BNP Paribas"
+    : referralUrl;
+  const codeDestinationUrl =
+    !referralUrl && offer.referralCode && lot18Profiles[offer.slug]
+      ? offer.officialWebsiteUrl
+      : null;
   const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
   const categoryHub = getCategoryHubForGroup(offer.categoryGroup);
   // Fil d'Ariane (même pattern que hubs/blog/comparatifs) :
@@ -158,7 +175,7 @@ export default async function OfferPage({
   };
   const featuredOfferSlugs = await getFeaturedOfferSlugsServer();
   const featuredOffers = getFeaturedOffers(featuredOfferSlugs);
-  const seoProfile = lot16Profiles[offer.slug] ?? lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
+  const seoProfile = lot18Profiles[offer.slug] ?? lot17Profiles[offer.slug] ?? lot16Profiles[offer.slug] ?? lot15Profiles[offer.slug] ?? lot14Profiles[offer.slug] ?? lot13Profiles[offer.slug] ?? lot12Profiles[offer.slug] ?? lot11Profiles[offer.slug] ?? lot10Profiles[offer.slug] ?? lot09Profiles[offer.slug] ?? lot08Profiles[offer.slug] ?? lot07Profiles[offer.slug] ?? lot06Profiles[offer.slug] ?? lot05Profiles[offer.slug] ?? lot02Profiles[offer.slug] ?? offerSeoProfiles[offer.slug];
   // FAQPage (JSON-LD) : la MÊME donnée `faq` que le rendu visible ci-dessous
   // (seoProfile.faq) — aucune duplication de texte, aucune réécriture.
   // Garde-fous : sans FAQ valide, aucun nœud FAQPage ; une question ou une
@@ -260,10 +277,10 @@ export default async function OfferPage({
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>COPIEZ LE CODE</strong><small>Utilisez notre lien ou code de parrainage.</small></span></li>
-                    <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>Renseignez le code si nécessaire.</small></span></li>
+                    <li><b>01</b><span><strong>{referralUrl ? "OUVREZ LE LIEN" : offer.referralCode ? "COPIEZ LE CODE" : "DEMANDEZ LE LIEN"}</strong><small>{referralUrl ? "Commencez le parcours depuis le lien de cette fiche." : offer.referralCode ? "Utilisez le code indiqué dans le parcours du partenaire." : "Demandez les modalités avant de commencer."}</small></span></li>
+                    <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>{offer.referralCode ? "Suivez le parcours et saisissez le code demandé par le partenaire." : "Continuez le parcours commencé depuis le lien."}</small></span></li>
                     <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l&apos;offre.</small></span></li>
-                    <li><b>04</b><span><strong>DEMANDEZ VOTRE VERSEMENT</strong></span></li>
+                    <li><b>04</b><span><strong>{offer.parrainioReward ? "DEMANDEZ VOTRE VERSEMENT" : "ATTENDEZ LE VERSEMENT PARTENAIRE"}</strong></span></li>
                   </ol>
                 </div>}
               </div>
@@ -288,14 +305,13 @@ export default async function OfferPage({
                     )}
                   </div>
                   <div className={styles.referralSection}>
-                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
+                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralDisplayLabel}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
                     {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                       <div className={styles.codeActionsRow}>
                         <div className={styles.codeRow}>
                           <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
                           <div className={styles.codeActionColumn}>
                             <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
-                            <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                           </div>
                         </div>
                       </div>
@@ -305,8 +321,41 @@ export default async function OfferPage({
                         <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
                       </div>
                     ) : null}
-                    {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !referralUrl ? (
+                    {codeDestinationUrl ? (
+                      <div className={styles.referralValue}>
+                        <span>Lien du programme de parrainage (saisir le code)</span>
+                        <div className={styles.referralValueRow}>
+                          <a href={codeDestinationUrl} target="_blank" rel="noreferrer">{codeDestinationUrl}</a>
+                          <CopyTextButton value={codeDestinationUrl} label="Copier le lien" copiedLabel="Lien copié ✓" />
+                        </div>
+                        <small>Le profil ne fournit pas de lien personnalisé pour cette offre : utilisez le code affiché sur le site officiel.</small>
+                      </div>
+                    ) : null}
+                    {offer.additionalReferralCodes?.map((item) => (
+                      <div className={styles.codeRow} key={item.code}>
+                        <div><span>{item.label}</span><strong>{item.code}</strong></div>
+                        <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
+                      </div>
+                    ))}
+                    {offer.referralOptions?.length ? (
+                      <div className={styles.referralValue}>
+                        <span>Liens selon le produit</span>
+                        {offer.referralOptions.map((item) => (
+                          <div className={styles.referralValueRow} key={item.url}>
+                            <a href={item.url} target="_blank" rel="noreferrer">{item.label}</a>
+                            <CopyTextButton value={item.url} label="Copier le lien" copiedLabel="Lien copié ✓" />
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                    {(referralUrl || offer.referralCode || offer.referralOptions?.length) && seoProfile?.referralContact ? (
+                      <div className={styles.referralContact}>
+                        <strong>{seoProfile.referralContact.heading}</strong>
+                        <small>{seoProfile.referralContact.note ?? contactNote}</small>
+                      </div>
+                    ) : null}
+                    {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : codeDestinationUrl ? <a className={styles.primaryButton} href={codeDestinationUrl} rel="noreferrer" target="_blank">Consulter le programme et saisir le code → <ArrowIcon /></a> : null}
+                    {!offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
                       <>
                         {seoProfile?.referralContact && (
                           <div className={styles.referralContact}>
@@ -318,7 +367,7 @@ export default async function OfferPage({
                       </>
                     ) : null}
                   </div>
-                  <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
+                  {offer.parrainioReward ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
                   {observatoireOffre || terrainOffre ? (
                     <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
                   ) : null}
@@ -332,6 +381,75 @@ export default async function OfferPage({
                     <section className={styles.seoEssential} aria-labelledby={`${offer.slug}-essential`}>
                       <h2 id={`${offer.slug}-essential`}>Conditions essentielles</h2>
                       <ul className={styles.seoList}>{seoProfile.conditions.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul>
+                    </section>
+                  )}
+                  {offer.slug === "l-by-lcl" && (
+                    <section className={styles.lclFormulaSection} aria-labelledby="l-by-lcl-formulas">
+                      <div className={styles.lclFormulaHeading}>
+                        <div>
+                          <span className={styles.lclFormulaOverline}>DEUX FORMULES AU CHOIX</span>
+                          <h2 id="l-by-lcl-formulas">Comparer XL et XXL</h2>
+                        </div>
+                        <strong className={styles.lclDeadline}>Offre valable jusqu'au 31/12/2026</strong>
+                      </div>
+                      <div className={styles.lclFormulaGrid}>
+                        <article className={styles.lclFormulaCard}>
+                          <div className={styles.lclFormulaTitle}>
+                            <h3>Formule XL</h3>
+                            <strong>200 € au total</strong>
+                          </div>
+                          <dl className={styles.lclFormulaList}>
+                            <div><dt>Prime de parrainage LCL</dt><dd>40 €</dd></div>
+                            <div><dt>Bonus Livret Plus</dt><dd>70 €</dd></div>
+                            <div><dt>Mobilité bancaire</dt><dd>80 €</dd></div>
+                          </dl>
+                          <div className={styles.lclFormulaLivret}>
+                            <span>Livret Plus</span>
+                            <b>20 € + 20 € + 30 €</b>
+                            <small>Premier, deuxième et troisième mois</small>
+                          </div>
+                          <div className={styles.lclFormulaTotals}>
+                            <p><span>Primes bancaires</span><strong>190 €</strong></p>
+                            <p className={styles.lclParrainioTotal}><span>Reversement Parrainio</span><strong>+10 €</strong></p>
+                          </div>
+                        </article>
+                        <article className={`${styles.lclFormulaCard} ${styles.lclFormulaFeatured}`}>
+                          <div className={styles.lclFormulaBadge}>JUSQU'À 260 €</div>
+                          <div className={styles.lclFormulaTitle}>
+                            <h3>Formule XXL</h3>
+                            <strong>260 € au total</strong>
+                          </div>
+                          <dl className={styles.lclFormulaList}>
+                            <div><dt>Prime de parrainage LCL</dt><dd>70 €</dd></div>
+                            <div><dt>Bonus Livret Plus</dt><dd>100 €</dd></div>
+                            <div><dt>Mobilité bancaire</dt><dd>80 €</dd></div>
+                          </dl>
+                          <div className={styles.lclFormulaLivret}>
+                            <span>Livret Plus</span>
+                            <b>30 € + 30 € + 40 €</b>
+                            <small>Premier, deuxième et troisième mois</small>
+                          </div>
+                          <div className={styles.lclFormulaTotals}>
+                            <p><span>Primes bancaires</span><strong>250 €</strong></p>
+                            <p className={styles.lclParrainioTotal}><span>Reversement Parrainio</span><strong>+10 €</strong></p>
+                          </div>
+                        </article>
+                      </div>
+                      <div className={styles.lclImportantInfo}>
+                        <h3>Informations importantes</h3>
+                        <ul>
+                          <li>XL et XXL comportent un abonnement de 5 € par mois.</li>
+                          <li>Il est possible de repasser vers l'offre gratuite après avoir reçu sa prime, selon les conditions applicables.</li>
+                          <li>Le dépôt initial de 50 € est nécessaire pour valider définitivement l'ouverture du compte.</li>
+                          <li>Le Livret Plus doit être souscrit depuis l'application L by LCL avec un dépôt d'au moins 10 €.</li>
+                          <li>La prime de parrainage est versée 14 jours après l'ouverture définitive.</li>
+                          <li>Chaque client peut parrainer jusqu'à 5 personnes par an et recevoir jusqu'à 5 primes de 40 €.</li>
+                        </ul>
+                        <p>
+                          Les conditions exactes de la mobilité bancaire ne sont pas déduites ici.
+                          {" "}<a href="https://www.lcl.fr/" target="_blank" rel="noopener noreferrer">Consultez les conditions officielles de LCL</a>.
+                        </p>
+                      </div>
                     </section>
                   )}
                   <section className={styles.seoDetails} aria-labelledby={`${offer.slug}-details`}>
@@ -461,7 +579,7 @@ export default async function OfferPage({
                     </aside>
                   )}
                 </div><div className={styles.referralSection}>
-                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralUrl}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
+                    {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralDisplayLabel}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
                     {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                     <div className={styles.codeActionsRow}>
                       <div className={styles.codeRow}>
@@ -471,7 +589,6 @@ export default async function OfferPage({
                         </div>
                         <div className={styles.codeActionColumn}>
                           <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
-                          <a className={styles.officialReferralLink} href={offer.officialWebsiteUrl} rel="noreferrer" target="_blank">Accéder au site</a>
                         </div>
                       </div>
                     </div>
@@ -485,6 +602,44 @@ export default async function OfferPage({
                     </div>
                   ) : null}
 
+                  {codeDestinationUrl ? (
+                    <div className={styles.referralValue}>
+                      <span>Lien du programme de parrainage (saisir le code)</span>
+                      <div className={styles.referralValueRow}>
+                        <a href={codeDestinationUrl} target="_blank" rel="noreferrer">{codeDestinationUrl}</a>
+                        <CopyTextButton value={codeDestinationUrl} label="Copier le lien" copiedLabel="Lien copié ✓" />
+                      </div>
+                      <small>Le profil ne fournit pas de lien personnalisé pour cette offre : utilisez le code affiché sur le site officiel.</small>
+                    </div>
+                  ) : null}
+
+                  {offer.additionalReferralCodes?.map((item) => (
+                    <div className={styles.codeRow} key={item.code}>
+                      <div>
+                        <span>{item.label}</span>
+                        <strong>{item.code}</strong>
+                      </div>
+                      <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
+                    </div>
+                  ))}
+                  {offer.referralOptions?.length ? (
+                    <div className={styles.referralValue}>
+                      <span>Liens selon le produit</span>
+                      {offer.referralOptions.map((item) => (
+                        <div className={styles.referralValueRow} key={item.url}>
+                          <a href={item.url} target="_blank" rel="noreferrer">{item.label}</a>
+                          <CopyTextButton value={item.url} label="Copier le lien" copiedLabel="Lien copié ✓" />
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {(referralUrl || offer.referralCode || offer.referralOptions?.length) && seoProfile?.referralContact ? (
+                    <div className={styles.referralContact}>
+                      <strong>{seoProfile.referralContact.heading}</strong>
+                      <small>{seoProfile.referralContact.note ?? contactNote}</small>
+                    </div>
+                  ) : null}
+
                   {referralUrl ? (
                     <a
                       className={styles.primaryButton}
@@ -494,9 +649,18 @@ export default async function OfferPage({
                     >
                       En profiter → <ArrowIcon />
                     </a>
+                  ) : codeDestinationUrl ? (
+                    <a
+                      className={styles.primaryButton}
+                      href={codeDestinationUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Consulter le programme et saisir le code → <ArrowIcon />
+                    </a>
                   ) : null}
 
-                  {!offer.referralCode && !referralUrl ? (
+                  {!offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
                     <>
                       {seoProfile?.referralContact && (
                         <div className={styles.referralContact}>
@@ -508,7 +672,7 @@ export default async function OfferPage({
                     </>
                   ) : null}
                 </div>
-                <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} />
+                {offer.parrainioReward ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
                 {observatoireOffre || terrainOffre ? (
                   <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
                 ) : null}

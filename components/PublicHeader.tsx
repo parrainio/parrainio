@@ -2,9 +2,10 @@ import Link from "next/link";
 import { offers } from "@/data/offers";
 import { CATEGORY_HUBS } from "@/lib/categoryHubs";
 import OffersMenu from "./OffersMenu";
+import Parcours1000Menu from "./Parcours1000Menu";
 import styles from "./PublicHeader.module.css";
 
-export type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" | "reviews" | "favorites" | "codes"; campaignActive?: boolean };
+export type PublicHeaderProps = { active?: "home" | "offers" | "how" | "faq" | "advantages" | "blog" | "ranking" | "reviews" | "favorites" | "codes" | "gains"; campaignActive?: boolean };
 
 export default function PublicHeader({ active, campaignActive = false }: PublicHeaderProps) {
   const categories = Array.from(new Set(offers.map((offer) => offer.categoryGroup)));
@@ -27,6 +28,7 @@ export default function PublicHeader({ active, campaignActive = false }: PublicH
           <OffersMenu categories={categories} hubSlugByCategory={hubSlugByCategory} active={active === "offers"} />
           {campaignActive ? <Link href="/offres-boostees" className={styles.campaignNav}>Offres boostées</Link> : null}
           <nav className={styles.nav} aria-label="Navigation principale">
+            <Parcours1000Menu active={active === "gains"} />
             <Link href="/" className={active === "home" ? styles.active : ""}>Accueil</Link>
             {links.slice(1).map(([key, label, href]) => <Link key={key} href={href} className={active === key ? styles.active : ""}>{label}</Link>)}
           </nav>

@@ -5,6 +5,7 @@ import {
   offerSeoProfiles,
   type OfferSeoProfile,
 } from "@/data/offer-seo";
+import { lot18Profiles } from "@/data/offer-seo-batch16";
 import { lot02Profiles } from "@/data/offer-seo-batch2";
 import { lot05Profiles } from "@/data/offer-seo-batch3";
 import { lot06Profiles } from "@/data/offer-seo-batch4";
@@ -18,11 +19,14 @@ import { lot13Profiles } from "@/data/offer-seo-batch11";
 import { lot14Profiles } from "@/data/offer-seo-batch12";
 import { lot15Profiles } from "@/data/offer-seo-batch13";
 import { lot16Profiles } from "@/data/offer-seo-batch14";
+import { lot17Profiles } from "@/data/offer-seo-batch15";
 import { SITE_URL } from "@/lib/siteUrl";
 import { blogArticles } from "@/data/blogArticles";
 
 function resolveOfferSeoProfile(slug: string): OfferSeoProfile | undefined {
   return (
+    lot18Profiles[slug] ??
+    lot17Profiles[slug] ??
     lot16Profiles[slug] ??
     lot15Profiles[slug] ??
     lot14Profiles[slug] ??
@@ -57,6 +61,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/chiffres-parrainio-2026`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/observatoire-conditions-prime`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/echeancier-prime-parrainage`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/gagner-1000-euros`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/parcours-a`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${SITE_URL}/parcours-b`, changeFrequency: "monthly", priority: 0.7 },
     {
       url: `${SITE_URL}/comprendre-prime-parrain-filleul-commission`,
       changeFrequency: "monthly",

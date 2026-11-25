@@ -31,11 +31,89 @@ export type OfferSeoProfile = {
   researchedAt: string;
 };
 
-const checkedAt = "2026-10-17";
+const checkedAt = "2026-11-22";
 const official = (title: string, url: string): OfferSource => ({ title, url, type: "official", checkedAt });
 const secondary = (title: string, url: string): OfferSource => ({ title, url, type: "secondary", checkedAt });
 
 export const offerSeoProfiles: Record<string, OfferSeoProfile> = {
+  "l-by-lcl": {
+    status: "verified",
+    seoTitle: "Parrainage L by LCL : jusqu'à 260 € avec XL ou XXL | Parrainio",
+    metaDescription: "Parrainage L by LCL : comparez les formules XL et XXL, jusqu'à 260 € avec les primes LCL et les 10 € reversés en plus par Parrainio.",
+    h1: "L by LCL : code de parrainage, XL ou XXL jusqu'à 260 €",
+    introduction: "L by LCL propose une offre de parrainage bancaire avec deux formules au choix : XL et XXL. Avec la formule XXL, vous pouvez cumuler jusqu'à 250 € de primes bancaires avec la prime de parrainage, le Livret Plus et la mobilité bancaire, plus 10 € reversés par Parrainio. La formule XL peut atteindre 200 € au total : 190 € chez LCL et 10 € de reversement Parrainio.",
+    summary: [
+      "Formule XL : 190 € de primes LCL + 10 € reversés par Parrainio, soit 200 € au total.",
+      "Formule XXL : 250 € de primes LCL + 10 € reversés par Parrainio, soit 260 € au total.",
+      "Dépôt initial de 50 € nécessaire pour l'ouverture définitive.",
+      "Livret Plus à souscrire depuis l'application avec au moins 10 € déposés.",
+      "Les formules XL et XXL comportent un abonnement de 5 €/mois.",
+      "Offre de parrainage valable jusqu'au 31 décembre 2026.",
+    ],
+    whyChoose: {
+      heading: "Pourquoi choisir L by LCL ?",
+      paragraphs: [
+        "L by LCL permet d'ouvrir un compte bancaire en ligne tout en accédant à des produits complémentaires comme le Livret Plus. Les formules XL et XXL donnent le choix du niveau de prime de parrainage et du bonus Livret Plus.",
+        "Le cumul est intéressant si vous pouvez remplir les conditions de chaque avantage : ouverture définitive du compte, dépôt initial, souscription du Livret Plus depuis l'application et mobilité bancaire.",
+      ],
+    },
+    audience: "Cette offre s'adresse aux personnes éligibles qui souhaitent ouvrir ou valider une première ouverture de compte chez L by LCL. Le filleul doit réaliser les conditions liées à la formule choisie ; les primes ne sont pas garanties si l'ouverture reste provisoire ou si les dépôts exigés ne sont pas effectués.",
+    referralExplanation: "Commencez le parcours depuis le lien de parrainage L by LCL fourni sur cette fiche. Après ouverture définitive du compte, la prime de parrainage est versée 14 jours après cette validation. La formule XL prévoit 40 € de prime bancaire et la formule XXL 70 €.",
+    practicalInformation: [
+      "Les formules XL et XXL comportent un abonnement de 5 € par mois.",
+      "Il est possible de repasser vers l'offre gratuite après avoir reçu sa prime, selon les conditions applicables.",
+      "Un dépôt initial de 50 € est nécessaire pour valider définitivement l'ouverture.",
+      "Le Livret Plus doit être souscrit depuis l'application L by LCL avec au moins 10 € déposés.",
+      "Pour les modalités exactes de mobilité bancaire, consultez les conditions officielles de LCL.",
+      "Chaque client peut parrainer jusqu'à 5 personnes par an et percevoir jusqu'à 5 primes de 40 €, soit 200 € de gains de parrainage.",
+    ],
+    conditions: [
+      "Ouvrir définitivement un compte L by LCL depuis le lien de parrainage.",
+      "Effectuer un dépôt initial de 50 €.",
+      "Souscrire le Livret Plus depuis l'application L by LCL.",
+      "Déposer au moins 10 € sur le Livret Plus.",
+      "Respecter les conditions officielles applicables à la mobilité bancaire pour obtenir les 80 €.",
+      "L'offre de parrainage est valable jusqu'au 31 décembre 2026.",
+    ],
+    earnings: "Formule XL : 40 € de prime de parrainage, 70 € de Livret Plus et 80 € de mobilité bancaire, soit 190 € chez LCL, plus 10 € reversés par Parrainio pour un total de 200 €. Formule XXL : 70 € de prime de parrainage, 100 € de Livret Plus et 80 € de mobilité bancaire, soit 250 € chez LCL, plus 10 € reversés par Parrainio pour un total de 260 €.",
+    rewardTiming: "La prime de parrainage est de 40 € en XL ou 70 € en XXL après ouverture définitive du compte, puis versée 14 jours après cette ouverture définitive. Le Livret Plus est crédité sur trois mois : 20 € puis 20 € puis 30 € en XL, ou 30 € puis 30 € puis 40 € en XXL.",
+    internalLinks: [
+      { label: "Comparer les offres de banque en ligne", slug: "boursobank" },
+      { label: "Voir l'offre Fortuneo", slug: "fortuneo" },
+      { label: "Voir l'offre Monabanq", slug: "monabanq" },
+    ],
+    faq: [
+      {
+        question: "Quelle différence entre les formules XL et XXL chez L by LCL ?",
+        answer: "La formule XL cumule 40 € de prime de parrainage, 70 € de Livret Plus et 80 € de mobilité bancaire. La formule XXL cumule 70 €, 100 € et 80 €. Le calcul inclut ensuite 10 € reversés par Parrainio.",
+      },
+      {
+        question: "Combien peut-on gagner au maximum avec L by LCL ?",
+        answer: "Avec la formule XXL, le maximum indiqué est de 260 € : 250 € de primes bancaires et 10 € reversés par Parrainio.",
+      },
+      {
+        question: "Quel dépôt faut-il réaliser pour ouvrir le compte L by LCL ?",
+        answer: "Un dépôt initial de 50 € est nécessaire pour valider définitivement l'ouverture du compte.",
+      },
+      {
+        question: "Comment obtenir le bonus du Livret Plus ?",
+        answer: "Souscrivez le Livret Plus depuis l'application L by LCL et effectuez un dépôt d'au moins 10 €. Les versements du bonus suivent ensuite le calendrier propre à XL ou XXL.",
+      },
+      {
+        question: "Les 10 € Parrainio sont-ils versés par LCL ?",
+        answer: "Non. Les 10 € sont un reversement supplémentaire effectué par Parrainio au filleul. Ils viennent s'ajouter aux primes bancaires versées par LCL.",
+      },
+      {
+        question: "Jusqu'à quelle date l'offre de parrainage est-elle valable ?",
+        answer: "L'offre de parrainage est annoncée valable jusqu'au 31 décembre 2026.",
+      },
+    ],
+    sources: [
+      official("L by LCL", "https://www.lcl.fr/"),
+      official("Lien de parrainage L by LCL", "https://lcleasypart.onelink.me/M4TL/spf2pjyf"),
+    ],
+    researchedAt: "2026-11-25",
+  },
   boursobank: {
     status: "verified",
     seoTitle: "Parrainage BoursoBank : lien et conditions | Parrainio",
@@ -117,14 +195,14 @@ export const offerSeoProfiles: Record<string, OfferSeoProfile> = {
     seoTitle: "Code de parrainage Fortuneo : conditions et prime | Parrainio",
     metaDescription: "Code de parrainage Fortuneo : découvrez où le renseigner, les conditions de première souscription et les étapes à réaliser pour bénéficier de l’offre.",
     h1: "Fortuneo : parrainage, cartes et conditions",
-    introduction: "Fortuneo est une banque en ligne qui propose des comptes, des cartes Mastercard, des services boursiers et de l'assurance-vie. Pour cette campagne, il faut distinguer la carte Fosfo de la carte Gold : les montants filleul et parrain ne sont pas les mêmes. L'offre fournie est valable du 1er au 31 octobre 2026, et le code parrain doit être inscrit dans le dossier d'ouverture. Le versement initial de 300 € dans les six jours suivant l'ouverture est un point déterminant pour l'offre bancaire concernée. Parrainio reverse en complément 17,50 € au parrain pour FOSFO et 27 € pour GOLD. Cette page sépare les avantages, le parcours de souscription et les conditions temporelles.",
-    summary: ["Campagne : du 01/10/2026 au 31/10/2026.", "Fosfo Mastercard : 70 € filleul et 70 € parrain.", "Gold CB Mastercard : 130 € filleul et 110 € parrain.", "Code : à mentionner dans le dossier d'ouverture.", "Versement : 300 € dans les 6 jours suivant l'ouverture.", "Parrain Fosfo : au moins 300 € d'encours, dans la limite de 10 filleuls par an."],
+    introduction: "Fortuneo est une banque en ligne qui propose des comptes, des cartes Mastercard, des services boursiers et de l'assurance-vie. Pour la campagne cartes en cours du 1er au 30 novembre 2026, il faut distinguer Fosfo (80 € pour le filleul et le parrain) de Gold (150 € pour le filleul et 120 € pour le parrain). Le code parrain doit être inscrit dans le dossier d'ouverture et le filleul doit effectuer un versement initial de 300 € dans les six jours. Parrainio reverse en complément 17,50 € au parrain pour FOSFO et 27 € pour GOLD. Les offres Bourse et assurance-vie suivent leurs propres conditions et dates.",
+    summary: ["Campagne cartes : du 01/11/2026 au 30/11/2026.", "Fosfo Mastercard : 80 € pour le filleul et 80 € pour le parrain.", "Gold CB Mastercard : 150 € pour le filleul et 120 € pour le parrain.", "Code : à mentionner dans le dossier d'ouverture.", "Versement : 300 € dans les 6 jours suivant l'ouverture.", "Parrain Fosfo : au moins 300 € d'encours, dans la limite de 10 filleuls par an."],
     whyChoose: { heading: "Pourquoi choisir Fortuneo ?", paragraphs: ["Fortuneo rassemble les services bancaires du quotidien et des produits d'investissement : comptes, cartes Mastercard, courtage en ligne et assurance-vie. Le visiteur peut ainsi comparer une banque principale et une offre de placement dans un même univers numérique.", "La campagne doit toutefois être lue par produit. Fosfo et Gold n'ont ni le même niveau de prime ni le même positionnement ; le montant de bienvenue ne dispense pas de vérifier les conditions de carte, les frais éventuels et l'usage que vous comptez faire du compte."] },
     audience: "L'offre concerne une première souscription éligible chez Fortuneo, avec le produit bancaire choisi dans la campagne. Le filleul doit mentionner le code parrain dans son dossier d'ouverture et réaliser le versement initial demandé. Le parrain Fosfo doit notamment détenir au moins 300 € d'encours et reste soumis à la limite de 10 filleuls par an indiquée dans le brief. Les personnes qui ont déjà détenu le produit concerné ou qui ne peuvent pas effectuer le versement dans les six jours doivent vérifier leur éligibilité avant de lancer le dossier.",
-    referralExplanation: "Le code de parrainage doit être renseigné dans le dossier d'ouverture de la première souscription éligible. Pour l'offre bancaire concernée, un versement initial de 300 € doit être effectué dans les six jours suivant l'ouverture. La campagne distingue Fosfo, à 70 € pour le filleul et 70 € pour le parrain, de Gold, à 130 € pour le filleul et 110 € pour le parrain. Ces montants ne valent que pour la période du 1er au 31 octobre 2026 et selon le règlement Fortuneo.",
-    practicalInformation: ["Choisissez Fosfo ou Gold avant de comparer le montant de la prime.", "Le code doit figurer dans le dossier d'ouverture, pas être traité comme une information à ajouter après coup.", "Le versement initial de 300 € doit intervenir dans les six jours suivant l'ouverture.", "La campagne est datée : les montants doivent être recontrôlés si le dossier commence après le 31 octobre 2026."],
-    conditions: ["Souscrire pour la première fois au produit Fortuneo éligible pendant la campagne.", "Mentionner le code parrain dans le dossier d'ouverture.", "Effectuer le versement initial de 300 € dans les six jours suivant l'ouverture.", "Pour le parrain Fosfo, disposer d'au moins 300 € d'encours et respecter la limite de 10 filleuls par an.", "Respecter la période de campagne du 01/10/2026 au 31/10/2026."],
-    earnings: "Fosfo : 70 € pour le filleul et 70 € pour le parrain. Gold : 130 € pour le filleul et 110 € pour le parrain. Le reversement Parrainio affiché sur la fiche reste une donnée séparée et n'est pas modifié par ce récapitulatif. Les montants bancaires sont conditionnés à l'éligibilité et à la campagne datée.",
+    referralExplanation: "Le code de parrainage doit être renseigné dans le dossier d'ouverture de la première souscription éligible. Pour la campagne cartes du 1er au 30 novembre 2026, le versement initial de 300 € doit être effectué dans les six jours suivant l'ouverture. Fosfo prévoit 80 € pour le filleul et le parrain ; Gold prévoit 150 € pour le filleul et 120 € pour le parrain. Les montants dépendent de la carte choisie et du respect des conditions Fortuneo.",
+    practicalInformation: ["Choisissez Fosfo ou Gold avant de comparer le montant de la prime.", "Le code doit figurer dans le dossier d'ouverture, pas être traité comme une information à ajouter après coup.", "Le versement initial de 300 € doit intervenir dans les six jours suivant l'ouverture.", "La campagne cartes se termine le 30 novembre 2026 ; contrôlez la date active si le dossier commence après cette échéance."],
+    conditions: ["Souscrire pour la première fois à un compte bancaire Fortuneo avec la carte Fosfo ou Gold pendant la campagne du 1er au 30 novembre 2026.", "Mentionner le code parrain dans le dossier d'ouverture.", "Effectuer le versement initial de 300 € dans les six jours suivant l'ouverture.", "Pour le parrain Fosfo, disposer d'au moins 300 € d'encours et respecter la limite de 10 filleuls par an.", "Les offres Bourse et assurance-vie ont des conditions et périodes distinctes."],
+    earnings: "Campagne cartes du 1er au 30 novembre 2026 : Fosfo, 80 € pour le filleul et 80 € pour le parrain ; Gold, 150 € pour le filleul et 120 € pour le parrain. Le reversement Parrainio affiché sur la fiche reste une donnée séparée. L'offre Bourse observée du 10 au 20 novembre est terminée et ne doit pas être confondue avec l'offre cartes.",
     rewardTiming: "Le brief précise le délai du versement initial, mais pas un délai universel de crédit de la prime. Le versement de l'avantage dépend donc de la validation du dossier, du versement et des règles de la campagne Fortuneo.",
     internalLinks: [{ label: "Comparer BoursoBank", slug: "boursobank" }, { label: "Voir Hello bank!", slug: "hello-bank" }, { label: "Découvrir Monabanq", slug: "monabanq" }],
     faq: [{ question: "Le parrainage Fortuneo est-il réservé aux nouveaux clients ?", answer: "La campagne concerne une première souscription éligible au produit sélectionné ; vérifiez les règles Fortuneo pour les personnes ayant déjà détenu un produit." }, { question: "Quel versement faut-il réaliser ?", answer: "Pour l'offre bancaire concernée, un versement initial de 300 € doit être effectué dans les six jours suivant l'ouverture." }, { question: "Quand la prime Fortuneo est-elle versée ?", answer: "Le crédit intervient après validation du dossier et des conditions de la campagne. Aucun délai unique supplémentaire n'est promis ici sans précision du règlement." }, { question: "Que se passe-t-il si le versement n'est pas réalisé à temps ?", answer: "La condition du versement peut ne pas être remplie et l'avantage associé peut ne pas être accordé. Il faut respecter le délai de six jours." }, { question: "Le code peut-il être ajouté après l'inscription ?", answer: "Le code doit être mentionné dans le dossier d'ouverture. Utilisez-le dès le début du parcours plutôt que de compter sur une régularisation ultérieure." }],

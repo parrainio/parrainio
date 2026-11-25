@@ -470,6 +470,47 @@ export const CATEGORY_HUBS: CategoryHubContent[] = [
     ],
   },
   {
+    slug: "immobilier",
+    group: "Immobilier",
+    title: "Parrainage immobilier : offres et conditions | Parrainio",
+    seoTitle: "Parrainage immobilier : programmes et primes",
+    metaDescription:
+      "Comparez les parrainages de promoteurs, constructeurs et services immobiliers : conditions d'enregistrement, avantages annoncés et reversements personnels.",
+    h1Lead: "Les offres de parrainage",
+    h1Accent: "immobilier.",
+    intro: [
+      "Cette catégorie réunit des parrainages liés à l'achat d'un logement neuf, à la construction, à la gestion locative et aux services immobiliers. Les récompenses peuvent être une remise, un bon cadeau ou un reversement personnel après la signature d'un contrat ou d'un acte.",
+      "Pour plusieurs programmes, le parrainage doit être enregistré avant tout premier contact, devis ou rendez-vous avec le professionnel. Chaque fiche précise le moment où il faut utiliser le lien ou demander l'enregistrement ainsi que les conditions annoncées.",
+    ],
+    editorial: [
+      "Une prime immobilière dépend souvent d'un projet qui aboutit : rendez-vous, dossier accepté, contrat signé, acompte réglé ou acte authentique. Un montant maximal affiché ne signifie donc pas qu'il est acquis dès la demande de parrainage. Lisez les étapes de la fiche avant de prendre contact avec le promoteur, le constructeur ou l'agence.",
+      "Certaines annonces combinent un avantage versé par l'entreprise et un complément reversé personnellement par le parrain. Ces deux sommes ont des conditions et des délais distincts ; le reversement personnel peut dépendre de la réception effective de la prime du parrain.",
+      "Ne transmettez des coordonnées ou des informations sur un projet qu'après avoir compris à qui elles seront envoyées et donné votre accord. Pour un achat ou une construction, comparez aussi le prix, les frais, le financement et les caractéristiques du bien indépendamment de la prime.",
+    ],
+    conclusion:
+      "Repérez d'abord l'étape qui doit précéder tout contact, puis comparez les avantages et les conditions de chaque fiche immobilière.",
+    guideTitle: "Immobilier : enregistrer le parrainage avant le projet.",
+    infoCards: [
+      {
+        title: "Enregistrement en amont",
+        text: "Un premier contact ou un devis préalable peut rendre le parrainage inéligible.",
+      },
+      {
+        title: "Projet concrétisé",
+        text: "La prime dépend souvent d'une signature, d'un acte ou d'une étape de construction.",
+      },
+      {
+        title: "Avantages distincts",
+        text: "Distinguez la récompense du partenaire du reversement personnel annoncé par le parrain.",
+      },
+    ],
+    hubLinks: [
+      { slug: "banque-finance", label: "Comparer les offres Banque & Finance" },
+      { slug: "investissement-crypto", label: "Voir les offres Investissement & Crypto" },
+      { slug: "energie", label: "Découvrir les offres Énergie" },
+    ],
+  },
+  {
     slug: "autres-bons-plans",
     group: "Autres bons plans",
     title: "Parrainage Autres bons plans : offres et bons plans | Parrainio",

@@ -89,23 +89,41 @@ async function restMany<T>(commands: (string | number)[][]): Promise<StorageResu
   const kv = kvEnv();
   if (!kv) return { ok: false, error: "storage-unavailable" };
   try {
-    const response = await fetch(kv.url, {
+    const response = await fetch(`${kv.url}/pipeline`, {
       method: "POST",
       headers: { Authorization: `Bearer ${kv.token}`, "Content-Type": "application/json" },
       body: JSON.stringify(commands),
       cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
     });
     if (!response.ok) return { ok: false, error: "storage-error", reason: `kv-http-${response.status}` };
-    const payload = (await response.json()) as { result?: (T | string)[]; error?: string };
-    if (payload.error) return { ok: false, error: "storage-error", reason: payload.error };
-    // Le pipeline Upstash REST enveloppe chaque résultat : [{ result: … }, …].
-    const values = (payload.result ?? []).map((item) => {
-      const raw = item && typeof item === "object" && "result" in item ? (item as { result: unknown }).result : item;
-      if (typeof raw === "string") {
-        try { return JSON.parse(raw) as T; } catch { return raw as T; }
+    const payload = (await response.json()) as unknown;
+    let items: { result?: T | string; error?: string }[];
+    if (Array.isArray(payload)) {
+      items = payload as { result?: T | string; error?: string }[];
+    } else if (payload && typeof payload === "object") {
+      const body = payload as { result?: unknown; error?: string };
+      if (body.error) return { ok: false, error: "storage-error", reason: body.error };
+      if (!Array.isArray(body.result)) {
+        return { ok: false, error: "storage-error", reason: "kv-invalid-pipeline-response" };
       }
-      return (raw ?? null) as T;
-    });
+      items = body.result as { result?: T | string; error?: string }[];
+    } else {
+      return { ok: false, error: "storage-error", reason: "kv-invalid-pipeline-response" };
+    }
+    if (items.length !== commands.length) {
+      return { ok: false, error: "storage-error", reason: "kv-pipeline-result-count-mismatch" };
+    }
+    const values: T[] = [];
+    for (const item of items) {
+      if (item?.error) return { ok: false, error: "storage-error", reason: item.error };
+      const raw = item?.result;
+      if (typeof raw === "string") {
+        try { values.push(JSON.parse(raw) as T); } catch { values.push(raw as T); }
+      } else {
+        values.push((raw ?? null) as T);
+      }
+    }
     return { ok: true, value: values };
   } catch (error) {
     return { ok: false, error: "storage-error", reason: error instanceof Error ? error.message : "network" };

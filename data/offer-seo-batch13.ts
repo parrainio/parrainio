@@ -1,6 +1,6 @@
 import type { OfferSeoProfile } from "./offer-seo";
 
-const researchedAt = "2026-09-02";
+const researchedAt = "2026-11-22";
 const make = (p: Omit<OfferSeoProfile, "researchedAt">): OfferSeoProfile => ({ ...p, researchedAt });
 const source = (title: string, url: string, type: "official" | "secondary" = "official") => ({ title, url, type, checkedAt: researchedAt });
 // Garde-fou : le champ whyPara2 est fourni par chaque profil. Le fallback `"${p.name} peut convenir à ${p.audience}."`

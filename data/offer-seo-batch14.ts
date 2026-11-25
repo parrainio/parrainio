@@ -1,6 +1,6 @@
 import type { OfferSeoProfile } from "./offer-seo";
 
-const researchedAt = "2026-10-17";
+const researchedAt = "2026-11-22";
 const make = (p: Omit<OfferSeoProfile, "researchedAt">): OfferSeoProfile => ({ ...p, researchedAt });
 const source = (title: string, url: string, type: "official" | "secondary" = "official") => ({
   title,

@@ -41,6 +41,7 @@ const BANK_SLUGS = [
   "sumeria",
   "caisse-depargne-loire-centre",
   "credit-agricole-centre-loire",
+  "l-by-lcl",
 ];
 
 const NOT_INDICATED = "Non indiqué";

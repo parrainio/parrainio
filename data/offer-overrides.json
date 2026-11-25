@@ -1,24 +1,24 @@
 {
   "fortuneo": {
-    "partnerReward": "70 € (Fosfo) à 130 € (Gold) — campagne du 1er au 31/10/2026",
+    "partnerReward": "80 € (Fosfo) à 150 € (Gold) pour le filleul — campagne du 1er au 30/11/2026",
     "parrainioReward": "FOSFO : 17,50 € ; GOLD : 27 €",
     "referralCode": "14241677",
     "conditions": [
       "Première souscription éligible à Fortuneo (nouveau client, jamais de compte individuel ou joint chez Fortuneo).",
       "Effectuer un premier versement de 300 € dans les 6 jours suivant l’ouverture pour l’offre bancaire concernée (compte + carte Fosfo ou Gold).",
-      "Pour la Bourse (PEA, PEA-PME, CTO) ou l’assurance-vie : versement initial de 1 000 € sous 6 jours.",
+      "Les parcours Bourse, compte-titres et assurance-vie suivent des campagnes et des échéances distinctes : vérifier leurs pages officielles avant de les présenter comme actifs.",
       "Conserver le compte ouvert pendant au moins 12 mois consécutifs.",
       "Effectuer au moins une opération de paiement par carte par mois calendaire pour la gratuité de la carte.",
       "Le versement initial doit provenir d’un compte bancaire ouvert au nom du filleul dans l’EEE."
     ],
-    "lastUpdated": "2026-08-28T04:45:00.000Z",
-    "officialWebsiteUrl": "https://www.fortuneo.fr/compte-bancaire/parrainage",
+    "lastUpdated": "2026-11-22T12:00:00.000Z",
+    "officialWebsiteUrl": "https://www.fortuneo.fr/parrainage/cartes-bancaires",
     "description": "Ouvrez un compte Fortuneo via le code de parrainage puis effectuez le versement demandé dans le délai prévu.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121569",
     "steps": [
       "Utiliser le lien ou le code de parrainage et effectuer l’inscription correspondante.",
-      "Effectuer le premier versement requis : 300 € sous 6 jours pour un compte bancaire, ou 1 000 € pour la Bourse/assurance-vie.",
+      "Effectuer le versement initial de 300 € dans les 6 jours pour la souscription d’une carte Fosfo ou Gold. Les produits d’investissement ont des conditions distinctes.",
       "Conserver le compte ouvert 12 mois minimum et effectuer au moins un paiement par carte par mois."
     ]
   },
@@ -42,7 +42,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/10-pourcent-1",
     "manualReview": false,
     "lastUpdated": "2026-08-29T07:04:29.203Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/128060"
   },
   "airbnb": {
@@ -65,7 +65,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/airbnb",
     "manualReview": false,
     "lastUpdated": "2026-08-29T07:09:22.732Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "airbnb-1": {
@@ -91,7 +91,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/airbnb-1",
     "manualReview": false,
     "lastUpdated": "2026-08-29T07:13:49.347Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "alltricks": {
@@ -116,7 +116,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/alltricks",
     "manualReview": false,
     "lastUpdated": "2026-08-29T07:18:32.727Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "aroma-zone": {
@@ -143,7 +143,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/aroma-zone",
     "manualReview": false,
     "lastUpdated": "2026-08-29T07:22:47.188Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123197"
   },
   "assurancevie-com": {
@@ -174,7 +174,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/assurancevie-com",
     "manualReview": false,
     "officialWebsiteUrl": "https://www.assurancevie.com/",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127249"
   },
   "attapoll": {
@@ -198,7 +198,7 @@
     "sourceUrl": "https://attapoll.com/en-us/ambassadors/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:16:42.153Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123200"
   },
   "bebe-boutik": {
@@ -223,7 +223,7 @@
     "sourceUrl": "https://www.bebeboutik-prive.fr/pages/conditions-parrainage",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:22:03.261Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "becquet": {
@@ -249,7 +249,7 @@
     "sourceUrl": "http://www.becquet.fr",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:24:25.283Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122259"
   },
   "beebs": {
@@ -275,7 +275,7 @@
     "sourceUrl": "https://www.beebs.app/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:29:29.422Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "bemyeye": {
@@ -304,7 +304,7 @@
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://www.bemyeyes.com/",
     "manualReview": false,
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122382"
   },
   "betclic": {
@@ -331,7 +331,7 @@
     "sourceUrl": "https://www.betclic.fr/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:46:01.206Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122903"
   },
   "betsson": {
@@ -359,7 +359,7 @@
     "sourceUrl": "https://betsson.fr/fr",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:49:59.508Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121666"
   },
   "bienpreter": {
@@ -384,7 +384,7 @@
     "sourceUrl": "https://www.bienpreter.com/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T06:56:05.219Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124786"
   },
   "biogents": {
@@ -410,7 +410,7 @@
     "sourceUrl": "https://eu-shop.biogents.com/en/account/rewards",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:01:00.696Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "bitpanda": {
@@ -436,7 +436,7 @@
     "sourceUrl": "https://www.super-parrain.com/offres/bitpanda",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:04:39.095Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127107"
   },
   "revolut": {
@@ -462,7 +462,7 @@
     "sourceUrl": "https://revolut.com/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:07:30.670Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125012"
   },
   "bitstack": {
@@ -489,7 +489,7 @@
     "sourceUrl": "https://bitstack-app.com",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:10:29.648Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127269"
   },
   "boursobank": {
@@ -516,7 +516,7 @@
     "sourceUrl": "https://bour.so/p/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:15:15.750Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127423"
   },
   "bricks": {
@@ -543,7 +543,7 @@
     "sourceUrl": "https://app.bricks.co/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:19:15.391Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122437"
   },
   "bybit": {
@@ -569,7 +569,7 @@
     "sourceUrl": "https://www.bybit.eu/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:21:12.516Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125088"
   },
   "c-monetiquette": {
@@ -595,7 +595,7 @@
     "sourceUrl": "https://www.c-monetiquette.fr/",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:27:49.897Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124790"
   },
   "caisse-depargne-loire-centre": {
@@ -621,12 +621,12 @@
     "sourceUrl": "https://www.super-parrain.com/offres/caisse-depargne-loire-centre",
     "manualReview": false,
     "lastUpdated": "2026-08-30T07:30:22.138Z",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
   "sfr": {
     "referralCode": "REDCE6C79C",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124436",
     "conditions": [
       "Être nouveau client RED by SFR et ne pas avoir résilié une offre RED dans les 3 derniers mois.",
@@ -644,7 +644,7 @@
   "pmu": {
     "referralLink": "https://www.pmu.fr/turf/static/offre-parrainage/?codeParrainage=578692128",
     "referralCode": "578692128",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121795",
     "conditions": [
       "Être nouveau client PMU+ et ne pas avoir détenu de compte PMU+ dans les 2 années précédentes.",
@@ -663,7 +663,7 @@
   "hello-bank": {
     "officialWebsiteUrl": "https://www.hellobank.fr/fr/offre-parrainage.html",
     "description": "Ouvrez votre premier compte Hello bank! via le parcours éligible et respectez les conditions de versement et d'utilisation indiquées.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125292",
     "conditions": [
       "Avant le 29/10/2026 à 15 h selon les informations de la promotion, transmettre prénom et e-mail ou numéro de téléphone via le formulaire de contact présent sur cette fiche.",
@@ -689,7 +689,7 @@
     "referralCode": "RAD735473",
     "officialWebsiteUrl": "https://particuliers.engie.fr/parrainage.html",
     "description": "Souscrivez une offre ENGIE éligible via le code de parrainage et conservez votre contrat selon les conditions prévues.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124774",
     "conditions": [
       "Être majeur et ne pas déjà détenir de contrat ENGIE à prix de marché ni de proposition encore valable.",
@@ -708,7 +708,7 @@
   "myprotein": {
     "referralLink": "https://fr.myprotein.com/referrals.list?applyCode=MATHIEU-R90D",
     "referralCode": "MATHIEU-R90D",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121589",
     "conditions": [
       "Être un nouveau client.",
@@ -724,7 +724,7 @@
     "partnerReward": "15 € dès 40 € d'achat"
   },
   "direct-assurance": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123289",
     "conditions": [
       "Être un nouveau client Direct Assurance.",
@@ -741,7 +741,7 @@
   },
   "coinbase": {
     "referralLink": "https://coinbase.com/join/R8HUK4G?src=referral-link",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/126373",
     "conditions": [
       "Créer un nouveau compte Coinbase via le lien ou code de parrainage.",
@@ -759,7 +759,7 @@
   },
   "coupon-network": {
     "referralCode": "F5YT68",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123194",
     "partnerReward": "1 €",
     "conditions": [
@@ -778,7 +778,7 @@
     "referralLink": "https://www.ebuyclub.com/inscription?parrain=mathieumorin2",
     "officialWebsiteUrl": "https://www.ebuyclub.com/",
     "description": "Inscrivez-vous sur eBuyClub via le lien personnel puis effectuez les actions demandées pour débloquer votre bonus.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121588",
     "conditions": [
       "S’inscrire via le lien, pseudo ou QR code du parrain.",
@@ -794,7 +794,7 @@
   },
   "greenweez-6": {
     "referralCode": "02A919B8",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123199",
     "partnerReward": "5 €",
     "conditions": [
@@ -811,7 +811,7 @@
   },
   "igraal": {
     "referralLink": "https://fr.igraal.com/parrainage?parrain=jojo45510&utm_medium=raf&utm_source=refer_friend",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121582",
     "conditions": [
       "Le filleul doit être un nouveau membre iGraal.",
@@ -831,7 +831,7 @@
   "i-run-fr": {
     "referralLink": "https://www.i-run.fr/client/parrainage.html",
     "referralCode": "i-Run",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121638",
     "partnerReward": "10 €",
     "conditions": [
@@ -850,7 +850,7 @@
   "thefork": {
     "referralLink": "https://tfk.io/9h24t2ce",
     "referralCode": "1FAA4AD8",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122262",
     "conditions": [
       "Créer un compte TheFork via le code ou lien de parrainage.",
@@ -866,7 +866,7 @@
   },
   "monabanq": {
     "referralLink": "https://www.monabanq.com/fr/parrainage/index.html?IDPEREFPRINCIPALE=280189512&CODEPROMO=PARCTC&CAMTYPE=PARRAINAGE&SUPPORT=EMAIL&codeParrain=17H9W",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124826",
     "conditions": [
       "Le filleul doit être majeur et résider en France.",
@@ -890,7 +890,7 @@
   },
   "n26": {
     "referralCode": "mathieum67329c",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127092",
     "conditions": [
       "Créer un compte N26 via le lien de parrainage (nouveau client, une seule offre par personne).",
@@ -910,7 +910,7 @@
   },
   "poulpeo": {
     "referralLink": "https://www.poulpeo.com/p/qas4ab",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121584",
     "conditions": [
       "Le code de parrainage doit être renseigné au moment de l'inscription du filleul.",
@@ -932,7 +932,7 @@
   "private-sport-shop": {
     "referralLink": "https://www.privatesportshop.fr/join/4X0866D259V8",
     "referralCode": "4X0866D259V8",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121585",
     "conditions": [
       "Le filleul doit être un nouveau client Private Sport Shop.",
@@ -951,7 +951,7 @@
   },
   "shopmium": {
     "referralCode": "UK2UP4",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121637",
     "partnerReward": "2 €",
     "conditions": [
@@ -976,7 +976,7 @@
   },
   "showroomprive": {
     "referralCode": "Showroomprive",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125964",
     "conditions": [
       "Le filleul doit être un nouveau client Showroomprivé.",
@@ -998,7 +998,7 @@
   },
   "the-protein-works": {
     "referralLink": "https://i.soreto.com/theproteinworks_fr/s/4y-rsNNnQe",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123243",
     "conditions": [],
     "steps": [],
@@ -1007,7 +1007,7 @@
   },
   "totalenergies": {
     "referralCode": "TotalEnergies",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125133",
     "conditions": [
       "Le filleul ne peut bénéficier que d'un seul parrainage pour une souscription.",
@@ -1031,7 +1031,7 @@
   },
   "wise": {
     "referralLink": "https://wise.com/invite/dic/mathieum865",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122257",
     "conditions": [
       "Le filleul doit s'inscrire via le lien d'invitation Wise.",
@@ -1054,7 +1054,7 @@
   },
   "unibet": {
     "referralLink": "https://www.unibet.fr/inscription/?campaign=280526&parrain=6EB8BDE7346E88CB",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125213",
     "conditions": [
       "Créer un nouveau compte Unibet via le lien de parrainage.",
@@ -1073,7 +1073,7 @@
   },
   "weward": {
     "referralCode": "JustePerche8874",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123210",
     "partnerReward": "1 €",
     "conditions": [
@@ -1091,7 +1091,7 @@
   "winamax": {
     "referralLink": "https://www.winamax.fr/parrain?code=NOBYTA",
     "referralCode": "Winamax",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121796",
     "conditions": [
       "Créer un nouveau compte Winamax via le lien de parrainage.",
@@ -1110,7 +1110,7 @@
     "referralLink": "https://linxea.mention-me.com/m/ol/jm6zytdx-2332006972",
     "officialWebsiteUrl": "https://www.linxea.com/parrainage/",
     "description": "Souscrivez un contrat Linxea via le lien de parrainage et réalisez le versement requis pour bénéficier de l'avantage en vigueur.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127310",
     "conditions": [
       "Être majeur et nouveau client Linxea.",
@@ -1128,7 +1128,7 @@
   },
   "etoro": {
     "referralLink": "https://etoro.tw/43CRlHI",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121574",
     "conditions": [
       "L'offre concerne notamment les résidents français.",
@@ -1151,7 +1151,7 @@
   },
   "shein": {
     "referralCode": "35MW4M5",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125089",
     "conditions": [
       "L'offre référencée actuellement prévoit 20 % de réduction pour le filleul.",
@@ -1172,7 +1172,7 @@
   },
   "featurepoints": {
     "referralLink": "https://featurepoints.com/@67MZP5",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123240",
     "conditions": [
       "Le filleul doit s'inscrire via le lien de parrainage.",
@@ -1194,7 +1194,7 @@
   },
   "honeygain": {
     "referralLink": "https://join.honeygain.com/BIDOUB6085",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123204",
     "conditions": [
       "Le filleul doit créer son compte Honeygain avec le lien ou code de parrainage.",
@@ -1213,7 +1213,7 @@
   "swissborg": {
     "referralLink": "https://swissborg.com/fr/r/mathieKRBOTGJN",
     "referralCode": "SWISSBORG",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127089",
     "conditions": [
       "Le filleul doit être un nouvel utilisateur SwissBorg n'ayant jamais créé de compte.",
@@ -1241,7 +1241,7 @@
   "okx": {
     "referralLink": "https://my.okx.com/fr-fr/join/56233266",
     "referralCode": "56233266",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125830",
     "conditions": [
       "Le filleul doit s'inscrire via le lien ou code de parrainage OKX.",
@@ -1264,7 +1264,7 @@
   },
   "raizers": {
     "referralCode": "Raizers",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/128147",
     "conditions": [
       "Le filleul doit renseigner le code de parrainage lors de son inscription.",
@@ -1289,7 +1289,7 @@
   },
   "choose": {
     "referralCode": "MATHIEUM014",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123193",
     "conditions": [
       "Le filleul doit s'inscrire sur l'application Choose avec le code de parrainage.",
@@ -1309,7 +1309,7 @@
   },
   "systeme-io": {
     "referralLink": "https://systeme.io/fr?sa=sa0104883220e27bbb09a241916fd5b1421832c5f0",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123239",
     "conditions": [
       "Toute personne peut rejoindre gratuitement le programme d'affiliation Systeme.io.",
@@ -1336,7 +1336,7 @@
   },
   "lolivier": {
     "referralCode": "LOA-ZLTT88",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125817",
     "conditions": [
       "Le filleul doit renseigner le code de parrainage commençant par LOA-XXX sur le devis auto ou habitation.",
@@ -1361,7 +1361,7 @@
     "referralLink": "https://refnocode.trade.re/p72z37d0",
     "officialWebsiteUrl": "https://traderepublic.com/fr-fr",
     "description": "Ouvrez un compte Trade Republic via le lien de parrainage et réalisez le dépôt ou l'investissement requis par l'offre.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127232",
     "conditions": [
       "Créer le compte-titres via le lien d’invitation personnel.",
@@ -1378,7 +1378,7 @@
   "karos": {
     "referralLink": "https://go.karos.fr/btgcdw?ks=wa",
     "referralCode": "btgcdw",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122264",
     "partnerReward": "5 €",
     "conditions": [
@@ -1394,7 +1394,7 @@
   },
   "paypal": {
     "referralLink": "https://py.pl/1bFxxU",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121580",
     "conditions": [
       "Créer un nouveau compte PayPal via le lien de parrainage.",
@@ -1410,7 +1410,7 @@
   },
   "fizzer": {
     "referralCode": "MATHI204529",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121591",
     "conditions": [
       "Être un nouvel utilisateur Fizzer.",
@@ -1428,7 +1428,7 @@
   },
   "widilo": {
     "referralLink": "https://www.widilo.fr/i/L1WA0K",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122261",
     "conditions": [
       "S’inscrire uniquement via le lien de parrainage.",
@@ -1444,7 +1444,7 @@
   },
   "capital-koala": {
     "referralLink": "https://www.capitalkoala.com/inscription/?mi=NDkzNTMw",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122383",
     "conditions": [
       "Créer un compte Capital Koala via le lien de parrainage.",
@@ -1461,7 +1461,7 @@
   },
   "swagbucks": {
     "referralLink": "https://www.swagbucks.com/p/register?rb=231819830&rp=1",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122260",
     "conditions": [
       "Créer un nouveau compte Swagbucks via le lien de parrainage.",
@@ -1479,7 +1479,7 @@
   "crypto-com": {
     "referralLink": "https://crypto.com/app/pwh4bxfcya",
     "referralCode": "Crypto",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127230",
     "conditions": [
       "Créer un nouveau compte Crypto.com via le lien ou code.",
@@ -1496,7 +1496,7 @@
   "myvitamins": {
     "referralLink": "https://www.myvitamins.fr/referrals.list?applyCode=MATHIEU-R3B",
     "referralCode": "MATHIEU-R3B",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124793",
     "conditions": [
       "Créer un nouveau compte via le lien ou code de parrainage.",
@@ -1514,7 +1514,7 @@
   "naomi-1": {
     "referralLink": "http://onelink.to/c82h4h",
     "referralCode": "Naomi",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121667",
     "conditions": [
       "Créer un nouveau compte Naomi via le lien ou code de parrainage.",
@@ -1531,7 +1531,7 @@
   },
   "cointiply": {
     "referralLink": "https://cointiply.mobi/v2AKA0",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124789",
     "partnerReward": "10 €",
     "conditions": [
@@ -1548,7 +1548,7 @@
   },
   "instant-gaming": {
     "referralLink": "https://www.instant-gaming.com/?igr=gamer-b0c6983",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123211",
     "conditions": [
       "Créer un nouveau compte Instant Gaming via le lien de parrainage.",
@@ -1565,7 +1565,7 @@
   },
   "parions-sport": {
     "referralLink": "https://www.enligne.parionssport.fdj.fr/inscription/?campaign=100326&parrain=B0A5CC03D1539CDF",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121583",
     "conditions": [
       "Créer un nouveau compte ParionsSport en Ligne via le lien de parrainage.",
@@ -1581,7 +1581,7 @@
   },
   "wanteeed": {
     "referralLink": "https://wanteeed.com/join/35a08af8e6d04f3c8e0d757ff71cf7d8",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123198",
     "partnerReward": "3 €",
     "conditions": [
@@ -1597,7 +1597,7 @@
   },
   "la-premiere-brique-1": {
     "referralCode": "BHVAEO",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123195",
     "conditions": [
       "Créer un nouveau compte La Première Brique via le code BHVAEO.",
@@ -1616,7 +1616,7 @@
     "referralLink": "https://invite.kraken.com/JDNW/0v5m8s5a",
     "officialWebsiteUrl": "https://www.kraken.com/",
     "description": "Créez votre compte Kraken via le lien de parrainage, vérifiez votre identité et réalisez le volume de transactions requis.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127056",
     "conditions": [
       "Créer un nouveau compte Kraken via le lien de parrainage.",
@@ -1635,7 +1635,7 @@
   },
   "lalalab": {
     "referralCode": "PGXJD6VQ",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121590",
     "partnerReward": "5 €",
     "conditions": [
@@ -1653,7 +1653,7 @@
   "cartouche-du-toner": {
     "referralLink": "https://www.cartouche-du-toner.com/?s=272616805",
     "referralCode": "272616805",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124792",
     "partnerReward": "5 €",
     "conditions": [
@@ -1670,7 +1670,7 @@
   },
   "fidme": {
     "referralCode": "AKFW2M",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123245",
     "conditions": [
       "Créer un nouveau compte FidMe avec le code AKFW2M.",
@@ -1688,7 +1688,7 @@
   "speedo": {
     "referralLink": "https://fr.speedo.com/referrals.list?applyCode=MATHIEU-R6I",
     "referralCode": "MATHIEU-R6I",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124795",
     "partnerReward": "15 €",
     "conditions": [
@@ -1706,7 +1706,7 @@
   "nutripure": {
     "referralLink": "https://www.nutripure.fr/fr/?s=1283007804",
     "referralCode": "1283007804",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123238",
     "conditions": [
       "Créer un compte via le lien de parrainage.",
@@ -1723,7 +1723,7 @@
   },
   "fiverr": {
     "referralLink": "https://www.fiverr.com/pe/VYlP895",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122255",
     "conditions": [
       "Créer un nouveau compte Fiverr via le lien de parrainage.",
@@ -1740,7 +1740,7 @@
   },
   "la-belle-vie": {
     "referralLink": "https://www.labellevie.com/r/ODY5Njg5",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123247",
     "partnerReward": "10 €",
     "conditions": [
@@ -1757,7 +1757,7 @@
   },
   "klarna": {
     "referralLink": "https://l.klarna.com/22XC/invite_L10PmX3Q05S0tfmM",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/126238",
     "conditions": [
       "Créer un nouveau compte Klarna via le lien de parrainage.",
@@ -1774,7 +1774,7 @@
   },
   "sumup": {
     "referralLink": "https://join.sumup.com/cKYwEgAv?share_id=tbqks4Pckywegav",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121578",
     "conditions": [
       "Le filleul doit ouvrir un compte SumUp vérifié via le lien d'invitation.",
@@ -1797,7 +1797,7 @@
     "partnerReward": "Jusqu'à 100 € de réduction sur l'achat d'un TPE avec le lien de parrainage"
   },
   "macadam-4": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122386",
     "partnerReward": "0,5 €",
     "conditions": [
@@ -1814,7 +1814,7 @@
   },
   "hostinger": {
     "referralLink": "https://www.hostinger.com/fr?REFERRALCODE=FIRBIDOUCFHJ",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122256",
     "conditions": [
       "Créer un compte Hostinger via le lien de parrainage.",
@@ -1831,7 +1831,7 @@
   },
   "pourdebon": {
     "referralLink": "https://www.pourdebon.com/invite?p=tSdFVaMd",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123237",
     "conditions": [
       "Ne jamais avoir commandé sur Pourdebon auparavant.",
@@ -1847,7 +1847,7 @@
   },
   "topcashback": {
     "referralLink": "https://www.topcashback.fr/ref/member41551793542",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123192",
     "conditions": [
       "Créer un nouveau compte TopCashback via le lien de parrainage pendant la campagne en cours.",
@@ -1865,7 +1865,7 @@
   },
   "zumub": {
     "referralLink": "http://zumu.be/2b28f3e3",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121639",
     "conditions": [
       "Créer un nouveau compte Zumub via le lien de parrainage.",
@@ -1882,7 +1882,7 @@
   "epargnoo-5": {
     "referralLink": "https://epargnoo.com/inscription?code=MAMO7017&utm_source=spons",
     "referralCode": "MAMO7017",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121581",
     "conditions": [
       "Créer un compte Epargnoo via le code MAMO7017.",
@@ -1900,7 +1900,7 @@
   },
   "freecash": {
     "referralLink": "https://freecash.com/r/2HF3I4",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121640",
     "conditions": [
       "Créer un nouveau compte Freecash via le lien de parrainage.",
@@ -1918,7 +1918,7 @@
   },
   "hello-watt": {
     "referralCode": "HW-91-IAIL",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123244",
     "conditions": [
       "Pour l’énergie, souscrire une nouvelle offre d’électricité ou de gaz via Hello Watt et utiliser le code du parrain.",
@@ -1937,7 +1937,7 @@
   },
   "rover-1": {
     "referralLink": "https://www.rover.com/ambas-refer-a-friend/QrKrOWGA",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123241",
     "partnerReward": "10 €",
     "conditions": [
@@ -1954,7 +1954,7 @@
   },
   "fdj-francaise-des-jeux": {
     "referralLink": "https://www.fdj.fr/inscription/fdj?parrain=32FD2-A5E51-3A9D9&campaign=codeparrain",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125999",
     "conditions": [
       "Créer un nouveau compte FDJ via le lien de parrainage.",
@@ -1972,7 +1972,7 @@
   },
   "whatnot": {
     "referralLink": "https://whatnot.com/invite/mathieumor25752",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123248",
     "partnerReward": "Entre 10 € et 200 €",
     "conditions": [
@@ -1989,7 +1989,7 @@
   },
   "primeo-energie": {
     "referralCode": "Primeo",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/128059",
     "conditions": [
       "Être éligible à une première souscription Primeo Énergie.",
@@ -2006,7 +2006,7 @@
     "referralCode": "Splint",
     "officialWebsiteUrl": "https://www.splintinvest.com/",
     "description": "Créez votre compte Splint Invest via le parcours de parrainage et réalisez l'investissement minimum indiqué.",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127278",
     "conditions": [
       "Créer un nouveau compte Splint Invest via le code Splint.",
@@ -2023,7 +2023,7 @@
   },
   "sumeria": {
     "referralCode": "Sumeria",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127271",
     "conditions": [
       "Créer un nouveau compte Sumeria via le code ou lien de parrainage.",
@@ -2040,7 +2040,7 @@
   },
   "too-good-to-go": {
     "referralLink": "https://tgtg.onelink.me/OGjG/4qb7x6s2",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122258",
     "conditions": [
       "Créer un nouveau compte Too Good To Go via le lien de parrainage.",
@@ -2057,7 +2057,7 @@
   },
   "liberte-watts": {
     "referralCode": "750152",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123242",
     "partnerReward": "0,20 €",
     "conditions": [
@@ -2073,7 +2073,7 @@
     "parrainioReward": "0 €"
   },
   "shoes-fr": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124583",
     "conditions": [
       "Créer un compte Shoes.fr et être un nouveau client.",
@@ -2091,7 +2091,7 @@
   "ludocortex": {
     "referralLink": "https://www.ludocortex.fr/?s=264098807",
     "referralCode": "264098807",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121570",
     "conditions": [
       "Créer un compte Ludocortex via le lien ou code 264098807.",
@@ -2109,7 +2109,7 @@
   "joybuy": {
     "referralLink": "https://m.joybuy.fr/",
     "referralCode": "3YZ7MU",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121903",
     "conditions": [
       "Créer un nouveau compte Joybuy avec le code 3YZ7MU.",
@@ -2127,7 +2127,7 @@
   "coinhouse": {
     "referralLink": "https://coinhouse.onelink.me/bCWk/tpvzeow2?deep_link_sub5=UU55D4",
     "referralCode": "Coinhouse",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127541",
     "conditions": [
       "Être un nouveau client Coinhouse rattaché au parrain au moment de l’inscription.",
@@ -2146,7 +2146,7 @@
   "scrambly": {
     "referralLink": "https://go.scrambly.io/BMMq2L",
     "referralCode": "FEYW8CA",
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122384",
     "partnerReward": "5 €",
     "conditions": [
@@ -2162,7 +2162,7 @@
     "parrainioReward": "2 € dès que vous avez effectué votre premier retrait"
   },
   "phenix": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.wearephenix.com/",
     "description": "Phenix aide à récupérer les invendus alimentaires auprès des commerçants à prix réduit.",
     "steps": [
@@ -2182,7 +2182,7 @@
     "partnerReward": "0,50 € sur votre premier panier anti-gaspi"
   },
   "meilleurtaux-com": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.meilleurtaux.com/",
     "description": "Meilleurtaux.com compare les solutions de crédit, d'assurance et de financement.",
     "steps": [
@@ -2216,7 +2216,7 @@
     "partnerReward": "50 €"
   },
   "edf": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://particulier.edf.fr/",
     "description": "EDF : Mission Parrainage jusqu'au 31 décembre 2026, 40 € sur la facture du filleul et 20 € sur celle du parrain.",
     "steps": [
@@ -2234,7 +2234,7 @@
     "parrainioReward": "5 €"
   },
   "placesdescartes": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.placedescartes.fr/",
     "description": "PlacesDesCartes propose des cartes cadeaux et des offres d'achat en ligne.",
     "steps": [
@@ -2251,7 +2251,7 @@
     "partnerReward": "5 € offerts"
   },
   "revolut-business": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.revolut.com/fr-FR/business/",
     "description": "Revolut Business fournit des comptes et outils de paiement pour les entreprises.",
     "steps": [
@@ -2272,7 +2272,7 @@
     "partnerReward": "0 €"
   },
   "reevolt": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://reevolt.fr/",
     "description": "Reevolt : 2 € chacun dès la connexion du compteur Linky aux données Enedis, récompenses créditées dans la cagnotte.",
     "steps": [
@@ -2290,7 +2290,7 @@
     "partnerReward": "2 € dans votre cagnotte"
   },
   "la-bourse-aux-livres": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://labourseauxlivres.fr/",
     "description": "La Bourse aux Livres permet d'acheter et de revendre des livres d'occasion.",
     "steps": [
@@ -2308,7 +2308,7 @@
     "partnerReward": "5 € sur votre première commande"
   },
   "credit-agricole-centre-loire": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.credit-agricole.fr/ca-centreloire/",
     "description": "Le Crédit Agricole Centre Loire accompagne les particuliers avec des comptes et services bancaires.",
     "steps": [
@@ -2326,7 +2326,7 @@
     "partnerReward": "50 €"
   },
   "ritmic": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.ritmic.co/",
     "description": "Ritmic propose des vélos électriques et des modèles de mobilité urbaine.",
     "steps": [
@@ -2344,7 +2344,7 @@
     "partnerReward": "100 € sur votre première commande"
   },
   "zeconfiserie": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.zeconfiserie.fr/",
     "description": "ZeConfiserie propose des confiseries et gourmandises à commander en ligne.",
     "steps": [
@@ -2387,7 +2387,7 @@
     "publicationDate": "2026-10-17",
     "sourceUrl": "https://www.xtb.com/fr/partenaires",
     "manualReview": false,
-    "lastVerifiedAt": "2026-10-17",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://www.xtb.com/fr/partenaires"
   },
   "kast": {
@@ -2417,11 +2417,11 @@
     "publicationDate": "2026-10-17",
     "sourceUrl": "https://www.kast.com",
     "manualReview": false,
-    "lastVerifiedAt": "2026-10-17",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://www.kast.com"
   },
   "simplis": {
-    "lastVerifiedAt": "2026-08-30",
+    "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.simplis.fr/",
     "description": "Simplis propose des solutions d'assurance et de protection pour les professionnels.",
     "steps": [
@@ -2438,5 +2438,35 @@
     "researchSource": "four-markdown-files",
     "parrainioReward": "10 €",
     "partnerReward": "50 € offerts pour toute première souscription à une assurance RC Pro ou décennale"
+  },
+  "bnp": {
+    "name": "BNP Paribas",
+    "partnerReward": "80 € de prime + 80 € si mobilité bancaire",
+    "parrainioReward": null,
+    "referralCode": null,
+    "description": "Selon l'annonce du parrain, BNP Paribas propose 80 € de prime et 80 € supplémentaires si la mobilité bancaire est réalisée et validée.",
+    "conditions": [
+      "L'annonce du parrain indique une validité jusqu'au 26 novembre 2026.",
+      "Aucun dépôt initial n'est annoncé ; 10 paiements par carte, sans minimum de montant, sont indiqués pour débloquer la prime de base.",
+      "80 € supplémentaires sont annoncés si la mobilité bancaire est réalisée et validée, selon ses conditions d'éligibilité.",
+      "Commencez la souscription depuis le lien de parrainage ; aucun code séparé n'est à saisir."
+    ],
+    "steps": [
+      {
+        "title": "Ouvrir le lien de parrainage",
+        "description": "Commencez la souscription depuis le lien affiché sur cette fiche ; aucun code séparé n'est à saisir."
+      },
+      {
+        "title": "Effectuer les opérations demandées",
+        "description": "Réalisez les 10 paiements par carte indiqués dans l'annonce. Pour obtenir le complément, effectuez et faites valider la mobilité bancaire."
+      },
+      {
+        "title": "Attendre la validation",
+        "description": "Les primes annoncées sont soumises à la validation des conditions par BNP Paribas."
+      }
+    ],
+    "lastUpdated": "2026-11-23T10:18:23.722Z",
+    "lastVerifiedAt": "2026-11-23",
+    "researchSource": "https://www.super-parrain.com/offres/bnp/parrainage-bnp/annonces/mathieu-m"
   }
 }

@@ -151,6 +151,10 @@
     "logo": "/logos/freecash.png",
     "logoVerified": false
   },
+  "gaz-de-bordeaux": {
+    "logo": "/logos/gaz-de-bordeaux.svg",
+    "logoVerified": true
+  },
   "gmf": {
     "logo": "/logos/gmf.png",
     "logoVerified": false
@@ -223,6 +227,10 @@
     "logo": "/logos/lalalab.png",
     "logoVerified": false
   },
+  "l-by-lcl": {
+    "logo": "/logos/l-by-lcl.svg",
+    "logoVerified": true
+  },
   "linxea": {
     "logo": "/logos/linxea.png",
     "logoVerified": false
@@ -258,6 +266,10 @@
   "nutripure": {
     "logo": "/logos/nutripure.png",
     "logoVerified": false
+  },
+  "octopus-energy": {
+    "logo": "/logos/octopus-energy.png",
+    "logoVerified": true
   },
   "okx": {
     "logo": "/logos/okx.ico",
