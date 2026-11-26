@@ -24,21 +24,28 @@ const EMAIL_LIKE_CODE = /@|mail\s*:/i;
 
 export function applyVerifiedCorrections<T extends { slug: string }>(offer: T): T {
   const rules = CORRECTIONS[String(offer.slug)];
-  if (!rules || typeof rules !== "object") return offer;
-
   let changed = false;
   const next: Record<string, unknown> = { ...offer };
+
+  // Le garde-fou s'applique à toutes les offres, y compris celles qui n'ont
+  // plus de règle de correction : une valeur saisie dans l'admin ne doit
+  // jamais être publiée comme un code si c'est une adresse ou une consigne.
+  const code = next.referralCode;
+  if (typeof code === "string" && EMAIL_LIKE_CODE.test(code)) {
+    next.referralCode = null;
+    changed = true;
+  }
+
+  if (!rules || typeof rules !== "object") {
+    return changed ? (next as unknown as T) : offer;
+  }
+
   for (const [field, rule] of Object.entries(rules)) {
     if (!rule || typeof rule !== "object" || !("from" in rule)) continue;
     if (next[field] === rule.from) {
       next[field] = rule.to;
       changed = true;
     }
-  }
-  const code = next.referralCode;
-  if (typeof code === "string" && EMAIL_LIKE_CODE.test(code)) {
-    next.referralCode = null;
-    changed = true;
   }
   return changed ? (next as unknown as T) : offer;
 }
