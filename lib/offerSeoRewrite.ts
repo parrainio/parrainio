@@ -49,6 +49,46 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
     lead:
       "Le code de parrainage Alltricks donne 10 € de remise au filleul dès 100 € de première commande ; l'avantage est valable 2 mois et limité à 5 filleuls.",
   },
+  "parions-sport": {
+    title: "Parrainage Parions Sport : transition vers Unibet",
+    description:
+      "Parions Sport en ligne a rejoint Unibet le 24 mars 2026 : le parrainage n'existe plus sous ce nom. Vérifiez la campagne active avant toute inscription.",
+    h1: "Parions Sport : parrainage et transition vers Unibet",
+    lead:
+      "Parions Sport en ligne a rejoint Unibet le 24 mars 2026 : le programme de parrainage n'existe plus sous ce nom. Vérifiez la campagne active et les conditions affichées avant toute inscription.",
+  },
+  "i-run-fr": {
+    title: "Parrainage i-Run : 10 € chacun dès 60 € par e-mail",
+    description:
+      "i-Run : invitation par e-mail, 10 € de réduction pour le filleul dès 60 € de première commande et 10 € pour le parrain. Aucun code public à saisir.",
+    h1: "i-Run : parrainage par e-mail, 10 € pour chacun",
+    lead:
+      "Le parrainage i-Run ne repose pas sur un code public : le parrain enregistre l'e-mail du filleul, qui reçoit ensuite son invitation. Le filleul doit ouvrir le lien reçu par e-mail avant de créer son compte, puis commander au moins 60 €.",
+  },
+  "bebe-boutik": {
+    title: "Parrainage Bébé Boutik : 10 € de crédit par lien",
+    description:
+      "Bébé Boutik : le parrainage passe par le lien d'invitation, sans code à saisir. 10 € de crédit pour le parrain après la première commande du filleul.",
+    h1: "Bébé Boutik : parrainage par lien, sans code",
+    lead:
+      "Le parrainage Bébé Boutik passe par le lien d'invitation : aucun code public n'est à saisir. Le parrain reçoit 10 € de crédit lorsque le filleul invité effectue sa première commande.",
+  },
+  "shoes-fr": {
+    title: "Parrainage Shoes.fr : e-mail du parrain et 10 €",
+    description:
+      "Shoes.fr : le filleul indique l'e-mail de son parrain dans le champ prévu, sans code. 10 € pour le filleul et 10 € en chèque cadeau pour le parrain.",
+    h1: "Shoes.fr : parrainage par e-mail du parrain",
+    lead:
+      "Le parrainage Shoes.fr ne repose pas sur un code : le filleul indique l'adresse e-mail de son parrain dans le champ prévu lors de son inscription, puis réalise sa première commande éligible.",
+  },
+  swissborg: {
+    title: "Parrainage SwissBorg : jusqu'à 50 € en Bitcoin",
+    description:
+      "SwissBorg : lien personnel, code de parrainage affiché dans l'application (Profil > Parrainage) et ticket Bitcoin jusqu'à 50 € selon le challenge.",
+    h1: "Parrainage SwissBorg : lien et code personnel",
+    lead:
+      "Le parrainage SwissBorg passe par un lien ou un QR code personnel : le code de parrainage est celui affiché dans l'application, rubrique Profil > Parrainage. Aucun code générique ne s'y substitue.",
+  },
   sfr: {
     title: "Code parrainage RED by SFR : jusqu'à 15 €",
     description:
@@ -84,10 +124,10 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
   phenix: {
     title: "Code parrainage Phenix : 1 € en points",
     description:
-      "Code parrainage Phenix : 1 € en points après une première commande validée dans l'application anti-gaspillage. Conditions et délai détaillés.",
+      "Code parrainage Phenix : 1 € en points pour le filleul après sa première commande validée, et 0,50 € en points pour le parrain. Conditions détaillées.",
     h1: "Code de parrainage Phenix : 1 € en points",
     lead:
-      "Le code de parrainage Phenix donne 1 € en points de fidélité après une première commande validée dans l'application anti-gaspillage.",
+      "Le code de parrainage Phenix donne 1 € en points de fidélité au filleul après une première commande validée ; le parrain reçoit 0,50 € en points.",
   },
   whatnot: {
     title: "Parrainage Whatnot : crédit et conditions",

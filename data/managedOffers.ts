@@ -23,6 +23,7 @@ export type OfferOverride = {
   parrainioReward?: string | null;
   referralCode?: string | null;
   referralLink?: string | null;
+  referralEmail?: string | null;
   officialWebsiteUrl?: string | null;
   conditions?: OfferCondition[];
   steps?: OfferStep[];
@@ -153,6 +154,7 @@ export function mergeOfferRecord(
     parrainioReward: keepExisting(override.parrainioReward, seed.parrainioReward),
     referralCode: code.value,
     referralLink: link.value,
+    referralEmail: override.referralEmail ?? seed.referralEmail ?? null,
     officialWebsiteUrl: override.officialWebsiteUrl ?? seed.officialWebsiteUrl,
     conditions: override.conditions ?? seed.conditions,
     steps: override.steps ?? seed.steps,

@@ -24,12 +24,11 @@ const GENERIC_CODE_SLUGS = new Set([
   "splint-invest",
   "winamax",
   "showroomprive",
-  "i-run-fr",
 ]);
 
 // Rattachement documenté par lien d'invitation ou e-mail du parrain
 // (conditions officielles de l'offre) — jamais un code.
-const EMAIL_MECHANISM_SLUGS = new Set(["bebe-boutik"]);
+const EMAIL_MECHANISM_SLUGS = new Set(["bebe-boutik", "i-run-fr", "shoes-fr"]);
 
 export type ReferralMechanism = "CODE_PUBLIC" | "CODE_PARRAIN" | "NUMERO_PARRAIN" | "LIEN_EMAIL";
 

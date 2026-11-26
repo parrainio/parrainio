@@ -18,6 +18,9 @@ export type Offer = {
   isCampaignBoosted?: boolean;
   referralCode: string | null;
   referralLink: string | null;
+  /** E-mail du parrain à renseigner par le filleul dans le parcours du
+   *  partenaire (mécanisme d'invitation par e-mail, jamais un code). */
+  referralEmail?: string | null;
   referralOptions?: { label: string; url: string }[];
   additionalReferralCodes?: { label: string; code: string }[];
   officialWebsiteUrl: string | null;
@@ -556,7 +559,12 @@ export const offers: Offer[] = [
   createOffer("featurepoints", "FeaturePoints", "Récompenses", "Voir l'offre", "F"),
   createOffer("joybuy", "Joybuy", "Shopping", "Voir l'offre", "J"),
   createOffer("the-protein-works", "The Protein Works", "Sport & nutrition", "Voir l'offre", "T"),
-  createOffer("shoes-fr", "Shoes.fr", "Mode & shopping", "Voir l'offre", "S"),
+  {
+    ...createOffer("shoes-fr", "Shoes.fr", "Mode & shopping", "Voir l'offre", "S"),
+    // Le programme Shoes.fr rattache le filleul via l'e-mail du parrain
+    // saisi dans le champ prévu : ce n'est pas un code à copier.
+    referralEmail: "mathieu045@live.fr",
+  },
   createOffer("epargnoo-5", "Epargnoo", "Investissement", "Voir l'offre", "E"),
   createOffer("caisse-depargne-loire-centre", "Caisse d'Épargne Loire-Centre", "Banque", "Voir l'offre", "C"),
   createOffer("la-bourse-aux-livres", "La Bourse aux Livres", "Shopping", "Voir l'offre", "L"),

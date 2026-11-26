@@ -285,7 +285,7 @@ export default async function OfferPage({
                 {seoProfile && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>{referralUrl ? "OUVREZ LE LIEN" : offer.referralCode ? "COPIEZ LE CODE" : "DEMANDEZ LE LIEN"}</strong><small>{referralUrl ? "Commencez le parcours depuis le lien de cette fiche." : offer.referralCode ? "Utilisez le code indiqué dans le parcours du partenaire." : "Demandez les modalités avant de commencer."}</small></span></li>
+                    <li><b>01</b><span><strong>{referralUrl ? "OUVREZ LE LIEN" : offer.referralCode ? "COPIEZ LE CODE" : offer.referralEmail ? "INDIQUEZ L'E-MAIL" : "DEMANDEZ LE LIEN"}</strong><small>{referralUrl ? "Commencez le parcours depuis le lien de cette fiche." : offer.referralCode ? "Utilisez le code indiqué dans le parcours du partenaire." : offer.referralEmail ? "Renseignez l'e-mail du parrain dans le champ prévu par le partenaire." : "Demandez les modalités avant de commencer."}</small></span></li>
                     <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>{offer.referralCode ? "Suivez le parcours et saisissez le code demandé par le partenaire." : "Continuez le parcours commencé depuis le lien."}</small></span></li>
                     <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l&apos;offre.</small></span></li>
                     <li><b>04</b><span><strong>{offer.parrainioReward ? "DEMANDEZ VOTRE VERSEMENT" : "ATTENDEZ LE VERSEMENT PARTENAIRE"}</strong></span></li>
@@ -345,6 +345,16 @@ export default async function OfferPage({
                         <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
                       </div>
                     ))}
+                    {offer.referralEmail ? (
+                      <div className={styles.codeRow}>
+                        <div>
+                          <span>E-mail du parrain à renseigner</span>
+                          <strong>{offer.referralEmail}</strong>
+                          <small>Indiquez cette adresse dans le champ réservé au parrain lors de l&apos;inscription, avant votre première commande. Aucun code n&apos;est à copier.</small>
+                        </div>
+                        <CopyTextButton value={offer.referralEmail} label="Copier l'e-mail" copiedLabel="E-mail copié ✓" />
+                      </div>
+                    ) : null}
                     {offer.referralOptions?.length ? (
                       <div className={styles.referralValue}>
                         <span>Liens selon le produit</span>
@@ -363,7 +373,7 @@ export default async function OfferPage({
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : codeDestinationUrl ? <a className={styles.primaryButton} href={codeDestinationUrl} rel="noreferrer" target="_blank">Consulter le programme et saisir le code → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
+                    {!offer.referralCode && !offer.referralEmail && !referralUrl && !offer.referralOptions?.length ? (
                       <>
                         {seoProfile?.referralContact && (
                           <div className={styles.referralContact}>
@@ -630,6 +640,16 @@ export default async function OfferPage({
                       <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
                     </div>
                   ))}
+                  {offer.referralEmail ? (
+                    <div className={styles.codeRow}>
+                      <div>
+                        <span>E-mail du parrain à renseigner</span>
+                        <strong>{offer.referralEmail}</strong>
+                        <small>Indiquez cette adresse dans le champ réservé au parrain lors de l&apos;inscription, avant votre première commande. Aucun code n&apos;est à copier.</small>
+                      </div>
+                      <CopyTextButton value={offer.referralEmail} label="Copier l'e-mail" copiedLabel="E-mail copié ✓" />
+                    </div>
+                  ) : null}
                   {offer.referralOptions?.length ? (
                     <div className={styles.referralValue}>
                       <span>Liens selon le produit</span>
@@ -668,7 +688,7 @@ export default async function OfferPage({
                     </a>
                   ) : null}
 
-                  {!offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
+                  {!offer.referralCode && !offer.referralEmail && !referralUrl && !offer.referralOptions?.length ? (
                     <>
                       {seoProfile?.referralContact && (
                         <div className={styles.referralContact}>

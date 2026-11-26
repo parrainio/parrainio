@@ -21,5 +21,49 @@
       "from": "Premier dépôt doublé en Freebet jusqu'à 30 €",
       "to": "Montant selon la campagne en cours"
     }
+  },
+  "parions-sport": {
+    "name": {
+      "from": "FDJ - française des jeux",
+      "to": "Parions Sport"
+    },
+    "referralCode": {
+      "from": "https",
+      "to": null
+    }
+  },
+  "i-run-fr": {
+    "referralCode": {
+      "from": "i-Run",
+      "to": null
+    },
+    "referralLink": {
+      "from": "https://www.i-run.fr/client/parrainage.html",
+      "to": null
+    }
+  },
+  "bebe-boutik": {
+    "referralCode": {
+      "from": "bidouche045@gmail.com",
+      "to": null
+    }
+  },
+  "shoes-fr": {
+    "referralCode": {
+      "from": "S'inscrire avec le mail : mathieu045@live.fr",
+      "to": null
+    }
+  },
+  "swissborg": {
+    "referralCode": {
+      "from": "SWISSBORG",
+      "to": null
+    }
+  },
+  "phenix": {
+    "partnerReward": {
+      "from": "0,50 € sur votre premier panier anti-gaspi",
+      "to": "1 € en points pour le filleul (0,50 € pour le parrain)"
+    }
   }
 }
