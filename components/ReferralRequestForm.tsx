@@ -3,9 +3,30 @@
 import { FormEvent, useRef, useState } from "react";
 import styles from "./ReferralRequestForm.module.css";
 
-type ReferralRequestFormProps = { offerName: string; offerSlug: string };
+type ReferralRequestFormProps = {
+  offerName: string;
+  offerSlug: string;
+  /** Libellés spécifiques à une offre (ex. : demande d'un numéro de contrat). */
+  heading?: string;
+  intro?: string;
+  buttonLabel?: string;
+  successMessage?: string;
+};
 
-export default function ReferralRequestForm({ offerName, offerSlug }: ReferralRequestFormProps) {
+/** Libellés par défaut propres à certaines offres : le générique ne décrit
+ *  pas toujours le parcours réel (Shoes.fr transmet une invitation privée). */
+const DEFAULT_INTROS: Record<string, string> = {
+  "shoes-fr": "Demandez votre invitation par e-mail",
+};
+
+export default function ReferralRequestForm({
+  offerName,
+  offerSlug,
+  heading,
+  intro,
+  buttonLabel,
+  successMessage,
+}: ReferralRequestFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const submitting = useRef(false);
@@ -65,7 +86,8 @@ export default function ReferralRequestForm({ offerName, offerSlug }: ReferralRe
   if (status === "success") {
     return (
       <p className={styles.confirmation} role="status" aria-live="polite">
-        Votre demande de parrainage pour {offerName} a bien été envoyée. Nous vous répondrons par e-mail.
+        {successMessage ??
+          `Votre demande de parrainage pour ${offerName} a bien été envoyée. Nous vous répondrons par e-mail.`}
       </p>
     );
   }
@@ -73,8 +95,8 @@ export default function ReferralRequestForm({ offerName, offerSlug }: ReferralRe
   return (
     <form className={styles.form} onSubmit={handleSubmit} aria-busy={status === "sending"}>
       <div className={styles.intro}>
-        <strong>Vous souhaitez profiter de cette offre ?</strong>
-        <span>Demandez mon lien de parrainage</span>
+        <strong>{heading ?? "Vous souhaitez profiter de cette offre ?"}</strong>
+        <span>{intro ?? DEFAULT_INTROS[offerSlug] ?? "Demandez mon lien de parrainage"}</span>
       </div>
       <div className={styles.fields}>
         <label>
@@ -95,7 +117,8 @@ export default function ReferralRequestForm({ offerName, offerSlug }: ReferralRe
         <input id={`referral-website-${offerSlug}`} name="website" tabIndex={-1} autoComplete="off" />
       </div>
       <button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Envoi en cours…" : "Demander mon parrainage"} <span aria-hidden="true">→</span>
+        {status === "sending" ? "Envoi en cours…" : (buttonLabel ?? "Demander mon parrainage")}{" "}
+        <span aria-hidden="true">→</span>
       </button>
       {status === "error" ? <p className={styles.error} role="alert">{errorMessage}</p> : null}
     </form>

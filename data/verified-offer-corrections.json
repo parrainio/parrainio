@@ -40,10 +40,6 @@
     "partnerReward": {
       "from": "100 €",
       "to": "50 €"
-    },
-    "referralCode": {
-      "from": "DIRECTPARRAIN + 100147023315",
-      "to": "DIRECTPARRAIN"
     }
   },
   "i-run-fr": {
@@ -65,7 +61,7 @@
   "phenix": {
     "partnerReward": {
       "from": "0,50 € sur votre premier panier anti-gaspi",
-      "to": "1 € en points pour le filleul (0,50 € pour le parrain)"
+      "to": "1 € en points pour le filleul (0,50\u00A0€ pour le parrain)"
     }
   }
 }

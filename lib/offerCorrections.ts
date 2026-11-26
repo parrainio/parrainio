@@ -22,6 +22,15 @@ const CORRECTIONS = corrections as unknown as Corrections;
  */
 const EMAIL_LIKE_CODE = /@|mail\s*:/i;
 
+/**
+ * Codes publics imposés : la valeur publiée est exactement celle-ci. Direct
+ * Assurance exige le code DIRECTPARRAIN ; l'ancien numéro de contrat qui y
+ * était concaténé est ainsi retiré avant tout rendu public.
+ */
+const PUBLIC_REFERRAL_CODES: Record<string, string> = {
+  "direct-assurance": "DIRECTPARRAIN",
+};
+
 export function applyVerifiedCorrections<T extends { slug: string }>(offer: T): T {
   const rules = CORRECTIONS[String(offer.slug)];
   let changed = false;
@@ -33,6 +42,12 @@ export function applyVerifiedCorrections<T extends { slug: string }>(offer: T): 
   const code = next.referralCode;
   if (typeof code === "string" && EMAIL_LIKE_CODE.test(code)) {
     next.referralCode = null;
+    changed = true;
+  }
+
+  const publicCode = PUBLIC_REFERRAL_CODES[String(offer.slug)];
+  if (publicCode && typeof next.referralCode === "string" && next.referralCode !== publicCode) {
+    next.referralCode = publicCode;
     changed = true;
   }
 

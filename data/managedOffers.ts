@@ -219,7 +219,6 @@ export async function saveOfferOverride(slug: string, data: OfferOverride) {
   // et nécessaire avant la lecture-écriture de la map complète d'overrides.
   await ensureAdminKvSeeded();
   const overrides = await readOverrides();
-  const seed = offers.find((offer) => offer.slug === slug);
   const current = overrides[slug] ?? {};
 
   const next: OfferOverride = {
@@ -228,10 +227,11 @@ export async function saveOfferOverride(slug: string, data: OfferOverride) {
     lastUpdated: new Date().toISOString(),
   };
 
-  if (seed) {
-    if (next.referralCode === "" && seed.referralCode) next.referralCode = seed.referralCode;
-    if (next.referralLink === "" && seed.referralLink) next.referralLink = seed.referralLink;
-  }
+  /* Une valeur vide est une suppression explicite : elle est enregistrée
+     comme null. Auparavant le code du seed était réintroduit ici, ce qui
+     empêchait toute suppression depuis l'administration. */
+  if (next.referralCode === "") next.referralCode = null;
+  if (next.referralLink === "") next.referralLink = null;
 
   overrides[slug] = next;
   const persisted = await writeAdminKvJson(ADMIN_KV_KEYS.offerOverrides, overrides);

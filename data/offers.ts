@@ -23,6 +23,15 @@ export type Offer = {
   offerStatus?: "active" | "terminated";
   referralOptions?: { label: string; url: string }[];
   additionalReferralCodes?: { label: string; code: string; copyLabel?: string }[];
+  /** Demande privée d'une information de parrainage non publiable (ex. :
+   *  numéro de contrat Direct Assurance). Seuls les libellés sont publics :
+   *  la valeur reste côté serveur et n'est jamais stockée ici. */
+  referralContractRequest?: {
+    heading: string;
+    intro: string;
+    buttonLabel: string;
+    successMessage: string;
+  };
   officialWebsiteUrl: string | null;
   description: string;
   color: string;
@@ -473,11 +482,20 @@ export const offers: Offer[] = [
   createOffer("trade-republic", "Trade Republic", "Investissement", "10 € en action", "T"),
   {
     ...createOffer("direct-assurance", "Direct Assurance", "Assurance", "50 €", "D"),
-    // Le programme Direct Assurance demande deux informations distinctes :
-    // le code DIRECTPARRAIN, puis le numéro de contrat du parrain.
-    additionalReferralCodes: [
-      { label: "Numéro de contrat du parrain", code: "100147023315", copyLabel: "Copier le numéro" },
-    ],
+    // Code public, indépendant du KV : le numéro de contrat ne doit jamais
+    // être la seule information disponible pour déclencher le parrainage.
+    referralCode: "DIRECTPARRAIN",
+    // Le code DIRECTPARRAIN reste public. Le numéro de contrat du parrain,
+    // lui, n'est plus publié : il est transmis en privé après une demande
+    // via le formulaire de la fiche (variable serveur uniquement).
+    referralContractRequest: {
+      heading: "Demandez le numéro de contrat du parrain",
+      intro:
+        "Le code DIRECTPARRAIN est public. Le numéro de contrat du parrain, demandé par Direct Assurance lors du devis, vous est transmis en privé par e-mail après votre demande.",
+      buttonLabel: "Demander le numéro de contrat",
+      successMessage:
+        "Votre demande a bien été envoyée. Le numéro de contrat du parrain vous sera transmis en privé par e-mail.",
+    },
   },
   createOffer("winamax", "Winamax", "Jeux & paris", "Voir l'offre", "W"),
   createOffer("weward", "WeWard", "Récompenses", "50 Wards", "W"),

@@ -176,7 +176,10 @@ export async function saveOfferAction(slug: string, payload: OfferSavePayload) {
     description: payload.description,
     partnerReward: payload.partnerReward.trim() || existing.partnerReward,
     parrainioReward: payload.parrainioReward.trim() ? payload.parrainioReward.trim() : null,
-    referralCode: payload.referralCode.trim() ? payload.referralCode.trim() : existing.referralCode,
+    /* Champ vidé dans l'admin = suppression explicite : on enregistre null.
+       Auparavant l'ancienne valeur était réintroduite, ce qui rendait
+       impossible la suppression d'un code obsolète. */
+    referralCode: payload.referralCode.trim() || null,
     referralLink,
     officialWebsiteUrl,
     conditions,

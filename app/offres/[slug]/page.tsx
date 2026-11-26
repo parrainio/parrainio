@@ -369,8 +369,8 @@ export default async function OfferPage({
                         <small>{seoProfile.referralContact.note ?? contactNote}</small>
                       </div>
                     ) : null}
-                    {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : codeDestinationUrl ? <a className={styles.primaryButton} href={codeDestinationUrl} rel="noreferrer" target="_blank">Consulter le programme et saisir le code → <ArrowIcon /></a> : null}
-                    {!isTerminated && !offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
+                    {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter <ArrowIcon /></a> : codeDestinationUrl ? <a className={styles.primaryButton} href={codeDestinationUrl} rel="noreferrer" target="_blank">Consulter le programme et saisir le code <ArrowIcon /></a> : null}
+                    {!isTerminated && (offer.referralContractRequest || (!offer.referralCode && !referralUrl && !offer.referralOptions?.length)) ? (
                       <>
                         {seoProfile?.referralContact && (
                           <div className={styles.referralContact}>
@@ -378,7 +378,14 @@ export default async function OfferPage({
                             {contactNote && <small>{contactNote}</small>}
                           </div>
                         )}
-                        <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
+                        <ReferralRequestForm
+                          offerName={offer.name}
+                          offerSlug={offer.slug}
+                          heading={offer.referralContractRequest?.heading}
+                          intro={offer.referralContractRequest?.intro}
+                          buttonLabel={offer.referralContractRequest?.buttonLabel}
+                          successMessage={offer.referralContractRequest?.successMessage}
+                        />
                       </>
                     ) : null}
                   </div>
@@ -662,7 +669,7 @@ export default async function OfferPage({
                       rel="noreferrer"
                       target="_blank"
                     >
-                      En profiter → <ArrowIcon />
+                      En profiter <ArrowIcon />
                     </a>
                   ) : codeDestinationUrl ? (
                     <a
@@ -671,11 +678,11 @@ export default async function OfferPage({
                       rel="noreferrer"
                       target="_blank"
                     >
-                      Consulter le programme et saisir le code → <ArrowIcon />
+                      Consulter le programme et saisir le code <ArrowIcon />
                     </a>
                   ) : null}
 
-                  {!isTerminated && !offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
+                  {!isTerminated && (offer.referralContractRequest || (!offer.referralCode && !referralUrl && !offer.referralOptions?.length)) ? (
                     <>
                       {seoProfile?.referralContact && (
                         <div className={styles.referralContact}>
@@ -683,7 +690,14 @@ export default async function OfferPage({
                           {contactNote && <small>{contactNote}</small>}
                         </div>
                       )}
-                      <ReferralRequestForm offerName={offer.name} offerSlug={offer.slug} />
+                      <ReferralRequestForm
+                        offerName={offer.name}
+                        offerSlug={offer.slug}
+                        heading={offer.referralContractRequest?.heading}
+                        intro={offer.referralContractRequest?.intro}
+                        buttonLabel={offer.referralContractRequest?.buttonLabel}
+                        successMessage={offer.referralContractRequest?.successMessage}
+                      />
                     </>
                   ) : null}
                 </div>

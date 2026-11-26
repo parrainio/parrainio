@@ -9,6 +9,32 @@ const clean = (value: unknown, max: number) =>
     .replace(/[\u0000-\u001f\u007f]/g, "")
     .slice(0, max);
 
+/**
+ * Offres dont la demande porte sur une information privée : le numéro de
+ * contrat du parrain n'est jamais publié (ni HTML, ni données RSC, ni
+ * métadonnées, ni réponse d'API). Il vit uniquement dans une variable
+ * d'environnement serveur et n'est joint qu'à l'e-mail privé envoyé à
+ * Parrainio, qui le transmet ensuite manuellement au demandeur.
+ */
+const PRIVATE_CONTRACT_DETAILS: Record<string, { envVar: string; label: string }> = {
+  "direct-assurance": {
+    envVar: "DIRECT_ASSURANCE_CONTRACT_NUMBER",
+    label: "Numéro de contrat du parrain à transmettre en privé",
+  },
+};
+
+function privateContractLines(slug: string): string[] {
+  const detail = PRIVATE_CONTRACT_DETAILS[slug];
+  if (!detail) return [];
+  const value = process.env[detail.envVar]?.trim();
+  return [
+    "",
+    value
+      ? `${detail.label} : ${value}`
+      : `${detail.label} : non configuré (variable ${detail.envVar} absente).`,
+  ];
+}
+
 type Bucket = { count: number; resetAt: number };
 const rateBuckets = new Map<string, Bucket>();
 const RATE_LIMIT = 5;
@@ -73,6 +99,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Offre introuvable." }, { status: 400 });
   }
 
+  const privateContract = PRIVATE_CONTRACT_DETAILS[offer.slug];
   const mailer = createParrainioMailer();
   if (!mailer) {
     return NextResponse.json(
@@ -86,15 +113,20 @@ export async function POST(request: Request) {
       from: mailer.from,
       to: PARRAINIO_CONTACT_EMAIL,
       replyTo: email,
-      subject: `Demande de lien de parrainage — ${offer.name}`,
+      subject: privateContract
+        ? `Demande de numéro de contrat — ${offer.name}`
+        : `Demande de lien de parrainage — ${offer.name}`,
       text: [
-        "Nouvelle demande de lien de parrainage sur Parrainio",
+        privateContract
+          ? "Nouvelle demande de numéro de contrat de parrainage sur Parrainio"
+          : "Nouvelle demande de lien de parrainage sur Parrainio",
         "",
         `Offre : ${offer.name}`,
         `Slug : ${offer.slug}`,
         `Prénom : ${firstName}`,
         `Nom : ${lastName}`,
         `Adresse e-mail : ${email}`,
+        ...privateContractLines(offer.slug),
       ].join("\n"),
     });
     return NextResponse.json({ ok: true });
