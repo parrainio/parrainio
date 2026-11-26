@@ -3,10 +3,13 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 const DATA_PATH = "data/observatoire-conditions.json";
-const CSV_PATH = "public/data/observatoire-conditions-2026-10-22.csv";
 const TERRAIN_PATH = "data/experience-terrain.json";
 
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+// Le CSV publié suit le millésime du relevé (snapshotLe). Les exports
+// antérieurs restent en place : un nouveau relevé ne réécrit jamais l'ancien.
+const SNAPSHOT = data.snapshotLe ?? data.releveLe;
+const CSV_PATH = `public/data/observatoire-conditions-${SNAPSHOT}.csv`;
 const STATUTS = new Set(["annonce", "renvoi", "non_publie"]);
 const NATURES = new Set(["prelevement", "non_paiement", "aucune_publication"]);
 const UNITES = new Set(["jours", "jours_ouvres", "mois"]);
@@ -51,6 +54,8 @@ function csvObjects() {
 test("observatoire : le jeu de données est lisible et daté", () => {
   assert.equal(typeof data.releveLe, "string");
   assert.match(data.releveLe, /^\d{4}-\d{2}-\d{2}$/);
+  assert.match(SNAPSHOT, /^\d{4}-\d{2}-\d{2}$/);
+  assert.ok(SNAPSHOT >= data.releveLe, "millésime antérieur au relevé initial");
   assert.ok(data.offres.length > 0);
   assert.ok(data.perimetre.length > 40);
 });
@@ -60,7 +65,8 @@ test("observatoire : un slug unique par offre, source https et date de relevé i
   assert.equal(new Set(slugs).size, slugs.length, "slugs dupliqués");
   for (const offre of data.offres) {
     assert.match(offre.source, /^https:\/\//, `${offre.slug} : source non https`);
-    assert.equal(offre.luLe, data.releveLe, `${offre.slug} : date de lecture incohérente`);
+    assert.match(offre.luLe, /^\d{4}-\d{2}-\d{2}$/, `${offre.slug} : date de lecture absente`);
+    assert.ok(offre.luLe <= SNAPSHOT, `${offre.slug} : date de lecture postérieure au relevé`);
     assert.ok(offre.nom && offre.categorie, `${offre.slug} : nom ou catégorie manquant`);
   }
 });
@@ -125,12 +131,27 @@ test("observatoire : le jeu officiel ne contient aucun retour terrain", () => {
   }
 });
 
-test("observatoire : la vérification du 22/10 est datée et sourcée", () => {
-  assert.equal(data.verifieLe, "2026-10-22");
+test("observatoire : chaque offre porte sa propre date de vérification, sourcée", () => {
   for (const offre of data.offres) {
-    assert.equal(offre.verifieLe, "2026-10-22", `${offre.slug} : date de vérification absente`);
+    assert.match(offre.verifieLe, /^\d{4}-\d{2}-\d{2}$/, `${offre.slug} : date de vérification absente`);
+    assert.ok(offre.verifieLe <= SNAPSHOT, `${offre.slug} : vérification postérieure au relevé`);
     assert.ok(offre.sourceStatut, `${offre.slug} : statut de source absent`);
   }
+  const plusRecente = data.offres.map((offre) => offre.verifieLe).sort().at(-1);
+  assert.equal(SNAPSHOT, plusRecente, "le millésime doit être la vérification la plus récente");
+});
+
+test("observatoire : les relevés antérieurs restent publiés et intacts", () => {
+  const ancien = "public/data/observatoire-conditions-2026-10-22.csv";
+  assert.ok(fs.existsSync(ancien), "CSV du 22/10/2026 supprimé");
+  const rows = parseCsv(fs.readFileSync(ancien, "utf8"));
+  const header = rows[0];
+  const slugIndex = header.indexOf("slug");
+  const dateIndex = header.indexOf("verifie_le");
+  const fortuneo = rows.find((row) => row[slugIndex] === "fortuneo");
+  assert.ok(fortuneo, "Fortuneo absent du CSV historique");
+  assert.equal(fortuneo[dateIndex], "2026-10-22", "le CSV historique a été réécrit");
+  assert.notEqual(ancien, CSV_PATH, "un nouveau relevé doit créer un nouveau fichier");
 });
 
 test("observatoire : le CSV public est l'export exact du JSON", async () => {

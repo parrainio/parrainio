@@ -147,12 +147,19 @@ export default async function OfferPage({
   // officielle : elles gardent leur retour terrain, sans condition inventée.
   const terrainOffre = observatoireOffre?.terrain ?? getRetourTerrain(offer.slug);
 
-  const referralUrl = slug === "hello-bank" && helloBankPromotion ? helloBankPromotion.referralLink : getOfferReferralUrl(offer);
+  const isTerminated = offer.offerStatus === "terminated";
+  // Offre terminée : aucun lien ni CTA actif, même si une valeur historique
+  // subsiste dans les données gérées.
+  const referralUrl = isTerminated
+    ? null
+    : slug === "hello-bank" && helloBankPromotion
+      ? helloBankPromotion.referralLink
+      : getOfferReferralUrl(offer);
   const referralDisplayLabel = slug === "bnp"
     ? "Lien de parrainage BNP Paribas"
     : referralUrl;
   const codeDestinationUrl =
-    !referralUrl && offer.referralCode && lot18Profiles[offer.slug]
+    !isTerminated && !referralUrl && offer.referralCode && lot18Profiles[offer.slug]
       ? offer.officialWebsiteUrl
       : null;
   const relatedOffers = getRelatedOffers(offer, await getManagedOffers(), 3);
@@ -282,10 +289,10 @@ export default async function OfferPage({
                 <h1 className={styles.offerTitle}>{seoRewrite.h1}</h1>
                 {seoProfile?.introduction && <p className={styles.headerIntro}>{seoRewrite.lead} {seoProfile.introduction}</p>}
                 </div>
-                {seoProfile && <div className={styles.headerActionSummary}>
+                {seoProfile && !isTerminated && <div className={styles.headerActionSummary}>
                   <span className={styles.stepsLabel}>COMMENT EN PROFITER ?</span>
                   <ol className={styles.headerSteps}>
-                    <li><b>01</b><span><strong>{referralUrl ? "OUVREZ LE LIEN" : offer.referralCode ? "COPIEZ LE CODE" : offer.referralEmail ? "INDIQUEZ L'E-MAIL" : "DEMANDEZ LE LIEN"}</strong><small>{referralUrl ? "Commencez le parcours depuis le lien de cette fiche." : offer.referralCode ? "Utilisez le code indiqué dans le parcours du partenaire." : offer.referralEmail ? "Renseignez l'e-mail du parrain dans le champ prévu par le partenaire." : "Demandez les modalités avant de commencer."}</small></span></li>
+                    <li><b>01</b><span><strong>{referralUrl ? "OUVREZ LE LIEN" : offer.referralCode ? "COPIEZ LE CODE" : "DEMANDEZ LE LIEN"}</strong><small>{referralUrl ? "Commencez le parcours depuis le lien de cette fiche." : offer.referralCode ? "Utilisez le code indiqué dans le parcours du partenaire." : "Demandez les modalités avant de commencer."}</small></span></li>
                     <li><b>02</b><span><strong>INSCRIVEZ-VOUS</strong><small>{offer.referralCode ? "Suivez le parcours et saisissez le code demandé par le partenaire." : "Continuez le parcours commencé depuis le lien."}</small></span></li>
                     <li><b>03</b><span><strong>VALIDEZ VOTRE COMPTE</strong><small>Réalisez les conditions de l&apos;offre.</small></span></li>
                     <li><b>04</b><span><strong>{offer.parrainioReward ? "DEMANDEZ VOTRE VERSEMENT" : "ATTENDEZ LE VERSEMENT PARTENAIRE"}</strong></span></li>
@@ -314,7 +321,7 @@ export default async function OfferPage({
                   </div>
                   <div className={styles.referralSection}>
                     {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralDisplayLabel}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
-                    {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
+                    {!isTerminated && !referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                       <div className={styles.codeActionsRow}>
                         <div className={styles.codeRow}>
                           <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
@@ -323,7 +330,7 @@ export default async function OfferPage({
                           </div>
                         </div>
                       </div>
-                    ) : offer.referralCode ? (
+                    ) : !isTerminated && offer.referralCode ? (
                       <div className={styles.codeRow}>
                         <div><span>Votre code de parrainage</span><strong>{offer.referralCode}</strong></div>
                         <CopyTextButton value={offer.referralCode} label="Copier le code" copiedLabel="Code copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} />
@@ -339,23 +346,13 @@ export default async function OfferPage({
                         <small>Le profil ne fournit pas de lien personnalisé pour cette offre : utilisez le code affiché sur le site officiel.</small>
                       </div>
                     ) : null}
-                    {offer.additionalReferralCodes?.map((item) => (
+                    {!isTerminated && offer.additionalReferralCodes?.map((item) => (
                       <div className={styles.codeRow} key={item.code}>
                         <div><span>{item.label}</span><strong>{item.code}</strong></div>
-                        <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
+                        <CopyTextButton value={item.code} label={item.copyLabel ?? "Copier le code"} copiedLabel="Code copié ✓" />
                       </div>
                     ))}
-                    {offer.referralEmail ? (
-                      <div className={styles.codeRow}>
-                        <div>
-                          <span>E-mail du parrain à renseigner</span>
-                          <strong>{offer.referralEmail}</strong>
-                          <small>Indiquez cette adresse dans le champ réservé au parrain lors de l&apos;inscription, avant votre première commande. Aucun code n&apos;est à copier.</small>
-                        </div>
-                        <CopyTextButton value={offer.referralEmail} label="Copier l'e-mail" copiedLabel="E-mail copié ✓" />
-                      </div>
-                    ) : null}
-                    {offer.referralOptions?.length ? (
+                    {!isTerminated && offer.referralOptions?.length ? (
                       <div className={styles.referralValue}>
                         <span>Liens selon le produit</span>
                         {offer.referralOptions.map((item) => (
@@ -373,7 +370,7 @@ export default async function OfferPage({
                       </div>
                     ) : null}
                     {referralUrl ? <a className={styles.primaryButton} href={referralUrl} rel="noreferrer" target="_blank">En profiter → <ArrowIcon /></a> : codeDestinationUrl ? <a className={styles.primaryButton} href={codeDestinationUrl} rel="noreferrer" target="_blank">Consulter le programme et saisir le code → <ArrowIcon /></a> : null}
-                    {!offer.referralCode && !offer.referralEmail && !referralUrl && !offer.referralOptions?.length ? (
+                    {!isTerminated && !offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
                       <>
                         {seoProfile?.referralContact && (
                           <div className={styles.referralContact}>
@@ -385,7 +382,7 @@ export default async function OfferPage({
                       </>
                     ) : null}
                   </div>
-                  {offer.parrainioReward ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
+                  {offer.parrainioReward && !isTerminated ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
                   {observatoireOffre || terrainOffre ? (
                     <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
                   ) : null}
@@ -598,7 +595,7 @@ export default async function OfferPage({
                   )}
                 </div><div className={styles.referralSection}>
                     {referralUrl ? <div className={styles.referralValue}><span>Votre lien de parrainage</span><div className={styles.referralValueRow}><a href={referralUrl} target="_blank" rel="noreferrer">{referralDisplayLabel}</a><CopyTextButton value={referralUrl} label="Copier le lien" copiedLabel="Lien copié ✓" openUrlOnClick={getBemoveCopyTrackingUrl(offer.slug)} /></div></div> : null}
-                    {!referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
+                    {!isTerminated && !referralUrl && offer.referralCode && offer.officialWebsiteUrl ? (
                     <div className={styles.codeActionsRow}>
                       <div className={styles.codeRow}>
                         <div>
@@ -610,7 +607,7 @@ export default async function OfferPage({
                         </div>
                       </div>
                     </div>
-                  ) : offer.referralCode ? (
+                  ) : !isTerminated && offer.referralCode ? (
                     <div className={styles.codeRow}>
                       <div>
                         <span>Votre code de parrainage</span>
@@ -631,26 +628,16 @@ export default async function OfferPage({
                     </div>
                   ) : null}
 
-                  {offer.additionalReferralCodes?.map((item) => (
+                  {!isTerminated && offer.additionalReferralCodes?.map((item) => (
                     <div className={styles.codeRow} key={item.code}>
                       <div>
                         <span>{item.label}</span>
                         <strong>{item.code}</strong>
                       </div>
-                      <CopyTextButton value={item.code} label="Copier le code" copiedLabel="Code copié ✓" />
+                      <CopyTextButton value={item.code} label={item.copyLabel ?? "Copier le code"} copiedLabel="Code copié ✓" />
                     </div>
                   ))}
-                  {offer.referralEmail ? (
-                    <div className={styles.codeRow}>
-                      <div>
-                        <span>E-mail du parrain à renseigner</span>
-                        <strong>{offer.referralEmail}</strong>
-                        <small>Indiquez cette adresse dans le champ réservé au parrain lors de l&apos;inscription, avant votre première commande. Aucun code n&apos;est à copier.</small>
-                      </div>
-                      <CopyTextButton value={offer.referralEmail} label="Copier l'e-mail" copiedLabel="E-mail copié ✓" />
-                    </div>
-                  ) : null}
-                  {offer.referralOptions?.length ? (
+                  {!isTerminated && offer.referralOptions?.length ? (
                     <div className={styles.referralValue}>
                       <span>Liens selon le produit</span>
                       {offer.referralOptions.map((item) => (
@@ -688,7 +675,7 @@ export default async function OfferPage({
                     </a>
                   ) : null}
 
-                  {!offer.referralCode && !offer.referralEmail && !referralUrl && !offer.referralOptions?.length ? (
+                  {!isTerminated && !offer.referralCode && !referralUrl && !offer.referralOptions?.length ? (
                     <>
                       {seoProfile?.referralContact && (
                         <div className={styles.referralContact}>
@@ -700,7 +687,7 @@ export default async function OfferPage({
                     </>
                   ) : null}
                 </div>
-                {offer.parrainioReward ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
+                {offer.parrainioReward && !isTerminated ? <ParrainioReverseRequest offerSlug={offer.slug} showAction={false} /> : null}
                 {observatoireOffre || terrainOffre ? (
                   <OfferDelayNotice offre={observatoireOffre} terrain={terrainOffre} />
                 ) : null}

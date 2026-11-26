@@ -1562,20 +1562,20 @@
     "partnerReward": ""
   },
   "parions-sport": {
-    "referralLink": "https://www.enligne.parionssport.fdj.fr/inscription/?campaign=100326&parrain=B0A5CC03D1539CDF",
+    "offerStatus": "terminated",
+    "referralLink": null,
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121583",
     "conditions": [
-      "Créer un nouveau compte ParionsSport en Ligne via le lien de parrainage.",
-      "Valider le compte et effectuer les conditions de dépôt ou mise de la campagne active.",
-      "Ne pas avoir déjà un compte éligible selon les règles de la FDJ."
+      "Aucune condition de parrainage active sous Parions Sport.",
+      "ParionsSport en Ligne a rejoint Unibet le 24 mars 2026.",
+      "Les anciennes conditions ne sont pas reconduites sous cette marque."
     ],
     "steps": [
-      "Utiliser le lien ParionsSport.",
-      "Valider le compte.",
-      "Effectuer le dépôt ou la mise exigé par la campagne active."
+      "Consulter l'historique du programme sur cette fiche.",
+      "Vérifier séparément le programme Unibet si un parrainage en ligne est recherché."
     ],
-    "partnerReward": "10 € offerts"
+    "partnerReward": "Parrainage terminé (mars 2026)"
   },
   "wanteeed": {
     "referralLink": "https://wanteeed.com/join/35a08af8e6d04f3c8e0d757ff71cf7d8",
@@ -2073,14 +2073,17 @@
   "shoes-fr": {
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124583",
+    "referralCode": null,
     "conditions": [
+      "La demande passe par le formulaire de cette fiche : les informations de parrainage sont transmises en privé, jamais affichées publiquement.",
       "Créer un compte Shoes.fr et être un nouveau client.",
       "Effectuer une première commande supérieure à 50 €, hors produits partenaires.",
       "La commande ne doit pas faire l’objet d’un retour.",
       "La récompense est émise 30 jours après la commande validée ; jusqu’à 100 filleuls."
     ],
     "steps": [
-      "Utiliser le lien Shoes.fr.",
+      "Envoyer la demande de parrainage depuis cette fiche.",
+      "Utiliser les informations transmises en privé lors de l'inscription Shoes.fr.",
       "Passer une première commande supérieure à 50 € hors produits partenaires.",
       "Conserver la commande sans retour pendant le délai de validation."
     ],
@@ -2395,10 +2398,10 @@
     "partnerReward": "Jusqu'à environ 373 € de paliers KAST (approximatif, paliers en dollars validés manuellement)",
     "parrainioReward": "Jusqu'à environ 111 € (50 % de la commission Parrainio après conversion en euros, aucun palier implicite)",
     "referralCode": null,
-    "referralLink": null,
+    "referralLink": "https://app.kast.xyz/referral/LRT3W4MV",
     "officialWebsiteUrl": "https://www.kast.com",
     "conditions": [
-      "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche ; les liens sont attribués par Parrainio et ne sont pas publics.",
+      "Ouvrir le lien de parrainage affiché sur la fiche ; il ouvre une invitation KAST, le parrain y apparaissant sous le nom générique « KAST User ».",
       "Créer le compte KAST via ce lien personnel et effectuer la vérification d'identité (KYC).",
       "Atteindre chaque palier de dépenses admissibles (500 $, 1 000 $, 2 000 $, 5 000 $ selon les barèmes du programme) puis VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION : les récompenses ne sont pas cumulées automatiquement si un palier n'est pas validé.",
       "Les montants donnés en euros sont indicatifs : les seuils officiels du programme KAST sont en dollars et peuvent évoluer.",
@@ -2406,8 +2409,8 @@
       "Parrainio reverse jusqu'à 50 % de ce qu'il encaisse réellement en fonction des paliers parrain atteints : le maximum d'environ 111 € suppose que tout le parcours du filleul soit dûment validé sans échéance manquée."
     ],
     "steps": [
-      "Demander un lien de parrainage personnel à Parrainio via le formulaire de la fiche.",
-      "S'inscrire sur KAST via le lien reçu et valider le KYC.",
+      "Utiliser le lien de parrainage affiché sur la fiche pour ouvrir l'invitation KAST.",
+      "S'inscrire sur KAST via ce lien et valider le KYC.",
       "Effectuer les dépenses admissibles pour franchir chaque palier KAST.",
       "VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION, un par un, pour que chaque palier soit débloqué.",
       "Attendre la validation des paliers côté Parrainio pour percevoir le reverse Parrainio."

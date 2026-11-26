@@ -3,9 +3,10 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 const DATA_PATH = "data/observatoire-conditions.json";
-const CSV_PATH = "public/data/observatoire-conditions-2026-10-22.csv";
 
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
+const SNAPSHOT = data.snapshotLe ?? data.releveLe;
+const CSV_PATH = `public/data/observatoire-conditions-${SNAPSHOT}.csv`;
 const STATUTS = new Set(["estimation_parrainio", "non_calculable"]);
 
 function parseCsv(content) {

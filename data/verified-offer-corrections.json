@@ -30,6 +30,20 @@
     "referralCode": {
       "from": "https",
       "to": null
+    },
+    "partnerReward": {
+      "from": "10 € offerts",
+      "to": "Parrainage terminé (mars 2026)"
+    }
+  },
+  "direct-assurance": {
+    "partnerReward": {
+      "from": "100 €",
+      "to": "50 €"
+    },
+    "referralCode": {
+      "from": "DIRECTPARRAIN + 100147023315",
+      "to": "DIRECTPARRAIN"
     }
   },
   "i-run-fr": {
@@ -39,18 +53,6 @@
     },
     "referralLink": {
       "from": "https://www.i-run.fr/client/parrainage.html",
-      "to": null
-    }
-  },
-  "bebe-boutik": {
-    "referralCode": {
-      "from": "bidouche045@gmail.com",
-      "to": null
-    }
-  },
-  "shoes-fr": {
-    "referralCode": {
-      "from": "S'inscrire avec le mail : mathieu045@live.fr",
       "to": null
     }
   },

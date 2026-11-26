@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./OfferRewards.module.css";
 
 type OfferRewardsProps = {
-  offer: Pick<Offer, "slug" | "partnerReward" | "parrainioReward" | "isCampaignBoosted">;
+  offer: Pick<Offer, "slug" | "partnerReward" | "parrainioReward" | "isCampaignBoosted" | "offerStatus">;
   compact?: boolean;
 };
 
@@ -18,6 +18,19 @@ export const ABSENT_PARRAINIO =
   /^(?:aucun(?:e)?(?:\s+(?:bonus\s+)?parrainio(?:\s+bonus)?)?(?:\s+pour\s+cette\s+offre)?|rien(?:\s+pour\s+cette\s+fois)?)$/i;
 
 export default function OfferRewards({ offer, compact = false }: OfferRewardsProps) {
+  // Une offre terminée ne doit jamais afficher une prime comme encore
+  // disponible : le bloc devient un statut, sans montant ni reversement.
+  if (offer.offerStatus === "terminated") {
+    return (
+      <div className={`${styles.rewards} ${compact ? styles.compact : ""}`}>
+        <div className={styles.partner}>
+          <span>OFFRE TERMINÉE</span>
+          <strong>{offer.partnerReward}</strong>
+        </div>
+      </div>
+    );
+  }
+
   const partner = offer.partnerReward?.trim() ?? "";
   const showPartner = EXPLICIT_ZERO.test(partner) || (partner !== "" && !ABSENT_PARTNER.test(partner));
   const parrainio = offer.parrainioReward?.trim() ?? "";

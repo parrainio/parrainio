@@ -23,7 +23,7 @@ export type OfferOverride = {
   parrainioReward?: string | null;
   referralCode?: string | null;
   referralLink?: string | null;
-  referralEmail?: string | null;
+  offerStatus?: "active" | "terminated";
   officialWebsiteUrl?: string | null;
   conditions?: OfferCondition[];
   steps?: OfferStep[];
@@ -154,7 +154,7 @@ export function mergeOfferRecord(
     parrainioReward: keepExisting(override.parrainioReward, seed.parrainioReward),
     referralCode: code.value,
     referralLink: link.value,
-    referralEmail: override.referralEmail ?? seed.referralEmail ?? null,
+    offerStatus: override.offerStatus ?? seed.offerStatus ?? "active",
     officialWebsiteUrl: override.officialWebsiteUrl ?? seed.officialWebsiteUrl,
     conditions: override.conditions ?? seed.conditions,
     steps: override.steps ?? seed.steps,
@@ -196,7 +196,17 @@ export async function getManagedOffers(): Promise<ManagedOffer[]> {
     );
     // Une campagne dont l'échéance est passée ne peut plus être présentée
     // comme active : les formulations datées sont remplacées à la lecture.
-    return adaptCampaignDeep(applyVerifiedCorrections(managed), offer.slug);
+    const corrected = adaptCampaignDeep(applyVerifiedCorrections(managed), offer.slug);
+    if (corrected.offerStatus !== "terminated") return corrected;
+    // Offre terminée : les valeurs historiques restent en base pour l'archive,
+    // mais aucune prime ni aucun libellé de prime ne doit être affiché comme
+    // disponible, même si l'admin KV contient encore une ancienne campagne.
+    return {
+      ...corrected,
+      partnerReward: "Parrainage terminé (mars 2026)",
+      bonus: "Offre terminée",
+      partnerBonusLabel: "Offre terminée",
+    };
   });
 }
 

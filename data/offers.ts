@@ -18,11 +18,11 @@ export type Offer = {
   isCampaignBoosted?: boolean;
   referralCode: string | null;
   referralLink: string | null;
-  /** E-mail du parrain à renseigner par le filleul dans le parcours du
-   *  partenaire (mécanisme d'invitation par e-mail, jamais un code). */
-  referralEmail?: string | null;
+  /** Cycle de vie de l'offre : « terminated » retire les primes, le lien et
+   *  les appels à l'action, et n'affiche plus qu'une page historique. */
+  offerStatus?: "active" | "terminated";
   referralOptions?: { label: string; url: string }[];
-  additionalReferralCodes?: { label: string; code: string }[];
+  additionalReferralCodes?: { label: string; code: string; copyLabel?: string }[];
   officialWebsiteUrl: string | null;
   description: string;
   color: string;
@@ -471,7 +471,14 @@ export const offers: Offer[] = [
   createOffer("showroomprive", "Showroomprivé", "Shopping", "Voir l'offre", "S"),
   createOffer("hello-bank", "Hello bank!", "Banque", "Jusqu'à 130 € avec Hello Prime ou 80 € avec Hello One", "H"),
   createOffer("trade-republic", "Trade Republic", "Investissement", "10 € en action", "T"),
-  createOffer("direct-assurance", "Direct Assurance", "Assurance", "50 €", "D"),
+  {
+    ...createOffer("direct-assurance", "Direct Assurance", "Assurance", "50 €", "D"),
+    // Le programme Direct Assurance demande deux informations distinctes :
+    // le code DIRECTPARRAIN, puis le numéro de contrat du parrain.
+    additionalReferralCodes: [
+      { label: "Numéro de contrat du parrain", code: "100147023315", copyLabel: "Copier le numéro" },
+    ],
+  },
   createOffer("winamax", "Winamax", "Jeux & paris", "Voir l'offre", "W"),
   createOffer("weward", "WeWard", "Récompenses", "50 Wards", "W"),
   createOffer("n26", "N26", "Banque", "15 € par parrainage", "N"),
@@ -506,7 +513,13 @@ export const offers: Offer[] = [
   createOffer("swagbucks", "Swagbucks", "Récompenses", "Voir l'offre", "S"),
   createOffer("honeygain", "Honeygain", "Récompenses", "Voir l'offre", "H"),
   createOffer("monabanq", "Monabanq", "Banque", "Jusqu'à 280 €", "M"),
-  createOffer("parions-sport", "Parions Sport", "Jeux & paris", "Voir l'offre", "P"),
+  {
+    ...createOffer("parions-sport", "Parions Sport", "Jeux & paris", "Voir l'offre", "P"),
+    // ParionsSport en Ligne a rejoint Unibet le 24/03/2026 : la fiche reste
+    // accessible comme page historique, sans prime ni parcours actif.
+    offerStatus: "terminated",
+    partnerReward: "Parrainage terminé (mars 2026)",
+  },
   createOffer("topcashback", "TopCashback", "Cashback", "Voir l'offre", "T"),
   createOffer("etoro", "eToro", "Investissement", "Aucun avantage filleul annoncé en France", "E"),
   createOffer("private-sport-shop", "Private Sport Shop", "Sport & shopping", "Voir l'offre", "P"),
@@ -559,12 +572,7 @@ export const offers: Offer[] = [
   createOffer("featurepoints", "FeaturePoints", "Récompenses", "Voir l'offre", "F"),
   createOffer("joybuy", "Joybuy", "Shopping", "Voir l'offre", "J"),
   createOffer("the-protein-works", "The Protein Works", "Sport & nutrition", "Voir l'offre", "T"),
-  {
-    ...createOffer("shoes-fr", "Shoes.fr", "Mode & shopping", "Voir l'offre", "S"),
-    // Le programme Shoes.fr rattache le filleul via l'e-mail du parrain
-    // saisi dans le champ prévu : ce n'est pas un code à copier.
-    referralEmail: "mathieu045@live.fr",
-  },
+  createOffer("shoes-fr", "Shoes.fr", "Mode & shopping", "Voir l'offre", "S"),
   createOffer("epargnoo-5", "Epargnoo", "Investissement", "Voir l'offre", "E"),
   createOffer("caisse-depargne-loire-centre", "Caisse d'Épargne Loire-Centre", "Banque", "Voir l'offre", "C"),
   createOffer("la-bourse-aux-livres", "La Bourse aux Livres", "Shopping", "Voir l'offre", "L"),
@@ -724,7 +732,7 @@ export const offers: Offer[] = [
   {
     ...createOffer("kast", "KAST", "Banque", "Jusqu'à environ 373 € de paliers", "K"),
     contactNote:
-      "Le stock restant de liens KAST est mis à jour sur cette fiche après chaque attribution.",
+      "Le lien d'invitation KAST est affiché sur cette fiche ; le parrain y apparaît sous le nom générique « KAST User ».",
   },
   ...superParrainBatch18Offers,
 ];

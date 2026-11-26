@@ -1,7 +1,7 @@
 {
   "edition": "Édition 2026",
   "releveLe": "2026-10-22",
-  "perimetre": "Onze partenaires du catalogue Parrainio relevant de Banque & Finance et de l’assurance ont été relus le 22 octobre 2026. Un partenaire peut proposer plusieurs parcours aux conditions ou calendriers distincts. Conditions officielles, instantanés du catalogue et observations terrain sont séparés et datés.",
+  "perimetre": "Onze partenaires du catalogue Parrainio relevant de Banque & Finance et de l’assurance ont été relus le 22 octobre 2026 ; l’offre Fortuneo a été revérifiée le 22 novembre 2026. Chaque offre conserve et affiche sa propre date de vérification. Un partenaire peut proposer plusieurs parcours aux conditions ou calendriers distincts. Conditions officielles, instantanés du catalogue et observations terrain sont séparés et datés.",
   "offres": [
     {
       "slug": "boursobank",
@@ -679,7 +679,8 @@
     }
   ],
   "verifieLe": "2026-10-22",
-  "noteVerification": "Les 11 sources principales et leurs sources officielles complémentaires ont été relues le 22/10/2026. Les campagnes susceptibles de changer sont datées ; les parcours distincts d’un partenaire ne sont pas additionnés. Les observations reçues du responsable le 21/10/2026 restent séparées des conditions officielles.",
+  "snapshotLe": "2026-11-22",
+  "noteVerification": "Les 11 sources principales et leurs sources officielles complémentaires ont été relues le 22/10/2026, puis l’offre Fortuneo a été revérifiée le 22/11/2026 : le relevé ne fusionne pas les deux dates, chaque fiche affiche la sienne. Les campagnes susceptibles de changer sont datées ; les parcours distincts d’un partenaire ne sont pas additionnés. Les observations reçues du responsable le 21/10/2026 restent séparées des conditions officielles.",
   "reversement": {
     "delai": "24 à 72 heures",
     "declencheur": "réception de la commission versée par le partenaire",

@@ -50,12 +50,12 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le code de parrainage Alltricks donne 10 € de remise au filleul dès 100 € de première commande ; l'avantage est valable 2 mois et limité à 5 filleuls.",
   },
   "parions-sport": {
-    title: "Parrainage Parions Sport : transition vers Unibet",
+    title: "Parrainage Parions Sport : offre terminée",
     description:
-      "Parions Sport en ligne a rejoint Unibet le 24 mars 2026 : le parrainage n'existe plus sous ce nom. Vérifiez la campagne active avant toute inscription.",
-    h1: "Parions Sport : parrainage et transition vers Unibet",
+      "Le parrainage Parions Sport en ligne est terminé : la marque a rejoint Unibet le 24 mars 2026. Cette page conserve l'historique, sans prime active.",
+    h1: "Parions Sport : offre de parrainage terminée",
     lead:
-      "Parions Sport en ligne a rejoint Unibet le 24 mars 2026 : le programme de parrainage n'existe plus sous ce nom. Vérifiez la campagne active et les conditions affichées avant toute inscription.",
+      "Le parrainage Parions Sport en ligne est terminé : la marque a rejoint Unibet le 24 mars 2026. Cette page conserve l'historique du programme, sans prime active ni parcours d'inscription sous ce nom.",
   },
   "i-run-fr": {
     title: "Parrainage i-Run : 10 € chacun dès 60 € par e-mail",
@@ -74,12 +74,12 @@ const OVERRIDES: Record<string, Partial<OfferSeoRewrite>> = {
       "Le parrainage Bébé Boutik passe par le lien d'invitation : aucun code public n'est à saisir. Le parrain reçoit 10 € de crédit lorsque le filleul invité effectue sa première commande.",
   },
   "shoes-fr": {
-    title: "Parrainage Shoes.fr : e-mail du parrain et 10 €",
+    title: "Parrainage Shoes.fr : 10 € sur la première commande",
     description:
-      "Shoes.fr : le filleul indique l'e-mail de son parrain dans le champ prévu, sans code. 10 € pour le filleul et 10 € en chèque cadeau pour le parrain.",
-    h1: "Shoes.fr : parrainage par e-mail du parrain",
+      "Shoes.fr : demande d'invitation depuis Parrainio, puis 10 € pour le filleul et 10 € en chèque cadeau pour le parrain. Aucun code public.",
+    h1: "Shoes.fr : parrainage et demande d'invitation",
     lead:
-      "Le parrainage Shoes.fr ne repose pas sur un code : le filleul indique l'adresse e-mail de son parrain dans le champ prévu lors de son inscription, puis réalise sa première commande éligible.",
+      "Le parrainage Shoes.fr passe par une invitation : demandez le parrainage depuis cette fiche, puis utilisez les informations transmises en privé lors de votre inscription. Aucun code public n'est nécessaire.",
   },
   swissborg: {
     title: "Parrainage SwissBorg : jusqu'à 50 € en Bitcoin",

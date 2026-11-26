@@ -86,6 +86,9 @@ export type OffreObservatoire = {
 export type Observatoire = {
   edition: string;
   releveLe: string;
+  /** Millésime du dernier export publié : peut être postérieur au relevé
+   *  initial lorsqu'une seule offre a été revérifiée depuis. */
+  snapshotLe?: string;
   verifieLe?: string;
   noteVerification?: string;
   perimetre: string;

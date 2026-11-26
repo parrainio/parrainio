@@ -20,7 +20,7 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       "XTB est un courtier en ligne international qui permet d'investir en actions, ETF, CFD et matières premières via la plateforme xStation 5. L'offre Parrainio s'appuie sur le programme partenaire de XTB, dont les modalités détaillées ne sont pas publiques : Parrainio les suit lui-même et reverse 8 € au filleul après validation du parrainage par le programme. Le compte XTB fonctionne comme chez tout courtier : une inscription avec vérification d'identité, un dépôt (aucun minimum d'ouverture n'est affiché dans les informations vérifiées) puis des transactions selon votre stratégie. Investir comporte un risque de perte en capital ; les CFD, à effet de levier limité à 1:30 pour les particuliers, peuvent entraîner la perte du capital investi.",
     summary: [
       "Filleul : 8 € de reverse Parrainio après validation du parrainage.",
-      "Lien : personnel et unique, à demander via le formulaire de la fiche.",
+      "Lien : affiché sur cette fiche, parrain présenté comme « KAST User ».",
       "Compte : inscription, vérification d'identité et dépôt chez XTB.",
       "Programme : conditions partenaires suivies par Parrainio, non publiques.",
       "Plateforme : xStation 5 (MT4/MT5 non proposés pour les nouveaux comptes).",
@@ -137,9 +137,9 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       ],
     },
     referralExplanation:
-      "Aucun lien de parrainage KAST n'est publié en accès public : vous le demandez via le formulaire de cette fiche, Parrainio vous l'envoie par e-mail. Vous l'utilisez à l'inscription, puis vous effectuez la vérification d'identité, vos dépenses admissibles pour franchir les paliers et, à chaque palier atteint, la validation manuelle dans l'application. Parrainio reverse, après conversion en euros, jusqu'à 50 % de sa rémunération de parrainage réellement encaissée : le maximum indicatif d'environ 111 € correspond à 50 % d'une rémunération maximale d'environ 222 € ; il suppose que tous les paliers du filleul aient été franchis et validés sans échéance manquée.",
+      "Utilisez le lien de parrainage affiché sur cette fiche : il ouvre une invitation KAST. Le parrain y apparaît sous le nom générique « KAST User », sans identification personnelle. Après l'inscription, effectuez la vérification d'identité, vos dépenses admissibles pour franchir les paliers et, à chaque palier atteint, la validation manuelle dans l'application. Parrainio reverse, après conversion en euros, jusqu'à 50 % de sa rémunération de parrainage réellement encaissée : le maximum indicatif d'environ 111 € correspond à 50 % d'une rémunération maximale d'environ 222 € ; il suppose que tous les paliers du filleul aient été franchis et validés sans échéance manquée.",
     conditions: [
-      "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche (liens attribués un visiteur à la fois).",
+      "Ouvrir le lien de parrainage affiché sur cette fiche avant de créer le compte KAST ; le parrain y apparaît sous le nom générique « KAST User ».",
       "Créer le compte KAST via ce lien et effectuer la vérification d'identité (KYC) exigée par KAST.",
       "Effectuer les dépenses admissibles : dépenses cumulées de ~444 €, puis ~889 €, ~1 777 € puis ~6 221 € (conversions indicatives au taux utilisé par Parrainio) ; chaque palier franchi ouvre une récompense (~18 €, ~44 €, ~89 €, ~222 €).",
       "VALIDER MANUELLEMENT CHAQUE PALIER DANS L'APPLICATION, un par un : sans cette validation, la récompense correspondante n'est pas débloquée.",
@@ -194,9 +194,9 @@ export const lot16Profiles: Record<string, OfferSeoProfile> = {
       source("KAST — conditions générales de service", "https://www.kast.xyz/en/legal/terms-and-conditions-of-service"),
     ],
     referralContact: {
-      heading: "Me contacter pour obtenir un lien de parrainage personnel et unique",
+      heading: "Un lien d'invitation KAST est affiché sur cette fiche",
       note:
-        "Le lien KAST est individuel : utilisez le formulaire ci-dessous et je vous l'envoie par e-mail. Le stock restant est mis à jour sur cette fiche après chaque attribution.",
+        "Le lien ouvre une invitation KAST ; le parrain y apparaît sous le nom générique « KAST User », sans identification personnelle. Utilisez-le avant l'inscription, puis validez chaque palier dans l'application.",
     },
   }),
 };

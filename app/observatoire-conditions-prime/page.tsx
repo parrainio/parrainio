@@ -63,12 +63,19 @@ function amountSummary(text: string) {
   return `${text.slice(0, Math.max(end, 100))}…`;
 }
 
-const releveLabel = new Date(`${observatoire.releveLe}T12:00:00Z`).toLocaleDateString("fr-FR", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-  timeZone: "UTC",
-});
+// Millésime du dernier relevé publié : la date globale sert d'en-tête, mais
+// chaque offre conserve et affiche sa propre date de vérification.
+const snapshotLe = observatoire.snapshotLe ?? observatoire.releveLe;
+
+const frDate = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+
+const releveLabel = frDate(snapshotLe);
 
 const terrainLabel = new Date(`${experienceTerrain.recuLe}T12:00:00Z`).toLocaleDateString("fr-FR", {
   day: "numeric",
@@ -84,7 +91,7 @@ const jsonLd = {
   description:
     "Onze offres documentées à partir de leurs pages officielles, avec un jeu séparé de quatorze retours de terrain attribués et datés.",
   datePublished: observatoire.releveLe,
-  dateModified: observatoire.verifieLe ?? observatoire.releveLe,
+  dateModified: snapshotLe,
   inLanguage: "fr-FR",
   isAccessibleForFree: true,
   creator: { "@type": "Organization", name: "Parrainio", url: "https://www.parrainio.fr" },
@@ -102,7 +109,7 @@ const jsonLd = {
       "@type": "DataDownload",
       name: "Conditions officielles et observations rattachées — 11 offres",
       encodingFormat: "text/csv",
-      contentUrl: `https://www.parrainio.fr/data/observatoire-conditions-${observatoire.releveLe}.csv`,
+      contentUrl: `https://www.parrainio.fr/data/observatoire-conditions-${snapshotLe}.csv`,
     },
     {
       "@type": "DataDownload",
@@ -219,7 +226,7 @@ function OfficialOfferDetails({ offer }: { offer: (typeof observatoire.offres)[n
               Ouvrir la source officielle ↗
             </a>
           </div>
-          <p className={styles.sourceDate}>Page relue le {releveLabel} · source primaire du partenaire · état : {offer.sourceStatut ?? "non précisé"}</p>
+          <p className={styles.sourceDate}>Page relue le {frDate(offer.verifieLe ?? offer.luLe)} · source primaire du partenaire · état : {offer.sourceStatut ?? "non précisé"}</p>
           {offer.sourcesComplementaires.filter((source) => source.url !== offer.source).length ? (
             <ul className={styles.sourceList} aria-label={`Sources officielles complémentaires pour ${offer.nom}`}>
               {offer.sourcesComplementaires.filter((source) => source.url !== offer.source).map((source) => (
@@ -364,7 +371,7 @@ export default function ObservatoireConditionsPrimePage() {
             officielle, constatée, estimée ou encore inconnue.
           </p>
           <div className={styles.heroLinks}>
-            <a href={`#offres-${observatoire.releveLe}`}>Comparer les 11 offres</a>
+            <a href={`#offres-${snapshotLe}`}>Comparer les 11 offres</a>
             <a href="#retours-terrain">Voir les 14 retours terrain</a>
             <a href="#telechargements">Télécharger les données</a>
           </div>
@@ -405,7 +412,7 @@ export default function ObservatoireConditionsPrimePage() {
         </div>
       </section>
 
-      <section className={styles.tableSection} id={`offres-${observatoire.releveLe}`}>
+      <section className={styles.tableSection} id={`offres-${snapshotLe}`}>
         <div className={styles.container}>
           <div className={styles.sectionIntro}>
             <p className={styles.kicker}>Comparaison rapide</p>
@@ -469,7 +476,7 @@ export default function ObservatoireConditionsPrimePage() {
             <cite>Observatoire Parrainio · relevé officiel du {releveLabel} · périmètre : {stats.total} partenaires en Banque, Finance et Assurance</cite>
           </blockquote>
           <div className={styles.downloadGrid} id="telechargements">
-            <a className={styles.downloadCard} href={`/data/observatoire-conditions-${observatoire.releveLe}.csv`} download>
+            <a className={styles.downloadCard} href={`/data/observatoire-conditions-${snapshotLe}.csv`} download>
               <strong>CSV des conditions officielles · {stats.total} offres</strong>
               <span>Inclut citations, montants du catalogue versionné, dates, déclencheurs et retours terrain rattachés.</span>
             </a>

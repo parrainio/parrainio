@@ -14,6 +14,14 @@ type Corrections = Record<string, Record<string, Correction> | string>;
 
 const CORRECTIONS = corrections as unknown as Corrections;
 
+/**
+ * Un code de parrainage ne peut pas être une adresse e-mail ni une consigne
+ * du type « écrivez à … » : ces valeurs proviennent d'anciennes saisies
+ * d'administration et ne doivent jamais être rendues comme un code, ni
+ * sérialisées dans les pages publiques.
+ */
+const EMAIL_LIKE_CODE = /@|mail\s*:/i;
+
 export function applyVerifiedCorrections<T extends { slug: string }>(offer: T): T {
   const rules = CORRECTIONS[String(offer.slug)];
   if (!rules || typeof rules !== "object") return offer;
@@ -26,6 +34,11 @@ export function applyVerifiedCorrections<T extends { slug: string }>(offer: T): 
       next[field] = rule.to;
       changed = true;
     }
+  }
+  const code = next.referralCode;
+  if (typeof code === "string" && EMAIL_LIKE_CODE.test(code)) {
+    next.referralCode = null;
+    changed = true;
   }
   return changed ? (next as unknown as T) : offer;
 }

@@ -14,7 +14,10 @@ const OVERRIDES_PATH = "data/offer-overrides.json";
 const official = JSON.parse(fs.readFileSync(JSON_PATH, "utf8"));
 const terrain = JSON.parse(fs.readFileSync(TERRAIN_PATH, "utf8"));
 const overrides = JSON.parse(fs.readFileSync(OVERRIDES_PATH, "utf8"));
-const CSV_PATH = `public/data/observatoire-conditions-${official.releveLe}.csv`;
+// Millésime publié : la dernière mise à jour connue du jeu de données. Il permet
+// de créer un nouveau CSV sans jamais réécrire un relevé antérieur.
+const SNAPSHOT = official.snapshotLe ?? official.releveLe;
+const CSV_PATH = `public/data/observatoire-conditions-${SNAPSHOT}.csv`;
 const TERRAIN_CSV_PATH = `public/data/observatoire-terrain-${terrain.recuLe}.csv`;
 const terrainBySlug = new Map(terrain.offres.map((offer) => [offer.slug, offer]));
 
