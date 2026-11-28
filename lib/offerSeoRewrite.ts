@@ -300,8 +300,11 @@ function buildDescription(offer: Offer): string {
   const code = offer.referralCode?.trim() || offer.additionalReferralCodes?.[0]?.code?.trim();
   if (hasCode(offer)) {
     const amount = label ? ` ${label}` : "";
+    const codePhrase = offer.referralCodeBlock
+      ? "avec le code de parrainage et le numéro de contrat du parrain."
+      : "avec le code de parrainage.";
     return normalize(
-      `${keyword(offer)} ${offer.name} :${amount} avec le code de parrainage. Conditions, étapes et délai de versement détaillés sur Parrainio.`,
+      `${keyword(offer)} ${offer.name} :${amount} ${codePhrase} Conditions, étapes et délai de versement détaillés sur Parrainio.`,
     );
   }
   if (hasLink(offer)) {
@@ -316,6 +319,11 @@ function buildDescription(offer: Offer): string {
 }
 
 function buildLead(offer: Offer): string {
+  if (offer.referralCodeBlock) {
+    return normalize(
+      `Pour profiter de l'offre ${offer.name}, deux informations sont nécessaires : le code de parrainage et le numéro de contrat du parrain. Renseignez-les tous les deux dans le devis ; les conditions et le délai de versement sont détaillés ci-dessous.`,
+    );
+  }
   if (hasCode(offer)) {
     return normalize(
       `Pour profiter de l'offre ${offer.name}, le code de parrainage se saisit pendant l'inscription ou avant la première commande. Les conditions et le délai de versement sont détaillés ci-dessous.`,

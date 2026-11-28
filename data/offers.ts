@@ -23,6 +23,20 @@ export type Offer = {
   offerStatus?: "active" | "terminated";
   referralOptions?: { label: string; url: string }[];
   additionalReferralCodes?: { label: string; code: string; copyLabel?: string }[];
+  /** Bloc « code public + information complémentaire » avec copie combinée
+   *  (ex. : code DIRECTPARRAIN + numéro de contrat du parrain). Reproduit le
+   *  rendu publié en production le 27/11/2026 (déploiement CLI ee544d26). */
+  referralCodeBlock?: {
+    codeLabel: string;
+    codeCopyLabel: string;
+    additional: { label: string; code: string; copyLabel: string };
+    combinedLabel: string;
+    combinedCopiedLabel: string;
+    note: { intro: string; emphasis: string; rest: string };
+    stepTitle: string;
+    stepHint: string;
+    signupHint: string;
+  };
   /** Demande privée d'une information de parrainage non publiable (ex. :
    *  numéro de contrat Direct Assurance). Seuls les libellés sont publics :
    *  la valeur reste côté serveur et n'est jamais stockée ici. */
@@ -485,16 +499,27 @@ export const offers: Offer[] = [
     // Code public, indépendant du KV : le numéro de contrat ne doit jamais
     // être la seule information disponible pour déclencher le parrainage.
     referralCode: "DIRECTPARRAIN",
-    // Le code DIRECTPARRAIN reste public. Le numéro de contrat du parrain,
-    // lui, n'est plus publié : il est transmis en privé après une demande
-    // via le formulaire de la fiche (variable serveur uniquement).
-    referralContractRequest: {
-      heading: "Demandez le numéro de contrat du parrain",
-      intro:
-        "Le code DIRECTPARRAIN est public. Le numéro de contrat du parrain, demandé par Direct Assurance lors du devis, vous est transmis en privé par e-mail après votre demande.",
-      buttonLabel: "Demander le numéro de contrat",
-      successMessage:
-        "Votre demande a bien été envoyée. Le numéro de contrat du parrain vous sera transmis en privé par e-mail.",
+    // État publié en production le 27/11/2026 (ee544d26) : le code ET le numéro
+    // de contrat sont de nouveau affichés, avec une copie combinée. Libellés
+    // relevés sur www.parrainio.fr, page /offres/direct-assurance.
+    referralCodeBlock: {
+      codeLabel: "Code de parrainage",
+      codeCopyLabel: "Copier le code",
+      additional: {
+        label: "Numéro de contrat du parrain",
+        code: "100147023315",
+        copyLabel: "Copier le numéro",
+      },
+      combinedLabel: "Copier le code et le numéro",
+      combinedCopiedLabel: "Code et numéro copiés ✓",
+      note: {
+        intro: "Le parrainage Direct Assurance exige",
+        emphasis: "les deux informations",
+        rest: ": le code de parrainage et le numéro de contrat du parrain. Renseignez-les tous les deux dans le devis.",
+      },
+      stepTitle: "COPIEZ LE CODE ET LE NUMÉRO",
+      stepHint: "Le code et le numéro de contrat du parrain sont nécessaires.",
+      signupHint: "Saisissez les deux informations dans le devis du partenaire.",
     },
   },
   createOffer("winamax", "Winamax", "Jeux & paris", "Voir l'offre", "W"),

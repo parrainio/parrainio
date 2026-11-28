@@ -1,8 +1,8 @@
 {
   "fortuneo": {
-    "partnerReward": "80 € (Fosfo) à 150 € (Gold) pour le filleul — campagne du 1er au 30/11/2026",
+    "partnerReward": "80 € (Fosfo) à 150 € (Gold)",
     "parrainioReward": "FOSFO : 17,50 € ; GOLD : 27 €",
-    "referralCode": "14241677",
+    "referralCode": "14342765",
     "conditions": [
       "Première souscription éligible à Fortuneo (nouveau client, jamais de compte individuel ou joint chez Fortuneo).",
       "Effectuer un premier versement de 300 € dans les 6 jours suivant l’ouverture pour l’offre bancaire concernée (compte + carte Fosfo ou Gold).",
@@ -11,69 +11,69 @@
       "Effectuer au moins une opération de paiement par carte par mois calendaire pour la gratuité de la carte.",
       "Le versement initial doit provenir d’un compte bancaire ouvert au nom du filleul dans l’EEE."
     ],
-    "lastUpdated": "2026-11-22T12:00:00.000Z",
+    "lastUpdated": "2026-11-28T08:39:45.597Z",
     "officialWebsiteUrl": "https://www.fortuneo.fr/parrainage/cartes-bancaires",
     "description": "Ouvrez un compte Fortuneo via le code de parrainage puis effectuez le versement demandé dans le délai prévu.",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121569",
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et effectuer l’inscription correspondante.",
-      "Effectuer le versement initial de 300 € dans les 6 jours pour la souscription d’une carte Fosfo ou Gold. Les produits d’investissement ont des conditions distinctes.",
-      "Conserver le compte ouvert 12 mois minimum et effectuer au moins un paiement par carte par mois."
-    ]
+    "steps": [],
+    "name": "Fortuneo",
+    "category": "Banque",
+    "referralLink": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/fortuneo",
+    "manualReview": false,
+    "contactNote": null,
+    "publicVisibility": "visible"
   },
   "10-pourcent-1": {
     "name": "10 pourcent",
     "category": "Cashback",
     "description": "10% est une application qui vous permet de gagner et d’économiser de l’argent grâce à des offres, des bons plans et des avantages exclusifs.\n\nN’hésitez pas à me contacter : je vous aide à remplir rapidement les 6 € de parrainage, en échange de 3 €.",
     "partnerReward": "0,5€",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": "2OGGXEHL",
     "referralLink": "https://10pourcent.go.link/sponsorship?deep_link=dixpourcent%3A%2F%2Fsponsorship%3FsponsorshipCode%3D2OGGXEHL",
     "conditions": [
       "Créer un compte 10pourcent avec le code de parrainage.",
       "Compléter les actions ou achats rémunérés requis par l’offre affichée dans l’application pour atteindre le seuil de 6 € de gains lié au parrainage."
     ],
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et effectuer l’inscription correspondante.",
-      "Compléter les actions ou achats rémunérés requis dans l’application jusqu’au seuil de 6 € de gains."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://www.super-parrain.com/offres/10-pourcent-1",
     "manualReview": false,
-    "lastUpdated": "2026-08-29T07:04:29.203Z",
+    "lastUpdated": "2026-09-27T02:50:48.279Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "https://parrainage.co/offers/128060"
+    "researchSource": "https://parrainage.co/offers/128060",
+    "officialWebsiteUrl": null
   },
   "airbnb": {
     "name": "Airbnb",
     "category": "Voyage",
     "description": "Airbnb : location de logements et expériences entre particuliers, invitation soumise à la campagne active et à l’éligibilité du pays.",
     "partnerReward": "Voir l'offre",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": null,
     "referralLink": "https://www.airbnb.fr/rp/mathieum247?p=stay",
     "conditions": [
       "Effectuer une première réservation éligible via le lien de parrainage.",
       "La réservation doit être payée et le séjour ou l’expérience doit être effectivement réalisé ; une réservation annulée ne valide pas le parrainage."
     ],
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et effectuer l’inscription correspondante.",
-      "Payer puis effectuer intégralement le séjour ou l’expérience éligible."
-    ],
+    "steps": [],
     "publicationDate": "29/08/2026",
     "sourceUrl": "https://www.super-parrain.com/offres/airbnb",
     "manualReview": false,
-    "lastUpdated": "2026-08-29T07:09:22.732Z",
+    "lastUpdated": "2026-09-12T14:31:51.086Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "four-markdown-files"
+    "researchSource": "four-markdown-files",
+    "officialWebsiteUrl": null
   },
   "airbnb-1": {
     "name": "Airbnb Hôtes",
     "category": "Voyage",
     "description": "Devenez hôte Airbnb et gagnez de l’argent en louant votre logement. 🏠💰\n",
     "partnerReward": "Prime variable selon la campagne",
-    "parrainioReward": "50% de notre récompense",
+    "parrainioReward": "25% de notre récompense",
     "referralCode": null,
     "referralLink": "https://www.airbnb.fr/rp/mathieum247?p=stay&s=67&unique_share_id=6c4cfe3c-d1f1-4382-98b6-1de7624dd86b",
     "conditions": [
@@ -99,7 +99,7 @@
     "category": "Sport",
     "description": "Alltricks : équipez-vous pour le sport avec un large choix de vélos, running, outdoor et accessoires. 🚴‍♂️🏃‍♂️\n",
     "partnerReward": "10 € dès 100 € d'achat",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": null,
     "referralLink": null,
     "conditions": [
@@ -107,24 +107,21 @@
       "Le panier doit atteindre au moins 100 € sur des produits vendus et expédiés directement par Alltricks ; les chèques cadeaux sont exclus.",
       "Le bon de 10 € est valable 2 mois après la création du compte et n’est pas cumulable avec un autre code promotionnel."
     ],
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et créer le compte.",
-      "Composer un panier éligible d’au moins 100 €.",
-      "Saisir le code avant validation et finaliser la première commande dans les 2 mois."
-    ],
+    "steps": [],
     "publicationDate": "01/09/2026",
     "sourceUrl": "https://www.super-parrain.com/offres/alltricks",
     "manualReview": false,
-    "lastUpdated": "2026-08-29T07:18:32.727Z",
+    "lastUpdated": "2026-09-27T02:51:31.032Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "four-markdown-files"
+    "researchSource": "four-markdown-files",
+    "officialWebsiteUrl": "https://www.alltricks.fr/"
   },
   "aroma-zone": {
     "name": "Aroma-Zone",
     "category": "Shopping",
     "description": "Aroma-Zone : cosmétiques, huiles essentielles et soins naturels à petits prix. 🌿✨\n",
     "partnerReward": "5€ offerts sur votre 1ère commande",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": null,
     "referralLink": "https://r.aroma-zone.com/mathieum-499",
     "conditions": [
@@ -134,17 +131,14 @@
       "Le code n’est pas cumulable avec un autre code, la fidélité ou un produit déjà remisé.",
       "Le parrainage est limité à 10 filleuls par an pour le parrain."
     ],
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et créer le compte.",
-      "Composer une première commande d’au moins 25 €.",
-      "Appliquer le code de parrainage au paiement."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://www.super-parrain.com/offres/aroma-zone",
     "manualReview": false,
-    "lastUpdated": "2026-08-29T07:22:47.188Z",
+    "lastUpdated": "2026-09-12T14:31:41.611Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "https://parrainage.co/offers/123197"
+    "researchSource": "https://parrainage.co/offers/123197",
+    "officialWebsiteUrl": null
   },
   "assurancevie-com": {
     "logo": "/logos/assurancevie-com.png",
@@ -182,7 +176,7 @@
     "category": "sondage",
     "description": "AttaPoll est une application de sondages rémunérés qui permet de gagner de l'argent en répondant à des questionnaires.",
     "partnerReward": "0,40€",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": "LNCGY",
     "referralLink": null,
     "officialWebsiteUrl": "https://attapoll.com/en-us/",
@@ -190,14 +184,11 @@
       "Télécharger l’application AttaPoll et créer un compte avec le code LNCGY.",
       "Compléter le profil demandé ; la récompense indiquée dans la fiche est de 0,40 €."
     ],
-    "steps": [
-      "Utiliser le code LNCGY lors de l’inscription.",
-      "Compléter le profil AttaPoll demandé."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://attapoll.com/en-us/ambassadors/",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T06:16:42.153Z",
+    "lastUpdated": "2026-09-12T14:31:35.740Z",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/123200"
   },
@@ -206,7 +197,7 @@
     "category": "Bébé",
     "description": "Bébé Boutik est une boutique en ligne française spécialisée dans les ventes privées pour bébés, enfants et parents, proposant des réductions de 30 à 70% sur environ 800 marques de vêtements, puériculture, jouets et décoration. ",
     "partnerReward": "10€ offerts",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralLink": "https://www.bebeboutik-prive.fr/invite/MjAyNi0wNS0xt92YuwWah12ZAVDNwUGajV3bklmY",
     "officialWebsiteUrl": "https://www.bebeboutik-prive.fr/",
     "conditions": [
@@ -214,15 +205,11 @@
       "Effectuer une première commande ; le règlement indique que le parrain reçoit 10 € lorsque le filleul effectue son premier achat.",
       "Le crédit de parrainage est valable 3 mois."
     ],
-    "steps": [
-      "Utiliser le lien ou le code de parrainage et créer le compte.",
-      "Effectuer une première commande.",
-      "Réaliser l’achat dans les 3 mois de validité du crédit."
-    ],
+    "steps": [],
     "publicationDate": "01/09/2026",
     "sourceUrl": "https://www.bebeboutik-prive.fr/pages/conditions-parrainage",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T06:22:03.261Z",
+    "lastUpdated": "2026-09-12T14:31:25.809Z",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
@@ -281,12 +268,12 @@
   "bemyeye": {
     "logo": "/logos/bemyeye.png",
     "logoVerified": true,
-    "lastUpdated": "2026-08-30T06:34:26.980Z",
+    "lastUpdated": "2026-09-12T14:31:19.360Z",
     "name": "BeMyEye",
     "category": "Récompenses",
     "description": "BeMyEye est une application qui rémunère les utilisateurs pour réaliser des missions mystère.",
     "partnerReward": "1€ offert",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": "rz85530",
     "referralLink": "https://invitation.bemyeye.com/invitation/rz85530?lc=fr_FR",
     "officialWebsiteUrl": "https://www.bemyeyes.com/",
@@ -296,11 +283,7 @@
       "Saisir le code à l’inscription et réaliser la première mission en magasin.",
       "La récompense indiquée est de 1 € pour le filleul et le parrain."
     ],
-    "steps": [
-      "Utiliser le code lors de l’inscription.",
-      "Résider dans le même pays que le parrain.",
-      "Réaliser la première mission en magasin."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://www.bemyeyes.com/",
     "manualReview": false,
@@ -392,7 +375,7 @@
     "category": "Maison",
     "description": "Biogents : pièges anti-moustiques, 20 % de réduction pour le nouveau client et 10 € en points pour le parrain.",
     "partnerReward": "20% de réduction sur votre commande",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": null,
     "referralLink": "https://app.bubblehouse.com/refer/p6g45U7uBRsCc/",
     "officialWebsiteUrl": "https://eu-shop.biogents.com/",
@@ -401,15 +384,11 @@
       "Créer le compte puis passer une commande éligible.",
       "La fiche annonce actuellement 20 % de réduction."
     ],
-    "steps": [
-      "Utiliser le lien de parrainage Biogents.",
-      "Créer le compte.",
-      "Passer une commande éligible pour appliquer la réduction de 20 %."
-    ],
+    "steps": [],
     "publicationDate": "01/09/2026",
     "sourceUrl": "https://eu-shop.biogents.com/en/account/rewards",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T07:01:00.696Z",
+    "lastUpdated": "2026-09-12T14:31:00.958Z",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "four-markdown-files"
   },
@@ -418,7 +397,7 @@
     "category": "Crypto",
     "description": "Bitpanda est une plateforme d'investissement en ligne basée en Autriche.",
     "partnerReward": "Jusqu'à 100€",
-    "parrainioReward": "Jusqu'à 50€  (50%)",
+    "parrainioReward": "Jusqu'à 25€  (25%)",
     "referralCode": null,
     "referralLink": "https://www.bitpanda.com/?ref=255935660578001233",
     "officialWebsiteUrl": null,
@@ -444,26 +423,23 @@
     "category": "Banque",
     "description": "Revolut est une application financière qui propose des comptes bancaires, des virements internationaux et du trading d'actions et de crypto-monnaies.",
     "partnerReward": "0 €",
-    "parrainioReward": "40 €",
+    "parrainioReward": "40€",
     "referralCode": null,
-    "referralLink": "https://revolut.com/referral/?referral-code=audz_y3_3eao!SEP1-26-AR-H3&geo-redirect",
+    "referralLink": "https://revolut.com/referral/?referral-code=mathie_1r_ks2p!NOV1-26-AR-SAV-H1&geo-redirect",
     "officialWebsiteUrl": "https://www.revolut.com/fr-FR/legal/referral-program-terms/",
     "conditions": [
       "Créer un nouveau compte Revolut via le lien de parrainage.",
       "Pour la campagne affichée dans la fiche, commander la carte physique et effectuer 3 paiements d’au moins 5 € chacun avec la carte physique ou virtuelle.",
       "Les paramètres exacts peuvent dépendre de la campagne affichée dans l’application."
     ],
-    "steps": [
-      "Utiliser le lien de parrainage.",
-      "Commander la carte physique.",
-      "Effectuer 3 paiements d’au moins 5 € chacun avec la carte physique ou virtuelle."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://revolut.com/",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T07:07:30.670Z",
+    "lastUpdated": "2026-11-05T16:48:13.120Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "https://parrainage.co/offers/125012"
+    "researchSource": "https://parrainage.co/offers/125012",
+    "contactNote": null
   },
   "bitstack": {
     "name": "Bitstack",
@@ -496,28 +472,24 @@
     "name": "BoursoBank",
     "category": "Banque",
     "description": "BoursoBank est une banque en ligne française qui propose des comptes courants, des livrets d'épargne et des services d'investissement avec des frais généralement réduits.",
-    "partnerReward": "Jusqu'à 160€",
-    "parrainioReward": "15 €",
+    "partnerReward": "Jusqu'à 260€",
+    "parrainioReward": "75 €",
     "referralCode": null,
-    "referralLink": "https://bour.so/p/iJWCCXRFCJD",
+    "referralLink": "https://bour.so/p/HfbYGNVlSlU",
     "officialWebsiteUrl": "https://www.boursobank.com/bon-plan/parrainage-boursobank",
     "conditions": [
       "Être éligible à une première ouverture BoursoBank.",
       "Effectuer le premier versement dans les 30 jours.",
-      "La fiche indique 10 € pour 1–49 €, 20 € pour 50–299 €, 40 € à partir de 300 €, avec jusqu’à 80 € supplémentaires via la mobilité bancaire et 40 € via les paiements mensuels selon la campagne."
+      "La fiche indique 10 € pour 1–49 €, 40 € pour 50–299 €, 80 € à partir de 300 €, avec jusqu’à 80 € supplémentaires via la mobilité bancaire et 80 € via les paiements mensuels selon la campagne."
     ],
-    "steps": [
-      "Utiliser le lien de parrainage.",
-      "Ouvrir le compte BoursoBank.",
-      "Effectuer le premier versement dans les 30 jours.",
-      "Activer, le cas échéant, la mobilité bancaire et les paiements mensuels prévus par la campagne."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://bour.so/p/",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T07:15:15.750Z",
+    "lastUpdated": "2026-11-10T17:23:40.514Z",
     "lastVerifiedAt": "2026-11-22",
-    "researchSource": "https://parrainage.co/offers/127423"
+    "researchSource": "https://parrainage.co/offers/127423",
+    "contactNote": null
   },
   "bricks": {
     "name": "Bricks",
@@ -577,7 +549,7 @@
     "category": "Maison & shopping",
     "description": "C-MonEtiquette est une plateforme de fidélisation et de parrainage.",
     "partnerReward": "3€",
-    "parrainioReward": "0 €",
+    "parrainioReward": null,
     "referralCode": null,
     "referralLink": "https://www.c-monetiquette.fr/invitation_static_fr.html?referralcode=Ymlkb3VjaGUwNDVAZ21haWwuY29tfDE",
     "officialWebsiteUrl": "https://www.c-monetiquette.fr/",
@@ -586,15 +558,11 @@
       "La première commande bénéficie de 3 € de remise dès la création du compte.",
       "Le parrain reçoit 3 € lorsque la première commande du filleul est validée."
     ],
-    "steps": [
-      "Utiliser le lien de parrainage.",
-      "Créer le compte.",
-      "Passer et faire valider la première commande pour appliquer la remise de 3 €."
-    ],
+    "steps": [],
     "publicationDate": "26-08-2026",
     "sourceUrl": "https://www.c-monetiquette.fr/",
     "manualReview": false,
-    "lastUpdated": "2026-08-30T07:27:49.897Z",
+    "lastUpdated": "2026-09-12T14:30:32.946Z",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124790"
   },
@@ -634,12 +602,18 @@
       "La prime est de 10 € pour une offre mobile et 15 € pour une RED Box, pour le parrain et le filleul.",
       "La prime devient disponible 35 jours après l’activation de la ligne."
     ],
-    "steps": [
-      "Utiliser le code ou lien de parrainage.",
-      "Souscrire le forfait RED mobile ou la RED Box.",
-      "Attendre 35 jours après l’activation de la ligne."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "RED by SFR",
+    "category": "Téléphonie & Internet",
+    "description": "RED by SFR est la marque low-cost de l'opérateur SFR proposant des forfaits mobiles à prix réduits.",
+    "partnerReward": "Jusqu'à 15 €",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/sfr",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:26:08.262Z"
   },
   "pmu": {
     "referralLink": "https://www.pmu.fr/turf/static/offre-parrainage/?codeParrainage=578692128",
@@ -652,13 +626,17 @@
       "Déposer au minimum 10 € le jour de l’ouverture.",
       "Le compte doit être confirmé dans les 30 jours ; le parrainage est limité à 5 filleuls par mois."
     ],
-    "steps": [
-      "Utiliser le code de parrainage à l’ouverture.",
-      "Déposer au minimum 10 € le jour de l’ouverture.",
-      "Confirmer le compte dans les 30 jours."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "5 € de Freebet"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "5 € de Freebet",
+    "name": "PMU",
+    "category": "Jeux & paris",
+    "description": "PMU (Pari Mutuel Urbain) est l'opérateur français de paris hippiques.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/pmu",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:26:25.973Z"
   },
   "hello-bank": {
     "officialWebsiteUrl": "https://www.hellobank.fr/fr/offre-parrainage.html",
@@ -666,25 +644,26 @@
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125292",
     "conditions": [
-      "Utiliser le lien de parrainage de la fiche pour ouvrir un premier compte Hello bank! éligible.",
-      "Hello Prime : jusqu’à 130 € de prime partenaire ; Hello One : 80 €, sous réserve d’éligibilité, d’acceptation et des conditions de campagne.",
-      "Pour Hello Start+, souscrire gratuitement au service de mobilité bancaire et remplir les conditions applicables, notamment le transfert d’au moins un prélèvement ou virement récurrent si requis. Le montant annoncé jusqu’à 200 € est un bon d’achat, pas du cash ; offre annoncée jusqu’au 11/01/2027 sous réserve des conditions en vigueur.",
-      "Conserver le compte et la carte pendant la durée éventuellement requise par le règlement Hello bank! ; réaliser les opérations carte demandées par le parcours choisi.",
-      "Le reversement Parrainio de 37,50 € correspond à 25 % de la commission perçue ; il est versé après réception de la prime de parrainage correspondante et validation de la demande.",
-      "Les totaux maximaux (Prime 367,50 € ou One 317,50 €) sont conditionnels, non garantis et ne valent que si les avantages partenaires et Hello Start+ sont toujours disponibles."
+      "Être majeur et ne pas déjà détenir de compte Hello bank!.",
+      "Ouvrir un premier compte de dépôt en ligne via le lien d’invitation.",
+      "Pour Hello One/Prime, effectuer au moins 5 paiements ou retraits par carte par mois pendant les 3 premiers mois.",
+      "Conserver le compte et la carte pendant au moins 1 an."
     ],
-    "steps": [
-      "Ouvrir le lien de parrainage de cette fiche.",
-      "Choisir Hello Prime ou Hello One et ouvrir le compte Hello bank! éligible.",
-      "Respecter le règlement de la formule choisie.",
-      "Pour Hello Start+, adhérer gratuitement à la mobilité bancaire et remplir les conditions, dont le transfert d’au moins un prélèvement ou virement récurrent lorsque requis.",
-      "Après réception par Parrainio de la prime de parrainage correspondante, demander votre reversement."
-    ],
-    "parrainioReward": "37,50 €",
-    "partnerReward": "Hello Prime : jusqu'à 130 € ; Hello One : 80 € ; Hello Start+ : jusqu'à 200 € en bon d'achat"
+    "steps": [],
+    "parrainioReward": "50 €",
+    "partnerReward": "Jusqu'à 330€ offerts",
+    "name": "Hello bank!",
+    "category": "Banque",
+    "referralCode": null,
+    "referralLink": "https://www.hellobank.fr/fr/parrainage-filleul/?code=PPART150NOVEMBRE26&token=122CN307",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/hello-bank",
+    "manualReview": false,
+    "contactNote": null,
+    "lastUpdated": "2026-11-10T11:55:21.963Z"
   },
   "engie": {
-    "referralCode": "RAD735473",
+    "referralCode": "BAS413802",
     "officialWebsiteUrl": "https://particuliers.engie.fr/parrainage.html",
     "description": "Souscrivez une offre ENGIE éligible via le code de parrainage et conservez votre contrat selon les conditions prévues.",
     "lastVerifiedAt": "2026-11-22",
@@ -695,13 +674,16 @@
       "Renseigner le code de parrainage lors de la souscription.",
       "Le programme annonce jusqu’à 25 € pour le filleul ; la prime est créditée environ 2 mois après activation du contrat."
     ],
-    "steps": [
-      "Utiliser le code de parrainage.",
-      "Souscrire l’offre ENGIE éligible.",
-      "Renseigner le code lors de la souscription.",
-      "Attendre environ 2 mois après l’activation du contrat."
-    ],
-    "parrainioReward": "10 €"
+    "steps": [],
+    "parrainioReward": "10 €",
+    "name": "ENGIE",
+    "category": "Énergie",
+    "partnerReward": "25 €",
+    "referralLink": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/engie",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T02:45:35.961Z"
   },
   "myprotein": {
     "referralLink": "https://fr.myprotein.com/referrals.list?applyCode=MATHIEU-R90D",
@@ -713,13 +695,17 @@
       "Effectuer une première commande.",
       "La campagne référencée prévoit 15 € de réduction dès 40 € d’achat."
     ],
-    "steps": [
-      "Utiliser le lien ou code personnel.",
-      "Créer le compte.",
-      "Passer une première commande d’au moins 40 € et appliquer le code."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "15 € dès 40 € d'achat"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "15 € dès 40 € d'achat",
+    "name": "Myprotein",
+    "category": "Sport & nutrition",
+    "description": "Myprotein : nutrition sportive avec 15 € de remise dès 40 € pour le nouveau client, code à saisir au panier.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/myprotein",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:27:12.916Z"
   },
   "direct-assurance": {
     "lastVerifiedAt": "2026-11-22",
@@ -730,12 +716,21 @@
       "Souscrire au plus tard 60 jours après la création du devis.",
       "Le contrat doit être accepté, prendre effet et les cotisations être à jour au moment du remboursement."
     ],
-    "steps": [
-      "Utiliser le code DIRECTPARRAIN et le numéro de contrat du parrain dans le devis.",
-      "Souscrire le contrat dans les 60 jours.",
-      "Attendre l’acceptation, la prise d’effet et être à jour des cotisations."
-    ],
-    "parrainioReward": "12,50 €"
+    "steps": [],
+    "parrainioReward": "15 €",
+    "name": "Direct Assurance",
+    "category": "Assurance",
+    "description": "Direct Assurance est une compagnie d'assurance en ligne proposant des assurances auto, habitation et complémentaire santé.",
+    "partnerReward": "50 €",
+    "referralCode": "DIRECTPARRAIN",
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.direct-assurance.fr/?utm_source=Google&utm_medium=cpc&utm_campaign=SEA_BRA_Auto_Marque_AN&utm_term=direct%20assurance&gclsrc=aw.ds&gad_source=1&gad_campaignid=60173057&gclid=Cj0KCQjw2t3VBhD8ARIsAK0F6qyi0YHy7JBZVeK9LtPch3Brlb0PS7kDTN1uVcrLeHdzr7mVMmeu6YQaAoqLEALw_wcB",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/direct-assurance",
+    "manualReview": false,
+    "lastUpdated": "2026-11-28T08:41:09.905Z",
+    "contactNote": null,
+    "publicVisibility": "visible"
   },
   "coinbase": {
     "referralLink": "https://coinbase.com/join/R8HUK4G?src=referral-link",
@@ -765,12 +760,17 @@
       "Créer un seul compte en étant rattaché à un parrain.",
       "Les contrôles de validité peuvent entraîner l’annulation du bonus en cas de fausse déclaration."
     ],
-    "steps": [
-      "Utiliser le code F5YT68 lors de l’inscription.",
-      "Créer un seul compte rattaché au parrain.",
-      "Utiliser l’application dans le respect des contrôles de validité."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Coupon Network",
+    "category": "Courses",
+    "description": "Coupon Network est un site de coupons de réduction et de cashback.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/coupon-network",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:30:02.122Z"
   },
   "ebuyclub": {
     "referralLink": "https://www.ebuyclub.com/inscription?parrain=mathieumorin2",
@@ -827,7 +827,7 @@
     "parrainioReward": "0,75 €"
   },
   "i-run-fr": {
-    "referralLink": "https://www.i-run.fr/client/parrainage.html",
+    "referralLink": null,
     "referralCode": "i-Run",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121638",
@@ -838,12 +838,16 @@
       "Effectuer une première commande d’au moins 60 €.",
       "La fiche annonce 10 € pour le filleul et 10 € pour le parrain après validation."
     ],
-    "steps": [
-      "Utiliser le lien ou code i-Run.",
-      "Créer le compte.",
-      "Passer une première commande d’au moins 60 €.",
-      "Attendre la validation de la commande."
-    ]
+    "steps": [],
+    "name": "i-Run",
+    "category": "Sport",
+    "description": "i-Run est un site de vente d'équipements de course à pied et de sport.",
+    "parrainioReward": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/i-run-fr",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:58:43.929Z"
   },
   "thefork": {
     "referralLink": "https://tfk.io/9h24t2ce",
@@ -897,14 +901,18 @@
       "Si le filleul choisit l'abonnement N26 Black, le reverse Parrainio est de 22,50 € — ce montant n'est pas systématique et s'applique uniquement à cet abonnement.",
       "Le reverse est versé après validation du parrainage par N26."
     ],
-    "steps": [
-      "Ouvrir le compte N26 depuis le lien de parrainage.",
-      "Finaliser l'ouverture et la vérification du compte.",
-      "Utiliser la carte Mastercard N26 pour effectuer l'achat qualifiant.",
-      "Attendre la validation de l'achat pour le déclenchement de la prime."
-    ],
-    "parrainioReward": "0,25 €",
-    "partnerReward": "0 €"
+    "steps": [],
+    "parrainioReward": "6,25 €",
+    "partnerReward": "0 €",
+    "name": "N26",
+    "category": "Banque",
+    "description": "N26 est une banque mobile allemande qui propose des comptes courants gratuits et une expérience bancaire 100% mobile.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/n26",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:05:19.680Z"
   },
   "poulpeo": {
     "referralLink": "https://www.poulpeo.com/p/qas4ab",
@@ -938,14 +946,17 @@
       "Le filleul reçoit 10 € de crédit sur son compte pour une prochaine commande selon l'offre actuellement référencée.",
       "Le crédit est utilisable conformément aux conditions de l'offre Private Sport Shop en vigueur."
     ],
-    "steps": [
-      "Ouvrir l'invitation Private Sport Shop reçue du parrain.",
-      "Créer un nouveau compte à partir de cette invitation.",
-      "Finaliser l'inscription en tant que nouveau membre.",
-      "Utiliser le crédit de 10 € lors d'une prochaine commande éligible."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € sur votre première commande"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 € sur votre première commande",
+    "name": "Private Sport Shop",
+    "category": "Sport & shopping",
+    "description": "Private Sport Shop est un site de vente d'équipements sportifs en ligne.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/private-sport-shop",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:26:20.159Z"
   },
   "shopmium": {
     "referralCode": "UK2UP4",
@@ -973,7 +984,7 @@
     "parrainioReward": "0,25 €"
   },
   "showroomprive": {
-    "referralCode": "Showroomprive",
+    "referralCode": "MATAAP9C",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125964",
     "conditions": [
@@ -984,15 +995,18 @@
       "L'offre ne s'applique pas aux produits vendus et expédiés par un tiers.",
       "Le code peut être vérifié dans la rubrique « Mes avantages » du compte."
     ],
-    "steps": [
-      "Créer un compte Showroomprivé avec le code de parrainage.",
-      "Vérifier que le parrainage apparaît dans « Mes avantages ».",
-      "Passer une première commande d'au moins 40 € hors frais de port.",
-      "Ne pas commander un produit vendu et expédié par un tiers.",
-      "La réduction de 10 € est appliquée à la commande éligible."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € dès 40 € d'achat"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 € dès 40 € d'achat",
+    "name": "Showroomprivé",
+    "category": "Shopping",
+    "description": "Showroomprivé est un site de ventes privées qui propose des réductions sur des marques de mode et de décoration.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/showroomprive",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:54:14.965Z"
   },
   "the-protein-works": {
     "referralLink": "https://i.soreto.com/theproteinworks_fr/s/4y-rsNNnQe",
@@ -1000,12 +1014,21 @@
     "researchSource": "https://parrainage.co/offers/123243",
     "conditions": [],
     "steps": [],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € offerts sur votre première commande"
+    "parrainioReward": null,
+    "partnerReward": "10 € offerts sur votre première commande",
+    "name": "The Protein Works",
+    "category": "Sport & nutrition",
+    "description": "The Protein Works est une marque de nutrition sportive britannique.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/the-protein-works",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:24:04.692Z"
   },
   "totalenergies": {
-    "referralCode": "TotalEnergies",
-    "lastVerifiedAt": "2026-11-25",
+    "referralCode": "104954582",
+    "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125133",
     "conditions": [
       "Le filleul ne peut bénéficier que d'un seul parrainage pour une souscription.",
@@ -1018,14 +1041,18 @@
       "Un parrain peut parrainer jusqu'à 20 filleuls sur 12 mois glissants.",
       "Le parrainage est validé après vérification de la souscription et de l'entrée du point de livraison/comptage dans le périmètre TotalEnergies."
     ],
-    "steps": [
-      "Souscrire une offre TotalEnergies éligible.",
-      "Renseigner le code de parrainage du parrain lors de la souscription.",
-      "Finaliser l'activation du contrat.",
-      "TotalEnergies vérifie la souscription et l'éligibilité du point de livraison/comptage.",
-      "La prime correspond au montant de l'offre de parrainage en vigueur au jour de la souscription."
-    ],
-    "parrainioReward": "12,50 €"
+    "steps": [],
+    "parrainioReward": "12,50 €",
+    "name": "TotalEnergies",
+    "category": "Énergie",
+    "description": "TotalEnergies est un majeur de l'énergie qui propose des contrats d'électricité et de gaz pour les particuliers.",
+    "partnerReward": "50 €",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/totalenergies",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:53:23.904Z"
   },
   "wise": {
     "referralLink": "https://wise.com/invite/dic/mathieum865",
@@ -1067,7 +1094,7 @@
       "Respecter la règle d’ancienneté de jeu et les limites du programme."
     ],
     "parrainioReward": "5 € sous forme de paris / bonus de paris",
-    "partnerReward": "Montant selon la campagne en cours"
+    "partnerReward": "Premier dépôt doublé en Freebet jusqu'à 30 €"
   },
   "weward": {
     "referralCode": "JustePerche8874",
@@ -1079,12 +1106,17 @@
       "En France/Belgique, le filleul reçoit 30 Wards de bienvenue et 20 Wards de parrainage selon la grille publiée.",
       "Le parrain reçoit 20 Wards lorsque le filleul atteint 200 Wards ou complète une série de 3 jours."
     ],
-    "steps": [
-      "Utiliser le code WeWard lors de l’inscription.",
-      "Atteindre les objectifs de Wards prévus par la grille.",
-      "Compléter une série de 3 jours ou atteindre 200 Wards selon le mécanisme actif."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "WeWard",
+    "category": "Récompenses",
+    "description": "WeWard est une application qui récompense la marche avec des points convertibles en argent.",
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.wewardapp.com/fr",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/weward",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:19:01.788Z"
   },
   "winamax": {
     "referralLink": "https://www.winamax.fr/parrain?code=NOBYTA",
@@ -1096,13 +1128,17 @@
       "Valider le compte et effectuer les actions de bienvenue ou de parrainage indiquées dans la campagne.",
       "Le montant et les conditions du bonus dépendent de l’offre en cours."
     ],
-    "steps": [
-      "Utiliser le lien Winamax.",
-      "Valider le compte.",
-      "Effectuer les actions indiquées dans la campagne active."
-    ],
+    "steps": [],
     "parrainioReward": "5 € sous forme de paris / bonus de paris",
-    "partnerReward": "10 € cash + 10 € de Freebets"
+    "partnerReward": "10 € cash + 10 € de Freebets",
+    "name": "Winamax",
+    "category": "Jeux & paris",
+    "description": "Winamax est un site de poker et de paris sportifs en ligne très populaire en France.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/winamax",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:54:39.508Z"
   },
   "linxea": {
     "referralLink": "https://linxea.mention-me.com/m/ol/jm6zytdx-2332006972",
@@ -1233,7 +1269,7 @@
       "Choisir la récompense proposée.",
       "Recevoir le ticket de récompense BTC."
     ],
-    "parrainioReward": "50 % de ma prime (entre 0,50 € et 25 € selon la prime)",
+    "parrainioReward": "25 % de ma prime (entre 0,25 € et 12,50 € selon la prime)",
     "partnerReward": "Entre 1 € et 50 €"
   },
   "okx": {
@@ -1261,7 +1297,7 @@
     "parrainioReward": "5 €"
   },
   "raizers": {
-    "referralCode": "Raizers",
+    "referralCode": "acornillier-26948",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/128147",
     "conditions": [
@@ -1275,15 +1311,18 @@
       "L'opération sur laquelle le filleul investit doit être financée pour que la prime soit versée.",
       "Parrainio reverse en plus 5 € au parrain pour chaque premier investissement d’au moins 1 000 € réalisé par un filleul, dans la limite de 2 fois (jusqu’à 10 € au total)."
     ],
-    "steps": [
-      "Créer son compte Raizers.",
-      "Renseigner le code de parrainage pendant l'inscription.",
-      "Effectuer un premier investissement d'au moins 1 000 €.",
-      "Attendre le financement de l'opération.",
-      "Effectuer un deuxième investissement pour débloquer la seconde tranche de 50 €."
-    ],
+    "steps": [],
     "parrainioReward": "5 € (jusqu'à 10 € si 2 projets)",
-    "partnerReward": "50 € (jusqu'à 100 € si 2 projets)"
+    "partnerReward": "50 € (jusqu'à 100 € si 2 projets)",
+    "name": "Raizers",
+    "category": "Investissement",
+    "description": "Raizers est une plateforme de crowdfunding immobilier qui permet d'investir dans des projets.",
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.raizers.com/",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/raizers",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T06:00:50.780Z"
   },
   "choose": {
     "referralCode": "MATHIEUM014",
@@ -1333,7 +1372,7 @@
     "parrainioReward": "25 % de tous les achats réalisés par les filleuls"
   },
   "lolivier": {
-    "referralCode": "LOA-ZLTT88",
+    "referralCode": "LOA-FTQH42",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/125817",
     "conditions": [
@@ -1346,14 +1385,18 @@
       "Jusqu'à 5 filleuls par an et par type de contrat peuvent donner lieu à remboursement.",
       "L'offre est cumulable avec Auto + Habitation mais pas avec Multiauto."
     ],
-    "steps": [
-      "Faire un devis auto ou habitation L'Olivier.",
-      "Renseigner le code de parrainage dans le champ prévu sur le devis.",
-      "Souscrire le contrat éligible.",
-      "Conserver le contrat au-delà du délai de rétractation de 14 jours.",
-      "Recevoir la prime selon le mode de paiement du contrat."
-    ],
-    "parrainioReward": "AUTO : 5 € ; HABITATION : 12,50 €"
+    "steps": [],
+    "parrainioReward": "AUTO : 5 € ; HABITATION : 12,50 €",
+    "name": "L'Olivier Assurance",
+    "category": "Assurance auto",
+    "description": "L'Olivier Assurance : devis auto ou habitation, 50 € chacun en Auto et 20 € chacun en Habitation après validation du contrat.",
+    "partnerReward": "50 € auto / 20 € habitation",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/lolivier",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T02:46:18.145Z"
   },
   "trade-republic": {
     "referralLink": "https://refnocode.trade.re/p72z37d0",
@@ -1476,7 +1519,7 @@
   },
   "crypto-com": {
     "referralLink": "https://crypto.com/app/pwh4bxfcya",
-    "referralCode": "Crypto",
+    "referralCode": "pwh4bxfcya",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127230",
     "conditions": [
@@ -1484,12 +1527,17 @@
       "Vérifier l’identité.",
       "Effectuer le dépôt et/ou l’action requise par la campagne active ; les récompenses dépendent de celle-ci."
     ],
-    "steps": [
-      "Utiliser le lien ou code Crypto.com.",
-      "Vérifier l’identité.",
-      "Effectuer le dépôt ou l’action affichée dans la campagne."
-    ],
-    "parrainioReward": "Jusqu'à 22,50 €"
+    "steps": [],
+    "parrainioReward": "Jusqu'à 22,50 €",
+    "name": "Crypto.com",
+    "category": "Crypto",
+    "description": "Crypto.com : application crypto avec carte Visa, 25 USD en CRO chacun via le programme BG25, staking requis.",
+    "partnerReward": "Jusqu'à 90 €",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/crypto-com",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:55:11.753Z"
   },
   "myvitamins": {
     "referralLink": "https://www.myvitamins.fr/referrals.list?applyCode=MATHIEU-R3B",
@@ -1501,17 +1549,21 @@
       "Effectuer une première commande éligible.",
       "Le montant minimum et la réduction dépendent de la campagne active."
     ],
-    "steps": [
-      "Utiliser le lien ou code Myvitamins.",
-      "Créer le compte.",
-      "Effectuer la première commande selon le minimum affiché."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € sur votre première commande"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 € : 1ère commande",
+    "name": "Myvitamins",
+    "category": "Sport & nutrition",
+    "description": "Myvitamins est un site de vente de vitamines et de compléments alimentaires.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/myvitamins",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:27:04.178Z"
   },
   "naomi-1": {
     "referralLink": "http://onelink.to/c82h4h",
-    "referralCode": "Naomi",
+    "referralCode": "B3PW1X",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121667",
     "conditions": [
@@ -1519,13 +1571,17 @@
       "Effectuer les actions rémunérées demandées dans l’application pour atteindre le seuil de parrainage.",
       "La récompense dépend de la campagne affichée au moment de l’inscription."
     ],
-    "steps": [
-      "Utiliser le lien ou code Naomi.",
-      "Créer le compte.",
-      "Compléter les actions rémunérées jusqu’au seuil de la campagne."
-    ],
+    "steps": [],
     "parrainioReward": "1 €",
-    "partnerReward": "5 €"
+    "partnerReward": "5 €",
+    "name": "Naomi",
+    "category": "Cashback",
+    "description": "Naomi : cagnotte de 3 € pour le filleul et 2 € pour le parrain, code à saisir dans les 24 heures.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/naomi-1",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:56:31.202Z"
   },
   "cointiply": {
     "referralLink": "https://cointiply.mobi/v2AKA0",
@@ -1537,12 +1593,17 @@
       "Le parrain reçoit 10 % des gains Offerwall/jeux du filleul et 25 % de certains bonus ou free spins selon le programme.",
       "Les commissions sont versées automatiquement au fil des gains du filleul."
     ],
-    "steps": [
-      "Utiliser le lien Cointiply.",
-      "Créer le compte.",
-      "Effectuer les offres ou jeux rémunérés disponibles."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Cointiply",
+    "category": "Crypto",
+    "description": "Cointiply : sondages, offres et jeux rémunérés en Coins, avec 25 % des gains du filleul reversés au parrain.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/cointiply",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:30:08.234Z"
   },
   "instant-gaming": {
     "referralLink": "https://www.instant-gaming.com/?igr=gamer-b0c6983",
@@ -1562,20 +1623,26 @@
     "partnerReward": ""
   },
   "parions-sport": {
-    "offerStatus": "terminated",
-    "referralLink": null,
+    "referralLink": "https://www.fdj.fr/inscription/fdj?parrain=32FD2-A5E51-3A9D9&campaign=codeparrain",
+    "referralCode": "https",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121583",
     "conditions": [
-      "Aucune condition de parrainage active sous Parions Sport.",
-      "ParionsSport en Ligne a rejoint Unibet le 24 mars 2026.",
-      "Les anciennes conditions ne sont pas reconduites sous cette marque."
+      "Créer un nouveau compte ParionsSport en Ligne via le lien de parrainage.",
+      "Valider le compte et effectuer les conditions de dépôt ou mise de la campagne active.",
+      "Ne pas avoir déjà un compte éligible selon les règles de la FDJ."
     ],
-    "steps": [
-      "Consulter l'historique du programme sur cette fiche.",
-      "Vérifier séparément le programme Unibet si un parrainage en ligne est recherché."
-    ],
-    "partnerReward": "Parrainage terminé (mars 2026)"
+    "steps": [],
+    "partnerReward": "10 € offerts",
+    "name": "FDJ - française des jeux",
+    "category": "Jeux & paris",
+    "description": "Parions Sport est le site de paris sportifs de FDJ (Française des Jeux).",
+    "parrainioReward": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/parions-sport",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:57:48.761Z"
   },
   "wanteeed": {
     "referralLink": "https://wanteeed.com/join/35a08af8e6d04f3c8e0d757ff71cf7d8",
@@ -1611,7 +1678,7 @@
     "partnerReward": "1 % sur votre premier investissement"
   },
   "kraken": {
-    "referralLink": "https://invite.kraken.com/JDNW/0v5m8s5a",
+    "referralLink": "https://invite.kraken.com/JDNW/juo5j0to",
     "officialWebsiteUrl": "https://www.kraken.com/",
     "description": "Créez votre compte Kraken via le lien de parrainage, vérifiez votre identité et réalisez le volume de transactions requis.",
     "lastVerifiedAt": "2026-11-22",
@@ -1623,13 +1690,17 @@
       "Déposer et/ou réaliser le volume de trading exigé par la campagne affichée dans l’application.",
       "Les seuils et la récompense varient selon la campagne."
     ],
-    "steps": [
-      "Utiliser le lien Kraken.",
-      "Effectuer la vérification d’identité.",
-      "Réaliser le dépôt ou volume de trading affiché dans l’application."
-    ],
-    "parrainioReward": "7,50 €",
-    "partnerReward": "30 € en BTC"
+    "steps": [],
+    "parrainioReward": "15 €",
+    "partnerReward": "30 € en BTC",
+    "name": "Kraken",
+    "category": "Crypto",
+    "referralCode": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/kraken",
+    "manualReview": false,
+    "contactNote": null,
+    "lastUpdated": "2026-10-26T18:03:01.960Z"
   },
   "lalalab": {
     "referralCode": "PGXJD6VQ",
@@ -1641,12 +1712,17 @@
       "Effectuer une première commande éligible.",
       "La fiche annonce 5 € d’avantage ; appliquer le minimum d’achat indiqué par la campagne au moment de la commande."
     ],
-    "steps": [
-      "Utiliser le code PGXJD6VQ.",
-      "Créer le compte.",
-      "Effectuer la première commande en respectant le minimum affiché."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Lalalab",
+    "category": "Shopping",
+    "description": "Lalalab est une application qui permet d'imprimer ses photos depuis son smartphone.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/lalalab",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:27:37.976Z"
   },
   "cartouche-du-toner": {
     "referralLink": "https://www.cartouche-du-toner.com/?s=272616805",
@@ -1659,12 +1735,16 @@
       "Effectuer une première commande éligible.",
       "La récompense filleul annoncée dans la fiche est de 5 € ; appliquer les éventuels minimums de commande indiqués par le partenaire."
     ],
-    "steps": [
-      "Utiliser le code 272616805.",
-      "Créer le compte.",
-      "Effectuer une première commande éligible."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Cartouche du toner",
+    "category": "Shopping",
+    "description": "Cartouche du toner est un site de vente de consommables d'impression.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/cartouche-du-toner",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:30:23.240Z"
   },
   "fidme": {
     "referralCode": "AKFW2M",
@@ -1694,12 +1774,16 @@
       "Effectuer une première commande d’au moins 75 €.",
       "Le filleul reçoit 15 € de réduction et le parrain 15 € sur un prochain achat d’au moins 75 €."
     ],
-    "steps": [
-      "Utiliser le lien ou code Speedo.",
-      "Effectuer une première commande d’au moins 75 €.",
-      "Utiliser la réduction prévue sur la commande éligible."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Speedo",
+    "category": "Sport",
+    "description": "Speedo est une marque d'équipements de natation et de sport aquatique.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/speedo",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:25:43.818Z"
   },
   "nutripure": {
     "referralLink": "https://www.nutripure.fr/fr/?s=1283007804",
@@ -1728,13 +1812,18 @@
       "Effectuer l’achat qualifiant prévu par le programme.",
       "La récompense et les éventuels crédits dépendent de la campagne active."
     ],
-    "steps": [
-      "Utiliser le lien Fiverr.",
-      "Créer le compte.",
-      "Effectuer l’achat qualifiant affiché dans la campagne."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 % sur votre premier achat grâce au parrainage"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 % sur votre premier achat",
+    "name": "Fiverr",
+    "category": "Services",
+    "description": "Fiverr est une plateforme de freelances qui propose des services à partir de 5 euros.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/fiverr",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:29:53.391Z"
   },
   "la-belle-vie": {
     "referralLink": "https://www.labellevie.com/r/ODY5Njg5",
@@ -1746,12 +1835,17 @@
       "Effectuer une première commande éligible.",
       "La fiche annonce 10 € d’avantage ; respecter le minimum de commande de la campagne en cours."
     ],
-    "steps": [
-      "Utiliser le lien La Belle Vie.",
-      "Créer le compte.",
-      "Effectuer la première commande au minimum affiché."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "La Belle Vie",
+    "category": "Courses",
+    "description": "La Belle Vie : courses et produits du quotidien livrés à domicile, avec une réduction sur la première commande selon la campagne.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/la-belle-vie",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:28:10.930Z"
   },
   "klarna": {
     "referralLink": "https://l.klarna.com/22XC/invite_L10PmX3Q05S0tfmM",
@@ -1795,6 +1889,7 @@
     "partnerReward": "Jusqu'à 100 € de réduction sur l'achat d'un TPE avec le lien de parrainage"
   },
   "macadam-4": {
+    "referralCode": "WAGH93",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/122386",
     "partnerReward": "0,5 €",
@@ -1803,12 +1898,17 @@
       "Le parrainage est confirmé lorsque le filleul complète et valide ses étapes pendant 3 jours consécutifs.",
       "Pendant la Semaine du Parrainage du 24 au 30 août 2026, chaque parrainage réussi donne un ticket pour le tirage au sort de 1 000 €."
     ],
-    "steps": [
-      "Utiliser le lien ou code Macadam.",
-      "Compléter et valider les étapes pendant 3 jours consécutifs.",
-      "Participer au tirage si le parrainage est réalisé pendant la période indiquée."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Macadam",
+    "category": "Récompenses",
+    "description": "Macadam : application de cashback, 500 à 1 000 Coins après le code d'invitation et trois jours d'activité.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/macadam-4",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:55:43.553Z"
   },
   "hostinger": {
     "referralLink": "https://www.hostinger.com/fr?REFERRALCODE=FIRBIDOUCFHJ",
@@ -1824,7 +1924,7 @@
       "Créer le compte.",
       "Acheter un plan éligible."
     ],
-    "parrainioReward": "50 % de ma prime (environ 20 € actuellement)",
+    "parrainioReward": "25 % de ma prime (environ 10 € actuellement)",
     "partnerReward": "20 % de réduction sur votre abonnement"
   },
   "pourdebon": {
@@ -1906,13 +2006,18 @@
       "Effectuer une offre ou mission qualifiante générant les gains requis par la campagne.",
       "Les seuils de récompense dépendent de la campagne active."
     ],
-    "steps": [
-      "Utiliser le lien Freecash.",
-      "Créer le compte dans un pays éligible.",
-      "Compléter une offre ou mission qualifiante."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € à l'inscription avec mon code"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 € à l'inscription avec mon code",
+    "name": "Freecash",
+    "category": "Récompenses",
+    "description": "Freecash : jeux et tâches rémunérés, jusqu'à 11 € de récompenses pour le parrain réparties en deux paliers.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/freecash",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:29:41.721Z"
   },
   "hello-watt": {
     "referralCode": "HW-91-IAIL",
@@ -1924,14 +2029,18 @@
       "Énergie : 10 € pour le filleul et le parrain selon la campagne ; application : 1 € chacun ; solaire/PAC : 200 € selon le produit.",
       "La cagnotte est transmissible à partir de 10 € cumulés."
     ],
-    "steps": [
-      "Utiliser le code ou lien Hello Watt.",
-      "Renseigner le numéro de compteur si l’offre concerne l’application.",
-      "Souscrire l’offre ou réaliser l’action produit demandée.",
-      "Atteindre 10 € cumulés pour transférer la cagnotte."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "10 € à l'inscription + 200 € sur une installation de panneaux solaires"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "10 €  + 200 € sur une installation de panneaux solaires",
+    "name": "Hello Watt",
+    "category": "Énergie",
+    "description": "Hello Watt est un comparateur et fournisseur d'énergie qui aide à réduire sa facture d'électricité.",
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.hellowatt.fr/?srsltid=AU7gw4WaqalOltGTMbFgYsPiTpQtnlXQpp3fp8NnYPuYsFCCRWMewNLY",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/hello-watt",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:20:54.945Z"
   },
   "rover-1": {
     "referralLink": "https://www.rover.com/ambas-refer-a-friend/QrKrOWGA",
@@ -1943,12 +2052,17 @@
       "Effectuer la première réservation ou prestation éligible selon le programme.",
       "Le montant de la récompense dépend du type de service et de la campagne active."
     ],
-    "steps": [
-      "Utiliser le lien Rover.",
-      "Créer le profil.",
-      "Effectuer la première réservation ou prestation éligible."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Rover",
+    "category": "Animaux",
+    "description": "Rover est une plateforme de garde d'animaux qui met en relation propriétaires et pet-sitters.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/rover-1",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:25:53.775Z"
   },
   "fdj-francaise-des-jeux": {
     "referralLink": "https://www.fdj.fr/inscription/fdj?parrain=32FD2-A5E51-3A9D9&campaign=codeparrain",
@@ -1965,8 +2079,8 @@
       "Valider le compte joueur.",
       "Effectuer le dépôt ou l’action de jeu affichée."
     ],
-    "parrainioReward": null,
-    "partnerReward": "Parrainage terminé (campagne de juin-juillet 2026)"
+    "parrainioReward": "2,50 €",
+    "partnerReward": "10 €"
   },
   "whatnot": {
     "referralLink": "https://whatnot.com/invite/mathieumor25752",
@@ -1978,30 +2092,41 @@
       "Effectuer le premier achat éligible.",
       "Le crédit filleul peut aller jusqu’à 200 € selon la campagne ; respecter le minimum et les catégories éligibles affichées."
     ],
-    "steps": [
-      "Utiliser le lien Whatnot.",
-      "Créer le compte.",
-      "Effectuer le premier achat en respectant les conditions affichées."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Whatnot",
+    "category": "Shopping",
+    "description": "Whatnot est une plateforme de vente en direct par streaming.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/whatnot",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:24:32.942Z"
   },
   "primeo-energie": {
-    "referralCode": "Primeo",
+    "referralCode": "CLT57863606",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/128059",
     "conditions": [
       "Être éligible à une première souscription Primeo Énergie.",
       "Utiliser le code Primeo lors de la souscription."
     ],
-    "steps": [
-      "Utiliser le code Primeo.",
-      "Souscrire l’offre éligible.",
-      "Activer et maintenir le contrat selon la campagne."
-    ],
-    "parrainioReward": "5 €"
+    "steps": [],
+    "parrainioReward": "5 €",
+    "name": "Primeo Energie",
+    "category": "Énergie",
+    "description": "Primeo Energie est un fournisseur d'électricité et de gaz qui propose des tarifs compétitifs.",
+    "partnerReward": "15 €",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/primeo-energie",
+    "manualReview": false,
+    "lastUpdated": "2026-09-30T12:46:46.355Z"
   },
   "splint-invest": {
-    "referralCode": "Splint",
+    "referralCode": "073847528",
     "officialWebsiteUrl": "https://www.splintinvest.com/",
     "description": "Créez votre compte Splint Invest via le parcours de parrainage et réalisez l'investissement minimum indiqué.",
     "lastVerifiedAt": "2026-11-22",
@@ -2009,18 +2134,21 @@
     "conditions": [
       "Créer un nouveau compte Splint Invest via le code Splint.",
       "Effectuer la vérification d’identité.",
-      "Réaliser l’investissement minimum indiqué par la campagne active."
+      "Réaliser un investissement avec votre propre argent pour prétendre à la reverse Parrainio"
     ],
-    "steps": [
-      "Utiliser le code Splint.",
-      "Vérifier l’identité.",
-      "Réaliser l’investissement minimum affiché."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "50 € directement"
+    "steps": [],
+    "parrainioReward": "10 €",
+    "partnerReward": "50 € directement",
+    "name": "Splint Invest",
+    "category": "Investissement",
+    "referralLink": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/splint-invest",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:23:46.494Z"
   },
   "sumeria": {
-    "referralCode": "Sumeria",
+    "referralCode": "WYU2AN9J56",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127271",
     "conditions": [
@@ -2028,13 +2156,18 @@
       "Effectuer l’action qualifiante demandée par la campagne active, généralement une ouverture de compte suivie des opérations requises.",
       "Le montant de la récompense dépend de la campagne en cours."
     ],
-    "steps": [
-      "Utiliser le code ou lien Sumeria.",
-      "Ouvrir et vérifier le compte.",
-      "Effectuer les opérations affichées dans la campagne."
-    ],
+    "steps": [],
     "parrainioReward": "50 % de ma prime (actuellement 12,50 €)",
-    "partnerReward": ""
+    "partnerReward": "",
+    "name": "Sumeria",
+    "category": "Banque",
+    "description": "Sumeria : banque en ligne avec parrainage intégré à l'application, invitation à accepter sous 7 jours et récompense selon la campagne.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/sumeria",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T05:59:32.667Z"
   },
   "too-good-to-go": {
     "referralLink": "https://tgtg.onelink.me/OGjG/4qb7x6s2",
@@ -2045,13 +2178,18 @@
       "Effectuer la première réservation ou commande d’un panier éligible selon la campagne.",
       "La récompense dépend de la promotion active."
     ],
-    "steps": [
-      "Utiliser le lien Too Good To Go.",
-      "Créer le compte.",
-      "Réserver ou commander le premier panier éligible."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "0,50 € sur votre premier panier"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "0,50 € sur votre premier panier",
+    "name": "Too Good To Go",
+    "category": "Courses & anti-gaspi",
+    "description": "Too Good To Go est une application qui permet d'acheter à prix réduit les invendus des commerçants.",
+    "referralCode": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/too-good-to-go",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:24:21.188Z"
   },
   "liberte-watts": {
     "referralCode": "750152",
@@ -2063,31 +2201,39 @@
       "Souscrire une offre d’énergie éligible et activer le contrat.",
       "La récompense de la fiche est de 0,20 € ; vérifier le mécanisme exact de la campagne lors de l’inscription."
     ],
-    "steps": [
-      "Utiliser le code 750152.",
-      "Souscrire l’offre d’énergie.",
-      "Activer le contrat selon la campagne."
-    ],
-    "parrainioReward": "0 €"
+    "steps": [],
+    "parrainioReward": null,
+    "name": "Liberté Watts",
+    "category": "Énergie",
+    "description": "Liberté Watts est un fournisseur d'électricité qui propose des offres 100% renouvelables.",
+    "referralLink": null,
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/liberte-watts",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:27:31.622Z"
   },
   "shoes-fr": {
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/124583",
-    "referralCode": null,
     "conditions": [
-      "La demande passe par le formulaire de cette fiche : les informations de parrainage sont transmises en privé, jamais affichées publiquement.",
       "Créer un compte Shoes.fr et être un nouveau client.",
       "Effectuer une première commande supérieure à 50 €, hors produits partenaires.",
       "La commande ne doit pas faire l’objet d’un retour.",
       "La récompense est émise 30 jours après la commande validée ; jusqu’à 100 filleuls."
     ],
-    "steps": [
-      "Envoyer la demande de parrainage depuis cette fiche.",
-      "Utiliser les informations transmises en privé lors de l'inscription Shoes.fr.",
-      "Passer une première commande supérieure à 50 € hors produits partenaires.",
-      "Conserver la commande sans retour pendant le délai de validation."
-    ],
-    "partnerReward": "10 €"
+    "steps": [],
+    "partnerReward": "10 €",
+    "name": "Shoes.fr",
+    "category": "Mode & shopping",
+    "description": "Shoes.fr : chaussures en ligne, 10 € pour le filleul et le parrain dès 50 € sur la première commande.",
+    "parrainioReward": null,
+    "referralLink": null,
+    "officialWebsiteUrl": "https://www.shoes.fr/",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/shoes-fr",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:07:01.118Z"
   },
   "ludocortex": {
     "referralLink": "https://www.ludocortex.fr/?s=264098807",
@@ -2099,16 +2245,20 @@
       "Effectuer une première commande éligible.",
       "Appliquer le minimum de commande et le bonus indiqués par la campagne active."
     ],
-    "steps": [
-      "Utiliser le code 264098807.",
-      "Créer le compte.",
-      "Effectuer la première commande selon le minimum affiché."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "5 % sur votre première commande"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "5 % sur votre première commande",
+    "name": "Ludocortex",
+    "category": "Jeux & loisirs",
+    "description": "Ludocortex est un site de vente de jeux et jouets éducatifs.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/ludocortex",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:27:23.768Z"
   },
   "joybuy": {
-    "referralLink": "https://m.joybuy.fr/",
+    "referralLink": null,
     "referralCode": "3YZ7MU",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/121903",
@@ -2117,17 +2267,21 @@
       "Effectuer une première commande éligible.",
       "Le montant minimum et la récompense dépendent de la campagne active."
     ],
-    "steps": [
-      "Utiliser le code 3YZ7MU.",
-      "Créer le compte.",
-      "Effectuer une première commande éligible."
-    ],
-    "parrainioReward": "0 €",
-    "partnerReward": "3 € dès 20 € d'achat sur votre première commande"
+    "steps": [],
+    "parrainioReward": null,
+    "partnerReward": "3 € dès 20 € d'achat sur votre première commande",
+    "name": "Joybuy",
+    "category": "Shopping",
+    "description": "Joybuy est une marketplace en ligne pour l'achat de produits divers.",
+    "officialWebsiteUrl": null,
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/joybuy",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:29:11.839Z"
   },
   "coinhouse": {
     "referralLink": "https://coinhouse.onelink.me/bCWk/tpvzeow2?deep_link_sub5=UU55D4",
-    "referralCode": "Coinhouse",
+    "referralCode": "UU55D4",
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://parrainage.co/offers/127541",
     "conditions": [
@@ -2136,13 +2290,17 @@
       "Le compte du parrain doit être vérifié KYC.",
       "Le programme limite la récompense à 3 filleuls par mois ; la récompense varie selon la campagne."
     ],
-    "steps": [
-      "Utiliser le lien ou code Coinhouse.",
-      "Valider le compte.",
-      "Effectuer une transaction d’au moins 100 € dans les 7 jours."
-    ],
+    "steps": [],
     "partnerReward": "Jusqu'à 500 €",
-    "parrainioReward": "Jusqu'à 125 €"
+    "parrainioReward": "Jusqu'à 125 €",
+    "name": "Coinhouse",
+    "category": "Crypto",
+    "description": "Coinhouse est une plateforme française d'achat et de vente de crypto-monnaies.",
+    "officialWebsiteUrl": "https://coinhouse.onelink.me/",
+    "publicationDate": "26-08-2026",
+    "sourceUrl": "https://www.super-parrain.com/offres/coinhouse",
+    "manualReview": false,
+    "lastUpdated": "2026-10-05T06:01:45.229Z"
   },
   "scrambly": {
     "referralLink": "https://go.scrambly.io/BMMq2L",
@@ -2162,16 +2320,33 @@
     ],
     "parrainioReward": "2 € dès que vous avez effectué votre premier retrait"
   },
+  "rakuten-priceminister": {
+    "lastVerifiedAt": "2026-11-22",
+    "officialWebsiteUrl": "https://fr.shopping.rakuten.com/",
+    "description": "Rakuten est une marketplace où vous pouvez acheter et vendre des produits neufs ou d'occasion.",
+    "steps": [],
+    "conditions": [
+      "Créer un nouveau compte Rakuten via le lien de parrainage.",
+      "Effectuer une première commande éligible.",
+      "Respecter le minimum d’achat et les catégories ou produits exclus indiqués dans la campagne."
+    ],
+    "researchSource": "four-markdown-files",
+    "parrainioReward": null,
+    "name": "Rakuten",
+    "category": "Shopping",
+    "partnerReward": "10 €",
+    "referralCode": null,
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/rakuten-priceminister",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:26:14.771Z"
+  },
   "phenix": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.wearephenix.com/",
     "description": "Phenix aide à récupérer les invendus alimentaires auprès des commerçants à prix réduit.",
-    "steps": [
-      "Utiliser le code ou lien Phenix.",
-      "Créer le compte.",
-      "Effectuer une première commande d’au moins 50 € TTC pour Phenix Care.",
-      "Récupérer la commande."
-    ],
+    "steps": [],
     "conditions": [
       "Être un nouveau client Phenix pour l’offre concernée.",
       "Utiliser le code ou lien de parrainage lors de l’inscription.",
@@ -2179,26 +2354,26 @@
       "Valider et récupérer la commande dans les conditions prévues."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €",
-    "partnerReward": "0,50 € sur votre premier panier anti-gaspi"
+    "parrainioReward": null,
+    "partnerReward": "0,50 € sur votre premier panier anti-gaspi",
+    "name": "Phenix",
+    "category": "Courses & anti-gaspi",
+    "referralCode": "Gog4PJJI",
+    "referralLink": "https://bit.ly/3GKwckn",
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/phenix",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T02:55:42.770Z"
   },
   "meilleurtaux-com": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.meilleurtaux.com/",
     "description": "Meilleurtaux.com compare les solutions de crédit, d'assurance et de financement.",
-    "steps": [
-      "Récupérer le code ou l'URL de parrainage Meilleurtaux.",
-      "Utiliser le code dans le parcours du produit concerné.",
-      "Souscrire le service éligible.",
-      "Pour l'assurance emprunteur : signer le contrat.",
-      "Pour le crédit immobilier : signer le prêt et attendre le déblocage des fonds.",
-      "Pour le placement : investir plus de 5 000 € et conserver le contrat sans rachat pendant la première année.",
-      "Fournir les coordonnées bancaires lorsque Meilleurtaux les demande pour le versement de la prime."
-    ],
+    "steps": [],
     "conditions": [
       "Pour l'assurance emprunteur, le parrain et le filleul doivent être des personnes physiques distinctes et majeures.",
       "Le filleul ne doit pas avoir de demande d'assurance de prêt ou de crédit immobilier en cours d'étude chez Meilleurtaux au moment du parrainage.",
-      "Le filleul doit utiliser l'URL personnalisée du parrain.",
+      "Le filleul doit utiliser le code du parrain.",
       "La prime assurance emprunteur est de 100 € pour le parrain et 50 € pour le filleul.",
       "La prime est acquise lorsque le contrat d'assurance emprunteur est signé.",
       "La prime est versée dans le mois suivant la signature.",
@@ -2214,17 +2389,21 @@
     ],
     "researchSource": "four-markdown-files",
     "parrainioReward": "Assurance de prêt : 25 € ; Crédit immobilier : 50 € ; Mutuelle : 5 €",
-    "partnerReward": "50 €"
+    "partnerReward": "50 €",
+    "name": "Meilleurtaux.com",
+    "category": "Finance",
+    "referralCode": "FRKVRF9",
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/meilleurtaux-com",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T02:53:19.766Z"
   },
   "edf": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://particulier.edf.fr/",
     "description": "EDF : Mission Parrainage jusqu'au 31 décembre 2026, 40 € sur la facture du filleul et 20 € sur celle du parrain.",
-    "steps": [
-      "Appeler le 3404 et communiquer les coordonnées du parrain.",
-      "Souscrire l’offre de marché éligible.",
-      "Activer le contrat."
-    ],
+    "steps": [],
     "conditions": [
       "Être un nouveau client EDF ou changer de fournisseur ou déménager.",
       "Souscrire une offre de marché d’électricité par téléphone au 3404 et communiquer les coordonnées du parrain.",
@@ -2232,35 +2411,44 @@
       "Jusqu’au 31 décembre 2026 : 40 € sur la facture du filleul et 20 € sur celle du parrain ; maximum 5 filleuls par parrain."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "5 €"
+    "parrainioReward": "5 €",
+    "name": "EDF",
+    "category": "Énergie",
+    "partnerReward": "40 €",
+    "referralCode": null,
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/edf",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:17:46.579Z"
   },
   "placesdescartes": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.placedescartes.fr/",
     "description": "PlacesDesCartes propose des cartes cadeaux et des offres d'achat en ligne.",
-    "steps": [
-      "Utiliser le lien PlacesDesCartes.",
-      "Créer le compte.",
-      "Commander une carte cadeau éligible en respectant les conditions affichées."
-    ],
+    "steps": [],
     "conditions": [
       "Créer un compte PlacesDesCartes via le lien de parrainage.",
       "Effectuer une première commande de carte cadeau éligible.",
       "Respecter le minimum de commande et les exclusions indiqués dans la campagne."
     ],
     "researchSource": "four-markdown-files",
-    "partnerReward": "5 € offerts"
+    "partnerReward": "5 € offerts",
+    "name": "PlacesDesCartes",
+    "category": "Shopping",
+    "parrainioReward": null,
+    "referralCode": "BLQJK8DE",
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/placesdescartes",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:02:48.618Z"
   },
   "revolut-business": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.revolut.com/fr-FR/business/",
     "description": "Revolut Business fournit des comptes et outils de paiement pour les entreprises.",
-    "steps": [
-      "Utiliser le lien unique Revolut Business.",
-      "Ouvrir et vérifier le compte Business.",
-      "Approvisionner depuis une source externe et commander une carte physique.",
-      "Suivre les étapes supplémentaires affichées dans l’invitation."
-    ],
+    "steps": [],
     "conditions": [
       "Être une nouvelle entreprise cliente Revolut Business, sans ancien profil ou compte Business.",
       "L’entreprise doit être constituée dans le même pays que celle du parrain et demander un compte Business, pas personnel ou Pro.",
@@ -2269,44 +2457,60 @@
       "La récompense est indiquée dans l’invitation in-app."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "150 €",
-    "partnerReward": "0 €"
+    "parrainioReward": "100 €",
+    "partnerReward": "0 €",
+    "name": "Revolut Business",
+    "category": "Pro & finance",
+    "referralCode": null,
+    "referralLink": "https://business.revolut.com/signup?promo=C2B-SEP2-26-AR&ext=mathie_1r_ks2p&context=C2B_REFERRAL",
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/revolut-business",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:11:36.967Z"
   },
   "reevolt": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://reevolt.fr/",
     "description": "Reevolt : 2 € chacun dès la connexion du compteur Linky aux données Enedis, récompenses créditées dans la cagnotte.",
-    "steps": [
-      "Utiliser le lien ou code Reevolt.",
-      "Finaliser la demande.",
-      "Activer le contrat ou service éligible.",
-      "Respecter sa durée de maintien."
-    ],
+    "steps": [],
     "conditions": [
       "Être éligible à une nouvelle souscription Reevolt.",
       "Utiliser le lien ou code de parrainage lors de la demande.",
       "Finaliser et activer le contrat ou service éligible."
     ],
     "researchSource": "four-markdown-files",
-    "partnerReward": "2 € dans votre cagnotte"
+    "partnerReward": "2 € dans votre cagnotte",
+    "name": "Reevolt",
+    "category": "Énergie",
+    "parrainioReward": null,
+    "referralCode": "ed6f1ebc",
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/reevolt",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:12:11.878Z"
   },
   "la-bourse-aux-livres": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://labourseauxlivres.fr/",
     "description": "La Bourse aux Livres permet d'acheter et de revendre des livres d'occasion.",
-    "steps": [
-      "Utiliser le lien La Bourse aux Livres.",
-      "Créer le compte.",
-      "Réaliser l’achat, dépôt ou vente qualifiant affiché."
-    ],
+    "steps": [],
     "conditions": [
       "Créer un nouveau compte via le lien de parrainage.",
       "Effectuer l’action qualifiante prévue par le programme : achat, dépôt ou vente selon la campagne.",
       "Respecter les minimums et délais affichés au moment de l’inscription."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €",
-    "partnerReward": "5 € sur votre première commande"
+    "parrainioReward": null,
+    "partnerReward": "5 € sur votre première commande",
+    "name": "La Bourse aux Livres",
+    "category": "Shopping",
+    "referralCode": null,
+    "referralLink": "https://labourseauxlivres.fr/#ref=4583434",
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/la-bourse-aux-livres",
+    "manualReview": false,
+    "lastUpdated": "2026-09-12T14:28:02.518Z"
   },
   "credit-agricole-centre-loire": {
     "lastVerifiedAt": "2026-11-22",
@@ -2328,68 +2532,101 @@
   },
   "ritmic": {
     "lastVerifiedAt": "2026-11-22",
-    "officialWebsiteUrl": "https://www.ritmic.co/",
+    "officialWebsiteUrl": "https://www.ritmic.com/",
     "description": "Ritmic propose des vélos électriques et des modèles de mobilité urbaine.",
-    "steps": [
-      "Utiliser le lien Ritmic.",
-      "Créer le compte.",
-      "Effectuer la première commande ou prestation dans les conditions affichées."
-    ],
+    "steps": [],
     "conditions": [
       "Créer un nouveau compte Ritmic via le lien de parrainage.",
       "Effectuer une première commande ou un service éligible.",
       "Respecter le montant minimum et les délais de la campagne active."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €",
-    "partnerReward": "100 € sur votre première commande"
+    "parrainioReward": null,
+    "partnerReward": "100 € sur votre première commande",
+    "name": "Ritmic",
+    "category": "Mobilité",
+    "referralCode": null,
+    "referralLink": "https://www.ritmic.co/#ref=aa7a5ffe22324869ba63b45603e8a02b",
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/ritmic",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:08:57.301Z"
   },
   "zeconfiserie": {
     "lastVerifiedAt": "2026-11-22",
     "officialWebsiteUrl": "https://www.zeconfiserie.fr/",
     "description": "ZeConfiserie propose des confiseries et gourmandises à commander en ligne.",
-    "steps": [
-      "Utiliser le lien ZeConfiserie.",
-      "Créer le compte.",
-      "Effectuer la première commande au minimum indiqué."
-    ],
+    "steps": [],
     "conditions": [
       "Créer un nouveau compte ZeConfiserie via le lien de parrainage.",
       "Effectuer une première commande éligible.",
       "Respecter le minimum de commande éventuel indiqué par la campagne."
     ],
     "researchSource": "four-markdown-files",
-    "parrainioReward": "0 €",
-    "partnerReward": "10 % de remise sur votre première commande"
+    "parrainioReward": null,
+    "partnerReward": "10 % de remise sur votre première commande",
+    "name": "ZeConfiserie",
+    "category": "Alimentation",
+    "referralCode": "6a16df29011c8",
+    "referralLink": null,
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/zeconfiserie",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:04:11.260Z"
+  },
+  "simplis": {
+    "lastVerifiedAt": "2026-11-22",
+    "officialWebsiteUrl": "https://www.simplis.fr/",
+    "description": "Simplis propose des solutions d'assurance et de protection pour les professionnels.",
+    "steps": [],
+    "conditions": [
+      "Être un nouveau client professionnel éligible.",
+      "Réaliser un devis Simplis via le lien ou code de parrainage.",
+      "Souscrire le contrat d’assurance éligible et fournir les justificatifs demandés.",
+      "Le montant et les modalités de la récompense dépendent de la campagne active."
+    ],
+    "researchSource": "four-markdown-files",
+    "parrainioReward": "10 €",
+    "partnerReward": "50 € offerts pour toute première souscription à une assurance RC Pro ou décennale",
+    "name": "Simplis",
+    "category": "Pro & assurance",
+    "referralCode": null,
+    "referralLink": "https://app.simplis.fr/subscribe?sc=QFHUN3ZW36",
+    "publicationDate": null,
+    "sourceUrl": "https://www.super-parrain.com/offres/simplis",
+    "manualReview": false,
+    "lastUpdated": "2026-09-27T03:05:06.899Z"
   },
   "xtb": {
     "name": "XTB",
     "category": "Investissement",
-    "description": "XTB est un courtier en ligne international (actions, ETF, CFD), réglementé par la KNF et opérant en France sous supervision AMF, avec plateforme xStation 5.",
-    "partnerReward": "Aucun avantage filleul annoncé par le partenaire : seul le reverse Parrainio de 8 € après validation du parrainage s'applique.",
-    "parrainioReward": "8 €",
+    "description": "XTB est un courtier en ligne international (actions, ETF, CFD, Warrants, matières premières). Offre de parrainage partenaire présentée par Parrainio avec un reverse de 8 € au filleul après validation ; investir comporte un risque de perte.",
+    "partnerReward": "33€",
+    "parrainioReward": "8€",
     "referralCode": null,
     "referralLink": null,
-    "officialWebsiteUrl": "https://www.xtb.com/fr",
-    "conditions": [
-      "Demander le lien de parrainage personnel et unique à Parrainio via le formulaire de la fiche (aucun lien public : les liens sont limités et attribués à un visiteur à la fois).",
-      "Créer le compte XTB en utilisant ce lien personnel ; une inscription faite sans ce lien ne peut être rattachée a posteriori.",
-      "Effectuer le dépôt et la vérification de compte demandés par XTB pour qualifier le parrainage.",
-      "Attendre la validation du parrainage par le programme partenaire de XTB : sans cette validation, aucun reverse n'est versé.",
-      "Les 33 € de rémunération et les 8 € de reverse Parrainio ne sont pas une prime garantie : ils ne sont dus qu'après validation complète du parrainage.",
-      "Les investissements en bourse comportent un risque de perte en capital ; les CFD, à effet de levier (maximum 1:30 pour les particuliers), peuvent entraîner la perte totale ou supérieure du capital investi."
-    ],
+    "officialWebsiteUrl": null,
+    "conditions": [],
     "steps": [
-      "Demander un lien de parrainage personnel à Parrainio via le formulaire de la fiche.",
-      "Ouvrir le compte XTB via le lien reçu.",
-      "Effectuer le dépôt et la vérification de compte.",
-      "Attendre la validation du parrainage par le partenaire puis percevoir le reverse Parrainio de 8 €."
+      {
+        "title": "Accédez à l'offre",
+        "description": "Consultez les conditions actuelles de XTB avant de commencer."
+      },
+      {
+        "title": "Suivez le parcours",
+        "description": "Inscrivez-vous via le lien de parrainage et réalisez les actions demandées."
+      },
+      {
+        "title": "Profitez de l'avantage",
+        "description": "La récompense est versée selon les conditions en vigueur de l'offre."
+      }
     ],
     "publicationDate": "2026-10-17",
-    "sourceUrl": "https://www.xtb.com/fr/partenaires",
+    "sourceUrl": "https://www.super-parrain.com/offres/xtb",
     "manualReview": false,
-    "lastVerifiedAt": "2026-11-22",
-    "researchSource": "https://www.xtb.com/fr/partenaires"
+    "contactNote": "Il reste 6 liens de parrainage XTB disponibles à ce jour (mention à mettre à jour chaque fois qu'un lien est attribué).",
+    "lastUpdated": "2026-10-17T19:21:09.998Z",
+    "lastVerifiedAt": "2026-11-22"
   },
   "kast": {
     "name": "KAST",
@@ -2421,33 +2658,17 @@
     "lastVerifiedAt": "2026-11-22",
     "researchSource": "https://www.kast.com"
   },
-  "simplis": {
-    "lastVerifiedAt": "2026-11-22",
-    "officialWebsiteUrl": "https://www.simplis.fr/",
-    "description": "Simplis propose des solutions d'assurance et de protection pour les professionnels.",
-    "steps": [
-      "Utiliser le lien ou code Simplis.",
-      "Réaliser le devis professionnel.",
-      "Souscrire le contrat et fournir les justificatifs."
-    ],
-    "conditions": [
-      "Être un nouveau client professionnel éligible.",
-      "Réaliser un devis Simplis via le lien ou code de parrainage.",
-      "Souscrire le contrat d’assurance éligible et fournir les justificatifs demandés.",
-      "Le montant et les modalités de la récompense dépendent de la campagne active."
-    ],
-    "researchSource": "four-markdown-files",
-    "parrainioReward": "10 €",
-    "partnerReward": "50 € offerts pour toute première souscription à une assurance RC Pro ou décennale"
-  },
   "bnp": {
     "name": "BNP Paribas",
-    "partnerReward": "80 € de prime + 80 € si mobilité bancaire",
-    "parrainioReward": null,
-    "referralCode": null,
+    "category": "Banque",
     "description": "Selon l'annonce du parrain, BNP Paribas propose 80 € de prime et 80 € supplémentaires si la mobilité bancaire est réalisée et validée.",
+    "partnerReward": "Jusqu'à 160€",
+    "parrainioReward": "15€",
+    "referralCode": null,
+    "referralLink": "https://mabanque.bnpparibas/fr/parrainage-filleul/?code=PARBNP150NOVEMBRE26&token=242UO146",
+    "officialWebsiteUrl": "https://mabanque.bnpparibas/fr/",
     "conditions": [
-      "L'annonce du parrain indique une validité jusqu'au 26 novembre 2026.",
+      "L'annonce du parrain indiquait une validité jusqu'au 26 novembre 2026 ; cette campagne est terminée, vérifiez la campagne en cours avant de vous inscrire.",
       "Aucun dépôt initial n'est annoncé ; 10 paiements par carte, sans minimum de montant, sont indiqués pour débloquer la prime de base.",
       "80 € supplémentaires sont annoncés si la mobilité bancaire est réalisée et validée, selon ses conditions d'éligibilité.",
       "Commencez la souscription depuis le lien de parrainage ; aucun code séparé n'est à saisir."
@@ -2466,8 +2687,13 @@
         "description": "Les primes annoncées sont soumises à la validation des conditions par BNP Paribas."
       }
     ],
-    "lastUpdated": "2026-11-23T10:18:23.722Z",
+    "publicationDate": "2026-11-22",
+    "sourceUrl": "https://www.super-parrain.com/offres/bnp/parrainage-bnp/annonces/mathieu-m",
+    "manualReview": false,
+    "contactNote": null,
+    "lastUpdated": "2026-11-28T08:42:18.340Z",
     "lastVerifiedAt": "2026-11-23",
-    "researchSource": "https://www.super-parrain.com/offres/bnp/parrainage-bnp/annonces/mathieu-m"
+    "researchSource": "https://www.super-parrain.com/offres/bnp/parrainage-bnp/annonces/mathieu-m",
+    "publicVisibility": "visible"
   }
 }

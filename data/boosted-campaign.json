@@ -14,21 +14,24 @@
   ],
   "offers": {
     "boursobank": {
-      "parrainioReward": "60 €",
-      "partnerReward": "Jusqu'à 160 €"
+      "parrainioReward": "75 €",
+      "partnerReward": "Jusqu'à 260€"
     },
     "kraken": {
       "parrainioReward": "15 €",
       "partnerReward": "30 € en BTC"
     },
     "n26": {
-      "parrainioReward": "12,50 €"
+      "parrainioReward": "12,50 €",
+      "partnerReward": "0 €"
     },
     "etoro": {
-      "parrainioReward": "42 €"
+      "parrainioReward": "42 €",
+      "partnerReward": "Aucun avantage filleul annoncé en France"
     },
     "assurancevie-com": {
-      "parrainioReward": "50 €"
+      "parrainioReward": "50 €",
+      "partnerReward": "50€ offerts"
     }
   },
   "regularRewards": {

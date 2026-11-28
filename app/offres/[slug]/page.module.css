@@ -142,6 +142,8 @@
 .referralValueRow a { min-width:0; flex:1; overflow:hidden; color:var(--green); font-size:.72rem; text-overflow:ellipsis; white-space:nowrap; }
 .referralValueRow .button { flex:none; }
 .codeRow strong { display:block; margin-top:4px; color:var(--green); font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:1rem; letter-spacing:.04em; }
+/* Note du bloc « code + information complémentaire » (ex. Direct Assurance). */
+.referralCodeNote { margin:0 0 10px; color:#4d6156; font-size:.82rem; line-height:1.45; }
 .codeActionsRow { min-width:0; }
 .codeActionColumn { display:flex; flex-direction:column; align-items:stretch; gap:4px; }
 .officialReferralLink { display:block; min-width:0; color:var(--green); font-size:.68rem; font-weight:800; text-align:center; text-decoration:none; white-space:nowrap; }
